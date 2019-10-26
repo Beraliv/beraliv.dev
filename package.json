@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "deploy": "now --prod"
   },
   "dependencies": {
     "nuxt": "^2.0.0"
