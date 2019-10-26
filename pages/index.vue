@@ -1,39 +1,21 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        nuxtjs
-      </h1>
-      <h2 class="subtitle">
-        My astonishing Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div>
+        <rounded-image class="profile-image" source="https://avatars1.githubusercontent.com/u/2991847" />
       </div>
+      <p class="title name">Alexey Berezin</p>
+      <p class="title role">Frontend Developer</p>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import RoundedImage from '~/components/RoundedImage.vue'
 
 export default {
   components: {
-    Logo
+    RoundedImage
   }
 }
 </script>
@@ -46,27 +28,34 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background-color: #f39c12;
+  font-family: sans-serif;
+}
+
+@keyframes profile-animation {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(0, -20px); }
+  100% { transform: translate(0, 0); }
+}
+
+.profile-image {
+  width: 50%;
+  animation: profile-animation 3s infinite linear;
+  will-change: translate;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  color: #fafafa;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.name {
+  margin: 0 18px;
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.links {
-  padding-top: 15px;
+.role {
+  font-size: 18px;
 }
 </style>
