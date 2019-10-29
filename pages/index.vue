@@ -7,21 +7,43 @@
       <p class="title name">Alexey Berezin</p>
       <p class="title role">Frontend Developer</p>
     </div>
+    <div class="footer">
+      <logo-link
+        class="link github"
+        href="https://github.com/Beraliv"
+        iconClass="github-icon"
+      />
+      <logo-link
+        class="link linkedin"
+        href="https://www.linkedin.com/in/beraliv"
+        iconClass="linkedin-icon"
+      />
+      <logo-link
+        class="link twitter"
+        href="https://twitter.com/beraliv"
+        iconClass="twitter-icon"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import RoundedImage from '~/components/RoundedImage.vue'
+import LogoLink from '~/components/LogoLink.vue'
 
 export default {
   components: {
-    RoundedImage
+    RoundedImage,
+    LogoLink,
   }
 }
 </script>
 
 <style>
 .container {
+  display: flex;
+  flex-direction: column;
+
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -57,5 +79,21 @@ export default {
 
 .role {
   font-size: 18px;
+}
+
+.footer {
+  display: flex;
+}
+
+.github-icon {
+  background-image: url('/github.svg');
+}
+
+.linkedin-icon {
+  background-image: url('/linkedin.svg');
+}
+
+.twitter-icon {
+  background-image: url('/twitter.svg');
 }
 </style>
