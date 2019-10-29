@@ -1,13 +1,14 @@
 <template>
   <img 
     class="rounded-image"
-    :src="source"
+    :alt="alt"
+    :src="src"
   />
 </template>
 
 <script>
 export default {
-  props: ['source'],
+  props: ['src', 'alt'],
 }
 </script>
 

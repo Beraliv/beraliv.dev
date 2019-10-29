@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <div>
-        <rounded-image class="profile-image" source="https://avatars1.githubusercontent.com/u/2991847" />
+        <rounded-image class="profile-image" src="https://avatars1.githubusercontent.com/u/2991847" alt="profile image" />
       </div>
       <p class="title name">Alexey Berezin</p>
       <p class="title role">Frontend Developer</p>
@@ -29,7 +29,7 @@ export default {
   align-items: center;
   text-align: center;
 
-  background-color: #f39c12;
+  background-color: #192343;
   font-family: sans-serif;
 }
 
@@ -46,7 +46,7 @@ export default {
 }
 
 .title {
-  color: #fafafa;
+  color: #fff;
 }
 
 .name {
