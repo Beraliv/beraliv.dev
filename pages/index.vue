@@ -1,29 +1,32 @@
 <template>
   <div class="container">
-    <div>
+    <main>
       <div>
         <rounded-image class="profile-image" src="https://avatars1.githubusercontent.com/u/2991847" alt="profile image" />
       </div>
       <p class="title name">Alexey Berezin</p>
       <p class="title role">Frontend Developer</p>
-    </div>
-    <div class="footer">
+    </main>
+    <footer>
       <logo-link
         class="link github"
         href="https://github.com/Beraliv"
         iconClass="github-icon"
+        aria-label="Visit my GitHub page"
       />
       <logo-link
         class="link linkedin"
         href="https://www.linkedin.com/in/beraliv"
         iconClass="linkedin-icon"
+        aria-label="Visit my LinkedIn page"
       />
       <logo-link
         class="link twitter"
         href="https://twitter.com/beraliv"
         iconClass="twitter-icon"
+        aria-label="Visit my Twitter page"
       />
-    </div>
+    </footer>
   </div>
 </template>
 
@@ -81,7 +84,7 @@ export default {
   font-size: 18px;
 }
 
-.footer {
+footer {
   display: flex;
 }
 

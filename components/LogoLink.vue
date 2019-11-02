@@ -1,7 +1,6 @@
 <template>
   <a 
     class="logo-link"
-    :href="href"
     target="_blank"
   >
     <div class="icon" :class="iconClass" />
@@ -10,7 +9,7 @@
 
 <script>
 export default {
-  props: ['href', 'iconClass'],
+  props: ['iconClass'],
 }
 </script>
 
