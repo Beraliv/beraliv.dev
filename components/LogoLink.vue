@@ -2,6 +2,7 @@
   <a 
     class="logo-link"
     target="_blank"
+    rel="noopener"
   >
     <div class="icon" :class="iconClass" />
   </a>
