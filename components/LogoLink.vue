@@ -4,7 +4,7 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    <div class='icon-container'>
+    <div :class="iconContainerClass">
       <img class='icon' :class="iconClass" :src="iconSrc" />
       <span v-if="title">{{title}}</span>
     </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props: ['iconClass', 'iconSrc', 'title'],
+  props: ['iconContainerClass', 'iconClass', 'iconSrc', 'title'],
 }
 </script>
 

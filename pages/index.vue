@@ -6,6 +6,7 @@
       </div>
       <p class="title name">Alexey Berezin</p>
       <p class="title role">Frontend Developer</p>
+      <works />
     </main>
     <extended-footer />
   </div>
@@ -14,11 +15,13 @@
 <script>
 import ExtendedFooter from '~/components/ExtendedFooter.vue'
 import RoundedImage from '~/components/RoundedImage.vue'
+import Works from '~/components/Works.vue'
 
 export default {
   components: {
     ExtendedFooter,
     RoundedImage,
+    Works,
   }
 }
 </script>

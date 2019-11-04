@@ -45,6 +45,7 @@ export default {
 <style>
 footer {
   display: flex;
+  margin-top: 18px;
   margin-bottom: 18px;
 }
 
