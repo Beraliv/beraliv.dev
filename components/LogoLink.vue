@@ -2,22 +2,20 @@
   <a 
     class="logo-link"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
   >
-    <div class="icon" :class="iconClass" />
+    <div class='icon-container'>
+      <img class='icon' :class="iconClass" :src="iconSrc" />
+      <span v-if="title">{{title}}</span>
+    </div>
   </a>
 </template>
 
 <script>
 export default {
-  props: ['iconClass'],
+  props: ['iconClass', 'iconSrc', 'title'],
 }
 </script>
 
 <style>
-.logo-link > .icon {
-  width: 50px;
-  height: 50px;
-  margin: 10px;
-}
 </style>
