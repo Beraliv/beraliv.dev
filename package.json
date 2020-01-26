@@ -11,9 +11,9 @@
     "deploy": "now --prod"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.11.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.4"
   }
 }
