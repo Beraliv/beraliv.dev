@@ -13,7 +13,7 @@
       />
       <logo-link
         class="link app-link"
-        href="https://www.citrus-sport.com/"
+        href="https://citrus-sportru-git-master.beraliv.now.sh/"
         iconContainerClass="icon-container"
         iconClass="app-icon"
         iconSrc='/citrus-sports-agency.png'
