@@ -4,12 +4,21 @@
     <div class='work-list-container'>
       <logo-link
         class="link app-link"
-        href="https://weather.beraliv.dev"
+        href="https://tv-app-recommendations.beraliv.vercel.app/"
         iconContainerClass="icon-container"
         iconClass="app-icon"
-        iconSrc='/cloud.svg'
-        aria-label="Weather application"
-        title="Weather app"
+        iconSrc='/tv-app-recommendations.svg'
+        aria-label="TV app video recommendation"
+        title="Similar videos"
+      />
+      <logo-link
+        class="link app-link"
+        href="https://nanoutils.github.io/"
+        iconContainerClass="icon-container"
+        iconClass="app-icon"
+        iconSrc='/nanoutils.svg'
+        aria-label="Tiniest FP-friendly JavaScript utils library"
+        title="Nanoutils lib"
       />
       <logo-link
         class="link app-link"
@@ -19,6 +28,15 @@
         iconSrc='/citrus-sports-agency.png'
         aria-label="Citrus sports marketing agency"
         title="Sports agency"
+      />
+      <logo-link
+        class="link app-link"
+        href="https://weather.beraliv.dev"
+        iconContainerClass="icon-container"
+        iconClass="app-icon"
+        iconSrc='/cloud.svg'
+        aria-label="Weather application"
+        title="Weather app"
       />
     </div>
   </div>
