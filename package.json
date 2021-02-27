@@ -1,18 +1,15 @@
 {
   "name": "beraliv.dev",
   "version": "1.0.0",
-  "description": "My profile page",
+  "description": "My website",
   "author": "beraliv",
   "private": true,
+  "workspaces": [
+    "packages/portfolio"
+  ],
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt generate",
-    "start": "nuxt start"
-  },
-  "dependencies": {
-    "nuxt": "^2.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+    "dev:portfolio": "yarn workspace portfolio dev",
+    "build:portfolio": "yarn workspace portfolio build",
+    "start:portfolio": "yarn workspace portfolio start"
   }
 }
