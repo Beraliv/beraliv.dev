@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "My profile page",
+  "description": "My portfolio page",
   "author": "beraliv",
   "private": true,
   "scripts": {
