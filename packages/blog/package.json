@@ -23,6 +23,7 @@
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.3",
     "gatsby-remark-copy-linked-files": "^2.10.0",
+    "gatsby-remark-figure-caption": "^2.0.0",
     "gatsby-remark-images": "^3.11.1",
     "gatsby-remark-prismjs": "^3.13.0",
     "gatsby-remark-responsive-iframe": "^2.11.0",
