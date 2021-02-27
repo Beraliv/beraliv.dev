@@ -3,5 +3,16 @@
   "version": "1.0.0",
   "description": "My blog page",
   "author": "beraliv",
-  "private": true
+  "private": true,
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "start": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.32.8",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {}
 }
