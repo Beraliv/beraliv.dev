@@ -1,12 +1,12 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
+import { BlogIndexQuery } from './queries/BlogIndexQuery'
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
+  const siteTitle = data.site.siteMetadata.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
