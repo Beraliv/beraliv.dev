@@ -86,7 +86,8 @@ module.exports = {
           'src/graphql/**/*.graphql',
           '../../node_modules/gatsby-transformer-sharp/src/fragments.js'
         ],
-        output: './'
+        output: 'queries',
+        watch: true
       }
     }
   ],
