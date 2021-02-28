@@ -1,5 +1,14 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+import { CreatePageQuery } from './src/functions/queries/CreatePageQuery';
+
+type CreatePageQueryResult = {
+  errors: Error[];
+  data: undefined;
+} | {
+  errors: undefined;
+  data: CreatePageQuery;
+};
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -8,7 +17,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const blogPost = path.resolve(`./src/templates/BlogPostTemplate.tsx`)
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const result: CreatePageQueryResult = await graphql(
     `
       query CreatePageQuery {
         allMarkdownRemark(
