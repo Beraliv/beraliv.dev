@@ -1,7 +1,9 @@
 ---
 title: Scrollbar customisation
 date: "2018-10-04"
-description: "Hello World"
+description:
+  What is the current state of scrollbar customisation?
+  Let's have a look at the browser capabilities, CSS hacks and JS libraries.
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:
