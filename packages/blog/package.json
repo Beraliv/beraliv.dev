@@ -16,10 +16,10 @@
   "dependencies": {
     "gatsby": "^2.32.8",
     "gatsby-image": "^2.11.0",
+    "gatsby-plugin-codegen": "^1.2.14",
     "gatsby-plugin-feed": "^2.13.1",
     "gatsby-plugin-gatsby-cloud": "^1.0.2",
     "gatsby-plugin-google-analytics": "^2.11.0",
-    "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-offline": "^3.10.2",
     "gatsby-plugin-react-helmet": "^3.10.0",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.1",
+    "graphql": "^15.5.0",
     "prettier": "2.2.1"
   },
   "license": "0BSD"

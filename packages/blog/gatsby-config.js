@@ -79,6 +79,15 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-ts-config`,
-    `gatsby-plugin-graphql-codegen`
+    {
+      resolve: `gatsby-plugin-codegen`,
+      options: {
+        includes: [
+          'src/graphql/**/*.graphql',
+          '../../node_modules/gatsby-transformer-sharp/src/fragments.js'
+        ],
+        output: './'
+      }
+    }
   ],
 }
