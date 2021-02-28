@@ -1,13 +1,13 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
+import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
+import { BlogPostBySlug } from './queries/BlogPostBySlug'
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = ({ data, location }: PageProps<BlogPostBySlug>) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata.title || `Title`
   const { previous, next } = data
 
   return (
