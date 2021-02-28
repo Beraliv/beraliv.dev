@@ -1,9 +1,14 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { FunctionComponent } from "react"
+import { Link, PageProps } from "gatsby"
 
-declare const __PATH_PREFIX__: string;
+declare const __PATH_PREFIX__: string
 
-export const Layout = ({ location, title, children }) => {
+interface LayoutProps {
+  location: PageProps['location'];
+  title: string;
+}
+
+export const Layout: FunctionComponent<LayoutProps> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header

@@ -7,27 +7,12 @@
 
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { useSeoQuery } from "../hooks/useSeoQuery"
 
 export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query SeoQuery {
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              twitter
-            }
-          }
-        }
-      }
-    `
-  )
+  const site = useSeoQuery()
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
 
   return (
     <Helmet
@@ -35,7 +20,7 @@ export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
