@@ -11,12 +11,11 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "codegen": "yarn graphql-codegen"
+    "codegen": "yarn graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "gatsby": "^2.32.8",
     "gatsby-image": "^2.11.0",
-    "gatsby-plugin-codegen": "^1.2.14",
     "gatsby-plugin-feed": "^2.13.1",
     "gatsby-plugin-gatsby-cloud": "^1.0.2",
     "gatsby-plugin-google-analytics": "^2.11.0",
@@ -44,8 +43,15 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.1",
+    "@graphql-codegen/introspection": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.21.0",
+    "@graphql-codegen/typescript-operations": "^1.17.14",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.1",
     "graphql": "^15.5.0",
     "prettier": "2.2.1"
+  },
+  "resolutions": {
+    "graphql": "^15.5.0"
   },
   "license": "0BSD"
 }
