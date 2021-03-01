@@ -1,6 +1,6 @@
 import { CreatePagesArgs } from "gatsby"
 import path from "path"
-import { CreateBlogPostPagesQuery } from "../../src/types/generated"
+import { CreatePageQueryQuery as CreatePageQueryType } from "../src/types/generated"
 
 export const createBlogPostPages = async ({
   graphql,
@@ -9,7 +9,7 @@ export const createBlogPostPages = async ({
 }: CreatePagesArgs) => {
   const BlogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.tsx`)
 
-  const result = await graphql<CreateBlogPostPagesQuery>(`
+  const result = await graphql<CreatePageQueryType>(`
     query CreatePageQuery {
       allMarkdownRemark(
         sort: { fields: [frontmatter___date], order: ASC }

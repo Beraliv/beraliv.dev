@@ -3,9 +3,12 @@ import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import { BlogPostBySlug } from './queries/BlogPostBySlug'
+import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
 
-const BlogPostTemplate = ({ data, location }: PageProps<BlogPostBySlug>) => {
+const BlogPostTemplate = ({
+  data,
+  location,
+}: PageProps<BlogPostBySlugQueryType>) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title || `Title`
   const { previous, next } = data

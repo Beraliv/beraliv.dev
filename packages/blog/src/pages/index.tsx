@@ -3,9 +3,9 @@ import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import { BlogIndexQuery } from './queries/BlogIndexQuery'
+import { BlogIndexQueryQuery as BlogIndexQueryType } from "../types/generated"
 
-const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
+const BlogIndex = ({ data, location }: PageProps<BlogIndexQueryType>) => {
   const siteTitle = data.site.siteMetadata.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 

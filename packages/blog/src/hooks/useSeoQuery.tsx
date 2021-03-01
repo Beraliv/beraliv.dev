@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { SeoQuery } from './queries/SeoQuery'
+import { SeoQueryQuery as SeoQueryType } from "../types/generated"
 
-export const useSeoQuery = (): SeoQuery['site'] => {
-  const { site } = useStaticQuery(
+export const useSeoQuery = (): SeoQueryType["site"] => {
+  const { site } = useStaticQuery<SeoQueryType>(
     graphql`
       query SeoQuery {
         site {
