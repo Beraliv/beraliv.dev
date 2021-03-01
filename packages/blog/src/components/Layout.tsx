@@ -1,7 +1,14 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { FunctionComponent } from "react"
+import { Link, PageProps } from "gatsby"
 
-const Layout = ({ location, title, children }) => {
+declare const __PATH_PREFIX__: string
+
+interface LayoutProps {
+  location: PageProps['location'];
+  title: string;
+}
+
+export const Layout: FunctionComponent<LayoutProps> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -32,5 +39,3 @@ const Layout = ({ location, title, children }) => {
     </div>
   )
 }
-
-export default Layout
