@@ -1,7 +1,7 @@
-import { graphql } from "gatsby";
+import { graphql } from "gatsby"
 
-export const requestCreatePageQuery = graphql`
-  query CreatePageQuery {
+graphql`
+  query CreatePage {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: ASC }
       limit: 1000
@@ -14,4 +14,4 @@ export const requestCreatePageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { BioQueryQuery as BioQueryType } from "../types/generated"
+import { BioQuery } from "../types/generated"
 
-export const useBioQuery = (): BioQueryType =>
+export const useBioQuery = (): BioQuery =>
   useStaticQuery(graphql`
-    query BioQuery {
+    query Bio {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
           fixed(width: 50, height: 50, quality: 95) {

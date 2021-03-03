@@ -2724,6 +2724,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsIncludeFavicon = "pluginCreator___pluginOptions___include_favicon",
   PluginCreatorPluginOptionsLegacy = "pluginCreator___pluginOptions___legacy",
   PluginCreatorPluginOptionsThemeColorInHead = "pluginCreator___pluginOptions___theme_color_in_head",
+  PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
   PluginCreatorPluginOptionsConfigDir = "pluginCreator___pluginOptions___configDir",
   PluginCreatorPluginOptionsProjectRoot = "pluginCreator___pluginOptions___projectRoot",
   PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -2946,6 +2947,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsIncludeFavicon = "pluginOptions___include_favicon",
   PluginOptionsLegacy = "pluginOptions___legacy",
   PluginOptionsThemeColorInHead = "pluginOptions___theme_color_in_head",
+  PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
   PluginOptionsConfigDir = "pluginOptions___configDir",
   PluginOptionsProjectRoot = "pluginOptions___projectRoot",
   PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -3090,6 +3092,7 @@ export type SitePluginPluginOptions = {
   include_favicon?: Maybe<Scalars["Boolean"]>
   legacy?: Maybe<Scalars["Boolean"]>
   theme_color_in_head?: Maybe<Scalars["Boolean"]>
+  cacheDigest?: Maybe<Scalars["String"]>
   configDir?: Maybe<Scalars["String"]>
   projectRoot?: Maybe<Scalars["String"]>
   pathCheck?: Maybe<Scalars["Boolean"]>
@@ -3115,6 +3118,7 @@ export type SitePluginPluginOptionsFilterInput = {
   include_favicon?: Maybe<BooleanQueryOperatorInput>
   legacy?: Maybe<BooleanQueryOperatorInput>
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>
+  cacheDigest?: Maybe<StringQueryOperatorInput>
   configDir?: Maybe<StringQueryOperatorInput>
   projectRoot?: Maybe<StringQueryOperatorInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
@@ -3401,9 +3405,9 @@ export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = {
   "aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
 >
 
-export type CreatePageQueryQueryVariables = Exact<{ [key: string]: never }>
+export type CreatePageQueryVariables = Exact<{ [key: string]: never }>
 
-export type CreatePageQueryQuery = { __typename?: "Query" } & {
+export type CreatePageQuery = { __typename?: "Query" } & {
   allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id"> & {
@@ -3413,9 +3417,9 @@ export type CreatePageQueryQuery = { __typename?: "Query" } & {
   }
 }
 
-export type BioQueryQueryVariables = Exact<{ [key: string]: never }>
+export type BioQueryVariables = Exact<{ [key: string]: never }>
 
-export type BioQueryQuery = { __typename?: "Query" } & {
+export type BioQuery = { __typename?: "Query" } & {
   avatar?: Maybe<
     { __typename?: "File" } & {
       childImageSharp?: Maybe<
@@ -3441,9 +3445,9 @@ export type BioQueryQuery = { __typename?: "Query" } & {
   >
 }
 
-export type SeoQueryQueryVariables = Exact<{ [key: string]: never }>
+export type SeoQueryVariables = Exact<{ [key: string]: never }>
 
-export type SeoQueryQuery = { __typename?: "Query" } & {
+export type SeoQuery = { __typename?: "Query" } & {
   site?: Maybe<
     { __typename?: "Site" } & {
       siteMetadata?: Maybe<
@@ -3458,9 +3462,9 @@ export type SeoQueryQuery = { __typename?: "Query" } & {
   >
 }
 
-export type NotFoundQueryQueryVariables = Exact<{ [key: string]: never }>
+export type NotFoundQueryVariables = Exact<{ [key: string]: never }>
 
-export type NotFoundQueryQuery = { __typename?: "Query" } & {
+export type NotFoundQuery = { __typename?: "Query" } & {
   site?: Maybe<
     { __typename?: "Site" } & {
       siteMetadata?: Maybe<
@@ -3470,9 +3474,9 @@ export type NotFoundQueryQuery = { __typename?: "Query" } & {
   >
 }
 
-export type BlogIndexQueryQueryVariables = Exact<{ [key: string]: never }>
+export type BlogIndexQueryVariables = Exact<{ [key: string]: never }>
 
-export type BlogIndexQueryQuery = { __typename?: "Query" } & {
+export type BlogIndexQuery = { __typename?: "Query" } & {
   site?: Maybe<
     { __typename?: "Site" } & {
       siteMetadata?: Maybe<
@@ -3778,8 +3782,8 @@ export const GatsbyImageSharpSizes_WithWebp_NoBase64FragmentDoc = gql`
     sizes
   }
 `
-export const CreatePageQueryDocument = gql`
-  query CreatePageQuery {
+export const CreatePageDocument = gql`
+  query CreatePage {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: ASC }
       limit: 1000
@@ -3795,54 +3799,52 @@ export const CreatePageQueryDocument = gql`
 `
 
 /**
- * __useCreatePageQueryQuery__
+ * __useCreatePageQuery__
  *
- * To run a query within a React component, call `useCreatePageQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useCreatePageQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useCreatePageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCreatePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useCreatePageQueryQuery({
+ * const { data, loading, error } = useCreatePageQuery({
  *   variables: {
  *   },
  * });
  */
-export function useCreatePageQueryQuery(
+export function useCreatePageQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    CreatePageQueryQuery,
-    CreatePageQueryQueryVariables
+    CreatePageQuery,
+    CreatePageQueryVariables
   >
 ) {
-  return Apollo.useQuery<CreatePageQueryQuery, CreatePageQueryQueryVariables>(
-    CreatePageQueryDocument,
+  return Apollo.useQuery<CreatePageQuery, CreatePageQueryVariables>(
+    CreatePageDocument,
     baseOptions
   )
 }
-export function useCreatePageQueryLazyQuery(
+export function useCreatePageLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    CreatePageQueryQuery,
-    CreatePageQueryQueryVariables
+    CreatePageQuery,
+    CreatePageQueryVariables
   >
 ) {
-  return Apollo.useLazyQuery<
-    CreatePageQueryQuery,
-    CreatePageQueryQueryVariables
-  >(CreatePageQueryDocument, baseOptions)
+  return Apollo.useLazyQuery<CreatePageQuery, CreatePageQueryVariables>(
+    CreatePageDocument,
+    baseOptions
+  )
 }
-export type CreatePageQueryQueryHookResult = ReturnType<
-  typeof useCreatePageQueryQuery
+export type CreatePageQueryHookResult = ReturnType<typeof useCreatePageQuery>
+export type CreatePageLazyQueryHookResult = ReturnType<
+  typeof useCreatePageLazyQuery
 >
-export type CreatePageQueryLazyQueryHookResult = ReturnType<
-  typeof useCreatePageQueryLazyQuery
+export type CreatePageQueryResult = Apollo.QueryResult<
+  CreatePageQuery,
+  CreatePageQueryVariables
 >
-export type CreatePageQueryQueryResult = Apollo.QueryResult<
-  CreatePageQueryQuery,
-  CreatePageQueryQueryVariables
->
-export const BioQueryDocument = gql`
-  query BioQuery {
+export const BioDocument = gql`
+  query Bio {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 50, height: 50, quality: 95) {
@@ -3866,49 +3868,38 @@ export const BioQueryDocument = gql`
 `
 
 /**
- * __useBioQueryQuery__
+ * __useBioQuery__
  *
- * To run a query within a React component, call `useBioQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useBioQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useBioQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBioQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useBioQueryQuery({
+ * const { data, loading, error } = useBioQuery({
  *   variables: {
  *   },
  * });
  */
-export function useBioQueryQuery(
-  baseOptions?: Apollo.QueryHookOptions<BioQueryQuery, BioQueryQueryVariables>
+export function useBioQuery(
+  baseOptions?: Apollo.QueryHookOptions<BioQuery, BioQueryVariables>
 ) {
-  return Apollo.useQuery<BioQueryQuery, BioQueryQueryVariables>(
-    BioQueryDocument,
+  return Apollo.useQuery<BioQuery, BioQueryVariables>(BioDocument, baseOptions)
+}
+export function useBioLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<BioQuery, BioQueryVariables>
+) {
+  return Apollo.useLazyQuery<BioQuery, BioQueryVariables>(
+    BioDocument,
     baseOptions
   )
 }
-export function useBioQueryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    BioQueryQuery,
-    BioQueryQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<BioQueryQuery, BioQueryQueryVariables>(
-    BioQueryDocument,
-    baseOptions
-  )
-}
-export type BioQueryQueryHookResult = ReturnType<typeof useBioQueryQuery>
-export type BioQueryLazyQueryHookResult = ReturnType<
-  typeof useBioQueryLazyQuery
->
-export type BioQueryQueryResult = Apollo.QueryResult<
-  BioQueryQuery,
-  BioQueryQueryVariables
->
-export const SeoQueryDocument = gql`
-  query SeoQuery {
+export type BioQueryHookResult = ReturnType<typeof useBioQuery>
+export type BioLazyQueryHookResult = ReturnType<typeof useBioLazyQuery>
+export type BioQueryResult = Apollo.QueryResult<BioQuery, BioQueryVariables>
+export const SeoDocument = gql`
+  query Seo {
     site {
       siteMetadata {
         title
@@ -3922,49 +3913,38 @@ export const SeoQueryDocument = gql`
 `
 
 /**
- * __useSeoQueryQuery__
+ * __useSeoQuery__
  *
- * To run a query within a React component, call `useSeoQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useSeoQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useSeoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSeoQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useSeoQueryQuery({
+ * const { data, loading, error } = useSeoQuery({
  *   variables: {
  *   },
  * });
  */
-export function useSeoQueryQuery(
-  baseOptions?: Apollo.QueryHookOptions<SeoQueryQuery, SeoQueryQueryVariables>
+export function useSeoQuery(
+  baseOptions?: Apollo.QueryHookOptions<SeoQuery, SeoQueryVariables>
 ) {
-  return Apollo.useQuery<SeoQueryQuery, SeoQueryQueryVariables>(
-    SeoQueryDocument,
+  return Apollo.useQuery<SeoQuery, SeoQueryVariables>(SeoDocument, baseOptions)
+}
+export function useSeoLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<SeoQuery, SeoQueryVariables>
+) {
+  return Apollo.useLazyQuery<SeoQuery, SeoQueryVariables>(
+    SeoDocument,
     baseOptions
   )
 }
-export function useSeoQueryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    SeoQueryQuery,
-    SeoQueryQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<SeoQueryQuery, SeoQueryQueryVariables>(
-    SeoQueryDocument,
-    baseOptions
-  )
-}
-export type SeoQueryQueryHookResult = ReturnType<typeof useSeoQueryQuery>
-export type SeoQueryLazyQueryHookResult = ReturnType<
-  typeof useSeoQueryLazyQuery
->
-export type SeoQueryQueryResult = Apollo.QueryResult<
-  SeoQueryQuery,
-  SeoQueryQueryVariables
->
-export const NotFoundQueryDocument = gql`
-  query NotFoundQuery {
+export type SeoQueryHookResult = ReturnType<typeof useSeoQuery>
+export type SeoLazyQueryHookResult = ReturnType<typeof useSeoLazyQuery>
+export type SeoQueryResult = Apollo.QueryResult<SeoQuery, SeoQueryVariables>
+export const NotFoundDocument = gql`
+  query NotFound {
     site {
       siteMetadata {
         title
@@ -3974,54 +3954,49 @@ export const NotFoundQueryDocument = gql`
 `
 
 /**
- * __useNotFoundQueryQuery__
+ * __useNotFoundQuery__
  *
- * To run a query within a React component, call `useNotFoundQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useNotFoundQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useNotFoundQuery` and pass it any options that fit your needs.
+ * When your component renders, `useNotFoundQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useNotFoundQueryQuery({
+ * const { data, loading, error } = useNotFoundQuery({
  *   variables: {
  *   },
  * });
  */
-export function useNotFoundQueryQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    NotFoundQueryQuery,
-    NotFoundQueryQueryVariables
-  >
+export function useNotFoundQuery(
+  baseOptions?: Apollo.QueryHookOptions<NotFoundQuery, NotFoundQueryVariables>
 ) {
-  return Apollo.useQuery<NotFoundQueryQuery, NotFoundQueryQueryVariables>(
-    NotFoundQueryDocument,
+  return Apollo.useQuery<NotFoundQuery, NotFoundQueryVariables>(
+    NotFoundDocument,
     baseOptions
   )
 }
-export function useNotFoundQueryLazyQuery(
+export function useNotFoundLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    NotFoundQueryQuery,
-    NotFoundQueryQueryVariables
+    NotFoundQuery,
+    NotFoundQueryVariables
   >
 ) {
-  return Apollo.useLazyQuery<NotFoundQueryQuery, NotFoundQueryQueryVariables>(
-    NotFoundQueryDocument,
+  return Apollo.useLazyQuery<NotFoundQuery, NotFoundQueryVariables>(
+    NotFoundDocument,
     baseOptions
   )
 }
-export type NotFoundQueryQueryHookResult = ReturnType<
-  typeof useNotFoundQueryQuery
+export type NotFoundQueryHookResult = ReturnType<typeof useNotFoundQuery>
+export type NotFoundLazyQueryHookResult = ReturnType<
+  typeof useNotFoundLazyQuery
 >
-export type NotFoundQueryLazyQueryHookResult = ReturnType<
-  typeof useNotFoundQueryLazyQuery
+export type NotFoundQueryResult = Apollo.QueryResult<
+  NotFoundQuery,
+  NotFoundQueryVariables
 >
-export type NotFoundQueryQueryResult = Apollo.QueryResult<
-  NotFoundQueryQuery,
-  NotFoundQueryQueryVariables
->
-export const BlogIndexQueryDocument = gql`
-  query BlogIndexQuery {
+export const BlogIndexDocument = gql`
+  query BlogIndex {
     site {
       siteMetadata {
         title
@@ -4044,51 +4019,46 @@ export const BlogIndexQueryDocument = gql`
 `
 
 /**
- * __useBlogIndexQueryQuery__
+ * __useBlogIndexQuery__
  *
- * To run a query within a React component, call `useBlogIndexQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlogIndexQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useBlogIndexQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBlogIndexQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useBlogIndexQueryQuery({
+ * const { data, loading, error } = useBlogIndexQuery({
  *   variables: {
  *   },
  * });
  */
-export function useBlogIndexQueryQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    BlogIndexQueryQuery,
-    BlogIndexQueryQueryVariables
-  >
+export function useBlogIndexQuery(
+  baseOptions?: Apollo.QueryHookOptions<BlogIndexQuery, BlogIndexQueryVariables>
 ) {
-  return Apollo.useQuery<BlogIndexQueryQuery, BlogIndexQueryQueryVariables>(
-    BlogIndexQueryDocument,
+  return Apollo.useQuery<BlogIndexQuery, BlogIndexQueryVariables>(
+    BlogIndexDocument,
     baseOptions
   )
 }
-export function useBlogIndexQueryLazyQuery(
+export function useBlogIndexLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    BlogIndexQueryQuery,
-    BlogIndexQueryQueryVariables
+    BlogIndexQuery,
+    BlogIndexQueryVariables
   >
 ) {
-  return Apollo.useLazyQuery<BlogIndexQueryQuery, BlogIndexQueryQueryVariables>(
-    BlogIndexQueryDocument,
+  return Apollo.useLazyQuery<BlogIndexQuery, BlogIndexQueryVariables>(
+    BlogIndexDocument,
     baseOptions
   )
 }
-export type BlogIndexQueryQueryHookResult = ReturnType<
-  typeof useBlogIndexQueryQuery
+export type BlogIndexQueryHookResult = ReturnType<typeof useBlogIndexQuery>
+export type BlogIndexLazyQueryHookResult = ReturnType<
+  typeof useBlogIndexLazyQuery
 >
-export type BlogIndexQueryLazyQueryHookResult = ReturnType<
-  typeof useBlogIndexQueryLazyQuery
->
-export type BlogIndexQueryQueryResult = Apollo.QueryResult<
-  BlogIndexQueryQuery,
-  BlogIndexQueryQueryVariables
+export type BlogIndexQueryResult = Apollo.QueryResult<
+  BlogIndexQuery,
+  BlogIndexQueryVariables
 >
 export const BlogPostBySlugDocument = gql`
   query BlogPostBySlug(
