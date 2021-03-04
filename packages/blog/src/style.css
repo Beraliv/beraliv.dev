@@ -331,3 +331,8 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+/* Video elements */
+.gatsby-video {
+  width: 100%;
+}
