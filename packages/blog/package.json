@@ -23,6 +23,7 @@
     "gatsby-plugin-offline": "^3.10.2",
     "gatsby-plugin-react-helmet": "^3.10.0",
     "gatsby-plugin-sharp": "^2.14.3",
+    "gatsby-plugin-theme-ui": "^0.3.5",
     "gatsby-plugin-ts-config": "^1.1.5",
     "gatsby-remark-copy-linked-files": "^2.10.0",
     "gatsby-remark-figure-caption": "^2.0.0",
@@ -37,6 +38,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "theme-ui": "^0.3.5",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typescript": "^4.2.2"
