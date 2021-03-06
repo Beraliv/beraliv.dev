@@ -173,6 +173,10 @@ table thead tr th {
 }
 
 .post-list-item {
+  @apply list-none;
+}
+
+.post-list-item article {
   @apply my-8;
 }
 
