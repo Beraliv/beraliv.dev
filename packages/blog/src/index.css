@@ -165,11 +165,19 @@ table thead tr th {
 }
 
 .global-header {
-  @apply mb-12;
+  @apply relative mb-12;
 }
 
 .main-heading {
-  @apply text-5xl m-0;
+  @apply inline-block text-5xl m-0;
+}
+
+.dark-mode-toggle {
+  @apply inline-block absolute right-0 py-1 rounded-full outline-none cursor-pointer;
+
+  /* normal colors */
+  @apply px-3 bg-gray-900 text-white;
+  @apply dark:px-2 dark:bg-yellow-300 dark:text-gray-900;
 }
 
 .post-list-item {

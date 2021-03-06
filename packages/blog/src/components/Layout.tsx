@@ -1,14 +1,19 @@
-import React, { FunctionComponent } from "react"
+import React, { Fragment, FunctionComponent } from "react"
 import { Link, PageProps } from "gatsby"
+import { DarkModeToggle } from "./DarkModeToggle"
 
 declare const __PATH_PREFIX__: string
 
 interface LayoutProps {
-  location: PageProps['location'];
-  title: string;
+  location: PageProps["location"]
+  title: string
 }
 
-export const Layout: FunctionComponent<LayoutProps> = ({ location, title, children }) => {
+export const Layout: FunctionComponent<LayoutProps> = ({
+  location,
+  title,
+  children,
+}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -29,7 +34,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({ location, title, childr
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
+      <header className="global-header">
+        {header}
+        <DarkModeToggle />
+      </header>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with
