@@ -14,9 +14,11 @@ html {
 }
 
 body {
-  @apply font-serif text-base;
+  @apply font-serif text-base  text-dark-gray bg-white;
+}
 
-  color: #2e353f;
+body.dark {
+  @apply text-light-azure bg-black;
 }
 
 footer {
@@ -24,9 +26,7 @@ footer {
 }
 
 hr {
-  @apply h-px border-0;
-
-  background: #d1dce5;
+  @apply h-px border-0 bg-light-azure dark:bg-dark-gray;
 }
 
 /* Heading */
@@ -45,13 +45,11 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold;
-
-  color: #1a202c;
+  @apply font-bold text-cobalt-blue dark:text-sapphire-white;
 }
 
 h1 {
-  @apply font-black text-4xl text-black;
+  @apply font-black text-4xl text-black dark:text-white;
 }
 
 h2 {
@@ -129,9 +127,7 @@ li > ul {
 }
 
 blockquote {
-  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-electric-blue;
-
-  color: #4f5969;
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-electric-blue text-dark-gray dark:text-light-azure;
 }
 
 blockquote > :last-child {
@@ -150,7 +146,7 @@ table {
 }
 
 table thead tr th {
-  border-bottom: 1px solid #d1dce5;
+  @apply border-b border-solid border-light-azure dark:border-dark-gray;
 }
 
 /* Custom extendable styles */
@@ -172,7 +168,7 @@ table thead tr th {
 }
 
 .dark-mode-toggle {
-  @apply inline-block absolute right-0 w-8 h-8 rounded-full cursor-pointer text-white dark:text-gray-900 bg-gray-900 dark:bg-yellow-300;
+  @apply inline-block absolute right-0 w-8 h-8 rounded-full cursor-pointer text-white dark:text-black bg-gray-900 dark:bg-yellow-300;
 }
 
 .post-list-item {

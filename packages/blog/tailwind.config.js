@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       colors: {
         "electric-blue": "#005b99",
+        "cobalt-blue": "#1a202c",
+        "dark-gray": "#2e353f",
+        "light-azure": "#d1dce5",
+        "sapphire-white": "#d5dae6",
       },
       fontFamily: {
         sans: [
