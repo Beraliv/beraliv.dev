@@ -2,7 +2,11 @@
   <div class="app-container">
     <main>
       <div>
-        <rounded-image class="profile-image" src="https://avatars1.githubusercontent.com/u/2991847" alt="profile image" />
+        <rounded-image
+          class="profile-image"
+          src="https://avatars1.githubusercontent.com/u/2991847"
+          alt="profile image"
+        />
       </div>
       <p class="title name">Alexey Berezin</p>
       <p class="title role">Frontend Developer</p>
@@ -13,17 +17,17 @@
 </template>
 
 <script>
-import ExtendedFooter from '~/components/ExtendedFooter.vue'
-import RoundedImage from '~/components/RoundedImage.vue'
-import Works from '~/components/Works.vue'
+import ExtendedFooter from "~/components/ExtendedFooter.vue";
+import RoundedImage from "~/components/RoundedImage.vue";
+import Works from "~/components/Works.vue";
 
 export default {
   components: {
     ExtendedFooter,
     RoundedImage,
     Works,
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -38,14 +42,20 @@ export default {
   align-items: center;
   text-align: center;
 
-  background-color: #192343;
+  background-color: #2f3542;
   font-family: sans-serif;
 }
 
 @keyframes profile-animation {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(0, -20px); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 main {

@@ -1,0 +1,262 @@
+@tailwind base;
+@tailwind components;
+
+/* HTML elements */
+
+*,
+:after,
+:before {
+  @apply box-border;
+}
+
+html {
+  @apply text-base antialiased;
+}
+
+body {
+  @apply font-serif text-base;
+
+  color: #2e353f;
+}
+
+footer {
+  @apply py-6 px-0;
+}
+
+hr {
+  @apply h-px border-0;
+
+  background: #d1dce5;
+}
+
+/* Heading */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-sans mt-12 mb-6 leading-4 tracking-tight;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+
+  color: #1a202c;
+}
+
+h1 {
+  @apply font-black text-4xl text-black;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+h5 {
+  @apply text-xl;
+}
+
+h6 {
+  @apply text-lg;
+}
+
+h1 > a {
+  @apply no-underline;
+
+  color: inherit;
+}
+
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a {
+  @apply no-underline;
+
+  color: inherit;
+}
+
+/* Prose */
+
+p {
+  @apply leading-relaxed m-0 mb-8 p-0;
+}
+
+ul,
+ol {
+  @apply mx-0 p-0 mb-8 list-outside;
+
+  list-style-image: none;
+}
+
+ul li {
+  @apply list-disc;
+}
+
+ol li {
+  @apply list-decimal;
+}
+
+ul li,
+ol li {
+  @apply pl-0 mb-4;
+}
+
+li > p {
+  @apply mb-4;
+}
+
+li *:last-child {
+  @apply mb-0;
+}
+
+li > ul {
+  @apply mt-4 ml-8;
+}
+
+blockquote {
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic;
+
+  color: #4f5969;
+  border-left: 0.25rem solid #005b99;
+}
+
+blockquote > :last-child {
+  @apply mb-0;
+}
+
+blockquote > ul,
+blockquote > ol {
+  @apply list-inside;
+}
+
+table {
+  @apply w-full mb-8 border-collapse;
+
+  border-spacing: 0.25rem;
+}
+
+table thead tr th {
+  border-bottom: 1px solid #d1dce5;
+}
+
+/* Custom extendable styles */
+
+.global-wrapper {
+  @apply my-0 mx-auto max-w-2xl py-10 px-5;
+}
+
+.global-wrapper[data-is-root-path="true"] .bio {
+  @apply mb-20;
+}
+
+.global-header {
+  @apply mb-12;
+}
+
+.main-heading {
+  @apply text-5xl m-0;
+}
+
+.post-list-item {
+  @apply list-none;
+}
+
+.post-list-item article {
+  @apply my-8;
+}
+
+.post-list-item p {
+  @apply mb-0;
+}
+
+.post-list-item h2 {
+  @apply text-3xl mb-2 mt-0;
+
+  color: #005b99; /* primary */
+}
+
+.post-list-item header {
+  @apply mb-4;
+}
+
+.header-link-home {
+  @apply font-sans font-bold text-xl no-underline;
+}
+
+.bio {
+  @apply flex mb-16;
+}
+
+.bio p {
+  @apply mb-0;
+}
+
+.bio-avatar {
+  @apply mr-4 mb-0 rounded-full;
+
+  min-width: 50px;
+}
+
+.blog-post header h1 {
+  @apply m-0 mb-4;
+}
+
+.blog-post header p {
+  @apply font-sans text-xl;
+}
+
+.blog-post-nav ul {
+  @apply m-0;
+}
+
+.blog-post-nav ul li {
+  @apply list-none;
+}
+
+.gatsby-highlight {
+  @apply mb-8;
+}
+
+.gatsby-video {
+  @apply w-full;
+}
+
+/* Link */
+
+a {
+  color: #005b99;
+}
+
+a:hover,
+a:focus {
+  @apply no-underline;
+}
+
+/* Media queries */
+
+@media (max-width: 42rem) {
+  blockquote {
+    @apply p-0 pb-4 ml-0;
+  }
+  ul,
+  ol {
+    @apply list-inside;
+  }
+}
+
+@tailwind utilities;
