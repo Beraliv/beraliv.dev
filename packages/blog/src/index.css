@@ -172,11 +172,7 @@ table thead tr th {
 }
 
 .dark-mode-toggle {
-  @apply inline-block absolute right-0 py-1 rounded-full outline-none cursor-pointer;
-
-  /* normal colors */
-  @apply px-3 bg-gray-900 text-white;
-  @apply dark:px-2 dark:bg-yellow-300 dark:text-gray-900;
+  @apply inline-block absolute right-0 w-8 h-8 rounded-full cursor-pointer text-white dark:text-gray-900 bg-gray-900 dark:bg-yellow-300;
 }
 
 .post-list-item {

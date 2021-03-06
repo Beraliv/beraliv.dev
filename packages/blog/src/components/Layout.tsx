@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent } from "react"
+import React, { FunctionComponent } from "react"
 import { Link, PageProps } from "gatsby"
 import { DarkModeToggle } from "./DarkModeToggle"
 
