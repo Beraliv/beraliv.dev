@@ -129,10 +129,9 @@ li > ul {
 }
 
 blockquote {
-  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic;
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-electric-blue;
 
   color: #4f5969;
-  border-left: 0.25rem solid #005b99;
 }
 
 blockquote > :last-child {
@@ -193,9 +192,7 @@ table thead tr th {
 }
 
 .post-list-item h2 {
-  @apply text-3xl mb-2 mt-0;
-
-  color: #005b99; /* primary */
+  @apply text-3xl mb-2 mt-0 text-electric-blue;
 }
 
 .post-list-item header {
@@ -247,7 +244,7 @@ table thead tr th {
 /* Link */
 
 a {
-  color: #005b99;
+  @apply text-electric-blue;
 }
 
 a:hover,

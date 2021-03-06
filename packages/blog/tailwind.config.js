@@ -3,7 +3,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        "electric-blue": "#005b99",
+      },
       fontFamily: {
         sans: [
           "Montserrat",
