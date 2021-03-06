@@ -242,6 +242,7 @@ a:hover,
 a:focus {
   @apply no-underline;
 }
+
 /* Media queries */
 
 @media (max-width: 42rem) {
