@@ -1,3 +1,6 @@
+import "typeface-montserrat"
+import "typeface-merriweather"
+
 import "../src/index.css"
 
 // Highlighting for code blocks
