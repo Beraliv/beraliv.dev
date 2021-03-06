@@ -50,7 +50,8 @@
     "@graphql-codegen/typescript-operations": "^1.17.14",
     "@graphql-codegen/typescript-react-apollo": "^2.2.1",
     "graphql": "^14.6.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "tailwindcss": "^2.0.3"
   },
   "license": "0BSD"
 }
