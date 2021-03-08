@@ -1,6 +1,7 @@
 import { useCallback, useLayoutEffect, useState } from "react"
 
 const STORAGE_KEY = "dark"
+const CLASSNAME = "dark"
 
 export const INITIAL_DARK_MODE = (() => {
   try {
@@ -20,7 +21,7 @@ const updateStorage = (darkMode: boolean) => {
 }
 
 const updateDom = (darkMode: boolean) => {
-  document.body.classList.toggle("dark", darkMode)
+  document.body.classList.toggle(CLASSNAME, darkMode)
 }
 
 type UseDarkModeReturnValue = {
