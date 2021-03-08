@@ -2,7 +2,7 @@ import { useCallback, useLayoutEffect, useState } from "react"
 
 const STORAGE_KEY = "dark"
 
-const INITIAL_DARK_MODE = (() => {
+export const INITIAL_DARK_MODE = (() => {
   try {
     const persistedDarkMode = localStorage.getItem(STORAGE_KEY)
     if (persistedDarkMode === null) {
