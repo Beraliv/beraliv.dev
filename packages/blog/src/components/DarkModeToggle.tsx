@@ -1,16 +1,14 @@
 import React from "react"
-import useDarkMode from "use-dark-mode"
+import { useDarkMode } from "../hooks/useDarkMode"
 
 export const DarkModeToggle = () => {
-  const { value: isDarkMode, toggle } = useDarkMode(false, {
-    classNameDark: "dark",
-  })
+  const { darkMode, toggle } = useDarkMode()
 
   return (
     <input
       className="dark-mode-toggle"
       type="button"
-      value={isDarkMode ? "☀" : "☾"}
+      value={darkMode ? "☀" : "☾"}
       onClick={toggle}
     />
   )
