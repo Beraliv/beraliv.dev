@@ -2391,6 +2391,7 @@ export enum SiteFieldsEnum {
   SiteMetadataAuthorSummary = "siteMetadata___author___summary",
   SiteMetadataSiteUrl = "siteMetadata___siteUrl",
   SiteMetadataSocialTwitter = "siteMetadata___social___twitter",
+  SiteMetadataKeywords = "siteMetadata___keywords",
   Port = "port",
   Host = "host",
   Polyfill = "polyfill",
@@ -2715,6 +2716,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsWrapperStyle = "pluginCreator___pluginOptions___wrapperStyle",
   PluginCreatorPluginOptionsFigureClassName = "pluginCreator___pluginOptions___figureClassName",
   PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
+  PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
   PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
   PluginCreatorPluginOptionsBackgroundColor = "pluginCreator___pluginOptions___background_color",
   PluginCreatorPluginOptionsThemeColor = "pluginCreator___pluginOptions___theme_color",
@@ -2938,6 +2940,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsWrapperStyle = "pluginOptions___wrapperStyle",
   PluginOptionsFigureClassName = "pluginOptions___figureClassName",
   PluginOptionsShortName = "pluginOptions___short_name",
+  PluginOptionsLang = "pluginOptions___lang",
   PluginOptionsStartUrl = "pluginOptions___start_url",
   PluginOptionsBackgroundColor = "pluginOptions___background_color",
   PluginOptionsThemeColor = "pluginOptions___theme_color",
@@ -3083,6 +3086,7 @@ export type SitePluginPluginOptions = {
   wrapperStyle?: Maybe<Scalars["String"]>
   figureClassName?: Maybe<Scalars["String"]>
   short_name?: Maybe<Scalars["String"]>
+  lang?: Maybe<Scalars["String"]>
   start_url?: Maybe<Scalars["String"]>
   background_color?: Maybe<Scalars["String"]>
   theme_color?: Maybe<Scalars["String"]>
@@ -3109,6 +3113,7 @@ export type SitePluginPluginOptionsFilterInput = {
   wrapperStyle?: Maybe<StringQueryOperatorInput>
   figureClassName?: Maybe<StringQueryOperatorInput>
   short_name?: Maybe<StringQueryOperatorInput>
+  lang?: Maybe<StringQueryOperatorInput>
   start_url?: Maybe<StringQueryOperatorInput>
   background_color?: Maybe<StringQueryOperatorInput>
   theme_color?: Maybe<StringQueryOperatorInput>
@@ -3179,6 +3184,7 @@ export type SiteSiteMetadata = {
   author?: Maybe<Author>
   siteUrl?: Maybe<Scalars["String"]>
   social?: Maybe<Social>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
 }
 
 export type SiteSiteMetadataFilterInput = {
@@ -3187,6 +3193,7 @@ export type SiteSiteMetadataFilterInput = {
   author?: Maybe<AuthorFilterInput>
   siteUrl?: Maybe<StringQueryOperatorInput>
   social?: Maybe<SocialFilterInput>
+  keywords?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteSortInput = {
@@ -3453,7 +3460,7 @@ export type SeoQuery = { __typename?: "Query" } & {
       siteMetadata?: Maybe<
         { __typename?: "SiteSiteMetadata" } & Pick<
           SiteSiteMetadata,
-          "title" | "description"
+          "title" | "description" | "keywords" | "siteUrl"
         > & {
             social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
           }
@@ -3904,9 +3911,11 @@ export const SeoDocument = gql`
       siteMetadata {
         title
         description
+        keywords
         social {
           twitter
         }
+        siteUrl
       }
     }
   }

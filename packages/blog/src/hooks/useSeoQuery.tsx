@@ -9,9 +9,11 @@ export const useSeoQuery = (): SeoQuery["site"] => {
           siteMetadata {
             title
             description
+            keywords
             social {
               twitter
             }
+            siteUrl
           }
         }
       }
