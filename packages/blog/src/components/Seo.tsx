@@ -8,6 +8,7 @@
 import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
 import { useSeoQuery } from "../hooks/useSeoQuery"
+import { ImageSharpResize } from "../types/generated"
 
 type SeoProps = {
   description?: string
@@ -23,7 +24,7 @@ type SeoProps = {
         content: any
         property?: undefined
       }[]
-  image?: Pick<HTMLImageElement, "src" | "width" | "height">
+  image?: Pick<ImageSharpResize, "src" | "width" | "height">
   title: string
   pathname: string
 }
