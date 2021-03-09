@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
+    "build:ci": "git lfs pull && yarn build",
     "start": "npm run develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
