@@ -5,14 +5,50 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
 import { useSeoQuery } from "../hooks/useSeoQuery"
 
-export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
+type SeoProps = {
+  description?: string
+  lang?: string
+  meta?:
+    | {
+        property: string
+        content: any
+        name?: undefined
+      }
+    | {
+        name: string
+        content: any
+        property?: undefined
+      }[]
+  image?: Pick<HTMLImageElement, "src" | "width" | "height">
+  title: string
+  pathname: string
+}
+
+export const Seo: FunctionComponent<SeoProps> = ({
+  description = ``,
+  lang = `en`,
+  meta = [],
+  image,
+  title,
+  pathname,
+}) => {
   const site = useSeoQuery()
 
   const metaDescription = description || site.siteMetadata.description
+  const metaKeywords = site.siteMetadata.keywords.join(",")
+  const metaImage =
+    site.siteMetadata.siteUrl && image?.src
+      ? `${site.siteMetadata.siteUrl}${image.src}`
+      : undefined
+
+  const canonical =
+    site.siteMetadata.siteUrl && pathname
+      ? `${site.siteMetadata.siteUrl}${pathname}`
+      : null
 
   return (
     <Helmet
@@ -21,10 +57,24 @@ export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={
+        canonical
+          ? [
+              {
+                rel: "canonical",
+                href: canonical,
+              },
+            ]
+          : []
+      }
       meta={[
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: "keywords",
+          content: metaKeywords,
         },
         {
           property: `og:title`,
@@ -38,14 +88,12 @@ export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
           property: `og:type`,
           content: `website`,
         },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.social?.twitter || ``,
-        },
+        site.siteMetadata?.social?.twitter
+          ? {
+              name: `twitter:creator`,
+              content: site.siteMetadata.social.twitter,
+            }
+          : undefined,
         {
           name: `twitter:title`,
           content: title,
@@ -54,7 +102,36 @@ export const Seo = ({ description = ``, lang = `en`, meta = [], title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          image
+            ? [
+                {
+                  property: "og:image",
+                  content: metaImage,
+                },
+                {
+                  property: "og:image:width",
+                  content: `${image.width}`,
+                },
+                {
+                  property: "og:image:height",
+                  content: `${image.height}`,
+                },
+                {
+                  name: "twitter:card",
+                  content: "summary_large_image",
+                },
+              ]
+            : [
+                {
+                  name: "twitter:card",
+                  content: "summary",
+                },
+              ]
+        )
+        .concat(meta)
+        .filter(Boolean)}
     />
   )
 }
