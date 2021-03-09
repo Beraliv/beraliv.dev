@@ -64,13 +64,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Alexey Berezin blog`,
+        short_name: `beraliv blog`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `./content/assets/gatsby-icon.png`,
+        theme_color: `#005b99`,
+        display: `standalone`,
+        icon: `./content/assets/profile-pic.jpg`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -78,5 +79,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
   ],
 }
