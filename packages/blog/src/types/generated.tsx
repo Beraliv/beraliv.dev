@@ -546,6 +546,44 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterTitle = "childrenMarkdownRemark___frontmatter___title",
   ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
+  ChildrenMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childrenMarkdownRemark___frontmatter___featured___sourceInstanceName",
+  ChildrenMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childrenMarkdownRemark___frontmatter___featured___absolutePath",
+  ChildrenMarkdownRemarkFrontmatterFeaturedRelativePath = "childrenMarkdownRemark___frontmatter___featured___relativePath",
+  ChildrenMarkdownRemarkFrontmatterFeaturedExtension = "childrenMarkdownRemark___frontmatter___featured___extension",
+  ChildrenMarkdownRemarkFrontmatterFeaturedSize = "childrenMarkdownRemark___frontmatter___featured___size",
+  ChildrenMarkdownRemarkFrontmatterFeaturedPrettySize = "childrenMarkdownRemark___frontmatter___featured___prettySize",
+  ChildrenMarkdownRemarkFrontmatterFeaturedModifiedTime = "childrenMarkdownRemark___frontmatter___featured___modifiedTime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedAccessTime = "childrenMarkdownRemark___frontmatter___featured___accessTime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedChangeTime = "childrenMarkdownRemark___frontmatter___featured___changeTime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBirthTime = "childrenMarkdownRemark___frontmatter___featured___birthTime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedRoot = "childrenMarkdownRemark___frontmatter___featured___root",
+  ChildrenMarkdownRemarkFrontmatterFeaturedDir = "childrenMarkdownRemark___frontmatter___featured___dir",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBase = "childrenMarkdownRemark___frontmatter___featured___base",
+  ChildrenMarkdownRemarkFrontmatterFeaturedExt = "childrenMarkdownRemark___frontmatter___featured___ext",
+  ChildrenMarkdownRemarkFrontmatterFeaturedName = "childrenMarkdownRemark___frontmatter___featured___name",
+  ChildrenMarkdownRemarkFrontmatterFeaturedRelativeDirectory = "childrenMarkdownRemark___frontmatter___featured___relativeDirectory",
+  ChildrenMarkdownRemarkFrontmatterFeaturedDev = "childrenMarkdownRemark___frontmatter___featured___dev",
+  ChildrenMarkdownRemarkFrontmatterFeaturedMode = "childrenMarkdownRemark___frontmatter___featured___mode",
+  ChildrenMarkdownRemarkFrontmatterFeaturedNlink = "childrenMarkdownRemark___frontmatter___featured___nlink",
+  ChildrenMarkdownRemarkFrontmatterFeaturedUid = "childrenMarkdownRemark___frontmatter___featured___uid",
+  ChildrenMarkdownRemarkFrontmatterFeaturedGid = "childrenMarkdownRemark___frontmatter___featured___gid",
+  ChildrenMarkdownRemarkFrontmatterFeaturedRdev = "childrenMarkdownRemark___frontmatter___featured___rdev",
+  ChildrenMarkdownRemarkFrontmatterFeaturedIno = "childrenMarkdownRemark___frontmatter___featured___ino",
+  ChildrenMarkdownRemarkFrontmatterFeaturedAtimeMs = "childrenMarkdownRemark___frontmatter___featured___atimeMs",
+  ChildrenMarkdownRemarkFrontmatterFeaturedMtimeMs = "childrenMarkdownRemark___frontmatter___featured___mtimeMs",
+  ChildrenMarkdownRemarkFrontmatterFeaturedCtimeMs = "childrenMarkdownRemark___frontmatter___featured___ctimeMs",
+  ChildrenMarkdownRemarkFrontmatterFeaturedAtime = "childrenMarkdownRemark___frontmatter___featured___atime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedMtime = "childrenMarkdownRemark___frontmatter___featured___mtime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedCtime = "childrenMarkdownRemark___frontmatter___featured___ctime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBirthtime = "childrenMarkdownRemark___frontmatter___featured___birthtime",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBirthtimeMs = "childrenMarkdownRemark___frontmatter___featured___birthtimeMs",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBlksize = "childrenMarkdownRemark___frontmatter___featured___blksize",
+  ChildrenMarkdownRemarkFrontmatterFeaturedBlocks = "childrenMarkdownRemark___frontmatter___featured___blocks",
+  ChildrenMarkdownRemarkFrontmatterFeaturedPublicUrl = "childrenMarkdownRemark___frontmatter___featured___publicURL",
+  ChildrenMarkdownRemarkFrontmatterFeaturedChildrenMarkdownRemark = "childrenMarkdownRemark___frontmatter___featured___childrenMarkdownRemark",
+  ChildrenMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childrenMarkdownRemark___frontmatter___featured___childrenImageSharp",
+  ChildrenMarkdownRemarkFrontmatterFeaturedId = "childrenMarkdownRemark___frontmatter___featured___id",
+  ChildrenMarkdownRemarkFrontmatterFeaturedChildren = "childrenMarkdownRemark___frontmatter___featured___children",
   ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkExcerpt = "childrenMarkdownRemark___excerpt",
   ChildrenMarkdownRemarkRawMarkdownBody = "childrenMarkdownRemark___rawMarkdownBody",
@@ -603,6 +641,44 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterTitle = "childMarkdownRemark___frontmatter___title",
   ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
+  ChildMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childMarkdownRemark___frontmatter___featured___sourceInstanceName",
+  ChildMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childMarkdownRemark___frontmatter___featured___absolutePath",
+  ChildMarkdownRemarkFrontmatterFeaturedRelativePath = "childMarkdownRemark___frontmatter___featured___relativePath",
+  ChildMarkdownRemarkFrontmatterFeaturedExtension = "childMarkdownRemark___frontmatter___featured___extension",
+  ChildMarkdownRemarkFrontmatterFeaturedSize = "childMarkdownRemark___frontmatter___featured___size",
+  ChildMarkdownRemarkFrontmatterFeaturedPrettySize = "childMarkdownRemark___frontmatter___featured___prettySize",
+  ChildMarkdownRemarkFrontmatterFeaturedModifiedTime = "childMarkdownRemark___frontmatter___featured___modifiedTime",
+  ChildMarkdownRemarkFrontmatterFeaturedAccessTime = "childMarkdownRemark___frontmatter___featured___accessTime",
+  ChildMarkdownRemarkFrontmatterFeaturedChangeTime = "childMarkdownRemark___frontmatter___featured___changeTime",
+  ChildMarkdownRemarkFrontmatterFeaturedBirthTime = "childMarkdownRemark___frontmatter___featured___birthTime",
+  ChildMarkdownRemarkFrontmatterFeaturedRoot = "childMarkdownRemark___frontmatter___featured___root",
+  ChildMarkdownRemarkFrontmatterFeaturedDir = "childMarkdownRemark___frontmatter___featured___dir",
+  ChildMarkdownRemarkFrontmatterFeaturedBase = "childMarkdownRemark___frontmatter___featured___base",
+  ChildMarkdownRemarkFrontmatterFeaturedExt = "childMarkdownRemark___frontmatter___featured___ext",
+  ChildMarkdownRemarkFrontmatterFeaturedName = "childMarkdownRemark___frontmatter___featured___name",
+  ChildMarkdownRemarkFrontmatterFeaturedRelativeDirectory = "childMarkdownRemark___frontmatter___featured___relativeDirectory",
+  ChildMarkdownRemarkFrontmatterFeaturedDev = "childMarkdownRemark___frontmatter___featured___dev",
+  ChildMarkdownRemarkFrontmatterFeaturedMode = "childMarkdownRemark___frontmatter___featured___mode",
+  ChildMarkdownRemarkFrontmatterFeaturedNlink = "childMarkdownRemark___frontmatter___featured___nlink",
+  ChildMarkdownRemarkFrontmatterFeaturedUid = "childMarkdownRemark___frontmatter___featured___uid",
+  ChildMarkdownRemarkFrontmatterFeaturedGid = "childMarkdownRemark___frontmatter___featured___gid",
+  ChildMarkdownRemarkFrontmatterFeaturedRdev = "childMarkdownRemark___frontmatter___featured___rdev",
+  ChildMarkdownRemarkFrontmatterFeaturedIno = "childMarkdownRemark___frontmatter___featured___ino",
+  ChildMarkdownRemarkFrontmatterFeaturedAtimeMs = "childMarkdownRemark___frontmatter___featured___atimeMs",
+  ChildMarkdownRemarkFrontmatterFeaturedMtimeMs = "childMarkdownRemark___frontmatter___featured___mtimeMs",
+  ChildMarkdownRemarkFrontmatterFeaturedCtimeMs = "childMarkdownRemark___frontmatter___featured___ctimeMs",
+  ChildMarkdownRemarkFrontmatterFeaturedAtime = "childMarkdownRemark___frontmatter___featured___atime",
+  ChildMarkdownRemarkFrontmatterFeaturedMtime = "childMarkdownRemark___frontmatter___featured___mtime",
+  ChildMarkdownRemarkFrontmatterFeaturedCtime = "childMarkdownRemark___frontmatter___featured___ctime",
+  ChildMarkdownRemarkFrontmatterFeaturedBirthtime = "childMarkdownRemark___frontmatter___featured___birthtime",
+  ChildMarkdownRemarkFrontmatterFeaturedBirthtimeMs = "childMarkdownRemark___frontmatter___featured___birthtimeMs",
+  ChildMarkdownRemarkFrontmatterFeaturedBlksize = "childMarkdownRemark___frontmatter___featured___blksize",
+  ChildMarkdownRemarkFrontmatterFeaturedBlocks = "childMarkdownRemark___frontmatter___featured___blocks",
+  ChildMarkdownRemarkFrontmatterFeaturedPublicUrl = "childMarkdownRemark___frontmatter___featured___publicURL",
+  ChildMarkdownRemarkFrontmatterFeaturedChildrenMarkdownRemark = "childMarkdownRemark___frontmatter___featured___childrenMarkdownRemark",
+  ChildMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childMarkdownRemark___frontmatter___featured___childrenImageSharp",
+  ChildMarkdownRemarkFrontmatterFeaturedId = "childMarkdownRemark___frontmatter___featured___id",
+  ChildMarkdownRemarkFrontmatterFeaturedChildren = "childMarkdownRemark___frontmatter___featured___children",
   ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkExcerpt = "childMarkdownRemark___excerpt",
   ChildMarkdownRemarkRawMarkdownBody = "childMarkdownRemark___rawMarkdownBody",
@@ -1005,6 +1081,7 @@ export type Frontmatter = {
   title?: Maybe<Scalars["String"]>
   description?: Maybe<Scalars["String"]>
   date?: Maybe<Scalars["Date"]>
+  featured?: Maybe<File>
 }
 
 export type FrontmatterDateArgs = {
@@ -1018,6 +1095,7 @@ export type FrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
   date?: Maybe<DateQueryOperatorInput>
+  featured?: Maybe<FileFilterInput>
 }
 
 export enum ImageCropFocus {
@@ -1721,6 +1799,84 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterTitle = "frontmatter___title",
   FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
+  FrontmatterFeaturedSourceInstanceName = "frontmatter___featured___sourceInstanceName",
+  FrontmatterFeaturedAbsolutePath = "frontmatter___featured___absolutePath",
+  FrontmatterFeaturedRelativePath = "frontmatter___featured___relativePath",
+  FrontmatterFeaturedExtension = "frontmatter___featured___extension",
+  FrontmatterFeaturedSize = "frontmatter___featured___size",
+  FrontmatterFeaturedPrettySize = "frontmatter___featured___prettySize",
+  FrontmatterFeaturedModifiedTime = "frontmatter___featured___modifiedTime",
+  FrontmatterFeaturedAccessTime = "frontmatter___featured___accessTime",
+  FrontmatterFeaturedChangeTime = "frontmatter___featured___changeTime",
+  FrontmatterFeaturedBirthTime = "frontmatter___featured___birthTime",
+  FrontmatterFeaturedRoot = "frontmatter___featured___root",
+  FrontmatterFeaturedDir = "frontmatter___featured___dir",
+  FrontmatterFeaturedBase = "frontmatter___featured___base",
+  FrontmatterFeaturedExt = "frontmatter___featured___ext",
+  FrontmatterFeaturedName = "frontmatter___featured___name",
+  FrontmatterFeaturedRelativeDirectory = "frontmatter___featured___relativeDirectory",
+  FrontmatterFeaturedDev = "frontmatter___featured___dev",
+  FrontmatterFeaturedMode = "frontmatter___featured___mode",
+  FrontmatterFeaturedNlink = "frontmatter___featured___nlink",
+  FrontmatterFeaturedUid = "frontmatter___featured___uid",
+  FrontmatterFeaturedGid = "frontmatter___featured___gid",
+  FrontmatterFeaturedRdev = "frontmatter___featured___rdev",
+  FrontmatterFeaturedIno = "frontmatter___featured___ino",
+  FrontmatterFeaturedAtimeMs = "frontmatter___featured___atimeMs",
+  FrontmatterFeaturedMtimeMs = "frontmatter___featured___mtimeMs",
+  FrontmatterFeaturedCtimeMs = "frontmatter___featured___ctimeMs",
+  FrontmatterFeaturedAtime = "frontmatter___featured___atime",
+  FrontmatterFeaturedMtime = "frontmatter___featured___mtime",
+  FrontmatterFeaturedCtime = "frontmatter___featured___ctime",
+  FrontmatterFeaturedBirthtime = "frontmatter___featured___birthtime",
+  FrontmatterFeaturedBirthtimeMs = "frontmatter___featured___birthtimeMs",
+  FrontmatterFeaturedBlksize = "frontmatter___featured___blksize",
+  FrontmatterFeaturedBlocks = "frontmatter___featured___blocks",
+  FrontmatterFeaturedPublicUrl = "frontmatter___featured___publicURL",
+  FrontmatterFeaturedChildrenMarkdownRemark = "frontmatter___featured___childrenMarkdownRemark",
+  FrontmatterFeaturedChildrenMarkdownRemarkId = "frontmatter___featured___childrenMarkdownRemark___id",
+  FrontmatterFeaturedChildrenMarkdownRemarkExcerpt = "frontmatter___featured___childrenMarkdownRemark___excerpt",
+  FrontmatterFeaturedChildrenMarkdownRemarkRawMarkdownBody = "frontmatter___featured___childrenMarkdownRemark___rawMarkdownBody",
+  FrontmatterFeaturedChildrenMarkdownRemarkFileAbsolutePath = "frontmatter___featured___childrenMarkdownRemark___fileAbsolutePath",
+  FrontmatterFeaturedChildrenMarkdownRemarkHtml = "frontmatter___featured___childrenMarkdownRemark___html",
+  FrontmatterFeaturedChildrenMarkdownRemarkHtmlAst = "frontmatter___featured___childrenMarkdownRemark___htmlAst",
+  FrontmatterFeaturedChildrenMarkdownRemarkExcerptAst = "frontmatter___featured___childrenMarkdownRemark___excerptAst",
+  FrontmatterFeaturedChildrenMarkdownRemarkHeadings = "frontmatter___featured___childrenMarkdownRemark___headings",
+  FrontmatterFeaturedChildrenMarkdownRemarkTimeToRead = "frontmatter___featured___childrenMarkdownRemark___timeToRead",
+  FrontmatterFeaturedChildrenMarkdownRemarkTableOfContents = "frontmatter___featured___childrenMarkdownRemark___tableOfContents",
+  FrontmatterFeaturedChildrenMarkdownRemarkChildren = "frontmatter___featured___childrenMarkdownRemark___children",
+  FrontmatterFeaturedChildMarkdownRemarkId = "frontmatter___featured___childMarkdownRemark___id",
+  FrontmatterFeaturedChildMarkdownRemarkExcerpt = "frontmatter___featured___childMarkdownRemark___excerpt",
+  FrontmatterFeaturedChildMarkdownRemarkRawMarkdownBody = "frontmatter___featured___childMarkdownRemark___rawMarkdownBody",
+  FrontmatterFeaturedChildMarkdownRemarkFileAbsolutePath = "frontmatter___featured___childMarkdownRemark___fileAbsolutePath",
+  FrontmatterFeaturedChildMarkdownRemarkHtml = "frontmatter___featured___childMarkdownRemark___html",
+  FrontmatterFeaturedChildMarkdownRemarkHtmlAst = "frontmatter___featured___childMarkdownRemark___htmlAst",
+  FrontmatterFeaturedChildMarkdownRemarkExcerptAst = "frontmatter___featured___childMarkdownRemark___excerptAst",
+  FrontmatterFeaturedChildMarkdownRemarkHeadings = "frontmatter___featured___childMarkdownRemark___headings",
+  FrontmatterFeaturedChildMarkdownRemarkTimeToRead = "frontmatter___featured___childMarkdownRemark___timeToRead",
+  FrontmatterFeaturedChildMarkdownRemarkTableOfContents = "frontmatter___featured___childMarkdownRemark___tableOfContents",
+  FrontmatterFeaturedChildMarkdownRemarkChildren = "frontmatter___featured___childMarkdownRemark___children",
+  FrontmatterFeaturedChildrenImageSharp = "frontmatter___featured___childrenImageSharp",
+  FrontmatterFeaturedChildrenImageSharpGatsbyImageData = "frontmatter___featured___childrenImageSharp___gatsbyImageData",
+  FrontmatterFeaturedChildrenImageSharpId = "frontmatter___featured___childrenImageSharp___id",
+  FrontmatterFeaturedChildrenImageSharpChildren = "frontmatter___featured___childrenImageSharp___children",
+  FrontmatterFeaturedChildImageSharpGatsbyImageData = "frontmatter___featured___childImageSharp___gatsbyImageData",
+  FrontmatterFeaturedChildImageSharpId = "frontmatter___featured___childImageSharp___id",
+  FrontmatterFeaturedChildImageSharpChildren = "frontmatter___featured___childImageSharp___children",
+  FrontmatterFeaturedId = "frontmatter___featured___id",
+  FrontmatterFeaturedParentId = "frontmatter___featured___parent___id",
+  FrontmatterFeaturedParentChildren = "frontmatter___featured___parent___children",
+  FrontmatterFeaturedChildren = "frontmatter___featured___children",
+  FrontmatterFeaturedChildrenId = "frontmatter___featured___children___id",
+  FrontmatterFeaturedChildrenChildren = "frontmatter___featured___children___children",
+  FrontmatterFeaturedInternalContent = "frontmatter___featured___internal___content",
+  FrontmatterFeaturedInternalContentDigest = "frontmatter___featured___internal___contentDigest",
+  FrontmatterFeaturedInternalDescription = "frontmatter___featured___internal___description",
+  FrontmatterFeaturedInternalFieldOwners = "frontmatter___featured___internal___fieldOwners",
+  FrontmatterFeaturedInternalIgnoreType = "frontmatter___featured___internal___ignoreType",
+  FrontmatterFeaturedInternalMediaType = "frontmatter___featured___internal___mediaType",
+  FrontmatterFeaturedInternalOwner = "frontmatter___featured___internal___owner",
+  FrontmatterFeaturedInternalType = "frontmatter___featured___internal___type",
   FieldsSlug = "fields___slug",
   Excerpt = "excerpt",
   RawMarkdownBody = "rawMarkdownBody",
@@ -2076,15 +2232,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>
   componentChunkName?: Maybe<StringQueryOperatorInput>
   matchPath?: Maybe<StringQueryOperatorInput>
-  id?: Maybe<StringQueryOperatorInput>
-  parent?: Maybe<NodeFilterInput>
-  children?: Maybe<NodeFilterListInput>
-  internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
   componentPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
 }
 
 export type QueryAllSitePageArgs = {
@@ -2514,15 +2670,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars["String"]
   componentChunkName: Scalars["String"]
   matchPath?: Maybe<Scalars["String"]>
-  id: Scalars["ID"]
-  parent?: Maybe<Node>
-  children: Array<Node>
-  internal: Internal
   isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
   context?: Maybe<SitePageContext>
   pluginCreator?: Maybe<SitePlugin>
   pluginCreatorId?: Maybe<Scalars["String"]>
   componentPath?: Maybe<Scalars["String"]>
+  id: Scalars["ID"]
+  parent?: Maybe<Node>
+  children: Array<Node>
+  internal: Internal
 }
 
 export type SitePageConnection = {
@@ -2571,92 +2727,6 @@ export enum SitePageFieldsEnum {
   InternalComponentName = "internalComponentName",
   ComponentChunkName = "componentChunkName",
   MatchPath = "matchPath",
-  Id = "id",
-  ParentId = "parent___id",
-  ParentParentId = "parent___parent___id",
-  ParentParentParentId = "parent___parent___parent___id",
-  ParentParentParentChildren = "parent___parent___parent___children",
-  ParentParentChildren = "parent___parent___children",
-  ParentParentChildrenId = "parent___parent___children___id",
-  ParentParentChildrenChildren = "parent___parent___children___children",
-  ParentParentInternalContent = "parent___parent___internal___content",
-  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-  ParentParentInternalDescription = "parent___parent___internal___description",
-  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-  ParentParentInternalOwner = "parent___parent___internal___owner",
-  ParentParentInternalType = "parent___parent___internal___type",
-  ParentChildren = "parent___children",
-  ParentChildrenId = "parent___children___id",
-  ParentChildrenParentId = "parent___children___parent___id",
-  ParentChildrenParentChildren = "parent___children___parent___children",
-  ParentChildrenChildren = "parent___children___children",
-  ParentChildrenChildrenId = "parent___children___children___id",
-  ParentChildrenChildrenChildren = "parent___children___children___children",
-  ParentChildrenInternalContent = "parent___children___internal___content",
-  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-  ParentChildrenInternalDescription = "parent___children___internal___description",
-  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-  ParentChildrenInternalOwner = "parent___children___internal___owner",
-  ParentChildrenInternalType = "parent___children___internal___type",
-  ParentInternalContent = "parent___internal___content",
-  ParentInternalContentDigest = "parent___internal___contentDigest",
-  ParentInternalDescription = "parent___internal___description",
-  ParentInternalFieldOwners = "parent___internal___fieldOwners",
-  ParentInternalIgnoreType = "parent___internal___ignoreType",
-  ParentInternalMediaType = "parent___internal___mediaType",
-  ParentInternalOwner = "parent___internal___owner",
-  ParentInternalType = "parent___internal___type",
-  Children = "children",
-  ChildrenId = "children___id",
-  ChildrenParentId = "children___parent___id",
-  ChildrenParentParentId = "children___parent___parent___id",
-  ChildrenParentParentChildren = "children___parent___parent___children",
-  ChildrenParentChildren = "children___parent___children",
-  ChildrenParentChildrenId = "children___parent___children___id",
-  ChildrenParentChildrenChildren = "children___parent___children___children",
-  ChildrenParentInternalContent = "children___parent___internal___content",
-  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-  ChildrenParentInternalDescription = "children___parent___internal___description",
-  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-  ChildrenParentInternalOwner = "children___parent___internal___owner",
-  ChildrenParentInternalType = "children___parent___internal___type",
-  ChildrenChildren = "children___children",
-  ChildrenChildrenId = "children___children___id",
-  ChildrenChildrenParentId = "children___children___parent___id",
-  ChildrenChildrenParentChildren = "children___children___parent___children",
-  ChildrenChildrenChildren = "children___children___children",
-  ChildrenChildrenChildrenId = "children___children___children___id",
-  ChildrenChildrenChildrenChildren = "children___children___children___children",
-  ChildrenChildrenInternalContent = "children___children___internal___content",
-  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-  ChildrenChildrenInternalDescription = "children___children___internal___description",
-  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-  ChildrenChildrenInternalOwner = "children___children___internal___owner",
-  ChildrenChildrenInternalType = "children___children___internal___type",
-  ChildrenInternalContent = "children___internal___content",
-  ChildrenInternalContentDigest = "children___internal___contentDigest",
-  ChildrenInternalDescription = "children___internal___description",
-  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-  ChildrenInternalIgnoreType = "children___internal___ignoreType",
-  ChildrenInternalMediaType = "children___internal___mediaType",
-  ChildrenInternalOwner = "children___internal___owner",
-  ChildrenInternalType = "children___internal___type",
-  InternalContent = "internal___content",
-  InternalContentDigest = "internal___contentDigest",
-  InternalDescription = "internal___description",
-  InternalFieldOwners = "internal___fieldOwners",
-  InternalIgnoreType = "internal___ignoreType",
-  InternalMediaType = "internal___mediaType",
-  InternalOwner = "internal___owner",
-  InternalType = "internal___type",
   IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
   ContextId = "context___id",
   ContextPreviousPostId = "context___previousPostId",
@@ -2755,6 +2825,92 @@ export enum SitePageFieldsEnum {
   PluginCreatorPackageJsonKeywords = "pluginCreator___packageJson___keywords",
   PluginCreatorId = "pluginCreatorId",
   ComponentPath = "componentPath",
+  Id = "id",
+  ParentId = "parent___id",
+  ParentParentId = "parent___parent___id",
+  ParentParentParentId = "parent___parent___parent___id",
+  ParentParentParentChildren = "parent___parent___parent___children",
+  ParentParentChildren = "parent___parent___children",
+  ParentParentChildrenId = "parent___parent___children___id",
+  ParentParentChildrenChildren = "parent___parent___children___children",
+  ParentParentInternalContent = "parent___parent___internal___content",
+  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+  ParentParentInternalDescription = "parent___parent___internal___description",
+  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+  ParentParentInternalOwner = "parent___parent___internal___owner",
+  ParentParentInternalType = "parent___parent___internal___type",
+  ParentChildren = "parent___children",
+  ParentChildrenId = "parent___children___id",
+  ParentChildrenParentId = "parent___children___parent___id",
+  ParentChildrenParentChildren = "parent___children___parent___children",
+  ParentChildrenChildren = "parent___children___children",
+  ParentChildrenChildrenId = "parent___children___children___id",
+  ParentChildrenChildrenChildren = "parent___children___children___children",
+  ParentChildrenInternalContent = "parent___children___internal___content",
+  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+  ParentChildrenInternalDescription = "parent___children___internal___description",
+  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+  ParentChildrenInternalOwner = "parent___children___internal___owner",
+  ParentChildrenInternalType = "parent___children___internal___type",
+  ParentInternalContent = "parent___internal___content",
+  ParentInternalContentDigest = "parent___internal___contentDigest",
+  ParentInternalDescription = "parent___internal___description",
+  ParentInternalFieldOwners = "parent___internal___fieldOwners",
+  ParentInternalIgnoreType = "parent___internal___ignoreType",
+  ParentInternalMediaType = "parent___internal___mediaType",
+  ParentInternalOwner = "parent___internal___owner",
+  ParentInternalType = "parent___internal___type",
+  Children = "children",
+  ChildrenId = "children___id",
+  ChildrenParentId = "children___parent___id",
+  ChildrenParentParentId = "children___parent___parent___id",
+  ChildrenParentParentChildren = "children___parent___parent___children",
+  ChildrenParentChildren = "children___parent___children",
+  ChildrenParentChildrenId = "children___parent___children___id",
+  ChildrenParentChildrenChildren = "children___parent___children___children",
+  ChildrenParentInternalContent = "children___parent___internal___content",
+  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+  ChildrenParentInternalDescription = "children___parent___internal___description",
+  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+  ChildrenParentInternalOwner = "children___parent___internal___owner",
+  ChildrenParentInternalType = "children___parent___internal___type",
+  ChildrenChildren = "children___children",
+  ChildrenChildrenId = "children___children___id",
+  ChildrenChildrenParentId = "children___children___parent___id",
+  ChildrenChildrenParentChildren = "children___children___parent___children",
+  ChildrenChildrenChildren = "children___children___children",
+  ChildrenChildrenChildrenId = "children___children___children___id",
+  ChildrenChildrenChildrenChildren = "children___children___children___children",
+  ChildrenChildrenInternalContent = "children___children___internal___content",
+  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+  ChildrenChildrenInternalDescription = "children___children___internal___description",
+  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+  ChildrenChildrenInternalOwner = "children___children___internal___owner",
+  ChildrenChildrenInternalType = "children___children___internal___type",
+  ChildrenInternalContent = "children___internal___content",
+  ChildrenInternalContentDigest = "children___internal___contentDigest",
+  ChildrenInternalDescription = "children___internal___description",
+  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+  ChildrenInternalIgnoreType = "children___internal___ignoreType",
+  ChildrenInternalMediaType = "children___internal___mediaType",
+  ChildrenInternalOwner = "children___internal___owner",
+  ChildrenInternalType = "children___internal___type",
+  InternalContent = "internal___content",
+  InternalContentDigest = "internal___contentDigest",
+  InternalDescription = "internal___description",
+  InternalFieldOwners = "internal___fieldOwners",
+  InternalIgnoreType = "internal___ignoreType",
+  InternalMediaType = "internal___mediaType",
+  InternalOwner = "internal___owner",
+  InternalType = "internal___type",
 }
 
 export type SitePageFilterInput = {
@@ -2763,15 +2919,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>
   componentChunkName?: Maybe<StringQueryOperatorInput>
   matchPath?: Maybe<StringQueryOperatorInput>
-  id?: Maybe<StringQueryOperatorInput>
-  parent?: Maybe<NodeFilterInput>
-  children?: Maybe<NodeFilterListInput>
-  internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
   componentPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
 }
 
 export type SitePageGroupConnection = {
@@ -3529,7 +3685,22 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
             "title" | "date" | "description"
-          >
+          > & {
+              image?: Maybe<
+                { __typename?: "File" } & {
+                  childImageSharp?: Maybe<
+                    { __typename?: "ImageSharp" } & {
+                      resize?: Maybe<
+                        { __typename?: "ImageSharpResize" } & Pick<
+                          ImageSharpResize,
+                          "src" | "height" | "width"
+                        >
+                      >
+                    }
+                  >
+                }
+              >
+            }
         >
       }
   >
@@ -4088,6 +4259,15 @@ export const BlogPostBySlugDocument = gql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image: featured {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
