@@ -11,7 +11,7 @@ import { filterUndefined } from "../functions/filterUndefined"
 import { getSeoCanonicalLink } from "../functions/getSeoCanonicalLink"
 import { getSeoDescription } from "../functions/getSeoDescription"
 import { useSeoQuery } from "../hooks/useSeoQuery"
-import { ImageSharpResize, SeoQuery } from "../types/generated"
+import { ImageSharpResize } from "../types/generated"
 
 type SeoMetaProp =
   | {
@@ -52,12 +52,21 @@ export const Seo: FunctionComponent<SeoProps> = ({
     ? `%s | ${site.siteMetadata.title}`
     : undefined
   const canonicalLink = getSeoCanonicalLink({ site, pathname })
+  const metaUrl = site?.siteMetadata?.siteUrl
+    ? `${site.siteMetadata.siteUrl}${pathname}`
+    : undefined
 
   const generalMeta: SeoMetaProp[] = filterUndefined([
     {
       name: `description`,
       content: metaDescription,
     },
+    metaImageSrc
+      ? {
+          name: `image`,
+          content: metaImageSrc,
+        }
+      : undefined,
     metaKeywords
       ? {
           name: "keywords",
@@ -79,6 +88,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
       property: `og:type`,
       content: `website`,
     },
+    metaUrl
+      ? {
+          property: `og:url`,
+          content: metaUrl,
+        }
+      : undefined,
     metaImageSrc
       ? {
           property: "og:image",
@@ -114,15 +129,16 @@ export const Seo: FunctionComponent<SeoProps> = ({
       name: `twitter:description`,
       content: metaDescription,
     },
-    image
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    metaImageSrc
       ? {
-          name: "twitter:card",
-          content: "summary_large_image",
+          property: "twitter:image",
+          content: metaImageSrc,
         }
-      : {
-          name: "twitter:card",
-          content: "summary",
-        },
+      : undefined,
   ])
 
   return (
