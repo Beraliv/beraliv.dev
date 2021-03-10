@@ -1,25 +1,7 @@
-import { PreRenderHTMLArgs, RenderBodyArgs } from "gatsby"
-import React, { ReactElement, ReactNode } from "react"
-import { Helmet } from "react-helmet"
+import { RenderBodyArgs } from "gatsby"
+import React from "react"
 
-export const onRenderBody = ({
-  setHtmlAttributes,
-  setBodyAttributes,
-  setHeadComponents,
-  setPreBodyComponents,
-}: RenderBodyArgs) => {
-  const helmet = Helmet.renderStatic()
-  setHtmlAttributes(helmet.htmlAttributes.toComponent())
-  setBodyAttributes(helmet.bodyAttributes.toComponent())
-  setHeadComponents([
-    helmet.title.toComponent(),
-    helmet.link.toComponent(),
-    helmet.meta.toComponent(),
-    helmet.noscript.toComponent(),
-    helmet.script.toComponent(),
-    helmet.style.toComponent(),
-  ])
-
+export const onRenderBody = ({ setPreBodyComponents }: RenderBodyArgs) => {
   setPreBodyComponents([
     <script
       key="initial-dark-mode"
@@ -49,24 +31,4 @@ export const onRenderBody = ({
       }}
     />,
   ])
-}
-
-export const onPreRenderHTML = ({
-  getHeadComponents,
-  replaceHeadComponents,
-}: PreRenderHTMLArgs) => {
-  const headComponents = getHeadComponents() as ReactElement[]
-  headComponents.sort((x, y) => {
-    if (x.props && x.props["data-react-helmet"]) {
-      return -1
-    }
-
-    if (y.props && y.props["data-react-helmet"]) {
-      return 1
-    }
-
-    return 0
-  })
-
-  replaceHeadComponents(headComponents)
 }
