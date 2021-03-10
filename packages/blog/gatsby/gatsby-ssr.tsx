@@ -1,5 +1,5 @@
-import { PreRenderHTMLArgs, RenderBodyArgs } from "gatsby"
-import React, { ReactElement, ReactNode } from "react"
+import { RenderBodyArgs } from "gatsby"
+import React from "react"
 import { Helmet } from "react-helmet"
 
 export const onRenderBody = ({
@@ -49,24 +49,4 @@ export const onRenderBody = ({
       }}
     />,
   ])
-}
-
-export const onPreRenderHTML = ({
-  getHeadComponents,
-  replaceHeadComponents,
-}: PreRenderHTMLArgs) => {
-  const headComponents = getHeadComponents() as ReactElement[]
-  headComponents.sort((x, y) => {
-    if (x.props && x.props["data-react-helmet"]) {
-      return -1
-    }
-
-    if (y.props && y.props["data-react-helmet"]) {
-      return 1
-    }
-
-    return 0
-  })
-
-  replaceHeadComponents(headComponents)
 }
