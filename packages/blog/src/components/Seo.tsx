@@ -52,6 +52,9 @@ export const Seo: FunctionComponent<SeoProps> = ({
     ? `%s | ${site.siteMetadata.title}`
     : undefined
   const canonicalLink = getSeoCanonicalLink({ site, pathname })
+  const metaUrl = site?.siteMetadata?.siteUrl
+    ? `${site.siteMetadata.siteUrl}${pathname}`
+    : undefined
 
   const generalMeta: SeoMetaProp[] = filterUndefined([
     {
@@ -78,6 +81,10 @@ export const Seo: FunctionComponent<SeoProps> = ({
     {
       property: `og:type`,
       content: `website`,
+    },
+    {
+      property: `og:url`,
+      content: metaUrl,
     },
     metaImageSrc
       ? {
