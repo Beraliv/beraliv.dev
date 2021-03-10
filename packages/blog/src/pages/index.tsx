@@ -6,13 +6,17 @@ import { Seo } from "../components/Seo"
 import { BlogIndexQuery } from "../types/generated"
 
 const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
-  const siteTitle = data.site.siteMetadata.title || `Title`
+  if (!data.site?.siteMetadata?.title) {
+    throw new Error(`Cannot find siteMetadata.title in gatsby-config.ts`)
+  }
+
+  const { title } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+      <Layout location={location} title={title}>
+        <Seo title="All posts" pathname={location.pathname} />
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -24,12 +28,26 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+    <Layout location={location} title={title}>
+      <Seo title="All posts" pathname={location.pathname} />
       <Bio />
       <ol>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+        {posts.map((post, index) => {
+          if (!post.fields?.slug) {
+            throw new Error(`Cannot extract slug for post #${index + 1}`)
+          }
+
+          if (!post.frontmatter?.title) {
+            throw new Error(`Cannot find title in ${post.fields.slug}index.md`)
+          }
+
+          if (!post.frontmatter.description) {
+            throw new Error(
+              `Cannot find description in ${post.fields.slug}index.md`
+            )
+          }
+
+          const { description, title } = post.frontmatter
 
           return (
             <li className="post-list-item" key={post.fields.slug}>
@@ -45,7 +63,7 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: description,
                     }}
                     itemProp="description"
                   />
@@ -70,7 +88,6 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
-        excerpt
         fields {
           slug
         }

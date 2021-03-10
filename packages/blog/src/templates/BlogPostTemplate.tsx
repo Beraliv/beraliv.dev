@@ -11,6 +11,7 @@ const BlogPostTemplate = ({
 }: PageProps<BlogPostBySlugQueryType>) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title || `Title`
+  const image = post.frontmatter.image.childImageSharp.resize
   const { previous, next } = data
 
   return (
@@ -18,6 +19,8 @@ const BlogPostTemplate = ({
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={image}
+        pathname={location.pathname}
       />
       <article
         className="blog-post"
@@ -88,6 +91,15 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image: featured {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+              height
+              width
+            }
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

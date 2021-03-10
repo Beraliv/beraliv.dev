@@ -1,9 +1,9 @@
 ---
 title: Scrollbar customisation
 date: "2018-10-04"
-description:
-  What is the current state of scrollbar customisation?
+description: What is the current state of scrollbar customisation?
   Let's have a look at the browser capabilities, CSS hacks and JS libraries.
+featured: ./macos-scrollbar.png
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:
@@ -18,13 +18,27 @@ But the reality is… a customisation of scrollbars remains same since the end o
 ### ✅ Webkit and Blink
 
 ```css
-::-webkit-scrollbar {/** */}
-::-webkit-scrollbar-button {/** */}
-::-webkit-scrollbar-track {/** */}
-::-webkit-scrollbar-track-piece {/** */}
-::-webkit-scrollbar-thumb {/** */}
-::-webkit-scrollbar-corner {/** */}
-::-webkit-resizer {/** */}
+::-webkit-scrollbar {
+  /** */
+}
+::-webkit-scrollbar-button {
+  /** */
+}
+::-webkit-scrollbar-track {
+  /** */
+}
+::-webkit-scrollbar-track-piece {
+  /** */
+}
+::-webkit-scrollbar-thumb {
+  /** */
+}
+::-webkit-scrollbar-corner {
+  /** */
+}
+::-webkit-resizer {
+  /** */
+}
 ```
 
 It means at least it’s working on Chrome, Safari, Opera, [Edgium](https://www.windowscentral.com/faq-edge-chromium) (Edge based on WebKit for iOS and Blink for Android, Windows and MacOS) and and less known such as Vivaldi and [others](https://en.wikipedia.org/wiki/List_of_web_browsers#Blink-based).
@@ -115,18 +129,17 @@ Unfortunately some of libraries are plugins for jQuery: [jScrollPane](https://ww
 
 A size of scrollbar JS bundle should be worth it. However it’s not what it’s expected.
 
-
-| lib                                                                                   | minified (KB) | minified + gzipped (KB) |
-| :------------------------------------------------------------------------------------ | ------------: | ----------------------: |
-| 🕳️ size of black hole                                                                 | ∞             | ∞     |
-| [nanoscroller@0.8.7](https://bundlephobia.com/result?p=nanoscroller@0.8.7)            | 94.2          | 32.4  |
-| [simplebar@5.3.0](https://bundlephobia.com/result?p=simplebar@5.3.0)                  | 63.5          | 19    |
-| [iscroll@5.2.0](https://bundlephobia.com/result?p=iscroll@5.2.0)                      | 32.1          | 8.3   |
-| [perfect-scrollbar@1.5.0](https://bundlephobia.com/result?p=perfect-scrollbar@1.5.0)  | 18.2          | 5.3   |
-| 🤘 light enough                                                                       |               |       |
-| [slim-scroll@1.3.18](https://bundlephobia.com/result?p=slim-scroll@1.3.18)            | 4.2           | 1.8   |
-| 🔥 too good to be true                                                                |               |       |
-| [simple-scrollbar@0.4.0](https://bundlephobia.com/result?p=simple-scrollbar@0.4.0)    | 2.3           | 0.9   |
+| lib                                                                                  | minified (KB) | minified + gzipped (KB) |
+| :----------------------------------------------------------------------------------- | ------------: | ----------------------: |
+| 🕳️ size of black hole                                                                |             ∞ |                       ∞ |
+| [nanoscroller@0.8.7](https://bundlephobia.com/result?p=nanoscroller@0.8.7)           |          94.2 |                    32.4 |
+| [simplebar@5.3.0](https://bundlephobia.com/result?p=simplebar@5.3.0)                 |          63.5 |                      19 |
+| [iscroll@5.2.0](https://bundlephobia.com/result?p=iscroll@5.2.0)                     |          32.1 |                     8.3 |
+| [perfect-scrollbar@1.5.0](https://bundlephobia.com/result?p=perfect-scrollbar@1.5.0) |          18.2 |                     5.3 |
+| 🤘 light enough                                                                      |               |                         |
+| [slim-scroll@1.3.18](https://bundlephobia.com/result?p=slim-scroll@1.3.18)           |           4.2 |                     1.8 |
+| 🔥 too good to be true                                                               |               |                         |
+| [simple-scrollbar@0.4.0](https://bundlephobia.com/result?p=simple-scrollbar@0.4.0)   |           2.3 |                     0.9 |
 
 [Bundlephobia](https://bundlephobia.com/) helps evaluating sizes of bundles.
 
@@ -154,7 +167,6 @@ Probably you want to customise you own scrollbar. First have a look at [scrollba
 6. 📄 Stack Overflow: [Hide scroll bar, but while still being able to scroll](https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll)
 7. 📄 Stack Overflow: [Custom CSS Scrollbar for Firefox](https://stackoverflow.com/questions/6165472/custom-css-scrollbar-for-firefox)
 8. 📄 Stack Overflow: [CSS customized scroll bar in div](https://stackoverflow.com/questions/9251354/css-customized-scroll-bar-in-div)
-
 
 ## Conclusion
 

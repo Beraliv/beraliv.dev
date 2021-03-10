@@ -2,6 +2,7 @@
 title: What's inside Udemy player
 date: "2020-01-07"
 description: What do you know about WebVTT, statistics and DRM in video players? I had several hours to have a look at Udemy player
+featured: ./udemy-player-page.png
 ---
 
 ![Udemy player page](./udemy-player-page.png)

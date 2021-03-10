@@ -2,6 +2,7 @@
 title: Research Joyn scripts obfuscation
 date: "2020-05-04"
 description: Did you hear anything about code obfuscation? Let’s have a look at Joyn video player and how they use that in production.
+featured: ./joyn-player-page.png
 ---
 
 ![Joyn player page for TV series](./joyn-player-page.png)

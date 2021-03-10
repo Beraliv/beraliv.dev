@@ -10,6 +10,7 @@ module.exports = {
     social: {
       twitter: `beraliv`,
     },
+    keywords: ["development", "players", "typescript"],
   },
   plugins: [
     {
@@ -80,5 +81,11 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+      },
+    },
   ],
 }
