@@ -11,7 +11,7 @@ import { filterUndefined } from "../functions/filterUndefined"
 import { getSeoCanonicalLink } from "../functions/getSeoCanonicalLink"
 import { getSeoDescription } from "../functions/getSeoDescription"
 import { useSeoQuery } from "../hooks/useSeoQuery"
-import { ImageSharpResize, SeoQuery } from "../types/generated"
+import { ImageSharpResize } from "../types/generated"
 
 type SeoMetaProp =
   | {
