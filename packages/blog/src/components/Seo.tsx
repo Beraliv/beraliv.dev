@@ -61,6 +61,10 @@ export const Seo: FunctionComponent<SeoProps> = ({
       name: `description`,
       content: metaDescription,
     },
+    {
+      name: `image`,
+      content: metaImageSrc,
+    },
     metaKeywords
       ? {
           name: "keywords",
