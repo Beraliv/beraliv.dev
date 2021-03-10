@@ -121,15 +121,16 @@ export const Seo: FunctionComponent<SeoProps> = ({
       name: `twitter:description`,
       content: metaDescription,
     },
-    image
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    metaImageSrc
       ? {
-          name: "twitter:card",
-          content: "summary_large_image",
+          property: "twitter:image",
+          content: metaImageSrc,
         }
-      : {
-          name: "twitter:card",
-          content: "summary",
-        },
+      : undefined,
   ])
 
   return (
