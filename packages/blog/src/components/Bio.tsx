@@ -6,16 +6,34 @@
  */
 
 import React from "react"
-import Image from "gatsby-image"
+import Image, { FixedObject } from "gatsby-image"
 import { useBioQuery } from "../hooks/useBioQuery"
 
 export const Bio = () => {
   const data = useBioQuery()
 
+  if (!data.site?.siteMetadata?.author) {
+    throw new Error(`Cannot find site.siteMetadata.author in gatsby-config.ts`)
+  }
+
+  if (!data.site.siteMetadata.social) {
+    throw new Error(`Cannot find site.siteMetadata.social in gatsby-config.ts`)
+  }
+
   // Set these values by editing "siteMetadata" in gatsby-config.js
   const { author, social } = data.site.siteMetadata
 
-  const avatar = data.avatar.childImageSharp.fixed
+  if (!author.name) {
+    throw new Error(
+      `Cannot find site.siteMetadata.author.name in gatsby-config.ts`
+    )
+  }
+
+  if (!data.avatar?.childImageSharp?.fixed) {
+    throw new Error(`Cannot find blog/content/assets/profile-pic.jpg`)
+  }
+
+  const avatar = data.avatar.childImageSharp.fixed as FixedObject
 
   return (
     <div className="bio">
@@ -32,7 +50,11 @@ export const Bio = () => {
       <p>
         Written by <strong>{author.name}</strong> {author.summary}
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`https://twitter.com/${social.twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Follow me on Twitter
         </a>
       </p>
