@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "react",
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "pretty": true,
+    "strict": true,
+    "target": "ES2015"
+  },
+  "include": ["src/**/*", "gatsby/**/*"]
+}
