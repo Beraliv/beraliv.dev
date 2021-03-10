@@ -2,6 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "jsx": "react",
+    "moduleResolution": "node",
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "pretty": true,
