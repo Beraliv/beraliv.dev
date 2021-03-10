@@ -4,7 +4,7 @@ on: push
 
 jobs:
   test:
-    name: unit
+    name: blog
     timeout-minutes: 10
     strategy:
       fail-fast: false
@@ -21,4 +21,4 @@ jobs:
       - run: git fetch origin ${{ github.ref }} --depth=100
       - run: git diff origin/main...HEAD --name-only
       - run: yarn install --network-timeout 1000000
-      - run: yarn workspace blog run test
+      - run: yarn test:blog
