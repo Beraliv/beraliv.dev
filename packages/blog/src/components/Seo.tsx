@@ -7,23 +7,26 @@
 
 import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
+import { filterUndefined } from "../functions/filterUndefined"
+import { getSeoCanonicalLink } from "../functions/getSeoCanonicalLink"
+import { getSeoDescription } from "../functions/getSeoDescription"
 import { useSeoQuery } from "../hooks/useSeoQuery"
-import { ImageSharpResize } from "../types/generated"
+import { ImageSharpResize, SeoQuery } from "../types/generated"
+
+type SeoMetaProp =
+  | {
+      property: string
+      content: string
+    }
+  | {
+      name: string
+      content: string
+    }
 
 type SeoProps = {
   description?: string
   lang?: string
-  meta?:
-    | {
-        property: string
-        content: any
-        name?: undefined
-      }
-    | {
-        name: string
-        content: any
-        property?: undefined
-      }[]
+  meta?: SeoMetaProp[]
   image?: Pick<ImageSharpResize, "src" | "width" | "height">
   title: string
   pathname: string
@@ -39,100 +42,96 @@ export const Seo: FunctionComponent<SeoProps> = ({
 }) => {
   const site = useSeoQuery()
 
-  const metaDescription = description || site.siteMetadata.description
-  const metaKeywords = site.siteMetadata.keywords.join(",")
-  const metaImage =
-    site.siteMetadata.siteUrl && image?.src
+  const metaDescription = getSeoDescription({ description, site, pathname })
+  const metaKeywords = site?.siteMetadata?.keywords?.join(",")
+  const metaImageSrc =
+    site?.siteMetadata?.siteUrl && image?.src
       ? `${site.siteMetadata.siteUrl}${image.src}`
       : undefined
+  const titleTemplate = site?.siteMetadata?.title
+    ? `%s | ${site.siteMetadata.title}`
+    : undefined
+  const canonicalLink = getSeoCanonicalLink({ site, pathname })
 
-  const canonical =
-    site.siteMetadata.siteUrl && pathname
-      ? `${site.siteMetadata.siteUrl}${pathname}`
-      : null
+  const generalMeta: SeoMetaProp[] = filterUndefined([
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    metaKeywords
+      ? {
+          name: "keywords",
+          content: metaKeywords,
+        }
+      : undefined,
+  ])
+
+  const openGraphMeta: SeoMetaProp[] = filterUndefined([
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+    metaImageSrc
+      ? {
+          property: "og:image",
+          content: metaImageSrc,
+        }
+      : undefined,
+    image
+      ? {
+          property: "og:image:width",
+          content: `${image.width}`,
+        }
+      : undefined,
+    image
+      ? {
+          property: "og:image:height",
+          content: `${image.height}`,
+        }
+      : undefined,
+  ])
+
+  const twitterMeta: SeoMetaProp[] = filterUndefined([
+    site?.siteMetadata?.social?.twitter
+      ? {
+          name: `twitter:creator`,
+          content: site.siteMetadata.social.twitter,
+        }
+      : undefined,
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription,
+    },
+    image
+      ? {
+          name: "twitter:card",
+          content: "summary_large_image",
+        }
+      : {
+          name: "twitter:card",
+          content: "summary",
+        },
+  ])
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
+      htmlAttributes={{ lang }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      link={
-        canonical
-          ? [
-              {
-                rel: "canonical",
-                href: canonical,
-              },
-            ]
-          : []
-      }
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: "keywords",
-          content: metaKeywords,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        site.siteMetadata?.social?.twitter
-          ? {
-              name: `twitter:creator`,
-              content: site.siteMetadata.social.twitter,
-            }
-          : undefined,
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]
-        .concat(
-          image
-            ? [
-                {
-                  property: "og:image",
-                  content: metaImage,
-                },
-                {
-                  property: "og:image:width",
-                  content: `${image.width}`,
-                },
-                {
-                  property: "og:image:height",
-                  content: `${image.height}`,
-                },
-                {
-                  name: "twitter:card",
-                  content: "summary_large_image",
-                },
-              ]
-            : [
-                {
-                  name: "twitter:card",
-                  content: "summary",
-                },
-              ]
-        )
-        .concat(meta)
-        .filter(Boolean)}
+      titleTemplate={titleTemplate}
+      link={canonicalLink}
+      meta={[...generalMeta, ...openGraphMeta, ...twitterMeta, ...meta]}
     />
   )
 }
