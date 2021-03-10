@@ -1,25 +1,7 @@
 import { RenderBodyArgs } from "gatsby"
 import React from "react"
-import { Helmet } from "react-helmet"
 
-export const onRenderBody = ({
-  setHtmlAttributes,
-  setBodyAttributes,
-  setHeadComponents,
-  setPreBodyComponents,
-}: RenderBodyArgs) => {
-  const helmet = Helmet.renderStatic()
-  setHtmlAttributes(helmet.htmlAttributes.toComponent())
-  setBodyAttributes(helmet.bodyAttributes.toComponent())
-  setHeadComponents([
-    helmet.title.toComponent(),
-    helmet.link.toComponent(),
-    helmet.meta.toComponent(),
-    helmet.noscript.toComponent(),
-    helmet.script.toComponent(),
-    helmet.style.toComponent(),
-  ])
-
+export const onRenderBody = ({ setPreBodyComponents }: RenderBodyArgs) => {
   setPreBodyComponents([
     <script
       key="initial-dark-mode"
