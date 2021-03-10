@@ -61,10 +61,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
       name: `description`,
       content: metaDescription,
     },
-    {
-      name: `image`,
-      content: metaImageSrc,
-    },
+    metaImageSrc
+      ? {
+          name: `image`,
+          content: metaImageSrc,
+        }
+      : undefined,
     metaKeywords
       ? {
           name: "keywords",
@@ -86,10 +88,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
       property: `og:type`,
       content: `website`,
     },
-    {
-      property: `og:url`,
-      content: metaUrl,
-    },
+    metaUrl
+      ? {
+          property: `og:url`,
+          content: metaUrl,
+        }
+      : undefined,
     metaImageSrc
       ? {
           property: "og:image",
