@@ -14,10 +14,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `G-39YRHQ4VQN`,
-        head: true,
+        trackingIds: [`G-39YRHQ4VQN`],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     {
