@@ -2,6 +2,7 @@
 @tailwind components;
 
 /* HTML elements */
+/* purgecss start ignore */
 
 *,
 :after,
@@ -255,5 +256,7 @@ a:focus {
     @apply list-inside;
   }
 }
+
+/* purgecss end ignore */
 
 @tailwind utilities;
