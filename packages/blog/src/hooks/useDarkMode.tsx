@@ -3,7 +3,7 @@ import { useCallback, useLayoutEffect, useState } from "react"
 const STORAGE_KEY = "dark"
 const CLASSNAME = "dark"
 
-export const INITIAL_DARK_MODE = (() => {
+export const getInitialDarkMode = () => {
   try {
     const persistedDarkMode = localStorage.getItem(STORAGE_KEY)
     if (persistedDarkMode === null) {
@@ -14,7 +14,7 @@ export const INITIAL_DARK_MODE = (() => {
   } catch (error) {
     return false
   }
-})()
+}
 
 const updateStorage = (darkMode: boolean) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(darkMode))
@@ -30,7 +30,7 @@ type UseDarkModeReturnValue = {
 }
 
 export const useDarkMode = (): UseDarkModeReturnValue => {
-  const [darkMode, setDarkMode] = useState(INITIAL_DARK_MODE)
+  const [darkMode, setDarkMode] = useState(getInitialDarkMode())
 
   const toggle = useCallback(() => {
     const nextDarkMode = !darkMode
