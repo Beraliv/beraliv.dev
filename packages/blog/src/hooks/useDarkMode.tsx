@@ -32,11 +32,6 @@ type UseDarkModeReturnValue = {
 export const useDarkMode = (): UseDarkModeReturnValue => {
   const [darkMode, setDarkMode] = useState(INITIAL_DARK_MODE)
 
-  useLayoutEffect(() => {
-    updateStorage(INITIAL_DARK_MODE)
-    updateDom(INITIAL_DARK_MODE)
-  }, [])
-
   const toggle = useCallback(() => {
     const nextDarkMode = !darkMode
     updateStorage(nextDarkMode)
