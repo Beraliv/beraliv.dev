@@ -1,3 +1,5 @@
+const path = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `beraliv`,
@@ -89,6 +91,9 @@ module.exports = {
       options: {
         tailwind: true,
         develop: true,
+        content: [
+          path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
+        ],
       },
     },
   ],
