@@ -69,4 +69,36 @@ describe("useDarkMode", () => {
     expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY))).toBe(false)
     expect(document.body.classList.value).toBe("")
   })
+
+  test("obtains correctly after remount value (false)", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false))
+
+    const { result: firstComponentResult, unmount } = renderHook(() =>
+      useDarkMode()
+    )
+
+    const darkModeBefore = firstComponentResult.current.darkMode
+
+    unmount()
+
+    const { result: secondComponentResult } = renderHook(() => useDarkMode())
+
+    expect(secondComponentResult.current.darkMode).toBe(darkModeBefore)
+  })
+
+  test("obtains correctly after remount value (true)", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true))
+
+    const { result: firstComponentResult, unmount } = renderHook(() =>
+      useDarkMode()
+    )
+
+    const darkModeBefore = firstComponentResult.current.darkMode
+
+    unmount()
+
+    const { result: secondComponentResult } = renderHook(() => useDarkMode())
+
+    expect(secondComponentResult.current.darkMode).toBe(darkModeBefore)
+  })
 })
