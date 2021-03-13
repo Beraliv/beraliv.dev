@@ -14,13 +14,13 @@ Not a long time ago I revealed [type-challenges](https://github.com/type-challen
 
 As I said, there's a repo on GitHub: [type-challenges](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md). The current challenge is located in "hard" category.
 
-Here we can work only with objects (as the solution doesn't require accessing arrays) and also we always can access object keys as they are defined in test cases.
+Here we work only with objects (as the solution doesn't require accessing arrays) and also we always can access object keys as they are defined in test cases.
 
-So what should we start from?
+So what should we start then from?
 
 ### Getting keys
 
-So imagine we solve the same challenge in JavaScript:
+Imagine we solve the same challenge in JavaScript:
 
 ```js
 const get = (obj, path) => {
@@ -30,7 +30,7 @@ const get = (obj, path) => {
 }
 ```
 
-Before calling `keys.reduce` we need to get a list of keys. In JavaScript we can call `path.split('.')`
+Before calling `keys.reduce` we need to get a list of keys. In JavaScript we call `path.split('.')`
 
 Similarly in TypeScript: somehow we need to get the keys from the path string
 
@@ -40,7 +40,7 @@ I will use `Path` type to do so:
 
 ![Path transforms a string into keys, version 1](./path-v1.png)
 
-It looks very simple and short. However once we write tests, we will understand what we missed: [Playground validation](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXKtOyA9ACooAfWcvXL3JOBQAwnAqSnNyDHKDsbWUYAWzAAe3YveigAUQBHAFc4ABstJIJIAGMvPigWdhjIqAByAAFQSABafMQszNIAc0kbNOBGTIpK2Vk66Hy-AJwVM1yC4GRUjMzkPRRKmJIIeoBrXnqwBERK9C0VVfWtnb2kSuN0I6m8iEK59Kyl-eRKgCZzkAFLg6Oqi+P0qWkq-2utw09xmzwWb30lSQ7AgEAE21+EMBJ2RqNBVQx+PB+0hd2MQA). We forgot the case with one key left. Let's add it:
+It looks very simple and short. However once we write tests, we understand what was missed: [Playground validation](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXKtOyA9ACooAfWcvXL3JOBQAwnAqSnNyDHKDsbWUYAWzAAe3YveigAUQBHAFc4ABstJIJIAGMvPigWdhjIqAByAAFQSABafMQszNIAc0kbNOBGTIpK2Vk66Hy-AJwVM1yC4GRUjMzkPRRKmJIIeoBrXnqwBERK9C0VVfWtnb2kSuN0I6m8iEK59Kyl-eRKgCZzkAFLg6Oqi+P0qWkq-2utw09xmzwWb30lSQ7AgEAE21+EMBJ2RqNBVQx+PB+0hd2MQA). We forgot the case with only one key left. Let's add it:
 
 ![Path transforms a string into keys, final version](./path-v2.png)
 
@@ -48,7 +48,7 @@ To play with it, have a look at [Playground with tests cases](https://www.typesc
 
 ### Reducing the object
 
-After having the keys, we can finally can call `keys.reduce`. To do so, we can use another type `GetWithArray` so we already know that keys are an array of string:
+After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are an array of strings:
 
 ![Get with array, version 1](./get-with-array-v1.png)
 
@@ -79,10 +79,12 @@ To solve the challenge we needed to know several TypeScript concepts:
    ![Example of a conditional type](./conditional-types.png)
 2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
    ![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
-3. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which was introduced in TypeScript 4.1
+3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which was introduced in TypeScript 4.1
+   ![Example of recursive conditional types](./recursive-conditional-types.png)
+4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which was also introduced in TypeScript 4.1
    ![Example of template literal types](./template-literal-types.png)
 
-## Problems
+## Problems (TODO)
 
 1. `Path`
    - It doesn't accept empty string (it will return `['']`)

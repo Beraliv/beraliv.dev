@@ -69,3 +69,7 @@ type GetWithArray<O, K> = K extends []
 /** Get */
 
 type Get<O, P> = GetWithArray<O, Path<P>>
+
+/** Recursive conditional types */
+
+type ElementType<T> = T extends ReadonlyArray<infer U> ? ElementType<U> : T
