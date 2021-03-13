@@ -38,9 +38,17 @@ Thankfully, since TypeScript 4.1 we have [Template Literal types](https://devblo
 
 I will use `Path` type to do so:
 
-![Path transforms a string into keys](./path-transforms-string-into-keys.png)
+![Path transforms a string into keys](./path-v1.png)
+
+It looks very simple and short. However once we write tests, we will understand what we missed: [Playground validation](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXKtOyA9ACooAfWcvXL3JOBQAwnAqSnNyDHKDsbWUYAWzAAe3YveigAUQBHAFc4ABstJIJIAGMvPigWdhjIqAByAAFQSABafMQszNIAc0kbNOBGTIpK2Vk66Hy-AJwVM1yC4GRUjMzkPRRKmJIIeoBrXnqwBERK9C0VVfWtnb2kSuN0I6m8iEK59Kyl-eRKgCZzkAFLg6Oqi+P0qWkq-2utw09xmzwWb30lSQ7AgEAE21+EMBJ2RqNBVQx+PB+0hd2MQA). We forgot the case with one key left. Let's add it:
+
+![Path transforms a string into keys](./path-v2.png)
 
 To play with it, have a look at [Playground with tests cases](https://www.typescriptlang.org/play?ssl=5&ssc=9&pln=1&pc=1#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWYXK1vUwoWWVp2QB6ACooAH0IyKjI3ElgKABhOApJcOj0sKhgwNlGAFswAHt2ePooAFEARwBXOAAbLXKCSABjeL4oFnZCvKgAcgABUEgAWhbEerrSAHNJQOrgRjqKPtlZYegW5NScFTMm1uBkKtq65D0UPsKSCBGAa14RsAREPvQtFSub+8fnpD7jOh3vtmhA2scavVzi9kH0AEw-EACP6vd6qeGIvpaPoogFAjQgw4Q07Q-R9JDsCAQAQPJG4tGfClUrH9WksnEvPHA4xAA)
+
+### Reducing the object
+
+After having the keys, we can finally can call `keys.reduce`. To do so, we can use another type `GetWithArray` so we already know that keys are an array of string:
 
 ### Summary
 
@@ -56,6 +64,5 @@ To solve the challenge we needed to know several TypeScript concepts:
 ## Problems
 
 1. `Path`
-
-- It doesn't accept empty string (it will return `['']`)
-- We don't validate incorrect characters (we can pass `number` or `object`)
+   - It doesn't accept empty string (it will return `['']`)
+   - We don't validate incorrect characters (we can pass `number` or `object`)

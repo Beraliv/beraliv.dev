@@ -34,14 +34,26 @@ type FilterUndefined<T> = T extends undefined ? never : T
 
 type AnyFunction = (...args: any) => any
 
-type Parameters<T extends AnyFunction> = T extends (...args: infer P) => any
+type MyParameters<T extends AnyFunction> = T extends (...args: infer P) => any
   ? P
   : never
 
 /** Path */
 
-type Path<T> = T extends `${infer Key}.${infer Rest}`
-  ? [Key, ...Path<Rest>]
+type PathV1<T> = T extends `${infer Key}.${infer Rest}`
+  ? [Key, ...PathV1<Rest>]
+  : []
+
+type PathV2<T> = T extends `${infer Key}.${infer Rest}`
+  ? [Key, ...PathV2<Rest>]
   : T extends `${infer Key}`
   ? [Key]
   : []
+
+/** GetWithArray */
+
+type GetWithArray<O, K> = K extends [infer Key, ...infer Rest]
+  ? Key extends keyof O
+    ? GetWithArray<O[Key], Rest>
+    : never
+  : never
