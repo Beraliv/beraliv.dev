@@ -73,3 +73,58 @@ type Get<O, P> = GetWithArray<O, Path<P>>
 /** Recursive conditional types */
 
 type ElementType<T> = T extends ReadonlyArray<infer U> ? ElementType<U> : T
+
+/** Problem 1 with current solution */
+
+type ProductionObject = {
+  description?: string
+  title: string
+  date: string
+  author?: {
+    name: string
+    location?: {
+      city: string
+    }
+  }
+}
+
+type Step1 = Get<ProductionObject, "author">
+/** ✅
+  {
+    name: string;
+    location?: {
+        city: string;
+    } | undefined;
+  } | undefined
+ */
+
+type Step2 = Get<Step1, "name">
+// never ❌
+
+/** FilterUndefined & FilterNull */
+
+type FilterUndefined<T> = T extends undefined ? never : T
+
+type FilterNull<T> = T extends null ? never : T
+
+type FilterUndefinedAndNull<T> = FilterUndefined<FilterNull<T>>
+
+/** Updated GetWithArray */
+
+type GetWithArray<O, K> = K extends []
+  ? O
+  : K extends [infer Key, ...infer Rest]
+  ? Key extends keyof O
+    ? GetWithArray<O[Key], Rest>
+    : never // <- let's update this branch 🔄
+  : never
+
+type GetWithArray<O, K> = K extends []
+  ? O
+  : K extends [infer Key, ...infer Rest]
+  ? Key extends keyof O
+    ? GetWithArray<O[Key], Rest>
+    : Key extends keyof FilterUndefinedAndNull<O>
+    ? GetWithArray<FilterUndefinedAndNull<O>[Key], Rest> | undefined
+    : undefined
+  : never
