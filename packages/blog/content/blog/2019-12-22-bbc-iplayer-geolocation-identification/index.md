@@ -42,7 +42,7 @@ Let’s go through it to get a general idea of what is going on here:
    - If [saved](https://gist.github.com/Beraliv/158cc85b53277a332d7298a7563266c4#file-bbcuser-js-L76), data is used from the closure
    - If fetch and CORS-requests are allowed, GET-request is initiated from the user profile (for bbc.co.uk it is https://www.bbc.co.uk/userinfo), after first time the response is cached. The response looks like:
      ![iPlayer userinfo response](./iplayer-userinfo-response.png)
-   - Otherwise, there’s a [fallback function](https://gist.github.com/Beraliv/158cc85b53277a332d7298a7563266c4#file-bbcuser-js-L46) which loads module `orb/fig` with `_figManager.js`. It uses microservice which is available on https://fig.bbc.co.uk/frameworks/fig/2/fig.js and returns a code which is executed later on. The most interest part here is a parameter `uk` — it equals `1` if the request has been sent from the UK, otherwise `0`
+   - Otherwise, there’s a [fallback function](https://gist.github.com/Beraliv/158cc85b53277a332d7298a7563266c4#file-bbcuser-js-L46) which loads module `orb/fig` with `_figManager.js`. It uses microservice which is available on [`fig.js`](https://fig.bbc.co.uk/frameworks/fig/2/fig.js) and returns a code which is executed later on. The most interest part here is a parameter `uk` — it equals `1` if the request has been sent from the UK, otherwise `0`
    - If the request hasn’t been sent from the UK, watching is prohibited due to rights issues.
    - As I investigated iPlayer from Russia, it returned `0` and the content wasn’t available. The response was:
      ![iPlayer fig response](./iplayer-fig-response.png)

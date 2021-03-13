@@ -1,11 +1,11 @@
-import { useCallback, useLayoutEffect, useState } from "react"
+import { useCallback, useState } from "react"
 
-const STORAGE_KEY = "dark"
-const CLASSNAME = "dark"
+export const DARK_MODE_STORAGE_KEY = "dark"
+export const DARK_MODE_CLASSNAME = "dark"
 
-export const INITIAL_DARK_MODE = (() => {
+export const getInitialDarkMode = () => {
   try {
-    const persistedDarkMode = localStorage.getItem(STORAGE_KEY)
+    const persistedDarkMode = localStorage.getItem(DARK_MODE_STORAGE_KEY)
     if (persistedDarkMode === null) {
       return false
     }
@@ -14,14 +14,14 @@ export const INITIAL_DARK_MODE = (() => {
   } catch (error) {
     return false
   }
-})()
+}
 
 const updateStorage = (darkMode: boolean) => {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(darkMode))
+  localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(darkMode))
 }
 
 const updateDom = (darkMode: boolean) => {
-  document.body.classList.toggle(CLASSNAME, darkMode)
+  document.body.classList.toggle(DARK_MODE_CLASSNAME, darkMode)
 }
 
 type UseDarkModeReturnValue = {
@@ -30,12 +30,7 @@ type UseDarkModeReturnValue = {
 }
 
 export const useDarkMode = (): UseDarkModeReturnValue => {
-  const [darkMode, setDarkMode] = useState(INITIAL_DARK_MODE)
-
-  useLayoutEffect(() => {
-    updateStorage(INITIAL_DARK_MODE)
-    updateDom(INITIAL_DARK_MODE)
-  }, [])
+  const [darkMode, setDarkMode] = useState(getInitialDarkMode())
 
   const toggle = useCallback(() => {
     const nextDarkMode = !darkMode
