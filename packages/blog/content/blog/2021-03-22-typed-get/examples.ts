@@ -1,6 +1,6 @@
 /** Featured */
 
-type Get<O, P> = never // implementation
+// type Get<O, P> = never // implementation
 
 type Step1 = Get<
   {
@@ -44,16 +44,28 @@ type PathV1<T> = T extends `${infer Key}.${infer Rest}`
   ? [Key, ...PathV1<Rest>]
   : []
 
-type PathV2<T> = T extends `${infer Key}.${infer Rest}`
-  ? [Key, ...PathV2<Rest>]
+type Path<T> = T extends `${infer Key}.${infer Rest}`
+  ? [Key, ...Path<Rest>]
   : T extends `${infer Key}`
   ? [Key]
   : []
 
 /** GetWithArray */
 
-type GetWithArray<O, K> = K extends [infer Key, ...infer Rest]
+type GetWithArrayV1<O, K> = K extends [infer Key, ...infer Rest]
+  ? Key extends keyof O
+    ? GetWithArrayV1<O[Key], Rest>
+    : never
+  : never
+
+type GetWithArray<O, K> = K extends []
+  ? O
+  : K extends [infer Key, ...infer Rest]
   ? Key extends keyof O
     ? GetWithArray<O[Key], Rest>
     : never
   : never
+
+/** Get */
+
+type Get<O, P> = GetWithArray<O, Path<P>>
