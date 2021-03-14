@@ -226,10 +226,6 @@ table thead tr th {
   @apply list-none;
 }
 
-.gatsby-highlight {
-  @apply mb-8;
-}
-
 .gatsby-video {
   @apply w-full;
 }

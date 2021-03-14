@@ -54,12 +54,23 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
             resolve: `gatsby-remark-figure-caption`,
             options: { figureClassName: "md-figure" },
+          },
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: "Light (Visual Studio)",
+                parentSelector: {
+                  "body:not(.dark)": "Light (Visual Studio)",
+                  "body.dark": "Dark (Visual Studio)",
+                },
+              },
+            },
           },
         ],
       },
@@ -90,10 +101,11 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
-        develop: true,
+        develop: false,
         content: [
           path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
         ],
+        ignore: ["gatsby-remark-vscode/styles.css"],
       },
     },
   ],
