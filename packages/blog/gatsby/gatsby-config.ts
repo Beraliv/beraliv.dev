@@ -94,6 +94,7 @@ module.exports = {
         content: [
           path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
         ],
+        ignore: ["prismjs/themes/prism.css"],
       },
     },
   ],
