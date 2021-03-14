@@ -128,3 +128,86 @@ type GetWithArray<O, K> = K extends []
     ? GetWithArray<FilterUndefinedAndNull<O>[Key], Rest> | undefined
     : undefined
   : never
+
+/* GetWithArray with arrays */
+
+// Expect `string | undefined` but got `string` ❌
+type A1 = GetWithArray<ProductionObject, ["keywords", 0]>
+// Expect `string | undefined` but got `undefined` ❌
+type A2 = GetWithArray<ProductionObject, ["keywords", "0"]>
+
+/* ArrayElement test cases */
+
+const arr = [0, 1, 2, 3]
+const constArr = [0, 1, 2, 3] as const
+
+type cases2 = [
+  /* also support number-to-number */
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "0">, 0>>,
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "1">, 1>>,
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "2">, 2>>,
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "3">, 3>>,
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "4">, undefined>>,
+  Expect<Equal<ArrayElement<typeof constArr, "0">, 0>>,
+  Expect<Equal<ArrayElement<typeof constArr, "1">, 1>>,
+  Expect<Equal<ArrayElement<typeof constArr, "2">, 2>>,
+  Expect<Equal<ArrayElement<typeof constArr, "3">, 3>>,
+  Expect<Equal<ArrayElement<typeof constArr, "4">, undefined>>,
+  Expect<Equal<ArrayElement<number[], "0">, number | undefined>>,
+  Expect<Equal<ArrayElement<number[], "1">, number | undefined>>,
+  Expect<Equal<ArrayElement<number[], "2">, number | undefined>>,
+  Expect<Equal<ArrayElement<number[], "3">, number | undefined>>,
+  Expect<Equal<ArrayElement<number[], "4">, number | undefined>>,
+  Expect<
+    Equal<ArrayElement<(number | string)[], "4">, number | string | undefined>
+  >,
+  Expect<Equal<ArrayElement<(number | undefined)[], "4">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "0">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "1">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "2">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "3">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "4">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "0">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "1">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "2">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "3">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "4">, number | undefined>>
+]
+
+/* ArrayElement, v1 */
+
+type ArrayElement<A, K> = K extends keyof A ? A[K] : undefined
+
+/* ArrayElement, v2 */
+
+type ArrayElement<A, K> = K extends keyof A
+  ? A[K]
+  : A extends (infer T)[]
+  ? T | undefined
+  : undefined
+
+/* Extends */
+
+type LocalExtends<T extends any[], E extends any> = {
+  [K in keyof T]: E extends T[K] ? true : false
+}
+
+type Extends<T extends any[]> = {
+  [K in keyof T]: LocalExtends<T, T[K]>
+}
+
+type A = Extends<[[0, 1, 2, 3], number[], readonly number[], any[]]>
+
+/* ArrayElement, final solution */
+
+type ArrayElement<A, K> = any[] extends A
+  ? A extends (infer T)[]
+    ? T | undefined
+    : A extends readonly (infer T)[]
+    ? T | undefined
+    : undefined
+  : A extends readonly any[]
+  ? K extends keyof A
+    ? A[K]
+    : undefined
+  : undefined

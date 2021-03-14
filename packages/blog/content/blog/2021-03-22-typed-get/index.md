@@ -123,6 +123,112 @@ Let's add tests and check if it's working: [Playground](https://www.typescriptla
 
 Good job ✅
 
+## Path with accessing arrays
+
+The next desired step for me is to support arrays
+
+The indices will be [string literals](https://www.typescriptlang.org/docs/handbook/literal-types.html#string-literal-types) as we declare the path as a string
+
+First, let's check why we don't use `GetWithArray` as is for arrays:
+
+### Reducing objects and arrays
+
+Let's have examples to understand it better. I added `keywords` and `tags` to `ProductionObject`. Let's have a look: [Playground](https://www.typescriptlang.org/play?ssl=20&ssc=6&pln=20&pc=22#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmlZaABxCGAAdThgAAsXFBQAQxBiAHkAGigAaU0i+iYIVigAbQBdSShjHPqLQrLdNiqCXFFCiBACgDohrtEAJQgWYDqGhoFekDaKvSgAaz6Ae1woJpmZgViEpNT0rNyq+ZqC8cmI3YaJecXKtZBNn0UHbmc3LFDc27usygB0SKTSmWywXs-h4rnchn+5z6lyg12AlAAPhwYc5moCJJxHLC8RZhKhpAB6ABUUAA+vSGYyGbQJsAoABhDIsCZ0pl82lQKkUyRwAC2YHWKDZAG8oABRACO7AyCAKcoYkAAxmyAL5QXAodaiqAAcgAAlEALSa5IqhAVADmEwp7GAiBYJsi1igAAVDVh2Nq4OsMDkAEYAKwg2u80uaOBYmpQcDAbpDfAkk2TGAdzTdwHtmeA2dzDSwGWQRZLzQyruSkozUDjuwwGVFECrBFLMwQ601FeDGEbzbumqSIE7OZJOuaM4aLwA7pK9JOHbUANx5jIOlgSKomqKJ5Opk0FE0oCAZbUmuozqxyFwARm8IKO4NOfvWAaDIfDUe1BT7ouy4egUAAMNTkOuUAUhSUBZl2UCADLk97QC4ABML5xKCxwQsQn7fmmoaRtGwCASawEoHop6mmBN5QTBcGEl8vAoahUD9tybA0FUzTqlqwDEIqyrqK+YInNkBGBkRf6keR+b2vRBQITm5DkHkfEaqRQlKiqxBibhH7+tJg6yQB1QmuWyBKfBxZdmpGkNPx2nCXpBnvpJxk-sR-5kRZCZJimRE2SpDpQFizEBFgDmaQJOkifp2FvhJ+FeTJJHmfutYpJKNEmq27YhXZObhdiRLODFTladq8VuUl4l4VJ3lmX5WV1rlZ69v2wVnmOoBFSWpWRbClXytVgmuaJ9WGZ5X4mb+GWtSa2X1igeX9lReUGKKYaoDZw0VepzTUjSGQSWwQqxS5ulTYcDVGXNzWLeRlHUWedGQcpxVhRFOJEKNzk1ZNiV3TNqWPelvkvX0S5UaBUAQeptmDb95X-UdVVxcD7kpU1kNyRZwDbvDJofUjB7WEeQUmgD421bdOEeeDhGmc9hPEzRiNnoegUnjFNRAA)
+
+We see that readonly arrays are working perfect while normal arrays do not:
+
+![GetWithArray for arrays](./get-with-array-for-arrays.png)
+
+Let me have another example to make it clear:
+
+```ts
+const tags: string[] = ["one", "2", "three"]
+
+const first = tags[0]
+const last = tags[2]
+const nonExisting = tags[3]
+```
+
+By default, if you don't use `noUncheckedIndexedAccess` in tsconfig, it will infer `string` in all the cases. The same in types: by default index access will lead to `string` however I expect `string | undefined`
+
+### Tests
+
+First, let's start with what we want to see as result:
+
+![ArrayElement test cases](./array-element-tests.png)
+
+1. If there is a specific readonly array (e.g. `[0, 1, 2, 3]`)
+   - For existing index, we expect exact value (e.g. `0` for `'0'`, `1` for `'1'` and so on)
+   - For non-existing index, we expect `undefined`
+2. For other cases (e.g. `number[]`, `readonly number[]`) we expect `number | undefined`
+
+You can see test cases in [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4ocIA3COAbgChWB6AKigH1+BggVAAqEAM7AoAYUTiJfIUt5QuHVgEtMYAPZwpAbygoAjgFdEaEigAekAMZSAvlABmcHZigByAAKhIAFp7AAtLDBwAcwkOM2ANNHFvdnsdHEkoRARqKABtAAYSAEYSACYSAGYAXVZU9Kk6yXg4HILissqqzPEoRuB2AOh7OQlS1tYoKG5MxJ0ocTMwXX1aM0wAIyZA4B1AnDXNlrUJ4zsIR3xTCzRCBGR0LFwCNqgSqHKoapJvfO9yEny5H+J1sDgIV0styQqAw2Dw+Bebw+Xx8RT+xSBRBBZwuEJuzXusKeCMKrw6nyq31K6PemOxYMu5khBJhj3hiPJKO8FRpFTpk1B53BTPxd1ZcOepKRnW+ABYaWYcAATCCuDR0JX804MvFQwlsgiDHSuXppJoIb6-f5QQHAgU44XXPXi4lGk19ZrfNHWopawW4kXOh4S-Bu031T0+anW0p+h2Mp0s4Ou8AQY3h81wb48618u3aoUJ5li5PwsMei0+eXWxUqtUauM6wNJonw-YbJi5Sk+K0kduHKAAHygtdV6ogmvz-sdxehpYI-c73e83r7ByYQ5HyrHDan8d1LYN+EXcC7VJpJ83o-rE8bhYPJdbC-Xp+XObXHZaw+v48nWPtTaJo+R4nmeVYXi+V7bjef70vezbASGAAUl7DpIcDqpEACUYHeNWH4DmhwAYVEUF1r+d4BkBc5PvgKGQd+0G-jhy74asn5kTut57oBs76iGYZZFmPYQRxjHkbu-4FlRfEumWqbpkJXqiYRW4SdxUnTkWoo0UegmVt40YERu4lcbBAHwdR-EppAikGe+7GqT+klwTJOnWfJtkmkp4HWqhalmZRM7uXJBBwBAiBKmkaAgI5S6WipJkBTBQXaUGtHhZF0WxaBy6rnFX7JRRPGWbJ874JlUU4DFBW4UZBWcSlJVuelR6VdltVvolhXORprnBa1IbtdVOUvrhbH+b1sFVEAA)
+
+### First attempt
+
+Let's implement something simple and short:
+
+![ArrayElement, v1](array-element-v1.png)
+
+Now we covered all the cases with specific readonly arrays (e.g. `[0, 1, 2, 3]` or `typeof constArr`): [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4yoIAPYXAEwGcoBrCEAewDNYAKChQA-LADapALrCoALigBXHMwh8AljgjMA3IMEB6AFRQA+hctXLUACoRWwKAGFErB+etezUY4cEamGA8cE4A3lAoAI5KiGgkKPSQAMZOAL5QfHA8mFAA5AACoJAAtMkAFnEYOADmDoZKwBporHkGyTw4jlCICNRQEgAMJACMJABMJADMsh1dTnOO8HD9Q6MT09I97IvABsXQyW4O46tyJj0tPFCsSmDBoVA4SpgARhBwJcA8Jc9vH75-CJEikCNFYmhCAhkOgsLgCGsoGMoJMoDMSHlBnlyCRBuQcXIQRBUvhwXEoUhUBhsHh8Ijkaj0fkRtjRviiISksSwTFycsYdT4XThkiNmjpBjxqyUezOaDSbzIfyqXDafSxUy8lNpVNZcCuSSyUroSqaQiRQzNhiACzSlRqTTaZh6yIGnkQikC1UEA78KC7ZYYrE4qB4gn6+VGz2moW+gQBhAYlkhkYuomGxXR2Fm-Bx-2dJaJ-JSkPjNNuhUe5XZ2PgCB+hNwDHakO68OuyOZ6uC2l5xs2u2qdRaHTlztVk012l-d5wCQS-LBkgzgEAH2UQ8do-b6fdfMnPYIK7nC7yyeXL1nUHX9uHTrH3Mr+8pU6Pl4+88l0uP143DpHzo7hWUbdt6+DHp++Qthe-wrDem4AQ+GYTi+h7ge+J4DiGP7wf+95AeOz5ejmAAUOE3MAcBaDUACUkF5La2EYb+jhUbUv63lugEchGj4gQeYFkcxuF3jodGnoxMFXiJXFIXuxqoWBea9E2i7fsJf6idxcp8V2Ak5spRZnupsEcQh+E8R2ukocRtaQH6KlfkxpkyYhBHWURMa9nWDlGdBTwaZxbmWbuT4KbZ3n2QIjn5JJAUuZpsnuchnmvvgcAQIgzCdGgIDxbO9FLvla6JcFOkpeFXkEBlWU5XlEGnuexVwaVFnlfJWZoTV2U4LlzX0SWUklUFbW8RVnVgd1dX9ae-nkSN24hcBemKTmU29fVGH0XF83mYtgjSEAA)
+
+It works for several reasons:
+
+1. All `'0'`, `'1'`, `'2'` and `'3'` extends `keyof [0, 1, 2, 3]` which equals to `number | keyof [0, 1, 2, 3]` and can be therefore string too (not only number) ✨
+2. Other arrays (e.g. `number[]`, `readonly number[]`, etc) cannot have a string as a key, what's why 🤓
+
+Let's fix that 🚀
+
+### Another try
+
+In all other cases we need `T | undefined` depending on the values inside the array. Let's infer that value:
+
+![ArrayElement, v2](./array-element-v2.png)
+
+By fixing other cases, we just broke the case with non-existing index for specific readonly arrays where we expected `undefined`: [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4yoIAPYXAEwGcoBrCEAewDNYAKChQA-LADapALrCoALlh1GLdgAoAljj4Q4UACoBKCbJEjx+qAB8oAVxzMIfLRGZyRi+4+c5XAbkFBAHoAKigAfUio6KiDCFZgKABhRFZ4iJjM8KgQoMENTDAeOESAbygUAEdbRDQSFHpIAGNEgF8oPjgeTCgAcgABUEgAWiaAC1qMHABzeKDbYA00Vl7App4cBKhEBGooCQAGEgBGEgAmEgBmWXXNxNuE+D0aQ5Pzq+lt9gfgQKHoJqpeJnPYSOShbbLHhQVi2MBFEpQHC2TAAI10w2APGGyLRuhyeREDWaBCqNTQhAQyHQWFwBFeUFOUAuUGuJF6B165BIB3I3LkxIgLXwZNqlKQqAw2Dw+AZTJZbL6xy5Jz5RAFjSFpOqYqe1KldNlR0Z71Z0nZZxVzLVGpJIp1FL1ktpMrlpsVvUuVsuNqJmuFosdVOd0vpxvlH3ZABYrV4nC5mL6Kv7teTxfqXQR-vwoD8nuzOdyoLz+X67YH0yHDdmBHmEOzlUXjknBQGHZWaaH8DXcxtHvW+pai2cWyn7WmnZ3q+AIDm63B2V6iz7S8ny+3JwaZT359HYw5475E6vW6ndcGpzLcei4CYC1br-ibHGfK5R+uJxetwRH7fzUqHxRG9rDsA9X2PdUyy1cdzwlS8fyA3Q70HQC8T0Z8wITd9oIrTdM3wX9kM9VDgIw7wsJPMdcK-fDCP-XoYyLX8QJfCjILXHCNxors1GYmwEjgLRpmMejGJIPiYWAQSZhYzCj2wttPzg798F4xD0NA8ijxEvcmPU2StLfSiP1gjMux7HYFz6QtxP0sjDyM9jTxgoNlPwiyB16RtbLQgyHIg21OKUszp0gHNLItEin00-yFLPVyQu3Gdws8pcfNImLwLilyOxUjyrIYqKNNY+TjKC0yqxlOAIEQZgNjQEAkXUoibKa3z7KysrFIq+D8Gq2r6sauiGyKvzOqcqiuLcrt+rqnAGram8iKHdLopKxzAu6hLKoIWbBsWpD6LSg7irkjaoK23L8L2+ahua0TRo6tjBGkIA)
+
+This happened because we started inferring the value type for this array: instead of `undefined` we now get `0 | 1 | 2 | 3 | undefined` which is completely opposite to what we want to have.
+
+The solution is possible once we differ specific readonly array from others. Let's think how we can do that.
+
+### Investigation around extends
+
+Let's investigate a bit. I will use `Extends` as the way to find the correct type:
+
+![Extends type function](./extends.png)
+
+Let's use it for different types:
+
+1. `[0, 1, 2, 3]`
+2. `number[]`
+3. `readonly number[]`
+4. `any[]`
+
+![Use Extends with different types](./use-extends.png)
+
+Let me create the table to clarify what is located inside `A`:
+
+|                     | `[0, 1, 2, 3]` | `number[]` | `readonly number[]` | `any[]` |
+| :------------------ | :------------: | :--------: | :-----------------: | :-----: |
+| `[0, 1, 2, 3]`      |       ✅       |     ✅     |         ✅          |   ✅    |
+| `number[]`          |       ❌       |     ✅     |         ✅          |   ✅    |
+| `readonly number[]` |       ❌       |     ❌     |         ✅          |   ❌    |
+| `any[]`             |       ❌       |     ✅     |         ✅          |   ✅    |
+
+We just created the table of `extends` for TypeScript types.
+
+You need to read it like this: if you see ✅ for row `[0, 1, 2, 3]` and column `readonly number[]`, it means `[0, 1, 2, 3] extends readonly number[]` is `true`. If on the other hand it's ❌ for row `readonly number[]` and column `number[]`, it means `readonly number[] extends number[]` is `false`
+
+Let's take a closer look at row `any[]`: for column `[0, 1, 2, 3]` it's ❌, but for other types it's ✅
+
+This is actually an answer 🔥🔥🔥
+
+### Final implementation
+
+![ArrayElement, final version](./array-element-v3.png)
+
+This is a solution, please have a look at [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4pEcQBtAXSggA9hcATAZ1gCgoUAPyxWHbnwAUASxwAzCHCgAVAJTNBQkaqgAfKAFccXCPLkQuWoQC4x7Tib5wIiLgHscaEFFkKlqhpM1tqiKvpGJmYWVtradsam5jiWWnak4o68UADWECDu8gJxQqIwDKTBJVAJUcmp-AD0AFRQAPodnV2dqhA8wFAAwog8fe3dE21QzY38Mphg7nADAN5QKACOhohoJChskADGAwC+UPJw7phQAOQAAqCQALSHABY7GDgA5n2NhsAyNA8G78fiHTz9WgIahQBgABhIAEYSAAmEgAZmC4JwkOx-Xgyho8KRqIxLBGUDxwFBjUaUEe0AAIhAAEaGL5fORfACcMIJyHQWFwBBcbk83igOEMmBZSmYJBuABYbuRQQzKSMxkStC1aED3FAeIYwItlpLpbK4E9gO4nlKZQEZlp9kcCJttmhCAgBRhsHh8MSoMioGioJiFXCVSQ4eRyERnQcIMd8O6dl6kKhfcKAwig6Sw0wFYio0HY-GhC6k26tmn+Zmhf7A8HQ+HbiiSyiywnXSma5664K-QQm-nWzd0SX0V2K4nk6n+9760OcySQ2SFcq45EkjFp+tZ9WPemfQ2CAzCpSIcACRGSzG492q72jwOs-7z0UqTfbsWt4i95Wc59seS7Zh+l44teCAKu2W6dg+M49vOIGDmB4AQBeX7QbcE5blOCH7khwGvqe+DgVhcAbiWiTRCkXAAQez61ouqH+valryrckZbuxAQGDR9T0QRgGHsxGasQQvFwJxNy-iQUkRAJu7CYxyEkcuUkybB8kWnx260ZYDFES+LFvpJunSYWOElgp-F1Mp5aEU+ammaRmlWUqNkWYp9l0UZznEa5y5SLZhrAHAXJBFRPHeQY-QRd8Pk7n5KnGWJJ7BaFSl0VFtybjpDrKHZyWGalAUmeJZlkehF6INhNzcQVlpJQZQmOSJTELpVpHgXVlE-l5hUtYJ-lARVGVoZAtX1dp5pDcVrWjaJXUTe+NVFH1Cq4U1enZaV7WqYF3XLr19X5XNzULSNZVjeloH+qKHheD47m3jF836ddB1pSt90iq4T0Sq9A3vZdn0OY+t2-RJ+CPeKL0WVpg1g3tbWQ8tKFVXDz0XXKHnbbjRXgyl33lXdMPY0DiMeedWW+ft-BMEAA)
+
 ## Problems (TODO)
 
 1. `Path`
