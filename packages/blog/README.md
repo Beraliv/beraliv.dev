@@ -24,7 +24,7 @@ which ffmpeg
 2. Convert `dog.gif` to `dog.mp4`:
 
 ```sh
-ffmpeg -i dog.gif -vf scale=640:-2 -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p dog.mp4
+ffmpeg -i dog.gif -vf scale=640:-2 -b:v 0 -crf 25 -f mp4 -vcodec libx264 -pix_fmt yuv420p -movflags +faststart dog.mp4
 ls
 ```
 
@@ -46,4 +46,7 @@ ls -lh
 
 Voilà 💫
 
-Article: https://web.dev/replace-gifs-with-videos/
+Articles:
+
+1. [Replace animated GIFs with video for faster page loads](https://web.dev/replace-gifs-with-videos/)
+2. [Recommended upload encoding settings](https://support.google.com/youtube/answer/1722171)
