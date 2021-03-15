@@ -38,6 +38,14 @@ type MyParameters<T extends AnyFunction> = T extends (...args: infer P) => any
   ? P
   : never
 
+/* get */
+
+const get = (obj, path) => {
+  const keys = path.split(".")
+
+  return keys.reduce((currentObj, key) => currentObj[key], obj)
+}
+
 /** Path */
 
 type PathV1<T> = T extends `${infer Key}.${infer Rest}`
@@ -188,15 +196,15 @@ type ArrayElement<A, K> = K extends keyof A
 
 /* Extends */
 
-type LocalExtends<T extends any[], E extends any> = {
+type ExtendsTableRow<T extends any[], E extends any> = {
   [K in keyof T]: E extends T[K] ? true : false
 }
 
-type Extends<T extends any[]> = {
-  [K in keyof T]: LocalExtends<T, T[K]>
+type ExtendsTable<T extends any[]> = {
+  [K in keyof T]: ExtendsTableRow<T, T[K]>
 }
 
-type A = Extends<[[0, 1, 2, 3], number[], readonly number[], any[]]>
+type A = ExtendsTable<[[0], number[], readonly number[], any[]]>
 
 /* ArrayElement, final solution */
 
