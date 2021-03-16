@@ -18,7 +18,7 @@ Here we work only with objects (as the solution doesn't require accessing arrays
 
 So what should we start then from?
 
-### Getting keys
+#### Getting keys
 
 Imagine we solve the same challenge in JavaScript:
 
@@ -40,7 +40,7 @@ It looks very simple and short. However once we write tests, we understand what 
 
 To play with it, have a look at [Playground with tests cases](https://www.typescriptlang.org/play?ssl=5&ssc=9&pln=1&pc=1#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWYXK1vUwoWWVp2QB6ACooAH0IyKjI3ElgKABhOApJcOj0sKhgwNlGAFswAHt2ePooAFEARwBXOAAbLXKCSABjeL4oFnZCvKgAcgABUEgAWhbEerrSAHNJQOrgRjqKPtlZYegW5NScFTMm1uBkKtq65D0UPsKSCBGAa14RsAREPvQtFSub+8fnpD7jOh3vtmhA2scavVzi9kH0AEw-EACP6vd6qeGIvpaPoogFAjQgw4Q07Q-R9JDsCAQAQPJG4tGfClUrH9WksnEvPHA4xAA)
 
-### Reducing the object
+#### Reducing the object
 
 After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are an array of strings:
 
@@ -57,7 +57,7 @@ Let's test it on [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpg
 
 [Final version with tests is available on Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANoC6AUFCgB+KIUFQAXHUbN2XbkhYAzCJnIQQpAHS6lq9QCUIHYAKFDRZTfSatOUANaaA9srESLI2PGRosuASE3NYgvKTGphSeFtIsEABuajFxicn8APQAVFAA+vkFhQVQAComwFAAwjgcJnlFDblQWRn8SAC2YC6YFQDeUACiAI4ArjgANqQDDJAAxhUAvlDKmC7tUADkAAKgkAC0s6gT46wA5iYZI8BI4xwb-Py70GWmhABGAFYQ8zRQvRLXYAnaQAAwAyrNVuNxm8cOpZiNTGskBwcNcXCwQRI2GiIKCAEwABgAjAAOPbEwl7QkAFixQhwV1Q3Wk-y8LBw7TxUBB6BODBsACE1BAAF5KekWcYuWZopAY1kxISzFAgUEAWRGLCQh0lQgWEgNBse4GgstqXFo3Ak0zmwHwwzG43wcEQKAw2Dw+BewHeX3mpG4G0BJw2vAopHBkJc0Nh8MRwGRqPRmIoEZtM2+9sdExdvndAS9Pr9WcDGxxzDDEZ5RLJFKptJBaeIGbtDtGuddfg9gW95RLAZ45ZMkKQYBTVdI8SSmGbraz7adebd-k9BGLn1LQ8ZaG6G1IGw5XMnPL5jCFIvFqfTQltC5zzq7BbXfdem8HQZ3zMw+820tlE4HiqoAniCmrarqc63pm8yLp2+arr2G7+sAZZfnuQFwmwv6HiM7RvGoJ7Tmoc68EAA)
 
-### All together
+#### All together
 
 ![Get for type challenge](./get-for-type-challenge.png)
 
@@ -65,20 +65,7 @@ Let's test it together to clarify everything's working as expected: [Playground]
 
 Great, we did it ✅
 
-### Summary
-
-To solve the challenge we needed to know several TypeScript concepts:
-
-1. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
-   ![Example of a conditional type](./conditional-types.png)
-2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
-   ![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
-3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
-   ![Example of recursive conditional types](./recursive-conditional-types.png)
-4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
-   ![Example of template literal types](./template-literal-types.png)
-
-## What if path doesn't exist
+## Optional paths
 
 When we work with the real data in production, we don't actually know if the data is given or not. In this case we have optional paths all over the project
 
@@ -92,7 +79,7 @@ We cannot extract a key from an object if it can be `undefined` or `null`
 
 Let's fix it step by step:
 
-### Remove undefined, null or both
+#### Remove undefined, null or both
 
 First, we declare 3 simple filters:
 
@@ -102,7 +89,7 @@ We detect if `undefined` or/and `null` exist within the union type, delete it fr
 
 Let me show the test cases on [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmkAegAqKAB9BMSkxNoIFmAoAGEAQxY0+OTCuKhoyMk4AFswAHsUDIBvKABRAEd2bIQAGmaGSABjDIBfKFwUaoqoAHIAAVkIAFo+gAsOhAgMAHM0yPZgRBZJ6TmoPtz8mgBtSSge-uBiVvb1YPt-Hld3Q2IARigAHygACZ-lAAMwgziOd7kbq-AHAgGg8gw663CADB5tDpBBSvKHONxYULESbVQiTEGTYAAd2qFIBVKWKAgEHpgkMMKmZNZlJpdN5TJZk2RnVRTV66Puj2xLz8+KIhOJcKmfLZBjUELezk5yqptOFKJu4rumKeON8Dm4BM+nkhVqInOEqBFYolGOlz1xcvtHyJX3VCEdpmdhrR7qxnotWoVNvUdoCWBBAaDZhdAF0gA)
 
-### Modify reducer
+#### Modify reducer
 
 Remember what we did for type challenge. Let's extend our solution to support optional paths:
 
@@ -117,7 +104,7 @@ Let's add tests and check if it's working: [Playground](https://www.typescriptla
 
 Good job ✅
 
-## Path with accessing arrays
+## Accessing arrays
 
 The next desired step for me is to support arrays
 
@@ -125,7 +112,7 @@ The indices will be [string literals](https://www.typescriptlang.org/docs/handbo
 
 First, let's check why we don't use `GetWithArray` as is for arrays:
 
-### Reducing objects and arrays
+#### Reducing objects and arrays
 
 Let's have examples to understand it better. I added `keywords` and `tags` to `ProductionObject`. Let's have a look: [Playground](https://www.typescriptlang.org/play?ssl=20&ssc=6&pln=20&pc=22#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmlZaABxCGAAdThgAAsXFBQAQxBiAHkAGigAaU0i+iYIVigAbQBdSShjHPqLQrLdNiqCXFFCiBACgDohrtEAJQgWYDqGhoFekDaKvSgAaz6Ae1woJpmZgViEpNT0rNyq+ZqC8cmI3YaJecXKtZBNn0UHbmc3LFDc27usygB0SKTSmWywXs-h4rnchn+5z6lyg12AlAAPhwYc5moCJJxHLC8RZhKhpAB6ABUUAA+vSGYyGbQJsAoABhDIsCZ0pl82lQKkUyRwAC2YHWKDZAG8oABRACO7AyCAKcoYkAAxmyAL5QXAodaiqAAcgAAlEALSa5IqhAVADmEwp7GAiBYJsi1igAAVDVh2Nq4OsMDkAEYAKwg2u80uaOBYmpQcDAbpDfAkk2TGAdzTdwHtmeA2dzDSwGWQRZLzQyruSkozUDjuwwGVFECrBFLMwQ601FeDGEbzbumqSIE7OZJOuaM4aLwA7pK9JOHbUANx5jIOlgSKomqKJ5Opk0FE0oCAZbUmuozqxyFwARm8IKO4NOfvWAaDIfDUe1BT7ouy4egUAAMNTkOuUAUhSUBZl2UCADLk97QC4ABML5xKCxwQsQn7fmmoaRtGwCASawEoHop6mmBN5QTBcGEl8vAoahUD9tybA0FUzTqlqwDEIqyrqK+YInNkBGBkRf6keR+b2vRBQITm5DkHkfEaqRQlKiqxBibhH7+tJg6yQB1QmuWyBKfBxZdmpGkNPx2nCXpBnvpJxk-sR-5kRZCZJimRE2SpDpQFizEBFgDmaQJOkifp2FvhJ+FeTJJHmfutYpJKNEmq27YhXZObhdiRLODFTladq8VuUl4l4VJ3lmX5WV1rlZ69v2wVnmOoBFSWpWRbClXytVgmuaJ9WGZ5X4mb+GWtSa2X1igeX9lReUGKKYaoDZw0VepzTUjSGQSWwQqxS5ulTYcDVGXNzWLeRlHUWedGQcpxVhRFOJEKNzk1ZNiV3TNqWPelvkvX0S5UaBUAQeptmDb95X-UdVVxcD7kpU1kNyRZwDbvDJofUjB7WEeQUmgD421bdOEeeDhGmc9hPEzRiNnoegUnjFNRAA)
 
@@ -139,9 +126,9 @@ Let me have another example to make it clear:
 
 By default, if you don't use `noUncheckedIndexedAccess` in tsconfig, it will infer `string` in all the cases. The same in types: by default index access will lead to `string` however I expect `string | undefined`
 
-### Tests
+#### Tests
 
-First, let's start with what we want to see as result:
+Before starting, let's add test cases:
 
 ![ArrayElement test cases](./array-element-tests.png)
 
@@ -150,9 +137,9 @@ First, let's start with what we want to see as result:
    - For non-existing index, we expect `undefined`
 2. For other cases (e.g. `number[]`, `readonly number[]`) we expect `number | undefined`
 
-You can see test cases in [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4ocIA3COAbgChWB6AKigH1+BggVAAqEAM7AoAYUTiJfIUt5QuHVgEtMYAPZwpAbygoAjgFdEaEigAekAMZSAvlABmcHZigByAAKhIAFp7AAtLDBwAcwkOM2ANNHFvdnsdHEkoRARqKABtAAYSAEYSACYSAGYAXVZU9Kk6yXg4HILissqqzPEoRuB2AOh7OQlS1tYoKG5MxJ0ocTMwXX1aM0wAIyZA4B1AnDXNlrUJ4zsIR3xTCzRCBGR0LFwCNqgSqHKoapJvfO9yEny5H+J1sDgIV0styQqAw2Dw+Bebw+Xx8RT+xSBRBBZwuEJuzXusKeCMKrw6nyq31K6PemOxYMu5khBJhj3hiPJKO8FRpFTpk1B53BTPxd1ZcOepKRnW+ABYaWYcAATCCuDR0JX804MvFQwlsgiDHSuXppJoIb6-f5QQHAgU44XXPXi4lGk19ZrfNHWopawW4kXOh4S-Bu031T0+anW0p+h2Mp0s4Ou8AQY3h81wb48618u3aoUJ5li5PwsMei0+eXWxUqtUauM6wNJonw-YbJi5Sk+K0kduHKAAHygtdV6ogmvz-sdxehpYI-c73e83r7ByYQ5HyrHDan8d1LYN+EXcC7VJpJ83o-rE8bhYPJdbC-Xp+XObXHZaw+v48nWPtTaJo+R4nmeVYXi+V7bjef70vezbASGAAUl7DpIcDqpEACUYHeNWH4DmhwAYVEUF1r+d4BkBc5PvgKGQd+0G-jhy74asn5kTut57oBs76iGYZZFmPYQRxjHkbu-4FlRfEumWqbpkJXqiYRW4SdxUnTkWoo0UegmVt40YERu4lcbBAHwdR-EppAikGe+7GqT+klwTJOnWfJtkmkp4HWqhalmZRM7uXJBBwBAiBKmkaAgI5S6WipJkBTBQXaUGtHhZF0WxaBy6rnFX7JRRPGWbJ874JlUU4DFBW4UZBWcSlJVuelR6VdltVvolhXORprnBa1IbtdVOUvrhbH+b1sFVEAA)
+You can see even more test cases in [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4ocIA3COAbgChWB6AKigH1+BggVAAqEAM7AoAYUTiJfIUt5QuHVgEtMYAPZwpAbygoAjgFdEaEigAekAMZSAvlABmcHZigByAAKhIAFp7AAtLDBwAcwkOM2ANNHFvdnsdHEkoRARqKABtAAYSAEYSACYSAGYAXVZU9Kk6yXg4HILissqqzPEoRuB2AOh7OQlS1tYoKG5MxJ0ocTMwXX1aM0wAIyZA4B1AnDXNlrUJ4zsIR3xTCzRCBGR0LFwCNqgSqHKoapJvfO9yEny5H+J1sDgIV0styQqAw2Dw+Bebw+Xx8RT+xSBRBBZwuEJuzXusKeCMKrw6nyq31K6PemOxYMu5khBJhj3hiPJKO8FRpFTpk1B53BTPxd1ZcOepKRnW+ABYaWYcAATCCuDR0JX804MvFQwlsgiDHSuXppJoIb6-f5QQHAgU44XXPXi4lGk19ZrfNHWopawW4kXOh4S-Bu031T0+anW0p+h2Mp0s4Ou8AQY3h81wb48618u3aoUJ5li5PwsMei0+eXWxUqtUauM6wNJonw-YbJi5Sk+K0kduHKAAHygtdV6ogmvz-sdxehpYI-c73e83r7ByYQ5HyrHDan8d1LYN+EXcC7VJpJ83o-rE8bhYPJdbC-Xp+XObXHZaw+v48nWPtTaJo+R4nmeVYXi+V7bjef70vezbASGAAUl7DpIcDqpEACUYHeNWH4DmhwAYVEUF1r+d4BkBc5PvgKGQd+0G-jhy74asn5kTut57oBs76iGYZZFmPYQRxjHkbu-4FlRfEumWqbpkJXqiYRW4SdxUnTkWoo0UegmVt40YERu4lcbBAHwdR-EppAikGe+7GqT+klwTJOnWfJtkmkp4HWqhalmZRM7uXJBBwBAiBKmkaAgI5S6WipJkBTBQXaUGtHhZF0WxaBy6rnFX7JRRPGWbJ874JlUU4DFBW4UZBWcSlJVuelR6VdltVvolhXORprnBa1IbtdVOUvrhbH+b1sFVEAA)
 
-### First attempt
+#### First attempt
 
 Let's implement something simple and short:
 
@@ -167,7 +154,7 @@ It works for several reasons:
 
 Let's fix that 🚀
 
-### Another try
+#### Another try
 
 In all other cases we need `T | undefined` depending on the values inside the array. Let's infer that value:
 
@@ -179,7 +166,7 @@ This happened because we started inferring the value type for this array: instea
 
 The solution is possible once we differ specific readonly arrays from others. Let's think how we can do that.
 
-### Investigation around extends
+#### Investigation around extends
 
 Let's investigate a bit. I will use `ExtendsTable` as the way to find the correct type:
 
@@ -211,7 +198,7 @@ Let's take a closer look at row `any[]`: for column `[0]` it's ❌, but for othe
 
 This is actually an answer 🔥🔥🔥
 
-### Array Element
+#### Array Element
 
 ![ArrayElement, final version](./array-element-v3.png)
 
@@ -224,8 +211,15 @@ Let's sum up what we just did:
 
 If you want to see it in one place, don't forget to check ou [Playground](https://www.typescriptlang.org/play?noUncheckedIndexedAccess=true#code/C4TwDgpgBAggTnAhiAogGwgWwgO2AHhgBooBpAPigF4pEcQBtAXSggA9hcATAZ1gCgoUAPyxWHbnwAUASxwAzCHCgAVAJTNBQkaqgAfKAFccXCPLkQuWoQC4x7Tib5wIiLgHscaEFFkKlqhpM1tqiKvpGJmYWVtradsam5jiWWnak4o68UADWECDu8gJxQqIwDKTBJVAJUcmp-AD0AFRQAPodnV2dqhA8wFAAwog8fe3dE21QzY38Mphg7nADAN5QKACOhohoJChskADGAwC+UPJw7phQAOQAAqCQALSHABY7GDgA5n2NhsAyNA8G78fiHTz9WgIahQBgABhIAEYSAAmEgAZmC4JwkOx-Xgyho8KRqIxLBGUDxwFBjUaUEe0AAIhAAEaGL5fORfACcMIJyHQWFwBBcbk83igOEMmBZSmYJBuABYbuRQQzKSMxkStC1aED3FAeIYwItlpLpbK4E9gO4nlKZQEZlp9kcCJttmhCAgBRhsHh8MSoMioGioJiFXCVSQ4eRyERnQcIMd8O6dl6kKhfcKAwig6Sw0wFYio0HY-GhC6k26tmn+Zmhf7A8HQ+HbiiSyiywnXSma5664K-QQm-nWzd0SX0V2K4nk6n+9760OcySQ2SFcq45EkjFp+tZ9WPemfQ2CAzCpSIcACRGSzG492q72jwOs-7z0UqTfbsWt4i95Wc59seS7Zh+l44teCAKu2W6dg+M49vOIGDmB4AQBeX7QbcE5blOCH7khwGvqe+DgVhcAbiWiTRCkXAAQez61ouqH+valryrckZbuxAQGDR9T0QRgGHsxGasQQvFwJxNy-iQUkRAJu7CYxyEkcuUkybB8kWnx260ZYDFES+LFvpJunSYWOElgp-F1Mp5aEU+ammaRmlWUqNkWYp9l0UZznEa5y5SLZhrAHAXJBFRPHeQY-QRd8Pk7n5KnGWJJ7BaFSl0VFtybjpDrKHZyWGalAUmeJZlkehF6INhNzcQVlpJQZQmOSJTELpVpHgXVlE-l5hUtYJ-lARVGVoZAtX1dp5pDcVrWjaJXUTe+NVFH1Cq4U1enZaV7WqYF3XLr19X5XNzULSNZVjeloH+qKHheD47m3jF836ddB1pSt90iq4T0Sq9A3vZdn0OY+t2-RJ+CPeKL0WVpg1g3tbWQ8tKFVXDz0XXKHnbbjRXgyl33lXdMPY0DiMeedWW+ft-BMEAA) ✅
 
-## Problems (TODO)
+## Summary
 
-1. `Path`
-   - It doesn't accept empty string (it will return `['']`)
-   - We don't validate incorrect characters (we can pass `number` or `object`)
+To solve the challenge we needed to know several TypeScript concepts:
+
+1. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
+   ![Example of a conditional type](./conditional-types.png)
+2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
+   ![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
+3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
+   ![Example of recursive conditional types](./recursive-conditional-types.png)
+4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
+   ![Example of template literal types](./template-literal-types.png)

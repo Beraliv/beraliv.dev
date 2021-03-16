@@ -149,6 +149,23 @@ type A2 = GetWithArray<ProductionObject, ["keywords", "0"]>
 const arr = [0, 1, 2, 3]
 const constArr = [0, 1, 2, 3] as const
 
+type cases = [
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "0">, 0>>,
+  Expect<Equal<ArrayElement<[0, 1, 2, 3], "4">, undefined>>,
+  Expect<Equal<ArrayElement<typeof constArr, "1">, 1>>,
+  Expect<Equal<ArrayElement<typeof constArr, "5">, undefined>>,
+  Expect<Equal<ArrayElement<number[], "2">, number | undefined>>,
+  Expect<Equal<ArrayElement<number[], "3">, number | undefined>>,
+  Expect<
+    Equal<ArrayElement<(number | string)[], "4">, number | string | undefined>
+  >,
+  Expect<Equal<ArrayElement<(number | undefined)[], "4">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "0">, number | undefined>>,
+  Expect<Equal<ArrayElement<typeof arr, "1">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "2">, number | undefined>>,
+  Expect<Equal<ArrayElement<readonly number[], "3">, number | undefined>>
+]
+
 type cases2 = [
   /* also support number-to-number */
   Expect<Equal<ArrayElement<[0, 1, 2, 3], "0">, 0>>,
