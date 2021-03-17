@@ -5,20 +5,92 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
 
+type FilterUndefined<T> = T extends undefined ? never : T
+type FilterNull<T> = T extends null ? never : T
+type FilterUndefinedAndNull<T> = FilterUndefined<FilterNull<T>>
+
+type VisibleLink = {
+  fields: {
+    slug: FilterUndefinedAndNull<
+      FilterUndefinedAndNull<
+        FilterUndefinedAndNull<
+          BlogPostBySlugQueryType["previous"] | BlogPostBySlugQueryType["next"]
+        >["fields"]
+      >["slug"]
+    >
+  }
+  frontmatter: {
+    title: FilterUndefinedAndNull<
+      FilterUndefinedAndNull<
+        FilterUndefinedAndNull<
+          BlogPostBySlugQueryType["previous"] | BlogPostBySlugQueryType["next"]
+        >["frontmatter"]
+      >["title"]
+    >
+  }
+}
+
+const isVisibleLink = (
+  link: BlogPostBySlugQueryType["previous"] | BlogPostBySlugQueryType["next"]
+): link is VisibleLink => {
+  if (!link?.fields?.slug) return false
+  if (!link.frontmatter?.title) return false
+
+  return true
+}
+
 const BlogPostTemplate = ({
   data,
   location,
 }: PageProps<BlogPostBySlugQueryType>) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title || `Title`
-  const image = post.frontmatter.image.childImageSharp.resize
+
+  if (!post) {
+    throw new Error(`Cannot find site.markdownRemark in ${location.href}`)
+  }
+
+  if (!data.site?.siteMetadata?.title) {
+    throw new Error(
+      `Cannot find data.site.siteMetadata.title in ${location.href}`
+    )
+  }
+
+  let { title: siteTitle } = data.site.siteMetadata
+
+  if (!post.frontmatter) {
+    throw new Error(`Cannot find post.frontmatter in ${location.href}`)
+  }
+
+  if (!post.frontmatter.title) {
+    throw new Error(`Cannot find post.frontmatter.title in ${location.href}`)
+  }
+
+  if (!post.frontmatter.description) {
+    throw new Error(
+      `Cannot find post.frontmatter.description in ${location.href}`
+    )
+  }
+
+  if (!post.html) {
+    throw new Error(`Cannot find post.html in ${location.href}`)
+  }
+
+  if (!post.frontmatter.image?.childImageSharp?.resize) {
+    throw new Error(
+      `Cannot find post.frontmatter.image.childImageSharp.resize in ${location.href}`
+    )
+  }
+
+  const { resize: image } = post.frontmatter.image.childImageSharp
+  const { description, title } = post.frontmatter
+
   const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={description}
         image={image}
         pathname={location.pathname}
       />
@@ -51,14 +123,14 @@ const BlogPostTemplate = ({
           }}
         >
           <li>
-            {previous && (
+            {isVisibleLink(previous) && (
               <Link to={previous.fields.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
-            {next && (
+            {isVisibleLink(next) && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
@@ -85,7 +157,6 @@ export const pageQuery = graphql`
     }
     markdownRemark(id: { eq: $id }) {
       id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
