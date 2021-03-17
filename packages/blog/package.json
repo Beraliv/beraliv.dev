@@ -20,6 +20,7 @@
     "gatsby-plugin-feed": "^2.13.1",
     "gatsby-plugin-gatsby-cloud": "^1.0.2",
     "gatsby-plugin-google-gtag": "^3.0.0",
+    "gatsby-plugin-image": "^1.0.1",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-offline": "^3.10.2",
     "gatsby-plugin-postcss": "^4.0.0",
