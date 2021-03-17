@@ -69,14 +69,14 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
                     />
                   )}
                 </section>
-                <section>
+                <footer>
                   <p
                     dangerouslySetInnerHTML={{
                       __html: description,
                     }}
                     itemProp="description"
                   />
-                </section>
+                </footer>
               </article>
             </li>
           )
