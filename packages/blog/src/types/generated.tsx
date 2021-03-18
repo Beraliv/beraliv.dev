@@ -3717,10 +3717,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
     }
   >
   markdownRemark?: Maybe<
-    { __typename?: "MarkdownRemark" } & Pick<
-      MarkdownRemark,
-      "id" | "excerpt" | "html"
-    > & {
+    { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id" | "html"> & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
@@ -4301,7 +4298,6 @@ export const BlogPostBySlugDocument = gql`
     }
     markdownRemark(id: { eq: $id }) {
       id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
