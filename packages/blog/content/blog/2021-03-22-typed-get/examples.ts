@@ -137,6 +137,14 @@ type GetWithArray<O, K> = K extends []
     : undefined
   : never
 
+/* get arrays */
+
+const get = (arr, path) => {
+  const keys = path.split(".")
+
+  return keys.reduce((currentArr, key) => currentArr[key], arr)
+}
+
 /* GetWithArray with arrays */
 
 // Expect `string | undefined` but got `string` ❌
@@ -199,17 +207,67 @@ type cases2 = [
   Expect<Equal<ArrayElement<readonly number[], "4">, number | undefined>>
 ]
 
-/* ArrayElement, v1 */
+/* GetWithArray for arrays, v1 */
 
-type ArrayElement<A, K> = K extends keyof A ? A[K] : undefined
+type GetWithArray<A, K> = K extends []
+  ? A
+  : K extends [infer Key, ...infer Rest]
+  ? Key extends keyof A
+    ? GetWithArray<A[Key], Rest>
+    : never
+  : never
 
-/* ArrayElement, v2 */
+type Step1 = GetWithArray<string[], "1">
 
-type ArrayElement<A, K> = K extends keyof A
-  ? A[K]
-  : A extends (infer T)[]
+// ❌ never
+type Step2 = "1" extends keyof string[] ? string[]["1"] : never
+
+type Step1 = GetWithArray<readonly string[], "1">
+
+// ❌ never
+type Step2 = "1" extends keyof (readonly string[])
+  ? (readonly string[])["1"]
+  : never
+
+type Step1 = GetWithArray<[0, 1, 2], "3">
+
+// ❌ never
+type Step2 = "3" extends [0, 1, 2] ? [0, 1, 2]["3"] : never
+
+/* GetWithArray, v2 */
+
+type GetWithArray<A, K> = K extends []
+  ? A
+  : K extends [infer Key, ...infer Rest]
+  ? Key extends keyof A
+    ? GetWithArray<A[Key], Rest>
+    : never // <- let's update this branch 🔄
+  : never
+
+type GetWithArray<A, K> = K extends []
+  ? A
+  : K extends [infer Key, ...infer Rest]
+  ? Key extends keyof A
+    ? GetWithArray<A[Key], Rest>
+    : A extends (infer T)[]
+    ? GetWithArray<T | undefined, Rest>
+    : A extends readonly (infer T)[]
+    ? GetWithArray<T | undefined, Rest>
+    : never
+  : never
+
+type Step1 = GetWithArray<[0, 1, 2], "3">
+
+type Step2 = "3" extends keyof [0, 1, 2] // <- this is false ❌
+  ? [0, 1, 2]["3"]
+  : [0, 1, 2] extends (infer T)[] // <- this is true ✅
   ? T | undefined
-  : undefined
+  : [0, 1, 2] extends readonly (infer T)[]
+  ? T | undefined
+  : never
+
+// ❌ instead of undefined
+type Step3 = 0 | 1 | 2 | undefined
 
 /* Extends */
 
@@ -224,6 +282,22 @@ type ExtendsTable<T extends any[]> = {
 type A = ExtendsTable<[[0], number[], readonly number[], any[]]>
 
 /* ArrayElement, final solution */
+
+type GetWithArray<A, K> = K extends []
+  ? A
+  : K extends [infer Key, ...infer Rest]
+  ? any[] extends A
+    ? // normal and readonly arrays
+      A extends (infer T)[]
+      ? GetWithArray<T | undefined, Rest>
+      : A extends readonly (infer T)[]
+      ? GetWithArray<T | undefined, Rest>
+      : undefined
+    : // special readonly arrays
+    Key extends keyof A
+    ? GetWithArray<A[Key], Rest>
+    : undefined
+  : never
 
 type ArrayElement<A, K> = any[] extends A
   ? A extends (infer T)[]
