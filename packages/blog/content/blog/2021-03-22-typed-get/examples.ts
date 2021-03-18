@@ -310,3 +310,34 @@ type ArrayElement<A, K> = any[] extends A
     ? A[K]
     : undefined
   : undefined
+
+/* extract functions */
+
+type ExtractFromObject<
+  O extends Record<PropertyKey, unknown>,
+  K
+> = K extends keyof O
+  ? O[K]
+  : K extends keyof FilterUndefinedAndNull<O>
+  ? FilterUndefinedAndNull<O>[K] | undefined
+  : undefined
+
+type ExtractFromArray<A extends readonly any[], K> = any[] extends A
+  ? A extends (infer T)[]
+    ? T | undefined
+    : A extends readonly (infer T)[]
+    ? T | undefined
+    : undefined
+  : K extends keyof A
+  ? A[K]
+  : undefined
+
+type GetWithArray<O, K> = K extends []
+  ? O
+  : K extends [infer Key, ...infer Rest]
+  ? O extends Record<PropertyKey, unknown>
+    ? GetWithArray<ExtractFromObject<O, Key>, Rest>
+    : O extends readonly any[]
+    ? GetWithArray<ExtractFromArray<O, Key>, Rest>
+    : undefined
+  : never

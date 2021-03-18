@@ -202,15 +202,51 @@ Let's rewrite `GetWithArray` using the condition `any[] extends A`:
 
 If you want to see it in one place, don't forget to check out [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaBFGidSI9GKKkyqjW0khcNkAZjZ-D48qg1OhsJoicElJpwHwxNJNXw4+60T6yvVmuAC7ZBtX5BIZotlStNrtDuATpdbuYY1yBfcQDzvY8STJc8DgnK9YhvOd724NlvWfV8A2DUNwyjICQP3KlwJPKCLyOKcELvB8-TZEhHzQqAS2YYVgJzQkCNpCDT2giJL2OadgFnCjkKomjUJop8eBfejgEzRiywrKtfAGWYRmY0C2KPIizxIydrxnW95yE6j2WE4y6Pkrsy3uOZMlU-DDw44iYJ4si9MQh8VwkkgrJUkCeCAA) ✅
 
+## One solution
+
+Now we have 2 solutions:
+
+1. For objects
+
+![GetWithArray for objects](./get-with-array-v3.png)
+
+2. For arrays
+
+![GetWithArray for arrays](./get-with-array-for-arrays-v3.png)
+
+Let's move the details of the implementation to functions `ExtractFromArray` and `ExtractFromObject`:
+
+![ExtractFromObject implementation](./extract-from-object.png)
+
+![ExtractFromArray implementation](./extract-from-array.png)
+
+If you found, I've added restrictions to both functions:
+
+1. `ExtractFromObject` has `O extends Record<PropertyKey, unknown>`. It means that it accepts only general objects
+2. `ExtractFromArray` similarly has `A extends readonly any[]`, which means that it accepts only general arrays
+
+This helps to distinct cases and don't make a mistake while passing types. Let's reuse them in `GetWithArray`:
+
+![GetWithArray, refactored version](./get-with-array-for-arrays-v4.png)
+
+I covered this refactoring with tests. [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMOAAoCLhRKQAJTk4FGOj-MGXIj8iTM0rlbG4-GEqDsjCcsw8vkPB4CQUAkVYfkgrV+HV6vaSw7HU4MtVM75i-VAiKyADiEGAAHU4MAABZIlFFSmeY3TKCq1Y7CQBzFBjmiNqdKAAOgTUbMVRYwG2lsWGPKVQSNXqjVQrXaXU4fUGw11RidrvdXuRcVRMLhyTSWTyBWAvom7RGlQgqfuavMxRZWJxeIJROpwaHVedbs93obxCbiRbiPrqMyox7XRTwEHs9BrwhaokwlQ4QA9AAqKAAfUfT+fT9o-eAUAAwnEWP2Hy+APvKAbyvSQ4HSMAag-ABvaEAEd2DiBAuhiSAkigABfKBcFbKAAHIAAFLAAWgSD0kIQMoAHN+yvdhgEQFg8MhSIoAaVIsHYJI4HxHJ8nQmhoJ2BjgEoiRUxQAgqJ2HAWASSSwAY-E+HE2EpJkuJkHPdh0myS8VjieiPRqFSoCEtUMDidIIFUySMGktUEFSBJNJ4jBTPMocEndEBbPUtUMJ2QKVmAOIqJYUy1jw6Ukjwro8MsOSFOAOL8KEOAcFSPD0ygFg4CoyzgHYbFTLwpxKIYdooAAIVQCAAC8CGYlZINTFgJGlCc5Vgj1gHSBA-PszDg1MPL8Xa+UJKkv5BB0vSUF5bZAvtaAXN-NgaDWHZUI7FcEKQ4hqwXOsfXYzjuN49ski6KKRMo7Leym+zyBGbaGDQzson2tQjtrJdUTOrilIwPiOxuvDZPkuBFLch6uieqiZuFA0Xo6N6Pr2xCfvnP7N2IQGLpBq7gHBrBNIgOHZt01BUfR3avqxw6ccXPGCeB0HrqDPDDM9GpUrwyzrMphGkZPIhaZWHbCgZg7fpZ060nO9nifBnnjJQfmnJc4H+e80BhbUoahTFrAJehd76e+pma3l5c2bcjmSa5tW+firXXPxfncSwbEWCYzZe2Rt4zalz6rblk67cVoGHZV52jNd-D5KIMoGKQpj4oABkpoPHBDi3pfD5nI4B6PCcd8HQvC-ns4D+KYpS0XwXF17JYLsPGYj-78bL5X+Kd26woz-CAGYc5N-OMZl7GbZLnuOJjy7+-BvKCs04qKbr-DysYKrauxRqMDwpvtUny3O+L7v7aXsGuda4Bh7w2vex6vqBtyw3Eaw43m9N1vzankXWeV9e6x2XnfVIbUa7816v1A2dlEY-1Pv-UOmNZaX1ZqAm+nMoqjTco-Z+8NP4zX0NTMwSCUavU2EAA) is waiting for you 🚀
+
 ## Summary
 
 To solve the challenge we needed to know several TypeScript concepts:
 
 1. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
-   ![Example of a conditional type](./conditional-types.png)
+
+![Example of a conditional type](./conditional-types.png)
+
 2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
-   ![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
+
+![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
+
 3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
-   ![Example of recursive conditional types](./recursive-conditional-types.png)
+
+![Example of recursive conditional types](./recursive-conditional-types.png)
+
 4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
-   ![Example of template literal types](./template-literal-types.png)
+
+![Example of template literal types](./template-literal-types.png)
