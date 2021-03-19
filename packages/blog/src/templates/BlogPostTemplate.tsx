@@ -137,12 +137,12 @@ const BlogPostTemplate = ({
             )}
           </li>
         </ul>
-        <script
-          async
-          data-uid="dfb1fad3a0"
-          src="https://relentless-founder-6875.ck.page/dfb1fad3a0/index.js"
-        ></script>
       </nav>
+      <script
+        async
+        data-uid="dfb1fad3a0"
+        src="https://relentless-founder-6875.ck.page/dfb1fad3a0/index.js"
+      ></script>
     </Layout>
   )
 }
