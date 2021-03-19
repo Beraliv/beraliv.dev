@@ -138,6 +138,7 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
+      <hr />
       <script
         async
         data-uid="dfb1fad3a0"
