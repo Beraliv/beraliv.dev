@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Link, PageProps } from "gatsby"
 import { DarkModeToggle } from "./DarkModeToggle"
+import { SubscriptionForm } from "./SubscriptionForm"
 
 declare const __PATH_PREFIX__: string
 
@@ -39,6 +40,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         <DarkModeToggle />
       </header>
       <main>{children}</main>
+      <SubscriptionForm />
       <footer>
         © {new Date().getFullYear()}, Built with
         {` `}
