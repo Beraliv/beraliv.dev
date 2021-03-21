@@ -126,9 +126,11 @@ export const SubscriptionForm = () => {
   if (state.status === "submitting") {
     return (
       <div className="form-loader">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     )
   }

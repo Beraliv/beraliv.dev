@@ -260,19 +260,30 @@ table thead tr th {
 
 .form-submitted {
   @apply flex items-center;
-
-  height: 72px;
 }
 
 .form-loader {
-  @apply block relative my-0 mx-auto;
+  @apply flex items-center;
+}
 
-  width: 72px;
+.form-error {
+  @apply flex items-center;
+}
+
+.form-submitted,
+.form-loader,
+.form-error {
   height: 72px;
 }
 
-.form-loader div {
-  @apply box-border block absolute w-16 h-16 m-1;
+/* loader */
+
+.loader {
+  @apply block relative my-0 mx-auto w-12 h-12;
+}
+
+.loader div {
+  @apply box-border block absolute w-12 h-12 m-1;
 
   @apply border-2 border-solid border-black;
   border-radius: 50%;
@@ -281,18 +292,18 @@ table thead tr th {
   animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 
-.dark .form-loader div {
+.dark .loader div {
   @apply border-white;
   border-color: #fff transparent transparent transparent;
 }
 
-.form-loader div:nth-child(1) {
+.loader div:nth-child(1) {
   animation-delay: -0.45s;
 }
-.form-loader div:nth-child(2) {
+.loader div:nth-child(2) {
   animation-delay: -0.3s;
 }
-.form-loader div:nth-child(3) {
+.loader div:nth-child(3) {
   animation-delay: -0.15s;
 }
 
@@ -321,10 +332,18 @@ a:focus {
 
   .form {
     @apply flex-col;
+
+    align-items: inherit;
+  }
+
+  .form-submitted,
+  .form-loader,
+  .form-error {
+    height: 224px;
   }
 
   .form label {
-    @apply mb-4;
+    @apply mb-4 w-full;
   }
 }
 
