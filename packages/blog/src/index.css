@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  @apply font-serif text-base  text-dark-gray bg-white;
+  @apply font-serif text-base text-dark-gray bg-white;
 }
 
 body.dark {
@@ -234,6 +234,68 @@ table thead tr th {
   @apply w-full;
 }
 
+.form {
+  @apply flex flex-row items-end;
+}
+
+.form label {
+  @apply mr-4;
+}
+
+.form-message {
+  @apply flex justify-between;
+}
+
+.form-error-message {
+  @apply text-red-800;
+}
+
+.form-field {
+  @apply py-3 px-4 w-full h-12 box-border border-2 border-sapphire-white text-black;
+}
+
+.form-submit {
+  @apply py-3 px-4 h-12 bg-electric-blue text-white;
+}
+
+.form-submitted {
+  @apply flex items-center;
+
+  height: 72px;
+}
+
+.form-loader {
+  @apply block relative my-0 mx-auto;
+
+  width: 72px;
+  height: 72px;
+}
+
+.form-loader div {
+  @apply box-border block absolute w-16 h-16 m-1;
+
+  @apply border-2 border-solid border-black;
+  border-radius: 50%;
+  border-color: #000 transparent transparent transparent;
+
+  animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.dark .form-loader div {
+  @apply border-white;
+  border-color: #fff transparent transparent transparent;
+}
+
+.form-loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.form-loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.form-loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
 /* Link */
 
 a {
@@ -251,9 +313,29 @@ a:focus {
   blockquote {
     @apply p-0 pl-4 ml-0;
   }
+
   ul,
   ol {
     @apply list-inside;
+  }
+
+  .form {
+    @apply flex-col;
+  }
+
+  .form label {
+    @apply mb-4;
+  }
+}
+
+/* Animation */
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
