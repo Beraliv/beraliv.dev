@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 
@@ -14,7 +14,6 @@ type SubscriptionFormState =
     }
   | {
       status: "submitted"
-      data: Record<string, unknown>
     }
   | {
       status: "error"
@@ -38,8 +37,6 @@ export const SubscriptionForm = () => {
   const [state, setState] = useState<SubscriptionFormState>({ status: "idle" })
 
   const handleSubmit = useCallback(values => {
-    console.log(`>>> handleSubmit`, values)
-
     const url = `https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`
 
     const body = JSON.stringify({
@@ -57,13 +54,11 @@ export const SubscriptionForm = () => {
       body,
     })
       .then(response => response.json())
-      .then(data => {
-        setState({ status: "submitted", data })
-        console.log(`>>> fetch, data`, data)
+      .then(() => {
+        setState({ status: "submitted" })
       })
-      .catch(error => {
+      .catch(() => {
         setState({ status: "error", message: `Something went wrong` })
-        console.log(`>>> fetch, error`, error)
       })
   }, [])
 
@@ -75,50 +70,76 @@ export const SubscriptionForm = () => {
     console.warn(`[SubscriptionForm]: CANNOT_FIND_CONVERTKIT_PUBLIC_KEY`)
   }
 
-  return (
-    <Formik
-      initialValues={INITIAL_VALUES}
-      onSubmit={handleSubmit}
-      validationSchema={SubscriptionSchema}
-    >
-      <Form className="form">
-        <label htmlFor="name">
-          <div className="form-message">
-            First Name
-            <ErrorMessage name="name" component="span" className="form-error" />
-          </div>
-          <Field
-            aria-label="your first name"
-            aria-required="true"
-            className="form-field"
-            component="input"
-            name="name"
-            placeholder="Jane"
-          />
-        </label>
-        <label htmlFor="email">
-          <div className="form-message">
-            Email
-            <ErrorMessage
-              className="form-error"
-              component="span"
-              name="email"
+  if (state.status === "idle") {
+    return (
+      <Formik
+        initialValues={INITIAL_VALUES}
+        onSubmit={handleSubmit}
+        validationSchema={SubscriptionSchema}
+      >
+        <Form className="form">
+          <label htmlFor="name">
+            <div className="form-message">
+              First Name
+              <ErrorMessage
+                className="form-error-message"
+                component="span"
+                name="name"
+              />
+            </div>
+            <Field
+              aria-label="your first name"
+              aria-required="true"
+              className="form-field"
+              component="input"
+              name="name"
+              placeholder="Jane"
             />
-          </div>
-          <Field
-            aria-label="your email address"
-            aria-required="true"
-            className="form-field"
-            component="input"
-            name="email"
-            placeholder="jane@company.com"
-          />
-        </label>
+          </label>
+          <label htmlFor="email">
+            <div className="form-message">
+              Email
+              <ErrorMessage
+                className="form-error-message"
+                component="span"
+                name="email"
+              />
+            </div>
+            <Field
+              aria-label="your email address"
+              aria-required="true"
+              className="form-field"
+              component="input"
+              name="email"
+              placeholder="jane@company.com"
+            />
+          </label>
 
-        <button className="form-submit" type="submit">
-          Submit
-        </button>
-      </Form>
-    </Formik>
-  )
+          <button className="form-submit" type="submit">
+            Submit
+          </button>
+        </Form>
+      </Formik>
+    )
+  }
+
+  if (state.status === "submitting") {
+    return (
+      <div className="form-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    )
+  }
+
+  if (state.status === "submitted") {
+    return (
+      <div className="form-submitted">
+        Thanks! Please check your inbox to confirm your subscription!
+      </div>
+    )
+  }
+
+  return <div className="form-error">{state.message}</div>
 }
