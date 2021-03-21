@@ -4,6 +4,7 @@ import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
+import { SubscriptionForm } from "../components/SubscriptionForm"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -139,11 +140,7 @@ const BlogPostTemplate = ({
         </ul>
       </nav>
       <hr />
-      <script
-        async
-        data-uid="dfb1fad3a0"
-        src="https://relentless-founder-6875.ck.page/dfb1fad3a0/index.js"
-      ></script>
+      <SubscriptionForm />
     </Layout>
   )
 }
