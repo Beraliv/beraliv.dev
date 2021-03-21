@@ -139,7 +139,6 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-      <hr />
       <SubscriptionForm />
     </Layout>
   )

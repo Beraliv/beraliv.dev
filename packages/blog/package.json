@@ -15,7 +15,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "final-form": "^4.20.2",
+    "formik": "^2.2.6",
     "gatsby": "^2.32.8",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-feed": "^2.13.1",
@@ -42,11 +42,11 @@
     "prismjs": "^1.22.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-final-form": "^6.5.3",
     "react-helmet": "^5.2.1",
     "typeface-merriweather": "^1.1.13",
     "typeface-montserrat": "^1.1.13",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.1",
