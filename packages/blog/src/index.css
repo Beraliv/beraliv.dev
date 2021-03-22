@@ -46,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold text-brand-darker-blue dark:text-brand-lighter-gray;
+  @apply font-bold text-brand-darker-blue dark:text-gray-300;
 }
 
 h1 {
@@ -251,7 +251,7 @@ table thead tr th {
 }
 
 .form-field {
-  @apply py-3 px-4 w-full h-12 box-border border-2 border-brand-lighter-gray text-black;
+  @apply py-3 px-4 w-full h-12 box-border border-2 border-gray-200 text-black;
 }
 
 .form-submit {
