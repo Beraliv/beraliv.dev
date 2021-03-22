@@ -247,7 +247,7 @@ table thead tr th {
 }
 
 .form-error-message {
-  @apply text-red-800;
+  @apply text-red-800 dark:text-light-red;
 }
 
 .form-field {
