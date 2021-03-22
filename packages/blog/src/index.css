@@ -19,7 +19,7 @@ body {
 }
 
 body.dark {
-  @apply text-brand-light-gray bg-black;
+  @apply text-brand-lighter-blue bg-black;
 }
 
 footer {
@@ -27,7 +27,7 @@ footer {
 }
 
 hr {
-  @apply h-px border-0 bg-brand-light-gray dark:bg-brand-dark-gray;
+  @apply h-px border-0 bg-brand-lighter-blue dark:bg-brand-dark-gray;
 }
 
 /* Heading */
@@ -128,7 +128,7 @@ li > ul {
 }
 
 blockquote {
-  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-brand-dark-blue text-brand-dark-gray dark:text-brand-light-gray;
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-brand-dark-blue text-brand-dark-gray dark:text-brand-lighter-blue;
 }
 
 blockquote > :last-child {
@@ -147,7 +147,7 @@ table {
 }
 
 table thead tr th {
-  @apply border-b border-solid border-brand-light-gray dark:border-brand-dark-gray;
+  @apply border-b border-solid border-brand-lighter-blue dark:border-brand-dark-gray;
 }
 
 /* Custom extendable styles */
