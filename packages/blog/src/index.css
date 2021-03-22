@@ -128,7 +128,7 @@ li > ul {
 }
 
 blockquote {
-  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-dark-blue text-gray-700 dark:text-brand-lighter-blue;
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-dark-blue dark:border-light-blue text-gray-700 dark:text-brand-lighter-blue;
 }
 
 blockquote > :last-child {
@@ -185,7 +185,7 @@ table thead tr th {
 }
 
 .post-list-item h2 {
-  @apply text-3xl mb-2 mt-0 text-dark-blue;
+  @apply text-3xl mb-2 mt-0 text-dark-blue dark:text-light-blue;
 }
 
 .post-list-item header {
@@ -255,7 +255,7 @@ table thead tr th {
 }
 
 .form-submit {
-  @apply py-3 px-4 h-12 bg-dark-blue text-white;
+  @apply py-3 px-4 h-12 bg-dark-blue dark:bg-light-blue text-white dark:text-black;
 }
 
 .form-submitted {
@@ -310,7 +310,7 @@ table thead tr th {
 /* Link */
 
 a {
-  @apply text-dark-blue;
+  @apply text-dark-blue dark:text-light-blue;
 }
 
 a:hover,
