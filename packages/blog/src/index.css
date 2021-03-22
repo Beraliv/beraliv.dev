@@ -46,7 +46,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold text-brand-darker-blue dark:text-gray-300;
+  @apply font-bold text-gray-800 dark:text-gray-300;
 }
 
 h1 {

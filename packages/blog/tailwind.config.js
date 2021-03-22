@@ -7,7 +7,6 @@ module.exports = {
         "brand-lighter-blue": "#d1dce5",
         "brand-light-blue": "#9cdcfe",
         "brand-dark-blue": "#005b99",
-        "brand-darker-blue": "#1a202c",
       },
       fontFamily: {
         sans: [
