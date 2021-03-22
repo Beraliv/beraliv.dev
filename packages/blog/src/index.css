@@ -251,7 +251,7 @@ table thead tr th {
 }
 
 .form-field {
-  @apply py-3 px-4 w-full h-12 box-border border-2 border-gray-200 text-black;
+  @apply py-3 px-4 w-full h-12 box-border dark:border-0 border-2 border-gray-200 text-black;
 }
 
 .form-submit {
