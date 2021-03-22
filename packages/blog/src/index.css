@@ -50,7 +50,7 @@ h6 {
 }
 
 h1 {
-  @apply font-black text-4xl text-black dark:text-white;
+  @apply font-black text-5xl text-black dark:text-white;
 }
 
 h2 {
