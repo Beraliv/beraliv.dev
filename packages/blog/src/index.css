@@ -161,7 +161,7 @@ table thead tr th {
 }
 
 .global-header {
-  @apply relative mb-12;
+  @apply flex items-center h-12 relative mb-12;
 }
 
 .main-heading {
