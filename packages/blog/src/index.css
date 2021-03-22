@@ -73,12 +73,7 @@ h6 {
   @apply text-lg;
 }
 
-h1 > a {
-  @apply no-underline;
-
-  color: inherit;
-}
-
+h1 > a,
 h2 > a,
 h3 > a,
 h4 > a,
@@ -86,7 +81,7 @@ h5 > a,
 h6 > a {
   @apply no-underline;
 
-  color: inherit;
+  color: inherit !important;
 }
 
 /* Prose */
