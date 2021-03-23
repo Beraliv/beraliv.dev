@@ -15,11 +15,11 @@ html {
 }
 
 body {
-  @apply font-serif text-base text-dark-gray bg-white;
+  @apply font-serif text-base text-gray-900 bg-white;
 }
 
 body.dark {
-  @apply text-light-azure bg-black;
+  @apply text-gray-200 bg-black;
 }
 
 footer {
@@ -27,7 +27,7 @@ footer {
 }
 
 hr {
-  @apply h-px border-0 bg-light-azure dark:bg-dark-gray;
+  @apply h-px border-0 bg-gray-200 dark:bg-gray-700;
 }
 
 /* Heading */
@@ -46,11 +46,11 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-bold text-cobalt-blue dark:text-sapphire-white;
+  @apply font-bold text-gray-800 dark:text-gray-300;
 }
 
 h1 {
-  @apply font-black text-4xl text-black dark:text-white;
+  @apply font-black text-5xl text-black dark:text-white;
 }
 
 h2 {
@@ -73,12 +73,7 @@ h6 {
   @apply text-lg;
 }
 
-h1 > a {
-  @apply no-underline;
-
-  color: inherit;
-}
-
+h1 > a,
 h2 > a,
 h3 > a,
 h4 > a,
@@ -86,7 +81,7 @@ h5 > a,
 h6 > a {
   @apply no-underline;
 
-  color: inherit;
+  color: inherit !important;
 }
 
 /* Prose */
@@ -128,7 +123,7 @@ li > ul {
 }
 
 blockquote {
-  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-electric-blue text-dark-gray dark:text-light-azure;
+  @apply -ml-6 mr-8 mb-8 p-0 pl-6 text-xl italic border-l-4 border-solid border-dark-blue dark:border-light-blue text-gray-700 dark:text-gray-200;
 }
 
 blockquote > :last-child {
@@ -147,7 +142,7 @@ table {
 }
 
 table thead tr th {
-  @apply border-b border-solid border-light-azure dark:border-dark-gray;
+  @apply border-b border-solid border-gray-200 dark:border-gray-700;
 }
 
 /* Custom extendable styles */
@@ -161,7 +156,7 @@ table thead tr th {
 }
 
 .global-header {
-  @apply relative mb-12;
+  @apply flex items-center h-12 relative mb-12;
 }
 
 .main-heading {
@@ -185,7 +180,7 @@ table thead tr th {
 }
 
 .post-list-item h2 {
-  @apply text-3xl mb-2 mt-0 text-electric-blue;
+  @apply text-3xl mb-2 mt-0 text-dark-blue dark:text-light-blue;
 }
 
 .post-list-item header {
@@ -247,15 +242,15 @@ table thead tr th {
 }
 
 .form-error-message {
-  @apply text-red-800;
+  @apply text-red-800 dark:text-light-red;
 }
 
 .form-field {
-  @apply py-3 px-4 w-full h-12 box-border border-2 border-sapphire-white text-black;
+  @apply py-3 px-4 w-full h-12 box-border dark:border-0 border-2 border-gray-200 text-black;
 }
 
 .form-submit {
-  @apply py-3 px-4 h-12 bg-electric-blue text-white;
+  @apply py-3 px-4 h-12 bg-dark-blue dark:bg-light-blue text-white dark:text-black;
 }
 
 .form-submitted {
@@ -310,7 +305,7 @@ table thead tr th {
 /* Link */
 
 a {
-  @apply text-electric-blue;
+  @apply text-dark-blue dark:text-light-blue;
 }
 
 a:hover,
