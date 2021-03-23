@@ -4,6 +4,7 @@ import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogIndexQuery } from "../types/generated"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
   if (!data.site?.siteMetadata?.title) {
@@ -47,27 +48,35 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
             )
           }
 
-          const { description, title } = post.frontmatter
+          const { description, title, image } = post.frontmatter
 
           return (
             <li className="post-list-item" key={post.fields.slug}>
               <article itemScope itemType="http://schema.org/Article">
                 <header>
+                  <small>{post.frontmatter.date}</small>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
+                  {image?.childImageSharp?.gatsbyImageData && (
+                    <GatsbyImage
+                      image={image?.childImageSharp.gatsbyImageData}
+                      alt={title}
+                    />
+                  )}
+                </section>
+                <footer>
                   <p
                     dangerouslySetInnerHTML={{
                       __html: description,
                     }}
                     itemProp="description"
                   />
-                </section>
+                </footer>
               </article>
             </li>
           )
@@ -95,6 +104,15 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          image: featured {
+            childImageSharp {
+              gatsbyImageData(
+                width: 640
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }

@@ -3676,6 +3676,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsMaxWidth = "pluginCreator___pluginOptions___maxWidth",
   PluginCreatorPluginOptionsWrapperStyle = "pluginCreator___pluginOptions___wrapperStyle",
   PluginCreatorPluginOptionsFigureClassName = "pluginCreator___pluginOptions___figureClassName",
+  PluginCreatorPluginOptionsThemeDefault = "pluginCreator___pluginOptions___theme___default",
   PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
   PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
   PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
@@ -3906,6 +3907,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsMaxWidth = "pluginOptions___maxWidth",
   PluginOptionsWrapperStyle = "pluginOptions___wrapperStyle",
   PluginOptionsFigureClassName = "pluginOptions___figureClassName",
+  PluginOptionsThemeDefault = "pluginOptions___theme___default",
   PluginOptionsThemeParentSelectorBodyNotDark = "pluginOptions___theme___parentSelector___body_not__dark_",
   PluginOptionsThemeParentSelectorBodyDark = "pluginOptions___theme___parentSelector___body_dark",
   PluginOptionsShortName = "pluginOptions___short_name",
@@ -4172,10 +4174,12 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
 
 export type SitePluginPluginOptionsPluginsPluginOptionsTheme = {
   __typename?: "SitePluginPluginOptionsPluginsPluginOptionsTheme"
+  default?: Maybe<Scalars["String"]>
   parentSelector?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsThemeParentSelector>
 }
 
 export type SitePluginPluginOptionsPluginsPluginOptionsThemeFilterInput = {
+  default?: Maybe<StringQueryOperatorInput>
   parentSelector?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsThemeParentSelectorFilterInput>
 }
 
@@ -4192,10 +4196,12 @@ export type SitePluginPluginOptionsPluginsPluginOptionsThemeParentSelectorFilter
 
 export type SitePluginPluginOptionsTheme = {
   __typename?: "SitePluginPluginOptionsTheme"
+  default?: Maybe<Scalars["String"]>
   parentSelector?: Maybe<SitePluginPluginOptionsThemeParentSelector>
 }
 
 export type SitePluginPluginOptionsThemeFilterInput = {
+  default?: Maybe<StringQueryOperatorInput>
   parentSelector?: Maybe<SitePluginPluginOptionsThemeParentSelectorFilterInput>
 }
 
@@ -4537,7 +4543,18 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
             "date" | "title" | "description"
-          >
+          > & {
+              image?: Maybe<
+                { __typename?: "File" } & {
+                  childImageSharp?: Maybe<
+                    { __typename?: "ImageSharp" } & Pick<
+                      ImageSharp,
+                      "gatsbyImageData"
+                    >
+                  >
+                }
+              >
+            }
         >
       }
     >
@@ -4559,10 +4576,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
     }
   >
   markdownRemark?: Maybe<
-    { __typename?: "MarkdownRemark" } & Pick<
-      MarkdownRemark,
-      "id" | "excerpt" | "html"
-    > & {
+    { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id" | "html"> & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
@@ -5073,6 +5087,15 @@ export const BlogIndexDocument = gql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          image: featured {
+            childImageSharp {
+              gatsbyImageData(
+                width: 640
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }
@@ -5134,7 +5157,6 @@ export const BlogPostBySlugDocument = gql`
     }
     markdownRemark(id: { eq: $id }) {
       id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
         title
