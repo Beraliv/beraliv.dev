@@ -10,7 +10,7 @@ featured: ./featured.png
 
 Not a long time ago I revealed [type-challenges](https://github.com/type-challenges/type-challenges) for myself. Today I'll show not only the implementation of `Get`, but also the common issues with the implementation, the following improvements and the usage in production.
 
-## Basic implementation
+## 1. Basic implementation
 
 As I said, there's a repo on GitHub: [type-challenges](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md). The current challenge is located in "hard" category.
 
@@ -18,7 +18,7 @@ Here we work only with objects (as the solution doesn't require accessing arrays
 
 So what should we start then from?
 
-#### Getting keys
+#### 1.1. Getting keys
 
 Imagine we solve the same challenge in JavaScript:
 
@@ -40,7 +40,7 @@ It looks very simple and short. However once we write tests, we understand what 
 
 To play with it, have a look at [Playground with tests cases](https://www.typescriptlang.org/play?ssl=5&ssc=9&pln=1&pc=1#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWYXK1vUwoWWVp2QB6ACooAH0IyKjI3ElgKABhOApJcOj0sKhgwNlGAFswAHt2ePooAFEARwBXOAAbLXKCSABjeL4oFnZCvKgAcgABUEgAWhbEerrSAHNJQOrgRjqKPtlZYegW5NScFTMm1uBkKtq65D0UPsKSCBGAa14RsAREPvQtFSub+8fnpD7jOh3vtmhA2scavVzi9kH0AEw-EACP6vd6qeGIvpaPoogFAjQgw4Q07Q-R9JDsCAQAQPJG4tGfClUrH9WksnEvPHA4xAA)
 
-#### Reducing the object
+#### 1.2. Reducing the object
 
 After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are an array of strings:
 
@@ -57,7 +57,7 @@ Let's test it on [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpg
 
 [Final version with tests is available on Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANoC6AUFCgB+KIUFQAXHUbN2XbkhYAzCJnIQQpAHS6lq9QCUIHYAKFDRZTfSatOUANaaA9srESLI2PGRosuASE3NYgvKTGphSeFtIsEABuajFxicn8APQAVFAA+vkFhQVQAComwFAAwjgcJnlFDblQWRn8SAC2YC6YFQDeUACiAI4ArjgANqQDDJAAxhUAvlDKmC7tUADkAAKgkAC0s6gT46wA5iYZI8BI4xwb-Py70GWmhABGAFYQ8zRQvRLXYAnaQAAwAyrNVuNxm8cOpZiNTGskBwcNcXCwQRI2GiIKCAEwABgAjAAOPbEwl7QkAFixQhwV1Q3Wk-y8LBw7TxUBB6BODBsACE1BAAF5KekWcYuWZopAY1kxISzFAgUEAWRGLCQh0lQgWEgNBse4GgstqXFo3Ak0zmwHwwzG43wcEQKAw2Dw+BewHeX3mpG4G0BJw2vAopHBkJc0Nh8MRwGRqPRmIoEZtM2+9sdExdvndAS9Pr9WcDGxxzDDEZ5RLJFKptJBaeIGbtDtGuddfg9gW95RLAZ45ZMkKQYBTVdI8SSmGbraz7adebd-k9BGLn1LQ8ZaG6G1IGw5XMnPL5jCFIvFqfTQltC5zzq7BbXfdem8HQZ3zMw+820tlE4HiqoAniCmrarqc63pm8yLp2+arr2G7+sAZZfnuQFwmwv6HiM7RvGoJ7Tmoc68EAA)
 
-#### All together
+#### 1.3. All together
 
 ![Get for type challenge](./get-for-type-challenge.png)
 
@@ -65,7 +65,7 @@ Let's test it together to clarify everything's working as expected: [Playground]
 
 Great, we did it ✅
 
-## Optional paths
+## 2. Optional paths
 
 When we work with the real data in production, we don't actually know if the data is given or not. In this case we have optional paths all over the project
 
@@ -79,7 +79,7 @@ We cannot extract a key from an object if it can be `undefined` or `null`
 
 Let's fix it step by step:
 
-#### Remove undefined, null or both
+#### 2.1. Remove undefined, null or both
 
 First, we declare 3 simple filters:
 
@@ -89,7 +89,7 @@ We detect if `undefined` or/and `null` exist within the union type, delete it fr
 
 Let me show the test cases on [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmkAegAqKAB9BMSkxNoIFmAoAGEAQxY0+OTCuKhoyMk4AFswAHsUDIBvKABRAEd2bIQAGmaGSABjDIBfKFwUaoqoAHIAAVkIAFo+gAsOhAgMAHM0yPZgRBZJ6TmoPtz8mgBtSSge-uBiVvb1YPt-Hld3Q2IARigAHygACZ-lAAMwgziOd7kbq-AHAgGg8gw663CADB5tDpBBSvKHONxYULESbVQiTEGTYAAd2qFIBVKWKAgEHpgkMMKmZNZlJpdN5TJZk2RnVRTV66Puj2xLz8+KIhOJcKmfLZBjUELezk5yqptOFKJu4rumKeON8Dm4BM+nkhVqInOEqBFYolGOlz1xcvtHyJX3VCEdpmdhrR7qxnotWoVNvUdoCWBBAaDZhdAF0gA)
 
-#### Modify reducer
+#### 2.2. Modify reducer
 
 Remember what we did for type challenge. Let's extend our solution to support optional paths:
 
@@ -104,7 +104,7 @@ Let's add tests and check if it's working: [Playground](https://www.typescriptla
 
 Good job ✅
 
-## Accessing arrays
+## 3. Accessing arrays
 
 The next desired step for me is to support arrays. In JavaScript it would look like:
 
@@ -116,7 +116,7 @@ We already know how to get keys with `Path`:
 
 ![Path transforms a string into keys](./path-v2.png)
 
-#### Reducing arrays
+#### 3.1. Reducing arrays
 
 As for objects, we can similarly call `keys.reduce` for arrays. To do so, we will implement the same type `GetWithArray` but for arrays and then combine 2 solutions of `GetWithArray` in one.
 
@@ -142,7 +142,7 @@ Here `'1' extends keyof string[]` is `false` therefore it returns `never`
 
 Let's fix that 🚀
 
-#### Infer `T | undefined`
+#### 3.2. Infer `T | undefined`
 
 ![Extend GetWithArray solution for arrays](./get-with-array-for-arrays-v1.5.png)
 
@@ -155,7 +155,7 @@ For normal and readonly arrays we want to get `T | undefined` depending on the v
 
 Only need to fix the final case with special readonly arrays. Please check tests in [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJGkNdRiw5QA1hoD2S0ePPDY8ZGiy4CdC4rEB4SIxNyD09JURtZewAKPVUoABUASl5omK84RBQMbDx8NKgAHygAVzYIJUUIVnDjYCjczyl0eLtOTAgcVmdmABsQKGTlVMzs9piRfN8igNKK6tr65kbmyJz2qU2AN1Vo-YgjzD4+AHoAKigAfUen56f0lqgAYRx2YweX--uUBuVz4SAAtmBnJhgFAAN5QACiAEcqjhhiQEfRIABjGEAXygSkwzjBUAA5AABUCQAC02NQaOGLAA5sYrlVgEhhuwyZdqdA0i0APIAIwAVhBcdRuOIrlcoAAGcQAAwAytjicNhiKcGpsVUTCSkOwcJyhsqiLL5QBGFUAJgV1oAHDTrQqaQqACwWq1QO3iLjROV+rRKzwmTCKZmWzzBu1aW2eRIRqOrZhVMEi1RZMJB+Xx-2ePoDIajKDpzOqGZQfg8ADcfPA0Gx31+NEDgkxOOA+GRqOG+AWhX8JUFJlFEtxJC4ZIVZJ45BIao1zi1Or1BuARpNZuYyvIi-EXclPb7aMHPmHxQIY+AE5P07J1vni6gyodztd7q9+8PnaxJ69ii55Dn416lMK4oPtwZJ2mSJCzi+JApswzIHjGiIAbiQH9heBRgcst73lOMFwQhz4IXOC7IcAkaoWmGZZmolQ1KwdQNKw6FHlhp7AQOoFLKOkGTsAj5keS4mwUh5aMakLHrBxXH-t2OEgZeBFCeOUEkTOADM0msexmycYePBAA)
 
-#### Special readonly arrays
+#### 3.3. Special readonly arrays
 
 At the moment, if we try to extract value by non-existing index from special readonly arrays, we will get the following:
 
@@ -202,7 +202,7 @@ Let's rewrite `GetWithArray` using the condition `any[] extends A`:
 
 If you want to see it in one place, don't forget to check out [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaBFGidSI9GKKkyqjW0khcNkAZjZ-D48qg1OhsJoicElJpwHwxNJNXw4+60T6yvVmuAC7ZBtX5BIZotlStNrtDuATpdbuYY1yBfcQDzvY8STJc8DgnK9YhvOd724NlvWfV8A2DUNwyjICQP3KlwJPKCLyOKcELvB8-TZEhHzQqAS2YYVgJzQkCNpCDT2giJL2OadgFnCjkKomjUJop8eBfejgEzRiywrKtfAGWYRmY0C2KPIizxIydrxnW95yE6j2WE4y6Pkrsy3uOZMlU-DDw44iYJ4si9MQh8VwkkgrJUkCeCAA) ✅
 
-## One solution
+## 4. One solution
 
 Now we have 2 solutions:
 
