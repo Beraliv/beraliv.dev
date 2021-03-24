@@ -72,54 +72,62 @@ export const SubscriptionForm = () => {
 
   if (state.status === "idle") {
     return (
-      <Formik
-        initialValues={INITIAL_VALUES}
-        onSubmit={handleSubmit}
-        validationSchema={SubscriptionSchema}
-      >
-        <Form className="form">
-          <label htmlFor="name">
-            <div className="form-message">
-              First Name
-              <ErrorMessage
-                className="form-error-message"
-                component="span"
+      <>
+        <h3>Let's chat and have fun 🧑‍💻👩‍💻</h3>
+        <p>
+          No more often than once a week I write 📄 about TypeScript 💪, video
+          playback 📺 and frontend related topics. You can unsubscribe in any
+          time ↘️
+        </p>
+        <Formik
+          initialValues={INITIAL_VALUES}
+          onSubmit={handleSubmit}
+          validationSchema={SubscriptionSchema}
+        >
+          <Form className="form">
+            <label htmlFor="name">
+              <div className="form-message">
+                First Name
+                <ErrorMessage
+                  className="form-error-message"
+                  component="span"
+                  name="name"
+                />
+              </div>
+              <Field
+                aria-label="your first name"
+                aria-required="true"
+                className="form-field"
+                component="input"
                 name="name"
+                placeholder="Jane"
               />
-            </div>
-            <Field
-              aria-label="your first name"
-              aria-required="true"
-              className="form-field"
-              component="input"
-              name="name"
-              placeholder="Jane"
-            />
-          </label>
-          <label htmlFor="email">
-            <div className="form-message">
-              Email
-              <ErrorMessage
-                className="form-error-message"
-                component="span"
+            </label>
+            <label htmlFor="email">
+              <div className="form-message">
+                Email
+                <ErrorMessage
+                  className="form-error-message"
+                  component="span"
+                  name="email"
+                />
+              </div>
+              <Field
+                aria-label="your email address"
+                aria-required="true"
+                className="form-field"
+                component="input"
                 name="email"
+                placeholder="jane@company.com"
               />
-            </div>
-            <Field
-              aria-label="your email address"
-              aria-required="true"
-              className="form-field"
-              component="input"
-              name="email"
-              placeholder="jane@company.com"
-            />
-          </label>
+            </label>
 
-          <button className="form-submit" type="submit">
-            Submit
-          </button>
-        </Form>
-      </Formik>
+            <button className="form-submit" type="submit">
+              Submit
+            </button>
+          </Form>
+        </Formik>
+      </>
     )
   }
 
