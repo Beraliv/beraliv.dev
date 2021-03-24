@@ -2802,6 +2802,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsTailwind = "pluginCreator___pluginOptions___tailwind",
   PluginCreatorPluginOptionsDevelop = "pluginCreator___pluginOptions___develop",
   PluginCreatorPluginOptionsContent = "pluginCreator___pluginOptions___content",
+  PluginCreatorPluginOptionsIgnore = "pluginCreator___pluginOptions___ignore",
   PluginCreatorPluginOptionsConfigDir = "pluginCreator___pluginOptions___configDir",
   PluginCreatorPluginOptionsProjectRoot = "pluginCreator___pluginOptions___projectRoot",
   PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -3117,6 +3118,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsTailwind = "pluginOptions___tailwind",
   PluginOptionsDevelop = "pluginOptions___develop",
   PluginOptionsContent = "pluginOptions___content",
+  PluginOptionsIgnore = "pluginOptions___ignore",
   PluginOptionsConfigDir = "pluginOptions___configDir",
   PluginOptionsProjectRoot = "pluginOptions___projectRoot",
   PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -3268,6 +3270,7 @@ export type SitePluginPluginOptions = {
   tailwind?: Maybe<Scalars["Boolean"]>
   develop?: Maybe<Scalars["Boolean"]>
   content?: Maybe<Array<Maybe<Scalars["String"]>>>
+  ignore?: Maybe<Array<Maybe<Scalars["String"]>>>
   configDir?: Maybe<Scalars["String"]>
   projectRoot?: Maybe<Scalars["String"]>
   pathCheck?: Maybe<Scalars["Boolean"]>
@@ -3300,6 +3303,7 @@ export type SitePluginPluginOptionsFilterInput = {
   tailwind?: Maybe<BooleanQueryOperatorInput>
   develop?: Maybe<BooleanQueryOperatorInput>
   content?: Maybe<StringQueryOperatorInput>
+  ignore?: Maybe<StringQueryOperatorInput>
   configDir?: Maybe<StringQueryOperatorInput>
   projectRoot?: Maybe<StringQueryOperatorInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
