@@ -341,3 +341,50 @@ type GetWithArray<O, K> = K extends []
     ? GetWithArray<ExtractFromArray<O, Key>, Rest>
     : undefined
   : never
+
+/* Function overloads */
+
+function getLength(str: string): number
+function getLength(arr: any[]): number
+function getLength(x: any): number {
+  return x.string
+}
+
+/* rewrite get */
+
+const get = (obj, path) => {
+  const keys = path.split(".")
+
+  let currentObj = obj
+  for (const key of keys) {
+    const value = currentObj[key]
+    if (value === undefined || value === null) {
+      return undefined
+    }
+
+    currentObj = value
+  }
+
+  return currentObj
+}
+
+/* fallback Get */
+
+// strict types 🔎
+function get<O, K extends string>(obj: O, path: K): Get<O, K>
+// fallback 😌
+function get(obj: Record<string, unknown>, path: string): unknown {
+  const keys = path.split(".")
+
+  let currentObj = obj
+  for (const key of keys) {
+    const value = currentObj[key]
+    if (value === undefined || value === null) {
+      return undefined
+    }
+
+    currentObj = value as Record<string, unknown>
+  }
+
+  return currentObj
+}

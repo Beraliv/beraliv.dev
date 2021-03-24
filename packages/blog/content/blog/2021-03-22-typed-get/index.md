@@ -231,6 +231,39 @@ This helps to distinct cases and don't make a mistake while passing types. Let's
 
 I covered this refactoring with tests. [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMOAAoCLhRKQAJTk4FGOj-MGXIj8iTM0rlbG4-GEqDsjCcsw8vkPB4CQUAkVYfkgrV+HV6vaSw7HU4MtVM75i-VAiKyADiEGAAHU4MAABZIlFFSmeY3TKCq1Y7CQBzFBjmiNqdKAAOgTUbMVRYwG2lsWGPKVQSNXqjVQrXaXU4fUGw11RidrvdXuRcVRMLhyTSWTyBWAvom7RGlQgqfuavMxRZWJxeIJROpwaHVedbs93obxCbiRbiPrqMyox7XRTwEHs9BrwhaokwlQ4QA9AAqKAAfUfT+fT9o-eAUAAwnEWP2Hy+APvKAbyvSQ4HSMAag-ABvaEAEd2DiBAuhiSAkigABfKBcFbKAAHIAAFLAAWgSD0kIQMoAHN+yvdhgEQFg8MhSIoAaVIsHYJI4HxHJ8nQmhoJ2BjgEoiRUxQAgqJ2HAWASSSwAY-E+HE2EpJkuJkHPdh0myS8VjieiPRqFSoCEtUMDidIIFUySMGktUEFSBJNJ4jBTPMocEndEBbPUtUMJ2QKVmAOIqJYUy1jw6Ukjwro8MsOSFOAOL8KEOAcFSPD0ygFg4CoyzgHYbFTLwpxKIYdooAAIVQCAAC8CGYlZINTFgJGlCc5Vgj1gHSBA-PszDg1MPL8Xa+UJKkv5BB0vSUF5bZAvtaAXN-NgaDWHZUI7FcEKQ4hqwXOsfXYzjuN49ski6KKRMo7Leym+zyBGbaGDQzson2tQjtrJdUTOrilIwPiOxuvDZPkuBFLch6uieqiZuFA0Xo6N6Pr2xCfvnP7N2IQGLpBq7gHBrBNIgOHZt01BUfR3avqxw6ccXPGCeB0HrqDPDDM9GpUrwyzrMphGkZPIhaZWHbCgZg7fpZ060nO9nifBnnjJQfmnJc4H+e80BhbUoahTFrAJehd76e+pma3l5c2bcjmSa5tW+firXXPxfncSwbEWCYzZe2Rt4zalz6rblk67cVoGHZV52jNd-D5KIMoGKQpj4oABkpoPHBDi3pfD5nI4B6PCcd8HQvC-ns4D+KYpS0XwXF17JYLsPGYj-78bL5X+Kd26woz-CAGYc5N-OMZl7GbZLnuOJjy7+-BvKCs04qKbr-DysYKrauxRqMDwpvtUny3O+L7v7aXsGuda4Bh7w2vex6vqBtyw3Eaw43m9N1vzankXWeV9e6x2XnfVIbUa7816v1A2dlEY-1Pv-UOmNZaX1ZqAm+nMoqjTco-Z+8NP4zX0NTMwSCUavU2EAA) is waiting for you 🚀
 
+## 5. Binding to JavaScript
+
+Let's return to the solution on the JavaScript:
+
+![Get function in Javascript](./get-in-js.png)
+
+At the moment we use `lodash` in our project, e.g. function `get`. If you check [common/object.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1022) in `@types/lodash`, you'll see that it's quite straightforward. The `get` call in playground returns `any` for most of the cases: [typescript-lodash-types](https://codesandbox.io/s/typescript-lodash-types-ndhvf?file=/src/index.type.ts:1379-1856)
+
+Let's replace `reduce` with any `for`-loop (e.g. `for-of`) to have early exit in case `value` is `undefined` or `null`:
+
+![Get function in JavaScript, version 2](./get-in-js-v2.png)
+
+Let's try to cover `get` function with types we just wrote. Let's divide it into 2 cases:
+
+1. `Get` type can be used iff (if and only if) all the restrictions can be applied and the type is correctly inferred
+2. Fallback type is applied iff the validation is not passed (e.g. we pass `number` but expected `string` in `path`)
+
+To have 2 type overloads we need to use `function`:
+
+![Get function with fallback types, version 3](./get-in-js-v3-fallback.png)
+
+The implementation is ready ✅
+
+But we still need to use our `Get` type, let's add it:
+
+![Get function, final version](./get-in-js-v4.png)
+
+Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1517-1531):
+
+1. I added [the implementation of get with types 🔥](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.ts)
+2. I covered [the types with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1584-1598)
+3. I covered [get function with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.test.ts)
+
 ## Summary
 
 To solve the challenge we needed to know several TypeScript concepts:
@@ -250,3 +283,7 @@ To solve the challenge we needed to know several TypeScript concepts:
 4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
 
 ![Example of template literal types](./template-literal-types.png)
+
+5. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
+
+![Example of function overloads](./function-overloads.png)
