@@ -346,7 +346,7 @@ type GetWithArray<O, K> = K extends []
 function getLength(str: string): number
 function getLength(arr: any[]): number
 function getLength(x: any): number {
-  return x.string
+  return x.length
 }
 
 /* rewrite get */
