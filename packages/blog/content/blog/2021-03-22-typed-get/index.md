@@ -14,7 +14,7 @@ Not a long time ago I discovered [type-challenges](https://github.com/type-chall
 
 As I said, there's a repo on GitHub: type-challenges. [The current challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) is located in the "hard" category.
 
-Here we work only with objects (as the solution doesn't require accessing arrays) and also we always can access object keys as they are defined in test cases.
+Here we work only with objects (as the solution doesn't require accessing arrays and tuples) and also we always can access object keys as they are defined in test cases.
 
 So what should we start then from?
 
@@ -40,16 +40,16 @@ To try it out, we can have a look at the [Playground with tests cases](https://w
 
 ### 1.2. Reducing the object
 
-After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are an array of strings:
+After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are a string tuple:
 
 ![GetWithArray for objects, version 1](./get-with-array-v1.png)
 
 To explain it in more detail:
 
-1. `K extends [infer Key, ...infer Rest]` checks that we have at least one element in an array
+1. `K extends [infer Key, ...infer Rest]` checks that we have at least one element in a tuple
 2. `Key extends keyof O` lets us use `O[Key]` to move recursively to the next step
 
-Let's test it again on the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANpIsBmETOQghSAOkl9BwgEoQOwALoAoKFAD8IkPSatOUANaiA9vyiE16zbHjI0WXAULcyopaXmKKV9QC4oFggANyErAKDQzBUVAHoAKigAfRTUtNSoABUFYCgAYRwOBWT00qSoeNiVJABbMBNMXIBvKABRAEcAVxwAG1JWhkgAY1yAXyh+TBMaqAByAAFQSABaIdRentYAcwVYzuAkHo5ZmKXobMVCACMAKwgRmigmqwPgTYCAAwBlIamenquOGEQ06immSA4OAOJhYHysbChEE+ACYAAwARgAHMt0ajlqiACxw9Q4faoBoBZ7WQI4GpIqAfdCbBiiKAAISEEAAXnxidYeiYhlCkDDKb5rEMUCBPgBZTosJBrPnqUZWVWqlRnKBCopcWjcKwDYbAfAdbo9fBwRAoDDYPD4C7Aa53EakbizV6bWZKCikb6-Ez-QHA0HAcGQ6Gwii+w2De4ms29S12G2Oe2O53xt2zBHMb2+hlorE4vGEj7R4ix42mrpJq32W1OB05TOung5hS-JBgSP50iRIQVqvxmvm5PWhx2ggZ25Z9uktANWakWYsWkQPsMpmMVkczDc3lD9RGkeJi311NT5uXWdt90L8mYZdzAVC3sryWgTcfOUKpVHto4xGUc6xTScmxnF1gGzB8lw-IE2GfVdOhqK4hE3AdMCHJQgA). We again forgot the last case with an empty array. Let's add it:
+Let's test it again on the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANpIsBmETOQghSAOkl9BwgEoQOwALoAoKFAD8IkPSatOUANaiA9vyiE16zbHjI0WXAULcyopaXmKKV9QC4oFggANyErAKDQzBUVAHoAKigAfRTUtNSoABUFYCgAYRwOBWT00qSoeNiVJABbMBNMXIBvKABRAEcAVxwAG1JWhkgAY1yAXyh+TBMaqAByAAFQSABaIdRentYAcwVYzuAkHo5ZmKXobMVCACMAKwgRmigmqwPgTYCAAwBlIamenquOGEQ06immSA4OAOJhYHysbChEE+ACYAAwARgAHMt0ajlqiACxw9Q4faoBoBZ7WQI4GpIqAfdCbBiiKAAISEEAAXnxidYeiYhlCkDDKb5rEMUCBPgBZTosJBrPnqUZWVWqlRnKBCopcWjcKwDYbAfAdbo9fBwRAoDDYPD4C7Aa53EakbizV6bWZKCikb6-Ez-QHA0HAcGQ6Gwii+w2De4ms29S12G2Oe2O53xt2zBHMb2+hlorE4vGEj7R4ix42mrpJq32W1OB05TOung5hS-JBgSP50iRIQVqvxmvm5PWhx2ggZ25Z9uktANWakWYsWkQPsMpmMVkczDc3lD9RGkeJi311NT5uXWdt90L8mYZdzAVC3sryWgTcfOUKpVHto4xGUc6xTScmxnF1gGzB8lw-IE2GfVdOhqK4hE3AdMCHJQgA). We again forgot the last case with a tuple without elements. Let's add it:
 
 ![GetWithArray for objects, version 2](./get-with-array-v2.png)
 
@@ -102,9 +102,9 @@ Let's add tests and check if it's working in the [Playground](https://www.typesc
 
 Good job ✅
 
-## 3. Accessing arrays
+## 3. Accessing arrays and tuples
 
-The next desired step for us is to support arrays. In JavaScript it would look like this:
+The next desired step for us is to support arrays and tuples. In JavaScript it would look like this:
 
 ![Get function for arrays in JS](./get-for-arrays-in-js.png)
 
@@ -122,7 +122,7 @@ First, let's take a basic implementation for objects and adapt it for arrays. We
 
 After testing in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJGkNdRiw5QA1hoD2S0ePPDY8ZGiy4CdC4rEB4SIxNyD3MpZggAN1Vo2ISkvgB6ACooAH08-IL8qAAVY2AoAGEcdmNcwvqcqEz0viQAWzBnTHKAbygAUQBHAFccABsSfvpIAGNygF8oJUxnNqgAcgABUEgAWhnUcbGWAHNjdOHgJDH2db4+HehSkwB5ACMAKwg56m5xdPSUAADOIAAYAZRmKzGYzeODUM2GJlWSHYOCuzmYoKI-0BAEYwQAmIF4gAcuzxQN2QIALNjcVBCeIuNEAYytCDPCZMIoTjjPGzCVoCZ4ABTc3lQAA+UGYwzab1UAEpePzzIKtEzPJgIDhWJixiBZfLFZheOJ+DwANz3R5QGbVWo0FmCKazYD4IajMb4OCIFAYbB4fDPYDvL5zEhcdZA9Y8cgkCFQ5wwuEIpHAFFojFY8gJ8Ru74er3jX0+AP+YOh8NFqPrPFxhNQUHEskUqm00F5tWFuaekalv2+QMBENlGuR7jrQnrEgxxskCXME7dgvTIv971l-1+IMEaufWtTmdzhtz2PxxfAHnL6XGhWqO-DNgQJSKCCsVeu9d9ks+ocVnuY6vIek7RieGwQdOC73qaT4vm+cSfvm37upug7lruo4HhGwB1gAzDBz6sK+77ITiPBAA), we found several gaps:
 
-1. Normal arrays cannot have a `string` key:
+1. Arrays cannot have a `string` key:
 
 ![Debugging normal arrays](./debug-get-with-array-for-arrays-v1-for-normal-string-array.png)
 
@@ -132,9 +132,9 @@ Here `'1' extends keyof string[]` is `false` therefore it returns `never`.
 
 ![Debugging readonly arrays](./debug-get-with-array-for-arrays-v1-for-readonly-string-array.png)
 
-3. Special readonly arrays (e.g. `[0, 1, 2]`) return `never` instead of `undefined`:
+3. Tuples (e.g. `[0, 1, 2]`) return `never` instead of `undefined`:
 
-![Debugging special readonly arrays](./debug-get-with-array-for-arrays-v1-for-special-readonly-string-array.png)
+![Debugging tuples](./debug-get-with-array-for-arrays-v1-for-tuples.png)
 
 Let's fix that as well! 🚀
 
@@ -142,22 +142,21 @@ Let's fix that as well! 🚀
 
 ![Extend GetWithArray solution for arrays](./get-with-array-for-arrays-v1.5.png)
 
-For normal and readonly arrays we want to get `T | undefined`, depending on the values inside the array. Let's infer that value:
+For arrays we want to get `T | undefined`, depending on the values inside the array. Let's infer that value:
 
 ![GetWithArray for arrays, version 2](./get-with-array-for-arrays-v2.png)
 
-1. For normal arrays we added `A extends (infer T)[]`
-2. The same for readonly arrays but with `readonly` keyword
+We added `A extends readonly (infer T)[]` as all arrays extend readonly arrays.
 
-Only need to fix the final case with special readonly arrays. Please check the tests in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJGkNdRiw5QA1hoD2S0ePPDY8ZGiy4CdC4rEB4SIxNyD09JURtZewAKPVUoABUASl5omK84RBQMbDx8NKgAHygAVzYIJUUIVnDjYCjczyl0eLtOTAgcVmdmABsQKGTlVMzs9piRfN8igNKK6tr65kbmyJz2qU2AN1Vo-YgjzD4+AHoAKigAfUen56f0lqgAYRx2YweX--uUBuVz4SAAtmBnJhgFAAN5QACiAEcqjhhiQEfRIABjGEAXygSkwzjBUAA5AABUCQAC02NQaOGLAA5sYrlVgEhhuwyZdqdA0i0APIAIwAVhBcdRuOIrlcoAAGcQAAwAytjicNhiKcGpsVUTCSkOwcJyhsqiLL5QBGFUAJgV1oAHDTrQqaQqACwWq1QO3iLjROV+rRKzwmTCKZmWzzBu1aW2eRIRqOrZhVMEi1RZMJB+Xx-2ePoDIajKDpzOqGZQfg8ADcfPA0Gx31+NEDgkxOOA+GRqOG+AWhX8JUFJlFEtxJC4ZIVZJ45BIao1zi1Or1BuARpNZuYyvIi-EXclPb7aMHPmHxQIY+AE5P07J1vni6gyodztd7q9+8PnaxJ69ii55Dn416lMK4oPtwZJ2mSJCzi+JApswzIHjGiIAbiQH9heBRgcst73lOMFwQhz4IXOC7IcAkaoWmGZZmolQ1KwdQNKw6FHlhp7AQOoFLKOkGTsAj5keS4mwUh5aMakLHrBxXH-t2OEgZeBFCeOUEkTOADM0msexmycYePBAA).
+Only need to fix the final case with tuples. Please check the tests in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJGkNdRiw5QA1hoD2S0ePPDY8ZGiy4CdC4rEB4SIxNyD3MpdBtZe0wIHFZnZgAbECgACj1VKAAVAEpeaM8ROEQUDGw8fAKoAB8oAFc2CCVFCFZw42Aoz08pZggAN1Vo4bGJvgB6ACooAH0V1bXVwr6oAGEcdmNl9aOlqHnZviQAWzBnTGAoAG8oAFEARxacdJJn+kgAY3uAF8oEpMM5LlAAOQAAVAkAAtH9UJ90iwAObGWYtYBIdLsSF8Phw6AFPoAeQARgArCAA6jccSzWZQAAM4gABgBlP5g9LpCk4NR-FomcFIdg4HFpdlERnMgCMHIATCz5QAOeHylnwlkAFhlcqgSvEXGiTKNWjZnhMmEUaNlnnNSq0is82RtdqaUGYLUuFNUJTCZuZzuNniSKTSmW9vv9mFKgn4PAA3ITiVA-nsDjRTYIfv9gPg3h90vhKr4agF6uTqbTgCQuJCWZCeOQSFyec4+QKhSLgGKJVLmOzyG3xPm60X3p8yz5qv46qSTJSaQCG5D5S221B2Sr1ZrtXqR2O879J8WZ+X57UCEvgCu6+ulZCSE2tyQPcw0aOHS8zwCpxLWcqj8G9q2XWs124SFn1fTdX2bVsP2AW0vy9H0-XyZo2lYDoulYH9x3-QsL1LK9QKrO8HygxtYKhOiYPfGNMLUbD2k6EYCJPP8C0Ay85woxca1XetoIAZiYnC8M4wieCAA).
 
-### 3.3. Special readonly arrays
+### 3.3. Tuples
 
-At the moment, if we try to extract value by non-existing index from special readonly arrays, we will get the following:
+At the moment, if we try to extract value by non-existing index from tuples, we will get the following:
 
-![Debugging special readonly arrays](./debug-get-with-array-for-arrays-v2-for-special-readonly-number-array.png)
+![Debugging tuples](./debug-get-with-array-for-arrays-v2-for-tuples.png)
 
-To fix it, we need to distinct special readonly arrays from others. Let's use `ExtendsTable` to find correct condition:
+To fix it, we need to distinguish tuples from arrays. Let's use `ExtendsTable` to find correct condition:
 
 ![ExtendsTable type function](./extends-table.png)
 
@@ -189,12 +188,12 @@ Let's rewrite `GetWithArray` using the condition `any[] extends A`:
 
 ![GetWithArray for arrays, final version](./get-with-array-for-arrays-v3.png)
 
-1. We distinct others array from custom readonly arrays like `[0]` using `any[] extends A`
-2. For normal and readonly arrays we infer `T | undefined`
-3. For a custom readonly array, we extract their value if index is existing
+1. We distinguish arrays from tuples using `any[] extends A`
+2. For arrays we infer `T | undefined`
+3. For tuples, we extract their value if index exists
 4. Otherwise, we return `undefined`
 
-If you want to see it all in one place, don't forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaDU6GwmiJwSUmnAfDE0k1fCdSI9GKKkyqjW0khcNkGtk8cgkM0WypWm12h3AJ0ut3MY3kI-iaea2fzslLg4r6J9ZXq187my3oHkeUDGgGwahuGUYPk+U5Uq+c4kh+y7dD+sR-luwCAX6bIkHuIEkCWzDCo+OaEghtJIQun4RGhxzrsAm4AdwbK4fhwH4fuh5EcAmYkWWFZVr4AyzCMZHPpRb7IYuqFHGumEsbu7HsipbGER2wlqKJQxzJkEnwTO1EoV+9EKRu-7bqxADMGn3HprASTwQA) ✅
+If you want to see it all in one place, don't forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eagB6V1BzY87Z+ZHodrKOmBA4rAD2zAA2IFAAFHqqUAAqAJS8fi4icIgoGN4EKVAAPlAArmwQSooQrCRGJuRZ5lKVrNW1rC3uUMDlYNHGLVKkGkEOnADWGhFKTi7ZsPDIaFi4BOhcYyA8DcbAzYutFVU1zHV+UhcAbqp8fK4AVFAA+u8fnx+pB1AAwjh2MY3l9Qa8oE9XHwkABbMARTDAKAAbygAFEAI7lHDREho+iQADGSIAvlAlJgIjCoAByAACoEgAFpCagcUNmABzYyucrAJDRdg0h6M6ApA4AeQARgArCDE6jccS9AAM4gABgBlQmU6LRKVeKCE8omKlIdg4flRdVEZUeACMGoATCr7QAOJn2lVMlUAFhtdqgTvEXD8vSdWjVLhMmEUnNtLnDWkdLniMbjpSgzHKMKlqgyezDHgjwZcoXCUViWZzecwmUE-B4AG4ReBoITAcCaKHBPiicB8JjsdF8LlVgUNvhxSZpXLiSQuDSVTSeOQSFqdRE9Qa1MbTTDzZakNbyGvxH35QOhzjRyt8us8FPJbLLwuafaV2uoOqXe7Pd6-XVU8E3RAlL0HLEbzHe9CifGcX3nbgaSdGkSCXT8SHTLlgPPMDiQg4dbzyNZYOnYBZ1fJCULQj80OXVdMOAWMuUzbNc2SMp2k6C5WBw3s8KvSCR2gkjJzIijEMXajaWk5CMOrdi1E4s4uj40D+wIqC71Ex9xIQ4A3wAZnkrjzjqHCeCAA) ✅
 
 ## 4. One solution
 
@@ -204,7 +203,7 @@ Now we have 2 solutions:
 
 ![GetWithArray for objects](./get-with-array-v3.png)
 
-2. For arrays
+2. For arrays and tuples
 
 ![GetWithArray for arrays](./get-with-array-for-arrays-v3.png)
 
@@ -217,13 +216,13 @@ Let's move the details of the implementation to functions `ExtractFromObject` an
 As you can see, we’ve added restrictions to both functions:
 
 1. `ExtractFromObject` has `O extends Record<PropertyKey, unknown>`. It means that it accepts only general objects
-2. `ExtractFromArray` similarly has `A extends readonly any[]`, which means that it accepts only general arrays
+2. `ExtractFromArray` similarly has `A extends readonly any[]`, which means that it accepts only general arrays and tuples
 
 This helps to distinguish cases and avoid mistakes while passing types. Let's reuse them in `GetWithArray`:
 
 ![GetWithArray, refactored version](./get-with-array-v4.png)
 
-I covered this refactoring with tests. Another [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMOAAoCLhRKQAJTk4FGOj-MGXIj8iTM0rlbG4-GEqDsjCcsw8vkPB4CQUAkVYfkgrV+HV6vaSw7HU4MtVM75i-VAiKyADiEGAAHU4MAABZIlFFSmeY3TKCq1Y7CQBzFBjmiNqdKAAOgTUbMVRYwG2lsWGPKVQSNXqjVQrXaXU4fUGw11RidrvdXuRcVRMLhyTSWTyBWAvom7RGlQgqfuavMxRZWJxeIJROpwaHVedbs93obxCbiRbiPrqMyox7XRTwEHs9BrwhaokwlQ4QA9AAqKAAfUfT+fT9o-eAUAAwnEWP2Hy+APvKAbyvSQ4HSMAag-ABvaEAEd2DiBAuhiSAkigABfKBcFbKAAHIAAFLAAWgSD0kIQMoAHN+yvdhgEQFg8MhSIoAaVIsHYJI4HxHJ8nQmhoJ2BjgEoiRUxQAgqJ2HAWASSSwAY-E+HE2EpJkuJkHPdh0myS8VjieiPRqFSoCEtUMDidIIFUySMGktUEFSBJNJ4jBTPMocEndEBbPUtUMJ2QKVmAOIqJYUy1jw6Ukjwro8MsOSFOAOL8KEOAcFSPD0ygFg4CoyzgHYbFTLwpxKIYdooAAIVQCAAC8CGYlZINTFgJGlCc5Vgj1gHSBA-PszDg1MPL8Xa+UJKkv5BB0vSUF5bZAvtaAXN-NgaDWHZUI7FcEKQ4hqwXOsfXYzjuN49ski6KKRMo7Leym+zyBGbaGDQzson2tQjtrJdUTOrilIwPiOxuvDZPkuBFLch6uieqiZuFA0Xo6N6Pr2xCfvnP7N2IQGLpBq7gHBrBNIgOHZt01BUfR3avqxw6ccXPGCeB0HrqDPDDM9GpUrwyzrMphGkZPIhaZWHbCgZg7fpZ060nO9nifBnnjJQfmnJc4H+e80BhbUoahTFrAJehd76e+pma3l5c2bcjmSa5tW+firXXPxfncSwbEWCYzZe2Rt4zalz6rblk67cVoGHZV52jNd-D5KIMoGKQpj4oABkpoPHBDi3pfD5nI4B6PCcd8HQvC-ns4D+KYpS0XwXF17JYLsPGYj-78bL5X+Kd26woz-CAGYc5N-OMZl7GbZLnuOJjy7+-BvKCs04qKbr-DysYKrauxRqMDwpvtUny3O+L7v7aXsGuda4Bh7w2vex6vqBtyw3Eaw43m9N1vzankXWeV9e6x2XnfVIbUa7816v1A2dlEY-1Pv-UOmNZaX1ZqAm+nMoqjTco-Z+8NP4zX0NTMwSCUavU2EAA) is waiting for you 🚀.
+I covered this refactoring with tests. Another [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMO2Nx+MJUAAFARcKJSABKcnAox0f5gy5EEWg14QkETDHlY6nBkPIxOb7SgGSrCQyJQADiEGAAHU4MAABZIlFFSmePalcrCx6LHYSB3TKBrXmiNqdKAAOiDPrMVRYwG2aoExRZbCqCRq9UaqFa7S6nD6g2GIpdRtN5qtyLiqJhcOSaSyeQKwFtE3aI0qEHD9zV5hjjtZOLxBKJ1OdrdzxrNlutxeIpcS5cRRdRmVG9a6YeALYHMvBUrVEmEqHCAHoAFRQAD6J9PZ9PtCbwCgAGE4iwm8fz8+j1B97vJHB0mAateAN7QgAjuwcQIF0MSQEkUAAL5QLgFZQAA5AAApYAC0CQWqBCBlAA5k2u7sMAiAsIheqyA0qRYOwSRwPiOT5FBNB-jsxHADhEjhigBC4TsOAsAk3FgMR+J8JxsI8XxcTIFu7DpNkO4rHEREWjUYlQCxaoYHE6QQOJ3EYLxaoIKkCTSXRGDqZprYJOaID6ZJarQTszkrMAcS4Sw6lrIhbJJIhXSIZYAlCcAAVIUIcA4KkiGRlALBwLh2nAOw2LqYhTg4Qw7RQAAQqgEAAF4EGRKw-uGLASGy3acgBFrAOkCAOYZMH9qYCX4pV3JcTxfyCHJCkoEK2zOREshmQ+bA0GsOwQdW47AaBxB5sOhY2pR1G0fRVZJF0PlsThsUNj1hnkCMs0MJBNZRItagrQWo6ohtNEiRgDHVntiH8YJcDCRZR1dCduF9RKfhYGdHQXVdC0gXdQ4PTOxDPVtb07cAn1YNJEAA-18moBDUPzTdsPLfDI6I8jr3vbtXqIcplo1OFiHabpONAyDspEATKxzYUxNLfd5PrWkm1U2jn306pKBMyZZmvUztmgGzEkteKnPg+dPOXUTt2k-mQtjpTFnU+jtOS4zgWy+Z+JM7iWDYiwpGbA2oNvNz0La3zuuC2thsiy9xvi2bKkW0hglEGUxGgaRgUAAw467jju7z13e2TvtPf7KMm597meUz8fO4FflhRz64a5DWvQ-zcP6xnSNZ2LjGm-tHkx0hADMCfq8nnupyTPuPQ3VEB9tzefQlSXSal2NF0hmWMDl+XYsVGCIWXOq99Xad10PRtjx9tPlcA7eIYXDZ1Q1TXxSrwOwWr5dbzrA-p3vjeB+PR+pBVBdM-VjXKwMsDB+m9NYe23i-XeFN34Hxpj5dqFlT7n0BrfPq+g8ZmBAWDAmmwgA) is waiting for you 🚀.
 
 ## 5. Binding to JavaScript
 
@@ -254,7 +253,7 @@ But we still need to use our `Get` type, let's add it:
 
 Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1584-1598):
 
-1. We added [the implementation of get with types 🔥](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.ts:1071-1139)
+1. We added [the implementation of get with types 🔥](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.ts:1027-1096)
 2. We covered [the types with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1584-1598)
 3. We covered the [get function with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.test.ts:490-516)
 
@@ -262,26 +261,32 @@ Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/t
 
 To solve the challenge we needed to know several TypeScript concepts:
 
-1. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
+1. [Tuples](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-3.html#tuple-types) were introduced in TypeScript 1.3, but [Variadic Tuple Types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#variadic-tuple-types) were only released in TypeScript 4.0 so we can use spread inside them:
+
+![Example of a tuple](./tuples.png)
+
+![Example of variadic tuple types](./variadic-tuple-types.png)
+
+2. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
 
 ![Example of a conditional type](./conditional-types.png)
 
-2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
+3. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
 
 ![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
 
-3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
+4. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
 
 ![Example of recursive conditional types](./recursive-conditional-types.png)
 
-4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
+5. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
 
 ![Example of template literal types](./template-literal-types.png)
 
-5. [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
+6. [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
 
 ![Example of generic constrains](./example-of-generic-constrains.png)
 
-6. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
+7. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
 
 ![Example of function overloads](./function-overloads.png)
