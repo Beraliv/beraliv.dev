@@ -1,16 +1,20 @@
-# index2
+---
+title: Advanced Typed Get
+date: "2021-03-26"
+description: Not a long time ago I revealed type-challenges for myself.
+  Today I'll show not only the implementation of Get, but also the common issues with the implementation, the following improvements and the usage in production.
+featured: ./featured.png
+---
 
-![./featured.png](./featured.png)
+![Example of Get debugging](./featured.png)
 
-Example of Get debugging
-
-Not a long time ago I discovered [type-challenges](https://github.com/type-challenges/type-challenges) for myself. Today I’ll show not only the implementation of `Get`, but also some common issues with the implementation, improvements and its usage in production.
+Not a long time ago I discovered [type-challenges](https://github.com/type-challenges/type-challenges) for myself. Today I'll show not only the implementation of `Get`, but also some common issues with the implementation, improvements and its usage in production.
 
 ## 1. Basic implementation
 
-As I said, there’s a repo on GitHub: [type-challenges](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md). The current challenge is located in the “hard” category.
+As I said, there's a repo on GitHub: [type-challenges](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md). The current challenge is located in the "hard" category.
 
-Here we work only with objects (as the solution doesn’t require accessing arrays) and also we always can access object keys as they are defined in test cases.
+Here we work only with objects (as the solution doesn't require accessing arrays) and also we always can access object keys as they are defined in test cases.
 
 So what should we start then from?
 
@@ -18,9 +22,7 @@ So what should we start then from?
 
 Imagine we solve the same challenge in JavaScript:
 
-![./get-in-js.png](./get-in-js.png)
-
-Get function in Javascript
+![Get function in JavaScript](./get-in-js.png)
 
 Before calling `keys.reduce`, we need to get a list of all keys. In JavaScript we can call `path.split('.')`. In Typescript, we also need to get the keys from the path string.
 
@@ -28,15 +30,11 @@ Thankfully, since TypeScript 4.1, we have [Template Literal types](https://devbl
 
 We can use the `Path` type to do so:
 
-![./path-v1.png](./path-v1.png)
+![Path transforms a string into keys, version 1](./path-v1.png)
 
-Path transforms a string into keys, version 1
+It looks very simple and short. However once we write tests, we understand what was missed, as seen in the [Playground validation](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXKtOyA9ACooAfWcvXL3JOBQAwnAqSnNyDHKDsbWUYAWzAAe3YveigAUQBHAFc4ABstJIJIAGMvPigWdhjIqAByAAFQSABafMQszNIAc0kbNOBGTIpK2Vk66Hy-AJwVM1yC4GRUjMzkPRRKmJIIeoBrXnqwBERK9C0VVfWtnb2kSuN0I6m8iEK59Kyl-eRKgCZzkAFLg6Oqi+P0qWkq-2utw09xmzwWb30lSQ7AgEAE21+EMBJ2RqNBVQx+PB+0hd2MQA). We forgot the case with only one single key left. Let's add it:
 
-It looks very simple and short. However once we write tests, we understand what was missed, as seen in the [Playground validation](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXKtOyA9ACooAfWcvXL3JOBQAwnAqSnNyDHKDsbWUYAWzAAe3YveigAUQBHAFc4ABstJIJIAGMvPigWdhjIqAByAAFQSABafMQszNIAc0kbNOBGTIpK2Vk66Hy-AJwVM1yC4GRUjMzkPRRKmJIIeoBrXnqwBERK9C0VVfWtnb2kSuN0I6m8iEK59Kyl-eRKgCZzkAFLg6Oqi+P0qWkq-2utw09xmzwWb30lSQ7AgEAE21+EMBJ2RqNBVQx+PB+0hd2MQA). We forgot the case with only one single key left. Let’s add it:
-
-![./path-v2.png](./path-v2.png)
-
-Path transforms a string into keys, final version
+![Path transforms a string into keys, final version](./path-v2.png)
 
 To try it out, we can have a look at the [Playground with tests cases](https://www.typescriptlang.org/play?ssl=5&ssc=9&pln=1&pc=1#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWYXK1vUwoWWVp2QB6ACooAH0IyKjI3ElgKABhOApJcOj0sKhgwNlGAFswAHt2ePooAFEARwBXOAAbLXKCSABjeL4oFnZCvKgAcgABUEgAWhbEerrSAHNJQOrgRjqKPtlZYegW5NScFTMm1uBkKtq65D0UPsKSCBGAa14RsAREPvQtFSub+8fnpD7jOh3vtmhA2scavVzi9kH0AEw-EACP6vd6qeGIvpaPoogFAjQgw4Q07Q-R9JDsCAQAQPJG4tGfClUrH9WksnEvPHA4xAA).
 
@@ -44,56 +42,46 @@ To try it out, we can have a look at the [Playground with tests cases](https://w
 
 After having the keys, we can finally call `keys.reduce`. To do so, we use another type `GetWithArray` so we already know that keys are an array of strings:
 
-![./get-with-array-v1.png](./get-with-array-v1.png)
-
-GetWithArray for objects, version 1
+![GetWithArray for objects, version 1](./get-with-array-v1.png)
 
 To explain it in more detail:
 
 1. `K extends [infer Key, ...infer Rest]` checks that we have at least one element in an array
 2. `Key extends keyof O` lets us use `O[Key]` to move recursively to the next step
 
-Let’s test it again on the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANpIsBmETOQghSAOkl9BwgEoQOwALoAoKFAD8IkPSatOUANaiA9vyiE16zbHjI0WXAULcyopaXmKKV9QC4oFggANyErAKDQzBUVAHoAKigAfRTUtNSoABUFYCgAYRwOBWT00qSoeNiVJABbMBNMXIBvKABRAEcAVxwAG1JWhkgAY1yAXyh+TBMaqAByAAFQSABaIdRentYAcwVYzuAkHo5ZmKXobMVCACMAKwgRmigmqwPgTYCAAwBlIamenquOGEQ06immSA4OAOJhYHysbChEE+ACYAAwARgAHMt0ajlqiACxw9Q4faoBoBZ7WQI4GpIqAfdCbBiiKAAISEEAAXnxidYeiYhlCkDDKb5rEMUCBPgBZTosJBrPnqUZWVWqlRnKBCopcWjcKwDYbAfAdbo9fBwRAoDDYPD4C7Aa53EakbizV6bWZKCikb6-Ez-QHA0HAcGQ6Gwii+w2De4ms29S12G2Oe2O53xt2zBHMb2+hlorE4vGEj7R4ix42mrpJq32W1OB05TOung5hS-JBgSP50iRIQVqvxmvm5PWhx2ggZ25Z9uktANWakWYsWkQPsMpmMVkczDc3lD9RGkeJi311NT5uXWdt90L8mYZdzAVC3sryWgTcfOUKpVHto4xGUc6xTScmxnF1gGzB8lw-IE2GfVdOhqK4hE3AdMCHJQgA). We again forgot the last case with an empty array. Let’s add it:
+Let's test it again on the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANpIsBmETOQghSAOkl9BwgEoQOwALoAoKFAD8IkPSatOUANaiA9vyiE16zbHjI0WXAULcyopaXmKKV9QC4oFggANyErAKDQzBUVAHoAKigAfRTUtNSoABUFYCgAYRwOBWT00qSoeNiVJABbMBNMXIBvKABRAEcAVxwAG1JWhkgAY1yAXyh+TBMaqAByAAFQSABaIdRentYAcwVYzuAkHo5ZmKXobMVCACMAKwgRmigmqwPgTYCAAwBlIamenquOGEQ06immSA4OAOJhYHysbChEE+ACYAAwARgAHMt0ajlqiACxw9Q4faoBoBZ7WQI4GpIqAfdCbBiiKAAISEEAAXnxidYeiYhlCkDDKb5rEMUCBPgBZTosJBrPnqUZWVWqlRnKBCopcWjcKwDYbAfAdbo9fBwRAoDDYPD4C7Aa53EakbizV6bWZKCikb6-Ez-QHA0HAcGQ6Gwii+w2De4ms29S12G2Oe2O53xt2zBHMb2+hlorE4vGEj7R4ix42mrpJq32W1OB05TOung5hS-JBgSP50iRIQVqvxmvm5PWhx2ggZ25Z9uktANWakWYsWkQPsMpmMVkczDc3lD9RGkeJi311NT5uXWdt90L8mYZdzAVC3sryWgTcfOUKpVHto4xGUc6xTScmxnF1gGzB8lw-IE2GfVdOhqK4hE3AdMCHJQgA). We again forgot the last case with an empty array. Let's add it:
 
-![./get-with-array-v2.png](./get-with-array-v2.png)
-
-GetWithArray for objects, version 2
+![GetWithArray for objects, version 2](./get-with-array-v2.png)
 
 [Final version with tests is available on Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPAPIA0UA0gHxQC85UEAHsBAHYAmAzlANoC6AUFCgB+KIUFQAXHUbN2XbkhYAzCJnIQQpAHS6lq9QCUIHYAKFDRZTfSatOUANaaA9srESLI2PGRosuASE3NYgvKTGphSeFtIsEABuajFxicn8APQAVFAA+vkFhQVQAComwFAAwjgcJnlFDblQWRn8SAC2YC6YFQDeUACiAI4ArjgANqQDDJAAxhUAvlDKmC7tUADkAAKgkAC0s6gT46wA5iYZI8BI4xwb-Py70GWmhABGAFYQ8zRQvRLXYAnaQAAwAyrNVuNxm8cOpZiNTGskBwcNcXCwQRI2GiIKCAEwABgAjAAOPbEwl7QkAFixQhwV1Q3Wk-y8LBw7TxUBB6BODBsACE1BAAF5KekWcYuWZopAY1kxISzFAgUEAWRGLCQh0lQgWEgNBse4GgstqXFo3Ak0zmwHwwzG43wcEQKAw2Dw+BewHeX3mpG4G0BJw2vAopHBkJc0Nh8MRwGRqPRmIoEZtM2+9sdExdvndAS9Pr9WcDGxxzDDEZ5RLJFKptJBaeIGbtDtGuddfg9gW95RLAZ45ZMkKQYBTVdI8SSmGbraz7adebd-k9BGLn1LQ8ZaG6G1IGw5XMnPL5jCFIvFqfTQltC5zzq7BbXfdem8HQZ3zMw+820tlE4HiqoAniCmrarqc63pm8yLp2+arr2G7+sAZZfnuQFwmwv6HiM7RvGoJ7Tmoc68EAA)
 
 ### 1.3. All together
 
-![./get-for-type-challenge.png](./get-for-type-challenge.png)
+![Get for type challenge](./get-for-type-challenge.png)
 
-Get for type challenge
-
-Let’s test it together to clarify everything’s working as expected: [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWeVrephZZWnZoSCgAcQhgAHVGJABBdnY4EGQAeS0uTBwua2JyKl83KESzSwzCLLsVESd1LR0BCvFJYC8FJWcQTNsqAGteAHsWfLNmlpDwyMQYuITEjxBjLUNgdEHmyxIIADcOZdWNrf9waBGkrRg04NCI6Nj449gEFFOl2QB6ACooAH0v75-v3AaoABhOAUSSfX4Qj5QV7PWSMAC2YB67GAUHoUAAogBHACucAANloMQRIABjVF8KAsdg9eFQADkAAEAhAALSkxAE-GkADmkmeOOAjHxFHpsn2gVQDUSACMAFYQcnYNFmIXAbmWagAZVJNPx+JlcE4pJxUlpjAoCEYPRIcgUZAQEE1ACYAAwARgAHKz3a7Wa6ACx2qBwQWIZGWejLEhweFOmhRbkEXhQABCHAgAC9mMGFPieqSrTbI8sFKTIiBNQBZHEkRgc3NQPhmZvNiXQQugqg4FRmYlk4DIbF4-HII5SqSyhXkrT0tXc+noLTa3U9fWG42m4Dmy1Cm3UdBLvskxWD4cEsehNDS+Wn2cO4iL5dur0+v2Bg9HhT909D3EX8cb2nYB70kXVGDAPcSCfKA1k2dhDw0Y8Bz-EdL0HCdgCnO8GVDJBkQEGM4xg6hE0IFN03YLMc0Q5Df3PUdAMnW8Z1wsMCPzQsoIEctQBIms6wbWjvxPclUIAq9MOw1j6Tw8N2B4o0yEInF4RlDgYLgjhaOMIA)
+Let's test it together to clarify everything's working as expected: [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWeVrephZZWnZoSCgAcQhgAHVGJABBdnY4EGQAeS0uTBwua2JyKl83KESzSwzCLLsVESd1LR0BCvFJYC8FJWcQTNsqAGteAHsWfLNmlpDwyMQYuITEjxBjLUNgdEHmyxIIADcOZdWNrf9waBGkrRg04NCI6Nj449gEFFOl2QB6ACooAH0v75-v3AaoABhOAUSSfX4Qj5QV7PWSMAC2YB67GAUHoUAAogBHACucAANloMQRIABjVF8KAsdg9eFQADkAAEAhAALSkxAE-GkADmkmeOOAjHxFHpsn2gVQDUSACMAFYQcnYNFmIXAbmWagAZVJNPx+JlcE4pJxUlpjAoCEYPRIcgUZAQEE1ACYAAwARgAHKz3a7Wa6ACx2qBwQWIZGWejLEhweFOmhRbkEXhQABCHAgAC9mMGFPieqSrTbI8sFKTIiBNQBZHEkRgc3NQPhmZvNiXQQugqg4FRmYlk4DIbF4-HII5SqSyhXkrT0tXc+noLTa3U9fWG42m4Dmy1Cm3UdBLvskxWD4cEsehNDS+Wn2cO4iL5dur0+v2Bg9HhT909D3EX8cb2nYB70kXVGDAPcSCfKA1k2dhDw0Y8Bz-EdL0HCdgCnO8GVDJBkQEGM4xg6hE0IFN03YLMc0Q5Df3PUdAMnW8Z1wsMCPzQsoIEctQBIms6wbWjvxPclUIAq9MOw1j6Tw8N2B4o0yEInF4RlDgYLgjhaOMIA)
 
 Great, we did it ✅
 
 ## 2. Optional paths
 
-When we work with real data in production, we don’t always know if the data is valid or not. In this case we have optional paths all over the project.
+When we work with real data in production, we don't always know if the data is valid or not. In this case we have optional paths all over the project.
 
-Let’s add test cases with optional paths and see what happens in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWeVrephZZWnZoSCgAcQhgAHVGJABBdnY4EGQAeS0uTBwua2JyKl83KESzSwzCLLsVESd1LR0BCvFJYC8FJWcQTNsqAGteAHsWfLNmlpDwyMQYuITEjxBjLUNgdEHmyxIIADcOZdWNrf9waBGkrRg04NCI6Nj449gEFFOl2QB6ACooAH0v75-v3AaoABhOAUSSfX4Qj5QV7PWSMAC2YB67GAUHoUAAogBHACucAANloMQRIABjVF8KAsdg9eFQADkAAEAhAALSkxAE-GkADmkmeOOAjHxFHpsn2gVQDUSACMAFYQcnYNFmIXAbmWagAZVJNPx+JlcE4pJxUlpjAoCEYPRIcgUZAQEE1ACYAAwARgAHKz3a7Wa6ACx2qBwQWIZGWejLEhweFOmhRbkEXhQABCHAgAC9mMGFPieqSrTbI8sFKTIiBNQBZHEkRgc3NQPhmZvNiXQGA0sg48nWkiyhVKnBR+2SXWMMBCm2KSxSdjMHkAblVkQ1UDnC+X9sds+A85IS7MoaQyJnKqGMbju-3h6G+cLU5IZ5HQyg5dA183y2bClb4pZb4gmCOAqGYbxQMQUiAaCVAwmYxJksAyDYni+LIEcUpSAOirAFo9Jqty9LoFo2q6j0+qGsaprAOalqPtQ6DEfBJI4chuIEuhoRoNK8o4XhDrEERJFul6Pp+oGDFMQoCGsShHEYTxg64QyZBjvOk59kJUBrJs7CMRozGIWxqGcUhmHANh5J4ce4bsAIl4QFp1CJoQKbpuwWY5vphmyexaEKVhvFWQyNnIgI95FiQAjviATk1nWDbedJLHksZ8lceZlnKfSoV2YW7BkPZOLwjKHBaTpHBJVA4FgF2PaPtBYJwclRlyf5XGdj03a9jaWV4QRjnEeue4LlVMmpW1pnIJ13WPn1KmOlpG4HmNKVIZNRwzfVfbzfSqkUOOGk2ktI0HlAAA+UC1qpLDMBAZCra1flTVtPX9kF2W5fZsaDVoy08hdV3kBAt1rA9UmYmtaXtUhr1zR91lhmFEWPtFFYnTegPXSDd3gwZLW+SZm11W9u1fflhUkMVpXsFp2Og-d3nGEAA).
+Let's add test cases with optional paths and see what happens in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBACghsAFgHgCoD4oF4qqhAD2AgDsATAZygAMASAbwEsSAzCAJygGkIQBfAHQNmbTgCUIFYH2oAoKFAD8UANo8QAGigCd8JMglT0AXXlQAXLnxFSlGsNYduvGWeVrephZZWnZoSCgAcQhgAHVGJABBdnY4EGQAeS0uTBwua2JyKl83KESzSwzCLLsVESd1LR0BCvFJYC8FJWcQTNsqAGteAHsWfLNmlpDwyMQYuITEjxBjLUNgdEHmyxIIADcOZdWNrf9waBGkrRg04NCI6Nj449gEFFOl2QB6ACooAH0v75-v3AaoABhOAUSSfX4Qj5QV7PWSMAC2YB67GAUHoUAAogBHACucAANloMQRIABjVF8KAsdg9eFQADkAAEAhAALSkxAE-GkADmkmeOOAjHxFHpsn2gVQDUSACMAFYQcnYNFmIXAbmWagAZVJNPx+JlcE4pJxUlpjAoCEYPRIcgUZAQEE1ACYAAwARgAHKz3a7Wa6ACx2qBwQWIZGWejLEhweFOmhRbkEXhQABCHAgAC9mMGFPieqSrTbI8sFKTIiBNQBZHEkRgc3NQPhmZvNiXQGA0sg48nWkiyhVKnBR+2SXWMMBCm2KSxSdjMHkAblVkQ1UDnC+X9sds+A85IS7MoaQyJnKqGMbju-3h6G+cLU5IZ5HQyg5dA183y2bClb4pZb4gmCOAqGYbxQMQUiAaCVAwmYxJksAyDYni+LIEcUpSAOirAFo9Jqty9LoFo2q6j0+qGsaprAOalqPtQ6DEfBJI4chuIEuhoRoNK8o4XhDrEERJFul6Pp+oGDFMQoCGsShHEYTxg64QyZBjvOk59kJUBrJs7CMRozGIWxqGcUhmHANh5J4ce4bsAIl4QFp1CJoQKbpuwWY5vphmyexaEKVhvFWQyNnIgI95FiQAjviATk1nWDbedJLHksZ8lceZlnKfSoV2YW7BkPZOLwjKHBaTpHBJVA4FgF2PaPtBYJwclRlyf5XGdj03a9jaWV4QRjnEeue4LlVMmpW1pnIJ13WPn1KmOlpG4HmNKVIZNRwzfVfbzfSqkUOOGk2ktI0HlAAA+UC1qpLDMBAZCra1flTVtPX9kF2W5fZsaDVoy08hdV3kBAt1rA9UmYmtaXtUhr1zR91lhmFEWPtFFYnTegPXSDd3gwZLW+SZm11W9u1fflhUkMVpXsFp2Og-d3nGEAA).
 
-Optional paths are not working properly. The reason behind it is simple. Let’s go through one example to find the problem:
+Optional paths are not working properly. The reason behind it is simple. Let's go through one example to find the problem:
 
-![./problem-1-with-get-for-type-challenge.png](./problem-1-with-get-for-type-challenge.png)
-
-Problem 1 with Get for type challenge
+![Problem 1 with Get for type challenge](./problem-1-with-get-for-type-challenge.png)
 
 We cannot extract a key from an object if it can be `undefined` or `null`.
 
-Let’s fix it step by step:
+Let's fix it step by step:
 
 ### 2.1. Remove undefined, null or both
 
 First, we declare 3 simple filters:
 
-![./filter-undefined-and-null.png](./filter-undefined-and-null.png)
-
-Filter undefined, null or both
+![Filter undefined, null or both](./filter-undefined-and-null.png)
 
 We detect if `undefined` or/and `null` exist within the union type and, if so, delete it from the union. At the end we work only with the rest.
 
@@ -101,20 +89,16 @@ You can find the test cases again on the [Playground](https://www.typescriptlang
 
 ### 2.2. Modify reducer
 
-Remember what we did for the type challenge. Let’s extend our solution to support optional paths:
+Remember what we did for the type challenge. Let's extend our solution to support optional paths:
 
-![./get-with-array-v2.5.png](./get-with-array-v2.5.png)
-
-Extend GetWithArray solution for objects
+![Extend GetWithArray solution for objects](./get-with-array-v2.5.png)
 
 1. We need to make sure the key exists in the keys of an optional object
-2. Otherwise, we assume it doesn’t exist
+2. Otherwise, we assume it doesn't exist
 
-![./get-with-array-v3.png](./get-with-array-v3.png)
+![GetWithArray for objects, version 3](./get-with-array-v3.png)
 
-GetWithArray for objects, version 3
-
-Let’s add tests and check if it’s working in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmlZaABxCGAAdThgAAsXFBQAQxBiAHkAGigAaU0i+iYIVigAbQBdSShjHPqLQrLdNiqCXFFCiBACgDohrtEAJQgWYDqGhoFekDaKvSgAaz6Ae1woJpmZgViEpNT0rNyq+ZqC8cmI3YaJecXKtZBNn0UHbmc3LFDc27usygB0SKTSmWywXs-h4rnchn+5z6lyg12AlAAPhwYc5moCJJxHLC8RZhKhpAB6ABUUAA+vSGYyGbQJsAoABhDIsCZ0pl82lQKkUyRwAC2YHWKDZAG8oABRACO7AyCAKcoYkAAxmyAL5QXAodaiqAAcgAAlEALSa5IqhAVADmEwp7GAiBYJsi1igAAVDVh2Nq4OsMDkAEYAKwg2u80uaOBYmpQcDAbpDfAkk2TGAdzTdwHtmeA2dzDSwGWQRZLzQyruSkozUDjuwwGVFECrBFLMwQ601FeDGEbzbumqSIE7OZJOuaM5nVjk-e5bBoVWa6q1wGIiuV6hBR3Bpz96wDQZD4aj2oKVRN+ftJpq5AKWa75Cf6410a3O5VxH3YJObJj1PNNQ0jL9rxNctkAfJ8oBfHM3zyD9N23JVf3-Y4IWIYDA1Ai8IOqKCJiTFNQNg59iy7KAsUJL4iCQlCvzQ3c-ziUEsKPf08MHAiryI2sUklE0ChNVt2wo+CqJzGjsSJZxGIaDdmJ-Pd2IPQCcO4s8wMvYBIME+sUBE01e37cjRLHUBJIQh1ZLogIsEU+VP21FiMPUgDsNwnS+P0gS62EyyMhQLATLE9hRTDVBJIc2FGJqIA)
+Let's add tests and check if it's working in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFCTQkWImQoAcuwQIylGnUbMsbDKoT9BEESnFSZ4aPCSpMOfISwBBbCrUbq8u+i5OiYltFD3UKcmlZaABxCGAAdThgAAsXFBQAQxBiAHkAGigAaU0i+iYIVigAbQBdSShjHPqLQrLdNiqCXFFCiBACgDohrtEAJQgWYDqGhoFekDaKvSgAaz6Ae1woJpmZgViEpNT0rNyq+ZqC8cmI3YaJecXKtZBNn0UHbmc3LFDc27usygB0SKTSmWywXs-h4rnchn+5z6lyg12AlAAPhwYc5moCJJxHLC8RZhKhpAB6ABUUAA+vSGYyGbQJsAoABhDIsCZ0pl82lQKkUyRwAC2YHWKDZAG8oABRACO7AyCAKcoYkAAxmyAL5QXAodaiqAAcgAAlEALSa5IqhAVADmEwp7GAiBYJsi1igAAVDVh2Nq4OsMDkAEYAKwg2u80uaOBYmpQcDAbpDfAkk2TGAdzTdwHtmeA2dzDSwGWQRZLzQyruSkozUDjuwwGVFECrBFLMwQ601FeDGEbzbumqSIE7OZJOuaM5nVjk-e5bBoVWa6q1wGIiuV6hBR3Bpz96wDQZD4aj2oKVRN+ftJpq5AKWa75Cf6410a3O5VxH3YJObJj1PNNQ0jL9rxNctkAfJ8oBfHM3zyD9N23JVf3-Y4IWIYDA1Ai8IOqKCJiTFNQNg59iy7KAsUJL4iCQlCvzQ3c-ziUEsKPf08MHAiryI2sUklE0ChNVt2wo+CqJzGjsSJZxGIaDdmJ-Pd2IPQCcO4s8wMvYBIME+sUBE01e37cjRLHUBJIQh1ZLogIsEU+VP21FiMPUgDsNwnS+P0gS62EyyMhQLATLE9hRTDVBJIc2FGJqIA)
 
 Good job ✅
 
@@ -122,61 +106,45 @@ Good job ✅
 
 The next desired step for us is to support arrays. In JavaScript it would look like this:
 
-![./get-for-arrays-in-js.png](./get-for-arrays-in-js.png)
-
-Get function for arrays in JS
+![Get function for arrays in JS](./get-for-arrays-in-js.png)
 
 Here, a key can be either a `string` or a `number`. We already know how to get the keys with `Path`:
 
-![./path-v2.png](./path-v2.png)
-
-Path transforms a string into keys
+![Path transforms a string into keys](./path-v2.png)
 
 ### 3.1. Reducing arrays
 
 As for objects, we can similarly call `keys.reduce` for arrays. To do so, we will implement the same type `GetWithArray` but for arrays and then combine two solutions of `GetWithArray` in one.
 
-First, let’s take a basic implementation for objects and adapt it for arrays. We use `A` instead of `O` for semantic reasons:
+First, let's take a basic implementation for objects and adapt it for arrays. We use `A` instead of `O` for semantic reasons:
 
-![./get-with-array-for-arrays-v1.png](./get-with-array-for-arrays-v1.png)
-
-GetWithArray for arrays, version 1
+![GetWithArray for arrays, version 1](./get-with-array-for-arrays-v1.png)
 
 After testing in the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJGkNdRiw5QA1hoD2S0ePPDY8ZGiy4CdC4rEB4SIxNyD3MpZggAN1Vo2ISkvgB6ACooAH08-IL8qAAVY2AoAGEcdmNcwvqcqEz0viQAWzBnTHKAbygAUQBHAFccABsSfvpIAGNygF8oJUxnNqgAcgABUEgAWhnUcbGWAHNjdOHgJDH2db4+HehSkwB5ACMAKwg56m5xdPSUAADOIAAYAZRmKzGYzeODUM2GJlWSHYOCuzmYoKI-0BAEYwQAmIF4gAcuzxQN2QIALNjcVBCeIuNEAYytCDPCZMIoTjjPGzCVoCZ4ABTc3lQAA+UGYwzab1UAEpePzzIKtEzPJgIDhWJixiBZfLFZheOJ+DwANz3R5QGbVWo0FmCKazYD4IajMb4OCIFAYbB4fDPYDvL5zEhcdZA9Y8cgkCFQ5wwuEIpHAFFojFY8gJ8Ru74er3jX0+AP+YOh8NFqPrPFxhNQUHEskUqm00F5tWFuaekalv2+QMBENlGuR7jrQnrEgxxskCXME7dgvTIv971l-1+IMEaufWtTmdzhtz2PxxfAHnL6XGhWqO-DNgQJSKCCsVeu9d9ks+ocVnuY6vIek7RieGwQdOC73qaT4vm+cSfvm37upug7lruo4HhGwB1gAzDBz6sK+77ITiPBAA), we found several gaps:
 
 1. Normal arrays cannot have a `string` key:
 
-![./debug-get-with-array-for-arrays-v1-for-normal-string-array.png](./debug-get-with-array-for-arrays-v1-for-normal-string-array.png)
-
-Debugging normal arrays
+![Debugging normal arrays](./debug-get-with-array-for-arrays-v1-for-normal-string-array.png)
 
 Here `'1' extends keyof string[]` is `false` therefore it returns `never`.
 
-1. Similarly for readonly arrays:
+2. Similarly for readonly arrays:
 
-![./debug-get-with-array-for-arrays-v1-for-readonly-string-array.png](./debug-get-with-array-for-arrays-v1-for-readonly-string-array.png)
+![Debugging readonly arrays](./debug-get-with-array-for-arrays-v1-for-readonly-string-array.png)
 
-Debugging readonly arrays
+3. Special readonly arrays (e.g. `[0, 1, 2]`) return `never` instead of `undefined`:
 
-1. Special readonly arrays (e.g. `[0, 1, 2]`) return `never` instead of `undefined`:
+![Debugging special readonly arrays](./debug-get-with-array-for-arrays-v1-for-special-readonly-string-array.png)
 
-![./debug-get-with-array-for-arrays-v1-for-special-readonly-string-array.png](./debug-get-with-array-for-arrays-v1-for-special-readonly-string-array.png)
-
-Debugging special readonly arrays
-
-Let’s fix that as well! 🚀
+Let's fix that as well! 🚀
 
 ### 3.2. Infer `T | undefined`
 
-![./get-with-array-for-arrays-v1.5.png](./get-with-array-for-arrays-v1.5.png)
+![Extend GetWithArray solution for arrays](./get-with-array-for-arrays-v1.5.png)
 
-Extend GetWithArray solution for arrays
+For normal and readonly arrays we want to get `T | undefined`, depending on the values inside the array. Let's infer that value:
 
-For normal and readonly arrays we want to get `T | undefined`, depending on the values inside the array. Let’s infer that value:
-
-![./get-with-array-for-arrays-v2.png](./get-with-array-for-arrays-v2.png)
-
-GetWithArray for arrays, version 2
+![GetWithArray for arrays, version 2](./get-with-array-for-arrays-v2.png)
 
 1. For normal arrays we added `A extends (infer T)[]`
 2. The same for readonly arrays but with `readonly` keyword
@@ -187,49 +155,46 @@ Only need to fix the final case with special readonly arrays. Please check the t
 
 At the moment, if we try to extract value by non-existing index from special readonly arrays, we will get the following:
 
-![./debug-get-with-array-for-arrays-v2-for-special-readonly-number-array.png](./debug-get-with-array-for-arrays-v2-for-special-readonly-number-array.png)
+![Debugging special readonly arrays](./debug-get-with-array-for-arrays-v2-for-special-readonly-number-array.png)
 
-Debugging special readonly arrays
+To fix it, we need to distinct special readonly arrays from others. Let's use `ExtendsTable` to find correct condition:
 
-To fix it, we need to distinct special readonly arrays from others. Let’s use `ExtendsTable` to find correct condition:
+![ExtendsTable type function](./extends-table.png)
 
-![./extends-table.png](./extends-table.png)
-
-ExtendsTable type function
-
-Let’s use it for different types:
+Let's use it for different types:
 
 1. `[0]`
 2. `number[]`
 3. `readonly number[]`
 4. `any[]`
 
-![./use-extends-table.png](./use-extends-table.png)
-
-Use ExtendsTable with different types
+![Use ExtendsTable with different types](./use-extends-table.png)
 
 Let me create the table to clarify what is located inside `A`:
 
-[Untitled](https://www.notion.so/cef00a7f7a15414f8b6e8dc9e7d87039)
+|                         | `[0]` | `number[]` | `readonly number[]` | `any[]` |
+| ----------------------: | :---: | :--------: | :-----------------: | :-----: |
+|               **`[0]`** |  ✅   |     ✅     |         ✅          |   ✅    |
+|          **`number[]`** |  ❌   |     ✅     |         ✅          |   ✅    |
+| **`readonly number[]`** |  ❌   |     ❌     |         ✅          |   ❌    |
+|             **`any[]`** |  ❌   |     ✅     |         ✅          |   ✅    |
 
 We just created the table of `extends` for TypeScript types.
 
-You need to read it like this: if you see ✅  for row `[0]` and column `readonly number[]`, it means `[0] extends readonly number[]` is `true`. If on the other hand it’s ❌  for row `readonly number[]` and column `number[]`, it means `readonly number[] extends number[]` is `false`. Let’s take a closer look at row `any[]`: for column `[0]` it’s ❌, but for other types it’s ✅
+You need to read it like this: if you see ✅ for row `[0]` and column `readonly number[]`, it means `[0] extends readonly number[]` is `true`. If on the other hand it's ❌ for row `readonly number[]` and column `number[]`, it means `readonly number[] extends number[]` is `false`. Let's take a closer look at row `any[]`: for column `[0]` it's ❌, but for other types it's ✅
 
-This is actually an answer 🔥🔥🔥!
+This is actually an answer! 🔥🔥🔥
 
-Let’s rewrite `GetWithArray` using the condition `any[] extends A`:
+Let's rewrite `GetWithArray` using the condition `any[] extends A`:
 
-![./get-with-array-for-arrays-v3.png](./get-with-array-for-arrays-v3.png)
-
-GetWithArray for arrays, final version
+![GetWithArray for arrays, final version](./get-with-array-for-arrays-v3.png)
 
 1. We distinct others array from custom readonly arrays like `[0]` using `any[] extends A`
 2. For normal and readonly arrays we infer `T | undefined`
 3. For a custom readonly array, we extract their value if index is existing
 4. Otherwise, we return `undefined`
 
-If you want to see it all in one place, don’t forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaBFGidSI9GKKkyqjW0khcNkAZjZ-D48qg1OhsJoicElJpwHwxNJNXw4+60T6yvVmuAC7ZBtX5BIZotlStNrtDuATpdbuYY1yBfcQDzvY8STJc8DgnK9YhvOd724NlvWfV8A2DUNwyjICQP3KlwJPKCLyOKcELvB8-TZEhHzQqAS2YYVgJzQkCNpCDT2giJL2OadgFnCjkKomjUJop8eBfejgEzRiywrKtfAGWYRmY0C2KPIizxIydrxnW95yE6j2WE4y6Pkrsy3uOZMlU-DDw44iYJ4si9MQh8VwkkgrJUkCeCAA) ✅
+If you want to see it all in one place, don't forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaBFGidSI9GKKkyqjW0khcNkAZjZ-D48qg1OhsJoicElJpwHwxNJNXw4+60T6yvVmuAC7ZBtX5BIZotlStNrtDuATpdbuYY1yBfcQDzvY8STJc8DgnK9YhvOd724NlvWfV8A2DUNwyjICQP3KlwJPKCLyOKcELvB8-TZEhHzQqAS2YYVgJzQkCNpCDT2giJL2OadgFnCjkKomjUJop8eBfejgEzRiywrKtfAGWYRmY0C2KPIizxIydrxnW95yE6j2WE4y6Pkrsy3uOZMlU-DDw44iYJ4si9MQh8VwkkgrJUkCeCAA) ✅
 
 ## 4. One solution
 
@@ -237,73 +202,55 @@ Now we have 2 solutions:
 
 1. For objects
 
-![./get-with-array-v3.png](./get-with-array-v3.png)
+![GetWithArray for objects](./get-with-array-v3.png)
 
-GetWithArray for objects
+2. For arrays
 
-1. For arrays
+![GetWithArray for arrays](./get-with-array-for-arrays-v3.png)
 
-![./get-with-array-for-arrays-v3.png](./get-with-array-for-arrays-v3.png)
+Let's move the details of the implementation to functions `ExtractFromArray` and `ExtractFromObject`:
 
-GetWithArray for arrays
+![ExtractFromObject implementation](./extract-from-object.png)
 
-Let’s move the details of the implementation to functions `ExtractFromArray` and `ExtractFromObject`:
-
-![./extract-from-object.png](./extract-from-object.png)
-
-ExtractFromObject implementation
-
-![./extract-from-array.png](./extract-from-array.png)
-
-ExtractFromArray implementation
+![ExtractFromArray implementation](./extract-from-array.png)
 
 As you can see, we’ve added restrictions to both functions:
 
 1. `ExtractFromObject` has `O extends Record<PropertyKey, unknown>`. It means that it accepts only general objects
 2. `ExtractFromArray` similarly has `A extends readonly any[]`, which means that it accepts only general arrays
 
-This helps to distinguish cases and avoid mistakes while passing types. Let’s reuse them in `GetWithArray`:
+This helps to distinguish cases and avoid mistakes while passing types. Let's reuse them in `GetWithArray`:
 
-![./get-with-array-for-arrays-v4.png](./get-with-array-for-arrays-v4.png)
-
-GetWithArray, refactored version
+![GetWithArray, refactored version](./get-with-array-for-arrays-v4.png)
 
 I covered this refactoring with tests. Another [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMOAAoCLhRKQAJTk4FGOj-MGXIj8iTM0rlbG4-GEqDsjCcsw8vkPB4CQUAkVYfkgrV+HV6vaSw7HU4MtVM75i-VAiKyADiEGAAHU4MAABZIlFFSmeY3TKCq1Y7CQBzFBjmiNqdKAAOgTUbMVRYwG2lsWGPKVQSNXqjVQrXaXU4fUGw11RidrvdXuRcVRMLhyTSWTyBWAvom7RGlQgqfuavMxRZWJxeIJROpwaHVedbs93obxCbiRbiPrqMyox7XRTwEHs9BrwhaokwlQ4QA9AAqKAAfUfT+fT9o-eAUAAwnEWP2Hy+APvKAbyvSQ4HSMAag-ABvaEAEd2DiBAuhiSAkigABfKBcFbKAAHIAAFLAAWgSD0kIQMoAHN+yvdhgEQFg8MhSIoAaVIsHYJI4HxHJ8nQmhoJ2BjgEoiRUxQAgqJ2HAWASSSwAY-E+HE2EpJkuJkHPdh0myS8VjieiPRqFSoCEtUMDidIIFUySMGktUEFSBJNJ4jBTPMocEndEBbPUtUMJ2QKVmAOIqJYUy1jw6Ukjwro8MsOSFOAOL8KEOAcFSPD0ygFg4CoyzgHYbFTLwpxKIYdooAAIVQCAAC8CGYlZINTFgJGlCc5Vgj1gHSBA-PszDg1MPL8Xa+UJKkv5BB0vSUF5bZAvtaAXN-NgaDWHZUI7FcEKQ4hqwXOsfXYzjuN49ski6KKRMo7Leym+zyBGbaGDQzson2tQjtrJdUTOrilIwPiOxuvDZPkuBFLch6uieqiZuFA0Xo6N6Pr2xCfvnP7N2IQGLpBq7gHBrBNIgOHZt01BUfR3avqxw6ccXPGCeB0HrqDPDDM9GpUrwyzrMphGkZPIhaZWHbCgZg7fpZ060nO9nifBnnjJQfmnJc4H+e80BhbUoahTFrAJehd76e+pma3l5c2bcjmSa5tW+firXXPxfncSwbEWCYzZe2Rt4zalz6rblk67cVoGHZV52jNd-D5KIMoGKQpj4oABkpoPHBDi3pfD5nI4B6PCcd8HQvC-ns4D+KYpS0XwXF17JYLsPGYj-78bL5X+Kd26woz-CAGYc5N-OMZl7GbZLnuOJjy7+-BvKCs04qKbr-DysYKrauxRqMDwpvtUny3O+L7v7aXsGuda4Bh7w2vex6vqBtyw3Eaw43m9N1vzankXWeV9e6x2XnfVIbUa7816v1A2dlEY-1Pv-UOmNZaX1ZqAm+nMoqjTco-Z+8NP4zX0NTMwSCUavU2EAA) is waiting for you 🚀.
 
 ## 5. Binding to JavaScript
 
-Let’s return to the solution on the JavaScript:
+Let's return to the solution on the JavaScript:
 
-![./get-in-js.png](./get-in-js.png)
+![Get function in Javascript](./get-in-js.png)
 
-Get function in Javascript
+At the moment we use `lodash` in our project, e.g. function `get`. If you check [common/object.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1022) in `@types/lodash`, you'll see that it's quite straightforward. The `get` call in playground returns `any` for most of the cases: [typescript-lodash-types](https://codesandbox.io/s/typescript-lodash-types-ndhvf?file=/src/index.type.ts:1379-1856)
 
-At the moment we use `lodash` in our project, e.g. function `get`. If you check [common/object.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1022) in `@types/lodash`, you’ll see that it’s quite straightforward. The `get` call in playground returns `any` for most of the cases: [typescript-lodash-types](https://codesandbox.io/s/typescript-lodash-types-ndhvf?file=/src/index.type.ts:1379-1856)
+Let's replace `reduce` with any `for` loop (e.g. `for-of`) to have early exit in case `value` is `undefined` or `null`:
 
-Let’s replace `reduce` with any `for` loop (e.g. `for-of`) to have early exit in case `value` is `undefined` or `null`:
+![Get function in JavaScript, version 2](./get-in-js-v2.png)
 
-![./get-in-js-v2.png](./get-in-js-v2.png)
+Let's try to cover the `get` function with types we just wrote. Let's divide it into 2 cases:
 
-Get function in JavaScript, version 2
-
-Let’s try to cover the `get` function with types we just wrote. Let’s divide it into 2 cases:
-
-1. `Get` type can be used *iff* (if and only if) all the restrictions can be applied and the type is correctly inferred
-2. A Fallback type is applied *iff* the validation is not passed (e.g. we pass `number` but expected `string` in `path`)
+1. `Get` type can be used _iff_ (if and only if) all the restrictions can be applied and the type is correctly inferred
+2. A Fallback type is applied _iff_ the validation is not passed (e.g. we pass `number` but expected `string` in `path`)
 
 To have 2 type overloads we need to use `function`:
 
-![./get-in-js-v3-fallback.png](./get-in-js-v3-fallback.png)
-
-Get function with fallback types, version 3
+![Get function with fallback types, version 3](./get-in-js-v3-fallback.png)
 
 The implementation is ready ✅
 
-But we still need to use our `Get` type, let’s add it:
+But we still need to use our `Get` type, let's add it:
 
-![./get-in-js-v4.png](./get-in-js-v4.png)
-
-Get function, final version
+![Get function, final version](./get-in-js-v4.png)
 
 Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1517-1531):
 
@@ -317,30 +264,20 @@ To solve the challenge we needed to know several TypeScript concepts:
 
 1. [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) which were introduced in TypeScript 2.8
 
-![./conditional-types.png](./conditional-types.png)
+![Example of a conditional type](./conditional-types.png)
 
-Example of a conditional type
+2. [`infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
 
-1. `[infer` keyword in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) which was also introduced in TypeScript 2.8
+![Example of an infer keyword in conditional types](./infer-keyword-in-conditional-types.png)
 
-![./infer-keyword-in-conditional-types.png](./infer-keyword-in-conditional-types.png)
+3. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
 
-Example of an infer keyword in conditional types
+![Example of recursive conditional types](./recursive-conditional-types.png)
 
-1. [Recursive conditional types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types), which were introduced in TypeScript 4.1
+4. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
 
-![./recursive-conditional-types.png](./recursive-conditional-types.png)
+![Example of template literal types](./template-literal-types.png)
 
-Example of recursive conditional types
+5. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
 
-1. [Template Literal types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types), which were also introduced in TypeScript 4.1
-
-![./template-literal-types.png](./template-literal-types.png)
-
-Example of template literal types
-
-1. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
-
-![./function-overloads.png](./function-overloads.png)
-
-Example of function overloads.
+![Example of function overloads](./function-overloads.png)
