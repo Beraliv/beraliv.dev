@@ -3,27 +3,16 @@
 type Get<O, P> = never // implementation
 
 type Step1 = Get<
-  {
-    posts: [
-      { title: `Scrollbar customisation`; date: `2018-10-04` },
-      { title: `What's inside Udemy player`; date: `2020-01-07` }
-    ]
-  },
-  `posts.0.title`
+  { article: { author: `Alexey Berezin`; keywords: ["typescript"] } },
+  `article.keywords.0`
 >
 type Step2 = Get<
-  [
-    { title: `Scrollbar customisation`; date: `2018-10-04` },
-    { title: `What's inside Udemy player`; date: `2020-01-07` }
-  ],
-  `0.title`
+  { author: `Alexey Berezin`; keywords: ["typescript"] },
+  `keywords.0`
 >
-type Step3 = Get<
-  { title: `Scrollbar customisation`; date: `2018-10-04` },
-  `title`
->
-type Step4 = Get<`Scrollbar customisation`, ``>
-type Result = `Scrollbar customisation`
+type Step3 = Get<["typescript"], `0`>
+type Step4 = Get<`typescript`, ``>
+type Result = `typescript`
 
 /** Conditional type */
 
