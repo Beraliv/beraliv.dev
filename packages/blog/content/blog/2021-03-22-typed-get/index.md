@@ -194,7 +194,7 @@ Let's rewrite `GetWithArray` using the condition `any[] extends A`:
 3. For a custom readonly array, we extract their value if index is existing
 4. Otherwise, we return `undefined`
 
-If you want to see it all in one place, don't forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaBFGidSI9GKKkyqjW0khcNkAZjZ-D48qg1OhsJoicElJpwHwxNJNXw4+60T6yvVmuAC7ZBtX5BIZotlStNrtDuATpdbuYY1yBfcQDzvY8STJc8DgnK9YhvOd724NlvWfV8A2DUNwyjICQP3KlwJPKCLyOKcELvB8-TZEhHzQqAS2YYVgJzQkCNpCDT2giJL2OadgFnCjkKomjUJop8eBfejgEzRiywrKtfAGWYRmY0C2KPIizxIydrxnW95yE6j2WE4y6Pkrsy3uOZMlU-DDw44iYJ4si9MQh8VwkkgrJUkCeCAA) ✅
+If you want to see it all in one place, don't forget to check out the [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBA4hwHUCWwAWBBATpghiAPOgDRQDSAfFALxlQQAewEAdgCYDOUA2gLoBQUKAH4o6AVABctBkzacuSZgDMImMhBAkAdDsUq1AJQjtg-QYJE5mIXnUYsOo8eeGi7sxwAo9qqABUASl5nF1c4RBQMbDx8PygAHygAVzYIJUUIVhIjE3IQlyl0dwdOTAgcVgB7ZgAbEChvZV9A4NDQkXDkNCxcAjjElNY0jKyoHOA8toLk1PTmTPzJdXqZEqgAaw1KpScpsPguqN7CLlINHmzjCcXBKUHh+dYQqXmAN1U+PgB6ACooAH1AUDgUD-FcoABhHDsYwAkHw-5QH5fPhIAC2YEqmGAUAA3lAAKIARySOBqJAJ9EgAGMcQBfKBKTCVNFQADkAAFQJAALTU1BkmosADmxi+SWASBq7DZn250D8VwA8gAjABWEFp1G44i+XygAAZxAADADK1OZNRqKpwampSRMLKQ7BwkuqxqIuv1AEYTQAmA3egAcPO9Bp5BoALB6vVA-eIuCE9XGtEaXCZMIphZ6XMm-VpfS5PBmswkoMwkmiVaoghck-r8-GXGUKtU6uXK9XMK0oPweABuOXgaDU6GwmiJwSUmnAfDE0k1fCdSI9GKKkyqjW0khcNkGtk8cgkM0WypWm12h3AJ0ut3MY3kI-iaea2fzslLg4r6J9ZXq187my3oHkeUDGgGwahuGUYPk+U5Uq+c4kh+y7dD+sR-luwCAX6bIkHuIEkCWzDCo+OaEghtJIQun4RGhxzrsAm4AdwbK4fhwH4fuh5EcAmYkWWFZVr4AyzCMZHPpRb7IYuqFHGumEsbu7HsipbGER2wlqKJQxzJkEnwTO1EoV+9EKRu-7bqxADMGn3HprASTwQA) ✅
 
 ## 4. One solution
 
@@ -252,11 +252,11 @@ But we still need to use our `Get` type, let's add it:
 
 ![Get function, final version](./get-in-js-v4.png)
 
-Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1517-1531):
+Please check the final solution in [Codesandbox 📦](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1584-1598):
 
-1. We added [the implementation of get with types 🔥](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.ts)
+1. We added [the implementation of get with types 🔥](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.ts:1071-1139)
 2. We covered [the types with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.type.ts:1584-1598)
-3. We covered the [get function with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.test.ts)
+3. We covered the [get function with tests 🧪](https://codesandbox.io/s/typescript-get-implementation-types-gnsvo?file=/src/get/index.test.ts:490-516)
 
 ## Summary
 
