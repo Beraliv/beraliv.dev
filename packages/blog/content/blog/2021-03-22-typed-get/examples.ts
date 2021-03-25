@@ -1,6 +1,6 @@
 /** Featured */
 
-// type Get<O, P> = never // implementation
+type Get<O, P> = never // implementation
 
 type Step1 = Get<
   {
@@ -9,21 +9,20 @@ type Step1 = Get<
       { title: `What's inside Udemy player`; date: `2020-01-07` }
     ]
   },
-  "posts.0.title"
+  `posts.0.title`
 >
 type Step2 = Get<
   [
     { title: `Scrollbar customisation`; date: `2018-10-04` },
     { title: `What's inside Udemy player`; date: `2020-01-07` }
   ],
-  "0.title"
+  `0.title`
 >
 type Step3 = Get<
   { title: `Scrollbar customisation`; date: `2018-10-04` },
-  "title"
+  `title`
 >
-type Step4 = Get<`Scrollbar customisation`, "">
-
+type Step4 = Get<`Scrollbar customisation`, ``>
 type Result = `Scrollbar customisation`
 
 /** Conditional type */

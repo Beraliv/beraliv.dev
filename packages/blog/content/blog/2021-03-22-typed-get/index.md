@@ -12,7 +12,7 @@ Not a long time ago I discovered [type-challenges](https://github.com/type-chall
 
 ## 1. Basic implementation
 
-As I said, there's a repo on GitHub: [type-challenges](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md). The current challenge is located in the "hard" category.
+As I said, there's a repo on GitHub: type-challenges. [The current challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) is located in the "hard" category.
 
 Here we work only with objects (as the solution doesn't require accessing arrays) and also we always can access object keys as they are defined in test cases.
 
@@ -22,7 +22,7 @@ So what should we start then from?
 
 Imagine we solve the same challenge in JavaScript:
 
-![Get function in JavaScript](./get-in-js.png)
+![Get function in JavaScript](./get-in-js-v1.png)
 
 Before calling `keys.reduce`, we need to get a list of all keys. In JavaScript we can call `path.split('.')`. In Typescript, we also need to get the keys from the path string.
 
@@ -221,7 +221,7 @@ As you can see, we’ve added restrictions to both functions:
 
 This helps to distinguish cases and avoid mistakes while passing types. Let's reuse them in `GetWithArray`:
 
-![GetWithArray, refactored version](./get-with-array-for-arrays-v4.png)
+![GetWithArray, refactored version](./get-with-array-v4.png)
 
 I covered this refactoring with tests. Another [Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAYglgG2BATgVQHYBMIDM4YRYA8AKgHxQC8UpUEAHstgM5QCu2eBRUA-FEIA3VFABctAFChIsRMhQA5dggRlKNOo2ZY2GFQn6CIIlOKkzo8JKkw58hLAEFsy1eupyb6Lg6LFrBTc1CnJJaXBoAFEmFABDAGNgGBQAewBbAHkAIwArCCTiTPomCFYoACUC1JQSAAU0yBRQAGkIEAAaDgwAawxUgHcMci6WjSgWkp02HvbU3ChMySgjTIBtFoBdZfNJ7TLdKFmQea8FO25HFyxgorCVlYFA218eZ1cDO43NqAAfbvsbx2KwknEBjnCligMWA8SSKQyThQ8RAxCcUwObBQEDiWFSGAQICgcQwIDWm1G4xJZJ++3KTh2AnRdMOAAoCLhRKQAJTk4FGOj-MGXIj8iTM0rlbG4-GEqDsjCcsw8vkPB4CQUAkVYfkgrV+HV6vaSw7HU4MtVM75i-VAiKyADiEGAAHU4MAABZIlFFSmeY3TKCq1Y7CQBzFBjmiNqdKAAOgTUbMVRYwG2lsWGPKVQSNXqjVQrXaXU4fUGw11RidrvdXuRcVRMLhyTSWTyBWAvom7RGlQgqfuavMxRZWJxeIJROpwaHVedbs93obxCbiRbiPrqMyox7XRTwEHs9BrwhaokwlQ4QA9AAqKAAfUfT+fT9o-eAUAAwnEWP2Hy+APvKAbyvSQ4HSMAag-ABvaEAEd2DiBAuhiSAkigABfKBcFbKAAHIAAFLAAWgSD0kIQMoAHN+yvdhgEQFg8MhSIoAaVIsHYJI4HxHJ8nQmhoJ2BjgEoiRUxQAgqJ2HAWASSSwAY-E+HE2EpJkuJkHPdh0myS8VjieiPRqFSoCEtUMDidIIFUySMGktUEFSBJNJ4jBTPMocEndEBbPUtUMJ2QKVmAOIqJYUy1jw6Ukjwro8MsOSFOAOL8KEOAcFSPD0ygFg4CoyzgHYbFTLwpxKIYdooAAIVQCAAC8CGYlZINTFgJGlCc5Vgj1gHSBA-PszDg1MPL8Xa+UJKkv5BB0vSUF5bZAvtaAXN-NgaDWHZUI7FcEKQ4hqwXOsfXYzjuN49ski6KKRMo7Leym+zyBGbaGDQzson2tQjtrJdUTOrilIwPiOxuvDZPkuBFLch6uieqiZuFA0Xo6N6Pr2xCfvnP7N2IQGLpBq7gHBrBNIgOHZt01BUfR3avqxw6ccXPGCeB0HrqDPDDM9GpUrwyzrMphGkZPIhaZWHbCgZg7fpZ060nO9nifBnnjJQfmnJc4H+e80BhbUoahTFrAJehd76e+pma3l5c2bcjmSa5tW+firXXPxfncSwbEWCYzZe2Rt4zalz6rblk67cVoGHZV52jNd-D5KIMoGKQpj4oABkpoPHBDi3pfD5nI4B6PCcd8HQvC-ns4D+KYpS0XwXF17JYLsPGYj-78bL5X+Kd26woz-CAGYc5N-OMZl7GbZLnuOJjy7+-BvKCs04qKbr-DysYKrauxRqMDwpvtUny3O+L7v7aXsGuda4Bh7w2vex6vqBtyw3Eaw43m9N1vzankXWeV9e6x2XnfVIbUa7816v1A2dlEY-1Pv-UOmNZaX1ZqAm+nMoqjTco-Z+8NP4zX0NTMwSCUavU2EAA) is waiting for you 🚀.
 
@@ -229,7 +229,7 @@ I covered this refactoring with tests. Another [Playground](https://www.typescri
 
 Let's return to the solution on the JavaScript:
 
-![Get function in Javascript](./get-in-js.png)
+![Get function in Javascript](./get-in-js-v1.png)
 
 At the moment we use `lodash` in our project, e.g. function `get`. If you check [common/object.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/lodash/common/object.d.ts#L1022) in `@types/lodash`, you'll see that it's quite straightforward. The `get` call in playground returns `any` for most of the cases: [typescript-lodash-types](https://codesandbox.io/s/typescript-lodash-types-ndhvf?file=/src/index.type.ts:1379-1856)
 
