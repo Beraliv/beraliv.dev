@@ -208,7 +208,7 @@ Now we have 2 solutions:
 
 ![GetWithArray for arrays](./get-with-array-for-arrays-v3.png)
 
-Let's move the details of the implementation to functions `ExtractFromArray` and `ExtractFromObject`:
+Let's move the details of the implementation to functions `ExtractFromObject` and `ExtractFromArray`:
 
 ![ExtractFromObject implementation](./extract-from-object.png)
 
@@ -278,6 +278,10 @@ To solve the challenge we needed to know several TypeScript concepts:
 
 ![Example of template literal types](./template-literal-types.png)
 
-5. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
+5. [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
+
+![Example of generic constrains](./example-of-generic-constrains.png)
+
+6. [Function Overloads](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-overloads)
 
 ![Example of function overloads](./function-overloads.png)
