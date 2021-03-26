@@ -10,6 +10,8 @@ featured: ./get-usage-example.png
 
 Not a long time ago I discovered [type-challenges](https://github.com/type-challenges/type-challenges) for myself. Today I'll show not only the implementation of `Get`, but also some common issues with the implementation, improvements and its usage in production.
 
+If you want to learn TypeScript concepts first, please take a look at the [Summary ⚓️](https://blog.beraliv.dev/2021-03-22-typed-get/#summary)
+
 ## 1. Basic implementation
 
 As I said, there's a repo on GitHub: type-challenges. [The current challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) is located in the "hard" category.
