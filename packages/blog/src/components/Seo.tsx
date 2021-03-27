@@ -47,9 +47,8 @@ export const Seo: FunctionComponent<SeoProps> = ({
     site?.siteMetadata?.siteUrl && image?.src
       ? `${site.siteMetadata.siteUrl}${image.src}`
       : undefined
-  const titleTemplate = site?.siteMetadata?.title
-    ? `%s | ${site.siteMetadata.title}`
-    : undefined
+  const metaTitle = site?.siteMetadata?.title
+  const titleTemplate = metaTitle ? `%s | ${metaTitle}` : undefined
   const canonicalLink = getSeoCanonicalLink({ site, pathname })
   const twitterNickname = site?.siteMetadata?.social?.twitter
     ? `@${site.siteMetadata.social.twitter}`
@@ -75,6 +74,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
   ])
 
   const openGraphMeta: SeoMetaProp[] = filterUndefined([
+    metaTitle
+      ? {
+          property: `og:site_name`,
+          content: metaTitle,
+        }
+      : undefined,
     {
       property: `og:title`,
       content: title,
