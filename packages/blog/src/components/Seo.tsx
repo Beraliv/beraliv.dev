@@ -133,7 +133,7 @@ export const Seo: FunctionComponent<SeoProps> = ({
     },
     {
       name: "twitter:card",
-      content: "summary_large_image",
+      content: "summary",
     },
     metaImageSrc
       ? {
