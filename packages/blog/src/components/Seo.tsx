@@ -118,6 +118,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
           content: site.siteMetadata.social.twitter,
         }
       : undefined,
+    site?.siteMetadata?.author?.name
+      ? {
+          name: `twitter:site`,
+          content: site.siteMetadata.author.name,
+        }
+      : undefined,
     {
       name: `twitter:title`,
       content: title,
