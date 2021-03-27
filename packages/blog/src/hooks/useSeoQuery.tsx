@@ -7,6 +7,9 @@ export const useSeoQuery = (): SeoQuery["site"] => {
       query Seo {
         site {
           siteMetadata {
+            author {
+              name
+            }
             title
             description
             keywords
