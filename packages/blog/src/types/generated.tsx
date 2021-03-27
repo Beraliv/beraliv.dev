@@ -2779,6 +2779,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPluginsVersion = "pluginCreator___pluginOptions___plugins___version",
   PluginCreatorPluginOptionsPluginsNodeApIs = "pluginCreator___pluginOptions___plugins___nodeAPIs",
   PluginCreatorPluginOptionsPluginsBrowserApIs = "pluginCreator___pluginOptions___plugins___browserAPIs",
+  PluginCreatorPluginOptionsPluginsSsrApIs = "pluginCreator___pluginOptions___plugins___ssrAPIs",
   PluginCreatorPluginOptionsPluginsPluginFilepath = "pluginCreator___pluginOptions___plugins___pluginFilepath",
   PluginCreatorPluginOptionsTrackingIds = "pluginCreator___pluginOptions___trackingIds",
   PluginCreatorPluginOptionsPluginConfigHead = "pluginCreator___pluginOptions___pluginConfig___head",
@@ -3095,6 +3096,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsPluginOptionsFigureClassName = "pluginOptions___plugins___pluginOptions___figureClassName",
   PluginOptionsPluginsNodeApIs = "pluginOptions___plugins___nodeAPIs",
   PluginOptionsPluginsBrowserApIs = "pluginOptions___plugins___browserAPIs",
+  PluginOptionsPluginsSsrApIs = "pluginOptions___plugins___ssrAPIs",
   PluginOptionsPluginsPluginFilepath = "pluginOptions___plugins___pluginFilepath",
   PluginOptionsTrackingIds = "pluginOptions___trackingIds",
   PluginOptionsPluginConfigHead = "pluginOptions___pluginConfig___head",
@@ -3330,6 +3332,7 @@ export type SitePluginPluginOptionsPlugins = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>
   nodeAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
   browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
+  ssrAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
   pluginFilepath?: Maybe<Scalars["String"]>
 }
 
@@ -3341,6 +3344,7 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>
   nodeAPIs?: Maybe<StringQueryOperatorInput>
   browserAPIs?: Maybe<StringQueryOperatorInput>
+  ssrAPIs?: Maybe<StringQueryOperatorInput>
   pluginFilepath?: Maybe<StringQueryOperatorInput>
 }
 
@@ -3651,6 +3655,7 @@ export type SeoQuery = { __typename?: "Query" } & {
           SiteSiteMetadata,
           "title" | "description" | "keywords" | "siteUrl"
         > & {
+            author?: Maybe<{ __typename?: "Author" } & Pick<Author, "name">>
             social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
           }
       >
@@ -4121,6 +4126,9 @@ export const SeoDocument = gql`
   query Seo {
     site {
       siteMetadata {
+        author {
+          name
+        }
         title
         description
         keywords
