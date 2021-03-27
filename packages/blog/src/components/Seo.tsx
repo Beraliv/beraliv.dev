@@ -51,6 +51,9 @@ export const Seo: FunctionComponent<SeoProps> = ({
     ? `%s | ${site.siteMetadata.title}`
     : undefined
   const canonicalLink = getSeoCanonicalLink({ site, pathname })
+  const twitterNickname = site?.siteMetadata?.social?.twitter
+    ? `@${site.siteMetadata.social.twitter}`
+    : undefined
 
   const generalMeta: SeoMetaProp[] = filterUndefined([
     {
@@ -111,16 +114,16 @@ export const Seo: FunctionComponent<SeoProps> = ({
   ])
 
   const twitterMeta: SeoMetaProp[] = filterUndefined([
-    site?.siteMetadata?.social?.twitter
+    twitterNickname
       ? {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          content: twitterNickname,
         }
       : undefined,
-    site?.siteMetadata?.author?.name
+    twitterNickname
       ? {
           name: `twitter:site`,
-          content: site.siteMetadata.author.name,
+          content: twitterNickname,
         }
       : undefined,
     {
