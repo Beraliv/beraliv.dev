@@ -43,7 +43,6 @@ export const Seo: FunctionComponent<SeoProps> = ({
   const site = useSeoQuery()
 
   const metaDescription = getSeoDescription({ description, site, pathname })
-  const metaKeywords = site?.siteMetadata?.keywords?.join(",")
   const metaImageSrc =
     site?.siteMetadata?.siteUrl && image?.src
       ? `${site.siteMetadata.siteUrl}${image.src}`
@@ -64,10 +63,10 @@ export const Seo: FunctionComponent<SeoProps> = ({
           content: metaImageSrc,
         }
       : undefined,
-    metaKeywords
+    site?.siteMetadata?.keywords
       ? {
           name: "keywords",
-          content: metaKeywords,
+          content: site.siteMetadata.keywords.join(","),
         }
       : undefined,
   ])
