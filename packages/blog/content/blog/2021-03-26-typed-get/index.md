@@ -106,7 +106,11 @@ Good job ✅
 
 ## 3. Accessing arrays and tuples
 
-The next desired step for us is to support arrays and tuples. In JavaScript it would look like this:
+The next desired step for us is to support arrays and tuples:
+
+![Problem 2 with Get for type challenge](./problem-2-with-get-for-type-challenge.png)
+
+In JavaScript it would look like this:
 
 ![Get function for arrays in JS](./get-for-arrays-in-js.png)
 
