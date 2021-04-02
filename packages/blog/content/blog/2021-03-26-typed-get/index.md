@@ -106,7 +106,11 @@ Good job ✅
 
 ## 3. Accessing arrays and tuples
 
-The next desired step for us is to support arrays and tuples. In JavaScript it would look like this:
+The next desired step for us is to support arrays and tuples:
+
+![Problem 2 with Get for type challenge](./problem-2-with-get-for-type-challenge.png)
+
+In JavaScript it would look like this:
 
 ![Get function for arrays in JS](./get-for-arrays-in-js.png)
 
@@ -182,7 +186,17 @@ Let me create the table to clarify what is located inside `A`:
 
 We just created the table of `extends` for TypeScript types.
 
-You need to read it like this: if you see ✅ for row `[0]` and column `readonly number[]`, it means `[0] extends readonly number[]` is `true`. If on the other hand it's ❌ for row `readonly number[]` and column `number[]`, it means `readonly number[] extends number[]` is `false`. Let's take a closer look at row `any[]`: for column `[0]` it's ❌, but for other types it's ✅
+If you see ✅ for the row and the column, it means the row type extends the column type. Several examples:
+
+- `[0] extends [0]`
+- `number[] extends readonly number[]`
+
+On the other hand if it's ❌, the row type doesn't extend the column type. More examples:
+
+- `number[] extends [0]`
+- `readonly number[] extends number[]`
+
+Let's take a closer look at row `any[]`: for column `[0]` it's ❌, but for other types it's ✅
 
 This is actually an answer! 🔥🔥🔥
 

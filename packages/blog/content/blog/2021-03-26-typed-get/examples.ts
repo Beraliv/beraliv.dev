@@ -125,6 +125,19 @@ type GetWithArray<O, K> = K extends []
     : undefined
   : never
 
+/* example of accessing arrays and tuples */
+type ProductionObject = {
+  posts: {
+    title: string
+    description?: string
+    poster?: string
+    html: string
+  }[]
+}
+
+type Step1 = Get<ProductionObject, "posts">
+type Step2 = Get<Step1, "0">
+
 /* get arrays */
 
 const get = (arr, path) => {
