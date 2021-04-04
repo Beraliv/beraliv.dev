@@ -1,5 +1,7 @@
 import { CreatePagesArgs } from "gatsby"
 import path from "path"
+import { POSTS_PER_PAGE } from "../src/constants/POSTS_PER_PAGE"
+import { range } from "../src/functions/range"
 import { CreatePageQuery } from "../src/types/generated"
 
 export const createBlogPostPages = async ({
@@ -7,6 +9,7 @@ export const createBlogPostPages = async ({
   actions,
   reporter,
 }: CreatePagesArgs) => {
+  const BlogListTemplate = path.resolve(`src/templates/BlogListTemplate.tsx`)
   const BlogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.tsx`)
 
   const result = await graphql<CreatePageQuery>(`
@@ -38,6 +41,20 @@ export const createBlogPostPages = async ({
   }
 
   const { createPage } = actions
+
+  const numberOfPages = 1
+  range(1, numberOfPages).forEach(currentPage => {
+    createPage({
+      path: currentPage === 1 ? `/` : `/${currentPage}`,
+      component: BlogListTemplate,
+      context: {
+        limit: POSTS_PER_PAGE,
+        skip: (currentPage - 1) * POSTS_PER_PAGE,
+        numberOfPages,
+        currentPage,
+      },
+    })
+  })
 
   posts.forEach((post, index) => {
     if (!post.fields?.slug) {

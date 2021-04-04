@@ -2701,12 +2701,20 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   __typename?: "SitePageContext"
+  limit?: Maybe<Scalars["Int"]>
+  skip?: Maybe<Scalars["Int"]>
+  numberOfPages?: Maybe<Scalars["Int"]>
+  currentPage?: Maybe<Scalars["Int"]>
   id?: Maybe<Scalars["String"]>
   previousPostId?: Maybe<Scalars["String"]>
   nextPostId?: Maybe<Scalars["String"]>
 }
 
 export type SitePageContextFilterInput = {
+  limit?: Maybe<IntQueryOperatorInput>
+  skip?: Maybe<IntQueryOperatorInput>
+  numberOfPages?: Maybe<IntQueryOperatorInput>
+  currentPage?: Maybe<IntQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   previousPostId?: Maybe<StringQueryOperatorInput>
   nextPostId?: Maybe<StringQueryOperatorInput>
@@ -2812,6 +2820,10 @@ export enum SitePageFieldsEnum {
   InternalOwner = "internal___owner",
   InternalType = "internal___type",
   IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
+  ContextLimit = "context___limit",
+  ContextSkip = "context___skip",
+  ContextNumberOfPages = "context___numberOfPages",
+  ContextCurrentPage = "context___currentPage",
   ContextId = "context___id",
   ContextPreviousPostId = "context___previousPostId",
   ContextNextPostId = "context___nextPostId",
@@ -3673,9 +3685,9 @@ export type NotFoundQuery = { __typename?: "Query" } & {
   >
 }
 
-export type BlogIndexQueryVariables = Exact<{ [key: string]: never }>
+export type BlogListQueryVariables = Exact<{ [key: string]: never }>
 
-export type BlogIndexQuery = { __typename?: "Query" } & {
+export type BlogListQuery = { __typename?: "Query" } & {
   site?: Maybe<
     { __typename?: "Site" } & {
       siteMetadata?: Maybe<
@@ -3704,31 +3716,6 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
               >
             }
         >
-      }
-    >
-  }
-}
-
-export type BlogListBySlugQueryVariables = Exact<{
-  skip: Scalars["Int"]
-  limit: Scalars["Int"]
-}>
-
-export type BlogListBySlugQuery = { __typename?: "Query" } & {
-  allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
-    edges: Array<
-      { __typename?: "MarkdownRemarkEdge" } & {
-        node: { __typename?: "MarkdownRemark" } & Pick<
-          MarkdownRemark,
-          "excerpt"
-        > & {
-            frontmatter?: Maybe<
-              { __typename?: "Frontmatter" } & Pick<
-                Frontmatter,
-                "date" | "title"
-              >
-            >
-          }
       }
     >
   }
