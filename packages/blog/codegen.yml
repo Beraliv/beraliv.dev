@@ -13,7 +13,6 @@ generates:
     plugins:
       - 'typescript'
       - 'typescript-operations'
-      - 'typescript-react-apollo'
   ./schema.json:
     plugins:
       - 'introspection'

@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client"
-import * as Apollo from "@apollo/client"
 export type Maybe<T> = T | null
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K]
@@ -2232,15 +2230,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>
   componentChunkName?: Maybe<StringQueryOperatorInput>
   matchPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
   componentPath?: Maybe<StringQueryOperatorInput>
-  id?: Maybe<StringQueryOperatorInput>
-  parent?: Maybe<NodeFilterInput>
-  children?: Maybe<NodeFilterListInput>
-  internal?: Maybe<InternalFilterInput>
 }
 
 export type QueryAllSitePageArgs = {
@@ -2670,15 +2668,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars["String"]
   componentChunkName: Scalars["String"]
   matchPath?: Maybe<Scalars["String"]>
+  id: Scalars["ID"]
+  parent?: Maybe<Node>
+  children: Array<Node>
+  internal: Internal
   isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
   context?: Maybe<SitePageContext>
   pluginCreator?: Maybe<SitePlugin>
   pluginCreatorId?: Maybe<Scalars["String"]>
   componentPath?: Maybe<Scalars["String"]>
-  id: Scalars["ID"]
-  parent?: Maybe<Node>
-  children: Array<Node>
-  internal: Internal
 }
 
 export type SitePageConnection = {
@@ -2727,6 +2725,92 @@ export enum SitePageFieldsEnum {
   InternalComponentName = "internalComponentName",
   ComponentChunkName = "componentChunkName",
   MatchPath = "matchPath",
+  Id = "id",
+  ParentId = "parent___id",
+  ParentParentId = "parent___parent___id",
+  ParentParentParentId = "parent___parent___parent___id",
+  ParentParentParentChildren = "parent___parent___parent___children",
+  ParentParentChildren = "parent___parent___children",
+  ParentParentChildrenId = "parent___parent___children___id",
+  ParentParentChildrenChildren = "parent___parent___children___children",
+  ParentParentInternalContent = "parent___parent___internal___content",
+  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+  ParentParentInternalDescription = "parent___parent___internal___description",
+  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+  ParentParentInternalOwner = "parent___parent___internal___owner",
+  ParentParentInternalType = "parent___parent___internal___type",
+  ParentChildren = "parent___children",
+  ParentChildrenId = "parent___children___id",
+  ParentChildrenParentId = "parent___children___parent___id",
+  ParentChildrenParentChildren = "parent___children___parent___children",
+  ParentChildrenChildren = "parent___children___children",
+  ParentChildrenChildrenId = "parent___children___children___id",
+  ParentChildrenChildrenChildren = "parent___children___children___children",
+  ParentChildrenInternalContent = "parent___children___internal___content",
+  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+  ParentChildrenInternalDescription = "parent___children___internal___description",
+  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+  ParentChildrenInternalOwner = "parent___children___internal___owner",
+  ParentChildrenInternalType = "parent___children___internal___type",
+  ParentInternalContent = "parent___internal___content",
+  ParentInternalContentDigest = "parent___internal___contentDigest",
+  ParentInternalDescription = "parent___internal___description",
+  ParentInternalFieldOwners = "parent___internal___fieldOwners",
+  ParentInternalIgnoreType = "parent___internal___ignoreType",
+  ParentInternalMediaType = "parent___internal___mediaType",
+  ParentInternalOwner = "parent___internal___owner",
+  ParentInternalType = "parent___internal___type",
+  Children = "children",
+  ChildrenId = "children___id",
+  ChildrenParentId = "children___parent___id",
+  ChildrenParentParentId = "children___parent___parent___id",
+  ChildrenParentParentChildren = "children___parent___parent___children",
+  ChildrenParentChildren = "children___parent___children",
+  ChildrenParentChildrenId = "children___parent___children___id",
+  ChildrenParentChildrenChildren = "children___parent___children___children",
+  ChildrenParentInternalContent = "children___parent___internal___content",
+  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+  ChildrenParentInternalDescription = "children___parent___internal___description",
+  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+  ChildrenParentInternalOwner = "children___parent___internal___owner",
+  ChildrenParentInternalType = "children___parent___internal___type",
+  ChildrenChildren = "children___children",
+  ChildrenChildrenId = "children___children___id",
+  ChildrenChildrenParentId = "children___children___parent___id",
+  ChildrenChildrenParentChildren = "children___children___parent___children",
+  ChildrenChildrenChildren = "children___children___children",
+  ChildrenChildrenChildrenId = "children___children___children___id",
+  ChildrenChildrenChildrenChildren = "children___children___children___children",
+  ChildrenChildrenInternalContent = "children___children___internal___content",
+  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+  ChildrenChildrenInternalDescription = "children___children___internal___description",
+  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+  ChildrenChildrenInternalOwner = "children___children___internal___owner",
+  ChildrenChildrenInternalType = "children___children___internal___type",
+  ChildrenInternalContent = "children___internal___content",
+  ChildrenInternalContentDigest = "children___internal___contentDigest",
+  ChildrenInternalDescription = "children___internal___description",
+  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+  ChildrenInternalIgnoreType = "children___internal___ignoreType",
+  ChildrenInternalMediaType = "children___internal___mediaType",
+  ChildrenInternalOwner = "children___internal___owner",
+  ChildrenInternalType = "children___internal___type",
+  InternalContent = "internal___content",
+  InternalContentDigest = "internal___contentDigest",
+  InternalDescription = "internal___description",
+  InternalFieldOwners = "internal___fieldOwners",
+  InternalIgnoreType = "internal___ignoreType",
+  InternalMediaType = "internal___mediaType",
+  InternalOwner = "internal___owner",
+  InternalType = "internal___type",
   IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
   ContextId = "context___id",
   ContextPreviousPostId = "context___previousPostId",
@@ -2832,92 +2916,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPackageJsonKeywords = "pluginCreator___packageJson___keywords",
   PluginCreatorId = "pluginCreatorId",
   ComponentPath = "componentPath",
-  Id = "id",
-  ParentId = "parent___id",
-  ParentParentId = "parent___parent___id",
-  ParentParentParentId = "parent___parent___parent___id",
-  ParentParentParentChildren = "parent___parent___parent___children",
-  ParentParentChildren = "parent___parent___children",
-  ParentParentChildrenId = "parent___parent___children___id",
-  ParentParentChildrenChildren = "parent___parent___children___children",
-  ParentParentInternalContent = "parent___parent___internal___content",
-  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-  ParentParentInternalDescription = "parent___parent___internal___description",
-  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-  ParentParentInternalOwner = "parent___parent___internal___owner",
-  ParentParentInternalType = "parent___parent___internal___type",
-  ParentChildren = "parent___children",
-  ParentChildrenId = "parent___children___id",
-  ParentChildrenParentId = "parent___children___parent___id",
-  ParentChildrenParentChildren = "parent___children___parent___children",
-  ParentChildrenChildren = "parent___children___children",
-  ParentChildrenChildrenId = "parent___children___children___id",
-  ParentChildrenChildrenChildren = "parent___children___children___children",
-  ParentChildrenInternalContent = "parent___children___internal___content",
-  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-  ParentChildrenInternalDescription = "parent___children___internal___description",
-  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-  ParentChildrenInternalOwner = "parent___children___internal___owner",
-  ParentChildrenInternalType = "parent___children___internal___type",
-  ParentInternalContent = "parent___internal___content",
-  ParentInternalContentDigest = "parent___internal___contentDigest",
-  ParentInternalDescription = "parent___internal___description",
-  ParentInternalFieldOwners = "parent___internal___fieldOwners",
-  ParentInternalIgnoreType = "parent___internal___ignoreType",
-  ParentInternalMediaType = "parent___internal___mediaType",
-  ParentInternalOwner = "parent___internal___owner",
-  ParentInternalType = "parent___internal___type",
-  Children = "children",
-  ChildrenId = "children___id",
-  ChildrenParentId = "children___parent___id",
-  ChildrenParentParentId = "children___parent___parent___id",
-  ChildrenParentParentChildren = "children___parent___parent___children",
-  ChildrenParentChildren = "children___parent___children",
-  ChildrenParentChildrenId = "children___parent___children___id",
-  ChildrenParentChildrenChildren = "children___parent___children___children",
-  ChildrenParentInternalContent = "children___parent___internal___content",
-  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-  ChildrenParentInternalDescription = "children___parent___internal___description",
-  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-  ChildrenParentInternalOwner = "children___parent___internal___owner",
-  ChildrenParentInternalType = "children___parent___internal___type",
-  ChildrenChildren = "children___children",
-  ChildrenChildrenId = "children___children___id",
-  ChildrenChildrenParentId = "children___children___parent___id",
-  ChildrenChildrenParentChildren = "children___children___parent___children",
-  ChildrenChildrenChildren = "children___children___children",
-  ChildrenChildrenChildrenId = "children___children___children___id",
-  ChildrenChildrenChildrenChildren = "children___children___children___children",
-  ChildrenChildrenInternalContent = "children___children___internal___content",
-  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-  ChildrenChildrenInternalDescription = "children___children___internal___description",
-  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-  ChildrenChildrenInternalOwner = "children___children___internal___owner",
-  ChildrenChildrenInternalType = "children___children___internal___type",
-  ChildrenInternalContent = "children___internal___content",
-  ChildrenInternalContentDigest = "children___internal___contentDigest",
-  ChildrenInternalDescription = "children___internal___description",
-  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-  ChildrenInternalIgnoreType = "children___internal___ignoreType",
-  ChildrenInternalMediaType = "children___internal___mediaType",
-  ChildrenInternalOwner = "children___internal___owner",
-  ChildrenInternalType = "children___internal___type",
-  InternalContent = "internal___content",
-  InternalContentDigest = "internal___contentDigest",
-  InternalDescription = "internal___description",
-  InternalFieldOwners = "internal___fieldOwners",
-  InternalIgnoreType = "internal___ignoreType",
-  InternalMediaType = "internal___mediaType",
-  InternalOwner = "internal___owner",
-  InternalType = "internal___type",
 }
 
 export type SitePageFilterInput = {
@@ -2926,15 +2924,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>
   componentChunkName?: Maybe<StringQueryOperatorInput>
   matchPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
   componentPath?: Maybe<StringQueryOperatorInput>
-  id?: Maybe<StringQueryOperatorInput>
-  parent?: Maybe<NodeFilterInput>
-  children?: Maybe<NodeFilterListInput>
-  internal?: Maybe<InternalFilterInput>
 }
 
 export type SitePageGroupConnection = {
@@ -3711,6 +3709,31 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
   }
 }
 
+export type BlogListBySlugQueryVariables = Exact<{
+  skip: Scalars["Int"]
+  limit: Scalars["Int"]
+}>
+
+export type BlogListBySlugQuery = { __typename?: "Query" } & {
+  allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
+    edges: Array<
+      { __typename?: "MarkdownRemarkEdge" } & {
+        node: { __typename?: "MarkdownRemark" } & Pick<
+          MarkdownRemark,
+          "excerpt"
+        > & {
+            frontmatter?: Maybe<
+              { __typename?: "Frontmatter" } & Pick<
+                Frontmatter,
+                "date" | "title"
+              >
+            >
+          }
+      }
+    >
+  }
+}
+
 export type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars["String"]
   previousPostId?: Maybe<Scalars["String"]>
@@ -3767,631 +3790,3 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
     }
   >
 }
-
-export const GatsbyImageSharpFixedFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed on ImageSharpFixed {
-    base64
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_tracedSVG on ImageSharpFixed {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp on ImageSharpFixed {
-    base64
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFixed_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp_tracedSVG on ImageSharpFixed {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFixed_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_noBase64 on ImageSharpFixed {
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp_noBase64 on ImageSharpFixed {
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFluidFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid on ImageSharpFluid {
-    base64
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluidLimitPresentationSizeFragmentDoc = gql`
-  fragment GatsbyImageSharpFluidLimitPresentationSize on ImageSharpFluid {
-    maxHeight: presentationHeight
-    maxWidth: presentationWidth
-  }
-`
-export const GatsbyImageSharpFluid_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_tracedSVG on ImageSharpFluid {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp on ImageSharpFluid {
-    base64
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp_tracedSVG on ImageSharpFluid {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_noBase64 on ImageSharpFluid {
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp_noBase64 on ImageSharpFluid {
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpResolutionsFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions on ImageSharpResolutions {
-    base64
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_tracedSVG on ImageSharpResolutions {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp on ImageSharpResolutions {
-    base64
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp_tracedSVG on ImageSharpResolutions {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpResolutions_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_noBase64 on ImageSharpResolutions {
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp_noBase64 on ImageSharpResolutions {
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpSizesFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes on ImageSharpSizes {
-    base64
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_tracedSVG on ImageSharpSizes {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp on ImageSharpSizes {
-    base64
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp_tracedSVG on ImageSharpSizes {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_noBase64 on ImageSharpSizes {
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp_noBase64 on ImageSharpSizes {
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const CreatePageDocument = gql`
-  query CreatePage {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-      limit: 1000
-    ) {
-      nodes {
-        id
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`
-
-/**
- * __useCreatePageQuery__
- *
- * To run a query within a React component, call `useCreatePageQuery` and pass it any options that fit your needs.
- * When your component renders, `useCreatePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCreatePageQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCreatePageQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    CreatePageQuery,
-    CreatePageQueryVariables
-  >
-) {
-  return Apollo.useQuery<CreatePageQuery, CreatePageQueryVariables>(
-    CreatePageDocument,
-    baseOptions
-  )
-}
-export function useCreatePageLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    CreatePageQuery,
-    CreatePageQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<CreatePageQuery, CreatePageQueryVariables>(
-    CreatePageDocument,
-    baseOptions
-  )
-}
-export type CreatePageQueryHookResult = ReturnType<typeof useCreatePageQuery>
-export type CreatePageLazyQueryHookResult = ReturnType<
-  typeof useCreatePageLazyQuery
->
-export type CreatePageQueryResult = Apollo.QueryResult<
-  CreatePageQuery,
-  CreatePageQueryVariables
->
-export const BioDocument = gql`
-  query Bio {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50, quality: 95) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author {
-          name
-          summary
-        }
-        social {
-          twitter
-        }
-      }
-    }
-  }
-  ${GatsbyImageSharpFixedFragmentDoc}
-`
-
-/**
- * __useBioQuery__
- *
- * To run a query within a React component, call `useBioQuery` and pass it any options that fit your needs.
- * When your component renders, `useBioQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBioQuery({
- *   variables: {
- *   },
- * });
- */
-export function useBioQuery(
-  baseOptions?: Apollo.QueryHookOptions<BioQuery, BioQueryVariables>
-) {
-  return Apollo.useQuery<BioQuery, BioQueryVariables>(BioDocument, baseOptions)
-}
-export function useBioLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<BioQuery, BioQueryVariables>
-) {
-  return Apollo.useLazyQuery<BioQuery, BioQueryVariables>(
-    BioDocument,
-    baseOptions
-  )
-}
-export type BioQueryHookResult = ReturnType<typeof useBioQuery>
-export type BioLazyQueryHookResult = ReturnType<typeof useBioLazyQuery>
-export type BioQueryResult = Apollo.QueryResult<BioQuery, BioQueryVariables>
-export const SeoDocument = gql`
-  query Seo {
-    site {
-      siteMetadata {
-        author {
-          name
-        }
-        title
-        description
-        keywords
-        social {
-          twitter
-        }
-        siteUrl
-      }
-    }
-  }
-`
-
-/**
- * __useSeoQuery__
- *
- * To run a query within a React component, call `useSeoQuery` and pass it any options that fit your needs.
- * When your component renders, `useSeoQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSeoQuery({
- *   variables: {
- *   },
- * });
- */
-export function useSeoQuery(
-  baseOptions?: Apollo.QueryHookOptions<SeoQuery, SeoQueryVariables>
-) {
-  return Apollo.useQuery<SeoQuery, SeoQueryVariables>(SeoDocument, baseOptions)
-}
-export function useSeoLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<SeoQuery, SeoQueryVariables>
-) {
-  return Apollo.useLazyQuery<SeoQuery, SeoQueryVariables>(
-    SeoDocument,
-    baseOptions
-  )
-}
-export type SeoQueryHookResult = ReturnType<typeof useSeoQuery>
-export type SeoLazyQueryHookResult = ReturnType<typeof useSeoLazyQuery>
-export type SeoQueryResult = Apollo.QueryResult<SeoQuery, SeoQueryVariables>
-export const NotFoundDocument = gql`
-  query NotFound {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
-
-/**
- * __useNotFoundQuery__
- *
- * To run a query within a React component, call `useNotFoundQuery` and pass it any options that fit your needs.
- * When your component renders, `useNotFoundQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useNotFoundQuery({
- *   variables: {
- *   },
- * });
- */
-export function useNotFoundQuery(
-  baseOptions?: Apollo.QueryHookOptions<NotFoundQuery, NotFoundQueryVariables>
-) {
-  return Apollo.useQuery<NotFoundQuery, NotFoundQueryVariables>(
-    NotFoundDocument,
-    baseOptions
-  )
-}
-export function useNotFoundLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    NotFoundQuery,
-    NotFoundQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<NotFoundQuery, NotFoundQueryVariables>(
-    NotFoundDocument,
-    baseOptions
-  )
-}
-export type NotFoundQueryHookResult = ReturnType<typeof useNotFoundQuery>
-export type NotFoundLazyQueryHookResult = ReturnType<
-  typeof useNotFoundLazyQuery
->
-export type NotFoundQueryResult = Apollo.QueryResult<
-  NotFoundQuery,
-  NotFoundQueryVariables
->
-export const BlogIndexDocument = gql`
-  query BlogIndex {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          image: featured {
-            childImageSharp {
-              gatsbyImageData(
-                width: 640
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-/**
- * __useBlogIndexQuery__
- *
- * To run a query within a React component, call `useBlogIndexQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlogIndexQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlogIndexQuery({
- *   variables: {
- *   },
- * });
- */
-export function useBlogIndexQuery(
-  baseOptions?: Apollo.QueryHookOptions<BlogIndexQuery, BlogIndexQueryVariables>
-) {
-  return Apollo.useQuery<BlogIndexQuery, BlogIndexQueryVariables>(
-    BlogIndexDocument,
-    baseOptions
-  )
-}
-export function useBlogIndexLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    BlogIndexQuery,
-    BlogIndexQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<BlogIndexQuery, BlogIndexQueryVariables>(
-    BlogIndexDocument,
-    baseOptions
-  )
-}
-export type BlogIndexQueryHookResult = ReturnType<typeof useBlogIndexQuery>
-export type BlogIndexLazyQueryHookResult = ReturnType<
-  typeof useBlogIndexLazyQuery
->
-export type BlogIndexQueryResult = Apollo.QueryResult<
-  BlogIndexQuery,
-  BlogIndexQueryVariables
->
-export const BlogPostBySlugDocument = gql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        image: featured {
-          childImageSharp {
-            resize(width: 1200) {
-              src
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-  }
-`
-
-/**
- * __useBlogPostBySlugQuery__
- *
- * To run a query within a React component, call `useBlogPostBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlogPostBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlogPostBySlugQuery({
- *   variables: {
- *      id: // value for 'id'
- *      previousPostId: // value for 'previousPostId'
- *      nextPostId: // value for 'nextPostId'
- *   },
- * });
- */
-export function useBlogPostBySlugQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    BlogPostBySlugQuery,
-    BlogPostBySlugQueryVariables
-  >
-) {
-  return Apollo.useQuery<BlogPostBySlugQuery, BlogPostBySlugQueryVariables>(
-    BlogPostBySlugDocument,
-    baseOptions
-  )
-}
-export function useBlogPostBySlugLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    BlogPostBySlugQuery,
-    BlogPostBySlugQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<BlogPostBySlugQuery, BlogPostBySlugQueryVariables>(
-    BlogPostBySlugDocument,
-    baseOptions
-  )
-}
-export type BlogPostBySlugQueryHookResult = ReturnType<
-  typeof useBlogPostBySlugQuery
->
-export type BlogPostBySlugLazyQueryHookResult = ReturnType<
-  typeof useBlogPostBySlugLazyQuery
->
-export type BlogPostBySlugQueryResult = Apollo.QueryResult<
-  BlogPostBySlugQuery,
-  BlogPostBySlugQueryVariables
->
