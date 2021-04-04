@@ -6,12 +6,7 @@ export const useBioQuery = (): BioQuery =>
     query Bio {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          gatsbyImageData(
-            width: 50
-            height: 50
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
+          gatsbyImageData(width: 50, height: 50)
         }
       }
       site {
