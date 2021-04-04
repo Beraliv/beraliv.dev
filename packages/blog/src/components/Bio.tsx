@@ -6,7 +6,7 @@
  */
 
 import React from "react"
-import Image, { FixedObject } from "gatsby-image"
+import GatsbyImage, { FixedObject } from "gatsby-image"
 import { useBioQuery } from "../hooks/useBioQuery"
 
 export const Bio = () => {
@@ -38,7 +38,7 @@ export const Bio = () => {
   return (
     <div className="bio">
       {avatar && (
-        <Image
+        <GatsbyImage
           fixed={avatar}
           alt={author.name}
           className="bio-avatar"
