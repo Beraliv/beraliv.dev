@@ -3685,7 +3685,10 @@ export type NotFoundQuery = { __typename?: "Query" } & {
   >
 }
 
-export type BlogListQueryVariables = Exact<{ [key: string]: never }>
+export type BlogListQueryVariables = Exact<{
+  limit: Scalars["Int"]
+  skip: Scalars["Int"]
+}>
 
 export type BlogListQuery = { __typename?: "Query" } & {
   site?: Maybe<
@@ -3695,30 +3698,33 @@ export type BlogListQuery = { __typename?: "Query" } & {
       >
     }
   >
-  allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
-    nodes: Array<
-      { __typename?: "MarkdownRemark" } & {
-        fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
-        frontmatter?: Maybe<
-          { __typename?: "Frontmatter" } & Pick<
-            Frontmatter,
-            "date" | "title" | "description"
-          > & {
-              image?: Maybe<
-                { __typename?: "File" } & {
-                  childImageSharp?: Maybe<
-                    { __typename?: "ImageSharp" } & Pick<
-                      ImageSharp,
-                      "gatsbyImageData"
+  allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & Pick<
+    MarkdownRemarkConnection,
+    "totalCount"
+  > & {
+      nodes: Array<
+        { __typename?: "MarkdownRemark" } & {
+          fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+          frontmatter?: Maybe<
+            { __typename?: "Frontmatter" } & Pick<
+              Frontmatter,
+              "date" | "title" | "description"
+            > & {
+                image?: Maybe<
+                  { __typename?: "File" } & {
+                    childImageSharp?: Maybe<
+                      { __typename?: "ImageSharp" } & Pick<
+                        ImageSharp,
+                        "gatsbyImageData"
+                      >
                     >
-                  >
-                }
-              >
-            }
-        >
-      }
-    >
-  }
+                  }
+                >
+              }
+          >
+        }
+      >
+    }
 }
 
 export type BlogPostBySlugQueryVariables = Exact<{

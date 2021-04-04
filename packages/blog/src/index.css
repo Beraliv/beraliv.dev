@@ -167,7 +167,8 @@ table thead tr th {
   @apply inline-block absolute right-0 w-8 h-8 rounded-full cursor-pointer text-white dark:text-black bg-gray-900 dark:bg-yellow-300;
 }
 
-.post-list-item {
+.post-list-item,
+.pagination-item {
   @apply list-none;
 }
 
@@ -185,6 +186,10 @@ table thead tr th {
 
 .post-list-item header {
   @apply mb-4;
+}
+
+.pagination-item {
+  @apply inline-block mx-4 my-3;
 }
 
 .header-link-home {

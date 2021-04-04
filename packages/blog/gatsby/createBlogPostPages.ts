@@ -1,6 +1,7 @@
 import { CreatePagesArgs } from "gatsby"
 import path from "path"
 import { POSTS_PER_PAGE } from "../src/constants/POSTS_PER_PAGE"
+import { getNumberOfPages } from "../src/functions/getNumberOfPages"
 import { range } from "../src/functions/range"
 import { CreatePageQuery } from "../src/types/generated"
 
@@ -42,7 +43,7 @@ export const createBlogPostPages = async ({
 
   const { createPage } = actions
 
-  const numberOfPages = 1
+  const numberOfPages = getNumberOfPages(posts.length)
   range(1, numberOfPages).forEach(currentPage => {
     createPage({
       path: currentPage === 1 ? `/` : `/${currentPage}`,

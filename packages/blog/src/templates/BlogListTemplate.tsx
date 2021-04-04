@@ -5,10 +5,21 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogListQueryVariables, BlogListQuery } from "../types/generated"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { range } from "../functions/range"
 
-const BlogListTemplate: React.FC<
-  PageProps<BlogListQuery, BlogListQueryVariables>
-> = ({ data, location }) => {
+interface BlogListTemplateProps
+  extends PageProps<BlogListQuery, BlogListQueryVariables> {
+  pageContext: BlogListQueryVariables & {
+    numberOfPages: number
+    currentPage: number
+  }
+}
+
+const BlogListTemplate: React.FC<BlogListTemplateProps> = ({
+  data,
+  location,
+  pageContext,
+}) => {
   if (!data.site?.siteMetadata?.title) {
     throw new Error(`Cannot find siteMetadata.title in gatsby-config.ts`)
   }
@@ -29,6 +40,8 @@ const BlogListTemplate: React.FC<
       </Layout>
     )
   }
+
+  const { currentPage, numberOfPages } = pageContext
 
   return (
     <Layout location={location} title={title}>
@@ -84,6 +97,20 @@ const BlogListTemplate: React.FC<
           )
         })}
       </ol>
+      {numberOfPages && (
+        <ol>
+          {range(1, numberOfPages).map(page => (
+            <li className="pagination-item">
+              <Link
+                key={`pagination-${page}`}
+                to={page === 1 ? `/` : `/${page}`}
+              >
+                {page}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      )}
     </Layout>
   )
 }
@@ -91,13 +118,17 @@ const BlogListTemplate: React.FC<
 export default BlogListTemplate
 
 export const pageQuery = graphql`
-  query BlogList {
+  query BlogList($limit: Int!, $skip: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       nodes {
         fields {
           slug
