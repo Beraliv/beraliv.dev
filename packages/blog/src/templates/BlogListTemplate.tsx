@@ -97,7 +97,7 @@ const BlogListTemplate: React.FC<BlogListTemplateProps> = ({
           )
         })}
       </ol>
-      {numberOfPages && (
+      {numberOfPages > 1 && (
         <ol>
           {range(1, numberOfPages).map(page => (
             <li className="pagination-item">
