@@ -3,16 +3,13 @@ import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import {
-  BlogListBySlugQuery,
-  BlogListBySlugQueryVariables,
-} from "../types/generated"
+import { BlogListQueryVariables, BlogListQuery } from "../types/generated"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const BlogListTemplate = ({
   data,
   location,
-}: PageProps<BlogListBySlugQuery, BlogListBySlugQueryVariables>) => {
+}: PageProps<BlogListQuery, BlogListQueryVariables>) => {
   if (!data.site?.siteMetadata?.title) {
     throw new Error(`Cannot find siteMetadata.title in gatsby-config.ts`)
   }
