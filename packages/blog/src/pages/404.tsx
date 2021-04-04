@@ -2,9 +2,11 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import { NotFoundQuery } from "../types/generated"
+import { NotFoundQuery, NotFoundQueryVariables } from "../types/generated"
 
-const NotFoundPage = ({ data, location }: PageProps<NotFoundQuery>) => {
+const NotFoundPage: React.FC<
+  PageProps<NotFoundQuery, NotFoundQueryVariables>
+> = ({ data, location }) => {
   if (!data.site?.siteMetadata?.title) {
     throw new Error("Cannot find config.siteMetadata.title in gatsby-config.ts")
   }

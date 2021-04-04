@@ -23,7 +23,7 @@ type SeoMetaProp =
       content: string
     }
 
-type SeoProps = {
+interface SeoProps {
   description?: string
   lang?: string
   meta?: SeoMetaProp[]

@@ -6,10 +6,9 @@ import { Seo } from "../components/Seo"
 import { BlogListQueryVariables, BlogListQuery } from "../types/generated"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const BlogListTemplate = ({
-  data,
-  location,
-}: PageProps<BlogListQuery, BlogListQueryVariables>) => {
+const BlogListTemplate: React.FC<
+  PageProps<BlogListQuery, BlogListQueryVariables>
+> = ({ data, location }) => {
   if (!data.site?.siteMetadata?.title) {
     throw new Error(`Cannot find siteMetadata.title in gatsby-config.ts`)
   }
