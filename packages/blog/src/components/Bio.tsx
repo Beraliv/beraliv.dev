@@ -6,10 +6,7 @@
  */
 
 import React from "react"
-import {
-  IGatsbyImageData as GatsbyImageType,
-  StaticImage,
-} from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { useBioQuery } from "../hooks/useBioQuery"
 
 export const Bio = () => {
@@ -36,23 +33,18 @@ export const Bio = () => {
     throw new Error(`Cannot find blog/content/assets/profile-pic.jpg`)
   }
 
-  const avatar = (data.avatar.childImageSharp
-    .gatsbyImageData as GatsbyImageType).images.fallback
+  const avatar = data.avatar.childImageSharp.gatsbyImageData
 
   return (
     <div className="bio">
       {avatar && (
-        <StaticImage
-          src={avatar.src}
+        <GatsbyImage
+          image={avatar}
           alt={author.name}
-          placeholder="blurred"
           className="bio-avatar"
           imgStyle={{
             borderRadius: `50%`,
           }}
-          layout="fixed"
-          width={50}
-          height={50}
         />
       )}
       <p>
