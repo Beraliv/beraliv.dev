@@ -287,6 +287,77 @@ export type SitePageContext = {
   id?: Maybe<Scalars["String"]>
   previousPostId?: Maybe<Scalars["String"]>
   nextPostId?: Maybe<Scalars["String"]>
+  tag?: Maybe<Scalars["String"]>
+  posts?: Maybe<Array<Maybe<SitePageContextPosts>>>
+}
+
+export type SitePageContextPosts = {
+  __typename?: "SitePageContextPosts"
+  id?: Maybe<Scalars["String"]>
+  fields?: Maybe<SitePageContextPostsFields>
+  frontmatter?: Maybe<SitePageContextPostsFrontmatter>
+}
+
+export type SitePageContextPostsFields = {
+  __typename?: "SitePageContextPostsFields"
+  slug?: Maybe<Scalars["String"]>
+}
+
+export type SitePageContextPostsFrontmatter = {
+  __typename?: "SitePageContextPostsFrontmatter"
+  date?: Maybe<Scalars["String"]>
+  title?: Maybe<Scalars["String"]>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  description?: Maybe<Scalars["String"]>
+  image?: Maybe<SitePageContextPostsFrontmatterImage>
+}
+
+export type SitePageContextPostsFrontmatterImage = {
+  __typename?: "SitePageContextPostsFrontmatterImage"
+  childImageSharp?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharp>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharp = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharp"
+  gatsbyImageData?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData"
+  layout?: Maybe<Scalars["String"]>
+  placeholder?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder>
+  images?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages>
+  width?: Maybe<Scalars["Int"]>
+  height?: Maybe<Scalars["Int"]>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder"
+  fallback?: Maybe<Scalars["String"]>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages"
+  fallback?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback>
+  sources?: Maybe<
+    Array<
+      Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources>
+    >
+  >
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback"
+  src?: Maybe<Scalars["String"]>
+  srcSet?: Maybe<Scalars["String"]>
+  sizes?: Maybe<Scalars["String"]>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources"
+  srcSet?: Maybe<Scalars["String"]>
+  type?: Maybe<Scalars["String"]>
+  sizes?: Maybe<Scalars["String"]>
 }
 
 export type MarkdownHeading = {
@@ -632,6 +703,7 @@ export type Frontmatter = {
   title?: Maybe<Scalars["String"]>
   description?: Maybe<Scalars["String"]>
   date?: Maybe<Scalars["Date"]>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
   featured?: Maybe<File>
 }
 
@@ -1117,6 +1189,7 @@ export type FrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
   date?: Maybe<DateQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
   featured?: Maybe<FileFilterInput>
 }
 
@@ -1360,6 +1433,7 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterTitle = "childrenMarkdownRemark___frontmatter___title",
   ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
+  ChildrenMarkdownRemarkFrontmatterLabels = "childrenMarkdownRemark___frontmatter___labels",
   ChildrenMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childrenMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildrenMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childrenMarkdownRemark___frontmatter___featured___absolutePath",
   ChildrenMarkdownRemarkFrontmatterFeaturedRelativePath = "childrenMarkdownRemark___frontmatter___featured___relativePath",
@@ -1455,6 +1529,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterTitle = "childMarkdownRemark___frontmatter___title",
   ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
+  ChildMarkdownRemarkFrontmatterLabels = "childMarkdownRemark___frontmatter___labels",
   ChildMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childMarkdownRemark___frontmatter___featured___absolutePath",
   ChildMarkdownRemarkFrontmatterFeaturedRelativePath = "childMarkdownRemark___frontmatter___featured___relativePath",
@@ -2177,6 +2252,71 @@ export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>
   previousPostId?: Maybe<StringQueryOperatorInput>
   nextPostId?: Maybe<StringQueryOperatorInput>
+  tag?: Maybe<StringQueryOperatorInput>
+  posts?: Maybe<SitePageContextPostsFilterListInput>
+}
+
+export type SitePageContextPostsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFilterInput>
+}
+
+export type SitePageContextPostsFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<SitePageContextPostsFieldsFilterInput>
+  frontmatter?: Maybe<SitePageContextPostsFrontmatterFilterInput>
+}
+
+export type SitePageContextPostsFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePageContextPostsFrontmatterFilterInput = {
+  date?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
+  description?: Maybe<StringQueryOperatorInput>
+  image?: Maybe<SitePageContextPostsFrontmatterImageFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImageFilterInput = {
+  childImageSharp?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpFilterInput = {
+  gatsbyImageData?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataFilterInput = {
+  layout?: Maybe<StringQueryOperatorInput>
+  placeholder?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput>
+  images?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput>
+  width?: Maybe<IntQueryOperatorInput>
+  height?: Maybe<IntQueryOperatorInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput = {
+  fallback?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput = {
+  fallback?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput>
+  sources?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput = {
+  src?: Maybe<StringQueryOperatorInput>
+  srcSet?: Maybe<StringQueryOperatorInput>
+  sizes?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput = {
+  srcSet?: Maybe<StringQueryOperatorInput>
+  type?: Maybe<StringQueryOperatorInput>
+  sizes?: Maybe<StringQueryOperatorInput>
 }
 
 export type SitePluginFilterInput = {
@@ -2448,6 +2588,14 @@ export enum SitePageFieldsEnum {
   ContextId = "context___id",
   ContextPreviousPostId = "context___previousPostId",
   ContextNextPostId = "context___nextPostId",
+  ContextTag = "context___tag",
+  ContextPosts = "context___posts",
+  ContextPostsId = "context___posts___id",
+  ContextPostsFieldsSlug = "context___posts___fields___slug",
+  ContextPostsFrontmatterDate = "context___posts___frontmatter___date",
+  ContextPostsFrontmatterTitle = "context___posts___frontmatter___title",
+  ContextPostsFrontmatterLabels = "context___posts___frontmatter___labels",
+  ContextPostsFrontmatterDescription = "context___posts___frontmatter___description",
   PluginCreatorId = "pluginCreator___id",
   PluginCreatorParentId = "pluginCreator___parent___id",
   PluginCreatorParentParentId = "pluginCreator___parent___parent___id",
@@ -2633,6 +2781,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterTitle = "frontmatter___title",
   FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
+  FrontmatterLabels = "frontmatter___labels",
   FrontmatterFeaturedSourceInstanceName = "frontmatter___featured___sourceInstanceName",
   FrontmatterFeaturedAbsolutePath = "frontmatter___featured___absolutePath",
   FrontmatterFeaturedRelativePath = "frontmatter___featured___relativePath",
@@ -3453,6 +3602,23 @@ export type CreatePageQuery = { __typename?: "Query" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id"> & {
           fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+          frontmatter?: Maybe<
+            { __typename?: "Frontmatter" } & Pick<
+              Frontmatter,
+              "date" | "title" | "labels" | "description"
+            > & {
+                image?: Maybe<
+                  { __typename?: "File" } & {
+                    childImageSharp?: Maybe<
+                      { __typename?: "ImageSharp" } & Pick<
+                        ImageSharp,
+                        "gatsbyImageData"
+                      >
+                    >
+                  }
+                >
+              }
+          >
         }
     >
   }
@@ -3567,7 +3733,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
-            "title" | "date" | "description"
+            "labels" | "title" | "date" | "description"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {
@@ -3600,6 +3766,18 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
       fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
       frontmatter?: Maybe<
         { __typename?: "Frontmatter" } & Pick<Frontmatter, "title">
+      >
+    }
+  >
+}
+
+export type BlogTagListQueryVariables = Exact<{ [key: string]: never }>
+
+export type BlogTagListQuery = { __typename?: "Query" } & {
+  site?: Maybe<
+    { __typename?: "Site" } & {
+      siteMetadata?: Maybe<
+        { __typename?: "SiteSiteMetadata" } & Pick<SiteSiteMetadata, "title">
       >
     }
   >

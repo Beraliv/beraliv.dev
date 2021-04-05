@@ -314,6 +314,13 @@ a:focus {
   @apply no-underline;
 }
 
+/* Label */
+
+a.label {
+  @apply inline-block px-3 py-1 mr-2 mb-2;
+  @apply no-underline bg-gray-200 text-gray-600 dark:bg-gray-900 dark:text-gray-500;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {

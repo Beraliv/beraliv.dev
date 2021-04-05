@@ -4,6 +4,7 @@ import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
+import { Label } from "../components/Label"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -71,6 +72,10 @@ const BlogPostTemplate = ({
     )
   }
 
+  if (!post.frontmatter.labels) {
+    throw new Error(`Cannot find post.frontmatter.labels in ${location.href}`)
+  }
+
   if (!post.html) {
     throw new Error(`Cannot find post.html in ${location.href}`)
   }
@@ -82,7 +87,7 @@ const BlogPostTemplate = ({
   }
 
   const { resize: image } = post.frontmatter.image.childImageSharp
-  const { description, title } = post.frontmatter
+  const { description, labels, title } = post.frontmatter
 
   const { previous, next } = data
 
@@ -107,7 +112,7 @@ const BlogPostTemplate = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        <hr />
+        {labels.map(label => label && <Label key={label} title={label} />)}
         <footer>
           <Bio />
         </footer>
@@ -159,6 +164,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        labels
         title
         date(formatString: "MMMM DD, YYYY")
         description

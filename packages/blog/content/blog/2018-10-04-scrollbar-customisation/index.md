@@ -3,6 +3,9 @@ title: Scrollbar customisation
 date: "2018-10-04"
 description: What is the current state of scrollbar customisation?
   Let's have a look at the browser capabilities, CSS hacks and JS libraries.
+labels:
+  - css
+  - javascript
 featured: ./macos-scrollbar.png
 ---
 

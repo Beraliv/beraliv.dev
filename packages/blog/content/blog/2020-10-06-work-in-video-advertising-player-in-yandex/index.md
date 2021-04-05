@@ -2,6 +2,8 @@
 title: Work in Video Advertising Player in Yandex
 date: "2020-10-06"
 description: Hey! My name is Alex, and I've spent around 2 years in Yandex, in video player and video advertising teams for more than a year in each one. As the last year is fresh in my memory, I would like to share my experience in video advertising.
+labels:
+  - player
 featured: ./yandex-overlay-in-player.png
 ---
 

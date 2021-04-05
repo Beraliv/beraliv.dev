@@ -3,22 +3,41 @@ import { Link, graphql, PageProps } from "gatsby"
 import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
-import { BlogIndexQuery } from "../types/generated"
+import {
+  BlogTagListQuery,
+  BlogTagListQueryVariables,
+  CreatePageQuery,
+} from "../types/generated"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
+interface BlogTagListTemplateProps
+  extends PageProps<BlogTagListQuery, BlogTagListQueryVariables> {
+  pageContext: BlogTagListQueryVariables & {
+    tag: string
+    posts: CreatePageQuery["allMarkdownRemark"]["nodes"]
+  }
+}
+
+const BlogTagListTemplate: React.FC<BlogTagListTemplateProps> = ({
+  data,
+  location,
+  pageContext,
+}) => {
   if (!data.site?.siteMetadata?.title) {
     throw new Error(`Cannot find siteMetadata.title in gatsby-config.ts`)
   }
 
   const { title } = data.site.siteMetadata
-  const posts = data.allMarkdownRemark.nodes
+  const { tag, posts } = pageContext
+
+  const seoTitle = `All posts | ${tag}`
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={title}>
-        <Seo title="All posts" pathname={location.pathname} />
+        <Seo title={seoTitle} pathname={location.pathname} />
         <Bio />
+        <h1>{`#${tag}`}</h1>
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -30,8 +49,9 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
 
   return (
     <Layout location={location} title={title}>
-      <Seo title="All posts" pathname={location.pathname} />
+      <Seo title={seoTitle} pathname={location.pathname} />
       <Bio />
+      <h1>{`#${tag}`}</h1>
       <ol>
         {posts.map((post, index) => {
           if (!post.fields?.slug) {
@@ -92,34 +112,13 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
   )
 }
 
-export default BlogIndex
+export default BlogTagListTemplate
 
 export const pageQuery = graphql`
-  query BlogIndex {
+  query BlogTagList {
     site {
       siteMetadata {
         title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          image: featured {
-            childImageSharp {
-              gatsbyImageData(
-                width: 640
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-        }
       }
     }
   }
