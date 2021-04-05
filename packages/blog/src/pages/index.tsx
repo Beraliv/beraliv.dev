@@ -38,7 +38,13 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
             throw new Error(`Cannot extract slug for post #${index + 1}`)
           }
 
-          if (!post.frontmatter?.title) {
+          if (!post.frontmatter) {
+            throw new Error(
+              `Cannot find frontmatter in ${post.fields.slug}index.md`
+            )
+          }
+
+          if (!post.frontmatter.title) {
             throw new Error(`Cannot find title in ${post.fields.slug}index.md`)
           }
 

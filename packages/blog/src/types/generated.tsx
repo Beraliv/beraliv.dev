@@ -3572,7 +3572,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
-            "title" | "date" | "description"
+            "labels" | "title" | "date" | "description"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {
