@@ -11,6 +11,21 @@ graphql`
         fields {
           slug
         }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          labels
+          description
+          image: featured {
+            childImageSharp {
+              gatsbyImageData(
+                width: 640
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
+        }
       }
     }
   }

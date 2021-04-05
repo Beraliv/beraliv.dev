@@ -6,7 +6,7 @@ type LabelProps = {
 }
 
 export const Label: React.FC<LabelProps> = ({ title }) => (
-  <Link className="label" to={`/tags/${title}`}>
+  <Link className="label" to={`/tag/${title}`}>
     {title}
   </Link>
 )
