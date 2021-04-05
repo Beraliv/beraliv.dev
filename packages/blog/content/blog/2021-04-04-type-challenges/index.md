@@ -17,7 +17,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 
 ## easy
 
-- [4 • Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) - will be added soon 🕰
+- [4 • Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) - [Pick under the hood](https://blog.beraliv.dev/2021-04-05-pick-under-the-hood/)
 - [7 • Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) - will be added soon 🕰
 - [11 • Tuple to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) - will be added on April 06, 2021
 - [14 • First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) - will be added on April 07, 2021
@@ -34,7 +34,7 @@ Will be added after April 14, 2021
 
 ## hard
 
-- [270 Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](https://blog.beraliv.dev/2021-03-26-typed-get/)
+- [270 • Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](https://blog.beraliv.dev/2021-03-26-typed-get/)
 
 Will be added more solutions after May 14, 2021
 
