@@ -73,7 +73,7 @@ const createBlogTagList = (
 
   const labels = Object.keys(listByLabels)
   labels.forEach(label => {
-    const posts = listByLabels[label]
+    const posts = listByLabels[label].reverse()
 
     createPage({
       path: `/tag/${label}`,
