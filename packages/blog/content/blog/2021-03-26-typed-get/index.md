@@ -5,6 +5,7 @@ description: Not a long time ago I discovered type-challenges for myself.
   Today I'll show not only the implementation of Get, but also the common issues with the implementation, improvements and its usage in production.
 labels:
   - typescript
+  - hard
   - javascript
 featured: ./get-usage-example.png
 ---
