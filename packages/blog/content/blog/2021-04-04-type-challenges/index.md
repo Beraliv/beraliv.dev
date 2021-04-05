@@ -17,8 +17,8 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 
 ## easy
 
-- [4 • Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) - [Pick under the hood](https://blog.beraliv.dev/2021-04-05-pick-under-the-hood/)
-- [7 • Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) - will be added soon 🕰
+- [4 • Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) - [Pick under the hood](/2021-04-05-pick-under-the-hood/)
+- [7 • Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) - [Readonly under the hood](/2021-04-06-readonly-under-the-hood/)
 - [11 • Tuple to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) - will be added on April 06, 2021
 - [14 • First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) - will be added on April 07, 2021
 - [18 • Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) - will be added on April 08, 2021
