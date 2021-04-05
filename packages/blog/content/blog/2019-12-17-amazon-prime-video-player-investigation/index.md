@@ -4,6 +4,8 @@ date: "2019-12-17"
 description:
   Today I had an hour of my free time to learn how Amazon Prime Video Player is working.
   I’ll show you my small investigation of what I found.
+labels:
+  - player
 featured: ./amazon-prime-page.png
 ---
 

@@ -2,6 +2,8 @@
 title: BBC iPlayer geolocation identification
 date: "2019-12-22"
 description: Developing video player in Yandex, I’m not always limited to what we do but also wondering what technologies and techniques are used in other companies. As I like England I investigated the player of BBC, well-known quite a big company. Unfortunately I haven’t used it before, but maybe this is why I’m going to tell you how it’s working.
+labels:
+  - player
 featured: ./bbc-iplayer-page.png
 ---
 
