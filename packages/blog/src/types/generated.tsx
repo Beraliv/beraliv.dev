@@ -632,6 +632,7 @@ export type Frontmatter = {
   title?: Maybe<Scalars["String"]>
   description?: Maybe<Scalars["String"]>
   date?: Maybe<Scalars["Date"]>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
   featured?: Maybe<File>
 }
 
@@ -1117,6 +1118,7 @@ export type FrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
   date?: Maybe<DateQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
   featured?: Maybe<FileFilterInput>
 }
 
@@ -1360,6 +1362,7 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterTitle = "childrenMarkdownRemark___frontmatter___title",
   ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
+  ChildrenMarkdownRemarkFrontmatterLabels = "childrenMarkdownRemark___frontmatter___labels",
   ChildrenMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childrenMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildrenMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childrenMarkdownRemark___frontmatter___featured___absolutePath",
   ChildrenMarkdownRemarkFrontmatterFeaturedRelativePath = "childrenMarkdownRemark___frontmatter___featured___relativePath",
@@ -1455,6 +1458,7 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterTitle = "childMarkdownRemark___frontmatter___title",
   ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
+  ChildMarkdownRemarkFrontmatterLabels = "childMarkdownRemark___frontmatter___labels",
   ChildMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childMarkdownRemark___frontmatter___featured___absolutePath",
   ChildMarkdownRemarkFrontmatterFeaturedRelativePath = "childMarkdownRemark___frontmatter___featured___relativePath",
@@ -2633,6 +2637,7 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterTitle = "frontmatter___title",
   FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
+  FrontmatterLabels = "frontmatter___labels",
   FrontmatterFeaturedSourceInstanceName = "frontmatter___featured___sourceInstanceName",
   FrontmatterFeaturedAbsolutePath = "frontmatter___featured___absolutePath",
   FrontmatterFeaturedRelativePath = "frontmatter___featured___relativePath",
