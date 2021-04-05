@@ -74,7 +74,6 @@ const createBlogTagList = (
   const labels = Object.keys(listByLabels)
   labels.forEach(label => {
     const posts = listByLabels[label]
-    reporter.log(`>>> Create page for [${label}]: [${posts.length}]`)
 
     createPage({
       path: `/tag/${label}`,
