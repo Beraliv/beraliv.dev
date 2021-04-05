@@ -112,7 +112,7 @@ const BlogPostTemplate = ({
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        {labels.map(label => label && <Label title={label} />)}
+        {labels.map(label => label && <Label key={label} title={label} />)}
         <footer>
           <Bio />
         </footer>
