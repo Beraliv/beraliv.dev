@@ -1,7 +1,7 @@
 ---
 title: Pick under the hood
 date: "2021-04-05"
-description: First challenge is Pick. It's usually used when 1️⃣ you don't want to repeat yourself 2️⃣ type is based on another type
+description: First challenge is Pick. It's usually used when you need to declare the type which is based on another type. And you know in advance which keys are included.
 labels:
   - typescript
   - easy
@@ -12,7 +12,7 @@ featured: ./step1-example-of-use.png
 
 First challenge is [Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md)
 
-It's usually used when you need to declare the type which is based on another type
+It's usually used when you need to declare the type which is based on another type. And you know in advance which keys are included.
 
 ## Iteration over an object
 
