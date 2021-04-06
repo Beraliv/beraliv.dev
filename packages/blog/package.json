@@ -5,7 +5,7 @@
   "author": "beraliv",
   "private": true,
   "scripts": {
-    "dev": "rm -rf public && gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "serve": "gatsby serve",
