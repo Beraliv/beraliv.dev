@@ -34,7 +34,7 @@ Will be added after April 14, 2021
 
 ## hard
 
-- [270 • Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](https://blog.beraliv.dev/2021-03-26-typed-get/)
+- [270 • Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](/2021-03-26-typed-get/)
 
 Will be added more solutions after May 14, 2021
 
