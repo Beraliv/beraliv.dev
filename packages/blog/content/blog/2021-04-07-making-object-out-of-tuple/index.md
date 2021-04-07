@@ -14,13 +14,29 @@ Third challenge is [TupleToObject](https://github.com/type-challenges/type-chall
 
 I would say it's rarely used. But what we want to achieve here is having identical keys and values 🙂🙂 for the result object
 
-## Iteration over an array
+## An array or a tuple?
+
+What is the difference between [arrays](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays) and [tuples](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types)
+
+TypeScript defines [tuple](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types) as:
+
+> A tuple type is another sort of `Array` type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+
+It means we can check `length` and will get the exact number:
+
+![Examples of tuples](./step0-tuples.png)
+
+[Arrays](<(https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays)>) cannot do that as you see:
+
+![Examples of arrays](./step0-arrays.png)
+
+## Iteration over tuple
 
 Usually we iterate over objects and use [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html):
 
 ![Example of Mapped Types](./step2-mapped-types.png)
 
-With [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) we can use `number` type to get the type of an array’s elements:
+With [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) we can use `number` type to get the type of tuple's elements:
 
 ![Example of Mapped Types for tuples](./step3-mapped-types-for-tuples.png)
 
