@@ -26,7 +26,7 @@ It means we can check `length` and will get the exact number:
 
 ![Examples of tuples](./step0-tuples.png)
 
-[Arrays](<(https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays)>) cannot do that as you see:
+[Arrays](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays) cannot do that as you see:
 
 ![Examples of arrays](./step0-arrays.png)
 
