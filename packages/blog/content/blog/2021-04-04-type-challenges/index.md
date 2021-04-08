@@ -21,7 +21,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [7 • Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) - [Readonly under the hood](/2021-04-06-readonly-under-the-hood/)
 - [11 • Tuple to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) - [Making object out of tuple](/2021-04-07-making-object-out-of-tuple/)
 - [14 • First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) - [Infer first element](/2021-04-08-infer-first-element/)
-- [18 • Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) - will be added on April 08, 2021
+- [18 • Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) - [Infer length](/2021-04-09-infer-length)
 - [43 • Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) - will be added on April 09, 2021
 - [189 • Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) - will be added on April 10, 2021
 - [268 • If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) - will be added on April 11, 2021
