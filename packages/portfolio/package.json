@@ -10,7 +10,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "nuxt": "2.15.1"
+    "nuxt": "2.15.4"
   },
   "devDependencies": {
     "nodemon": "2.0.7"
