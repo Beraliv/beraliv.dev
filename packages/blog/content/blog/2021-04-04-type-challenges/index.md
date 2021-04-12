@@ -22,22 +22,22 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [11 • Tuple to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) - [Making object out of tuple](/2021-04-07-making-object-out-of-tuple/)
 - [14 • First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) - [Infer first element](/2021-04-08-infer-first-element/)
 - [18 • Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) - [Infer length](/2021-04-09-infer-length)
-- [43 • Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) - will be added on April 09, 2021
-- [189 • Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) - will be added on April 10, 2021
-- [268 • If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) - will be added on April 11, 2021
-- [533 • Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) - will be added on April 12, 2021
-- [898 • Includes](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) - will be added on April 13, 2021
+- [43 • Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) - [Exclude under the hood](/2021-04-12-exclude-under-the-hood)
+- [189 • Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) - will be added on April 13, 2021
+- [268 • If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) - will be added on April 14, 2021
+- [533 • Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) - will be added on April 15, 2021
+- [898 • Includes](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) - will be added on April 16, 2021
 
 ## medium
 
-Will be added after April 14, 2021
+Will be added after April 17, 2021
 
 ## hard
 
 - [270 • Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](/2021-03-26-typed-get/)
 
-Will be added more solutions after May 14, 2021
+Will be added more solutions after May 17, 2021
 
 ## extreme
 
-Will be added after June 02, 2021
+Will be added after June 05, 2021
