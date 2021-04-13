@@ -1,4 +1,5 @@
 {
+  "updateInternalDeps": true,
   "extends": [
     "config:base"
   ]
