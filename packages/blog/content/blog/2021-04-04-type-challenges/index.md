@@ -25,7 +25,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [43 • Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) - [Exclude under the hood](/2021-04-12-exclude-under-the-hood)
 - [189 • Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) - [Unwrapping the Promises](/2021-04-13-unwrapping-promises/)
 - [268 • If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) - [Boolean conditional statement](/2021-04-14-boolean-condition/)
-- [533 • Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) - will be added on April 15, 2021
+- [533 • Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) - [Spread in Tuple types in TypeScript](/2021-04-15-spread-in-tuple-types-in-typescript/)
 - [898 • Includes](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) - will be added on April 16, 2021
 
 ## medium
