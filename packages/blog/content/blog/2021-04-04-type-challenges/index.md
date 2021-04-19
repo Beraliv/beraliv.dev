@@ -30,7 +30,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 
 ## medium
 
-- [2 • Get Return Type] - [Infer function return type](/2021-04-19-infer-function-return-type/)
+- [2 • Get Return Type] - [ReturnType under the hood](/2021-04-19-return-type-under-the-hood/)
 - [3 • Omit] - will be added on April 20, 2021
 - [8 • Readonly 2] - will be added on April 21, 2021
 - [9 • Deep Readonly] - will be added on April 22, 2021
