@@ -48,10 +48,10 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "1.21.3",
-    "@graphql-codegen/introspection": "1.18.1",
-    "@graphql-codegen/typescript": "1.21.1",
-    "@graphql-codegen/typescript-operations": "1.17.15",
+    "@graphql-codegen/cli": "1.21.4",
+    "@graphql-codegen/introspection": "1.18.2",
+    "@graphql-codegen/typescript": "1.22.0",
+    "@graphql-codegen/typescript-operations": "1.17.16",
     "@testing-library/react-hooks": "5.1.1",
     "@types/jest": "26.0.22",
     "@types/react-helmet": "6.1.1",
