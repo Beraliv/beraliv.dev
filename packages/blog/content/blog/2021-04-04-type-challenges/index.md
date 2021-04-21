@@ -31,35 +31,35 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 ## medium
 
 - [2 • Get Return Type](https://github.com/type-challenges/type-challenges/blob/master/questions/2-medium-return-type/README.md) - [ReturnType under the hood](/2021-04-19-return-type-under-the-hood/)
-- [3 • Omit](https://github.com/type-challenges/type-challenges/blob/master/questions/3-medium-omit/README.md) - will be added on April 20, 2021
-- [8 • Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) - will be added on April 21, 2021
-- [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - will be added on April 22, 2021
-- [10 • Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) - will be added on April 23, 2021
-- [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - will be added on April 26, 2021
-- [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - will be added on April 27, 2021
-- [16 • Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) - will be added on April 28, 2021
-- [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - will be added on April 29, 2021
-- [62 • Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) - will be added on April 30, 2021
-- [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - will be added on May 3, 2021
-- [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - will be added on May 4, 2021
-- [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - will be added on May 5, 2021
-- [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - will be added on May 6, 2021
-- [116 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - will be added on May 7, 2021
-- [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - will be added on May 10, 2021
-- [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - will be added on May 11, 2021
-- [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - will be added on May 12, 2021
-- [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - will be added on May 13, 2021
-- [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - will be added on May 14, 2021
-- [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - will be added on May 17, 2021
-- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - will be added on May 18, 2021
-- [599 • Merge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) - will be added on May 19, 2021
-- [610 • CamelCase](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) - will be added on May 20, 2021
-- [612 • KebabCase](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) - will be added on May 21, 2021
-- [612 • Diff](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) - will be added on May 24, 2021
-- [612 • AnyOf](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) - will be added on May 25, 2021
-- [612 • IsNever](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) - will be added on May 26, 2021
-- [612 • IsUnion](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) - will be added on May 27, 2021
-- [612 • ReplaceKeys](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) - will be added on May 28, 2021
+- [3 • Omit](https://github.com/type-challenges/type-challenges/blob/master/questions/3-medium-omit/README.md) - [Omit under the hood](/2021-04-21-omit-under-the-hood/)
+- [8 • Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) - will be added on April 22, 2021
+- [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - will be added on April 23, 2021
+- [10 • Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) - will be added on April 26, 2021
+- [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - will be added on April 27, 2021
+- [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - will be added on April 28, 2021
+- [16 • Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) - will be added on April 29, 2021
+- [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - will be added on April 30, 2021
+- [62 • Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) - will be added on May 3, 2021
+- [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - will be added on May 4, 2021
+- [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - will be added on May 5, 2021
+- [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - will be added on May 6, 2021
+- [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - will be added on May 7, 2021
+- [116 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - will be added on May 10, 2021
+- [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - will be added on May 11, 2021
+- [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - will be added on May 12, 2021
+- [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - will be added on May 13, 2021
+- [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - will be added on May 14, 2021
+- [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - will be added on May 17, 2021
+- [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - will be added on May 18, 2021
+- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - will be added on May 19, 2021
+- [599 • Merge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) - will be added on May 20, 2021
+- [610 • CamelCase](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) - will be added on May 21, 2021
+- [612 • KebabCase](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) - will be added on May 24, 2021
+- [612 • Diff](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) - will be added on May 25, 2021
+- [612 • AnyOf](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) - will be added on May 26, 2021
+- [612 • IsNever](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) - will be added on May 27, 2021
+- [612 • IsUnion](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) - will be added on May 28, 2021
+- [612 • ReplaceKeys](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) - will be added on May 31, 2021
 
 ## hard
 
