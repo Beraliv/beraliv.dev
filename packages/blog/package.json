@@ -64,7 +64,7 @@
     "jest": "26.6.3",
     "prettier": "2.2.1",
     "react-test-renderer": "17.0.2",
-    "tailwindcss": "2.1.1"
+    "tailwindcss": "2.1.2"
   },
   "resolutions": {
     "graphql": "15.5.0"
