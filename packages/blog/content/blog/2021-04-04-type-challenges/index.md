@@ -33,7 +33,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [2 • Get Return Type](https://github.com/type-challenges/type-challenges/blob/master/questions/2-medium-return-type/README.md) - [ReturnType under the hood](/2021-04-19-return-type-under-the-hood/)
 - [3 • Omit](https://github.com/type-challenges/type-challenges/blob/master/questions/3-medium-omit/README.md) - [Omit under the hood](/2021-04-21-omit-under-the-hood/)
 - [8 • Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) - [Partial Readonly](/2021-04-23-partial-readonly/)
-- [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - will be added on April 24, 2021
+- [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - [Recursive Readonly for objects](/2021-04-25-recursive-readonly-for-objects/)
 - [10 • Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) - will be added on April 26, 2021
 - [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - will be added on April 27, 2021
 - [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - will be added on April 28, 2021

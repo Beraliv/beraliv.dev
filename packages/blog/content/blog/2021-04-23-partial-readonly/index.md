@@ -1,7 +1,7 @@
 ---
 title: Partial readonly
 date: "2021-04-23"
-description: We already solved the challenge with readonly. Today we want to apply readonly keyword only to the specified keys.
+description: We already solved the challenge with readonly. Today we want to apply readonly modifier only to the specified keys.
 labels:
   - typescript
   - medium
@@ -10,13 +10,13 @@ featured: ./step1-example-of-use.png
 
 ![Example of Readonly use](./step1-example-of-use.png)
 
-We already solved the challenge with readonly (see [Readonly under the hood](/2021-04-06-readonly-under-the-hood/)). Today we want to apply readonly keyword only to the specified keys ([Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md)).
+We already solved the challenge with readonly (see [Readonly under the hood](/2021-04-06-readonly-under-the-hood/)). Today we want to apply readonly modifier only to the specified keys ([Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md)).
 
 ## Combination of 2 challenges
 
 Again, as for previous challenge [Omit under the hood](/2021-04-21-omit-under-the-hood/), we have a combination of challenges that we already did:
 
-1. We already learnt how [to apply readonly keyword to the keys](/2021-04-06-readonly-under-the-hood/):
+1. We already learnt how [to apply readonly modifier to the keys](/2021-04-06-readonly-under-the-hood/):
 
 ![Readonly solution](./step2-readonly-solution.png)
 
@@ -24,7 +24,7 @@ Again, as for previous challenge [Omit under the hood](/2021-04-21-omit-under-th
 
 ![Pick solution](./step3-pick-solution.png)
 
-3. And we need [to have excluded keys without readonly key](/2021-04-21-omit-under-the-hood/):
+3. And we need [to have excluded keys without readonly modifier](/2021-04-21-omit-under-the-hood/):
 
 ![Omit solution](./step4-omit-solution.png)
 
