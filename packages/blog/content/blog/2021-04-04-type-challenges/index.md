@@ -35,7 +35,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [8 • Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) - [Partial Readonly](/2021-04-23-partial-readonly/)
 - [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - [Recursive Readonly for objects](/2021-04-25-recursive-readonly-for-objects/)
 - [10 • Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) - [Making union out of tuple](/2021-04-27-making-union-out-of-tuple/)
-- [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - will be added on April 27, 2021
+- [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - [Mapped types in functions](/2021-04-28-mapped-types-in-functions/)
 - [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - will be added on April 28, 2021
 - [16 • Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) - will be added on April 29, 2021
 - [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - will be added on April 30, 2021
