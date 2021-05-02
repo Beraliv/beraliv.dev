@@ -50,6 +50,14 @@ export const Bio = () => {
       )}
       <p>
         Written by <strong>{author.name}</strong> {author.summary}
+        {` `}
+        <a
+          href={`https://twitter.com/${social.twitter}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Follow me on Twitter
+        </a>
       </p>
       <div className="block">
         <BuyMeCoffeeButton />
