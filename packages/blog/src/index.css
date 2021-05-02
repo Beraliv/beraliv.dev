@@ -210,18 +210,6 @@ table thead tr th {
   @apply block text-base w-40;
 }
 
-@media (max-width: 650px) {
-  .bio {
-    @apply flex-wrap justify-center text-center;
-  }
-  .bio-avatar {
-    @apply mr-0 mb-4;
-  }
-  .buymecoffee {
-    @apply mt-4;
-  }
-}
-
 .blog-post header h1 {
   @apply m-0 mb-4;
 }
@@ -363,6 +351,16 @@ a.label {
 
   .form label {
     @apply mb-4 w-full;
+  }
+
+  .bio {
+    @apply flex-wrap justify-center text-center;
+  }
+  .bio-avatar {
+    @apply mr-0 mb-4;
+  }
+  .buymecoffee {
+    @apply mt-4;
   }
 }
 
