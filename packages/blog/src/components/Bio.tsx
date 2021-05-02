@@ -8,6 +8,7 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { useBioQuery } from "../hooks/useBioQuery"
+import { BuyMeCoffeeButton } from "./BuyMeCoffeeButton"
 
 export const Bio = () => {
   const data = useBioQuery()
@@ -49,15 +50,10 @@ export const Bio = () => {
       )}
       <p>
         Written by <strong>{author.name}</strong> {author.summary}
-        {` `}
-        <a
-          href={`https://twitter.com/${social.twitter}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Follow me on Twitter
-        </a>
       </p>
+      <div className="block">
+        <BuyMeCoffeeButton />
+      </div>
     </div>
   )
 }

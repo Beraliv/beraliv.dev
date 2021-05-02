@@ -206,6 +206,22 @@ table thead tr th {
   height: 50px;
 }
 
+.buymecoffee {
+  @apply block text-base w-40;
+}
+
+@media (max-width: 650px) {
+  .bio {
+    @apply flex-wrap justify-center text-center;
+  }
+  .bio-avatar {
+    @apply mr-0 mb-4;
+  }
+  .buymecoffee {
+    @apply mt-4;
+  }
+}
+
 .blog-post header h1 {
   @apply m-0 mb-4;
 }
@@ -319,12 +335,6 @@ a:focus {
 a.label {
   @apply inline-block px-3 py-1 mr-2 mb-2;
   @apply no-underline bg-gray-200 text-gray-600 dark:bg-gray-900 dark:text-gray-500;
-}
-
-/* Buy me a coffee */
-
-.buymecoffee {
-  @apply block text-base w-40;
 }
 
 /* Media queries */
