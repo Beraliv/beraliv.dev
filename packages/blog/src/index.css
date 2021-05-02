@@ -321,6 +321,12 @@ a.label {
   @apply no-underline bg-gray-200 text-gray-600 dark:bg-gray-900 dark:text-gray-500;
 }
 
+/* Buy me a coffee */
+
+.buymecoffee {
+  @apply block text-base w-40;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
