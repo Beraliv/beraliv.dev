@@ -38,7 +38,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - [Mapped types in functions](/2021-04-28-mapped-types-in-functions/)
 - [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - [Infer last element](/2021-04-29-infer-last-element/)
 - [16 • Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) - [Manipulation with Tuple elements](/2021-05-01-manipulation-with-tuple-elements/)
-- [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - will be added on April 30, 2021
+- [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - [Promise.all under the hood](/2021-05-04-promise-all-under-the-hood/)
 - [62 • Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) - will be added on May 3, 2021
 - [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - will be added on May 4, 2021
 - [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - will be added on May 5, 2021
