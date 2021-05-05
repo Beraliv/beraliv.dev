@@ -16,7 +16,7 @@ This is quite a rare case but if you need to match every element inside a union 
 
 Let's take a look 👀
 
-## Extract
+## Filterting
 
 This solution looks like what we did in [Exclude under the hood](/2021-04-12-exclude-under-the-hood/):
 
