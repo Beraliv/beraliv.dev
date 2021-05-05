@@ -1,7 +1,7 @@
 ---
 title: Extract under the hood
 date: "2021-05-06"
-description: Today we discuss Type lookup. This is quite a rare case but if you need to match every element inside a union type by its field type (and you know in advance which one), that's what you need.
+description: Today we discuss Type Lookup. This is quite a rare case but if you need to match every element inside a union type by its field type (and you know in advance which one), that's what you need. Let's take a look 👀
 labels:
   - typescript
   - medium
@@ -10,7 +10,7 @@ featured: ./step1-example-of-use.png
 
 ![Example of Promise.all use](./step1-example-of-use.png)
 
-Today we discuss [Type lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md)
+Today we discuss [Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md)
 
 This is quite a rare case but if you need to match every element inside a union type by its field type (and you know in advance which one), that's what you need.
 
