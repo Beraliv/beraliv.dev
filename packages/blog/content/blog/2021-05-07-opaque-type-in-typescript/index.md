@@ -11,10 +11,10 @@ featured: ./step1-example-of-opaque-type.png
 
 Today we discuss Opaque types:
 
-1. [What problems do they solve](/2021-04-19-opaque-type-in-typescript/#the-problem)
-2. [What ways could we solve this problem](/2021-04-19-opaque-type-in-typescript/#probable-solutions)
-3. [Why I chose this solution](/2021-04-19-opaque-type-in-typescript/#probable-solutions)
-4. [Describe the solution in more technical details](/2021-04-19-opaque-type-in-typescript/#unique-symbol)
+1. [What problems do they solve](/2021-05-07-opaque-type-in-typescript/#the-problem)
+2. [What ways could we solve this problem](/2021-05-07-opaque-type-in-typescript/#probable-solutions)
+3. [Why I chose this solution](/2021-05-07-opaque-type-in-typescript/#probable-solutions)
+4. [Describe the solution in more technical details](/2021-05-07-opaque-type-in-typescript/#unique-symbol)
 
 ## The problem
 
@@ -72,20 +72,20 @@ Let's compare all the approaches that are mentioned above:
 
 | Approach                                                                                                                      | Error readability |        JS-free         | Can be reused |         Encapsulated          |
 | :---------------------------------------------------------------------------------------------------------------------------- | :---------------: | :--------------------: | :-----------: | :---------------------------: |
-| [Class + a private property](/2021-04-19-opaque-type-in-typescript/#1-class--a-private-property)                              |        5️⃣         | ❌ class + constructor |      ❌       |              ✅               |
-| [Class + intersection types](/2021-04-19-opaque-type-in-typescript/#2-class--intersection-types)                              |        5️⃣         |     ❌ empty class     |      ✅       |              ✅               |
-| [Type + intersection types](/2021-04-19-opaque-type-in-typescript/#3-type--intersection-types)                                |        5️⃣         |           ✅           |      ✅       | ❌ `__brand` visibility in TS |
-| [Type + intersection types + unique symbol](/2021-04-19-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol) |        5️⃣         |           ✅           |      ✅       |              ✅               |
+| [Class + a private property](/2021-05-07-opaque-type-in-typescript/#1-class--a-private-property)                              |        5️⃣         | ❌ class + constructor |      ❌       |              ✅               |
+| [Class + intersection types](/2021-05-07-opaque-type-in-typescript/#2-class--intersection-types)                              |        5️⃣         |     ❌ empty class     |      ✅       |              ✅               |
+| [Type + intersection types](/2021-05-07-opaque-type-in-typescript/#3-type--intersection-types)                                |        5️⃣         |           ✅           |      ✅       | ❌ `__brand` visibility in TS |
+| [Type + intersection types + unique symbol](/2021-05-07-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol) |        5️⃣         |           ✅           |      ✅       |              ✅               |
 
 1. All approaches have a great error readability (the problem is visible and it's connected to the nominal type)
-2. First 2 approaches use JS: [Class + a private property](/2021-04-19-opaque-type-in-typescript/#1-class--a-private-property) cannot be reused, [Class + intersection types](/2021-04-19-opaque-type-in-typescript/#2-class--intersection-types) can be reused but still creates empty class (which is fine)
-3. By encapsulation here [Type + intersection types](/2021-04-19-opaque-type-in-typescript/#3-type--intersection-types) make `__brand` property visible outside and can lead to stupid errors which I want to get rid of.
+2. First 2 approaches use JS: [Class + a private property](/2021-05-07-opaque-type-in-typescript/#1-class--a-private-property) cannot be reused, [Class + intersection types](/2021-05-07-opaque-type-in-typescript/#2-class--intersection-types) can be reused but still creates empty class (which is fine)
+3. By encapsulation here [Type + intersection types](/2021-05-07-opaque-type-in-typescript/#3-type--intersection-types) make `__brand` property visible outside and can lead to stupid errors which I want to get rid of.
 
-So if you don't really want to see one empty class, please use [Type + intersection types + unique symbol](/2021-04-19-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol)
+So if you don't really want to see one empty class, please use [Type + intersection types + unique symbol](/2021-05-07-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol)
 
-If one empty class is still okay, you can choose [Class + intersection types](/2021-04-19-opaque-type-in-typescript/#2-class--intersection-types)
+If one empty class is still okay, you can choose [Class + intersection types](/2021-05-07-opaque-type-in-typescript/#2-class--intersection-types)
 
-I will stop on [Type + intersection types + unique symbol](/2021-04-19-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol)
+I will stop on [Type + intersection types + unique symbol](/2021-05-07-opaque-type-in-typescript/#4-type--intersection-types--unique-symbol)
 
 ## unique symbol
 
