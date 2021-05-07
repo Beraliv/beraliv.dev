@@ -99,6 +99,16 @@ Also, if you plan to reuse `OpaqueType` and put it to the separate file:
 
 It's a good idea as in this case `symbol` won't be accessible outside of the file and therefore you cannot read the property.
 
+## Example
+
+Let's have a look at [CodeSandbox](https://codesandbox.io/s/ts-opaque-units-6j3ti?file=/src/index.ts)
+
+![ts-opaque-units example](./step5-ts-opaque-units-example.png)
+
+It uses [ts-opaque-units](https://www.npmjs.com/package/ts-opaque-units) which implements `Opaque` function with unique symbol. For instance, `Days` is defined as:
+
+![Days example](./step6-days-example.png)
+
 ## Resources
 
 1. [Nominal typing techniques in TypeScript](https://michalzalecki.com/nominal-typing-in-typescript/)
