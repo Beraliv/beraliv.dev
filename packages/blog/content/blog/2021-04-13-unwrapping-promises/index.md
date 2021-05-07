@@ -1,6 +1,6 @@
 ---
 title: Unwrapping the Promises
-date: "2021-04-14"
+date: "2021-04-13"
 description: Seventh challenge is Awaited. Like await in JavaScript, it unwraps Promise and gets the value in the same way. Sometimes it's useful to get the value even if it's double wrapped with Promise so this is also possible.
 labels:
   - typescript
