@@ -52,17 +52,17 @@ export const BlogList = <T extends Postable>({
     )
   }
 
-  let postsWithCategories = []
-  let postsWithoutCategories = []
+  // let postsWithCategories = []
+  // let postsWithoutCategories = []
 
-  for (const post of posts) {
-    const length = post.frontmatter?.categories?.length ?? 0
-    if (length > 0) {
-      postsWithCategories.push(post)
-    } else {
-      postsWithoutCategories.push(post)
-    }
-  }
+  // for (const post of posts) {
+  //   const length = post.frontmatter?.categories?.length ?? 0
+  //   if (length > 0) {
+  //     postsWithCategories.push(post)
+  //   } else {
+  //     postsWithoutCategories.push(post)
+  //   }
+  // }
 
   return (
     <Layout location={location} title={title}>
@@ -70,7 +70,7 @@ export const BlogList = <T extends Postable>({
       <Bio />
       {tag && <h1>{`#${tag}`}</h1>}
       <ol>
-        {postsWithoutCategories.map((post, index) => {
+        {posts.map((post, index) => {
           if (!post.fields?.slug) {
             throw new Error(`Cannot extract slug for post #${index + 1}`)
           }
