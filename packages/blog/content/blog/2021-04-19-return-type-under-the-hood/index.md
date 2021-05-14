@@ -5,6 +5,7 @@ description: We start solving medium challenges today. And we are going to discu
 labels:
   - typescript
   - medium
+categories:
   - typechallenge
 featured: ./step1-example-of-use.png
 ---

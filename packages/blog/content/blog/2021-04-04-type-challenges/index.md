@@ -4,8 +4,9 @@ date: "2021-04-04"
 description: I am fan of Typescript since my last work at Yandex. Since TypeScript can be easy 😌 and difficult 😰 depending on your requirements, I decided to post the solution and the concepts behind every task I solve.
 labels:
   - typescript
+categories:
   - typechallenge
-  - typechallenge main
+  - main
 featured: ./featured.png
 ---
 

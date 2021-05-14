@@ -5,6 +5,7 @@ description: First challenge is Pick. It's usually used when you need to declare
 labels:
   - typescript
   - easy
+categories:
   - typechallenge
 featured: ./step1-example-of-use.png
 ---
