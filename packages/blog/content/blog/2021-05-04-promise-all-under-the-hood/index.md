@@ -5,6 +5,7 @@ description: Today we discuss Promise.all. This is helpful in case we need to wa
 labels:
   - typescript
   - medium
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

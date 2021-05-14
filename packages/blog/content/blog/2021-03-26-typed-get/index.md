@@ -7,6 +7,7 @@ labels:
   - typescript
   - hard
   - javascript
+  - typechallenge
 featured: ./get-usage-example.png
 ---
 

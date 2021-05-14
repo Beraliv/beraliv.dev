@@ -5,6 +5,7 @@ description: Third challenge is TupleToObject. I would say it's rarely used. But
 labels:
   - typescript
   - easy
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

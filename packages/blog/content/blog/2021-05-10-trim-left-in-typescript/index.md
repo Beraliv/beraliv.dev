@@ -5,6 +5,7 @@ description: Today we discuss Trim Left. String.prototype.trimStart does the sam
 labels:
   - typescript
   - medium
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

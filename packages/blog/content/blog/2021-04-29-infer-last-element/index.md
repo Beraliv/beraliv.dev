@@ -5,6 +5,7 @@ description: Today we discuss Last of Array. We already know how to get the firs
 labels:
   - typescript
   - medium
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

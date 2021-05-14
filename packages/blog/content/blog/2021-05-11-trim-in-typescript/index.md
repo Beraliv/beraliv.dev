@@ -5,6 +5,7 @@ description: Today we discuss Trim. String.prototype.trim does the same in JavaS
 labels:
   - typescript
   - medium
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

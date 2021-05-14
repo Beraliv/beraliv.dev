@@ -5,6 +5,7 @@ description: We already solved the challenge with readonly. Today we want to app
 labels:
   - typescript
   - medium
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

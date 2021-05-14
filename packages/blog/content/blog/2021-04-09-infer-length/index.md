@@ -5,6 +5,7 @@ description: Fifth challenge is Length of Tuple. As for First of Array, we can u
 labels:
   - typescript
   - easy
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 
