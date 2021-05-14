@@ -42,7 +42,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [62 • Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) - [Extract under the hood](/2021-05-06-extract-under-the-hood/)
 - [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - [Trim Left in TypeScript](/2021-05-10-trim-left-in-typescript/)
 - [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - [Trim in TypeScript](/2021-05-11-trim-in-typescript/)
-- [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - will be added on May 6, 2021
+- [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - [Type Aliases for String manipulation](/2021-05-14-type-aliases-for-string-manipulation/)
 - [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - will be added on May 7, 2021
 - [116 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - will be added on May 10, 2021
 - [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - will be added on May 11, 2021
