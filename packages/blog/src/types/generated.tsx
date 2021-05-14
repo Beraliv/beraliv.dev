@@ -321,6 +321,7 @@ export type SitePageContextPostsFrontmatter = {
   date?: Maybe<Scalars["String"]>
   title?: Maybe<Scalars["String"]>
   labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
   description?: Maybe<Scalars["String"]>
   image?: Maybe<SitePageContextPostsFrontmatterImage>
 }
@@ -2810,6 +2811,7 @@ export type SitePageContextPostsFrontmatterFilterInput = {
   date?: Maybe<StringQueryOperatorInput>
   title?: Maybe<StringQueryOperatorInput>
   labels?: Maybe<StringQueryOperatorInput>
+  categories?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
   image?: Maybe<SitePageContextPostsFrontmatterImageFilterInput>
 }
@@ -3119,6 +3121,7 @@ export enum SitePageFieldsEnum {
   ContextPostsFrontmatterDate = "context___posts___frontmatter___date",
   ContextPostsFrontmatterTitle = "context___posts___frontmatter___title",
   ContextPostsFrontmatterLabels = "context___posts___frontmatter___labels",
+  ContextPostsFrontmatterCategories = "context___posts___frontmatter___categories",
   ContextPostsFrontmatterDescription = "context___posts___frontmatter___description",
 }
 
@@ -4288,7 +4291,7 @@ export type CreatePageQuery = { __typename?: "Query" } & {
           frontmatter?: Maybe<
             { __typename?: "Frontmatter" } & Pick<
               Frontmatter,
-              "date" | "title" | "labels" | "description"
+              "date" | "title" | "labels" | "categories" | "description"
             > & {
                 image?: Maybe<
                   { __typename?: "File" } & {
@@ -4378,7 +4381,7 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
-            "date" | "title" | "description"
+            "date" | "title" | "description" | "categories"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {

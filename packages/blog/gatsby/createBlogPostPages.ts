@@ -106,6 +106,7 @@ export const createBlogPostPages = async ({
             date(formatString: "MMMM DD, YYYY")
             title
             labels
+            categories
             description
             image: featured {
               childImageSharp {
