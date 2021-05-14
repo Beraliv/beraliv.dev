@@ -6,6 +6,7 @@ description:
   I’ll show you my small investigation of what I found.
 labels:
   - player
+categories:
 featured: ./amazon-prime-page.png
 ---
 

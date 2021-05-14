@@ -5,6 +5,7 @@ description: Did you hear anything about code obfuscation? Let’s have a look a
 labels:
   - player
   - javascript
+categories:
 featured: ./joyn-player-page.png
 ---
 

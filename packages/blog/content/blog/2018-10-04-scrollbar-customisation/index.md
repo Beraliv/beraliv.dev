@@ -6,6 +6,7 @@ description: What is the current state of scrollbar customisation?
 labels:
   - css
   - javascript
+categories:
 featured: ./macos-scrollbar.png
 ---
 
