@@ -99,5 +99,8 @@ module.exports = {
         ignore: ["prismjs/themes/prism.css"],
       },
     },
+    {
+      resolve: "gatsby-plugin-brotli",
+    },
   ],
 }
