@@ -5,6 +5,8 @@ description: Fourth challenge is First of Array. Here you can use it for tuples 
 labels:
   - typescript
   - easy
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

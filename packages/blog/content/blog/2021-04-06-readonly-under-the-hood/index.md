@@ -5,6 +5,8 @@ description: Second challenge is Readonly. Similarly to Pick, it's usually used 
 labels:
   - typescript
   - easy
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

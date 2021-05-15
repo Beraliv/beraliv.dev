@@ -5,6 +5,8 @@ description: Today we discuss Chainable Options. That's one of the most popular 
 labels:
   - typescript
   - medium
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

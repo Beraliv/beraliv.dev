@@ -4,6 +4,7 @@ date: "2020-01-07"
 description: What do you know about WebVTT, statistics and DRM in video players? I had several hours to have a look at Udemy player
 labels:
   - player
+categories:
 featured: ./udemy-player-page.png
 ---
 

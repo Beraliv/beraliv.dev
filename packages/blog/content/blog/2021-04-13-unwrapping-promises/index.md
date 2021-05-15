@@ -5,6 +5,8 @@ description: Seventh challenge is Awaited. Like await in JavaScript, it unwraps 
 labels:
   - typescript
   - easy
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

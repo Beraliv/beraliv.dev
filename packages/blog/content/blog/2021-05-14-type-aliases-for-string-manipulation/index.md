@@ -5,6 +5,8 @@ description: Today we discuss Capitalize. If you need to make first character in
 labels:
   - typescript
   - medium
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

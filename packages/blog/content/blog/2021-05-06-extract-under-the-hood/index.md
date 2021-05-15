@@ -5,6 +5,8 @@ description: Today we discuss Type Lookup. This is quite a rare case but if you 
 labels:
   - typescript
   - medium
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

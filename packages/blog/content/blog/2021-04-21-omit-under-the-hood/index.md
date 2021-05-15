@@ -5,6 +5,8 @@ description: Today we're talking about Omit. First challenge was Pick under the 
 labels:
   - typescript
   - medium
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 

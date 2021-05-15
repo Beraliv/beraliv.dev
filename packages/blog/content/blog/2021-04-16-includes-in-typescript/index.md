@@ -5,6 +5,8 @@ description: Tenth challenge is Includes.
 labels:
   - typescript
   - easy
+categories:
+  - typechallenge
 featured: ./step1-example-of-use.png
 ---
 
