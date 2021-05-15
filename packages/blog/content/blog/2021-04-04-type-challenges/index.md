@@ -6,6 +6,7 @@ labels:
   - typescript
   - easy
   - medium
+  - hard
 categories:
   - typechallenge:main
 featured: ./featured.png
