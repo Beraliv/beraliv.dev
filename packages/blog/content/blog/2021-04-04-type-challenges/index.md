@@ -5,8 +5,7 @@ description: I am fan of Typescript since my last work at Yandex. Since TypeScri
 labels:
   - typescript
 categories:
-  - typechallenge
-  - main
+  - typechallenge:main
 featured: ./featured.png
 ---
 

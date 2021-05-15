@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import React, { FC } from "react"
 
-interface BlogPostProps {
+export interface BlogPostProps {
   date: string
   slug: string
   title: string
