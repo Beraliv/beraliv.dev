@@ -12,6 +12,12 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
   posts,
   main: { slug, html, title },
 }: BlogPostSandwichProps<T>) => {
+  const challengesToShow = Math.min(posts.length, 6)
+
+  if (challengesToShow === 0) {
+    return null
+  }
+
   return (
     <article
       className="blog-post-sandwich"
@@ -35,7 +41,10 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
         />
       </section>
       <footer>
-        <h3>Last 6 challenges</h3>
+        <h3>
+          Last {challengesToShow}{" "}
+          {challengesToShow > 1 ? "challenges" : "challenge"}
+        </h3>
         <div className="block-sandwich-gallery">
           {posts.slice(0, 6).map(post => (
             <div className="block-sandwich-gallery-item" key={post.title}>
