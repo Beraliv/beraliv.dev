@@ -115,10 +115,17 @@ export const BlogList = <T extends Postable>({
             title: post.frontmatter!.title!,
             html: post.frontmatter!.description!,
           }))
-          const mainPost = postsByCategories[`${category}:main`][0]
+          const mainPost = postsByCategories[`${category}:main`]?.[0]
 
           if (!mainPost) {
-            throw new Error(`Cannot find ${category}:main post`)
+            console.warn(
+              `Cannot find ${category}:main post for BlogPostSandwich, use BlogPost instead`
+            )
+            return postsByCategory.map(post => (
+              <li className="post-list-item" key={slug}>
+                <BlogPost {...post} />
+              </li>
+            ))
           }
 
           const slug = mainPost.fields!.slug!
