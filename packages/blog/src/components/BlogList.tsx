@@ -122,7 +122,7 @@ export const BlogList = <T extends Postable>({
               `Cannot find ${category}:main post for BlogPostSandwich, use BlogPost instead`
             )
             return postsByCategory.map(post => (
-              <li className="post-list-item" key={slug}>
+              <li className="post-list-item" key={post.slug}>
                 <BlogPost {...post} />
               </li>
             ))
