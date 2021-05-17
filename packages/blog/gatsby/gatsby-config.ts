@@ -12,7 +12,6 @@ module.exports = {
     social: {
       twitter: `beraliv`,
     },
-    keywords: ["development", "players", "typescript"],
   },
   plugins: [
     {
