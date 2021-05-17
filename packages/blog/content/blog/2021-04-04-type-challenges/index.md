@@ -48,8 +48,8 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - [Trim Left in TypeScript](/2021-05-10-trim-left-in-typescript/)
 - [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - [Trim in TypeScript](/2021-05-11-trim-in-typescript/)
 - [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - [Type Aliases for String manipulation](/2021-05-14-type-aliases-for-string-manipulation/)
-- [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - will be added on May 7, 2021
-- [116 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - will be added on May 10, 2021
+- [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - [Replace occurrence in a string in TypeScript](/2021-05-17-replace-occurrence-in-a-string-in-typescript/)
+- [119 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - will be added on May 10, 2021
 - [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - will be added on May 11, 2021
 - [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - will be added on May 12, 2021
 - [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - will be added on May 13, 2021
