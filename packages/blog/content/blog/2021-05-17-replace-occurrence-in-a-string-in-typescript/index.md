@@ -5,6 +5,10 @@ description: Today we discuss Replace. We need to remove one occurrence in the s
 labels:
   - typescript
   - medium
+keywords:
+  - typescript
+  - challenges
+  - replace
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

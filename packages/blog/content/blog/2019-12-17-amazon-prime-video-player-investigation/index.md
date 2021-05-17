@@ -6,6 +6,9 @@ description:
   I’ll show you my small investigation of what I found.
 labels:
   - player
+keywords:
+  - Amazon Prime
+  - video player
 categories:
 featured: ./amazon-prime-page.png
 ---

@@ -5,6 +5,10 @@ description: Eighth challenge is If. It is common to use conditional statement t
 labels:
   - typescript
   - easy
+keywords:
+  - typescript
+  - challenges
+  - conditional
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

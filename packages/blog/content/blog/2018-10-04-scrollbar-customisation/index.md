@@ -1,11 +1,16 @@
 ---
-title: Scrollbar customisation
+title: Scrollbar customisation in JavaScript and CSS
 date: "2018-10-04"
 description: What is the current state of scrollbar customisation?
   Let's have a look at the browser capabilities, CSS hacks and JS libraries.
 labels:
   - css
   - javascript
+keywords:
+  - scrollbar
+  - customisation
+  - javascript
+  - css
 categories:
 featured: ./macos-scrollbar.png
 ---
@@ -104,32 +109,32 @@ And also [autohiding scrollbar](https://css-tricks.com/snippets/css/hide-scrollb
 
 Another one is EdgeHTML which is a fork of Trident and used in old Edge. It had only [enhancement](https://wpdev.uservoice.com/forums/257854-microsoft-edge-developer/suggestions/9081910-add-support-for-scrollbar-styling) (which is currently unavailable) in its backlog with medium priority to add support for scrollbar styling. But since Edgium release you can use Webkit / Blink pseudo elements 🎉.
 
-### CSS Hacks and tricks
+## CSS Hacks and tricks
 
 Slowly but surely we achieve what we want.
 
-#### Scrollbar on the left
+### Scrollbar on the left
 
 `transform`: https://jsfiddle.net/4yd7bg2r/5/ with [great support](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function#browser_compatibility)
 
 `direction`: https://jsfiddle.net/4yd7bg2r/6/ with [great support](https://developer.mozilla.org/en-US/docs/Web/CSS/direction#browser_compatibility)
 
-#### Hiding scrollbar
+### Hiding scrollbar
 
 `overflow`, `margin` and `padding`
 
 - horizontal: https://jsfiddle.net/4yd7bg2r/8/
 - vertical: https://jsfiddle.net/4yd7bg2r/7/
 
-### Turn scrollbar on with JS
+## Turn scrollbar on with JS
 
 Accepting the fact FF, Edge and IE do not support scrollbar customisation, JS library might be not bad solution for them.
 
-#### Library-independent
+### Library-independent
 
 Unfortunately some of libraries are plugins for jQuery: [jScrollPane](https://www.npmjs.com/package/jscrollpane), [nanoScroller](https://www.npmjs.com/package/nanoscroller). And this is not what can be a fit.
 
-#### Bundle size
+### Bundle size
 
 A size of scrollbar JS bundle should be worth it. However it’s not what it’s expected.
 
@@ -149,19 +154,19 @@ A size of scrollbar JS bundle should be worth it. However it’s not what it’s
 
 Of course, good options are lightweight vanilla libraries.
 
-#### Mobile support
+### Mobile support
 
 Some of choices like [simple-scrollbar](https://www.npmjs.com/package/simple-scrollbar) provide scrollbars unfriendly for mobile devices. It is required to add a lot of functionality and therefore not production-ready.
 
-#### Platform-oriented
+### Platform-oriented
 
 [slim-scroll](https://github.com/kamlekar/slim-scroll) is created by a stack overflow user and is aimed to improve design on Windows. That’s good as macOS scrollbar looks good everywhere. However, native customisation is only available on WebKit and Blink.
 
-### Your implementation
+## Your implementation
 
 Probably you want to customise you own scrollbar. First have a look at [scrollbar mechanics](http://csdgn.org/article/scrollbar).
 
-### Links
+## Links
 
 1. ⭐⭐️ Google Developers: [CSS Deep-Dive: matrix3d() For a Frame-Perfect Custom Scrollbar](https://developers.google.com/web/updates/2017/03/custom-scrollbar)
 2. ⭐⭐️️ CSDGN: [Scrollbar Mechanics](http://csdgn.org/article/scrollbar)

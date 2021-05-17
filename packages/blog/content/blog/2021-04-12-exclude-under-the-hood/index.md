@@ -5,6 +5,10 @@ description: Sixth challenge is Exclude. Don't mix up Exclude with Omit. Exclude
 labels:
   - typescript
   - easy
+keywords:
+  - typescript
+  - challenges
+  - exclude
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png
