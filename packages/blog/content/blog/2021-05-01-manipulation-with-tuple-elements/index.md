@@ -5,6 +5,14 @@ description: Today we discuss Pop and other methods, like Shift, Push and Unshif
 labels:
   - typescript
   - medium
+keywords:
+  - typescript
+  - challenges
+  - tuple
+  - pop
+  - push
+  - shift
+  - unshift
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

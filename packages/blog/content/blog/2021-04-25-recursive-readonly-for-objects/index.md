@@ -5,6 +5,11 @@ description: We already solved several challenges with readonly. Today we discus
 labels:
   - typescript
   - medium
+keywords:
+  - typescript
+  - challenges
+  - recursive
+  - readonly
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

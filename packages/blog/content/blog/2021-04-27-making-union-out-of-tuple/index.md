@@ -5,6 +5,9 @@ description: Today we discuss Tuple to Union. We already solved a similar challe
 labels:
   - typescript
   - medium
+keywords:
+  - typescript
+  - challenges
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

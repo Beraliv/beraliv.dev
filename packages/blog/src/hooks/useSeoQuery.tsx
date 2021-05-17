@@ -12,7 +12,6 @@ export const useSeoQuery = (): SeoQuery["site"] => {
             }
             title
             description
-            keywords
             social {
               twitter
             }

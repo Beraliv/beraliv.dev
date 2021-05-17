@@ -5,6 +5,9 @@ description: Did you hear anything about code obfuscation? Let’s have a look a
 labels:
   - player
   - javascript
+keywords:
+  - Joyn
+  - obfuscation
 categories:
 featured: ./joyn-player-page.png
 ---

@@ -5,6 +5,10 @@ description: Ninth challenge is Concat. Sometimes it's useful to collect 2 tuple
 labels:
   - typescript
   - easy
+keywords:
+  - typescript
+  - challenges
+  - spread
 categories:
   - typechallenge
 featured: ./step1-example-of-use.png

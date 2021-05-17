@@ -105,6 +105,7 @@ export const createBlogPostPages = async ({
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            keywords
             labels
             categories
             description

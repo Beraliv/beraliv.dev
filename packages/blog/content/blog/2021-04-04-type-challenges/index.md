@@ -7,6 +7,9 @@ labels:
   - easy
   - medium
   - hard
+keywords:
+  - typescript
+  - challenges
 categories:
   - typechallenge:main
 featured: ./featured.png

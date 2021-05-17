@@ -7,6 +7,10 @@ labels:
   - typescript
   - hard
   - javascript
+keywords:
+  - typescript
+  - challenges
+  - get
 categories:
   - typechallenge
 featured: ./get-usage-example.png

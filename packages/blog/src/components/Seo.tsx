@@ -23,13 +23,14 @@ type SeoMetaProp =
       content: string
     }
 
-type SeoProps = {
+interface SeoProps {
   description?: string
   lang?: string
   meta?: SeoMetaProp[]
   image?: Pick<ImageSharpResize, "src" | "width" | "height">
   title: string
   pathname: string
+  keywords: (string | null | undefined)[] | undefined | null
 }
 
 export const Seo: FunctionComponent<SeoProps> = ({
@@ -39,6 +40,7 @@ export const Seo: FunctionComponent<SeoProps> = ({
   image,
   title,
   pathname,
+  keywords,
 }) => {
   const site = useSeoQuery()
 
@@ -65,10 +67,10 @@ export const Seo: FunctionComponent<SeoProps> = ({
           content: metaImageSrc,
         }
       : undefined,
-    site?.siteMetadata?.keywords
+    keywords
       ? {
           name: "keywords",
-          content: site.siteMetadata.keywords.join(","),
+          content: keywords.filter(Boolean).join(","),
         }
       : undefined,
   ])

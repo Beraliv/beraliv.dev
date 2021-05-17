@@ -718,8 +718,9 @@ export type Frontmatter = {
   description?: Maybe<Scalars["String"]>
   date?: Maybe<Scalars["Date"]>
   labels?: Maybe<Array<Maybe<Scalars["String"]>>>
-  featured?: Maybe<File>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
   categories?: Maybe<Array<Maybe<Scalars["String"]>>>
+  featured?: Maybe<File>
 }
 
 export type FrontmatterDateArgs = {
@@ -1370,8 +1371,9 @@ export type FrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>
   date?: Maybe<DateQueryOperatorInput>
   labels?: Maybe<StringQueryOperatorInput>
-  featured?: Maybe<FileFilterInput>
+  keywords?: Maybe<StringQueryOperatorInput>
   categories?: Maybe<StringQueryOperatorInput>
+  featured?: Maybe<FileFilterInput>
 }
 
 export type FileFilterInput = {
@@ -1630,6 +1632,8 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
   ChildrenMarkdownRemarkFrontmatterLabels = "childrenMarkdownRemark___frontmatter___labels",
+  ChildrenMarkdownRemarkFrontmatterKeywords = "childrenMarkdownRemark___frontmatter___keywords",
+  ChildrenMarkdownRemarkFrontmatterCategories = "childrenMarkdownRemark___frontmatter___categories",
   ChildrenMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childrenMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildrenMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childrenMarkdownRemark___frontmatter___featured___absolutePath",
   ChildrenMarkdownRemarkFrontmatterFeaturedRelativePath = "childrenMarkdownRemark___frontmatter___featured___relativePath",
@@ -1668,7 +1672,6 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childrenMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildrenMarkdownRemarkFrontmatterFeaturedId = "childrenMarkdownRemark___frontmatter___featured___id",
   ChildrenMarkdownRemarkFrontmatterFeaturedChildren = "childrenMarkdownRemark___frontmatter___featured___children",
-  ChildrenMarkdownRemarkFrontmatterCategories = "childrenMarkdownRemark___frontmatter___categories",
   ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkExcerpt = "childrenMarkdownRemark___excerpt",
   ChildrenMarkdownRemarkRawMarkdownBody = "childrenMarkdownRemark___rawMarkdownBody",
@@ -1727,6 +1730,8 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
   ChildMarkdownRemarkFrontmatterLabels = "childMarkdownRemark___frontmatter___labels",
+  ChildMarkdownRemarkFrontmatterKeywords = "childMarkdownRemark___frontmatter___keywords",
+  ChildMarkdownRemarkFrontmatterCategories = "childMarkdownRemark___frontmatter___categories",
   ChildMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childMarkdownRemark___frontmatter___featured___absolutePath",
   ChildMarkdownRemarkFrontmatterFeaturedRelativePath = "childMarkdownRemark___frontmatter___featured___relativePath",
@@ -1765,7 +1770,6 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildMarkdownRemarkFrontmatterFeaturedId = "childMarkdownRemark___frontmatter___featured___id",
   ChildMarkdownRemarkFrontmatterFeaturedChildren = "childMarkdownRemark___frontmatter___featured___children",
-  ChildMarkdownRemarkFrontmatterCategories = "childMarkdownRemark___frontmatter___categories",
   ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkExcerpt = "childMarkdownRemark___excerpt",
   ChildMarkdownRemarkRawMarkdownBody = "childMarkdownRemark___rawMarkdownBody",
@@ -3205,6 +3209,8 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
   FrontmatterLabels = "frontmatter___labels",
+  FrontmatterKeywords = "frontmatter___keywords",
+  FrontmatterCategories = "frontmatter___categories",
   FrontmatterFeaturedSourceInstanceName = "frontmatter___featured___sourceInstanceName",
   FrontmatterFeaturedAbsolutePath = "frontmatter___featured___absolutePath",
   FrontmatterFeaturedRelativePath = "frontmatter___featured___relativePath",
@@ -3283,7 +3289,6 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedInternalMediaType = "frontmatter___featured___internal___mediaType",
   FrontmatterFeaturedInternalOwner = "frontmatter___featured___internal___owner",
   FrontmatterFeaturedInternalType = "frontmatter___featured___internal___type",
-  FrontmatterCategories = "frontmatter___categories",
   FieldsSlug = "fields___slug",
   Excerpt = "excerpt",
   RawMarkdownBody = "rawMarkdownBody",
@@ -4291,7 +4296,12 @@ export type CreatePageQuery = { __typename?: "Query" } & {
           frontmatter?: Maybe<
             { __typename?: "Frontmatter" } & Pick<
               Frontmatter,
-              "date" | "title" | "labels" | "categories" | "description"
+              | "date"
+              | "title"
+              | "keywords"
+              | "labels"
+              | "categories"
+              | "description"
             > & {
                 image?: Maybe<
                   { __typename?: "File" } & {
@@ -4342,7 +4352,7 @@ export type SeoQuery = { __typename?: "Query" } & {
       siteMetadata?: Maybe<
         { __typename?: "SiteSiteMetadata" } & Pick<
           SiteSiteMetadata,
-          "title" | "description" | "keywords" | "siteUrl"
+          "title" | "description" | "siteUrl"
         > & {
             author?: Maybe<{ __typename?: "Author" } & Pick<Author, "name">>
             social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
@@ -4419,7 +4429,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
         frontmatter?: Maybe<
           { __typename?: "Frontmatter" } & Pick<
             Frontmatter,
-            "labels" | "title" | "date" | "description"
+            "keywords" | "labels" | "title" | "date" | "description"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {
