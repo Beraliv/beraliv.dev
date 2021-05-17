@@ -14,6 +14,7 @@ graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          keywords
           labels
           categories
           description

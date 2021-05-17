@@ -1,6 +1,7 @@
-import { Link, PageProps } from "gatsby"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { PageProps } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
+import { DEFAULT_KEYWORDS } from "../constants/DEFAULT_KEYWORDS"
 import { Bio } from "./Bio"
 import { BlogPost } from "./BlogPost"
 import { BlogPostSandwich } from "./BlogPostSandwich"
@@ -12,6 +13,7 @@ export interface Postable {
     slug?: string | null
   } | null
   frontmatter?: {
+    labels?: (string | null)[] | null
     categories?: (string | null)[] | null
     description?: string | null
     image?: {
@@ -42,7 +44,11 @@ export const BlogList = <T extends Postable>({
   if (posts.length === 0) {
     return (
       <Layout location={location} title={title}>
-        <Seo title={seoTitle} pathname={location.pathname} />
+        <Seo
+          title={seoTitle}
+          pathname={location.pathname}
+          keywords={DEFAULT_KEYWORDS}
+        />
         <Bio />
         {tag && <h1>{`#${tag}`}</h1>}
         <p>
@@ -100,9 +106,20 @@ export const BlogList = <T extends Postable>({
       !category.includes(":")
   )
 
+  const keywordSet = new Set<string>()
+  for (const post of posts) {
+    for (const label of post.frontmatter?.keywords ?? []) {
+      if (label) {
+        keywordSet.add(label)
+      }
+    }
+  }
+
+  const keywords = [...keywordSet.values()]
+
   return (
     <Layout location={location} title={title}>
-      <Seo title={seoTitle} pathname={location.pathname} />
+      <Seo title={seoTitle} pathname={location.pathname} keywords={keywords} />
       <Bio />
       {tag && <h1>{`#${tag}`}</h1>}
       <ol>

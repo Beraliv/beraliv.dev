@@ -87,7 +87,7 @@ const BlogPostTemplate = ({
   }
 
   const { resize: image } = post.frontmatter.image.childImageSharp
-  const { description, labels, title } = post.frontmatter
+  const { description, keywords, labels, title } = post.frontmatter
 
   const { previous, next } = data
 
@@ -98,6 +98,7 @@ const BlogPostTemplate = ({
         description={description}
         image={image}
         pathname={location.pathname}
+        keywords={keywords}
       />
       <article
         className="blog-post"
@@ -164,6 +165,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
+        keywords
         labels
         title
         date(formatString: "MMMM DD, YYYY")

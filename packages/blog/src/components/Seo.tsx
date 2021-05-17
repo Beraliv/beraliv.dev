@@ -30,7 +30,7 @@ interface SeoProps {
   image?: Pick<ImageSharpResize, "src" | "width" | "height">
   title: string
   pathname: string
-  keywords: string[]
+  keywords: (string | null | undefined)[] | undefined | null
 }
 
 export const Seo: FunctionComponent<SeoProps> = ({
@@ -67,10 +67,12 @@ export const Seo: FunctionComponent<SeoProps> = ({
           content: metaImageSrc,
         }
       : undefined,
-    {
-      name: "keywords",
-      content: keywords.join(","),
-    },
+    keywords
+      ? {
+          name: "keywords",
+          content: keywords.filter(Boolean).join(","),
+        }
+      : undefined,
   ])
 
   const openGraphMeta: SeoMetaProp[] = filterUndefined([
