@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { BlogPostProps } from "./BlogPost"
+import { Label } from "./Label"
 
 interface BlogPostSandwichProps<T extends BlogPostProps> {
   posts: T[]
@@ -41,19 +41,10 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
         />
       </section>
       <footer>
-        <h3>
-          Last {challengesToShow}{" "}
-          {challengesToShow > 1 ? "challenges" : "challenge"}
-        </h3>
         <div className="block-sandwich-gallery">
-          {posts.slice(0, 6).map(post => (
+          {posts.map(post => (
             <div className="block-sandwich-gallery-item" key={post.title}>
-              <Link to={post.slug} itemProp="url">
-                <h5>{post.title}</h5>
-                {post.gatsbyImageData && (
-                  <GatsbyImage image={post.gatsbyImageData} alt={post.title} />
-                )}
-              </Link>
+              <Label title={post.title} to={post.slug} />
             </div>
           ))}
         </div>

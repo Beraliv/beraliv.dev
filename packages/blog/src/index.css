@@ -284,21 +284,8 @@ table thead tr th {
   margin-top: 1em;
 }
 
-.block-sandwich-gallery {
-  @apply flex flex-wrap justify-start items-start;
-}
-
-@media (max-width: 42rem) {
-  .block-sandwich-gallery-item {
-    min-width: 16rem;
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 42rem) {
-  .block-sandwich-gallery-item {
-    @apply w-64 mr-12;
-  }
+.block-sandwich-gallery-item {
+  @apply inline-block;
 }
 
 /* loader */

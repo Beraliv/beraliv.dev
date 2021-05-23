@@ -13,6 +13,7 @@ export interface Postable {
     slug?: string | null
   } | null
   frontmatter?: {
+    keywords?: (string | null)[] | null
     labels?: (string | null)[] | null
     categories?: (string | null)[] | null
     description?: string | null
