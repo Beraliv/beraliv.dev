@@ -147,20 +147,55 @@ table thead tr th {
 
 /* Custom extendable styles */
 
-.global-wrapper {
-  @apply my-0 mx-auto max-w-2xl py-10 px-5;
+@media (max-width: 42rem) {
+  .global-wrapper {
+    @apply my-0 mx-auto max-w-2xl py-10 px-5;
+  }
+
+  .global-wrapper[data-is-root-path="true"] .bio {
+    @apply mb-20;
+  }
+
+  .global-header {
+    @apply flex items-center h-12 relative mb-12;
+  }
+
+  .main-heading {
+    @apply inline-block text-5xl m-0;
+  }
 }
 
-.global-wrapper[data-is-root-path="true"] .bio {
-  @apply mb-20;
-}
+@media (min-width: 42rem) {
+  .global-header {
+    width: 100vw;
+    height: 100vh;
+    background-color: #706de8;
+  }
 
-.global-header {
-  @apply flex items-center h-12 relative mb-12;
-}
+  .global-main {
+    margin: 0 7rem;
+  }
 
-.main-heading {
-  @apply inline-block text-5xl m-0;
+  .global-footer {
+    width: 100vw;
+    height: 8rem;
+  }
+
+  .main-heading,
+  .main-description {
+    display: inline-block;
+    margin-left: 10vw;
+  }
+
+  .main-heading {
+    font-size: 20vw;
+    line-height: 1;
+    margin-top: 45vh;
+  }
+
+  .main-description {
+    font-size: 2vw;
+  }
 }
 
 .dark-mode-toggle {
