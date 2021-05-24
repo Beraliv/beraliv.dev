@@ -1,5 +1,6 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useCallback } from "react"
 import { Link, PageProps } from "gatsby"
+import { ScrollUp } from "./ScrollUp"
 // import { DarkModeToggle } from "./DarkModeToggle"
 // import { SubscriptionForm } from "./SubscriptionForm"
 
@@ -17,6 +18,13 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [])
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
@@ -38,15 +46,14 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <main className="global-main">{children}</main>
       {/* <SubscriptionForm /> */}
       <footer className="global-footer">
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a
-          href="https://www.gatsbyjs.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Gatsby
-        </a>
+        <div className="global-menu">
+          <div className="scroll-up-container">
+            <ScrollUp onClick={scrollToTop} />
+          </div>
+          <Link to="/">About me</Link>
+          <Link to="/">Contacts</Link>
+        </div>
+        <p className="footer-heading">{title}</p>
       </footer>
     </div>
   )

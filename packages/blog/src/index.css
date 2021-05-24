@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+:root {
+  --ml: 10vw;
+}
+
 /* HTML elements */
 /* purgecss start ignore */
 
@@ -166,10 +170,14 @@ table thead tr th {
 }
 
 @media (min-width: 42rem) {
+  .global-header,
+  .global-footer {
+    background-color: #706de8;
+  }
+
   .global-header {
     width: 100vw;
     height: 100vh;
-    background-color: #706de8;
   }
 
   .global-menu {
@@ -179,17 +187,43 @@ table thead tr th {
 
   .global-menu a {
     display: inline-block;
-    padding: 6rem 3.5rem 0;
     color: rgba(255, 255, 255, 1);
+  }
+
+  .global-header .global-menu a {
+    padding: 5rem 3.5rem 0;
+  }
+
+  .global-footer .global-menu {
+    display: flex;
+    align-items: center;
+    margin-left: var(--ml);
+  }
+
+  .global-footer .global-menu a {
+    padding: 2.5rem 3.5rem;
+  }
+
+  .scroll-up {
+    cursor: pointer;
+  }
+
+  .scroll-up-container {
+    display: inline-block;
+    flex-grow: 99;
   }
 
   .global-main {
     margin: 0 7rem;
   }
 
+  footer {
+    padding: 0;
+  }
+
   .global-footer {
     width: 100vw;
-    height: 8rem;
+    height: 17rem;
   }
 
   .main-heading,
@@ -201,13 +235,26 @@ table thead tr th {
   .main-heading {
     font-size: 20vw;
     line-height: 1;
-    margin-left: 10vw;
+    margin-left: var(--ml);
     margin-top: 35vh;
   }
 
   .main-description {
     margin-left: 11vw;
     font-size: 2vw;
+  }
+
+  .footer-heading {
+    display: inline-block;
+    font-family: Montserrat, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 900;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    color: rgba(255, 255, 255, 1);
+    margin: 4rem 0 4rem var(--ml);
   }
 }
 
