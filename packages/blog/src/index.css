@@ -172,6 +172,17 @@ table thead tr th {
     background-color: #706de8;
   }
 
+  .global-menu {
+    text-align: right;
+    padding-right: 3.5rem;
+  }
+
+  .global-menu a {
+    display: inline-block;
+    padding: 6rem 3.5rem 0;
+    color: rgba(255, 255, 255, 1);
+  }
+
   .global-main {
     margin: 0 7rem;
   }
@@ -184,16 +195,18 @@ table thead tr th {
   .main-heading,
   .main-description {
     display: inline-block;
-    margin-left: 10vw;
+    color: rgba(255, 255, 255, 1);
   }
 
   .main-heading {
     font-size: 20vw;
     line-height: 1;
-    margin-top: 45vh;
+    margin-left: 10vw;
+    margin-top: 35vh;
   }
 
   .main-description {
+    margin-left: 11vw;
     font-size: 2vw;
   }
 }

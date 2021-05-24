@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { PageProps } from "gatsby"
+import { Link, PageProps } from "gatsby"
 // import { DarkModeToggle } from "./DarkModeToggle"
 // import { SubscriptionForm } from "./SubscriptionForm"
 
@@ -21,6 +21,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">
+        <div className="global-menu">
+          <Link to="/">About me</Link>
+          <Link to="/">Contacts</Link>
+        </div>
         {isRootPath && (
           <>
             <h1 className="main-heading">{title}</h1>
