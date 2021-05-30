@@ -18,7 +18,7 @@ featured: ./step1-example-of-use.png
 
 Today we discuss [Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md)
 
-This is more synthetic example which can hardly be used in production. I didn't know about it beforehand.
+This is more synthetic example which can be hardly used in production. I didn't know about it beforehand.
 
 Anyway let's try to solve it 🚀
 
@@ -44,9 +44,9 @@ We have `never` because at the last step we have nothing to iterate over in a un
 
 So for `never` we should return empty array to fix this problem.
 
-To prevent future errors, we shouldn't use `T extends never` as this distributes union type and returns `false` all the time so it's not what we look for.
+To prevent future errors, we shouldn't use `T extends never` as this distributes union type the same way as for `unknown` and `any`. So it's not what we look for.
 
-So instead we wrap `T` and `never` in a tuple and use `[T] extends [never]`. Let's include it in the solution:
+However, if we wrap `T` and `never` in a tuple and use `[T] extends [never]`, it will actually check for `never`. Let's include it in the solution:
 
 ![Solution](./step5-solution.png)
 
@@ -56,7 +56,7 @@ Looks overloaded but not that hard, right? 😊
 
 Let's recap ⬇️
 
-1. We apply [Distributive Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) to `K` which allows us to include elements into a tuple step by step
+1. We apply [Distributive Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) for `K` which allows us to include elements into a tuple step by step
 2. With `K` we exclude just added element from next steps using `Exclude<T, K>`
 3. Last iteration where there is nothing in union type we return empty tuple. We do this with condition `[T] extends [never]`
 
