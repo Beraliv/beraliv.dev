@@ -54,7 +54,7 @@ Let's first try to iterate over 2 characters at one time if possible. Otherwise 
 
 ![First check 2 characters if possible](./step6-check-2-characters-if-possible.png)
 
-Now the maximum number is almost increased by a factor of two: it's 85 – https://tsplay.dev/w8vM0m.
+Now the maximum number is almost increased by a factor of two: it's 85 – https://tsplay.dev/WoqppN
 
 Can we still do better? Sure, but then we need to have a larger array (100 is not enough). Also, let's iterate over 4 characters at one time:
 
