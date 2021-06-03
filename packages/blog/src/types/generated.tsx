@@ -25,17 +25,6 @@ export type AvifOptions = {
   speed?: Maybe<Scalars["Int"]>
 }
 
-export type Author = {
-  __typename?: "Author"
-  name?: Maybe<Scalars["String"]>
-  summary?: Maybe<Scalars["String"]>
-}
-
-export type AuthorFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>
-  summary?: Maybe<StringQueryOperatorInput>
-}
-
 export type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
   width?: Maybe<Scalars["Int"]>
@@ -378,15 +367,6 @@ export type DuotoneGradient = {
   opacity?: Maybe<Scalars["Int"]>
 }
 
-export type Fields = {
-  __typename?: "Fields"
-  slug?: Maybe<Scalars["String"]>
-}
-
-export type FieldsFilterInput = {
-  slug?: Maybe<StringQueryOperatorInput>
-}
-
 export type File = Node & {
   __typename?: "File"
   sourceInstanceName: Scalars["String"]
@@ -569,8 +549,8 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemark = "childrenMarkdownRemark",
   ChildrenMarkdownRemarkId = "childrenMarkdownRemark___id",
   ChildrenMarkdownRemarkFrontmatterTitle = "childrenMarkdownRemark___frontmatter___title",
-  ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
+  ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterLabels = "childrenMarkdownRemark___frontmatter___labels",
   ChildrenMarkdownRemarkFrontmatterKeywords = "childrenMarkdownRemark___frontmatter___keywords",
   ChildrenMarkdownRemarkFrontmatterCategories = "childrenMarkdownRemark___frontmatter___categories",
@@ -612,10 +592,10 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childrenMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildrenMarkdownRemarkFrontmatterFeaturedId = "childrenMarkdownRemark___frontmatter___featured___id",
   ChildrenMarkdownRemarkFrontmatterFeaturedChildren = "childrenMarkdownRemark___frontmatter___featured___children",
-  ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkExcerpt = "childrenMarkdownRemark___excerpt",
   ChildrenMarkdownRemarkRawMarkdownBody = "childrenMarkdownRemark___rawMarkdownBody",
   ChildrenMarkdownRemarkFileAbsolutePath = "childrenMarkdownRemark___fileAbsolutePath",
+  ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkHtml = "childrenMarkdownRemark___html",
   ChildrenMarkdownRemarkHtmlAst = "childrenMarkdownRemark___htmlAst",
   ChildrenMarkdownRemarkExcerptAst = "childrenMarkdownRemark___excerptAst",
@@ -667,8 +647,8 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkInternalType = "childrenMarkdownRemark___internal___type",
   ChildMarkdownRemarkId = "childMarkdownRemark___id",
   ChildMarkdownRemarkFrontmatterTitle = "childMarkdownRemark___frontmatter___title",
-  ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
+  ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterLabels = "childMarkdownRemark___frontmatter___labels",
   ChildMarkdownRemarkFrontmatterKeywords = "childMarkdownRemark___frontmatter___keywords",
   ChildMarkdownRemarkFrontmatterCategories = "childMarkdownRemark___frontmatter___categories",
@@ -710,10 +690,10 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildMarkdownRemarkFrontmatterFeaturedId = "childMarkdownRemark___frontmatter___featured___id",
   ChildMarkdownRemarkFrontmatterFeaturedChildren = "childMarkdownRemark___frontmatter___featured___children",
-  ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkExcerpt = "childMarkdownRemark___excerpt",
   ChildMarkdownRemarkRawMarkdownBody = "childMarkdownRemark___rawMarkdownBody",
   ChildMarkdownRemarkFileAbsolutePath = "childMarkdownRemark___fileAbsolutePath",
+  ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkHtml = "childMarkdownRemark___html",
   ChildMarkdownRemarkHtmlAst = "childMarkdownRemark___htmlAst",
   ChildMarkdownRemarkExcerptAst = "childMarkdownRemark___excerptAst",
@@ -1061,34 +1041,6 @@ export type FloatQueryOperatorInput = {
   lte?: Maybe<Scalars["Float"]>
   in?: Maybe<Array<Maybe<Scalars["Float"]>>>
   nin?: Maybe<Array<Maybe<Scalars["Float"]>>>
-}
-
-export type Frontmatter = {
-  __typename?: "Frontmatter"
-  title?: Maybe<Scalars["String"]>
-  description?: Maybe<Scalars["String"]>
-  date?: Maybe<Scalars["Date"]>
-  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
-  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
-  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
-  featured?: Maybe<File>
-}
-
-export type FrontmatterDateArgs = {
-  formatString?: Maybe<Scalars["String"]>
-  fromNow?: Maybe<Scalars["Boolean"]>
-  difference?: Maybe<Scalars["String"]>
-  locale?: Maybe<Scalars["String"]>
-}
-
-export type FrontmatterFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>
-  description?: Maybe<StringQueryOperatorInput>
-  date?: Maybe<DateQueryOperatorInput>
-  labels?: Maybe<StringQueryOperatorInput>
-  keywords?: Maybe<StringQueryOperatorInput>
-  categories?: Maybe<StringQueryOperatorInput>
-  featured?: Maybe<FileFilterInput>
 }
 
 export enum ImageCropFocus {
@@ -1604,11 +1556,11 @@ export enum MarkdownHeadingLevels {
 export type MarkdownRemark = Node & {
   __typename?: "MarkdownRemark"
   id: Scalars["ID"]
-  frontmatter?: Maybe<Frontmatter>
-  fields?: Maybe<Fields>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatter>
   excerpt?: Maybe<Scalars["String"]>
   rawMarkdownBody?: Maybe<Scalars["String"]>
   fileAbsolutePath?: Maybe<Scalars["String"]>
+  fields?: Maybe<MarkdownRemarkFields>
   html?: Maybe<Scalars["String"]>
   htmlAst?: Maybe<Scalars["JSON"]>
   excerptAst?: Maybe<Scalars["JSON"]>
@@ -1685,11 +1637,16 @@ export type MarkdownRemarkEdge = {
   previous?: Maybe<MarkdownRemark>
 }
 
+export type MarkdownRemarkFields = {
+  __typename?: "MarkdownRemarkFields"
+  slug?: Maybe<Scalars["String"]>
+}
+
 export enum MarkdownRemarkFieldsEnum {
   Id = "id",
   FrontmatterTitle = "frontmatter___title",
-  FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
+  FrontmatterDescription = "frontmatter___description",
   FrontmatterLabels = "frontmatter___labels",
   FrontmatterKeywords = "frontmatter___keywords",
   FrontmatterCategories = "frontmatter___categories",
@@ -1771,10 +1728,10 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedInternalMediaType = "frontmatter___featured___internal___mediaType",
   FrontmatterFeaturedInternalOwner = "frontmatter___featured___internal___owner",
   FrontmatterFeaturedInternalType = "frontmatter___featured___internal___type",
-  FieldsSlug = "fields___slug",
   Excerpt = "excerpt",
   RawMarkdownBody = "rawMarkdownBody",
   FileAbsolutePath = "fileAbsolutePath",
+  FieldsSlug = "fields___slug",
   Html = "html",
   HtmlAst = "htmlAst",
   ExcerptAst = "excerptAst",
@@ -1874,13 +1831,17 @@ export enum MarkdownRemarkFieldsEnum {
   InternalType = "internal___type",
 }
 
+export type MarkdownRemarkFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>
+}
+
 export type MarkdownRemarkFilterInput = {
   id?: Maybe<StringQueryOperatorInput>
-  frontmatter?: Maybe<FrontmatterFilterInput>
-  fields?: Maybe<FieldsFilterInput>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>
   excerpt?: Maybe<StringQueryOperatorInput>
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>
   html?: Maybe<StringQueryOperatorInput>
   htmlAst?: Maybe<JsonQueryOperatorInput>
   excerptAst?: Maybe<JsonQueryOperatorInput>
@@ -1895,6 +1856,34 @@ export type MarkdownRemarkFilterInput = {
 
 export type MarkdownRemarkFilterListInput = {
   elemMatch?: Maybe<MarkdownRemarkFilterInput>
+}
+
+export type MarkdownRemarkFrontmatter = {
+  __typename?: "MarkdownRemarkFrontmatter"
+  title?: Maybe<Scalars["String"]>
+  date?: Maybe<Scalars["Date"]>
+  description?: Maybe<Scalars["String"]>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
+  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
+  featured?: Maybe<File>
+}
+
+export type MarkdownRemarkFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars["String"]>
+  fromNow?: Maybe<Scalars["Boolean"]>
+  difference?: Maybe<Scalars["String"]>
+  locale?: Maybe<Scalars["String"]>
+}
+
+export type MarkdownRemarkFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>
+  date?: Maybe<DateQueryOperatorInput>
+  description?: Maybe<StringQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
+  categories?: Maybe<StringQueryOperatorInput>
+  featured?: Maybe<FileFilterInput>
 }
 
 export type MarkdownRemarkGroupConnection = {
@@ -2107,6 +2096,7 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
+  flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
@@ -2168,11 +2158,11 @@ export type QueryAllSitePageArgs = {
 
 export type QueryMarkdownRemarkArgs = {
   id?: Maybe<StringQueryOperatorInput>
-  frontmatter?: Maybe<FrontmatterFilterInput>
-  fields?: Maybe<FieldsFilterInput>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>
   excerpt?: Maybe<StringQueryOperatorInput>
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>
   html?: Maybe<StringQueryOperatorInput>
   htmlAst?: Maybe<JsonQueryOperatorInput>
   excerptAst?: Maybe<JsonQueryOperatorInput>
@@ -2255,6 +2245,7 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>
   port?: Maybe<Scalars["Int"]>
   host?: Maybe<Scalars["String"]>
+  flags?: Maybe<SiteFlags>
   polyfill?: Maybe<Scalars["Boolean"]>
   pathPrefix?: Maybe<Scalars["String"]>
   id: Scalars["ID"]
@@ -2493,6 +2484,8 @@ export enum SiteFieldsEnum {
   SiteMetadataSocialTwitter = "siteMetadata___social___twitter",
   Port = "port",
   Host = "host",
+  FlagsFastDev = "flags___FAST_DEV",
+  FlagsPreserveWebpackCache = "flags___PRESERVE_WEBPACK_CACHE",
   Polyfill = "polyfill",
   PathPrefix = "pathPrefix",
   Id = "id",
@@ -2588,12 +2581,24 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
+  flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
+}
+
+export type SiteFlags = {
+  __typename?: "SiteFlags"
+  FAST_DEV?: Maybe<Scalars["Boolean"]>
+  PRESERVE_WEBPACK_CACHE?: Maybe<Scalars["Boolean"]>
+}
+
+export type SiteFlagsFilterInput = {
+  FAST_DEV?: Maybe<BooleanQueryOperatorInput>
+  PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>
 }
 
 export type SiteFunction = Node & {
@@ -3730,31 +3735,42 @@ export type SiteSiteMetadata = {
   __typename?: "SiteSiteMetadata"
   title?: Maybe<Scalars["String"]>
   description?: Maybe<Scalars["String"]>
-  author?: Maybe<Author>
+  author?: Maybe<SiteSiteMetadataAuthor>
   siteUrl?: Maybe<Scalars["String"]>
-  social?: Maybe<Social>
+  social?: Maybe<SiteSiteMetadataSocial>
+}
+
+export type SiteSiteMetadataAuthor = {
+  __typename?: "SiteSiteMetadataAuthor"
+  name?: Maybe<Scalars["String"]>
+  summary?: Maybe<Scalars["String"]>
+}
+
+export type SiteSiteMetadataAuthorFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>
+  summary?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
-  author?: Maybe<AuthorFilterInput>
+  author?: Maybe<SiteSiteMetadataAuthorFilterInput>
   siteUrl?: Maybe<StringQueryOperatorInput>
-  social?: Maybe<SocialFilterInput>
+  social?: Maybe<SiteSiteMetadataSocialFilterInput>
+}
+
+export type SiteSiteMetadataSocial = {
+  __typename?: "SiteSiteMetadataSocial"
+  twitter?: Maybe<Scalars["String"]>
+}
+
+export type SiteSiteMetadataSocialFilterInput = {
+  twitter?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteSortInput = {
   fields?: Maybe<Array<Maybe<SiteFieldsEnum>>>
   order?: Maybe<Array<Maybe<SortOrderEnum>>>
-}
-
-export type Social = {
-  __typename?: "Social"
-  twitter?: Maybe<Scalars["String"]>
-}
-
-export type SocialFilterInput = {
-  twitter?: Maybe<StringQueryOperatorInput>
 }
 
 export enum SortOrderEnum {
@@ -3878,10 +3894,15 @@ export type CreatePageQuery = { __typename?: "Query" } & {
   allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id"> & {
-          fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+          fields?: Maybe<
+            { __typename?: "MarkdownRemarkFields" } & Pick<
+              MarkdownRemarkFields,
+              "slug"
+            >
+          >
           frontmatter?: Maybe<
-            { __typename?: "Frontmatter" } & Pick<
-              Frontmatter,
+            { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+              MarkdownRemarkFrontmatter,
               | "date"
               | "title"
               | "keywords"
@@ -3921,9 +3942,17 @@ export type BioQuery = { __typename?: "Query" } & {
       siteMetadata?: Maybe<
         { __typename?: "SiteSiteMetadata" } & {
           author?: Maybe<
-            { __typename?: "Author" } & Pick<Author, "name" | "summary">
+            { __typename?: "SiteSiteMetadataAuthor" } & Pick<
+              SiteSiteMetadataAuthor,
+              "name" | "summary"
+            >
           >
-          social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
+          social?: Maybe<
+            { __typename?: "SiteSiteMetadataSocial" } & Pick<
+              SiteSiteMetadataSocial,
+              "twitter"
+            >
+          >
         }
       >
     }
@@ -3940,8 +3969,18 @@ export type SeoQuery = { __typename?: "Query" } & {
           SiteSiteMetadata,
           "title" | "description" | "siteUrl"
         > & {
-            author?: Maybe<{ __typename?: "Author" } & Pick<Author, "name">>
-            social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
+            author?: Maybe<
+              { __typename?: "SiteSiteMetadataAuthor" } & Pick<
+                SiteSiteMetadataAuthor,
+                "name"
+              >
+            >
+            social?: Maybe<
+              { __typename?: "SiteSiteMetadataSocial" } & Pick<
+                SiteSiteMetadataSocial,
+                "twitter"
+              >
+            >
           }
       >
     }
@@ -3973,10 +4012,15 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
   allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & {
-        fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+        fields?: Maybe<
+          { __typename?: "MarkdownRemarkFields" } & Pick<
+            MarkdownRemarkFields,
+            "slug"
+          >
+        >
         frontmatter?: Maybe<
-          { __typename?: "Frontmatter" } & Pick<
-            Frontmatter,
+          { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+            MarkdownRemarkFrontmatter,
             "date" | "title" | "description" | "categories"
           > & {
               image?: Maybe<
@@ -4013,8 +4057,8 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
   markdownRemark?: Maybe<
     { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id" | "html"> & {
         frontmatter?: Maybe<
-          { __typename?: "Frontmatter" } & Pick<
-            Frontmatter,
+          { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+            MarkdownRemarkFrontmatter,
             "keywords" | "labels" | "title" | "date" | "description"
           > & {
               image?: Maybe<
@@ -4037,17 +4081,33 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
   >
   previous?: Maybe<
     { __typename?: "MarkdownRemark" } & {
-      fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+      fields?: Maybe<
+        { __typename?: "MarkdownRemarkFields" } & Pick<
+          MarkdownRemarkFields,
+          "slug"
+        >
+      >
       frontmatter?: Maybe<
-        { __typename?: "Frontmatter" } & Pick<Frontmatter, "title">
+        { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+          MarkdownRemarkFrontmatter,
+          "title"
+        >
       >
     }
   >
   next?: Maybe<
     { __typename?: "MarkdownRemark" } & {
-      fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+      fields?: Maybe<
+        { __typename?: "MarkdownRemarkFields" } & Pick<
+          MarkdownRemarkFields,
+          "slug"
+        >
+      >
       frontmatter?: Maybe<
-        { __typename?: "Frontmatter" } & Pick<Frontmatter, "title">
+        { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+          MarkdownRemarkFrontmatter,
+          "title"
+        >
       >
     }
   >
