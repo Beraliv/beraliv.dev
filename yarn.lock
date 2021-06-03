@@ -8018,7 +8018,7 @@ gatsby-cli@^3.6.0:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^2.6.0:
+gatsby-core-utils@^2.4.0, gatsby-core-utils@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.6.0.tgz#4653995f3640b56fe218a20da6458cfe0bffcdfb"
   integrity sha512-d8a/iblc3wIrLEOWTUcoK5uYE2DrvlQmeulx6DK3NY49KD8jet8ozB6T5GA1CftsvowWeO6aaDnoWDbTxIxTRA==
@@ -8120,6 +8120,17 @@ gatsby-plugin-image@1.6.0:
     objectFitPolyfill "^2.3.0"
     prop-types "^15.7.2"
 
+gatsby-plugin-manifest@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-3.4.0.tgz#760a22cf13ccb9660eebf732f312d71b263c9021"
+  integrity sha512-QlsZQFLW5MRptnbod/vYqzO0kYnOq4I3/kow79icgbkqaHn097PP4F1tP4pahG0LVrkhyTfBkH8vLDB1vUSexg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    gatsby-core-utils "^2.4.0"
+    gatsby-plugin-utils "^1.4.0"
+    semver "^7.3.2"
+    sharp "^0.28.0"
+
 gatsby-plugin-page-creator@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-3.6.0.tgz#2f0d6163da25bc7d7564abd5208f051cf496bb8c"
@@ -8210,7 +8221,7 @@ gatsby-plugin-typescript@^3.6.0:
     "@babel/runtime" "^7.12.5"
     babel-plugin-remove-graphql-queries "^3.6.0"
 
-gatsby-plugin-utils@^1.6.0:
+gatsby-plugin-utils@^1.4.0, gatsby-plugin-utils@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-1.6.0.tgz#4cb050009caf0b0add15ecc81d473c438e7115e9"
   integrity sha512-RDHaPBvVE8v9EQvPAUyXZzoDFKo0t0j7qJHDvFQc0PfcX0EmQWXNkFd7PN+DVz8nPfuhLIV6GKS3WQXYbiCLIA==
