@@ -68,19 +68,19 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Alexey Berezin blog`,
-        short_name: `beraliv blog`,
-        lang: `en`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#005b99`,
-        display: `standalone`,
-        icon: `./content/assets/profile-pic.jpg`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Alexey Berezin blog`,
+    //     short_name: `beraliv blog`,
+    //     lang: `en`,
+    //     start_url: `/`,
+    //     background_color: `#ffffff`,
+    //     theme_color: `#005b99`,
+    //     display: `standalone`,
+    //     icon: `./content/assets/profile-pic.jpg`,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
