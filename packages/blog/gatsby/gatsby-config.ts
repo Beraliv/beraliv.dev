@@ -13,6 +13,10 @@ module.exports = {
       twitter: `beraliv`,
     },
   },
+  flags: {
+    FAST_DEV: true,
+    PRESERVE_WEBPACK_CACHE: true
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-google-gtag`,
