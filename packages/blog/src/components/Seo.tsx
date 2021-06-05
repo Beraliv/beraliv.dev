@@ -23,13 +23,14 @@ type SeoMetaProp =
       content: string
     }
 
-type SeoProps = {
+interface SeoProps {
   description?: string
   lang?: string
   meta?: SeoMetaProp[]
   image?: Pick<ImageSharpResize, "src" | "width" | "height">
   title: string
   pathname: string
+  keywords: (string | null | undefined)[] | undefined | null
 }
 
 export const Seo: FunctionComponent<SeoProps> = ({
@@ -39,21 +40,20 @@ export const Seo: FunctionComponent<SeoProps> = ({
   image,
   title,
   pathname,
+  keywords,
 }) => {
   const site = useSeoQuery()
 
   const metaDescription = getSeoDescription({ description, site, pathname })
-  const metaKeywords = site?.siteMetadata?.keywords?.join(",")
   const metaImageSrc =
     site?.siteMetadata?.siteUrl && image?.src
       ? `${site.siteMetadata.siteUrl}${image.src}`
       : undefined
-  const titleTemplate = site?.siteMetadata?.title
-    ? `%s | ${site.siteMetadata.title}`
-    : undefined
+  const metaTitle = site?.siteMetadata?.title
+  const titleTemplate = metaTitle ? `%s | ${metaTitle}` : undefined
   const canonicalLink = getSeoCanonicalLink({ site, pathname })
-  const metaUrl = site?.siteMetadata?.siteUrl
-    ? `${site.siteMetadata.siteUrl}${pathname}`
+  const twitterNickname = site?.siteMetadata?.social?.twitter
+    ? `@${site.siteMetadata.social.twitter}`
     : undefined
 
   const generalMeta: SeoMetaProp[] = filterUndefined([
@@ -67,15 +67,21 @@ export const Seo: FunctionComponent<SeoProps> = ({
           content: metaImageSrc,
         }
       : undefined,
-    metaKeywords
+    keywords
       ? {
           name: "keywords",
-          content: metaKeywords,
+          content: keywords.filter(Boolean).join(","),
         }
       : undefined,
   ])
 
   const openGraphMeta: SeoMetaProp[] = filterUndefined([
+    metaTitle
+      ? {
+          property: `og:site_name`,
+          content: metaTitle,
+        }
+      : undefined,
     {
       property: `og:title`,
       content: title,
@@ -88,10 +94,10 @@ export const Seo: FunctionComponent<SeoProps> = ({
       property: `og:type`,
       content: `website`,
     },
-    metaUrl
+    site?.siteMetadata?.siteUrl
       ? {
           property: `og:url`,
-          content: metaUrl,
+          content: `${site.siteMetadata.siteUrl}${pathname}`,
         }
       : undefined,
     metaImageSrc
@@ -115,10 +121,16 @@ export const Seo: FunctionComponent<SeoProps> = ({
   ])
 
   const twitterMeta: SeoMetaProp[] = filterUndefined([
-    site?.siteMetadata?.social?.twitter
+    twitterNickname
       ? {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          content: twitterNickname,
+        }
+      : undefined,
+    twitterNickname
+      ? {
+          name: `twitter:site`,
+          content: twitterNickname,
         }
       : undefined,
     {

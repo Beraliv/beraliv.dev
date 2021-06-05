@@ -3,6 +3,7 @@ import { graphql, PageProps } from "gatsby"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { NotFoundQuery } from "../types/generated"
+import { DEFAULT_KEYWORDS } from "../constants/DEFAULT_KEYWORDS"
 
 const NotFoundPage = ({ data, location }: PageProps<NotFoundQuery>) => {
   if (!data.site?.siteMetadata?.title) {
@@ -13,7 +14,11 @@ const NotFoundPage = ({ data, location }: PageProps<NotFoundQuery>) => {
 
   return (
     <Layout location={location} title={title}>
-      <Seo title="404: Not Found" pathname={location.pathname} />
+      <Seo
+        title="404: Not Found"
+        pathname={location.pathname}
+        keywords={DEFAULT_KEYWORDS}
+      />
       <h1>404: Not Found</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
     </Layout>

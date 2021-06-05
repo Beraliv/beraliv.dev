@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client"
-import * as Apollo from "@apollo/client"
 export type Maybe<T> = T | null
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K]
@@ -21,17 +19,6 @@ export type Scalars = {
   JSON: any
 }
 
-export type Author = {
-  __typename?: "Author"
-  name?: Maybe<Scalars["String"]>
-  summary?: Maybe<Scalars["String"]>
-}
-
-export type AuthorFilterInput = {
-  name?: Maybe<StringQueryOperatorInput>
-  summary?: Maybe<StringQueryOperatorInput>
-}
-
 export type AvifOptions = {
   quality?: Maybe<Scalars["Int"]>
   lossless?: Maybe<Scalars["Boolean"]>
@@ -41,10 +28,7 @@ export type AvifOptions = {
 export type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
   width?: Maybe<Scalars["Int"]>
-  /**
-   * Force the output format for the low-res preview. Default is to use the same
-   * format as the input. You should rarely need to change this
-   */
+  /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
   toFormat?: Maybe<ImageFormat>
 }
 
@@ -165,10 +149,25 @@ export type DirectoryConnection = {
   nodes: Array<Directory>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<DirectoryGroupConnection>
 }
 
 export type DirectoryConnectionDistinctArgs = {
+  field: DirectoryFieldsEnum
+}
+
+export type DirectoryConnectionMaxArgs = {
+  field: DirectoryFieldsEnum
+}
+
+export type DirectoryConnectionMinArgs = {
+  field: DirectoryFieldsEnum
+}
+
+export type DirectoryConnectionSumArgs = {
   field: DirectoryFieldsEnum
 }
 
@@ -368,15 +367,6 @@ export type DuotoneGradient = {
   opacity?: Maybe<Scalars["Int"]>
 }
 
-export type Fields = {
-  __typename?: "Fields"
-  slug?: Maybe<Scalars["String"]>
-}
-
-export type FieldsFilterInput = {
-  slug?: Maybe<StringQueryOperatorInput>
-}
-
 export type File = Node & {
   __typename?: "File"
   sourceInstanceName: Scalars["String"]
@@ -486,10 +476,25 @@ export type FileConnection = {
   nodes: Array<File>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<FileGroupConnection>
 }
 
 export type FileConnectionDistinctArgs = {
+  field: FileFieldsEnum
+}
+
+export type FileConnectionMaxArgs = {
+  field: FileFieldsEnum
+}
+
+export type FileConnectionMinArgs = {
+  field: FileFieldsEnum
+}
+
+export type FileConnectionSumArgs = {
   field: FileFieldsEnum
 }
 
@@ -544,8 +549,11 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemark = "childrenMarkdownRemark",
   ChildrenMarkdownRemarkId = "childrenMarkdownRemark___id",
   ChildrenMarkdownRemarkFrontmatterTitle = "childrenMarkdownRemark___frontmatter___title",
-  ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
   ChildrenMarkdownRemarkFrontmatterDate = "childrenMarkdownRemark___frontmatter___date",
+  ChildrenMarkdownRemarkFrontmatterDescription = "childrenMarkdownRemark___frontmatter___description",
+  ChildrenMarkdownRemarkFrontmatterLabels = "childrenMarkdownRemark___frontmatter___labels",
+  ChildrenMarkdownRemarkFrontmatterKeywords = "childrenMarkdownRemark___frontmatter___keywords",
+  ChildrenMarkdownRemarkFrontmatterCategories = "childrenMarkdownRemark___frontmatter___categories",
   ChildrenMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childrenMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildrenMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childrenMarkdownRemark___frontmatter___featured___absolutePath",
   ChildrenMarkdownRemarkFrontmatterFeaturedRelativePath = "childrenMarkdownRemark___frontmatter___featured___relativePath",
@@ -584,10 +592,10 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childrenMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildrenMarkdownRemarkFrontmatterFeaturedId = "childrenMarkdownRemark___frontmatter___featured___id",
   ChildrenMarkdownRemarkFrontmatterFeaturedChildren = "childrenMarkdownRemark___frontmatter___featured___children",
-  ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkExcerpt = "childrenMarkdownRemark___excerpt",
   ChildrenMarkdownRemarkRawMarkdownBody = "childrenMarkdownRemark___rawMarkdownBody",
   ChildrenMarkdownRemarkFileAbsolutePath = "childrenMarkdownRemark___fileAbsolutePath",
+  ChildrenMarkdownRemarkFieldsSlug = "childrenMarkdownRemark___fields___slug",
   ChildrenMarkdownRemarkHtml = "childrenMarkdownRemark___html",
   ChildrenMarkdownRemarkHtmlAst = "childrenMarkdownRemark___htmlAst",
   ChildrenMarkdownRemarkExcerptAst = "childrenMarkdownRemark___excerptAst",
@@ -639,8 +647,11 @@ export enum FileFieldsEnum {
   ChildrenMarkdownRemarkInternalType = "childrenMarkdownRemark___internal___type",
   ChildMarkdownRemarkId = "childMarkdownRemark___id",
   ChildMarkdownRemarkFrontmatterTitle = "childMarkdownRemark___frontmatter___title",
-  ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
   ChildMarkdownRemarkFrontmatterDate = "childMarkdownRemark___frontmatter___date",
+  ChildMarkdownRemarkFrontmatterDescription = "childMarkdownRemark___frontmatter___description",
+  ChildMarkdownRemarkFrontmatterLabels = "childMarkdownRemark___frontmatter___labels",
+  ChildMarkdownRemarkFrontmatterKeywords = "childMarkdownRemark___frontmatter___keywords",
+  ChildMarkdownRemarkFrontmatterCategories = "childMarkdownRemark___frontmatter___categories",
   ChildMarkdownRemarkFrontmatterFeaturedSourceInstanceName = "childMarkdownRemark___frontmatter___featured___sourceInstanceName",
   ChildMarkdownRemarkFrontmatterFeaturedAbsolutePath = "childMarkdownRemark___frontmatter___featured___absolutePath",
   ChildMarkdownRemarkFrontmatterFeaturedRelativePath = "childMarkdownRemark___frontmatter___featured___relativePath",
@@ -679,10 +690,10 @@ export enum FileFieldsEnum {
   ChildMarkdownRemarkFrontmatterFeaturedChildrenImageSharp = "childMarkdownRemark___frontmatter___featured___childrenImageSharp",
   ChildMarkdownRemarkFrontmatterFeaturedId = "childMarkdownRemark___frontmatter___featured___id",
   ChildMarkdownRemarkFrontmatterFeaturedChildren = "childMarkdownRemark___frontmatter___featured___children",
-  ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkExcerpt = "childMarkdownRemark___excerpt",
   ChildMarkdownRemarkRawMarkdownBody = "childMarkdownRemark___rawMarkdownBody",
   ChildMarkdownRemarkFileAbsolutePath = "childMarkdownRemark___fileAbsolutePath",
+  ChildMarkdownRemarkFieldsSlug = "childMarkdownRemark___fields___slug",
   ChildMarkdownRemarkHtml = "childMarkdownRemark___html",
   ChildMarkdownRemarkHtmlAst = "childMarkdownRemark___htmlAst",
   ChildMarkdownRemarkExcerptAst = "childMarkdownRemark___excerptAst",
@@ -743,16 +754,6 @@ export enum FileFieldsEnum {
   ChildrenImageSharpFixedSrcWebp = "childrenImageSharp___fixed___srcWebp",
   ChildrenImageSharpFixedSrcSetWebp = "childrenImageSharp___fixed___srcSetWebp",
   ChildrenImageSharpFixedOriginalName = "childrenImageSharp___fixed___originalName",
-  ChildrenImageSharpResolutionsBase64 = "childrenImageSharp___resolutions___base64",
-  ChildrenImageSharpResolutionsTracedSvg = "childrenImageSharp___resolutions___tracedSVG",
-  ChildrenImageSharpResolutionsAspectRatio = "childrenImageSharp___resolutions___aspectRatio",
-  ChildrenImageSharpResolutionsWidth = "childrenImageSharp___resolutions___width",
-  ChildrenImageSharpResolutionsHeight = "childrenImageSharp___resolutions___height",
-  ChildrenImageSharpResolutionsSrc = "childrenImageSharp___resolutions___src",
-  ChildrenImageSharpResolutionsSrcSet = "childrenImageSharp___resolutions___srcSet",
-  ChildrenImageSharpResolutionsSrcWebp = "childrenImageSharp___resolutions___srcWebp",
-  ChildrenImageSharpResolutionsSrcSetWebp = "childrenImageSharp___resolutions___srcSetWebp",
-  ChildrenImageSharpResolutionsOriginalName = "childrenImageSharp___resolutions___originalName",
   ChildrenImageSharpFluidBase64 = "childrenImageSharp___fluid___base64",
   ChildrenImageSharpFluidTracedSvg = "childrenImageSharp___fluid___tracedSVG",
   ChildrenImageSharpFluidAspectRatio = "childrenImageSharp___fluid___aspectRatio",
@@ -765,18 +766,6 @@ export enum FileFieldsEnum {
   ChildrenImageSharpFluidOriginalName = "childrenImageSharp___fluid___originalName",
   ChildrenImageSharpFluidPresentationWidth = "childrenImageSharp___fluid___presentationWidth",
   ChildrenImageSharpFluidPresentationHeight = "childrenImageSharp___fluid___presentationHeight",
-  ChildrenImageSharpSizesBase64 = "childrenImageSharp___sizes___base64",
-  ChildrenImageSharpSizesTracedSvg = "childrenImageSharp___sizes___tracedSVG",
-  ChildrenImageSharpSizesAspectRatio = "childrenImageSharp___sizes___aspectRatio",
-  ChildrenImageSharpSizesSrc = "childrenImageSharp___sizes___src",
-  ChildrenImageSharpSizesSrcSet = "childrenImageSharp___sizes___srcSet",
-  ChildrenImageSharpSizesSrcWebp = "childrenImageSharp___sizes___srcWebp",
-  ChildrenImageSharpSizesSrcSetWebp = "childrenImageSharp___sizes___srcSetWebp",
-  ChildrenImageSharpSizesSizes = "childrenImageSharp___sizes___sizes",
-  ChildrenImageSharpSizesOriginalImg = "childrenImageSharp___sizes___originalImg",
-  ChildrenImageSharpSizesOriginalName = "childrenImageSharp___sizes___originalName",
-  ChildrenImageSharpSizesPresentationWidth = "childrenImageSharp___sizes___presentationWidth",
-  ChildrenImageSharpSizesPresentationHeight = "childrenImageSharp___sizes___presentationHeight",
   ChildrenImageSharpGatsbyImageData = "childrenImageSharp___gatsbyImageData",
   ChildrenImageSharpOriginalWidth = "childrenImageSharp___original___width",
   ChildrenImageSharpOriginalHeight = "childrenImageSharp___original___height",
@@ -835,16 +824,6 @@ export enum FileFieldsEnum {
   ChildImageSharpFixedSrcWebp = "childImageSharp___fixed___srcWebp",
   ChildImageSharpFixedSrcSetWebp = "childImageSharp___fixed___srcSetWebp",
   ChildImageSharpFixedOriginalName = "childImageSharp___fixed___originalName",
-  ChildImageSharpResolutionsBase64 = "childImageSharp___resolutions___base64",
-  ChildImageSharpResolutionsTracedSvg = "childImageSharp___resolutions___tracedSVG",
-  ChildImageSharpResolutionsAspectRatio = "childImageSharp___resolutions___aspectRatio",
-  ChildImageSharpResolutionsWidth = "childImageSharp___resolutions___width",
-  ChildImageSharpResolutionsHeight = "childImageSharp___resolutions___height",
-  ChildImageSharpResolutionsSrc = "childImageSharp___resolutions___src",
-  ChildImageSharpResolutionsSrcSet = "childImageSharp___resolutions___srcSet",
-  ChildImageSharpResolutionsSrcWebp = "childImageSharp___resolutions___srcWebp",
-  ChildImageSharpResolutionsSrcSetWebp = "childImageSharp___resolutions___srcSetWebp",
-  ChildImageSharpResolutionsOriginalName = "childImageSharp___resolutions___originalName",
   ChildImageSharpFluidBase64 = "childImageSharp___fluid___base64",
   ChildImageSharpFluidTracedSvg = "childImageSharp___fluid___tracedSVG",
   ChildImageSharpFluidAspectRatio = "childImageSharp___fluid___aspectRatio",
@@ -857,18 +836,6 @@ export enum FileFieldsEnum {
   ChildImageSharpFluidOriginalName = "childImageSharp___fluid___originalName",
   ChildImageSharpFluidPresentationWidth = "childImageSharp___fluid___presentationWidth",
   ChildImageSharpFluidPresentationHeight = "childImageSharp___fluid___presentationHeight",
-  ChildImageSharpSizesBase64 = "childImageSharp___sizes___base64",
-  ChildImageSharpSizesTracedSvg = "childImageSharp___sizes___tracedSVG",
-  ChildImageSharpSizesAspectRatio = "childImageSharp___sizes___aspectRatio",
-  ChildImageSharpSizesSrc = "childImageSharp___sizes___src",
-  ChildImageSharpSizesSrcSet = "childImageSharp___sizes___srcSet",
-  ChildImageSharpSizesSrcWebp = "childImageSharp___sizes___srcWebp",
-  ChildImageSharpSizesSrcSetWebp = "childImageSharp___sizes___srcSetWebp",
-  ChildImageSharpSizesSizes = "childImageSharp___sizes___sizes",
-  ChildImageSharpSizesOriginalImg = "childImageSharp___sizes___originalImg",
-  ChildImageSharpSizesOriginalName = "childImageSharp___sizes___originalName",
-  ChildImageSharpSizesPresentationWidth = "childImageSharp___sizes___presentationWidth",
-  ChildImageSharpSizesPresentationHeight = "childImageSharp___sizes___presentationHeight",
   ChildImageSharpGatsbyImageData = "childImageSharp___gatsbyImageData",
   ChildImageSharpOriginalWidth = "childImageSharp___original___width",
   ChildImageSharpOriginalHeight = "childImageSharp___original___height",
@@ -1076,28 +1043,6 @@ export type FloatQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars["Float"]>>>
 }
 
-export type Frontmatter = {
-  __typename?: "Frontmatter"
-  title?: Maybe<Scalars["String"]>
-  description?: Maybe<Scalars["String"]>
-  date?: Maybe<Scalars["Date"]>
-  featured?: Maybe<File>
-}
-
-export type FrontmatterDateArgs = {
-  formatString?: Maybe<Scalars["String"]>
-  fromNow?: Maybe<Scalars["Boolean"]>
-  difference?: Maybe<Scalars["String"]>
-  locale?: Maybe<Scalars["String"]>
-}
-
-export type FrontmatterFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>
-  description?: Maybe<StringQueryOperatorInput>
-  date?: Maybe<DateQueryOperatorInput>
-  featured?: Maybe<FileFilterInput>
-}
-
 export enum ImageCropFocus {
   Center = "CENTER",
   North = "NORTH",
@@ -1145,11 +1090,7 @@ export enum ImagePlaceholder {
 export type ImageSharp = Node & {
   __typename?: "ImageSharp"
   fixed?: Maybe<ImageSharpFixed>
-  /** @deprecated Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link */
-  resolutions?: Maybe<ImageSharpResolutions>
   fluid?: Maybe<ImageSharpFluid>
-  /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
-  sizes?: Maybe<ImageSharpSizes>
   gatsbyImageData: Scalars["JSON"]
   original?: Maybe<ImageSharpOriginal>
   resize?: Maybe<ImageSharpResize>
@@ -1181,53 +1122,7 @@ export type ImageSharpFixedArgs = {
   trim?: Maybe<Scalars["Float"]>
 }
 
-export type ImageSharpResolutionsArgs = {
-  width?: Maybe<Scalars["Int"]>
-  height?: Maybe<Scalars["Int"]>
-  base64Width?: Maybe<Scalars["Int"]>
-  jpegProgressive?: Maybe<Scalars["Boolean"]>
-  pngCompressionSpeed?: Maybe<Scalars["Int"]>
-  grayscale?: Maybe<Scalars["Boolean"]>
-  duotone?: Maybe<DuotoneGradient>
-  traceSVG?: Maybe<Potrace>
-  quality?: Maybe<Scalars["Int"]>
-  jpegQuality?: Maybe<Scalars["Int"]>
-  pngQuality?: Maybe<Scalars["Int"]>
-  webpQuality?: Maybe<Scalars["Int"]>
-  toFormat?: Maybe<ImageFormat>
-  toFormatBase64?: Maybe<ImageFormat>
-  cropFocus?: Maybe<ImageCropFocus>
-  fit?: Maybe<ImageFit>
-  background?: Maybe<Scalars["String"]>
-  rotate?: Maybe<Scalars["Int"]>
-  trim?: Maybe<Scalars["Float"]>
-}
-
 export type ImageSharpFluidArgs = {
-  maxWidth?: Maybe<Scalars["Int"]>
-  maxHeight?: Maybe<Scalars["Int"]>
-  base64Width?: Maybe<Scalars["Int"]>
-  grayscale?: Maybe<Scalars["Boolean"]>
-  jpegProgressive?: Maybe<Scalars["Boolean"]>
-  pngCompressionSpeed?: Maybe<Scalars["Int"]>
-  duotone?: Maybe<DuotoneGradient>
-  traceSVG?: Maybe<Potrace>
-  quality?: Maybe<Scalars["Int"]>
-  jpegQuality?: Maybe<Scalars["Int"]>
-  pngQuality?: Maybe<Scalars["Int"]>
-  webpQuality?: Maybe<Scalars["Int"]>
-  toFormat?: Maybe<ImageFormat>
-  toFormatBase64?: Maybe<ImageFormat>
-  cropFocus?: Maybe<ImageCropFocus>
-  fit?: Maybe<ImageFit>
-  background?: Maybe<Scalars["String"]>
-  rotate?: Maybe<Scalars["Int"]>
-  trim?: Maybe<Scalars["Float"]>
-  sizes?: Maybe<Scalars["String"]>
-  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars["Int"]>>>
-}
-
-export type ImageSharpSizesArgs = {
   maxWidth?: Maybe<Scalars["Int"]>
   maxHeight?: Maybe<Scalars["Int"]>
   base64Width?: Maybe<Scalars["Int"]>
@@ -1301,10 +1196,25 @@ export type ImageSharpConnection = {
   nodes: Array<ImageSharp>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<ImageSharpGroupConnection>
 }
 
 export type ImageSharpConnectionDistinctArgs = {
+  field: ImageSharpFieldsEnum
+}
+
+export type ImageSharpConnectionMaxArgs = {
+  field: ImageSharpFieldsEnum
+}
+
+export type ImageSharpConnectionMinArgs = {
+  field: ImageSharpFieldsEnum
+}
+
+export type ImageSharpConnectionSumArgs = {
   field: ImageSharpFieldsEnum
 }
 
@@ -1332,16 +1242,6 @@ export enum ImageSharpFieldsEnum {
   FixedSrcWebp = "fixed___srcWebp",
   FixedSrcSetWebp = "fixed___srcSetWebp",
   FixedOriginalName = "fixed___originalName",
-  ResolutionsBase64 = "resolutions___base64",
-  ResolutionsTracedSvg = "resolutions___tracedSVG",
-  ResolutionsAspectRatio = "resolutions___aspectRatio",
-  ResolutionsWidth = "resolutions___width",
-  ResolutionsHeight = "resolutions___height",
-  ResolutionsSrc = "resolutions___src",
-  ResolutionsSrcSet = "resolutions___srcSet",
-  ResolutionsSrcWebp = "resolutions___srcWebp",
-  ResolutionsSrcSetWebp = "resolutions___srcSetWebp",
-  ResolutionsOriginalName = "resolutions___originalName",
   FluidBase64 = "fluid___base64",
   FluidTracedSvg = "fluid___tracedSVG",
   FluidAspectRatio = "fluid___aspectRatio",
@@ -1354,18 +1254,6 @@ export enum ImageSharpFieldsEnum {
   FluidOriginalName = "fluid___originalName",
   FluidPresentationWidth = "fluid___presentationWidth",
   FluidPresentationHeight = "fluid___presentationHeight",
-  SizesBase64 = "sizes___base64",
-  SizesTracedSvg = "sizes___tracedSVG",
-  SizesAspectRatio = "sizes___aspectRatio",
-  SizesSrc = "sizes___src",
-  SizesSrcSet = "sizes___srcSet",
-  SizesSrcWebp = "sizes___srcWebp",
-  SizesSrcSetWebp = "sizes___srcSetWebp",
-  SizesSizes = "sizes___sizes",
-  SizesOriginalImg = "sizes___originalImg",
-  SizesOriginalName = "sizes___originalName",
-  SizesPresentationWidth = "sizes___presentationWidth",
-  SizesPresentationHeight = "sizes___presentationHeight",
   GatsbyImageData = "gatsbyImageData",
   OriginalWidth = "original___width",
   OriginalHeight = "original___height",
@@ -1466,9 +1354,7 @@ export enum ImageSharpFieldsEnum {
 
 export type ImageSharpFilterInput = {
   fixed?: Maybe<ImageSharpFixedFilterInput>
-  resolutions?: Maybe<ImageSharpResolutionsFilterInput>
   fluid?: Maybe<ImageSharpFluidFilterInput>
-  sizes?: Maybe<ImageSharpSizesFilterInput>
   gatsbyImageData?: Maybe<JsonQueryOperatorInput>
   original?: Maybe<ImageSharpOriginalFilterInput>
   resize?: Maybe<ImageSharpResizeFilterInput>
@@ -1582,67 +1468,20 @@ export type ImageSharpResizeFilterInput = {
   originalName?: Maybe<StringQueryOperatorInput>
 }
 
-export type ImageSharpResolutions = {
-  __typename?: "ImageSharpResolutions"
-  base64?: Maybe<Scalars["String"]>
-  tracedSVG?: Maybe<Scalars["String"]>
-  aspectRatio?: Maybe<Scalars["Float"]>
-  width: Scalars["Float"]
-  height: Scalars["Float"]
-  src: Scalars["String"]
-  srcSet: Scalars["String"]
-  srcWebp?: Maybe<Scalars["String"]>
-  srcSetWebp?: Maybe<Scalars["String"]>
-  originalName?: Maybe<Scalars["String"]>
-}
-
-export type ImageSharpResolutionsFilterInput = {
-  base64?: Maybe<StringQueryOperatorInput>
-  tracedSVG?: Maybe<StringQueryOperatorInput>
-  aspectRatio?: Maybe<FloatQueryOperatorInput>
-  width?: Maybe<FloatQueryOperatorInput>
-  height?: Maybe<FloatQueryOperatorInput>
-  src?: Maybe<StringQueryOperatorInput>
-  srcSet?: Maybe<StringQueryOperatorInput>
-  srcWebp?: Maybe<StringQueryOperatorInput>
-  srcSetWebp?: Maybe<StringQueryOperatorInput>
-  originalName?: Maybe<StringQueryOperatorInput>
-}
-
-export type ImageSharpSizes = {
-  __typename?: "ImageSharpSizes"
-  base64?: Maybe<Scalars["String"]>
-  tracedSVG?: Maybe<Scalars["String"]>
-  aspectRatio: Scalars["Float"]
-  src: Scalars["String"]
-  srcSet: Scalars["String"]
-  srcWebp?: Maybe<Scalars["String"]>
-  srcSetWebp?: Maybe<Scalars["String"]>
-  sizes: Scalars["String"]
-  originalImg?: Maybe<Scalars["String"]>
-  originalName?: Maybe<Scalars["String"]>
-  presentationWidth: Scalars["Int"]
-  presentationHeight: Scalars["Int"]
-}
-
-export type ImageSharpSizesFilterInput = {
-  base64?: Maybe<StringQueryOperatorInput>
-  tracedSVG?: Maybe<StringQueryOperatorInput>
-  aspectRatio?: Maybe<FloatQueryOperatorInput>
-  src?: Maybe<StringQueryOperatorInput>
-  srcSet?: Maybe<StringQueryOperatorInput>
-  srcWebp?: Maybe<StringQueryOperatorInput>
-  srcSetWebp?: Maybe<StringQueryOperatorInput>
-  sizes?: Maybe<StringQueryOperatorInput>
-  originalImg?: Maybe<StringQueryOperatorInput>
-  originalName?: Maybe<StringQueryOperatorInput>
-  presentationWidth?: Maybe<IntQueryOperatorInput>
-  presentationHeight?: Maybe<IntQueryOperatorInput>
-}
-
 export type ImageSharpSortInput = {
   fields?: Maybe<Array<Maybe<ImageSharpFieldsEnum>>>
   order?: Maybe<Array<Maybe<SortOrderEnum>>>
+}
+
+export type IntQueryOperatorInput = {
+  eq?: Maybe<Scalars["Int"]>
+  ne?: Maybe<Scalars["Int"]>
+  gt?: Maybe<Scalars["Int"]>
+  gte?: Maybe<Scalars["Int"]>
+  lt?: Maybe<Scalars["Int"]>
+  lte?: Maybe<Scalars["Int"]>
+  in?: Maybe<Array<Maybe<Scalars["Int"]>>>
+  nin?: Maybe<Array<Maybe<Scalars["Int"]>>>
 }
 
 export type Internal = {
@@ -1666,17 +1505,6 @@ export type InternalFilterInput = {
   mediaType?: Maybe<StringQueryOperatorInput>
   owner?: Maybe<StringQueryOperatorInput>
   type?: Maybe<StringQueryOperatorInput>
-}
-
-export type IntQueryOperatorInput = {
-  eq?: Maybe<Scalars["Int"]>
-  ne?: Maybe<Scalars["Int"]>
-  gt?: Maybe<Scalars["Int"]>
-  gte?: Maybe<Scalars["Int"]>
-  lt?: Maybe<Scalars["Int"]>
-  lte?: Maybe<Scalars["Int"]>
-  in?: Maybe<Array<Maybe<Scalars["Int"]>>>
-  nin?: Maybe<Array<Maybe<Scalars["Int"]>>>
 }
 
 export type JpgOptions = {
@@ -1728,11 +1556,11 @@ export enum MarkdownHeadingLevels {
 export type MarkdownRemark = Node & {
   __typename?: "MarkdownRemark"
   id: Scalars["ID"]
-  frontmatter?: Maybe<Frontmatter>
-  fields?: Maybe<Fields>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatter>
   excerpt?: Maybe<Scalars["String"]>
   rawMarkdownBody?: Maybe<Scalars["String"]>
   fileAbsolutePath?: Maybe<Scalars["String"]>
+  fields?: Maybe<MarkdownRemarkFields>
   html?: Maybe<Scalars["String"]>
   htmlAst?: Maybe<Scalars["JSON"]>
   excerptAst?: Maybe<Scalars["JSON"]>
@@ -1774,10 +1602,25 @@ export type MarkdownRemarkConnection = {
   nodes: Array<MarkdownRemark>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<MarkdownRemarkGroupConnection>
 }
 
 export type MarkdownRemarkConnectionDistinctArgs = {
+  field: MarkdownRemarkFieldsEnum
+}
+
+export type MarkdownRemarkConnectionMaxArgs = {
+  field: MarkdownRemarkFieldsEnum
+}
+
+export type MarkdownRemarkConnectionMinArgs = {
+  field: MarkdownRemarkFieldsEnum
+}
+
+export type MarkdownRemarkConnectionSumArgs = {
   field: MarkdownRemarkFieldsEnum
 }
 
@@ -1794,11 +1637,19 @@ export type MarkdownRemarkEdge = {
   previous?: Maybe<MarkdownRemark>
 }
 
+export type MarkdownRemarkFields = {
+  __typename?: "MarkdownRemarkFields"
+  slug?: Maybe<Scalars["String"]>
+}
+
 export enum MarkdownRemarkFieldsEnum {
   Id = "id",
   FrontmatterTitle = "frontmatter___title",
-  FrontmatterDescription = "frontmatter___description",
   FrontmatterDate = "frontmatter___date",
+  FrontmatterDescription = "frontmatter___description",
+  FrontmatterLabels = "frontmatter___labels",
+  FrontmatterKeywords = "frontmatter___keywords",
+  FrontmatterCategories = "frontmatter___categories",
   FrontmatterFeaturedSourceInstanceName = "frontmatter___featured___sourceInstanceName",
   FrontmatterFeaturedAbsolutePath = "frontmatter___featured___absolutePath",
   FrontmatterFeaturedRelativePath = "frontmatter___featured___relativePath",
@@ -1877,10 +1728,10 @@ export enum MarkdownRemarkFieldsEnum {
   FrontmatterFeaturedInternalMediaType = "frontmatter___featured___internal___mediaType",
   FrontmatterFeaturedInternalOwner = "frontmatter___featured___internal___owner",
   FrontmatterFeaturedInternalType = "frontmatter___featured___internal___type",
-  FieldsSlug = "fields___slug",
   Excerpt = "excerpt",
   RawMarkdownBody = "rawMarkdownBody",
   FileAbsolutePath = "fileAbsolutePath",
+  FieldsSlug = "fields___slug",
   Html = "html",
   HtmlAst = "htmlAst",
   ExcerptAst = "excerptAst",
@@ -1980,13 +1831,17 @@ export enum MarkdownRemarkFieldsEnum {
   InternalType = "internal___type",
 }
 
+export type MarkdownRemarkFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>
+}
+
 export type MarkdownRemarkFilterInput = {
   id?: Maybe<StringQueryOperatorInput>
-  frontmatter?: Maybe<FrontmatterFilterInput>
-  fields?: Maybe<FieldsFilterInput>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>
   excerpt?: Maybe<StringQueryOperatorInput>
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>
   html?: Maybe<StringQueryOperatorInput>
   htmlAst?: Maybe<JsonQueryOperatorInput>
   excerptAst?: Maybe<JsonQueryOperatorInput>
@@ -2001,6 +1856,34 @@ export type MarkdownRemarkFilterInput = {
 
 export type MarkdownRemarkFilterListInput = {
   elemMatch?: Maybe<MarkdownRemarkFilterInput>
+}
+
+export type MarkdownRemarkFrontmatter = {
+  __typename?: "MarkdownRemarkFrontmatter"
+  title?: Maybe<Scalars["String"]>
+  date?: Maybe<Scalars["Date"]>
+  description?: Maybe<Scalars["String"]>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
+  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
+  featured?: Maybe<File>
+}
+
+export type MarkdownRemarkFrontmatterDateArgs = {
+  formatString?: Maybe<Scalars["String"]>
+  fromNow?: Maybe<Scalars["Boolean"]>
+  difference?: Maybe<Scalars["String"]>
+  locale?: Maybe<Scalars["String"]>
+}
+
+export type MarkdownRemarkFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>
+  date?: Maybe<DateQueryOperatorInput>
+  description?: Maybe<StringQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
+  categories?: Maybe<StringQueryOperatorInput>
+  featured?: Maybe<FileFilterInput>
 }
 
 export type MarkdownRemarkGroupConnection = {
@@ -2050,6 +1933,11 @@ export type NodeFilterListInput = {
   elemMatch?: Maybe<NodeFilterInput>
 }
 
+export type PngOptions = {
+  quality?: Maybe<Scalars["Int"]>
+  compressionSpeed?: Maybe<Scalars["Int"]>
+}
+
 export type PageInfo = {
   __typename?: "PageInfo"
   currentPage: Scalars["Int"]
@@ -2059,11 +1947,6 @@ export type PageInfo = {
   pageCount: Scalars["Int"]
   perPage?: Maybe<Scalars["Int"]>
   totalCount: Scalars["Int"]
-}
-
-export type PngOptions = {
-  quality?: Maybe<Scalars["Int"]>
-  compressionSpeed?: Maybe<Scalars["Int"]>
 }
 
 export type Potrace = {
@@ -2095,6 +1978,8 @@ export type Query = {
   allDirectory: DirectoryConnection
   site?: Maybe<Site>
   allSite: SiteConnection
+  siteFunction?: Maybe<SiteFunction>
+  allSiteFunction: SiteFunctionConnection
   sitePage?: Maybe<SitePage>
   allSitePage: SitePageConnection
   markdownRemark?: Maybe<MarkdownRemark>
@@ -2211,6 +2096,7 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
+  flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
@@ -2222,6 +2108,27 @@ export type QuerySiteArgs = {
 export type QueryAllSiteArgs = {
   filter?: Maybe<SiteFilterInput>
   sort?: Maybe<SiteSortInput>
+  skip?: Maybe<Scalars["Int"]>
+  limit?: Maybe<Scalars["Int"]>
+}
+
+export type QuerySiteFunctionArgs = {
+  functionRoute?: Maybe<StringQueryOperatorInput>
+  pluginName?: Maybe<StringQueryOperatorInput>
+  originalAbsoluteFilePath?: Maybe<StringQueryOperatorInput>
+  originalRelativeFilePath?: Maybe<StringQueryOperatorInput>
+  relativeCompiledFilePath?: Maybe<StringQueryOperatorInput>
+  absoluteCompiledFilePath?: Maybe<StringQueryOperatorInput>
+  matchPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type QueryAllSiteFunctionArgs = {
+  filter?: Maybe<SiteFunctionFilterInput>
+  sort?: Maybe<SiteFunctionSortInput>
   skip?: Maybe<Scalars["Int"]>
   limit?: Maybe<Scalars["Int"]>
 }
@@ -2240,7 +2147,6 @@ export type QuerySitePageArgs = {
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
-  componentPath?: Maybe<StringQueryOperatorInput>
 }
 
 export type QueryAllSitePageArgs = {
@@ -2252,11 +2158,11 @@ export type QueryAllSitePageArgs = {
 
 export type QueryMarkdownRemarkArgs = {
   id?: Maybe<StringQueryOperatorInput>
-  frontmatter?: Maybe<FrontmatterFilterInput>
-  fields?: Maybe<FieldsFilterInput>
+  frontmatter?: Maybe<MarkdownRemarkFrontmatterFilterInput>
   excerpt?: Maybe<StringQueryOperatorInput>
   rawMarkdownBody?: Maybe<StringQueryOperatorInput>
   fileAbsolutePath?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<MarkdownRemarkFieldsFilterInput>
   html?: Maybe<StringQueryOperatorInput>
   htmlAst?: Maybe<JsonQueryOperatorInput>
   excerptAst?: Maybe<JsonQueryOperatorInput>
@@ -2278,9 +2184,7 @@ export type QueryAllMarkdownRemarkArgs = {
 
 export type QueryImageSharpArgs = {
   fixed?: Maybe<ImageSharpFixedFilterInput>
-  resolutions?: Maybe<ImageSharpResolutionsFilterInput>
   fluid?: Maybe<ImageSharpFluidFilterInput>
-  sizes?: Maybe<ImageSharpSizesFilterInput>
   gatsbyImageData?: Maybe<JsonQueryOperatorInput>
   original?: Maybe<ImageSharpOriginalFilterInput>
   resize?: Maybe<ImageSharpResizeFilterInput>
@@ -2341,6 +2245,7 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>
   port?: Maybe<Scalars["Int"]>
   host?: Maybe<Scalars["String"]>
+  flags?: Maybe<SiteFlags>
   polyfill?: Maybe<Scalars["Boolean"]>
   pathPrefix?: Maybe<Scalars["String"]>
   id: Scalars["ID"]
@@ -2379,10 +2284,25 @@ export type SiteBuildMetadataConnection = {
   nodes: Array<SiteBuildMetadata>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<SiteBuildMetadataGroupConnection>
 }
 
 export type SiteBuildMetadataConnectionDistinctArgs = {
+  field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataConnectionMaxArgs = {
+  field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataConnectionMinArgs = {
+  field: SiteBuildMetadataFieldsEnum
+}
+
+export type SiteBuildMetadataConnectionSumArgs = {
   field: SiteBuildMetadataFieldsEnum
 }
 
@@ -2519,10 +2439,25 @@ export type SiteConnection = {
   nodes: Array<Site>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<SiteGroupConnection>
 }
 
 export type SiteConnectionDistinctArgs = {
+  field: SiteFieldsEnum
+}
+
+export type SiteConnectionMaxArgs = {
+  field: SiteFieldsEnum
+}
+
+export type SiteConnectionMinArgs = {
+  field: SiteFieldsEnum
+}
+
+export type SiteConnectionSumArgs = {
   field: SiteFieldsEnum
 }
 
@@ -2547,9 +2482,10 @@ export enum SiteFieldsEnum {
   SiteMetadataAuthorSummary = "siteMetadata___author___summary",
   SiteMetadataSiteUrl = "siteMetadata___siteUrl",
   SiteMetadataSocialTwitter = "siteMetadata___social___twitter",
-  SiteMetadataKeywords = "siteMetadata___keywords",
   Port = "port",
   Host = "host",
+  FlagsFastDev = "flags___FAST_DEV",
+  FlagsPreserveWebpackCache = "flags___PRESERVE_WEBPACK_CACHE",
   Polyfill = "polyfill",
   PathPrefix = "pathPrefix",
   Id = "id",
@@ -2645,12 +2581,206 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>
   port?: Maybe<IntQueryOperatorInput>
   host?: Maybe<StringQueryOperatorInput>
+  flags?: Maybe<SiteFlagsFilterInput>
   polyfill?: Maybe<BooleanQueryOperatorInput>
   pathPrefix?: Maybe<StringQueryOperatorInput>
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
+}
+
+export type SiteFlags = {
+  __typename?: "SiteFlags"
+  FAST_DEV?: Maybe<Scalars["Boolean"]>
+  PRESERVE_WEBPACK_CACHE?: Maybe<Scalars["Boolean"]>
+}
+
+export type SiteFlagsFilterInput = {
+  FAST_DEV?: Maybe<BooleanQueryOperatorInput>
+  PRESERVE_WEBPACK_CACHE?: Maybe<BooleanQueryOperatorInput>
+}
+
+export type SiteFunction = Node & {
+  __typename?: "SiteFunction"
+  functionRoute: Scalars["String"]
+  pluginName: Scalars["String"]
+  originalAbsoluteFilePath: Scalars["String"]
+  originalRelativeFilePath: Scalars["String"]
+  relativeCompiledFilePath: Scalars["String"]
+  absoluteCompiledFilePath: Scalars["String"]
+  matchPath?: Maybe<Scalars["String"]>
+  id: Scalars["ID"]
+  parent?: Maybe<Node>
+  children: Array<Node>
+  internal: Internal
+}
+
+export type SiteFunctionConnection = {
+  __typename?: "SiteFunctionConnection"
+  totalCount: Scalars["Int"]
+  edges: Array<SiteFunctionEdge>
+  nodes: Array<SiteFunction>
+  pageInfo: PageInfo
+  distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
+  group: Array<SiteFunctionGroupConnection>
+}
+
+export type SiteFunctionConnectionDistinctArgs = {
+  field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionConnectionMaxArgs = {
+  field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionConnectionMinArgs = {
+  field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionConnectionSumArgs = {
+  field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionConnectionGroupArgs = {
+  skip?: Maybe<Scalars["Int"]>
+  limit?: Maybe<Scalars["Int"]>
+  field: SiteFunctionFieldsEnum
+}
+
+export type SiteFunctionEdge = {
+  __typename?: "SiteFunctionEdge"
+  next?: Maybe<SiteFunction>
+  node: SiteFunction
+  previous?: Maybe<SiteFunction>
+}
+
+export enum SiteFunctionFieldsEnum {
+  FunctionRoute = "functionRoute",
+  PluginName = "pluginName",
+  OriginalAbsoluteFilePath = "originalAbsoluteFilePath",
+  OriginalRelativeFilePath = "originalRelativeFilePath",
+  RelativeCompiledFilePath = "relativeCompiledFilePath",
+  AbsoluteCompiledFilePath = "absoluteCompiledFilePath",
+  MatchPath = "matchPath",
+  Id = "id",
+  ParentId = "parent___id",
+  ParentParentId = "parent___parent___id",
+  ParentParentParentId = "parent___parent___parent___id",
+  ParentParentParentChildren = "parent___parent___parent___children",
+  ParentParentChildren = "parent___parent___children",
+  ParentParentChildrenId = "parent___parent___children___id",
+  ParentParentChildrenChildren = "parent___parent___children___children",
+  ParentParentInternalContent = "parent___parent___internal___content",
+  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
+  ParentParentInternalDescription = "parent___parent___internal___description",
+  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
+  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
+  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
+  ParentParentInternalOwner = "parent___parent___internal___owner",
+  ParentParentInternalType = "parent___parent___internal___type",
+  ParentChildren = "parent___children",
+  ParentChildrenId = "parent___children___id",
+  ParentChildrenParentId = "parent___children___parent___id",
+  ParentChildrenParentChildren = "parent___children___parent___children",
+  ParentChildrenChildren = "parent___children___children",
+  ParentChildrenChildrenId = "parent___children___children___id",
+  ParentChildrenChildrenChildren = "parent___children___children___children",
+  ParentChildrenInternalContent = "parent___children___internal___content",
+  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
+  ParentChildrenInternalDescription = "parent___children___internal___description",
+  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
+  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
+  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
+  ParentChildrenInternalOwner = "parent___children___internal___owner",
+  ParentChildrenInternalType = "parent___children___internal___type",
+  ParentInternalContent = "parent___internal___content",
+  ParentInternalContentDigest = "parent___internal___contentDigest",
+  ParentInternalDescription = "parent___internal___description",
+  ParentInternalFieldOwners = "parent___internal___fieldOwners",
+  ParentInternalIgnoreType = "parent___internal___ignoreType",
+  ParentInternalMediaType = "parent___internal___mediaType",
+  ParentInternalOwner = "parent___internal___owner",
+  ParentInternalType = "parent___internal___type",
+  Children = "children",
+  ChildrenId = "children___id",
+  ChildrenParentId = "children___parent___id",
+  ChildrenParentParentId = "children___parent___parent___id",
+  ChildrenParentParentChildren = "children___parent___parent___children",
+  ChildrenParentChildren = "children___parent___children",
+  ChildrenParentChildrenId = "children___parent___children___id",
+  ChildrenParentChildrenChildren = "children___parent___children___children",
+  ChildrenParentInternalContent = "children___parent___internal___content",
+  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
+  ChildrenParentInternalDescription = "children___parent___internal___description",
+  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
+  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
+  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
+  ChildrenParentInternalOwner = "children___parent___internal___owner",
+  ChildrenParentInternalType = "children___parent___internal___type",
+  ChildrenChildren = "children___children",
+  ChildrenChildrenId = "children___children___id",
+  ChildrenChildrenParentId = "children___children___parent___id",
+  ChildrenChildrenParentChildren = "children___children___parent___children",
+  ChildrenChildrenChildren = "children___children___children",
+  ChildrenChildrenChildrenId = "children___children___children___id",
+  ChildrenChildrenChildrenChildren = "children___children___children___children",
+  ChildrenChildrenInternalContent = "children___children___internal___content",
+  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
+  ChildrenChildrenInternalDescription = "children___children___internal___description",
+  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
+  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
+  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
+  ChildrenChildrenInternalOwner = "children___children___internal___owner",
+  ChildrenChildrenInternalType = "children___children___internal___type",
+  ChildrenInternalContent = "children___internal___content",
+  ChildrenInternalContentDigest = "children___internal___contentDigest",
+  ChildrenInternalDescription = "children___internal___description",
+  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
+  ChildrenInternalIgnoreType = "children___internal___ignoreType",
+  ChildrenInternalMediaType = "children___internal___mediaType",
+  ChildrenInternalOwner = "children___internal___owner",
+  ChildrenInternalType = "children___internal___type",
+  InternalContent = "internal___content",
+  InternalContentDigest = "internal___contentDigest",
+  InternalDescription = "internal___description",
+  InternalFieldOwners = "internal___fieldOwners",
+  InternalIgnoreType = "internal___ignoreType",
+  InternalMediaType = "internal___mediaType",
+  InternalOwner = "internal___owner",
+  InternalType = "internal___type",
+}
+
+export type SiteFunctionFilterInput = {
+  functionRoute?: Maybe<StringQueryOperatorInput>
+  pluginName?: Maybe<StringQueryOperatorInput>
+  originalAbsoluteFilePath?: Maybe<StringQueryOperatorInput>
+  originalRelativeFilePath?: Maybe<StringQueryOperatorInput>
+  relativeCompiledFilePath?: Maybe<StringQueryOperatorInput>
+  absoluteCompiledFilePath?: Maybe<StringQueryOperatorInput>
+  matchPath?: Maybe<StringQueryOperatorInput>
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+}
+
+export type SiteFunctionGroupConnection = {
+  __typename?: "SiteFunctionGroupConnection"
+  totalCount: Scalars["Int"]
+  edges: Array<SiteFunctionEdge>
+  nodes: Array<SiteFunction>
+  pageInfo: PageInfo
+  field: Scalars["String"]
+  fieldValue?: Maybe<Scalars["String"]>
+}
+
+export type SiteFunctionSortInput = {
+  fields?: Maybe<Array<Maybe<SiteFunctionFieldsEnum>>>
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>
 }
 
 export type SiteGroupConnection = {
@@ -2678,7 +2808,6 @@ export type SitePage = Node & {
   context?: Maybe<SitePageContext>
   pluginCreator?: Maybe<SitePlugin>
   pluginCreatorId?: Maybe<Scalars["String"]>
-  componentPath?: Maybe<Scalars["String"]>
 }
 
 export type SitePageConnection = {
@@ -2688,10 +2817,25 @@ export type SitePageConnection = {
   nodes: Array<SitePage>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<SitePageGroupConnection>
 }
 
 export type SitePageConnectionDistinctArgs = {
+  field: SitePageFieldsEnum
+}
+
+export type SitePageConnectionMaxArgs = {
+  field: SitePageFieldsEnum
+}
+
+export type SitePageConnectionMinArgs = {
+  field: SitePageFieldsEnum
+}
+
+export type SitePageConnectionSumArgs = {
   field: SitePageFieldsEnum
 }
 
@@ -2706,12 +2850,163 @@ export type SitePageContext = {
   id?: Maybe<Scalars["String"]>
   previousPostId?: Maybe<Scalars["String"]>
   nextPostId?: Maybe<Scalars["String"]>
+  tag?: Maybe<Scalars["String"]>
+  posts?: Maybe<Array<Maybe<SitePageContextPosts>>>
 }
 
 export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>
   previousPostId?: Maybe<StringQueryOperatorInput>
   nextPostId?: Maybe<StringQueryOperatorInput>
+  tag?: Maybe<StringQueryOperatorInput>
+  posts?: Maybe<SitePageContextPostsFilterListInput>
+}
+
+export type SitePageContextPosts = {
+  __typename?: "SitePageContextPosts"
+  id?: Maybe<Scalars["String"]>
+  fields?: Maybe<SitePageContextPostsFields>
+  frontmatter?: Maybe<SitePageContextPostsFrontmatter>
+}
+
+export type SitePageContextPostsFields = {
+  __typename?: "SitePageContextPostsFields"
+  slug?: Maybe<Scalars["String"]>
+}
+
+export type SitePageContextPostsFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePageContextPostsFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<SitePageContextPostsFieldsFilterInput>
+  frontmatter?: Maybe<SitePageContextPostsFrontmatterFilterInput>
+}
+
+export type SitePageContextPostsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFilterInput>
+}
+
+export type SitePageContextPostsFrontmatter = {
+  __typename?: "SitePageContextPostsFrontmatter"
+  date?: Maybe<Scalars["String"]>
+  title?: Maybe<Scalars["String"]>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
+  description?: Maybe<Scalars["String"]>
+  image?: Maybe<SitePageContextPostsFrontmatterImage>
+}
+
+export type SitePageContextPostsFrontmatterFilterInput = {
+  date?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
+  categories?: Maybe<StringQueryOperatorInput>
+  description?: Maybe<StringQueryOperatorInput>
+  image?: Maybe<SitePageContextPostsFrontmatterImageFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImage = {
+  __typename?: "SitePageContextPostsFrontmatterImage"
+  childImageSharp?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharp>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharp = {
+  __typename?: "SitePageContextPostsFrontmatterImageChildImageSharp"
+  gatsbyImageData?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpFilterInput = {
+  gatsbyImageData?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataFilterInput>
+}
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData =
+  {
+    __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageData"
+    layout?: Maybe<Scalars["String"]>
+    placeholder?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder>
+    images?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages>
+    width?: Maybe<Scalars["Int"]>
+    height?: Maybe<Scalars["Float"]>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataFilterInput =
+  {
+    layout?: Maybe<StringQueryOperatorInput>
+    placeholder?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput>
+    images?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput>
+    width?: Maybe<IntQueryOperatorInput>
+    height?: Maybe<FloatQueryOperatorInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages =
+  {
+    __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImages"
+    fallback?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback>
+    sources?: Maybe<
+      Array<
+        Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources>
+      >
+    >
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback =
+  {
+    __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback"
+    src?: Maybe<Scalars["String"]>
+    srcSet?: Maybe<Scalars["String"]>
+    sizes?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput =
+  {
+    src?: Maybe<StringQueryOperatorInput>
+    srcSet?: Maybe<StringQueryOperatorInput>
+    sizes?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput =
+  {
+    fallback?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput>
+    sources?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources =
+  {
+    __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSources"
+    srcSet?: Maybe<Scalars["String"]>
+    type?: Maybe<Scalars["String"]>
+    sizes?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput =
+  {
+    srcSet?: Maybe<StringQueryOperatorInput>
+    type?: Maybe<StringQueryOperatorInput>
+    sizes?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput =
+  {
+    elemMatch?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder =
+  {
+    __typename?: "SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder"
+    fallback?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput =
+  {
+    fallback?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsFrontmatterImageFilterInput = {
+  childImageSharp?: Maybe<SitePageContextPostsFrontmatterImageChildImageSharpFilterInput>
 }
 
 export type SitePageEdge = {
@@ -2817,6 +3112,16 @@ export enum SitePageFieldsEnum {
   ContextId = "context___id",
   ContextPreviousPostId = "context___previousPostId",
   ContextNextPostId = "context___nextPostId",
+  ContextTag = "context___tag",
+  ContextPosts = "context___posts",
+  ContextPostsId = "context___posts___id",
+  ContextPostsFieldsSlug = "context___posts___fields___slug",
+  ContextPostsFrontmatterDate = "context___posts___frontmatter___date",
+  ContextPostsFrontmatterTitle = "context___posts___frontmatter___title",
+  ContextPostsFrontmatterKeywords = "context___posts___frontmatter___keywords",
+  ContextPostsFrontmatterLabels = "context___posts___frontmatter___labels",
+  ContextPostsFrontmatterCategories = "context___posts___frontmatter___categories",
+  ContextPostsFrontmatterDescription = "context___posts___frontmatter___description",
   PluginCreatorId = "pluginCreator___id",
   PluginCreatorParentId = "pluginCreator___parent___id",
   PluginCreatorParentParentId = "pluginCreator___parent___parent___id",
@@ -2865,29 +3170,32 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPluginsVersion = "pluginCreator___pluginOptions___plugins___version",
   PluginCreatorPluginOptionsPluginsNodeApIs = "pluginCreator___pluginOptions___plugins___nodeAPIs",
   PluginCreatorPluginOptionsPluginsBrowserApIs = "pluginCreator___pluginOptions___plugins___browserAPIs",
+  PluginCreatorPluginOptionsPluginsSsrApIs = "pluginCreator___pluginOptions___plugins___ssrAPIs",
   PluginCreatorPluginOptionsPluginsPluginFilepath = "pluginCreator___pluginOptions___plugins___pluginFilepath",
   PluginCreatorPluginOptionsTrackingIds = "pluginCreator___pluginOptions___trackingIds",
   PluginCreatorPluginOptionsPluginConfigHead = "pluginCreator___pluginOptions___pluginConfig___head",
   PluginCreatorPluginOptionsPath = "pluginCreator___pluginOptions___path",
   PluginCreatorPluginOptionsName = "pluginCreator___pluginOptions___name",
   PluginCreatorPluginOptionsMaxWidth = "pluginCreator___pluginOptions___maxWidth",
+  PluginCreatorPluginOptionsLinkImagesToOriginal = "pluginCreator___pluginOptions___linkImagesToOriginal",
+  PluginCreatorPluginOptionsShowCaptions = "pluginCreator___pluginOptions___showCaptions",
+  PluginCreatorPluginOptionsMarkdownCaptions = "pluginCreator___pluginOptions___markdownCaptions",
+  PluginCreatorPluginOptionsSizeByPixelDensity = "pluginCreator___pluginOptions___sizeByPixelDensity",
+  PluginCreatorPluginOptionsBackgroundColor = "pluginCreator___pluginOptions___backgroundColor",
+  PluginCreatorPluginOptionsQuality = "pluginCreator___pluginOptions___quality",
+  PluginCreatorPluginOptionsWithWebp = "pluginCreator___pluginOptions___withWebp",
+  PluginCreatorPluginOptionsTracedSvg = "pluginCreator___pluginOptions___tracedSVG",
+  PluginCreatorPluginOptionsLoading = "pluginCreator___pluginOptions___loading",
+  PluginCreatorPluginOptionsDisableBgImageOnAlpha = "pluginCreator___pluginOptions___disableBgImageOnAlpha",
+  PluginCreatorPluginOptionsDisableBgImage = "pluginCreator___pluginOptions___disableBgImage",
   PluginCreatorPluginOptionsWrapperStyle = "pluginCreator___pluginOptions___wrapperStyle",
+  PluginCreatorPluginOptionsOffsetY = "pluginCreator___pluginOptions___offsetY",
+  PluginCreatorPluginOptionsClassName = "pluginCreator___pluginOptions___className",
   PluginCreatorPluginOptionsFigureClassName = "pluginCreator___pluginOptions___figureClassName",
-  PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
-  PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
-  PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
-  PluginCreatorPluginOptionsBackgroundColor = "pluginCreator___pluginOptions___background_color",
-  PluginCreatorPluginOptionsThemeColor = "pluginCreator___pluginOptions___theme_color",
-  PluginCreatorPluginOptionsDisplay = "pluginCreator___pluginOptions___display",
-  PluginCreatorPluginOptionsIcon = "pluginCreator___pluginOptions___icon",
-  PluginCreatorPluginOptionsCacheBustingMode = "pluginCreator___pluginOptions___cache_busting_mode",
-  PluginCreatorPluginOptionsIncludeFavicon = "pluginCreator___pluginOptions___include_favicon",
-  PluginCreatorPluginOptionsLegacy = "pluginCreator___pluginOptions___legacy",
-  PluginCreatorPluginOptionsThemeColorInHead = "pluginCreator___pluginOptions___theme_color_in_head",
-  PluginCreatorPluginOptionsCacheDigest = "pluginCreator___pluginOptions___cacheDigest",
-  PluginCreatorPluginOptionsTailwind = "pluginCreator___pluginOptions___tailwind",
-  PluginCreatorPluginOptionsDevelop = "pluginCreator___pluginOptions___develop",
-  PluginCreatorPluginOptionsContent = "pluginCreator___pluginOptions___content",
+  PluginCreatorPluginOptionsBase64Width = "pluginCreator___pluginOptions___base64Width",
+  PluginCreatorPluginOptionsStripMetadata = "pluginCreator___pluginOptions___stripMetadata",
+  PluginCreatorPluginOptionsDefaultQuality = "pluginCreator___pluginOptions___defaultQuality",
+  PluginCreatorPluginOptionsFailOnError = "pluginCreator___pluginOptions___failOnError",
   PluginCreatorPluginOptionsConfigDir = "pluginCreator___pluginOptions___configDir",
   PluginCreatorPluginOptionsProjectRoot = "pluginCreator___pluginOptions___projectRoot",
   PluginCreatorPluginOptionsPathCheck = "pluginCreator___pluginOptions___pathCheck",
@@ -2915,7 +3223,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPackageJsonPeerDependenciesVersion = "pluginCreator___packageJson___peerDependencies___version",
   PluginCreatorPackageJsonKeywords = "pluginCreator___packageJson___keywords",
   PluginCreatorId = "pluginCreatorId",
-  ComponentPath = "componentPath",
 }
 
 export type SitePageFilterInput = {
@@ -2932,7 +3239,6 @@ export type SitePageFilterInput = {
   context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
-  componentPath?: Maybe<StringQueryOperatorInput>
 }
 
 export type SitePageGroupConnection = {
@@ -2974,10 +3280,25 @@ export type SitePluginConnection = {
   nodes: Array<SitePlugin>
   pageInfo: PageInfo
   distinct: Array<Scalars["String"]>
+  max?: Maybe<Scalars["Float"]>
+  min?: Maybe<Scalars["Float"]>
+  sum?: Maybe<Scalars["Float"]>
   group: Array<SitePluginGroupConnection>
 }
 
 export type SitePluginConnectionDistinctArgs = {
+  field: SitePluginFieldsEnum
+}
+
+export type SitePluginConnectionMaxArgs = {
+  field: SitePluginFieldsEnum
+}
+
+export type SitePluginConnectionMinArgs = {
+  field: SitePluginFieldsEnum
+}
+
+export type SitePluginConnectionSumArgs = {
   field: SitePluginFieldsEnum
 }
 
@@ -3090,33 +3411,49 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPluginsName = "pluginOptions___plugins___name",
   PluginOptionsPluginsVersion = "pluginOptions___plugins___version",
   PluginOptionsPluginsPluginOptionsMaxWidth = "pluginOptions___plugins___pluginOptions___maxWidth",
+  PluginOptionsPluginsPluginOptionsLinkImagesToOriginal = "pluginOptions___plugins___pluginOptions___linkImagesToOriginal",
+  PluginOptionsPluginsPluginOptionsShowCaptions = "pluginOptions___plugins___pluginOptions___showCaptions",
+  PluginOptionsPluginsPluginOptionsMarkdownCaptions = "pluginOptions___plugins___pluginOptions___markdownCaptions",
+  PluginOptionsPluginsPluginOptionsSizeByPixelDensity = "pluginOptions___plugins___pluginOptions___sizeByPixelDensity",
+  PluginOptionsPluginsPluginOptionsBackgroundColor = "pluginOptions___plugins___pluginOptions___backgroundColor",
+  PluginOptionsPluginsPluginOptionsQuality = "pluginOptions___plugins___pluginOptions___quality",
+  PluginOptionsPluginsPluginOptionsWithWebp = "pluginOptions___plugins___pluginOptions___withWebp",
+  PluginOptionsPluginsPluginOptionsTracedSvg = "pluginOptions___plugins___pluginOptions___tracedSVG",
+  PluginOptionsPluginsPluginOptionsLoading = "pluginOptions___plugins___pluginOptions___loading",
+  PluginOptionsPluginsPluginOptionsDisableBgImageOnAlpha = "pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha",
+  PluginOptionsPluginsPluginOptionsDisableBgImage = "pluginOptions___plugins___pluginOptions___disableBgImage",
   PluginOptionsPluginsPluginOptionsWrapperStyle = "pluginOptions___plugins___pluginOptions___wrapperStyle",
+  PluginOptionsPluginsPluginOptionsOffsetY = "pluginOptions___plugins___pluginOptions___offsetY",
+  PluginOptionsPluginsPluginOptionsClassName = "pluginOptions___plugins___pluginOptions___className",
   PluginOptionsPluginsPluginOptionsFigureClassName = "pluginOptions___plugins___pluginOptions___figureClassName",
   PluginOptionsPluginsNodeApIs = "pluginOptions___plugins___nodeAPIs",
   PluginOptionsPluginsBrowserApIs = "pluginOptions___plugins___browserAPIs",
+  PluginOptionsPluginsSsrApIs = "pluginOptions___plugins___ssrAPIs",
   PluginOptionsPluginsPluginFilepath = "pluginOptions___plugins___pluginFilepath",
   PluginOptionsTrackingIds = "pluginOptions___trackingIds",
   PluginOptionsPluginConfigHead = "pluginOptions___pluginConfig___head",
   PluginOptionsPath = "pluginOptions___path",
   PluginOptionsName = "pluginOptions___name",
   PluginOptionsMaxWidth = "pluginOptions___maxWidth",
+  PluginOptionsLinkImagesToOriginal = "pluginOptions___linkImagesToOriginal",
+  PluginOptionsShowCaptions = "pluginOptions___showCaptions",
+  PluginOptionsMarkdownCaptions = "pluginOptions___markdownCaptions",
+  PluginOptionsSizeByPixelDensity = "pluginOptions___sizeByPixelDensity",
+  PluginOptionsBackgroundColor = "pluginOptions___backgroundColor",
+  PluginOptionsQuality = "pluginOptions___quality",
+  PluginOptionsWithWebp = "pluginOptions___withWebp",
+  PluginOptionsTracedSvg = "pluginOptions___tracedSVG",
+  PluginOptionsLoading = "pluginOptions___loading",
+  PluginOptionsDisableBgImageOnAlpha = "pluginOptions___disableBgImageOnAlpha",
+  PluginOptionsDisableBgImage = "pluginOptions___disableBgImage",
   PluginOptionsWrapperStyle = "pluginOptions___wrapperStyle",
+  PluginOptionsOffsetY = "pluginOptions___offsetY",
+  PluginOptionsClassName = "pluginOptions___className",
   PluginOptionsFigureClassName = "pluginOptions___figureClassName",
-  PluginOptionsShortName = "pluginOptions___short_name",
-  PluginOptionsLang = "pluginOptions___lang",
-  PluginOptionsStartUrl = "pluginOptions___start_url",
-  PluginOptionsBackgroundColor = "pluginOptions___background_color",
-  PluginOptionsThemeColor = "pluginOptions___theme_color",
-  PluginOptionsDisplay = "pluginOptions___display",
-  PluginOptionsIcon = "pluginOptions___icon",
-  PluginOptionsCacheBustingMode = "pluginOptions___cache_busting_mode",
-  PluginOptionsIncludeFavicon = "pluginOptions___include_favicon",
-  PluginOptionsLegacy = "pluginOptions___legacy",
-  PluginOptionsThemeColorInHead = "pluginOptions___theme_color_in_head",
-  PluginOptionsCacheDigest = "pluginOptions___cacheDigest",
-  PluginOptionsTailwind = "pluginOptions___tailwind",
-  PluginOptionsDevelop = "pluginOptions___develop",
-  PluginOptionsContent = "pluginOptions___content",
+  PluginOptionsBase64Width = "pluginOptions___base64Width",
+  PluginOptionsStripMetadata = "pluginOptions___stripMetadata",
+  PluginOptionsDefaultQuality = "pluginOptions___defaultQuality",
+  PluginOptionsFailOnError = "pluginOptions___failOnError",
   PluginOptionsConfigDir = "pluginOptions___configDir",
   PluginOptionsProjectRoot = "pluginOptions___projectRoot",
   PluginOptionsPathCheck = "pluginOptions___pathCheck",
@@ -3251,23 +3588,25 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars["String"]>
   name?: Maybe<Scalars["String"]>
   maxWidth?: Maybe<Scalars["Int"]>
+  linkImagesToOriginal?: Maybe<Scalars["Boolean"]>
+  showCaptions?: Maybe<Scalars["Boolean"]>
+  markdownCaptions?: Maybe<Scalars["Boolean"]>
+  sizeByPixelDensity?: Maybe<Scalars["Boolean"]>
+  backgroundColor?: Maybe<Scalars["String"]>
+  quality?: Maybe<Scalars["Int"]>
+  withWebp?: Maybe<Scalars["Boolean"]>
+  tracedSVG?: Maybe<Scalars["Boolean"]>
+  loading?: Maybe<Scalars["String"]>
+  disableBgImageOnAlpha?: Maybe<Scalars["Boolean"]>
+  disableBgImage?: Maybe<Scalars["Boolean"]>
   wrapperStyle?: Maybe<Scalars["String"]>
+  offsetY?: Maybe<Scalars["Int"]>
+  className?: Maybe<Scalars["String"]>
   figureClassName?: Maybe<Scalars["String"]>
-  short_name?: Maybe<Scalars["String"]>
-  lang?: Maybe<Scalars["String"]>
-  start_url?: Maybe<Scalars["String"]>
-  background_color?: Maybe<Scalars["String"]>
-  theme_color?: Maybe<Scalars["String"]>
-  display?: Maybe<Scalars["String"]>
-  icon?: Maybe<Scalars["String"]>
-  cache_busting_mode?: Maybe<Scalars["String"]>
-  include_favicon?: Maybe<Scalars["Boolean"]>
-  legacy?: Maybe<Scalars["Boolean"]>
-  theme_color_in_head?: Maybe<Scalars["Boolean"]>
-  cacheDigest?: Maybe<Scalars["String"]>
-  tailwind?: Maybe<Scalars["Boolean"]>
-  develop?: Maybe<Scalars["Boolean"]>
-  content?: Maybe<Array<Maybe<Scalars["String"]>>>
+  base64Width?: Maybe<Scalars["Int"]>
+  stripMetadata?: Maybe<Scalars["Boolean"]>
+  defaultQuality?: Maybe<Scalars["Int"]>
+  failOnError?: Maybe<Scalars["Boolean"]>
   configDir?: Maybe<Scalars["String"]>
   projectRoot?: Maybe<Scalars["String"]>
   pathCheck?: Maybe<Scalars["Boolean"]>
@@ -3283,23 +3622,25 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>
   name?: Maybe<StringQueryOperatorInput>
   maxWidth?: Maybe<IntQueryOperatorInput>
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>
+  showCaptions?: Maybe<BooleanQueryOperatorInput>
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>
+  backgroundColor?: Maybe<StringQueryOperatorInput>
+  quality?: Maybe<IntQueryOperatorInput>
+  withWebp?: Maybe<BooleanQueryOperatorInput>
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>
+  loading?: Maybe<StringQueryOperatorInput>
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>
   wrapperStyle?: Maybe<StringQueryOperatorInput>
+  offsetY?: Maybe<IntQueryOperatorInput>
+  className?: Maybe<StringQueryOperatorInput>
   figureClassName?: Maybe<StringQueryOperatorInput>
-  short_name?: Maybe<StringQueryOperatorInput>
-  lang?: Maybe<StringQueryOperatorInput>
-  start_url?: Maybe<StringQueryOperatorInput>
-  background_color?: Maybe<StringQueryOperatorInput>
-  theme_color?: Maybe<StringQueryOperatorInput>
-  display?: Maybe<StringQueryOperatorInput>
-  icon?: Maybe<StringQueryOperatorInput>
-  cache_busting_mode?: Maybe<StringQueryOperatorInput>
-  include_favicon?: Maybe<BooleanQueryOperatorInput>
-  legacy?: Maybe<BooleanQueryOperatorInput>
-  theme_color_in_head?: Maybe<BooleanQueryOperatorInput>
-  cacheDigest?: Maybe<StringQueryOperatorInput>
-  tailwind?: Maybe<BooleanQueryOperatorInput>
-  develop?: Maybe<BooleanQueryOperatorInput>
-  content?: Maybe<StringQueryOperatorInput>
+  base64Width?: Maybe<IntQueryOperatorInput>
+  stripMetadata?: Maybe<BooleanQueryOperatorInput>
+  defaultQuality?: Maybe<IntQueryOperatorInput>
+  failOnError?: Maybe<BooleanQueryOperatorInput>
   configDir?: Maybe<StringQueryOperatorInput>
   projectRoot?: Maybe<StringQueryOperatorInput>
   pathCheck?: Maybe<BooleanQueryOperatorInput>
@@ -3326,6 +3667,7 @@ export type SitePluginPluginOptionsPlugins = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptions>
   nodeAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
   browserAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
+  ssrAPIs?: Maybe<Array<Maybe<Scalars["String"]>>>
   pluginFilepath?: Maybe<Scalars["String"]>
 }
 
@@ -3337,6 +3679,7 @@ export type SitePluginPluginOptionsPluginsFilterInput = {
   pluginOptions?: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>
   nodeAPIs?: Maybe<StringQueryOperatorInput>
   browserAPIs?: Maybe<StringQueryOperatorInput>
+  ssrAPIs?: Maybe<StringQueryOperatorInput>
   pluginFilepath?: Maybe<StringQueryOperatorInput>
 }
 
@@ -3347,13 +3690,39 @@ export type SitePluginPluginOptionsPluginsFilterListInput = {
 export type SitePluginPluginOptionsPluginsPluginOptions = {
   __typename?: "SitePluginPluginOptionsPluginsPluginOptions"
   maxWidth?: Maybe<Scalars["Int"]>
+  linkImagesToOriginal?: Maybe<Scalars["Boolean"]>
+  showCaptions?: Maybe<Scalars["Boolean"]>
+  markdownCaptions?: Maybe<Scalars["Boolean"]>
+  sizeByPixelDensity?: Maybe<Scalars["Boolean"]>
+  backgroundColor?: Maybe<Scalars["String"]>
+  quality?: Maybe<Scalars["Int"]>
+  withWebp?: Maybe<Scalars["Boolean"]>
+  tracedSVG?: Maybe<Scalars["Boolean"]>
+  loading?: Maybe<Scalars["String"]>
+  disableBgImageOnAlpha?: Maybe<Scalars["Boolean"]>
+  disableBgImage?: Maybe<Scalars["Boolean"]>
   wrapperStyle?: Maybe<Scalars["String"]>
+  offsetY?: Maybe<Scalars["Int"]>
+  className?: Maybe<Scalars["String"]>
   figureClassName?: Maybe<Scalars["String"]>
 }
 
 export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   maxWidth?: Maybe<IntQueryOperatorInput>
+  linkImagesToOriginal?: Maybe<BooleanQueryOperatorInput>
+  showCaptions?: Maybe<BooleanQueryOperatorInput>
+  markdownCaptions?: Maybe<BooleanQueryOperatorInput>
+  sizeByPixelDensity?: Maybe<BooleanQueryOperatorInput>
+  backgroundColor?: Maybe<StringQueryOperatorInput>
+  quality?: Maybe<IntQueryOperatorInput>
+  withWebp?: Maybe<BooleanQueryOperatorInput>
+  tracedSVG?: Maybe<BooleanQueryOperatorInput>
+  loading?: Maybe<StringQueryOperatorInput>
+  disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>
+  disableBgImage?: Maybe<BooleanQueryOperatorInput>
   wrapperStyle?: Maybe<StringQueryOperatorInput>
+  offsetY?: Maybe<IntQueryOperatorInput>
+  className?: Maybe<StringQueryOperatorInput>
   figureClassName?: Maybe<StringQueryOperatorInput>
 }
 
@@ -3366,33 +3735,42 @@ export type SiteSiteMetadata = {
   __typename?: "SiteSiteMetadata"
   title?: Maybe<Scalars["String"]>
   description?: Maybe<Scalars["String"]>
-  author?: Maybe<Author>
+  author?: Maybe<SiteSiteMetadataAuthor>
   siteUrl?: Maybe<Scalars["String"]>
-  social?: Maybe<Social>
-  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
+  social?: Maybe<SiteSiteMetadataSocial>
+}
+
+export type SiteSiteMetadataAuthor = {
+  __typename?: "SiteSiteMetadataAuthor"
+  name?: Maybe<Scalars["String"]>
+  summary?: Maybe<Scalars["String"]>
+}
+
+export type SiteSiteMetadataAuthorFilterInput = {
+  name?: Maybe<StringQueryOperatorInput>
+  summary?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>
   description?: Maybe<StringQueryOperatorInput>
-  author?: Maybe<AuthorFilterInput>
+  author?: Maybe<SiteSiteMetadataAuthorFilterInput>
   siteUrl?: Maybe<StringQueryOperatorInput>
-  social?: Maybe<SocialFilterInput>
-  keywords?: Maybe<StringQueryOperatorInput>
+  social?: Maybe<SiteSiteMetadataSocialFilterInput>
+}
+
+export type SiteSiteMetadataSocial = {
+  __typename?: "SiteSiteMetadataSocial"
+  twitter?: Maybe<Scalars["String"]>
+}
+
+export type SiteSiteMetadataSocialFilterInput = {
+  twitter?: Maybe<StringQueryOperatorInput>
 }
 
 export type SiteSortInput = {
   fields?: Maybe<Array<Maybe<SiteFieldsEnum>>>
   order?: Maybe<Array<Maybe<SortOrderEnum>>>
-}
-
-export type Social = {
-  __typename?: "Social"
-  twitter?: Maybe<Scalars["String"]>
-}
-
-export type SocialFilterInput = {
-  twitter?: Maybe<StringQueryOperatorInput>
 }
 
 export enum SortOrderEnum {
@@ -3510,100 +3888,40 @@ export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = {
   "aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
 >
 
-export type GatsbyImageSharpResolutionsFragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<
-  ImageSharpResolutions,
-  "base64" | "width" | "height" | "src" | "srcSet"
->
-
-export type GatsbyImageSharpResolutions_TracedSvgFragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<
-  ImageSharpResolutions,
-  "tracedSVG" | "width" | "height" | "src" | "srcSet"
->
-
-export type GatsbyImageSharpResolutions_WithWebpFragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<
-  ImageSharpResolutions,
-  "base64" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
->
-
-export type GatsbyImageSharpResolutions_WithWebp_TracedSvgFragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<
-  ImageSharpResolutions,
-  "tracedSVG" | "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
->
-
-export type GatsbyImageSharpResolutions_NoBase64Fragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<ImageSharpResolutions, "width" | "height" | "src" | "srcSet">
-
-export type GatsbyImageSharpResolutions_WithWebp_NoBase64Fragment = {
-  __typename?: "ImageSharpResolutions"
-} & Pick<
-  ImageSharpResolutions,
-  "width" | "height" | "src" | "srcSet" | "srcWebp" | "srcSetWebp"
->
-
-export type GatsbyImageSharpSizesFragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<ImageSharpSizes, "base64" | "aspectRatio" | "src" | "srcSet" | "sizes">
-
-export type GatsbyImageSharpSizes_TracedSvgFragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<
-  ImageSharpSizes,
-  "tracedSVG" | "aspectRatio" | "src" | "srcSet" | "sizes"
->
-
-export type GatsbyImageSharpSizes_WithWebpFragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<
-  ImageSharpSizes,
-  | "base64"
-  | "aspectRatio"
-  | "src"
-  | "srcSet"
-  | "srcWebp"
-  | "srcSetWebp"
-  | "sizes"
->
-
-export type GatsbyImageSharpSizes_WithWebp_TracedSvgFragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<
-  ImageSharpSizes,
-  | "tracedSVG"
-  | "aspectRatio"
-  | "src"
-  | "srcSet"
-  | "srcWebp"
-  | "srcSetWebp"
-  | "sizes"
->
-
-export type GatsbyImageSharpSizes_NoBase64Fragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<ImageSharpSizes, "aspectRatio" | "src" | "srcSet" | "sizes">
-
-export type GatsbyImageSharpSizes_WithWebp_NoBase64Fragment = {
-  __typename?: "ImageSharpSizes"
-} & Pick<
-  ImageSharpSizes,
-  "aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
->
-
 export type CreatePageQueryVariables = Exact<{ [key: string]: never }>
 
 export type CreatePageQuery = { __typename?: "Query" } & {
   allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id"> & {
-          fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+          fields?: Maybe<
+            { __typename?: "MarkdownRemarkFields" } & Pick<
+              MarkdownRemarkFields,
+              "slug"
+            >
+          >
+          frontmatter?: Maybe<
+            { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+              MarkdownRemarkFrontmatter,
+              | "date"
+              | "title"
+              | "keywords"
+              | "labels"
+              | "categories"
+              | "description"
+            > & {
+                image?: Maybe<
+                  { __typename?: "File" } & {
+                    childImageSharp?: Maybe<
+                      { __typename?: "ImageSharp" } & Pick<
+                        ImageSharp,
+                        "gatsbyImageData"
+                      >
+                    >
+                  }
+                >
+              }
+          >
         }
     >
   }
@@ -3615,11 +3933,7 @@ export type BioQuery = { __typename?: "Query" } & {
   avatar?: Maybe<
     { __typename?: "File" } & {
       childImageSharp?: Maybe<
-        { __typename?: "ImageSharp" } & {
-          fixed?: Maybe<
-            { __typename?: "ImageSharpFixed" } & GatsbyImageSharpFixedFragment
-          >
-        }
+        { __typename?: "ImageSharp" } & Pick<ImageSharp, "gatsbyImageData">
       >
     }
   >
@@ -3628,9 +3942,17 @@ export type BioQuery = { __typename?: "Query" } & {
       siteMetadata?: Maybe<
         { __typename?: "SiteSiteMetadata" } & {
           author?: Maybe<
-            { __typename?: "Author" } & Pick<Author, "name" | "summary">
+            { __typename?: "SiteSiteMetadataAuthor" } & Pick<
+              SiteSiteMetadataAuthor,
+              "name" | "summary"
+            >
           >
-          social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
+          social?: Maybe<
+            { __typename?: "SiteSiteMetadataSocial" } & Pick<
+              SiteSiteMetadataSocial,
+              "twitter"
+            >
+          >
         }
       >
     }
@@ -3645,9 +3967,20 @@ export type SeoQuery = { __typename?: "Query" } & {
       siteMetadata?: Maybe<
         { __typename?: "SiteSiteMetadata" } & Pick<
           SiteSiteMetadata,
-          "title" | "description" | "keywords" | "siteUrl"
+          "title" | "description" | "siteUrl"
         > & {
-            social?: Maybe<{ __typename?: "Social" } & Pick<Social, "twitter">>
+            author?: Maybe<
+              { __typename?: "SiteSiteMetadataAuthor" } & Pick<
+                SiteSiteMetadataAuthor,
+                "name"
+              >
+            >
+            social?: Maybe<
+              { __typename?: "SiteSiteMetadataSocial" } & Pick<
+                SiteSiteMetadataSocial,
+                "twitter"
+              >
+            >
           }
       >
     }
@@ -3679,11 +4012,16 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
   allMarkdownRemark: { __typename?: "MarkdownRemarkConnection" } & {
     nodes: Array<
       { __typename?: "MarkdownRemark" } & {
-        fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+        fields?: Maybe<
+          { __typename?: "MarkdownRemarkFields" } & Pick<
+            MarkdownRemarkFields,
+            "slug"
+          >
+        >
         frontmatter?: Maybe<
-          { __typename?: "Frontmatter" } & Pick<
-            Frontmatter,
-            "date" | "title" | "description"
+          { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+            MarkdownRemarkFrontmatter,
+            "date" | "title" | "description" | "categories"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {
@@ -3717,14 +4055,11 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
     }
   >
   markdownRemark?: Maybe<
-    { __typename?: "MarkdownRemark" } & Pick<
-      MarkdownRemark,
-      "id" | "excerpt" | "html"
-    > & {
+    { __typename?: "MarkdownRemark" } & Pick<MarkdownRemark, "id" | "html"> & {
         frontmatter?: Maybe<
-          { __typename?: "Frontmatter" } & Pick<
-            Frontmatter,
-            "title" | "date" | "description"
+          { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+            MarkdownRemarkFrontmatter,
+            "keywords" | "labels" | "title" | "date" | "description"
           > & {
               image?: Maybe<
                 { __typename?: "File" } & {
@@ -3746,644 +4081,46 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
   >
   previous?: Maybe<
     { __typename?: "MarkdownRemark" } & {
-      fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+      fields?: Maybe<
+        { __typename?: "MarkdownRemarkFields" } & Pick<
+          MarkdownRemarkFields,
+          "slug"
+        >
+      >
       frontmatter?: Maybe<
-        { __typename?: "Frontmatter" } & Pick<Frontmatter, "title">
+        { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+          MarkdownRemarkFrontmatter,
+          "title"
+        >
       >
     }
   >
   next?: Maybe<
     { __typename?: "MarkdownRemark" } & {
-      fields?: Maybe<{ __typename?: "Fields" } & Pick<Fields, "slug">>
+      fields?: Maybe<
+        { __typename?: "MarkdownRemarkFields" } & Pick<
+          MarkdownRemarkFields,
+          "slug"
+        >
+      >
       frontmatter?: Maybe<
-        { __typename?: "Frontmatter" } & Pick<Frontmatter, "title">
+        { __typename?: "MarkdownRemarkFrontmatter" } & Pick<
+          MarkdownRemarkFrontmatter,
+          "title"
+        >
       >
     }
   >
 }
 
-export const GatsbyImageSharpFixedFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed on ImageSharpFixed {
-    base64
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_tracedSVG on ImageSharpFixed {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp on ImageSharpFixed {
-    base64
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFixed_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp_tracedSVG on ImageSharpFixed {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFixed_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_noBase64 on ImageSharpFixed {
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpFixed_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFixed_withWebp_noBase64 on ImageSharpFixed {
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpFluidFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid on ImageSharpFluid {
-    base64
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluidLimitPresentationSizeFragmentDoc = gql`
-  fragment GatsbyImageSharpFluidLimitPresentationSize on ImageSharpFluid {
-    maxHeight: presentationHeight
-    maxWidth: presentationWidth
-  }
-`
-export const GatsbyImageSharpFluid_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_tracedSVG on ImageSharpFluid {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp on ImageSharpFluid {
-    base64
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp_tracedSVG on ImageSharpFluid {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_noBase64 on ImageSharpFluid {
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpFluid_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpFluid_withWebp_noBase64 on ImageSharpFluid {
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpResolutionsFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions on ImageSharpResolutions {
-    base64
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_tracedSVG on ImageSharpResolutions {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp on ImageSharpResolutions {
-    base64
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp_tracedSVG on ImageSharpResolutions {
-    tracedSVG
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpResolutions_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_noBase64 on ImageSharpResolutions {
-    width
-    height
-    src
-    srcSet
-  }
-`
-export const GatsbyImageSharpResolutions_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpResolutions_withWebp_noBase64 on ImageSharpResolutions {
-    width
-    height
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-  }
-`
-export const GatsbyImageSharpSizesFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes on ImageSharpSizes {
-    base64
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_tracedSVG on ImageSharpSizes {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebpFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp on ImageSharpSizes {
-    base64
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebp_TracedSvgFragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp_tracedSVG on ImageSharpSizes {
-    tracedSVG
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_noBase64 on ImageSharpSizes {
-    aspectRatio
-    src
-    srcSet
-    sizes
-  }
-`
-export const GatsbyImageSharpSizes_WithWebp_NoBase64FragmentDoc = gql`
-  fragment GatsbyImageSharpSizes_withWebp_noBase64 on ImageSharpSizes {
-    aspectRatio
-    src
-    srcSet
-    srcWebp
-    srcSetWebp
-    sizes
-  }
-`
-export const CreatePageDocument = gql`
-  query CreatePage {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-      limit: 1000
-    ) {
-      nodes {
-        id
-        fields {
-          slug
-        }
-      }
-    }
-  }
-`
+export type BlogTagListQueryVariables = Exact<{ [key: string]: never }>
 
-/**
- * __useCreatePageQuery__
- *
- * To run a query within a React component, call `useCreatePageQuery` and pass it any options that fit your needs.
- * When your component renders, `useCreatePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useCreatePageQuery({
- *   variables: {
- *   },
- * });
- */
-export function useCreatePageQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    CreatePageQuery,
-    CreatePageQueryVariables
+export type BlogTagListQuery = { __typename?: "Query" } & {
+  site?: Maybe<
+    { __typename?: "Site" } & {
+      siteMetadata?: Maybe<
+        { __typename?: "SiteSiteMetadata" } & Pick<SiteSiteMetadata, "title">
+      >
+    }
   >
-) {
-  return Apollo.useQuery<CreatePageQuery, CreatePageQueryVariables>(
-    CreatePageDocument,
-    baseOptions
-  )
 }
-export function useCreatePageLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    CreatePageQuery,
-    CreatePageQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<CreatePageQuery, CreatePageQueryVariables>(
-    CreatePageDocument,
-    baseOptions
-  )
-}
-export type CreatePageQueryHookResult = ReturnType<typeof useCreatePageQuery>
-export type CreatePageLazyQueryHookResult = ReturnType<
-  typeof useCreatePageLazyQuery
->
-export type CreatePageQueryResult = Apollo.QueryResult<
-  CreatePageQuery,
-  CreatePageQueryVariables
->
-export const BioDocument = gql`
-  query Bio {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50, quality: 95) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        author {
-          name
-          summary
-        }
-        social {
-          twitter
-        }
-      }
-    }
-  }
-  ${GatsbyImageSharpFixedFragmentDoc}
-`
-
-/**
- * __useBioQuery__
- *
- * To run a query within a React component, call `useBioQuery` and pass it any options that fit your needs.
- * When your component renders, `useBioQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBioQuery({
- *   variables: {
- *   },
- * });
- */
-export function useBioQuery(
-  baseOptions?: Apollo.QueryHookOptions<BioQuery, BioQueryVariables>
-) {
-  return Apollo.useQuery<BioQuery, BioQueryVariables>(BioDocument, baseOptions)
-}
-export function useBioLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<BioQuery, BioQueryVariables>
-) {
-  return Apollo.useLazyQuery<BioQuery, BioQueryVariables>(
-    BioDocument,
-    baseOptions
-  )
-}
-export type BioQueryHookResult = ReturnType<typeof useBioQuery>
-export type BioLazyQueryHookResult = ReturnType<typeof useBioLazyQuery>
-export type BioQueryResult = Apollo.QueryResult<BioQuery, BioQueryVariables>
-export const SeoDocument = gql`
-  query Seo {
-    site {
-      siteMetadata {
-        title
-        description
-        keywords
-        social {
-          twitter
-        }
-        siteUrl
-      }
-    }
-  }
-`
-
-/**
- * __useSeoQuery__
- *
- * To run a query within a React component, call `useSeoQuery` and pass it any options that fit your needs.
- * When your component renders, `useSeoQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useSeoQuery({
- *   variables: {
- *   },
- * });
- */
-export function useSeoQuery(
-  baseOptions?: Apollo.QueryHookOptions<SeoQuery, SeoQueryVariables>
-) {
-  return Apollo.useQuery<SeoQuery, SeoQueryVariables>(SeoDocument, baseOptions)
-}
-export function useSeoLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<SeoQuery, SeoQueryVariables>
-) {
-  return Apollo.useLazyQuery<SeoQuery, SeoQueryVariables>(
-    SeoDocument,
-    baseOptions
-  )
-}
-export type SeoQueryHookResult = ReturnType<typeof useSeoQuery>
-export type SeoLazyQueryHookResult = ReturnType<typeof useSeoLazyQuery>
-export type SeoQueryResult = Apollo.QueryResult<SeoQuery, SeoQueryVariables>
-export const NotFoundDocument = gql`
-  query NotFound {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
-
-/**
- * __useNotFoundQuery__
- *
- * To run a query within a React component, call `useNotFoundQuery` and pass it any options that fit your needs.
- * When your component renders, `useNotFoundQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useNotFoundQuery({
- *   variables: {
- *   },
- * });
- */
-export function useNotFoundQuery(
-  baseOptions?: Apollo.QueryHookOptions<NotFoundQuery, NotFoundQueryVariables>
-) {
-  return Apollo.useQuery<NotFoundQuery, NotFoundQueryVariables>(
-    NotFoundDocument,
-    baseOptions
-  )
-}
-export function useNotFoundLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    NotFoundQuery,
-    NotFoundQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<NotFoundQuery, NotFoundQueryVariables>(
-    NotFoundDocument,
-    baseOptions
-  )
-}
-export type NotFoundQueryHookResult = ReturnType<typeof useNotFoundQuery>
-export type NotFoundLazyQueryHookResult = ReturnType<
-  typeof useNotFoundLazyQuery
->
-export type NotFoundQueryResult = Apollo.QueryResult<
-  NotFoundQuery,
-  NotFoundQueryVariables
->
-export const BlogIndexDocument = gql`
-  query BlogIndex {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          image: featured {
-            childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-/**
- * __useBlogIndexQuery__
- *
- * To run a query within a React component, call `useBlogIndexQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlogIndexQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlogIndexQuery({
- *   variables: {
- *   },
- * });
- */
-export function useBlogIndexQuery(
-  baseOptions?: Apollo.QueryHookOptions<BlogIndexQuery, BlogIndexQueryVariables>
-) {
-  return Apollo.useQuery<BlogIndexQuery, BlogIndexQueryVariables>(
-    BlogIndexDocument,
-    baseOptions
-  )
-}
-export function useBlogIndexLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    BlogIndexQuery,
-    BlogIndexQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<BlogIndexQuery, BlogIndexQueryVariables>(
-    BlogIndexDocument,
-    baseOptions
-  )
-}
-export type BlogIndexQueryHookResult = ReturnType<typeof useBlogIndexQuery>
-export type BlogIndexLazyQueryHookResult = ReturnType<
-  typeof useBlogIndexLazyQuery
->
-export type BlogIndexQueryResult = Apollo.QueryResult<
-  BlogIndexQuery,
-  BlogIndexQueryVariables
->
-export const BlogPostBySlugDocument = gql`
-  query BlogPostBySlug(
-    $id: String!
-    $previousPostId: String
-    $nextPostId: String
-  ) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        image: featured {
-          childImageSharp {
-            resize(width: 1200) {
-              src
-              height
-              width
-            }
-          }
-        }
-      }
-    }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-    next: markdownRemark(id: { eq: $nextPostId }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-      }
-    }
-  }
-`
-
-/**
- * __useBlogPostBySlugQuery__
- *
- * To run a query within a React component, call `useBlogPostBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useBlogPostBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useBlogPostBySlugQuery({
- *   variables: {
- *      id: // value for 'id'
- *      previousPostId: // value for 'previousPostId'
- *      nextPostId: // value for 'nextPostId'
- *   },
- * });
- */
-export function useBlogPostBySlugQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    BlogPostBySlugQuery,
-    BlogPostBySlugQueryVariables
-  >
-) {
-  return Apollo.useQuery<BlogPostBySlugQuery, BlogPostBySlugQueryVariables>(
-    BlogPostBySlugDocument,
-    baseOptions
-  )
-}
-export function useBlogPostBySlugLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    BlogPostBySlugQuery,
-    BlogPostBySlugQueryVariables
-  >
-) {
-  return Apollo.useLazyQuery<BlogPostBySlugQuery, BlogPostBySlugQueryVariables>(
-    BlogPostBySlugDocument,
-    baseOptions
-  )
-}
-export type BlogPostBySlugQueryHookResult = ReturnType<
-  typeof useBlogPostBySlugQuery
->
-export type BlogPostBySlugLazyQueryHookResult = ReturnType<
-  typeof useBlogPostBySlugLazyQuery
->
-export type BlogPostBySlugQueryResult = Apollo.QueryResult<
-  BlogPostBySlugQuery,
-  BlogPostBySlugQueryVariables
->
