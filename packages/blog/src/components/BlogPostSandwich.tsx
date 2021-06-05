@@ -26,7 +26,7 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
     >
       <header>
         <small>{posts[0].date}</small>
-        <h2 className="hover:">
+        <h2>
           <Link to={slug} itemProp="url">
             <span itemProp="headline">{title}</span>
           </Link>
