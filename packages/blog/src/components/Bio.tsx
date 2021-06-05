@@ -6,8 +6,9 @@
  */
 
 import React from "react"
-import Image, { FixedObject } from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { useBioQuery } from "../hooks/useBioQuery"
+import { BuyMeCoffeeButton } from "./BuyMeCoffeeButton"
 
 export const Bio = () => {
   const data = useBioQuery()
@@ -29,17 +30,17 @@ export const Bio = () => {
     )
   }
 
-  if (!data.avatar?.childImageSharp?.fixed) {
+  if (!data.avatar?.childImageSharp?.gatsbyImageData) {
     throw new Error(`Cannot find blog/content/assets/profile-pic.jpg`)
   }
 
-  const avatar = data.avatar.childImageSharp.fixed as FixedObject
+  const avatar = data.avatar.childImageSharp.gatsbyImageData
 
   return (
     <div className="bio">
       {avatar && (
-        <Image
-          fixed={avatar}
+        <GatsbyImage
+          image={avatar}
           alt={author.name}
           className="bio-avatar"
           imgStyle={{
@@ -58,6 +59,9 @@ export const Bio = () => {
           Follow me on Twitter
         </a>
       </p>
+      <div className="block">
+        <BuyMeCoffeeButton />
+      </div>
     </div>
   )
 }

@@ -12,7 +12,11 @@ module.exports = {
     social: {
       twitter: `beraliv`,
     },
-    keywords: ["development", "players", "typescript"],
+  },
+  flags: {
+    FAST_DEV: true,
+    // Umbrella Issue (​https://github.com/gatsbyjs/gatsby/discussions/28331
+    PRESERVE_WEBPACK_CACHE: true
   },
   plugins: [
     {
@@ -54,6 +58,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
@@ -98,16 +103,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        tailwind: true,
-        develop: false,
-        content: [
-          path.join(process.cwd(), "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"),
-        ],
-        ignore: ["gatsby-remark-vscode/styles.css"],
-      },
-    },
   ],
 }
