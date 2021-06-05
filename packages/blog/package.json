@@ -59,7 +59,7 @@
     "graphql": "15.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
-    "prettier": "2.3.0"
+    "prettier": "2.3.1"
   },
   "resolutions": {
     "graphql": "15.5.0"
