@@ -54,8 +54,8 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - [Replace occurrence in a string in TypeScript](/2021-05-17-replace-occurrence-in-a-string-in-typescript/)
 - [119 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - [Replace all occurrences in a string in TypeScript](/2021-05-22-replace-all-occurrences-in-a-string-in-typescript/)
 - [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - [Append argument to a function in TypeScript](/2021-05-23-append-argument/)
-- [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - will be added on May 12, 2021
-- [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - will be added on May 13, 2021
+- [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - [Permutations in TypeScript](/2021-05-30-permutations-in-typescript/)
+- [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - [Length of String in TypeScript](/2021-05-31-string-length-in-typescript/)
 - [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - will be added on May 14, 2021
 - [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - will be added on May 17, 2021
 - [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - will be added on May 18, 2021
