@@ -28,7 +28,13 @@ Knowing the approach from different challenges, as we want to save the structure
 
 We iterate over elements:
 
-![Iterate over tuple elements](./step2-iterate-over-tuple.png)
+```ts
+type Flatten<T> = T extends []
+  ? []
+  : T extends [infer Head, ...(infer Tail)]
+    ? // make it flatten with Head and Tail
+    : []
+```
 
 Then we have 2 cases:
 
@@ -37,7 +43,13 @@ Then we have 2 cases:
 
 Let's add second case:
 
-![Put element to the result tuple type](./step3-always-put-elements-to-the-result-type.png)
+```ts
+type Flatten<T> = T extends []
+  ? []
+  : T extends [infer Head, ...infer Tail]
+  ? [Head, ...Flatten<Tail>]
+  : []
+```
 
 ## Call it recursively when needed
 
@@ -45,11 +57,23 @@ At the moment, if we have a look at Playground – https://tsplay.dev/w18bXW, w
 
 We forgot to apply function recursively when we have an element as tuple. Let's have an example here:
 
-![Example where Flatten isn't working](./step4-not-applying-recursively-for-elements-which-are-tuples.png)
+```ts
+type Step1 = Flatten<[1, [2]]>
+type Step2 = [1, ...Flatten<[[2]]>]
+type Result = [1, [2]]
+```
 
 In this case we cannot just add it to result tuple, we need to call `Flatten` before and then put all the elements of it to the result type. Let's change the implementation based on that:
 
-![Solution](./step5-solution.png)
+```ts
+type Flatten<T> = T extends []
+  ? []
+  : T extends [infer Head, ...infer Tail]
+  ? Head extends any[]
+    ? [...Flatten<Head>, ...Flatten<Tail>]
+    : [Head, ...Flatten<Tail>]
+  : []
+```
 
 Now it's working as expected 🔥
 
