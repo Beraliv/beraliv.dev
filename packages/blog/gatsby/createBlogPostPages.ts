@@ -8,25 +8,26 @@ type CreatePageOptions = {
 }
 
 const createBlogPost = (
-  posts: CreatePageQuery["allMarkdownRemark"]["nodes"],
+  posts: CreatePageQuery["allMdx"]["edges"],
   { createPage, reporter }: CreatePageOptions
 ): void => {
   const BlogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.tsx`)
 
-  posts.forEach((post, index) => {
-    if (!post.fields?.slug) {
+  posts.forEach(({ node }, index) => {
+    if (!node.fields?.slug) {
       reporter.panicOnBuild(`Cannot find slug for post #${index + 1}`)
       return
     }
 
-    const previousPostId = index === 0 ? null : posts[index - 1].id
-    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+    const previousPostId = index === 0 ? null : posts[index - 1].node.id
+    const nextPostId =
+      index === posts.length - 1 ? null : posts[index + 1].node.id
 
     createPage({
-      path: post.fields.slug,
+      path: node.fields.slug,
       component: BlogPostTemplate,
       context: {
-        id: post.id,
+        id: node.id,
         previousPostId,
         nextPostId,
       },
@@ -35,29 +36,26 @@ const createBlogPost = (
 }
 
 const createBlogTagList = (
-  posts: CreatePageQuery["allMarkdownRemark"]["nodes"],
+  posts: CreatePageQuery["allMdx"]["edges"],
   { createPage, reporter }: CreatePageOptions
 ): void => {
   const BlogTagListTemplate = path.resolve(
     `src/templates/BlogTagListTemplate.tsx`
   )
 
-  const listByLabels: Record<
-    string,
-    CreatePageQuery["allMarkdownRemark"]["nodes"]
-  > = {}
-  posts.forEach((post, index) => {
-    if (!post.frontmatter) {
+  const listByLabels: Record<string, CreatePageQuery["allMdx"]["edges"]> = {}
+  posts.forEach(({ node }, index) => {
+    if (!node.frontmatter) {
       reporter.panicOnBuild(`Cannot find frontmatter for post #${index + 1}`)
       return
     }
 
-    if (!post.frontmatter.labels) {
+    if (!node.frontmatter.labels) {
       reporter.panicOnBuild(`Cannot find labels for post #${index + 1}`)
       return
     }
 
-    const { labels } = post.frontmatter
+    const { labels } = node.frontmatter
     labels.forEach(label => {
       if (!label) {
         return
@@ -67,7 +65,7 @@ const createBlogTagList = (
         listByLabels[label] = []
       }
 
-      listByLabels[label].push(post)
+      listByLabels[label].push({ node })
     })
   })
 
@@ -129,7 +127,7 @@ export const createBlogPostPages = async ({
     return
   }
 
-  const posts = result.data?.allMarkdownRemark.nodes
+  const posts = result.data?.allMdx.edges
   if (!posts || posts.length === 0) {
     reporter.panicOnBuild(`Cannot find posts for BlogPostPages`)
     return

@@ -11,7 +11,7 @@ interface BlogTagListTemplateProps
   extends PageProps<BlogTagListQuery, BlogTagListQueryVariables> {
   pageContext: BlogTagListQueryVariables & {
     tag: string
-    posts: CreatePageQuery["allMarkdownRemark"]["nodes"]
+    posts: CreatePageQuery["allMdx"]["edges"]
   }
 }
 

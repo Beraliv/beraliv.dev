@@ -44,10 +44,10 @@ const BlogPostTemplate = ({
   data,
   location,
 }: PageProps<BlogPostBySlugQueryType>) => {
-  const post = data.markdownRemark
+  const post = data.mdx
 
   if (!post) {
-    throw new Error(`Cannot find site.markdownRemark in ${location.href}`)
+    throw new Error(`Cannot find site.mdx in ${location.href}`)
   }
 
   if (!data.site?.siteMetadata?.title) {
