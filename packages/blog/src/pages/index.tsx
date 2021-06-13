@@ -9,7 +9,7 @@ const BlogIndex = ({ data, location }: PageProps<BlogIndexQuery>) => {
   }
 
   const { title } = data.site.siteMetadata
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMdx.edges
 
   return (
     <BlogList
@@ -30,23 +30,25 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          categories
-          image: featured {
-            childImageSharp {
-              gatsbyImageData(
-                width: 640
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            categories
+            image: featured {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 640
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
         }
