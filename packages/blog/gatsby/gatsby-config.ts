@@ -16,7 +16,7 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     // Umbrella Issue (​https://github.com/gatsbyjs/gatsby/discussions/28331
-    PRESERVE_WEBPACK_CACHE: true
+    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {
@@ -43,9 +43,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [".md"],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
