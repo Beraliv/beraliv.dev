@@ -59,12 +59,23 @@ module.exports = {
             },
           },
           `gatsby-remark-autolink-headers`,
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
             resolve: `gatsby-remark-figure-caption`,
             options: { figureClassName: "md-figure" },
+          },
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: "Light (Visual Studio)",
+                parentSelector: {
+                  "body:not(.dark)": "Light (Visual Studio)",
+                  "body.dark": "Dark (Visual Studio)",
+                },
+              },
+            },
           },
         ],
       },
