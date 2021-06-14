@@ -2131,6 +2131,7 @@ export type QuerySitePageArgs = {
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
+  context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
@@ -2792,6 +2793,7 @@ export type SitePage = Node & {
   children: Array<Node>
   internal: Internal
   isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>
+  context?: Maybe<SitePageContext>
   pluginCreator?: Maybe<SitePlugin>
   pluginCreatorId?: Maybe<Scalars["String"]>
 }
@@ -2829,6 +2831,180 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars["Int"]>
   limit?: Maybe<Scalars["Int"]>
   field: SitePageFieldsEnum
+}
+
+export type SitePageContext = {
+  __typename?: "SitePageContext"
+  id?: Maybe<Scalars["String"]>
+  previousPostId?: Maybe<Scalars["String"]>
+  nextPostId?: Maybe<Scalars["String"]>
+  tag?: Maybe<Scalars["String"]>
+  posts?: Maybe<Array<Maybe<SitePageContextPosts>>>
+}
+
+export type SitePageContextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>
+  previousPostId?: Maybe<StringQueryOperatorInput>
+  nextPostId?: Maybe<StringQueryOperatorInput>
+  tag?: Maybe<StringQueryOperatorInput>
+  posts?: Maybe<SitePageContextPostsFilterListInput>
+}
+
+export type SitePageContextPosts = {
+  __typename?: "SitePageContextPosts"
+  node?: Maybe<SitePageContextPostsNode>
+}
+
+export type SitePageContextPostsFilterInput = {
+  node?: Maybe<SitePageContextPostsNodeFilterInput>
+}
+
+export type SitePageContextPostsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFilterInput>
+}
+
+export type SitePageContextPostsNode = {
+  __typename?: "SitePageContextPostsNode"
+  id?: Maybe<Scalars["String"]>
+  fields?: Maybe<SitePageContextPostsNodeFields>
+  frontmatter?: Maybe<SitePageContextPostsNodeFrontmatter>
+}
+
+export type SitePageContextPostsNodeFields = {
+  __typename?: "SitePageContextPostsNodeFields"
+  slug?: Maybe<Scalars["String"]>
+}
+
+export type SitePageContextPostsNodeFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePageContextPostsNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>
+  fields?: Maybe<SitePageContextPostsNodeFieldsFilterInput>
+  frontmatter?: Maybe<SitePageContextPostsNodeFrontmatterFilterInput>
+}
+
+export type SitePageContextPostsNodeFrontmatter = {
+  __typename?: "SitePageContextPostsNodeFrontmatter"
+  date?: Maybe<Scalars["String"]>
+  title?: Maybe<Scalars["String"]>
+  keywords?: Maybe<Array<Maybe<Scalars["String"]>>>
+  labels?: Maybe<Array<Maybe<Scalars["String"]>>>
+  categories?: Maybe<Array<Maybe<Scalars["String"]>>>
+  description?: Maybe<Scalars["String"]>
+  image?: Maybe<SitePageContextPostsNodeFrontmatterImage>
+}
+
+export type SitePageContextPostsNodeFrontmatterFilterInput = {
+  date?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+  keywords?: Maybe<StringQueryOperatorInput>
+  labels?: Maybe<StringQueryOperatorInput>
+  categories?: Maybe<StringQueryOperatorInput>
+  description?: Maybe<StringQueryOperatorInput>
+  image?: Maybe<SitePageContextPostsNodeFrontmatterImageFilterInput>
+}
+
+export type SitePageContextPostsNodeFrontmatterImage = {
+  __typename?: "SitePageContextPostsNodeFrontmatterImage"
+  childImageSharp?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharp>
+}
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharp = {
+  __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharp"
+  gatsbyImageData?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageData>
+}
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpFilterInput =
+  {
+    gatsbyImageData?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataFilterInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageData =
+  {
+    __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageData"
+    layout?: Maybe<Scalars["String"]>
+    placeholder?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder>
+    images?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImages>
+    width?: Maybe<Scalars["Int"]>
+    height?: Maybe<Scalars["Float"]>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataFilterInput =
+  {
+    layout?: Maybe<StringQueryOperatorInput>
+    placeholder?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput>
+    images?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput>
+    width?: Maybe<IntQueryOperatorInput>
+    height?: Maybe<FloatQueryOperatorInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImages =
+  {
+    __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImages"
+    fallback?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback>
+    sources?: Maybe<
+      Array<
+        Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSources>
+      >
+    >
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback =
+  {
+    __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFallback"
+    src?: Maybe<Scalars["String"]>
+    srcSet?: Maybe<Scalars["String"]>
+    sizes?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput =
+  {
+    src?: Maybe<StringQueryOperatorInput>
+    srcSet?: Maybe<StringQueryOperatorInput>
+    sizes?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFilterInput =
+  {
+    fallback?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesFallbackFilterInput>
+    sources?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSources =
+  {
+    __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSources"
+    srcSet?: Maybe<Scalars["String"]>
+    type?: Maybe<Scalars["String"]>
+    sizes?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput =
+  {
+    srcSet?: Maybe<StringQueryOperatorInput>
+    type?: Maybe<StringQueryOperatorInput>
+    sizes?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterListInput =
+  {
+    elemMatch?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataImagesSourcesFilterInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder =
+  {
+    __typename?: "SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataPlaceholder"
+    fallback?: Maybe<Scalars["String"]>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageChildImageSharpGatsbyImageDataPlaceholderFilterInput =
+  {
+    fallback?: Maybe<StringQueryOperatorInput>
+  }
+
+export type SitePageContextPostsNodeFrontmatterImageFilterInput = {
+  childImageSharp?: Maybe<SitePageContextPostsNodeFrontmatterImageChildImageSharpFilterInput>
 }
 
 export type SitePageEdge = {
@@ -2931,6 +3107,12 @@ export enum SitePageFieldsEnum {
   InternalOwner = "internal___owner",
   InternalType = "internal___type",
   IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
+  ContextId = "context___id",
+  ContextPreviousPostId = "context___previousPostId",
+  ContextNextPostId = "context___nextPostId",
+  ContextTag = "context___tag",
+  ContextPosts = "context___posts",
+  ContextPostsNodeId = "context___posts___node___id",
   PluginCreatorId = "pluginCreator___id",
   PluginCreatorParentId = "pluginCreator___parent___id",
   PluginCreatorParentParentId = "pluginCreator___parent___parent___id",
@@ -3037,6 +3219,7 @@ export type SitePageFilterInput = {
   children?: Maybe<NodeFilterListInput>
   internal?: Maybe<InternalFilterInput>
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>
+  context?: Maybe<SitePageContextFilterInput>
   pluginCreator?: Maybe<SitePluginFilterInput>
   pluginCreatorId?: Maybe<StringQueryOperatorInput>
 }
