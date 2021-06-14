@@ -16,7 +16,7 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     // Umbrella Issue (​https://github.com/gatsbyjs/gatsby/discussions/28331
-    PRESERVE_WEBPACK_CACHE: true
+    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     {
@@ -69,10 +69,10 @@ module.exports = {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: {
-                default: "Light (Visual Studio)",
+                default: "Light+ (default light)",
                 parentSelector: {
-                  "body:not(.dark)": "Light (Visual Studio)",
-                  "body.dark": "Dark (Visual Studio)",
+                  "body:not(.dark)": "Light+ (default light)",
+                  "body.dark": "Dark+ (default dark)",
                 },
               },
             },
