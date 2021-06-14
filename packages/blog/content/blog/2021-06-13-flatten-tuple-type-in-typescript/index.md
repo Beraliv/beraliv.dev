@@ -11,7 +11,7 @@ keywords:
   - flatten
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: ./example-of-use.png
 ---
 
 ```ts {numberLines}
