@@ -54,6 +54,7 @@
     "@graphql-codegen/typescript-operations": "1.18.0",
     "@testing-library/react-hooks": "7.0.0",
     "@types/jest": "26.0.23",
+    "@types/mdx-js__react": "^1.5.3",
     "@types/react-helmet": "6.1.1",
     "autoprefixer": "10.2.6",
     "babel-jest": "26.6.3",
