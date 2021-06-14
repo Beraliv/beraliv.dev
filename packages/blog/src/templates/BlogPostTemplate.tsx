@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
 import { Label } from "../components/Label"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -76,8 +77,8 @@ const BlogPostTemplate = ({
     throw new Error(`Cannot find post.frontmatter.labels in ${location.href}`)
   }
 
-  if (!post.html) {
-    throw new Error(`Cannot find post.html in ${location.href}`)
+  if (!post.body) {
+    throw new Error(`Cannot find post.body in ${location.href}`)
   }
 
   if (!post.frontmatter.image?.childImageSharp?.resize) {
@@ -109,10 +110,7 @@ const BlogPostTemplate = ({
           <p>{post.frontmatter.date}</p>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <MDXRenderer>{post.body}</MDXRenderer>
         {labels.map(label => label && <Label key={label} title={label} />)}
         <footer>
           <Bio />
@@ -163,7 +161,7 @@ export const pageQuery = graphql`
     }
     mdx(id: { eq: $id }) {
       id
-      html
+      body
       frontmatter {
         keywords
         labels
