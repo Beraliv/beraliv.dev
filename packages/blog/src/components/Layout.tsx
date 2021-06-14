@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react"
 import { Link, PageProps } from "gatsby"
 import { DarkModeToggle } from "./DarkModeToggle"
 import { SubscriptionForm } from "./SubscriptionForm"
+import { MDXProvider } from "@mdx-js/react"
+import { mdxConfig } from "./Mdx"
 
 declare const __PATH_PREFIX__: string
 
@@ -39,7 +41,9 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {header}
         <DarkModeToggle />
       </header>
-      <main>{children}</main>
+      <main>
+        <MDXProvider components={mdxConfig}>{children}</MDXProvider>
+      </main>
       <SubscriptionForm />
       <footer>
         © {new Date().getFullYear()}, Built with
