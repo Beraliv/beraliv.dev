@@ -14,7 +14,15 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Flatten use](./step1-example-of-use.png)
+```ts {numberLines}
+type Flatten<T> = any // implementation
+
+type Step1 = Flatten<[1, [2, [3, [4]]]]>
+type Step2 = [1, ...Flatten<[2, [3, [4]]]>]
+type Step3 = [1, 2, ...Flatten<[3, [4]]>]
+type Step4 = [1, 2, 3, ...Flatten<[4]>]
+type Result = [1, 2, 3, 4]
+```
 
 Today we discuss [Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md)
 
@@ -28,7 +36,7 @@ Knowing the approach from different challenges, as we want to save the structure
 
 We iterate over elements:
 
-```ts
+```ts {numberLines}
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...(infer Tail)]
@@ -43,7 +51,7 @@ Then we have 2 cases:
 
 Let's add second case:
 
-```ts
+```ts {numberLines}
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...infer Tail]
@@ -57,7 +65,7 @@ At the moment, if we have a look at Playground – https://tsplay.dev/w18bXW, w
 
 We forgot to apply function recursively when we have an element as tuple. Let's have an example here:
 
-```ts
+```ts {numberLines}
 type Step1 = Flatten<[1, [2]]>
 type Step2 = [1, ...Flatten<[[2]]>]
 type Result = [1, [2]]
@@ -65,7 +73,7 @@ type Result = [1, [2]]
 
 In this case we cannot just add it to result tuple, we need to call `Flatten` before and then put all the elements of it to the result type. Let's change the implementation based on that:
 
-```ts
+```ts {numberLines}
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...infer Tail]
