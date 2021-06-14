@@ -1,4 +1,4 @@
-const path = require("path")
+import { Query } from "../src/types/generated"
 
 module.exports = {
   siteMetadata: {
@@ -73,7 +73,66 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-feed`,
+
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }: { query: Query }) =>
+              allMdx.edges.map(edge => {
+                const description =
+                  edge.node.frontmatter?.description ?? edge.node.excerpt
+                const date = edge.node.frontmatter?.date ?? ""
+                const url =
+                  site?.siteMetadata?.siteUrl && edge.node.fields?.slug
+                    ? site.siteMetadata.siteUrl + "/" + edge.node.fields.slug
+                    : ""
+
+                return Object.assign({}, edge.node.frontmatter, {
+                  description,
+                  date,
+                  url,
+                  guid: url,
+                })
+              }),
+            query: `
+              {
+                allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+                  edges {
+                    node {
+                      excerpt(pruneLength: 250)
+                      fields {
+                        slug
+                      }
+                      frontmatter {
+                        description
+                        title
+                        date(formatString: "MMMM DD, YYYY")
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Blog RSS Feed",
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

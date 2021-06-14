@@ -1,5 +1,4 @@
 import { PageProps } from "gatsby"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
 import { DEFAULT_KEYWORDS } from "../constants/DEFAULT_KEYWORDS"
 import { CreatePageQuery } from "../types/generated"
@@ -117,7 +116,7 @@ export const BlogList = ({
               html: node.frontmatter!.description!,
             })
           )
-          const { node: mainPost } = postsByCategories[`${category}:main`]?.[0]
+          const mainPost = postsByCategories[`${category}:main`]?.[0]
 
           if (!mainPost) {
             console.warn(
@@ -130,15 +129,16 @@ export const BlogList = ({
             ))
           }
 
-          const slug = mainPost.fields!.slug!
+          const slug = mainPost.node.fields!.slug!
 
           const main = {
-            date: mainPost.frontmatter!.date!,
+            date: mainPost.node.frontmatter!.date!,
             slug,
             gatsbyImageData:
-              mainPost.frontmatter?.image?.childImageSharp?.gatsbyImageData,
-            title: mainPost.frontmatter!.title!,
-            html: mainPost.frontmatter!.description!,
+              mainPost.node.frontmatter?.image?.childImageSharp
+                ?.gatsbyImageData,
+            title: mainPost.node.frontmatter!.title!,
+            html: mainPost.node.frontmatter!.description!,
           }
 
           return (
