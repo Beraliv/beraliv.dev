@@ -5,6 +5,7 @@ import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
 import { Label } from "../components/Label"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -44,10 +45,10 @@ const BlogPostTemplate = ({
   data,
   location,
 }: PageProps<BlogPostBySlugQueryType>) => {
-  const post = data.markdownRemark
+  const post = data.mdx
 
   if (!post) {
-    throw new Error(`Cannot find site.markdownRemark in ${location.href}`)
+    throw new Error(`Cannot find site.mdx in ${location.href}`)
   }
 
   if (!data.site?.siteMetadata?.title) {
@@ -76,8 +77,8 @@ const BlogPostTemplate = ({
     throw new Error(`Cannot find post.frontmatter.labels in ${location.href}`)
   }
 
-  if (!post.html) {
-    throw new Error(`Cannot find post.html in ${location.href}`)
+  if (!post.body) {
+    throw new Error(`Cannot find post.body in ${location.href}`)
   }
 
   if (!post.frontmatter.image?.childImageSharp?.resize) {
@@ -109,10 +110,7 @@ const BlogPostTemplate = ({
           <p>{post.frontmatter.date}</p>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
         </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <MDXRenderer>{post.body}</MDXRenderer>
         {labels.map(label => label && <Label key={label} title={label} />)}
         <footer>
           <Bio />
@@ -161,9 +159,9 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(id: { eq: $id }) {
+    mdx(id: { eq: $id }) {
       id
-      html
+      body
       frontmatter {
         keywords
         labels
@@ -181,7 +179,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    previous: markdownRemark(id: { eq: $previousPostId }) {
+    previous: mdx(id: { eq: $previousPostId }) {
       fields {
         slug
       }
@@ -189,7 +187,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    next: markdownRemark(id: { eq: $nextPostId }) {
+    next: mdx(id: { eq: $nextPostId }) {
       fields {
         slug
       }

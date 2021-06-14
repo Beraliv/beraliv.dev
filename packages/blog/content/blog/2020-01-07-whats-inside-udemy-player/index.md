@@ -31,8 +31,8 @@ VTT-files look like that:
 ![VTT subtitles file structure](./subtitles-vtt-file-structure.png)
 
 <video class="gatsby-video" autoplay loop muted playsinline>
-  <source src="/udemy-subtitle-update-based-on-vtt.webm" type="video/webm">
-  <source src="/udemy-subtitle-update-based-on-vtt.mp4" type="video/mp4">
+  <source src="/udemy-subtitle-update-based-on-vtt.webm" type="video/webm"></source>
+  <source src="/udemy-subtitle-update-based-on-vtt.mp4" type="video/mp4"></source>
 </video>
 
 Udemy also uses WebVTT to show a popover using thumbnail sprites:
@@ -42,8 +42,8 @@ Udemy also uses WebVTT to show a popover using thumbnail sprites:
 [VideoJS sneakpeek](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L12507) is used to parse VTT sprites. Find more at [`videojs-sneakpeek`](https://github.com/udemy/videojs-sneakpeek)
 
 <video class="gatsby-video" autoplay loop muted playsinline>
-  <source src="/udemy-thumbnail-update-based-on-vtt.webm" type="video/webm">
-  <source src="/udemy-thumbnail-update-based-on-vtt.mp4" type="video/mp4">
+  <source src="/udemy-thumbnail-update-based-on-vtt.webm" type="video/webm"></source>
+  <source src="/udemy-thumbnail-update-based-on-vtt.mp4" type="video/mp4"></source>
 </video>
 
 ## Statistics
