@@ -57,11 +57,11 @@
     "@types/mdx-js__react": "^1.5.3",
     "@types/react-helmet": "6.1.1",
     "autoprefixer": "10.2.6",
-    "babel-jest": "26.6.3",
+    "babel-jest": "27.0.2",
     "babel-preset-gatsby": "1.6.0",
     "graphql": "15.5.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.6.3",
+    "jest": "27.0.4",
     "prettier": "2.3.1"
   },
   "resolutions": {
