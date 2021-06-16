@@ -1,46 +1,28 @@
 import { PageProps } from "gatsby"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 import React from "react"
 import { DEFAULT_KEYWORDS } from "../constants/DEFAULT_KEYWORDS"
+import { CreatePageQuery } from "../types/generated"
 import { Bio } from "./Bio"
 import { BlogPost } from "./BlogPost"
 import { BlogPostSandwich } from "./BlogPostSandwich"
 import { Layout } from "./Layout"
 import { Seo } from "./Seo"
 
-export interface Postable {
-  fields?: {
-    slug?: string | null
-  } | null
-  frontmatter?: {
-    labels?: (string | null)[] | null
-    categories?: (string | null)[] | null
-    description?: string | null
-    image?: {
-      childImageSharp?: {
-        gatsbyImageData: IGatsbyImageData | null
-      } | null
-    } | null
-    title?: string | null
-    date?: string | null
-  } | null
-}
-
-export interface BlogListProps<T extends Postable | null | undefined> {
+export interface BlogListProps {
   location: PageProps["location"]
-  posts: T[]
+  posts: CreatePageQuery["allMdx"]["edges"]
   seoTitle: string
   tag?: string
   title: string
 }
 
-export const BlogList = <T extends Postable>({
+export const BlogList = ({
   posts,
   seoTitle,
   title,
   tag,
   location,
-}: BlogListProps<T>) => {
+}: BlogListProps) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={title}>
@@ -60,29 +42,29 @@ export const BlogList = <T extends Postable>({
     )
   }
 
-  posts.forEach((post, index) => {
-    if (!post.fields?.slug) {
+  posts.forEach(({ node }, index) => {
+    if (!node.fields?.slug) {
       throw new Error(`Cannot extract slug for post #${index + 1}`)
     }
 
-    if (!post.frontmatter) {
-      throw new Error(`Cannot find frontmatter in ${post.fields.slug}index.md`)
+    if (!node.frontmatter) {
+      throw new Error(`Cannot find frontmatter in ${node.fields.slug}index.md`)
     }
 
-    if (!post.frontmatter.title) {
-      throw new Error(`Cannot find title in ${post.fields.slug}index.md`)
+    if (!node.frontmatter.title) {
+      throw new Error(`Cannot find title in ${node.fields.slug}index.md`)
     }
 
-    if (!post.frontmatter.description) {
-      throw new Error(`Cannot find description in ${post.fields.slug}index.md`)
+    if (!node.frontmatter.description) {
+      throw new Error(`Cannot find description in ${node.fields.slug}index.md`)
     }
   })
 
-  let postsWithoutCategories: T[] = []
-  let postsByCategories: Record<string, T[]> = {}
+  let postsWithoutCategories: CreatePageQuery["allMdx"]["edges"] = []
+  let postsByCategories: Record<string, CreatePageQuery["allMdx"]["edges"]> = {}
 
-  for (const post of posts) {
-    const categories = post.frontmatter?.categories ?? []
+  for (const { node } of posts) {
+    const categories = node.frontmatter?.categories ?? []
     if (categories.length > 0) {
       categories.forEach(category => {
         if (!category) {
@@ -93,10 +75,10 @@ export const BlogList = <T extends Postable>({
           postsByCategories[category] = []
         }
 
-        postsByCategories[category].push(post)
+        postsByCategories[category].push({ node })
       })
     } else {
-      postsWithoutCategories.push(post)
+      postsWithoutCategories.push({ node })
     }
   }
 
@@ -107,8 +89,8 @@ export const BlogList = <T extends Postable>({
   )
 
   const keywordSet = new Set<string>()
-  for (const post of posts) {
-    for (const label of post.frontmatter?.keywords ?? []) {
+  for (const { node } of posts) {
+    for (const label of node.frontmatter?.keywords ?? []) {
       if (label) {
         keywordSet.add(label)
       }
@@ -124,14 +106,16 @@ export const BlogList = <T extends Postable>({
       {tag && <h1>{`#${tag}`}</h1>}
       <ol>
         {categories.map(category => {
-          const postsByCategory = postsByCategories[category].map(post => ({
-            date: post.frontmatter!.date!,
-            slug: post.fields!.slug!,
-            gatsbyImageData:
-              post.frontmatter?.image?.childImageSharp?.gatsbyImageData,
-            title: post.frontmatter!.title!,
-            html: post.frontmatter!.description!,
-          }))
+          const postsByCategory = postsByCategories[category].map(
+            ({ node }) => ({
+              date: node.frontmatter!.date!,
+              slug: node.fields!.slug!,
+              gatsbyImageData:
+                node.frontmatter?.image?.childImageSharp?.gatsbyImageData,
+              title: node.frontmatter!.title!,
+              html: node.frontmatter!.description!,
+            })
+          )
           const mainPost = postsByCategories[`${category}:main`]?.[0]
 
           if (!mainPost) {
@@ -145,15 +129,16 @@ export const BlogList = <T extends Postable>({
             ))
           }
 
-          const slug = mainPost.fields!.slug!
+          const slug = mainPost.node.fields!.slug!
 
           const main = {
-            date: mainPost.frontmatter!.date!,
+            date: mainPost.node.frontmatter!.date!,
             slug,
             gatsbyImageData:
-              mainPost.frontmatter?.image?.childImageSharp?.gatsbyImageData,
-            title: mainPost.frontmatter!.title!,
-            html: mainPost.frontmatter!.description!,
+              mainPost.node.frontmatter?.image?.childImageSharp
+                ?.gatsbyImageData,
+            title: mainPost.node.frontmatter!.title!,
+            html: mainPost.node.frontmatter!.description!,
           }
 
           return (
@@ -162,15 +147,15 @@ export const BlogList = <T extends Postable>({
             </li>
           )
         })}
-        {postsWithoutCategories.map(post => {
-          const { description, title, image } = post.frontmatter!
+        {postsWithoutCategories.map(({ node }) => {
+          const { description, title, image } = node.frontmatter!
 
-          const slug = post.fields!.slug!
+          const slug = node.fields!.slug!
 
           return (
             <li className="post-list-item" key={slug}>
               <BlogPost
-                date={post.frontmatter!.date!}
+                date={node.frontmatter!.date!}
                 slug={slug}
                 gatsbyImageData={image?.childImageSharp?.gatsbyImageData}
                 title={title!}
