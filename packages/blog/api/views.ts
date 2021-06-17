@@ -6,11 +6,9 @@ interface DataSnapshot {
 }
 
 export default async (request: VercelRequest, response: VercelResponse) => {
-  console.log(`>>> /api/views request`, request)
-  console.log(`>>> /api/views response`, response)
-
   if (request.method === "POST") {
     const { slug } = request.query
+    console.log(`>>> /api/views, slug`, slug)
     if (typeof slug !== "string") {
       return
     }
