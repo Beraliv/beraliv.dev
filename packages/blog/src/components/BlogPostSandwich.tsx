@@ -18,6 +18,8 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
     return null
   }
 
+  const views = 0
+
   return (
     <article
       className="blog-post-sandwich"
@@ -26,11 +28,14 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
     >
       <header>
         <small>{posts[0].date}</small>
-        <h2>
-          <Link to={slug} itemProp="url">
-            <span itemProp="headline">{title}</span>
-          </Link>
-        </h2>
+        <div>
+          <h2>
+            <Link to={slug} itemProp="url">
+              <span itemProp="headline">{title}</span>
+            </Link>
+          </h2>
+          <p>{views} views</p>
+        </div>
       </header>
       <section>
         <p

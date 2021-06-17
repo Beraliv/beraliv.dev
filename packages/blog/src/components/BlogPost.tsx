@@ -17,6 +17,8 @@ export const BlogPost: FC<BlogPostProps> = ({
   slug,
   title,
 }) => {
+  const views = 0
+
   return (
     <article itemScope itemType="http://schema.org/Article">
       <header>
@@ -26,6 +28,7 @@ export const BlogPost: FC<BlogPostProps> = ({
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
+        <small>{views} views</small>
       </header>
       <section>
         {gatsbyImageData && (

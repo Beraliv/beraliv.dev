@@ -92,6 +92,8 @@ const BlogPostTemplate = ({
 
   const { previous, next } = data
 
+  const views = 0
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
@@ -107,7 +109,10 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
-          <p>{post.frontmatter.date}</p>
+          <div>
+            <p>{post.frontmatter.date}</p>
+            <p>{views} views</p>
+          </div>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
