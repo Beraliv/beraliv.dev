@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node"
-import { firebaseDb } from "../../../api/firebaseDb"
+import { firebaseDb } from "../src/lib/firebaseDb"
 
 interface DataSnapshot {
   val(): unknown

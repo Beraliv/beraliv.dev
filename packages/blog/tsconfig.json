@@ -9,5 +9,5 @@
     "strict": true,
     "target": "ES2015"
   },
-  "include": ["src/**/*", "gatsby/**/*"]
+  "include": ["src/**/*", "gatsby/**/*", "api/**/*"]
 }
