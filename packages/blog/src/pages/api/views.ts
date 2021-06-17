@@ -1,6 +1,9 @@
 import { VercelRequest, VercelResponse } from "@vercel/node"
-import { firebaseDb } from "../src/api/firebaseDb"
-import { DataSnapshot } from "@firebase/database-types"
+import { firebaseDb } from "../../api/firebaseDb"
+
+interface DataSnapshot {
+  val(): unknown
+}
 
 export default async (request: VercelRequest, response: VercelResponse) => {
   if (request.method !== "POST") {
