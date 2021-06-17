@@ -1,7 +1,11 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { act, renderHook } from "@testing-library/react-hooks"
 import { DARK_MODE_CLASSNAME, DARK_MODE_STORAGE_KEY, useDarkMode } from "."
 
-describe("useDarkMode", () => {
+describe(useDarkMode.name, () => {
   beforeEach(() => {
     jest.useFakeTimers()
   })
@@ -40,7 +44,9 @@ describe("useDarkMode", () => {
       result.current.toggle()
     })
 
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY))).toBe(true)
+    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
+      true
+    )
     expect(document.body.classList.value).toBe(DARK_MODE_CLASSNAME)
   })
 
@@ -53,7 +59,9 @@ describe("useDarkMode", () => {
       result.current.toggle()
     })
 
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY))).toBe(true)
+    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
+      true
+    )
     expect(document.body.classList.value).toBe(DARK_MODE_CLASSNAME)
   })
 
@@ -66,7 +74,9 @@ describe("useDarkMode", () => {
       result.current.toggle()
     })
 
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY))).toBe(false)
+    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
+      false
+    )
     expect(document.body.classList.value).toBe("")
   })
 
