@@ -11,4 +11,4 @@ if (!admin.apps.length) {
   })
 }
 
-export default admin.database()
+export const firebaseDb = admin.database()
