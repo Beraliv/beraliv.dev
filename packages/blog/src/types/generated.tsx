@@ -1973,10 +1973,10 @@ export type Query = {
   allImageSharp: ImageSharpConnection
   mdx?: Maybe<Mdx>
   allMdx: MdxConnection
-  siteBuildMetadata?: Maybe<SiteBuildMetadata>
-  allSiteBuildMetadata: SiteBuildMetadataConnection
   sitePlugin?: Maybe<SitePlugin>
   allSitePlugin: SitePluginConnection
+  siteBuildMetadata?: Maybe<SiteBuildMetadata>
+  allSiteBuildMetadata: SiteBuildMetadataConnection
 }
 
 export type QueryFileArgs = {
@@ -2189,21 +2189,6 @@ export type QueryAllMdxArgs = {
   limit?: Maybe<Scalars["Int"]>
 }
 
-export type QuerySiteBuildMetadataArgs = {
-  id?: Maybe<StringQueryOperatorInput>
-  parent?: Maybe<NodeFilterInput>
-  children?: Maybe<NodeFilterListInput>
-  internal?: Maybe<InternalFilterInput>
-  buildTime?: Maybe<DateQueryOperatorInput>
-}
-
-export type QueryAllSiteBuildMetadataArgs = {
-  filter?: Maybe<SiteBuildMetadataFilterInput>
-  sort?: Maybe<SiteBuildMetadataSortInput>
-  skip?: Maybe<Scalars["Int"]>
-  limit?: Maybe<Scalars["Int"]>
-}
-
 export type QuerySitePluginArgs = {
   id?: Maybe<StringQueryOperatorInput>
   parent?: Maybe<NodeFilterInput>
@@ -2223,6 +2208,21 @@ export type QuerySitePluginArgs = {
 export type QueryAllSitePluginArgs = {
   filter?: Maybe<SitePluginFilterInput>
   sort?: Maybe<SitePluginSortInput>
+  skip?: Maybe<Scalars["Int"]>
+  limit?: Maybe<Scalars["Int"]>
+}
+
+export type QuerySiteBuildMetadataArgs = {
+  id?: Maybe<StringQueryOperatorInput>
+  parent?: Maybe<NodeFilterInput>
+  children?: Maybe<NodeFilterListInput>
+  internal?: Maybe<InternalFilterInput>
+  buildTime?: Maybe<DateQueryOperatorInput>
+}
+
+export type QueryAllSiteBuildMetadataArgs = {
+  filter?: Maybe<SiteBuildMetadataFilterInput>
+  sort?: Maybe<SiteBuildMetadataSortInput>
   skip?: Maybe<Scalars["Int"]>
   limit?: Maybe<Scalars["Int"]>
 }
@@ -3166,6 +3166,11 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsStripMetadata = "pluginCreator___pluginOptions___stripMetadata",
   PluginCreatorPluginOptionsDefaultQuality = "pluginCreator___pluginOptions___defaultQuality",
   PluginCreatorPluginOptionsFailOnError = "pluginCreator___pluginOptions___failOnError",
+  PluginCreatorPluginOptionsQuery = "pluginCreator___pluginOptions___query",
+  PluginCreatorPluginOptionsFeeds = "pluginCreator___pluginOptions___feeds",
+  PluginCreatorPluginOptionsFeedsQuery = "pluginCreator___pluginOptions___feeds___query",
+  PluginCreatorPluginOptionsFeedsOutput = "pluginCreator___pluginOptions___feeds___output",
+  PluginCreatorPluginOptionsFeedsTitle = "pluginCreator___pluginOptions___feeds___title",
   PluginCreatorPluginOptionsShortName = "pluginCreator___pluginOptions___short_name",
   PluginCreatorPluginOptionsLang = "pluginCreator___pluginOptions___lang",
   PluginCreatorPluginOptionsStartUrl = "pluginCreator___pluginOptions___start_url",
@@ -3400,6 +3405,11 @@ export enum SitePluginFieldsEnum {
   PluginOptionsStripMetadata = "pluginOptions___stripMetadata",
   PluginOptionsDefaultQuality = "pluginOptions___defaultQuality",
   PluginOptionsFailOnError = "pluginOptions___failOnError",
+  PluginOptionsQuery = "pluginOptions___query",
+  PluginOptionsFeeds = "pluginOptions___feeds",
+  PluginOptionsFeedsQuery = "pluginOptions___feeds___query",
+  PluginOptionsFeedsOutput = "pluginOptions___feeds___output",
+  PluginOptionsFeedsTitle = "pluginOptions___feeds___title",
   PluginOptionsShortName = "pluginOptions___short_name",
   PluginOptionsLang = "pluginOptions___lang",
   PluginOptionsStartUrl = "pluginOptions___start_url",
@@ -3553,6 +3563,8 @@ export type SitePluginPluginOptions = {
   stripMetadata?: Maybe<Scalars["Boolean"]>
   defaultQuality?: Maybe<Scalars["Int"]>
   failOnError?: Maybe<Scalars["Boolean"]>
+  query?: Maybe<Scalars["String"]>
+  feeds?: Maybe<Array<Maybe<SitePluginPluginOptionsFeeds>>>
   short_name?: Maybe<Scalars["String"]>
   lang?: Maybe<Scalars["String"]>
   start_url?: Maybe<Scalars["String"]>
@@ -3574,6 +3586,23 @@ export type SitePluginPluginOptions = {
   jsxPragma?: Maybe<Scalars["String"]>
 }
 
+export type SitePluginPluginOptionsFeeds = {
+  __typename?: "SitePluginPluginOptionsFeeds"
+  query?: Maybe<Scalars["String"]>
+  output?: Maybe<Scalars["String"]>
+  title?: Maybe<Scalars["String"]>
+}
+
+export type SitePluginPluginOptionsFeedsFilterInput = {
+  query?: Maybe<StringQueryOperatorInput>
+  output?: Maybe<StringQueryOperatorInput>
+  title?: Maybe<StringQueryOperatorInput>
+}
+
+export type SitePluginPluginOptionsFeedsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsFeedsFilterInput>
+}
+
 export type SitePluginPluginOptionsFilterInput = {
   trackingIds?: Maybe<StringQueryOperatorInput>
   pluginConfig?: Maybe<SitePluginPluginOptionsPluginConfigFilterInput>
@@ -3587,6 +3616,8 @@ export type SitePluginPluginOptionsFilterInput = {
   stripMetadata?: Maybe<BooleanQueryOperatorInput>
   defaultQuality?: Maybe<IntQueryOperatorInput>
   failOnError?: Maybe<BooleanQueryOperatorInput>
+  query?: Maybe<StringQueryOperatorInput>
+  feeds?: Maybe<SitePluginPluginOptionsFeedsFilterListInput>
   short_name?: Maybe<StringQueryOperatorInput>
   lang?: Maybe<StringQueryOperatorInput>
   start_url?: Maybe<StringQueryOperatorInput>
@@ -3902,26 +3933,28 @@ export type BlogIndexQuery = { __typename?: "Query" } & {
   allMdx: { __typename?: "MdxConnection" } & {
     edges: Array<
       { __typename?: "MdxEdge" } & {
-        node: { __typename?: "Mdx" } & {
-          fields?: Maybe<{ __typename?: "MdxFields" } & Pick<MdxFields, "slug">>
-          frontmatter?: Maybe<
-            { __typename?: "MdxFrontmatter" } & Pick<
-              MdxFrontmatter,
-              "date" | "title" | "description" | "categories"
-            > & {
-                image?: Maybe<
-                  { __typename?: "File" } & {
-                    childImageSharp?: Maybe<
-                      { __typename?: "ImageSharp" } & Pick<
-                        ImageSharp,
-                        "gatsbyImageData"
+        node: { __typename?: "Mdx" } & Pick<Mdx, "id"> & {
+            fields?: Maybe<
+              { __typename?: "MdxFields" } & Pick<MdxFields, "slug">
+            >
+            frontmatter?: Maybe<
+              { __typename?: "MdxFrontmatter" } & Pick<
+                MdxFrontmatter,
+                "date" | "title" | "description" | "categories"
+              > & {
+                  image?: Maybe<
+                    { __typename?: "File" } & {
+                      childImageSharp?: Maybe<
+                        { __typename?: "ImageSharp" } & Pick<
+                          ImageSharp,
+                          "gatsbyImageData"
+                        >
                       >
-                    >
-                  }
-                >
-              }
-          >
-        }
+                    }
+                  >
+                }
+            >
+          }
       }
     >
   }
