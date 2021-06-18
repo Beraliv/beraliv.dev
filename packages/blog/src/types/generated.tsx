@@ -3976,6 +3976,7 @@ export type BlogPostBySlugQuery = { __typename?: "Query" } & {
   >
   mdx?: Maybe<
     { __typename?: "Mdx" } & Pick<Mdx, "id" | "body"> & {
+        fields?: Maybe<{ __typename?: "MdxFields" } & Pick<MdxFields, "slug">>
         frontmatter?: Maybe<
           { __typename?: "MdxFrontmatter" } & Pick<
             MdxFrontmatter,
