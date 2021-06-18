@@ -10,5 +10,5 @@ interface ViewReaderProps {
 export const ViewReader: FC<ViewReaderProps> = ({ slug }) => {
   const { data } = useSwr<ViewsApi>(`/api/views?slug=${slug}`, fetcher)
   const views = data?.views ?? 0
-  return <>{views} views</>
+  return <>{views > 0 ? views.toLocaleString() : "–––"} views</>
 }
