@@ -8,15 +8,14 @@ interface DataSnapshot {
 export default async (request: VercelRequest, response: VercelResponse) => {
   if (request.method === "POST") {
     const { slug } = request.query
-    console.log(`>>> /api/views, slug`, slug)
     if (typeof slug !== "string") {
-      return
+      return response.status(400)
     }
 
-    const { transaction } = firebaseDb
-      .ref("blog-beraliv-page-views")
-      .child(slug)
-    const { snapshot } = await transaction((views: unknown) => {
+    // you cannot use destructuring here
+    const ref = firebaseDb.ref("beraliv-blog/views").child(slug)
+
+    const { snapshot } = await ref.transaction((views: unknown) => {
       if (typeof views !== "number") {
         return 1
       }

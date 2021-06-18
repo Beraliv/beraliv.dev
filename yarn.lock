@@ -2382,10 +2382,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/auth-interop-types/-/auth-interop-types-0.1.6.tgz#5ce13fc1c527ad36f1bb1322c4492680a6cf4964"
   integrity sha512-etIi92fW3CctsmR9e3sYM3Uqnoq861M0Id9mdOPF6PWIg38BXL5k4upCNBggGUpLIS0H1grMOvy/wn1xymwe2g==
 
-"@firebase/component@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@firebase/component/-/component-0.5.2.tgz#57d7740d0c30447adbb7c78e8d4ce3ae87e23e0a"
-  integrity sha512-QT+o6VaBCz/k8wmC/DErU9dQK2QeIoHtkBkryZVTSRkrvulglEWNIpbPp86UbuqZZd1wwzoh6m7BL6JbdEp9SQ==
+"@firebase/component@0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@firebase/component/-/component-0.5.3.tgz#1ccd4d0814f9c1d7f179deab2122374f74571315"
+  integrity sha512-/TzwmlK35Mnr31zA9D4X0Obln7waAtV7nDLuNVtWhlXl0sSYRxnGES4dOhSXi0yWRneaNr+OiRBZ2gsc9PWWRg==
   dependencies:
     "@firebase/util" "1.1.0"
     tslib "^2.1.0"
@@ -2398,12 +2398,12 @@
     "@firebase/app-types" "0.6.2"
 
 "@firebase/database@^0.10.0":
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.10.4.tgz#10670740703c3e3b5f46cf453c0fa4fe5553cc52"
-  integrity sha512-Mi6fJGzv9JH+GoYhgzSQAxsUhanW4jU6lqe/9kTyxNxHd+asphoJXJcKDs97uxRaowmSzu5LSAkGlWe63vJ7wA==
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.10.5.tgz#99de469642768766fdefcc560d04a091d1390de2"
+  integrity sha512-/KAFZGSvvL3J4EytZsl5kgqhZwEV+ZTz6mCS3VPigkkECzT1E/JRm9h8DY5/VWmoyfqc5O2F3kqrrLf7AovoHg==
   dependencies:
     "@firebase/auth-interop-types" "0.1.6"
-    "@firebase/component" "0.5.2"
+    "@firebase/component" "0.5.3"
     "@firebase/database-types" "0.7.2"
     "@firebase/logger" "0.2.6"
     "@firebase/util" "1.1.0"
@@ -4303,7 +4303,12 @@
   version "14.14.31"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.31.tgz#72286bd33d137aa0d152d47ec7c1762563d34055"
 
-"@types/node@>=12.12.47", "@types/node@>=13.7.0":
+"@types/node@>=12.12.47":
+  version "15.12.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.3.tgz#2817bf5f25bc82f56579018c53f7d41b1830b1af"
+  integrity sha512-SNt65CPCXvGNDZ3bvk1TQ0Qxoe3y1RKH88+wZ2Uf05dduBCqqFQ76ADP9pbT+Cpvj60SkRppMCh2Zo8tDixqjQ==
+
+"@types/node@>=13.7.0":
   version "15.12.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.2.tgz#1f2b42c4be7156ff4a6f914b2fb03d05fa84e38d"
   integrity sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==
@@ -10433,9 +10438,9 @@ google-auth-library@^7.0.0, google-auth-library@^7.0.2:
     lru-cache "^6.0.0"
 
 google-gax@^2.12.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.15.0.tgz#e753489a0ccbd7d4fd5c24979cbd5bf491ff2ec3"
-  integrity sha512-jfShUgX1DVu+DiOeAcsT5JbWlLdUnb2FsdWRb+Q/pNz6kNAUbmq8sFLB2uaWjlTxoSGHZLfrt3vJ9lpArzzQPA==
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.15.1.tgz#2da29985cf36cda5aeb7a3de1a3cce904b4ee725"
+  integrity sha512-I5j4JRxx1HfZZBXnQs7gUvRHaTqT8XZ6U/QQWI/mDbf05dXP/vLni+ZkDzUh/XHDtIo/MPVkuEUhkwWwi+vwTg==
   dependencies:
     "@grpc/grpc-js" "~1.3.0"
     "@grpc/proto-loader" "^0.6.1"
