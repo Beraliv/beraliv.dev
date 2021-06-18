@@ -313,8 +313,7 @@ table thead tr th {
 .post-list-item h2 {
   font-size: 1.875rem;
   line-height: 2.25rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0px;
+  margin: 0px;
   color: #005b99;
 }
 
@@ -323,7 +322,33 @@ table thead tr th {
 }
 
 .post-list-item header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   margin-bottom: 1rem;
+}
+
+.post-list-item header h2,
+.post-list-item small {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-list-item small {
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+@media (max-width: 42rem) {
+  .post-list-item header {
+    flex-direction: column;
+    align-items: inherit;
+  }
+
+  .post-list-item small {
+    margin: 0;
+  }
 }
 
 .header-link-home {
