@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node"
 import { firebaseDb } from "../src/lib/firebaseDb"
+import { ViewsApi } from "../src/types/ViewsApi"
 
 interface DataSnapshot {
   val(): unknown
@@ -25,9 +26,11 @@ export default async (request: VercelRequest, response: VercelResponse) => {
       return views + 1
     })
     // TODO: fix types
-    const views = (snapshot as DataSnapshot).val()
+    const views = (snapshot as DataSnapshot).val() as number
 
-    return response.status(200).json({ views })
+    const result: ViewsApi = { views }
+
+    return response.status(200).json(result)
   }
 
   if (request.method === "GET") {
@@ -36,6 +39,8 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 
     const views = snapshot.val()
 
-    return response.status(200).json({ views })
+    const result: ViewsApi = { views }
+
+    return response.status(200).json(result)
   }
 }
