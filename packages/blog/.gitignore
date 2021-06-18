@@ -68,7 +68,3 @@ yarn-error.log
 # GraphQL
 schema.json
 globalTypes.d.ts
-
-# Environment variables
-.env
-.env.local
