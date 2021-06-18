@@ -26,17 +26,14 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
       itemType="http://schema.org/Article"
     >
       <header>
-        <small>{posts[0].date}</small>
-        <div>
-          <h2>
-            <Link to={slug} itemProp="url">
-              <span itemProp="headline">{title}</span>
-            </Link>
-          </h2>
-          <p>
-            <ViewReader slug={slug} />
-          </p>
-        </div>
+        <h2>
+          <Link to={slug} itemProp="url">
+            <span itemProp="headline">{title}</span>
+          </Link>
+        </h2>
+        <small>
+          <ViewReader slug={slug} />
+        </small>
       </header>
       <section>
         <p
