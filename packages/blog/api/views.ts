@@ -5,15 +5,17 @@ interface DataSnapshot {
   val(): unknown
 }
 
-export default async (request: VercelRequest, response: VercelResponse) => {
-  if (request.method === "POST") {
-    const { slug } = request.query
-    if (typeof slug !== "string") {
-      return response.status(400)
-    }
+const viewsRef = "beraliv-blog/views"
 
+export default async (request: VercelRequest, response: VercelResponse) => {
+  const { slug } = request.query
+  if (typeof slug !== "string") {
+    return response.status(400)
+  }
+
+  if (request.method === "POST") {
     // you cannot use destructuring here
-    const ref = firebaseDb.ref("beraliv-blog/views").child(slug)
+    const ref = firebaseDb.ref(viewsRef).child(slug)
 
     const { snapshot } = await ref.transaction((views: unknown) => {
       if (typeof views !== "number") {
@@ -22,12 +24,18 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 
       return views + 1
     })
+    // TODO: fix types
+    const views = (snapshot as DataSnapshot).val()
 
-    return response.status(200).json({
-      // TODO: fix types
-      views: (snapshot as DataSnapshot).val(),
-    })
+    return response.status(200).json({ views })
   }
 
-  return
+  if (request.method === "GET") {
+    // you cannot use destructuring here
+    const snapshot = await firebaseDb.ref(viewsRef).child(slug).once("value")
+
+    const views = snapshot.val()
+
+    return response.status(200).json({ views })
+  }
 }
