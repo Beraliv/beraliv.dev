@@ -6,6 +6,7 @@ import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
 import { Label } from "../components/Label"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { ViewCounter } from "../components/ViewCounter"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -77,6 +78,14 @@ const BlogPostTemplate = ({
     throw new Error(`Cannot find post.frontmatter.labels in ${location.href}`)
   }
 
+  if (!post.fields) {
+    throw new Error(`Cannot find post.fields in ${location.href}`)
+  }
+
+  if (!post.fields.slug) {
+    throw new Error(`Cannot find post.fields in ${location.href}`)
+  }
+
   if (!post.body) {
     throw new Error(`Cannot find post.body in ${location.href}`)
   }
@@ -89,6 +98,7 @@ const BlogPostTemplate = ({
 
   const { resize: image } = post.frontmatter.image.childImageSharp
   const { description, keywords, labels, title } = post.frontmatter
+  const { slug } = post.fields
 
   const { previous, next } = data
 
@@ -107,8 +117,13 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
-          <p>{post.frontmatter.date}</p>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <div className="metadata">
+            <small>{post.frontmatter.date}</small>
+            <small>
+              <ViewCounter slug={slug} />
+            </small>
+          </div>
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
         {labels.map(label => label && <Label key={label} title={label} />)}
@@ -162,6 +177,9 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       body
+      fields {
+        slug
+      }
       frontmatter {
         keywords
         labels
