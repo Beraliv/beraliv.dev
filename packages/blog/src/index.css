@@ -517,8 +517,7 @@ table thead tr th {
 .block-sandwich-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
 @media (max-width: 42rem) {
@@ -530,8 +529,7 @@ table thead tr th {
 
 @media (min-width: 42rem) {
   .block-sandwich-gallery-item {
-    width: 16rem;
-    margin-right: 3rem;
+    width: 18rem;
   }
 }
 
