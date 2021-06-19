@@ -117,13 +117,13 @@ const BlogPostTemplate = ({
         itemType="http://schema.org/Article"
       >
         <header>
-          <div>
-            <p>{post.frontmatter.date}</p>
-            <p>
-              <ViewCounter slug={slug} />
-            </p>
-          </div>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <div className="metadata">
+            <small>{post.frontmatter.date}</small>
+            <small>
+              <ViewCounter slug={slug} />
+            </small>
+          </div>
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
         {labels.map(label => label && <Label key={label} title={label} />)}
