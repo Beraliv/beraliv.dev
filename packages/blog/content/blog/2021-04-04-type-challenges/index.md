@@ -59,7 +59,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - [Flatten Tuple Type in TypeScript](/2021-06-13-flatten-tuple-type-in-typescript/)
 - [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - [Append to Object in TypeScript](/2021/06/16/append-to-object/)
 - [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - will be added on May 18, 2021
-- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - will be added on May 19, 2021
+- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - [Making Union out of String in TypeScript](/2021/06/19/making-union-out-of-string/)
 - [599 • Merge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) - will be added on May 20, 2021
 - [610 • CamelCase](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) - will be added on May 21, 2021
 - [612 • KebabCase](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) - will be added on May 24, 2021
