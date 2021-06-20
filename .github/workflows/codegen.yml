@@ -21,8 +21,4 @@ jobs:
       - run: git fetch origin ${{ github.ref }} --depth=100
       - run: git diff origin/main...HEAD --name-only
       - run: yarn install --network-timeout 1000000
-      - name: yarn dev:blog & sleep 30 && yarn workspace blog codegen (2m timeout)
-        timeout-minutes: 2
-        run: |
-           yarn dev:blog
-           sleep 30 && yarn workspace blog codegen
+      - run: yarn dev:blog & (sleep 30 && yarn workspace blog codegen) & (sleep 60 && pkill node)
