@@ -5,7 +5,7 @@ on: push
 jobs:
   test:
     name: blog
-    timeout-minutes: 10
+    timeout-minutes: 2
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
       - run: git fetch origin ${{ github.ref }} --depth=100
       - run: git diff origin/main...HEAD --name-only
       - run: yarn install --network-timeout 1000000
-      - run: yarn workspace blog codegen
+      - run: yarn dev:blog & sleep 30 && yarn workspace blog codegen
