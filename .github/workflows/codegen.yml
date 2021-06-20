@@ -5,7 +5,7 @@ on: push
 jobs:
   test:
     name: blog
-    timeout-minutes: 4
+    timeout-minutes: 6
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
