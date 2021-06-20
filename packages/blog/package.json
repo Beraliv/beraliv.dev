@@ -62,13 +62,13 @@
     "autoprefixer": "10.2.6",
     "babel-jest": "27.0.2",
     "babel-preset-gatsby": "1.7.1",
-    "graphql": "15.5.1",
+    "graphql": "15.5.0",
     "identity-obj-proxy": "3.0.0",
     "jest": "27.0.4",
     "prettier": "2.3.1"
   },
   "resolutions": {
-    "graphql": "15.5.1"
+    "graphql": "15.5.0"
   },
   "license": "0BSD"
 }
