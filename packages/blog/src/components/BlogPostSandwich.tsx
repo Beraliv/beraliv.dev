@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import { BlogPostProps } from "./BlogPost"
+import { ViewReader } from "./ViewReader"
 
 interface BlogPostSandwichProps<T extends BlogPostProps> {
   posts: T[]
@@ -25,12 +26,14 @@ export const BlogPostSandwich = <T extends BlogPostProps>({
       itemType="http://schema.org/Article"
     >
       <header>
-        <small>{posts[0].date}</small>
         <h2>
           <Link to={slug} itemProp="url">
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
+        <small>
+          <ViewReader slug={slug} />
+        </small>
       </header>
       <section>
         <p

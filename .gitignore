@@ -1,1 +1,8 @@
+# Project dependencies
 node_modules
+
+# Vercel cache
+.vercel
+
+# Environment variables
+.env

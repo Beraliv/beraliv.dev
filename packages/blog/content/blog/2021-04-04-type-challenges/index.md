@@ -56,10 +56,10 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - [Append argument to a function in TypeScript](/2021-05-23-append-argument/)
 - [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - [Permutations in TypeScript](/2021-05-30-permutations-in-typescript/)
 - [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - [Length of String in TypeScript](/2021-05-31-string-length-in-typescript/)
-- [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - will be added on May 14, 2021
-- [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - will be added on May 17, 2021
+- [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - [Flatten Tuple Type in TypeScript](/2021-06-13-flatten-tuple-type-in-typescript/)
+- [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - [Append to Object in TypeScript](/2021/06/16/append-to-object/)
 - [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - will be added on May 18, 2021
-- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - will be added on May 19, 2021
+- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - [Making Union out of String in TypeScript](/2021/06/19/making-union-out-of-string/)
 - [599 • Merge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) - will be added on May 20, 2021
 - [610 • CamelCase](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) - will be added on May 21, 2021
 - [612 • KebabCase](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) - will be added on May 24, 2021
