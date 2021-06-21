@@ -43,4 +43,6 @@ export default async (request: VercelRequest, response: VercelResponse) => {
 
     return response.status(200).json(result)
   }
+
+  return response.status(404)
 }
