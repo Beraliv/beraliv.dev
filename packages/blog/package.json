@@ -60,11 +60,11 @@
     "@types/react-helmet": "6.1.1",
     "@vercel/node": "1.11.1",
     "autoprefixer": "10.2.6",
-    "babel-jest": "27.0.2",
+    "babel-jest": "27.0.5",
     "babel-preset-gatsby": "1.8.0",
     "graphql": "15.5.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "27.0.4",
+    "jest": "27.0.5",
     "prettier": "2.3.1"
   },
   "resolutions": {
