@@ -54,7 +54,7 @@
     "@graphql-codegen/introspection": "1.18.2",
     "@graphql-codegen/typescript": "1.22.3",
     "@graphql-codegen/typescript-operations": "1.18.2",
-    "@testing-library/react-hooks": "7.0.0",
+    "@testing-library/react-hooks": "7.0.1",
     "@types/jest": "26.0.23",
     "@types/mdx-js__react": "1.5.3",
     "@types/react-helmet": "6.1.1",
