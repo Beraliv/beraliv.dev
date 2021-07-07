@@ -30,18 +30,24 @@ export const getStaticProps: GetStaticProps<
   }
 
   const { content: mdContent, ...post } = getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "description",
-    "labels",
-    "keywords",
     "categories",
+    "content",
+    "date",
+    "description",
     "featured",
+    "keywords",
+    "labels",
+    "slug",
+    "title",
   ]);
 
   if (!mdContent) {
-    throw new Error(`Cannot find content for post ${location.href}`);
+    throw new Error(
+      `Cannot find content for post ${JSON.stringify({
+        content: mdContent,
+        ...post,
+      })}`
+    );
   }
 
   const htmlContent = await mdToHtml(mdContent);
@@ -61,7 +67,14 @@ export const getStaticPaths: GetStaticPaths<PostPropsParamsType> = () => {
 
   return {
     paths: posts
-      .filter((post): post is PostPropsParamsType => Boolean(post.slug))
+      .filter((post): post is PostPropsParamsType => {
+        if (typeof post.slug !== "string") {
+          console.error(`Cannot find slug for post ${JSON.stringify(post)}`);
+          return false;
+        }
+
+        return true;
+      })
       .map((posts) => ({
         params: {
           slug: posts.slug,
