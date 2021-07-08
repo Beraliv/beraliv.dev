@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { FC } from "react";
-import { PostBody } from "../components/PostBody";
-import { getAllPosts } from "../functions/getAllPosts";
-import { getPostBySlug } from "../functions/getPostBySlug";
-import { mdToHtml } from "../functions/mdToHtml";
+import { PostBody } from "../src/components/PostBody";
+import { getAllPosts } from "../src/functions/getAllPosts";
+import { getPostBySlug } from "../src/functions/getPostBySlug";
+import { mdToHtml } from "../src/functions/mdToHtml";
 import { PostType } from "../types/PostType";
 
 interface PostPropsParamsType {

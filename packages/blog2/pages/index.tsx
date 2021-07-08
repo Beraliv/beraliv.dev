@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { getAllPosts } from "../functions/getAllPosts";
+import { getAllPosts } from "../src/functions/getAllPosts";
 import styles from "../styles/Home.module.css";
 
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
