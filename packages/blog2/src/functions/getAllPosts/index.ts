@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import { CONTENT_DIR } from "../../constants/CONTENT_DIR";
-import { PostType } from "../../../types/PostType";
+import { PostType } from "../../types/PostType";
 import { getPostBySlug } from "../getPostBySlug";
 
 export function getAllPosts<K extends keyof PostType>(fields: K[] = []) {
