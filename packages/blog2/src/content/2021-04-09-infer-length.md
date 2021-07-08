@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Length use](./step1-example-of-use.png)
+![Example of Length use](/infer-length/step1-example-of-use.png)
 
 Fifth challenge is [Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md)
 
@@ -24,7 +24,7 @@ As for [First of Array](/2021-04-08-infer-first-element/), we can use it for bot
 
 When we distinguished arrays from tuples in [Making object out of tuple](/2021-04-07-making-object-out-of-tuple/#an-array-or-a-tuple), we have seen that we can call `['length']` in types which is really convenient. Let's try this:
 
-![Solution](./step2-solution.png)
+![Solution](/infer-length/step2-solution.png)
 
 As usual, for calling tuple methods in types, we need [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints)
 

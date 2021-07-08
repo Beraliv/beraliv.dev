@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of If use](./step1-example-of-use.png)
+![Example of If use](/boolean-condition/step1-example-of-use.png)
 
 Eighth challenge is [If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md)
 
@@ -24,7 +24,7 @@ It is common to use conditional statement to get either of branches. Like [condi
 
 [Conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types) are what we really need:
 
-![If solution](./step2-solution.png)
+![If solution](/boolean-condition/step2-solution.png)
 
 Also I added `C extends boolean` so we are always sure that we only have `true` and `false` ⭐️
 

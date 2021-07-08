@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Exclude use](./step1-example-of-use.png)
+![Example of Exclude use](/exclude-under-the-hood/step1-example-of-use.png)
 
 Sixth challenge is [Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md)
 
@@ -32,11 +32,11 @@ We already know how to iterate over:
 
 For union types there are [Distributive Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types):
 
-![Example of Distributive Conditional type](./step2-distributive-conditional-types.png)
+![Example of Distributive Conditional type](/exclude-under-the-hood/step2-distributive-conditional-types.png)
 
 Let's check what's going on step by step:
 
-![Explanation of Distributive Conditional type example](./step3-distributive-conditional-types-explanation.png)
+![Explanation of Distributive Conditional type example](/exclude-under-the-hood/step3-distributive-conditional-types-explanation.png)
 
 So it's literally applied to each element of a union type 💫
 
@@ -46,7 +46,7 @@ We can use [Distributive Conditional Types](https://www.typescriptlang.org/docs/
 2. `Type extends unknown`
 3. Reversed `Type extends never` (as this is `false` for every `Type`)
 
-![Explanation of never in Distributive Conditional type](./step3-distributive-conditional-types-explanation-for-never.png)
+![Explanation of never in Distributive Conditional type](/exclude-under-the-hood/step3-distributive-conditional-types-explanation-for-never.png)
 
 It works the same way because `any` and `unknown` are top types in TypeScript and `never` is bottom type.
 
@@ -54,11 +54,11 @@ It works the same way because `any` and `unknown` are top types in TypeScript an
 
 For `Exclude` we want to do the same way but we need to remove specified elements from a union:
 
-![Explanation of the possible solution](./step4-before-solution.png)
+![Explanation of the possible solution](/exclude-under-the-hood/step4-before-solution.png)
 
 `T extends U` is what we need:
 
-![Solution](./step4-solution.png)
+![Solution](/exclude-under-the-hood/step4-solution.png)
 
 🔥🔥🔥 Great job!
 

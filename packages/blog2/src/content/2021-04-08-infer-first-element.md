@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of First use](./step1-example-of-use.png)
+![Example of First use](/infer-first-element/step1-example-of-use.png)
 
 Fourth challenge is [First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md)
 
@@ -26,7 +26,7 @@ To distinguish arrays and tuples, please visit [Making object out of tuple](/202
 
 Previously we described [how to iterate over tuples](/2021-04-07-making-object-out-of-tuple/#iteration-over-tuple). For this challenge we don't need it as we can access index directly using `[0]`:
 
-![Solution](./step2-solution.png)
+![Solution](/infer-first-element/step2-solution.png)
 
 But don't forget about [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints) using `extends` (it's already added). Without it we cannot call `T[0]` and will get an error `Type '0' cannot be used to index type 'T'`
 
