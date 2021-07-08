@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Concat use](./step1-example-of-use.png)
+![Example of Concat use](/spread-in-tuple-types-in-typescript/step1-example-of-use.png)
 
 Ninth challenge is [Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md)
 
@@ -29,11 +29,11 @@ Sometimes it's useful to collect 2 tuples' elements in one tuple, like [Array.pr
 
 So let's try it all together:
 
-![Concat solution, v1](./step2-solution-v1.png)
+![Concat solution, v1](/spread-in-tuple-types-in-typescript/step2-solution-v1.png)
 
 Here we have an error `A rest element type must be an array type`, let's add [Generic Constrains](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints) to allow only arrays:
 
-![Concat final solution](./step2-final-solution.png)
+![Concat final solution](/spread-in-tuple-types-in-typescript/step2-final-solution.png)
 
 This is it 🚀
 
