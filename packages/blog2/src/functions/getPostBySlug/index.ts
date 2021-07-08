@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import frontmatter from "gray-matter";
 import { CONTENT_DIR } from "../../constants/CONTENT_DIR";
-import { PostType } from "../../../types/PostType";
+import { PostType } from "../../types/PostType";
 
 export const getPostBySlug = <K extends keyof PostType>(
   slug: string,
