@@ -13,7 +13,7 @@ categories:
 featured: ./yandex-overlay-in-player.png
 ---
 
-![Yandex overlay in player](./yandex-overlay-in-player.png)
+![Yandex overlay in player](/work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png)
 
 Hey! My name is Alex, and I've spent around 2 years in Yandex, in video player and [video advertising](https://yandex.com/adv/products/video) teams for more than a year in each one.
 

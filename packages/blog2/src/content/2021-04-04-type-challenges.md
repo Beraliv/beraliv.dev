@@ -15,7 +15,7 @@ categories:
 featured: ./featured.png
 ---
 
-![Type Challenges](./featured.png)
+![Type Challenges](/type-challenges/featured.png)
 
 I am fan of [Typescript](https://www.typescriptlang.org/) since my last work at Yandex
 

@@ -14,7 +14,7 @@ categories:
 featured: ./udemy-player-page.png
 ---
 
-![Udemy player page](./udemy-player-page.png)
+![Udemy player page](/whats-inside-udemy-player/udemy-player-page.png)
 
 I’ve discovered Udemy as a service around 5–6 years ago. Below you can read what I found interesting having a look at the player during several hours.
 
@@ -28,7 +28,7 @@ It turns out Udemy uses VideoJS [version 0.12.4](https://vjs.zencdn.net/vttjs/0.
 
 VTT-files look like that:
 
-![VTT subtitles file structure](./subtitles-vtt-file-structure.png)
+![VTT subtitles file structure](/whats-inside-udemy-player/subtitles-vtt-file-structure.png)
 
 <video class="gatsby-video" autoplay loop muted playsinline>
   <source src="/udemy-subtitle-update-based-on-vtt.webm" type="video/webm"></source>
@@ -37,7 +37,7 @@ VTT-files look like that:
 
 Udemy also uses WebVTT to show a popover using thumbnail sprites:
 
-![VTT thumbnail sprites file structure](./thumbnail-sprites-vtt-file-structure.png)
+![VTT thumbnail sprites file structure](/whats-inside-udemy-player/thumbnail-sprites-vtt-file-structure.png)
 
 [VideoJS sneakpeek](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L12507) is used to parse VTT sprites. Find more at [`videojs-sneakpeek`](https://github.com/udemy/videojs-sneakpeek)
 
@@ -52,11 +52,11 @@ Video player development isn’t obvious: it includes browser-specific features 
 
 Udemy uses `XMLHttpRequest` in [`_sendBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11123) for synchronous and [`sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) in [`_clearBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11099) for asynchronous requests. The data is sent as a sequence of events.
 
-![Statistics synchronous event example](./statistics-sync-event-example.png)
+![Statistics synchronous event example](/whats-inside-udemy-player/statistics-sync-event-example.png)
 
 The full `XMLHttpRequest` example is available [here](https://gist.github.com/Beraliv/fe146fdaf7b87c141ddaf5da10779fda). You can see UTC timestamp as `uti`, event name as `e`, video id as `vid`, etc. The events are send to `https://<ake>.litix.io` where `<ake>` is user id. The `beaconUrl` is `https://vfq2nsli1v76fglgdl9puq0cd.litix.io`.
 
-![Statistics asynchronous event example](./statistics-async-event-example.png)
+![Statistics asynchronous event example](/whats-inside-udemy-player/statistics-async-event-example.png)
 
 The full `sendBeacon` example is available [here](https://gist.github.com/Beraliv/2b5e7383bf339e04cd004d99096cf81f). You can see more data about browser, OS, libraries, content, course and so on and so forth. The `beaconUrl` here is https://vfq2nsli1v76fglgdl9puq0cd.litix.io as well.
 
@@ -66,4 +66,4 @@ All my old courses’ videos (and even the one I purchased now) are MP4. I didn�
 
 Video tag element contains the source to the stream and plays it just fine. If you try to put src without those parameters, you will get the error:
 
-![Udemy player MEDIA_ERR_SRC_NOT_SUPPORTED error](./MEDIA_ERR_SRC_NOT_SUPPORTED.png)
+![Udemy player MEDIA_ERR_SRC_NOT_SUPPORTED error](/whats-inside-udemy-player/MEDIA_ERR_SRC_NOT_SUPPORTED.png)
