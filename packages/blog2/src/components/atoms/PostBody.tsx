@@ -1,12 +1,13 @@
 import { FC } from "react";
+import { MDXRemote } from "next-mdx-remote";
+import { PostPropsType } from "../pages/Post";
 
 export interface PostBodyPropsType {
-  content: string;
+  content: PostPropsType["content"];
 }
 
+const components = {};
+
 export const PostBody: FC<PostBodyPropsType> = ({ content }) => (
-  <section
-    dangerouslySetInnerHTML={{ __html: content }}
-    itemProp="articleBody"
-  />
+  <MDXRemote {...content} components={components} />
 );
