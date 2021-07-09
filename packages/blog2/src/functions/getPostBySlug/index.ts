@@ -4,30 +4,20 @@ import frontmatter from "gray-matter";
 import { CONTENT_DIR } from "../../constants/CONTENT_DIR";
 import { PostType } from "../../types/PostType";
 
-export const getPostBySlug = <K extends keyof PostType>(
-  slug: string,
-  fields: K[] = []
-): Pick<PostType, K> => {
+export interface MetaPostType {
+  content: string;
+  data: PostType;
+  name: string;
+}
+
+export const getPostBySlug = (slug: string): MetaPostType => {
   const slugName = slug.replace(/\.md$/, "");
   const fullPath = join(CONTENT_DIR, `${slugName}.md`);
   const fileContents = readFileSync(fullPath, "utf8");
-  const { data, content } = frontmatter(fileContents);
-
-  const items: Partial<Pick<PostType, K>> = {};
-  fields.forEach((field) => {
-    if (field === "slug") {
-      // @ts-expect-error
-      items[field] = slugName;
-    }
-    if (field === "content") {
-      // @ts-expect-error
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items as Pick<PostType, K>;
+  const { content, data } = frontmatter(fileContents);
+  return {
+    content,
+    data,
+    name: slugName,
+  };
 };
