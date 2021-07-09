@@ -18,7 +18,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Tuple elements manipulation examples](./step1-example-of-use.png)
+![Tuple elements manipulation examples](/manipulation-with-tuple-elements/step1-example-of-use.png)
 
 Today we discuss [Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) and other methods: `Push`, `Shift` and `Unshift`
 
@@ -34,7 +34,7 @@ Since [TypeScript 4.2](https://devblogs.microsoft.com/typescript/announcing-type
 
 We will infer all elements but the last and return them as result:
 
-![Pop solution](./step2-pop-solution.png)
+![Pop solution](/manipulation-with-tuple-elements/step2-pop-solution.png)
 
 ## Push
 
@@ -42,7 +42,7 @@ We will infer all elements but the last and return them as result:
 
 We spread all elements we have and add the pushed element to the end:
 
-![Push solution](./step3-push-solution.png)
+![Push solution](/manipulation-with-tuple-elements/step3-push-solution.png)
 
 ## Shift
 
@@ -50,7 +50,7 @@ We spread all elements we have and add the pushed element to the end:
 
 So we need to infer all elements but the first one and return them as result:
 
-![Shift solution](./step4-shift-solution.png)
+![Shift solution](/manipulation-with-tuple-elements/step4-shift-solution.png)
 
 ## Unshift
 
@@ -58,7 +58,7 @@ So we need to infer all elements but the first one and return them as result:
 
 We spread all elements we have and add unshifted element to the beginning:
 
-![Unshift solution](./step5-unshift-solution.png)
+![Unshift solution](/manipulation-with-tuple-elements/step5-unshift-solution.png)
 
 ## Summary
 

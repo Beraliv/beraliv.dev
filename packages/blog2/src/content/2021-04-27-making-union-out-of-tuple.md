@@ -13,7 +13,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of TupleToUnion use](./step1-example-of-use.png)
+![Example of TupleToUnion use](/making-union-out-of-tuple/step1-example-of-use.png)
 
 Today we discuss [Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md)
 
@@ -25,7 +25,7 @@ This one is useful when we need to extract elements type out of tuple.
 
 As we discussed it in [Making object out of tuple](/2021-04-07-making-object-out-of-tuple/#iteration-over-tuple) and [Includes in TypeScript](/2021-04-16-includes-in-typescript/#iteration-over-tuples), we can use [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) to get the type of tuple's elements:
 
-![Solution](./step2-solution.png)
+![Solution](/making-union-out-of-tuple/step2-solution.png)
 
 Here we use `extends any[]` as [Generic Constrain](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints) to be able to call `T[number]` without errors
 

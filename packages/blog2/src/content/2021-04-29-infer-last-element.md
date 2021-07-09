@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Chainable Options use](./step1-example-of-use.png)
+![Example of Chainable Options use](/infer-last-element/step1-example-of-use.png)
 
 Today we discuss [Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md)
 
@@ -26,15 +26,15 @@ To distinguish arrays and tuples, please visit [Making object out of tuple](/202
 
 For the first element, we don't need an iteration over tuples and we just use `[0]`:
 
-![First solution](./step2-first-solution.png)
+![First solution](/infer-last-element/step2-first-solution.png)
 
 Since [TypeScript 4.2](https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/#non-trailing-rests) we can use rest elements not only at the very last position of a tuple type:
 
-![Rest elements in TypeScript 4.2](./step3-rest-in-ts-4-2.png)
+![Rest elements in TypeScript 4.2](/infer-last-element/step3-rest-in-ts-4-2.png)
 
 With [Type inference in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types) we can skip all elements but the last one:
 
-![Solution](./step4-solution.png)
+![Solution](/infer-last-element/step4-solution.png)
 
 Done ✅
 
