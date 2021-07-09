@@ -12,12 +12,12 @@ keywords:
   - javascript
   - css
 categories:
-featured: ./macos-scrollbar.png
+featured: /macos-scrollbar.png
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:
 
-![MacOS-like scrollbar](./macos-scrollbar.png)
+![MacOS-like scrollbar](/scrollbar-customisation/macos-scrollbar.png)
 
 But maybe on the left, smaller or bigger, with different indents dependent on whether it’s mobile 📱, desktop 🖥️ or TV screen 📺 Asking more?
 But the reality is… a customisation of scrollbars remains same since the end of 90s. If my dad was programming, he would make fun of me all day while I found the solution to make everything universal and stable. [It’s 2020 and it’s still a PITA](https://stackoverflow.com/questions/6165472/custom-css-scrollbar-for-firefox/6165489#6165489).
@@ -81,13 +81,13 @@ However, if you [try this](https://jsfiddle.net/beraliv/4yd7bg2r/15/), it works 
 
 **Mac**. On the **left** — original size. On the **right** — **thin**. Now you see the difference:
 
-![Mac, original size.](./mac-ff-before-changes.png)
-![Mac, thin](./mac-ff-after-changes.png)
+![Mac, original size.](/scrollbar-customisation/mac-ff-before-changes.png)
+![Mac, thin](/scrollbar-customisation/mac-ff-after-changes.png)
 
 Same for **Windows**:
 
-![Windows, original size.](./win-ff-before-changes.png)
-![Windows, thin](./win-ff-after-changes.png)
+![Windows, original size.](/scrollbar-customisation/win-ff-before-changes.png)
+![Windows, thin](/scrollbar-customisation/win-ff-after-changes.png)
 
 More information you can find on MDN: [scrollbar-width](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width) and [scrollbar-color](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color).
 
@@ -97,13 +97,13 @@ If you are not familiar with it, probably forget about it. It’s IE11. Such a p
 
 However, even it has CSS properties which might help:
 
-![Trident, only colour customisation](./trident-colour-customisation.png)
+![Trident, only colour customisation](/scrollbar-customisation/trident-colour-customisation.png)
 
 Only colours 🔴🍏📘 ughhh…
 
 If you still need to customise colours, you can check [the generator](http://www.spectrum-research.com/V2/projects_scrollbar_generator.asp):
 
-![Trident, generator](./trident-scrolbar-generator.png)
+![Trident, generator](/scrollbar-customisation/trident-scrolbar-generator.png)
 
 And also [autohiding scrollbar](https://css-tricks.com/snippets/css/hide-scrollbar-in-edge-ie-1011/) property!!! Thanks 🙏⚡
 
