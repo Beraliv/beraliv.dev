@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Promise.all use](./step1-example-of-use.png)
+![Example of Promise.all use](/extract-under-the-hood/step1-example-of-use.png)
 
 Today we discuss [Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md)
 
@@ -26,17 +26,17 @@ Let's take a look 👀
 
 This solution looks like what we did in [Exclude under the hood](/2021-04-12-exclude-under-the-hood/):
 
-![Exclude solution](./step2-exclude-solution.png)
+![Exclude solution](/extract-under-the-hood/step2-exclude-solution.png)
 
 We used [Distributive Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) which helped us filtering out the elements we need.
 
 Here, we need to remove not matched (with `type`) elements of a union. Or in other words (if you don't like double negations as me 😅), we need to pick the union elements of a specific structure. We know in advance that the field is `type`. Let's try:
 
-![Solution, version 1](./step3-solution-1.png)
+![Solution, version 1](/extract-under-the-hood/step3-solution-1.png)
 
 Also, if you're familiar with internal type `Extract` (it's the opposite what `Exclude` does), you can apply it here:
 
-![Solution, version 2](./step3-solution-2.png)
+![Solution, version 2](/extract-under-the-hood/step3-solution-2.png)
 
 Great job 🔥
 

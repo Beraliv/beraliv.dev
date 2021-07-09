@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Flatten use](./step1-example-of-use.png)
+![Example of Flatten use](/flatten-tuple-type-in-typescript/step1-example-of-use.png)
 
 Today we discuss [Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md)
 
@@ -28,7 +28,7 @@ Knowing the approach from different challenges, as we want to save the structure
 
 We iterate over elements:
 
-![Iterate over tuple elements](./step2-iterate-over-tuple.png)
+![Iterate over tuple elements](/flatten-tuple-type-in-typescript/step2-iterate-over-tuple.png)
 
 Then we have 2 cases:
 
@@ -37,7 +37,7 @@ Then we have 2 cases:
 
 Let's add second case:
 
-![Put element to the result tuple type](./step3-always-put-elements-to-the-result-type.png)
+![Put element to the result tuple type](/flatten-tuple-type-in-typescript/step3-always-put-elements-to-the-result-type.png)
 
 ## Call it recursively when needed
 
@@ -45,11 +45,11 @@ At the moment, if we have a look at Playground – https://tsplay.dev/w18bXW, w
 
 We forgot to apply function recursively when we have an element as tuple. Let's have an example here:
 
-![Example where Flatten isn't working](./step4-not-applying-recursively-for-elements-which-are-tuples.png)
+![Example where Flatten isn't working](/flatten-tuple-type-in-typescript/step4-not-applying-recursively-for-elements-which-are-tuples.png)
 
 In this case we cannot just add it to result tuple, we need to call `Flatten` before and then put all the elements of it to the result type. Let's change the implementation based on that:
 
-![Solution](./step5-solution.png)
+![Solution](/flatten-tuple-type-in-typescript/step5-solution.png)
 
 Now it's working as expected 🔥
 

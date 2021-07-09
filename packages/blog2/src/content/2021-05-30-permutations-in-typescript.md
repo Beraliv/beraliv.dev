@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Permutation use](./step1-example-of-use.png)
+![Example of Permutation use](/permutations-in-typescript/step1-example-of-use.png)
 
 Today we discuss [Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md)
 
@@ -26,13 +26,13 @@ Anyway let's try to solve it 🚀
 
 Using `unknown`, `any` or `never` we can distribute union type:
 
-![Distribute union type and put it into tuple type](./step2-distribute-union-and-put-to-tuple.png)
+![Distribute union type and put it into tuple type](/permutations-in-typescript/step2-distribute-union-and-put-to-tuple.png)
 
 But if we try this one, we will get an error `Type instantiation is excessively deep and possibly infinite`.
 
 Somehow we need to store the union element which we currently put into the tuple, and then iterate over the rest elements. For this reason let's add another [Generic type variable](https://www.typescriptlang.org/docs/handbook/2/generics.html) `K`:
 
-![Use generic type variable](./step3-solution-v2.png)
+![Use generic type variable](/permutations-in-typescript/step3-solution-v2.png)
 
 Now we face `never` 🧐 for all the examples https://tsplay.dev/wj5EbW
 
@@ -40,7 +40,7 @@ Now we face `never` 🧐 for all the examples https://tsplay.dev/wj5EbW
 
 We have `never` because at the last step we have nothing to iterate over in a union type. Let's have a short example:
 
-![Iteration over union example](./step4-show-never-problem.png)
+![Iteration over union example](/permutations-in-typescript/step4-show-never-problem.png)
 
 So for `never` we should return empty array to fix this problem.
 
@@ -48,7 +48,7 @@ To prevent future errors, we shouldn't use `T extends never` as this distributes
 
 However, if we wrap `T` and `never` in a tuple and use `[T] extends [never]`, it will actually check for `never`. Let's include it in the solution:
 
-![Solution](./step5-solution.png)
+![Solution](/permutations-in-typescript/step5-solution.png)
 
 Looks overloaded but not that hard, right? 😊
 
@@ -63,4 +63,3 @@ Let's recap ⬇️
 Please check the solution with test cases: https://tsplay.dev/weexew
 
 Have a wonderful week ahead 🚀
-

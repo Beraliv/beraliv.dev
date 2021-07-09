@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of TrimLeft use](./step1-example-of-use.png)
+![Example of TrimLeft use](/trim-left-in-typescript/step1-example-of-use.png)
 
 Today we discuss [Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md)
 
@@ -37,15 +37,15 @@ For strings we need several concepts:
 
 First, let's declare `Whitespace` which will be removed from the beginning:
 
-![Whitespace example](./step2-whitespace.png)
+![Whitespace example](/trim-left-in-typescript/step2-whitespace.png)
 
 Second, let's try to remove the first whitespace if it is a part of a string we pass. We will get something like this:
 
-![Example with removing one whitespace](./step3-remove-one-whitespace.png)
+![Example with removing one whitespace](/trim-left-in-typescript/step3-remove-one-whitespace.png)
 
 [Not all test cases are completed](https://www.typescriptlang.org/play?#code/PQKgUABBCMAMBsEC0EAqAnAlgWwgGQFMAzAF0mSUqvICMBPCAQQDsSALAe2YYDEBXCAAoAAgENWRPgEoIAYmwEAJpj65ZJAtgAOAG1EakOzBvSid5crKsQAinwIBnEpi4WoASW07NBVhAAGGDiEpAA8qAB8-hAA7myYAMZsECSiANaOEOIQBAAeogkkEE5YzADmKXRaBFnMihDoBCR86MwOWRDMBDHFJKUVMcbJ7DVxxo5aBTU0BGWYzMzzFY3YHABuSgB0bhA8HOg5+V4EO-5nJA7kJFU1fThKEAC8aFjYISShAORQABIEOjoOBAAOr7HT1CCfCIQYDAQ7VQoPEhAmaQv4AoGg9DgqCfchnfw7aEANUw3QgXAgAHFjD8+DQAFwQNgkEhaBwM2EXJKbABWDk2+zKwDg8DAIGAYCloAgAH15QrFQqIABNDgtCAAYQ4ihqf0acqVRtlEAlUuu1RB8Q0DkmCRqz2+3wAPpCADrMF3ukifADc5puL2CxA+AGVDho6u0Sktoc9w3lI4p2v4ACQAb2B1omUwAvhn5kQCAcAEqOEi5wlQAD8EDLTnITND-rAMuNRrQ5a1ogcmXbStNkpwWn2RXTEAAogBHPhmAA0k9yCKKuYgRHQHFwn2EFoISCSZm85UcwD4zh0DjxYF3EASPcyzwA2uQJ0uCIVQtPZzpwq93l8SihBdPkAiIIjnF83w-L8zF-YMwm+UDgNA8DIOXT8Z1goI3hDL4oHwpDIRQiCoFfdCYJ-bD-2+fDegOWigKIvpaMhMCSMXcjMMov9cJoiAPTdIoiA4FFRAORjPmE0TxLYsAAF0pWlEBDX7eVdhaEYDlDDR2RU1TB1bcAoGhUM2DEmo6HVA4HA4HQzxcNomRZNkOS5BweX5QV0GFUVgHEBwYmLcgSTJHobLs5wuA5ZlWXZTlgG5Ng+QFIURQQYBwvsqLgogABZfYak1MyAV8MpHCc2LXIS9yks8oVxUlMAgA) because we don't remove whitespaces after the first one. Let's apply the type recursively:
 
-![Solution](./step4-solution.png)
+![Solution](/trim-left-in-typescript/step4-solution.png)
 
 That's it 💪
 

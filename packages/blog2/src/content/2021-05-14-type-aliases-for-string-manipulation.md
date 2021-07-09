@@ -15,7 +15,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Capitalize use](./step1-example-of-use.png)
+![Example of Capitalize use](/type-aliases-for-string-manipulation/step1-example-of-use.png)
 
 Today we discuss [Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md)
 
@@ -29,7 +29,7 @@ Since [TypeScript 4.1](https://devblogs.microsoft.com/typescript/announcing-type
 
 Knowing [how to iterate over a string](/2021-05-10-trim-left-in-typescript/#iteration-over-a-string) let's find first element and make it uppercase:
 
-![Solution](./step2-solution.png)
+![Solution](/type-aliases-for-string-manipulation/step2-solution.png)
 
 We inferred `First`, made it uppercase with type alias `Uppercase`. In case of empty string we return itself without any update.
 
