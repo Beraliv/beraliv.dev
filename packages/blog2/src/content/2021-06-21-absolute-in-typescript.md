@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of Absolute use](./step1-example-of-use.png)
+![Example of Absolute use](/absolute-in-typescript/step1-example-of-use.png)
 
 Today we discuss [Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md)
 
@@ -26,7 +26,7 @@ Here we go 🚀
 
 If we have a string, and we know that there's a number in it, we can check for a minus sign at the beginning:
 
-![Positive in case we have negative](./step2-return-result-for-string.png)
+![Positive in case we have negative](/absolute-in-typescript/step2-return-result-for-string.png)
 
 Otherwise, we return the same string as we expect it to be positive
 
@@ -38,7 +38,7 @@ Still we return the same number or bigint if we pass it to `Absolute`
 
 As we already can manipulate numbers in a string, let's put a number to a string:
 
-![Put number and bigint into a string](./step3-return-result-for-number-and-bigint.png)
+![Put number and bigint into a string](/absolute-in-typescript/step3-return-result-for-number-and-bigint.png)
 
 And now all the tests are passed ✅ – https://tsplay.dev/WJ9oRm
 

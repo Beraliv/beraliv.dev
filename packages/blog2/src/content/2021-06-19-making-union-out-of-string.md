@@ -14,7 +14,7 @@ categories:
 featured: ./step1-example-of-use.png
 ---
 
-![Example of StringToUnion use](./step1-example-of-use.png)
+![Example of StringToUnion use](/making-union-out-of-string/step1-example-of-use.png)
 
 Today we discuss [StringToUnion](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md)
 
@@ -31,11 +31,11 @@ Let's go 🚀
 
 Let's start from the first character:
 
-![Get first character, version 1](./step2-get-first-character-v1.png)
+![Get first character, version 1](/making-union-out-of-string/step2-get-first-character-v1.png)
 
 We cannot extract it using indices as we get `string`. Instead let's apply [Type inference in conditional types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#type-inference-in-conditional-types):
 
-![Get first character, version 2](./step3-get-first-character-v2.png)
+![Get first character, version 2](/making-union-out-of-string/step3-get-first-character-v2.png)
 
 ## Putting characters into a union
 
@@ -43,13 +43,13 @@ Next step is to put other characters into a union.
 
 As we already can get first character, let's apply it recursively:
 
-![Final solution](./step4-solution.png)
+![Final solution](/making-union-out-of-string/step4-solution.png)
 
 On the final step where we have an empty string, it converts to `never`
 
 If we deal with a union type, `never` is the type when we have no elements in it. But if we put any element in it, `never` will be removed from it:
 
-![Never in a union type](./step5-never-in-a-union.png)
+![Never in a union type](/making-union-out-of-string/step5-never-in-a-union.png)
 
 That's it 💫
 
