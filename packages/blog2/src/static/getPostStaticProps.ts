@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import { PostPropsType } from "../components/pages/Post";
 import { getPostBySlug } from "../functions/getPostBySlug";
-import { mdToHtml } from "../functions/mdToHtml";
 import { PostPropsParamsType } from "./getPostStaticPaths";
+import { serialize } from "next-mdx-remote/serialize";
 
 export const getPostStaticProps: GetStaticProps<
   PostPropsType,
@@ -12,35 +12,15 @@ export const getPostStaticProps: GetStaticProps<
     throw new Error(`Cannot find slug for post ${location.href}`);
   }
 
-  const { content: mdContent, ...post } = getPostBySlug(params.slug, [
-    "categories",
-    "content",
-    "date",
-    "description",
-    "featured",
-    "keywords",
-    "labels",
-    "slug",
-    "title",
-  ]);
-
-  if (!mdContent) {
-    throw new Error(
-      `Cannot find content for post ${JSON.stringify({
-        content: mdContent,
-        ...post,
-      })}`
-    );
-  }
-
-  const htmlContent = await mdToHtml(mdContent);
+  const { content, data } = getPostBySlug(params.slug);
+  const mdxContent = await serialize(content, {
+    scope: data as Record<string, unknown>,
+  });
 
   return {
     props: {
-      post: {
-        ...post,
-        content: htmlContent,
-      },
+      post: data,
+      content: mdxContent,
     },
   };
 };

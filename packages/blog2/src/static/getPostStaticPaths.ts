@@ -7,23 +7,14 @@ export interface PostPropsParamsType {
 }
 
 export const getPostStaticPaths: GetStaticPaths<PostPropsParamsType> = () => {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllPosts();
 
   return {
-    paths: posts
-      .filter((post): post is PostPropsParamsType => {
-        if (typeof post.slug !== "string") {
-          console.error(`Cannot find slug for post ${JSON.stringify(post)}`);
-          return false;
-        }
-
-        return true;
-      })
-      .map((posts) => ({
-        params: {
-          slug: posts.slug,
-        },
-      })),
+    paths: posts.map(({ name }) => ({
+      params: {
+        slug: name,
+      },
+    })),
     fallback: false,
   };
 };
