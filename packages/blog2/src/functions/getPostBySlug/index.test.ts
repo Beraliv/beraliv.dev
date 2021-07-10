@@ -38,6 +38,6 @@ describe(getPostBySlug.name, () => {
       "css",
     ]);
     expect(categories).toEqual<typeof keywords>(undefined);
-    expect(featured).toEqual<typeof featured>("./macos-scrollbar.png");
+    expect(featured).toEqual<typeof featured>("/macos-scrollbar.png");
   });
 });
