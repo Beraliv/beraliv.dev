@@ -19,7 +19,8 @@
     "start:portfolio": "yarn workspace portfolio start",
     "start:blog": "yarn workspace blog start",
     "start:blog2": "yarn workspace blog2 start",
-    "test:blog": "yarn workspace blog test"
+    "test:blog": "yarn workspace blog test",
+    "test:blog2": "yarn workspace blog2 test"
   },
   "engines": {
     "node": ">= 12.13.0"
