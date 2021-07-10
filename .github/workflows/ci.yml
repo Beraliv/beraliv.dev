@@ -1,13 +1,9 @@
-name: unit
+name: ci
 
 on: push
 
 jobs:
-  test:
-    name: blog
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
+  setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
@@ -21,4 +17,25 @@ jobs:
       - run: git fetch origin ${{ github.ref }} --depth=100
       - run: git diff origin/main...HEAD --name-only
       - run: yarn install --network-timeout 1000000
+  # 🕑 5 seconds
+  test_blog:
+    name: test blog
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
       - run: yarn test:blog
+  # 🕑 <1 second
+  test_blog2:
+    name: test blog2
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn test:blog2
+  # 🕑 15 seconds
+  build_blog2:
+    name: build blog2
+    needs: test_blog2
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn build:blog2
+
