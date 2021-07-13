@@ -9923,10 +9923,10 @@ gatsby-plugin-feed@3.9.0:
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
-gatsby-plugin-gatsby-cloud@2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-2.9.0.tgz#3f4ff12d19f4d70bdee0beb8bcd06b76223f578b"
-  integrity sha512-C8E8TOlSPY8ULivmdLLdOoNdX5TTV3+WJFzK0+jeQeT11KKfnR24rI9oqdSjeLQxbMJsOjKtng176EqD8vEqVQ==
+gatsby-plugin-gatsby-cloud@2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-2.9.1.tgz#d295be499f439b9b7608f06ff451ed654104a73c"
+  integrity sha512-cs3bb5a+7hZYw5Mx0t40tC672IKKwn6/yRJfazRfgJ4IBE/bEpAfj8x4yzC9vKqdLjCkz1TbTwLOhVEqfBxyzA==
   dependencies:
     "@babel/runtime" "^7.14.0"
     date-fns "^2.22.1"
@@ -10325,10 +10325,10 @@ gatsby-worker@^0.0.0:
   dependencies:
     "@babel/core" "^7.14.0"
 
-gatsby@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.9.0.tgz#b0966c2c9887fbaababcd11d75a3ae80210c7731"
-  integrity sha512-cBM5Ak4uWMg/eI4du776NIqymGdiQH6qYPvDYdxTItjDrJxZz13Fs3k8fRBgKyGq9xh3+48FLjdSikK2ZUaQXA==
+gatsby@3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.9.1.tgz#7fafca3f997d6eee411af47a323b4a5382706944"
+  integrity sha512-lc0bP7jJwDD5z69WS4PwddPfEKR70UQTFMjEV+BBNAmrm0ZptA1sVmBVaIfclFIUXk5UmBvf7V5m9cS0/jNa0Q==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.14.0"
