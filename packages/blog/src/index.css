@@ -269,11 +269,6 @@ table thead tr th {
   text-decoration: none;
 }
 
-.blog-post header h1 {
-  margin: 0px;
-  margin-bottom: 1rem;
-}
-
 .blog-post header .metadata {
   display: flex;
   justify-content: space-between;

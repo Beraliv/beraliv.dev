@@ -1,4 +1,3 @@
-import "typeface-montserrat"
 import "typeface-merriweather"
 
 import "../src/index.css"

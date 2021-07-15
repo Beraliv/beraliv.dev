@@ -19473,11 +19473,6 @@ typeface-merriweather@1.1.13:
   resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-1.1.13.tgz#c6f0564bc0346174f4da8daf282d27bfa802f06f"
   integrity sha512-ho6xe/y/uHIKVXsFtK+dJfRCD5KZqJCMYTCcXfuCwQHQbeQ83a7hVkxfRMTEIjZOSXw5SevOjnwJuZ5QgWEHiw==
 
-typeface-montserrat@1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-1.1.13.tgz#2a16729c174dd1a8c3fec05a851b7725412606cc"
-  integrity sha512-Pklkyj0e+K+6I/t0M6JBDBphpfJkF1k+3qd8qDnp9aVtCC7oGBQWTAcL6+5eArfGe7h73uPwyal73hEkf9YCUA==
-
 typescript@3.9.3:
   version "3.9.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.3.tgz#d3ac8883a97c26139e42df5e93eeece33d610b8a"
