@@ -3,11 +3,16 @@ small {
   font-size: 80%;
 }
 
-button {
+button,
+input {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+}
+
+input::placeholder {
+  color: rgba(156, 163, 175, 1);
 }
 
 /* HTML elements */
