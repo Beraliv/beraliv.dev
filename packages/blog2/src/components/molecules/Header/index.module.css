@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.atHome {
+  font-size: 3rem;
+  line-height: 1;
+  display: inline-block;
+  margin: 0px;
+}
+
+.toHome {
+  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-decoration: none;
+}
