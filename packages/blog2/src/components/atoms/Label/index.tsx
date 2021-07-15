@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { FC } from "react";
 import styles from "./index.module.css";
 
@@ -7,8 +6,12 @@ interface LabelPropsType {
 }
 
 export const Label: FC<LabelPropsType> = ({ title }) => (
-  // TODO: use styles.dark for dark mode
-  <div className={styles.label}>
-    <Link href={`/tag/${title}`}>{title}</Link>
-  </div>
+  <a
+    className={styles.label}
+    href={`/tag/${title}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {title}
+  </a>
 );
