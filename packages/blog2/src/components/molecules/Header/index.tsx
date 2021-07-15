@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import React, { FC } from "react";
 import { classNames } from "../../../functions/classNames";
 import { validateNever } from "../../../validators/validateNever";
@@ -13,18 +14,12 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
   let header;
 
   if (path === "home") {
-    header = (
-      <h1 className={styles.atHome}>
-        <a href="/" rel="nofollow noopener noreferrer">
-          {title}
-        </a>
-      </h1>
-    );
+    header = <h1 className={styles.atHome}>{title}</h1>;
   } else if (path === "post") {
     header = (
-      <a className={styles.toHome} href="/" rel="nofollow noopener noreferrer">
-        {title}
-      </a>
+      <NextLink href="/">
+        <a className={styles.toHome}>{title}</a>
+      </NextLink>
     );
   } else {
     validateNever(path);
