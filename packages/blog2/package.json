@@ -23,6 +23,7 @@
     "unist-util-visit": "2.0.3"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "7.0.1",
     "@types/react": "17.0.14",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
