@@ -6,6 +6,7 @@ import { Awaited } from "../../../types/Awaited";
 import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
+import { Bio } from "../../molecules/Bio";
 
 export interface PostPropsType {
   post: PickRequired<Partial<PostType>, "title" | "date" | "slug" | "labels">;
@@ -30,6 +31,9 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
           (label) => label && <Label key={label} title={label} />
         )}
       </main>
+      <footer>
+        <Bio />
+      </footer>
     </>
   );
 };
