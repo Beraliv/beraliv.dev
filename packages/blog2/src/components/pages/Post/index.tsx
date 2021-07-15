@@ -7,6 +7,7 @@ import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
 import { Bio } from "../../molecules/Bio";
+import styles from "./index.module.css";
 
 export interface PostPropsType {
   post: PickRequired<Partial<PostType>, "title" | "date" | "slug" | "labels">;
@@ -18,7 +19,7 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
     <>
       <header>
         <h1>{post.title}</h1>
-        <div>
+        <div className={styles.headerMetadata}>
           <small>{post.date}</small>
           <small>
             <ViewCounter slug={post.slug} />
