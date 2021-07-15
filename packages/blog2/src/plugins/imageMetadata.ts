@@ -36,11 +36,18 @@ function isImageNode(node: Node): node is ImageNode {
   );
 }
 
+const SUPPORTED_IMAGE_EXTENSIONS = ["png"];
+
 /**
  * Filters out non absolute paths from the public folder.
  */
 function filterImageNode(node: ImageNode): boolean {
-  return node.properties.src.startsWith("/");
+  return (
+    node.properties.src.startsWith("/") &&
+    SUPPORTED_IMAGE_EXTENSIONS.some((extension) =>
+      node.properties.src.endsWith(`.${extension}`)
+    )
+  );
 }
 
 /**
