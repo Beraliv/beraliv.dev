@@ -3,6 +3,7 @@ import { PostPropsType } from "../components/pages/Post";
 import { getPostBySlug } from "../functions/getPostBySlug";
 import { PostPropsParamsType } from "./getPostStaticPaths";
 import { serialize } from "next-mdx-remote/serialize";
+import { imageMetadata } from "../plugins/imageMetadata";
 
 export const getPostStaticProps: GetStaticProps<
   PostPropsType,
@@ -15,6 +16,9 @@ export const getPostStaticProps: GetStaticProps<
   const { content, data } = getPostBySlug(params.slug);
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
+    mdxOptions: {
+      rehypePlugins: [imageMetadata],
+    },
   });
 
   return {
