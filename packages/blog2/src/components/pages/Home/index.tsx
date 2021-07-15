@@ -2,7 +2,7 @@ import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import React from "react";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
-import { Footer } from "../../molecules/Footer";
+import { Footer } from "../../atoms/Footer";
 import styles from "./index.module.css";
 
 export const Home = ({
