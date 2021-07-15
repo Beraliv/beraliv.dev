@@ -139,16 +139,6 @@ h6 {
   line-height: 1.75rem;
 }
 
-h1 > a,
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
-  text-decoration: none;
-  color: inherit !important;
-}
-
 /* Prose */
 
 ul,
@@ -572,23 +562,6 @@ h6 .anchor:focus svg {
 .loader div:nth-child(3) {
   animation-delay: -0.15s;
 }
-
-/* Link */
-
-a {
-  color: #005b99;
-}
-
-.dark a {
-  color: #70b5ff;
-}
-
-a:hover,
-a:focus {
-  text-decoration: none;
-}
-
-/* Label */
 
 /* Media queries */
 
