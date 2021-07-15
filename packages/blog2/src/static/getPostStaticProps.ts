@@ -4,6 +4,7 @@ import { getPostBySlug } from "../functions/getPostBySlug";
 import { PostPropsParamsType } from "./getPostStaticPaths";
 import { serialize } from "next-mdx-remote/serialize";
 import { imageMetadata } from "../plugins/imageMetadata";
+import { validatePost } from "../validators/validatePost";
 
 export const getPostStaticProps: GetStaticProps<
   PostPropsType,
@@ -14,6 +15,9 @@ export const getPostStaticProps: GetStaticProps<
   }
 
   const { content, data } = getPostBySlug(params.slug);
+  const uncheckedPost = { ...data, slug: params.slug };
+  const checkedPost = validatePost(uncheckedPost);
+
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
     mdxOptions: {
@@ -23,10 +27,7 @@ export const getPostStaticProps: GetStaticProps<
 
   return {
     props: {
-      post: {
-        ...data,
-        slug: params.slug,
-      },
+      post: checkedPost,
       content: mdxContent,
     },
   };
