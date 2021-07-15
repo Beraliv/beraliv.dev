@@ -36,7 +36,7 @@ function isImageNode(node: Node): node is ImageNode {
   );
 }
 
-const SUPPORTED_IMAGE_EXTENSIONS = ["png"];
+const SUPPORTED_IMAGE_EXTENSIONS = ["jpg", "png"];
 
 /**
  * Filters out non absolute paths from the public folder.
