@@ -4,9 +4,10 @@ import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
 import { Awaited } from "../../../types/Awaited";
 import { ViewCounter } from "../../molecules/ViewCounter";
+import { PickRequired } from "../../../types/PickRequired";
 
 export interface PostPropsType {
-  post: Required<PostType>;
+  post: PickRequired<Partial<PostType>, "title" | "date" | "slug">;
   content: Awaited<ReturnType<typeof serialize>>;
 }
 
