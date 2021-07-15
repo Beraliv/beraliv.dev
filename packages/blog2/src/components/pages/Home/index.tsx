@@ -3,6 +3,7 @@ import Head from "next/head";
 import React from "react";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
 import { Footer } from "../../atoms/Footer";
+import { Header } from "../../molecules/Header";
 import styles from "./index.module.css";
 
 export const Home = ({
@@ -16,9 +17,9 @@ export const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>beraliv</h1>
+      <Header title="beraliv" path="home" />
 
+      <main className={styles.main}>
         <div className={styles.grid}>
           {posts.map(({ description, slug, title }) => (
             <a href={slug} key={slug} className={styles.card}>
