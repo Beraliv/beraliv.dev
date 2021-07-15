@@ -1,0 +1,11 @@
+.buymecoffee {
+  display: block;
+  font-size: 1rem;
+  width: 10rem;
+}
+
+@media (max-width: 42rem) {
+  .buymecoffee {
+    margin-top: 1rem;
+  }
+}

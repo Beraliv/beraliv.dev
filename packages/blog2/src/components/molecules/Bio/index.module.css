@@ -1,0 +1,30 @@
+.bio {
+  display: flex;
+  margin-bottom: 4rem;
+  align-items: center;
+}
+
+.summary {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.avatar {
+  flex: 0 0 50px;
+  margin-bottom: 0px;
+  border-radius: 9999px;
+  margin-right: 1rem;
+}
+
+@media (max-width: 42rem) {
+  .bio {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .avatar {
+    margin-bottom: 1rem;
+    margin-right: 0px;
+  }
+}

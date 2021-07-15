@@ -1,8 +1,10 @@
 import { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import React from "react";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
+import { Footer } from "../../atoms/Footer";
+import { Bio } from "../../molecules/Bio";
+import { Header } from "../../molecules/Header";
 import styles from "./index.module.css";
 
 export const Home = ({
@@ -16,8 +18,12 @@ export const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header title="beraliv" path="home" />
+
       <main className={styles.main}>
-        <h1 className={styles.title}>beraliv</h1>
+        <div className={styles.bio}>
+          <Bio />
+        </div>
 
         <div className={styles.grid}>
           {posts.map(({ description, slug, title }) => (
@@ -29,18 +35,7 @@ export const Home = ({
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          © {new Date().getFullYear()}, Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };

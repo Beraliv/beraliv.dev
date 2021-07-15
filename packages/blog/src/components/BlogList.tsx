@@ -2,7 +2,6 @@ import { PageProps } from "gatsby"
 import React from "react"
 import { DEFAULT_KEYWORDS } from "../constants/DEFAULT_KEYWORDS"
 import { CreatePageQuery } from "../types/generated"
-import { Bio } from "./Bio"
 import { BlogPost } from "./BlogPost"
 import { BlogPostSandwich } from "./BlogPostSandwich"
 import { Layout } from "./Layout"
@@ -31,7 +30,7 @@ export const BlogList = ({
           pathname={location.pathname}
           keywords={DEFAULT_KEYWORDS}
         />
-        <Bio />
+        {/* <Bio /> */}
         {tag && <h1>{`#${tag}`}</h1>}
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -102,7 +101,7 @@ export const BlogList = ({
   return (
     <Layout location={location} title={title}>
       <Seo title={seoTitle} pathname={location.pathname} keywords={keywords} />
-      <Bio />
+      {/* <Bio /> */}
       {tag && <h1>{`#${tag}`}</h1>}
       <ol>
         {categories.map(category => {

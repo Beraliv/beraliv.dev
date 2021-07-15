@@ -1,12 +1,9 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
-import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
-import { Label } from "../components/Label"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { ViewCounter } from "../components/ViewCounter"
 
 type FilterUndefined<T> = T extends undefined ? never : T
 type FilterNull<T> = T extends null ? never : T
@@ -118,18 +115,18 @@ const BlogPostTemplate = ({
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <div className="metadata">
+          {/* <div className="metadata">
             <small>{post.frontmatter.date}</small>
             <small>
               <ViewCounter slug={slug} />
             </small>
-          </div>
+          </div> */}
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
-        {labels.map(label => label && <Label key={label} title={label} />)}
-        <footer>
+        {/* {labels.map(label => label && <Label key={label} title={label} />)} */}
+        {/* <footer>
           <Bio />
-        </footer>
+        </footer> */}
       </article>
       <nav className="blog-post-nav">
         <ul

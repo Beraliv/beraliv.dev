@@ -1,0 +1,19 @@
+.label {
+  color: rgba(75, 85, 99, 1);
+  background-color: rgba(229, 231, 235, 1);
+  text-decoration: none;
+  display: inline-block;
+
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dark.label {
+  color: rgba(107, 114, 128, 1);
+  background-color: rgba(17, 24, 39, 1);
+}
