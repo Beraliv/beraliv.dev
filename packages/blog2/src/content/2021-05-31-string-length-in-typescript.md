@@ -58,7 +58,7 @@ Now the maximum number is almost increased by a factor of two: it's 85 – https
 
 Can we still do better? Sure, but then we need to have a larger array (100 is not enough). Also, let's iterate over 4 characters at one time:
 
-![First check 4 characters if possible](/step7-check-4-characters-if-possible.png)
+![First check 4 characters if possible](/string-length-in-typescript/step7-check-4-characters-if-possible.png)
 
 Now the number is 163 – https://tsplay.dev/wRp3Em
 
