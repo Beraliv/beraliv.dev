@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import useSwr from "swr";
-import { ViewsApi } from "../../../../blog/src/types/ViewsApi";
 import { fetchJson } from "../../functions/fetchJson";
+
+interface ViewsApi {
+  views?: number;
+}
 
 interface ViewReaderProps {
   slug: string;
