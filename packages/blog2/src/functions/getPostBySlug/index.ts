@@ -6,7 +6,7 @@ import { PostType } from "../../types/PostType";
 
 export interface MetaPostType {
   content: string;
-  data: PostType;
+  data: Partial<PostType>;
   name: string;
 }
 
