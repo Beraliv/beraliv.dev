@@ -379,13 +379,6 @@ table thead tr th {
   height: 50px;
 }
 
-.buymecoffee {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  width: 10rem;
-}
-
 .blog-post header h1 {
   margin: 0px;
   margin-bottom: 1rem;
@@ -624,6 +617,8 @@ a:focus {
   text-decoration: none;
 }
 
+/* Label */
+
 /* Media queries */
 
 @media (max-width: 42rem) {
@@ -662,9 +657,6 @@ a:focus {
   .bio-avatar {
     margin-bottom: 1rem;
     margin-right: 0px;
-  }
-  .buymecoffee {
-    margin-top: 1rem;
   }
 }
 
