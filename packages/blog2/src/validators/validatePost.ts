@@ -5,6 +5,7 @@ export const validatePost = ({
   slug,
   title,
   date,
+  labels,
   ...rest
 }: Partial<PostType> & Pick<PostType, "slug">): PostPropsType["post"] => {
   if (!title) {
@@ -15,10 +16,15 @@ export const validatePost = ({
     throw new Error(`Cannot find date for post ${slug}`);
   }
 
+  if (!labels) {
+    throw new Error(`Cannot find labels for post ${slug}`);
+  }
+
   return {
     slug,
     title,
     date,
+    labels,
     ...rest,
   };
 };

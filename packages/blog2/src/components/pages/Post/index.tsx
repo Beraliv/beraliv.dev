@@ -5,9 +5,10 @@ import type { serialize } from "next-mdx-remote/serialize";
 import { Awaited } from "../../../types/Awaited";
 import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
+import { Label } from "../../atoms/Label";
 
 export interface PostPropsType {
-  post: PickRequired<Partial<PostType>, "title" | "date" | "slug">;
+  post: PickRequired<Partial<PostType>, "title" | "date" | "slug" | "labels">;
   content: Awaited<ReturnType<typeof serialize>>;
 }
 
@@ -25,6 +26,9 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
       </header>
       <main>
         <PostBody content={content} />
+        {post.labels.map(
+          (label) => label && <Label key={label} title={label} />
+        )}
       </main>
     </>
   );

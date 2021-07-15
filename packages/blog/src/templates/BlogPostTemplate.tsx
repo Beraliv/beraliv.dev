@@ -4,7 +4,6 @@ import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
-import { Label } from "../components/Label"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 type FilterUndefined<T> = T extends undefined ? never : T
@@ -125,7 +124,7 @@ const BlogPostTemplate = ({
           </div> */}
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
-        {labels.map(label => label && <Label key={label} title={label} />)}
+        {/* {labels.map(label => label && <Label key={label} title={label} />)} */}
         <footer>
           <Bio />
         </footer>
