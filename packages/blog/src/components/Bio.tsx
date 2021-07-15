@@ -8,7 +8,6 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { useBioQuery } from "../hooks/useBioQuery"
-import { BuyMeCoffeeButton } from "./BuyMeCoffeeButton"
 
 export const Bio = () => {
   const data = useBioQuery()
@@ -59,9 +58,7 @@ export const Bio = () => {
           Follow me on Twitter
         </a>
       </p>
-      <div className="block">
-        <BuyMeCoffeeButton />
-      </div>
+      <div className="block">{/* <BuyMeCoffeeButton /> */}</div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import React, { FC } from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import React, { FC } from "react";
+import NextImage from "next/image";
+import butMyACoffeeIcon from "/buy-me-a-coffee-icon.png";
 
 export const BuyMeCoffeeButton: FC = () => (
   <a
@@ -8,6 +9,6 @@ export const BuyMeCoffeeButton: FC = () => (
     target="_blank"
     rel="nofollow noopener noreferrer"
   >
-    <StaticImage src="./buy-me-a-coffee-icon.png" alt="buy me a coffee" />
+    <NextImage src={butMyACoffeeIcon} alt="buy me a coffee" />
   </a>
-)
+);
