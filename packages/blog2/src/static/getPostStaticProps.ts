@@ -23,7 +23,10 @@ export const getPostStaticProps: GetStaticProps<
 
   return {
     props: {
-      post: data,
+      post: {
+        ...data,
+        slug: params.slug,
+      },
       content: mdxContent,
     },
   };
