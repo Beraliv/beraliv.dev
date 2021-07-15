@@ -187,23 +187,6 @@ table thead tr th {
   margin: 0px;
 }
 
-.dark-mode-toggle {
-  display: inline-block;
-  position: absolute;
-  right: 0px;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(17, 24, 39, 1);
-}
-
-.dark .dark-mode-toggle {
-  color: rgba(0, 0, 0, 1);
-  background-color: rgba(252, 211, 77, 1);
-}
-
 .post-list-item {
   list-style-type: none;
 }
