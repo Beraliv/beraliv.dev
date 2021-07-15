@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import React, { FC } from "react"
-import { ViewReader } from "./ViewReader"
 
 export interface BlogPostProps {
   slug: string
@@ -24,9 +23,7 @@ export const BlogPost: FC<BlogPostProps> = ({
             <span itemProp="headline">{title}</span>
           </Link>
         </h2>
-        <small>
-          <ViewReader slug={slug} />
-        </small>
+        <small>{/* <ViewReader slug={slug} /> */}</small>
       </header>
       <section>
         {gatsbyImageData && (
