@@ -8,7 +8,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: inherit;
 }
 
 * {
@@ -16,5 +16,8 @@ a {
 }
 
 p {
-  margin: 0;
+  line-height: 1.625;
+  margin: 0px;
+  margin-bottom: 2rem;
+  padding: 0px;
 }

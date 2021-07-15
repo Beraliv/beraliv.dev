@@ -1,9 +1,4 @@
 /* Clear fix */
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
 small {
   font-size: 80%;
 }
@@ -155,13 +150,6 @@ h6 > a {
 }
 
 /* Prose */
-
-p {
-  line-height: 1.625;
-  margin: 0px;
-  margin-bottom: 2rem;
-  padding: 0px;
-}
 
 ul,
 ol {
@@ -360,23 +348,6 @@ table thead tr th {
   font-size: 1.25rem;
   line-height: 1.75rem;
   text-decoration: none;
-}
-
-.bio {
-  display: flex;
-  margin-bottom: 4rem;
-}
-
-.bio p {
-  margin-bottom: 0px;
-}
-
-.bio-avatar {
-  margin-bottom: 0px;
-  border-radius: 9999px;
-  margin-right: 1rem;
-  min-width: 50px;
-  height: 50px;
 }
 
 .blog-post header h1 {
@@ -647,16 +618,6 @@ a:focus {
   .form label {
     margin-bottom: 1rem;
     width: 100%;
-  }
-
-  .bio {
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
-  .bio-avatar {
-    margin-bottom: 1rem;
-    margin-right: 0px;
   }
 }
 

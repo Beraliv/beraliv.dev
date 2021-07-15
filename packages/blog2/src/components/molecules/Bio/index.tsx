@@ -1,20 +1,24 @@
 import NextImage from "next/image";
 import React, { FC } from "react";
-import { BuyMeCoffeeButton } from "../atoms/BuyMeCoffeeButton";
-import avatarImage from "../../../public/profile.jpg";
+import { BuyMeCoffeeButton } from "../../atoms/BuyMeCoffeeButton";
+import styles from "./index.module.css";
 
 const NAME = "Alexey Berezin";
 const SUMMARY = "who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript";
 const TWITTER = "beraliv";
 
 export const Bio: FC = () => (
-  <div className="bio">
-    <NextImage
-      className="bio-avatar"
-      src={avatarImage}
-      alt={`${NAME} profile image`}
-    />
-    <p>
+  <div className={styles.bio}>
+    <div className={styles.avatar}>
+      <NextImage
+        className={styles.avatar}
+        src="/profile.jpg"
+        width={50}
+        height={50}
+        alt={`${NAME} profile image`}
+      />
+    </div>
+    <p className={styles.summary}>
       Written by <strong>{NAME}</strong> {SUMMARY}
       {` `}
       <a
@@ -25,7 +29,7 @@ export const Bio: FC = () => (
         Follow me on Twitter
       </a>
     </p>
-    <div className="block">
+    <div>
       <BuyMeCoffeeButton />
     </div>
   </div>
