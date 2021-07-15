@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { classNames } from "../../../functions/classNames";
 import { validateNever } from "../../../validators/validateNever";
 import { DarkModeToggle } from "../../atoms/DarkModeToggle";
 import styles from "./index.module.css";
@@ -30,7 +31,11 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
   }
 
   return (
-    <header className={styles.header}>
+    <header
+      className={classNames(styles.header, {
+        [styles.homeHeader]: path === "home",
+      })}
+    >
       {header}
       <DarkModeToggle />
     </header>
