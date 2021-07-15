@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
-import { Bio } from "../components/Bio"
 import { Layout } from "../components/Layout"
 import { Seo } from "../components/Seo"
 import { BlogPostBySlugQuery as BlogPostBySlugQueryType } from "../types/generated"
@@ -125,9 +124,9 @@ const BlogPostTemplate = ({
         </header>
         <MDXRenderer>{post.body}</MDXRenderer>
         {/* {labels.map(label => label && <Label key={label} title={label} />)} */}
-        <footer>
+        {/* <footer>
           <Bio />
-        </footer>
+        </footer> */}
       </article>
       <nav className="blog-post-nav">
         <ul
