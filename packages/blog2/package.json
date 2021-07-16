@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase-admin": "9.9.0",
     "gray-matter": "4.0.3",
     "image-size": "1.0.0",
     "next": "11.0.1",
