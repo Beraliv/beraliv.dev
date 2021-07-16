@@ -70,7 +70,7 @@ export const Seo: FC<SeoPropsType> = ({
     <NextHead>
       <title>{title} | beraliv</title>
       <meta name="description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/profile.jpg" />
       <meta name="image" content={imageUrl} />
       <meta name="keywords" content={classNames(...keywords)} />
       <link rel="canonical" href={path} />
