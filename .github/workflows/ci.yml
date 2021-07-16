@@ -3,8 +3,7 @@ name: ci
 on: push
 
 jobs:
-  test_and_build:
-    name: test and build
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v2
@@ -24,5 +23,4 @@ jobs:
             ${{ runner.os }}-
       - run: yarn
       - run: yarn test
-      - run: yarn build
 
