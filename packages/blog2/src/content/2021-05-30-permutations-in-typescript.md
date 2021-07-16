@@ -11,7 +11,7 @@ keywords:
   - permutations
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /permutations-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Permutation use](/permutations-in-typescript/step1-example-of-use.png)

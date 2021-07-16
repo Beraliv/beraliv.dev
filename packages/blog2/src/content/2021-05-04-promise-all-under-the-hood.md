@@ -12,7 +12,7 @@ keywords:
   - promise.all
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /promise-all-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Promise.all use](/promise-all-under-the-hood/step1-example-of-use.png)

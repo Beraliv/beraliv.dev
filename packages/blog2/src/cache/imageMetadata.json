@@ -342,5 +342,105 @@
   "/omit-under-the-hood/step4-solution.png": {
     "width": 970,
     "height": 364
+  },
+  "/partial-readonly/step1-example-of-use.png": {
+    "width": 1300,
+    "height": 678
+  },
+  "/partial-readonly/step2-readonly-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/partial-readonly/step3-pick-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/partial-readonly/step4-omit-solution.png": {
+    "width": 970,
+    "height": 364
+  },
+  "/partial-readonly/step5-solution-v1.png": {
+    "width": 1126,
+    "height": 364
+  },
+  "/partial-readonly/step5-solution-v2.png": {
+    "width": 846,
+    "height": 434
+  },
+  "/partial-readonly/step5-final-solution.png": {
+    "width": 984,
+    "height": 434
+  },
+  "/permutations-in-typescript/step1-example-of-use.png": {
+    "width": 1334,
+    "height": 854
+  },
+  "/permutations-in-typescript/step2-distribute-union-and-put-to-tuple.png": {
+    "width": 846,
+    "height": 434
+  },
+  "/permutations-in-typescript/step3-solution-v2.png": {
+    "width": 932,
+    "height": 434
+  },
+  "/permutations-in-typescript/step4-show-never-problem.png": {
+    "width": 1152,
+    "height": 608
+  },
+  "/permutations-in-typescript/step5-solution.png": {
+    "width": 964,
+    "height": 504
+  },
+  "/pick-under-the-hood/step1-example-of-use.png": {
+    "width": 1302,
+    "height": 714
+  },
+  "/pick-under-the-hood/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/pick-under-the-hood/step3-add-keys.png": {
+    "width": 1376,
+    "height": 888
+  },
+  "/pick-under-the-hood/step4-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step1-example-of-use.png": {
+    "width": 1216,
+    "height": 678
+  },
+  "/promise-all-under-the-hood/step2-awaited-solution.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step2-tuple-in-object.png": {
+    "width": 954,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step2-tuple-in-tuple.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step3-promise-reducer.png": {
+    "width": 1114,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step4-solution-v1.png": {
+    "width": 1256,
+    "height": 364
+  },
+  "/promise-all-under-the-hood/step5-promise-all-test-3.png": {
+    "width": 1156,
+    "height": 468
+  },
+  "/promise-all-under-the-hood/step6-make-values-tuple.png": {
+    "width": 914,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step7-solution.png": {
+    "width": 1116,
+    "height": 714
   }
 }
