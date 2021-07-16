@@ -138,5 +138,93 @@
   "/bbc-iplayer-geolocation-identification/iplayer-foreignregionbanner-rerender.png": {
     "width": 1400,
     "height": 903
+  },
+  "/boolean-condition/step1-example-of-use.png": {
+    "width": 856,
+    "height": 574
+  },
+  "/boolean-condition/step2-solution.png": {
+    "width": 1096,
+    "height": 364
+  },
+  "/exclude-under-the-hood/step1-example-of-use.png": {
+    "width": 914,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step2-distributive-conditional-types.png": {
+    "width": 1054,
+    "height": 468
+  },
+  "/exclude-under-the-hood/step3-distributive-conditional-types-explanation.png": {
+    "width": 1054,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step3-distributive-conditional-types-explanation-for-never.png": {
+    "width": 1082,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step4-before-solution.png": {
+    "width": 986,
+    "height": 608
+  },
+  "/exclude-under-the-hood/step4-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/extract-under-the-hood/step1-example-of-use.png": {
+    "width": 1140,
+    "height": 678
+  },
+  "/extract-under-the-hood/step2-exclude-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/extract-under-the-hood/step3-solution-1.png": {
+    "width": 1042,
+    "height": 364
+  },
+  "/extract-under-the-hood/step3-solution-2.png": {
+    "width": 894,
+    "height": 364
+  },
+  "/flatten-tuple-type-in-typescript/step1-example-of-use.png": {
+    "width": 1070,
+    "height": 574
+  },
+  "/flatten-tuple-type-in-typescript/step2-iterate-over-tuple.png": {
+    "width": 1012,
+    "height": 504
+  },
+  "/flatten-tuple-type-in-typescript/step3-always-put-elements-to-the-result-type.png": {
+    "width": 1012,
+    "height": 504
+  },
+  "/flatten-tuple-type-in-typescript/step4-not-applying-recursively-for-elements-which-are-tuples.png": {
+    "width": 952,
+    "height": 468
+  },
+  "/flatten-tuple-type-in-typescript/step5-solution.png": {
+    "width": 1094,
+    "height": 574
+  },
+  "/includes-in-typescript/step1-example-of-use.png": {
+    "width": 1266,
+    "height": 608
+  },
+  "/includes-in-typescript/step2-union-out-of-tuple.png": {
+    "width": 994,
+    "height": 434
+  },
+  "/includes-in-typescript/step3-solution.png": {
+    "width": 1192,
+    "height": 434
+  },
+  "/infer-first-element/step1-example-of-use.png": {
+    "width": 990,
+    "height": 574
+  },
+  "/infer-first-element/step2-solution.png": {
+    "width": 754,
+    "height": 364
   }
 }

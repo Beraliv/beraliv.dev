@@ -8,7 +8,7 @@ keywords:
   - BBC iPlayer
   - geolocation identification
 categories:
-featured: ./bbc-iplayer-page.png
+featured: /bbc-iplayer-geolocation-identification/bbc-iplayer-page.png
 ---
 
 ![BBC iPlayer page](/bbc-iplayer-geolocation-identification/bbc-iplayer-page.png)

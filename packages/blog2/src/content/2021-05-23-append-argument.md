@@ -11,7 +11,7 @@ keywords:
   - append argument
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /append-argument/step1-example-of-use.png
 ---
 
 ![Example of AppendArgument use](/append-argument/step1-example-of-use.png)
