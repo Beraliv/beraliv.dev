@@ -1,5 +1,6 @@
 import NextImage from "next/image";
 import { FC } from "react";
+import { imageLoader } from "../../../functions/imageLoader";
 
 interface MxdImagePropsType {
   alt: string;
@@ -9,5 +10,8 @@ interface MxdImagePropsType {
 }
 
 export const MdxImage: FC<MxdImagePropsType> = (props) => (
-  <NextImage {...props}></NextImage>
+  <figure>
+    <NextImage {...props} loader={imageLoader} />
+    <figcaption>{props.alt}</figcaption>
+  </figure>
 );
