@@ -2,14 +2,31 @@ import { PostPropsType } from "../components/pages/Post";
 import { PostType } from "../types/PostType";
 
 export const validatePost = ({
+  date,
+  description,
+  featured,
+  keywords,
+  labels,
   slug,
   title,
-  date,
-  labels,
   ...rest
 }: Partial<PostType> & Pick<PostType, "slug">): PostPropsType["post"] => {
   if (!title) {
     throw new Error(`Cannot find title for post ${slug}`);
+  }
+
+  if (!description) {
+    throw new Error(`Cannot find description for post ${slug}`);
+  }
+
+  if (!keywords) {
+    throw new Error(`Cannot find keywords for post ${slug}`);
+  }
+
+  if (!Array.isArray(keywords)) {
+    throw new Error(
+      `Cannot use keywords: expected to have array but got ${typeof keywords}`
+    );
   }
 
   if (!date) {
@@ -20,11 +37,18 @@ export const validatePost = ({
     throw new Error(`Cannot find labels for post ${slug}`);
   }
 
+  if (!featured) {
+    throw new Error(`Cannot find featured for post ${slug}`);
+  }
+
   return {
+    date,
+    description,
+    featured,
+    keywords,
+    labels,
     slug,
     title,
-    date,
-    labels,
     ...rest,
   };
 };
