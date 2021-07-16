@@ -5,19 +5,15 @@
   "author": "beraliv",
   "private": true,
   "workspaces": [
-    "packages/portfolio",
     "packages/blog2"
   ],
   "scripts": {
-    "dev:portfolio": "yarn workspace portfolio dev",
-    "dev:blog2": "yarn workspace blog2 dev",
-    "build:portfolio": "yarn workspace portfolio build",
-    "build:blog2": "yarn workspace blog2 build",
-    "start:portfolio": "yarn workspace portfolio start",
-    "start:blog2": "yarn workspace blog2 start",
-    "test:blog2": "yarn workspace blog2 test"
+    "dev": "yarn workspace blog2 dev",
+    "build": "yarn workspace blog2 build",
+    "start": "yarn workspace blog2 start",
+    "test": "yarn workspace blog2 test"
   },
   "engines": {
-    "node": ">= 12.13.0"
+    "node": ">= 14.17.0"
   }
 }
