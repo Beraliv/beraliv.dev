@@ -29,7 +29,7 @@ export interface PostPropsType {
 }
 
 export const Post: FC<PostPropsType> = ({ content, post }) => {
-  const { url } = BLOG_META_INFO;
+  const { title, url } = BLOG_META_INFO;
 
   return (
     <div className={styles.container}>
@@ -44,7 +44,7 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
         title={post.title}
       />
 
-      <Header title="beraliv" path="post" />
+      <Header title={title} path="post" />
 
       <main className={styles.main}>
         <article>
