@@ -15,7 +15,7 @@ keywords:
   - unshift
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /manipulation-with-tuple-elements/step1-example-of-use.png
 ---
 
 ![Tuple elements manipulation examples](/manipulation-with-tuple-elements/step1-example-of-use.png)

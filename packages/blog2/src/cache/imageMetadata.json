@@ -286,5 +286,61 @@
   "/making-union-out-of-tuple/step2-solution.png": {
     "width": 940,
     "height": 364
+  },
+  "/manipulation-with-tuple-elements/step1-example-of-use.png": {
+    "width": 1162,
+    "height": 644
+  },
+  "/manipulation-with-tuple-elements/step2-pop-solution.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/manipulation-with-tuple-elements/step3-push-solution.png": {
+    "width": 864,
+    "height": 364
+  },
+  "/manipulation-with-tuple-elements/step4-shift-solution.png": {
+    "width": 1244,
+    "height": 434
+  },
+  "/manipulation-with-tuple-elements/step5-unshift-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/mapped-types-in-functions/step1-example-of-use.png": {
+    "width": 1236,
+    "height": 748
+  },
+  "/mapped-types-in-functions/step2-chainable-return-type.png": {
+    "width": 916,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step3-add-generic-type.png": {
+    "width": 916,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step4-add-key-and-value-for-every-option-call.png": {
+    "width": 1232,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step5-solution.png": {
+    "width": 1452,
+    "height": 468
+  },
+  "/omit-under-the-hood/step1-example-of-use.png": {
+    "width": 1324,
+    "height": 714
+  },
+  "/omit-under-the-hood/step2-pick-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/omit-under-the-hood/step3-exclude-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/omit-under-the-hood/step4-solution.png": {
+    "width": 970,
+    "height": 364
   }
 }
