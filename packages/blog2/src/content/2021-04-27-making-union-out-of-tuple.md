@@ -10,7 +10,7 @@ keywords:
   - challenges
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /making-union-out-of-tuple/step1-example-of-use.png
 ---
 
 ![Example of TupleToUnion use](/making-union-out-of-tuple/step1-example-of-use.png)

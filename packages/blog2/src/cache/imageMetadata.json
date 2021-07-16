@@ -226,5 +226,65 @@
   "/infer-first-element/step2-solution.png": {
     "width": 754,
     "height": 364
+  },
+  "/infer-length/step1-example-of-use.png": {
+    "width": 996,
+    "height": 574
+  },
+  "/infer-length/step2-solution.png": {
+    "width": 1004,
+    "height": 364
+  },
+  "/making-object-out-of-tuple/step1-example-of-use.png": {
+    "width": 1184,
+    "height": 574
+  },
+  "/making-object-out-of-tuple/step0-tuples.png": {
+    "width": 1260,
+    "height": 574
+  },
+  "/making-object-out-of-tuple/step0-arrays.png": {
+    "width": 1322,
+    "height": 504
+  },
+  "/making-object-out-of-tuple/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/making-object-out-of-tuple/step3-mapped-types-for-tuples.png": {
+    "width": 1232,
+    "height": 958
+  },
+  "/making-object-out-of-tuple/step4-solution.png": {
+    "width": 954,
+    "height": 434
+  },
+  "/making-union-out-of-string/step1-example-of-use.png": {
+    "width": 1136,
+    "height": 652
+  },
+  "/making-union-out-of-string/step2-get-first-character-v1.png": {
+    "width": 1094,
+    "height": 544
+  },
+  "/making-union-out-of-string/step3-get-first-character-v2.png": {
+    "width": 1098,
+    "height": 580
+  },
+  "/making-union-out-of-string/step4-solution.png": {
+    "width": 1064,
+    "height": 472
+  },
+  "/making-union-out-of-string/step5-never-in-a-union.png": {
+    "width": 1064,
+    "height": 436
+  },
+  "/making-union-out-of-tuple/step1-example-of-use.png": {
+    "width": 1102,
+    "height": 574
+  },
+  "/making-union-out-of-tuple/step2-solution.png": {
+    "width": 940,
+    "height": 364
   }
 }
