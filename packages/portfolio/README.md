@@ -1,3 +1,0 @@
-# beraliv.dev
-
-Static portfolio
