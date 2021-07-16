@@ -1,14 +1,13 @@
-// Similiar structure to:
-// https://github.com/JS-DevTools/rehype-inline-svg/blob/master/src/inline-svg.ts
-import { imageSize } from "image-size";
 import { join } from "path";
 import type { Processor } from "unified";
 import type { Node } from "unist";
 import visit from "unist-util-visit";
 import { promisify } from "util";
 import type { VFile } from "vfile";
-
-const sizeOf = promisify(imageSize);
+import { fetchJson } from "../functions/fetchJson";
+import { imageLoader } from "../functions/imageLoader";
+import { sizeLoader } from "../functions/sizeLoader";
+import { DeepPartial } from "../types/DeepPartial";
 
 /**
  * An `<img>` HAST node
@@ -50,16 +49,48 @@ function filterImageNode(node: ImageNode): boolean {
   );
 }
 
+type SizeInformation = {
+  output: {
+    width: number;
+    height: number;
+  };
+};
+
+const validateSize = (
+  information: DeepPartial<SizeInformation> | undefined
+): SizeInformation["output"] => {
+  if (!information) {
+    throw new Error(`Invalid object in size information`);
+  }
+
+  if (!information.output) {
+    throw new Error(`Invalid output in size information`);
+  }
+
+  const { width, height } = information.output;
+
+  if (!width) {
+    throw new Error(`Invalid width in size information`);
+  }
+
+  if (!height) {
+    throw new Error(`INvalid height in size information`);
+  }
+
+  return { width, height };
+};
+
 /**
  * Adds the image's `height` and `width` to it's properties.
  */
 async function addMetadata(node: ImageNode): Promise<void> {
-  const res = await sizeOf(join(process.cwd(), "public", node.properties.src));
+  const imageUrl = imageLoader({ src: node.properties.src });
+  const sizeUrl = sizeLoader({ src: imageUrl });
+  const sizeInformation: SizeInformation = await fetchJson(sizeUrl);
+  const { width, height } = validateSize(sizeInformation);
 
-  if (!res) throw Error(`Invalid image with src "${node.properties.src}"`);
-
-  node.properties.width = res.width;
-  node.properties.height = res.height;
+  node.properties.width = width;
+  node.properties.height = height;
 }
 
 /**
