@@ -23,7 +23,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn
-      - run: yarn build:portfolio
-      - run: yarn test:blog2
-      - run: yarn build:blog2
+      - run: yarn test
+      - run: yarn build
 
