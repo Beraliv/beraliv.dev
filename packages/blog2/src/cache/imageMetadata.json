@@ -1,0 +1,142 @@
+{
+  "/amazon-prime-video-player-investigation/amazon-prime-page.png": {
+    "width": 1400,
+    "height": 832
+  },
+  "/amazon-prime-video-player-investigation/paused-amazon-player.png": {
+    "width": 1400,
+    "height": 906
+  },
+  "/amazon-prime-video-player-investigation/video-element-in-devtools.png": {
+    "width": 1400,
+    "height": 838
+  },
+  "/amazon-prime-video-player-investigation/start-debugging.png": {
+    "width": 1400,
+    "height": 623
+  },
+  "/amazon-prime-video-player-investigation/state-machine.png": {
+    "width": 1400,
+    "height": 289
+  },
+  "/amazon-prime-video-player-investigation/amazon-prime-video-player-config.png": {
+    "width": 978,
+    "height": 854
+  },
+  "/amazon-prime-video-player-investigation/main-bundle-string.png": {
+    "width": 1400,
+    "height": 83
+  },
+  "/amazon-prime-video-player-investigation/script-from-main-bundle-string.png": {
+    "width": 1400,
+    "height": 42
+  },
+  "/absolute-in-typescript/step1-example-of-use.png": {
+    "width": 1058,
+    "height": 544
+  },
+  "/absolute-in-typescript/step2-return-result-for-string.png": {
+    "width": 1004,
+    "height": 472
+  },
+  "/absolute-in-typescript/step3-return-result-for-number-and-bigint.png": {
+    "width": 1004,
+    "height": 544
+  },
+  "/append-argument/step1-example-of-use.png": {
+    "width": 1056,
+    "height": 574
+  },
+  "/append-argument/step2-returntype-solution.png": {
+    "width": 1126,
+    "height": 434
+  },
+  "/append-argument/step3-parameters-solution.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/append-argument/step4-solution-v1.png": {
+    "width": 1316,
+    "height": 434
+  },
+  "/append-argument/step4-problem-of-solution-v1.png": {
+    "width": 1116,
+    "height": 434
+  },
+  "/append-argument/step5-solution.png": {
+    "width": 1316,
+    "height": 434
+  },
+  "/append-to-object/step1-example-of-use.png": {
+    "width": 1250,
+    "height": 544
+  },
+  "/append-to-object/step2-add-value-by-key-v1.png": {
+    "width": 938,
+    "height": 364
+  },
+  "/append-to-object/step2-add-value-by-key-v2.png": {
+    "width": 998,
+    "height": 364
+  },
+  "/append-to-object/step2-add-value-by-key-v3.png": {
+    "width": 1078,
+    "height": 436
+  },
+  "/append-to-object/step3-result-with-intersection.png": {
+    "width": 1108,
+    "height": 544
+  },
+  "/append-to-object/step4-remove-intersection.png": {
+    "width": 1048,
+    "height": 364
+  },
+  "/bbc-iplayer-geolocation-identification/bbc-iplayer-page.png": {
+    "width": 1400,
+    "height": 965
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-does-not-work-outside-uk.png": {
+    "width": 1400,
+    "height": 79
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-inline-script-in-devtools.png": {
+    "width": 1400,
+    "height": 1323
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-user-profile-is-initialised.png": {
+    "width": 1400,
+    "height": 634
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-bbc-user-body.png": {
+    "width": 972,
+    "height": 1822
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-userinfo-response.png": {
+    "width": 1270,
+    "height": 166
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-fig-response.png": {
+    "width": 796,
+    "height": 252
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-isukcombined-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 718
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-onuserforeignregion-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 741
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-update-isforeignregion-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 332
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-action-user-set-foreign-region-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 132
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-foreignregionbanner-rerender.png": {
+    "width": 1400,
+    "height": 903
+  }
+}
