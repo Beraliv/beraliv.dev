@@ -4,28 +4,32 @@ import { classNames } from "../../../functions/classNames";
 
 type TwitterSeoPropsType = Pick<
   SeoPropsType,
-  "description" | "image" | "title"
+  "description" | "imageUrl" | "title"
 >;
 
-const TwitterSeo: FC<TwitterSeoPropsType> = ({ description, image, title }) => (
+const TwitterSeo: FC<TwitterSeoPropsType> = ({
+  description,
+  imageUrl,
+  title,
+}) => (
   <>
     <meta name="twitter:creator" content="@beraliv" />
     <meta name="twitter:site" content="@beraliv" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content={image}></meta>
+    <meta property="twitter:image" content={imageUrl}></meta>
   </>
 );
 
 type OpenGraphSeoPropsType = Pick<
   SeoPropsType,
-  "description" | "image" | "imageHeight" | "imageWidth" | "path" | "title"
+  "description" | "imageUrl" | "imageHeight" | "imageWidth" | "path" | "title"
 >;
 
 const OpenGraphSeo: FC<OpenGraphSeoPropsType> = ({
   description,
-  image,
+  imageUrl,
   imageHeight,
   imageWidth,
   path,
@@ -37,7 +41,7 @@ const OpenGraphSeo: FC<OpenGraphSeoPropsType> = ({
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={path} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={imageUrl} />
     <meta property="og:image:height" content={`${imageHeight}`} />
     <meta property="og:image:width" content={`${imageWidth}`} />
   </>
@@ -45,7 +49,7 @@ const OpenGraphSeo: FC<OpenGraphSeoPropsType> = ({
 
 interface SeoPropsType {
   description: string;
-  image: string;
+  imageUrl: string;
   imageHeight: number;
   imageWidth: number;
   keywords: string[];
@@ -55,7 +59,7 @@ interface SeoPropsType {
 
 export const Seo: FC<SeoPropsType> = ({
   description,
-  image,
+  imageUrl,
   imageHeight,
   imageWidth,
   keywords,
@@ -66,17 +70,18 @@ export const Seo: FC<SeoPropsType> = ({
     <NextHead>
       <title>{title} | beraliv</title>
       <meta name="description" content={description} />
-      <meta name="image" content={image} />
+      <meta name="image" content={imageUrl} />
       <meta name="keywords" content={classNames(...keywords)} />
+      <link rel="canonical" href={path} />
       <OpenGraphSeo
         description={description}
-        image={image}
+        imageUrl={imageUrl}
         imageHeight={imageHeight}
         imageWidth={imageWidth}
         path={path}
         title={title}
       />
-      <TwitterSeo description={description} image={image} title={title} />
+      <TwitterSeo description={description} imageUrl={imageUrl} title={title} />
     </NextHead>
   );
 };
