@@ -3,7 +3,7 @@ export const BLOG_META_INFO = {
   author: "Alexey Berezin",
   summary: "who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript",
   keywords: ["video players", "typescript"],
-  url: "blog2.beraliv.dev",
+  url: "https://blog2.beraliv.dev/",
   social: {
     twitter: "beraliv",
   },

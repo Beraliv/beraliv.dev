@@ -40,7 +40,7 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
         // imageHeight={0}
         // imageWidth={0}
         keywords={post.keywords}
-        path={`${url}/${post.slug}`}
+        path={`${url}${post.slug}`}
         title={post.title}
       />
 
