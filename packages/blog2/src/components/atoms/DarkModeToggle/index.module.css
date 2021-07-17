@@ -6,11 +6,6 @@
   height: 2rem;
   border-radius: 9999px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 1);
-  background-color: rgba(17, 24, 39, 1);
-}
-
-.dark .toggle {
-  color: rgba(0, 0, 0, 1);
-  background-color: rgba(252, 211, 77, 1);
+  color: var(--dark-mode-toggle-color);
+  background-color: var(--dark-mode-toggle-background-color);
 }
