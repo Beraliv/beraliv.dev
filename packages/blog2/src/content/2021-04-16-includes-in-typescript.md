@@ -1,7 +1,7 @@
 ---
 title: Includes in TypeScript
 date: "2021-04-16"
-description: Tenth challenge is Includes.
+description: Tenth challenge is Includes. If you have a tuple and want to check if the specific value exists, this is a challenge for you.
 labels:
   - typescript
   - easy
@@ -11,7 +11,7 @@ keywords:
   - includes
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /includes-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Includes use](/includes-in-typescript/step1-example-of-use.png)

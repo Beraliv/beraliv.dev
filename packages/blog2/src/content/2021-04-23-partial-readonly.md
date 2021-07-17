@@ -11,7 +11,7 @@ keywords:
   - partial
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /partial-readonly/step1-example-of-use.png
 ---
 
 ![Example of Readonly use](/partial-readonly/step1-example-of-use.png)

@@ -11,7 +11,7 @@ keywords:
   - replaceall
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of ReplaceAll use](/replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png)

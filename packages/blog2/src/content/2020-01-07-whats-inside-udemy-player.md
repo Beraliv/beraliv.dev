@@ -11,7 +11,7 @@ keywords:
   - statistics
   - DRM
 categories:
-featured: ./udemy-player-page.png
+featured: /whats-inside-udemy-player/udemy-player-page.png
 ---
 
 ![Udemy player page](/whats-inside-udemy-player/udemy-player-page.png)

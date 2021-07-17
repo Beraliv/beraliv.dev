@@ -11,7 +11,7 @@ keywords:
   - permutations
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /string-length-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of LengthOfString use](/string-length-in-typescript/step1-example-of-use.png)

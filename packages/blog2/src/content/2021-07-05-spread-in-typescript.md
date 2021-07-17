@@ -11,7 +11,7 @@ keywords:
   - merge
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /spread-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Merge use](/spread-in-typescript/step1-example-of-use.png)

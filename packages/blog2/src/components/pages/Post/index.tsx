@@ -7,12 +7,12 @@ import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
 import { Bio } from "../../molecules/Bio";
-import Head from "next/head";
 import { Footer } from "../../atoms/Footer";
 import styles from "./index.module.css";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
+import { imageLoader } from "../../../functions/imageLoader";
 
 export interface PostPropsType {
   post: PickRequired<
@@ -31,14 +31,17 @@ export interface PostPropsType {
 export const Post: FC<PostPropsType> = ({ content, post }) => {
   const { title, url } = BLOG_META_INFO;
 
+  const imageWidth = 1280;
+  const imageUrl = imageLoader({ src: post.featured, width: imageWidth });
+
   return (
     <div className={styles.container}>
-      {/* @ts-expect-error add imageHeight and imageWidth */}
+      {/* @ts-expect-error add imageHeight */}
       <Seo
         description={post.description}
-        imageUrl={post.featured}
+        imageUrl={imageUrl}
         // imageHeight={0}
-        // imageWidth={0}
+        imageWidth={imageWidth}
         keywords={post.keywords}
         path={`${url}${post.slug}`}
         title={post.title}

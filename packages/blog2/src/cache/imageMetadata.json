@@ -1,0 +1,842 @@
+{
+  "/amazon-prime-video-player-investigation/amazon-prime-page.png": {
+    "width": 1400,
+    "height": 832
+  },
+  "/amazon-prime-video-player-investigation/paused-amazon-player.png": {
+    "width": 1400,
+    "height": 906
+  },
+  "/amazon-prime-video-player-investigation/video-element-in-devtools.png": {
+    "width": 1400,
+    "height": 838
+  },
+  "/amazon-prime-video-player-investigation/start-debugging.png": {
+    "width": 1400,
+    "height": 623
+  },
+  "/amazon-prime-video-player-investigation/state-machine.png": {
+    "width": 1400,
+    "height": 289
+  },
+  "/amazon-prime-video-player-investigation/amazon-prime-video-player-config.png": {
+    "width": 978,
+    "height": 854
+  },
+  "/amazon-prime-video-player-investigation/main-bundle-string.png": {
+    "width": 1400,
+    "height": 83
+  },
+  "/amazon-prime-video-player-investigation/script-from-main-bundle-string.png": {
+    "width": 1400,
+    "height": 42
+  },
+  "/absolute-in-typescript/step1-example-of-use.png": {
+    "width": 1058,
+    "height": 544
+  },
+  "/absolute-in-typescript/step2-return-result-for-string.png": {
+    "width": 1004,
+    "height": 472
+  },
+  "/absolute-in-typescript/step3-return-result-for-number-and-bigint.png": {
+    "width": 1004,
+    "height": 544
+  },
+  "/append-argument/step1-example-of-use.png": {
+    "width": 1056,
+    "height": 574
+  },
+  "/append-argument/step2-returntype-solution.png": {
+    "width": 1126,
+    "height": 434
+  },
+  "/append-argument/step3-parameters-solution.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/append-argument/step4-solution-v1.png": {
+    "width": 1316,
+    "height": 434
+  },
+  "/append-argument/step4-problem-of-solution-v1.png": {
+    "width": 1116,
+    "height": 434
+  },
+  "/append-argument/step5-solution.png": {
+    "width": 1316,
+    "height": 434
+  },
+  "/append-to-object/step1-example-of-use.png": {
+    "width": 1250,
+    "height": 544
+  },
+  "/append-to-object/step2-add-value-by-key-v1.png": {
+    "width": 938,
+    "height": 364
+  },
+  "/append-to-object/step2-add-value-by-key-v2.png": {
+    "width": 998,
+    "height": 364
+  },
+  "/append-to-object/step2-add-value-by-key-v3.png": {
+    "width": 1078,
+    "height": 436
+  },
+  "/append-to-object/step3-result-with-intersection.png": {
+    "width": 1108,
+    "height": 544
+  },
+  "/append-to-object/step4-remove-intersection.png": {
+    "width": 1048,
+    "height": 364
+  },
+  "/bbc-iplayer-geolocation-identification/bbc-iplayer-page.png": {
+    "width": 1400,
+    "height": 965
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-does-not-work-outside-uk.png": {
+    "width": 1400,
+    "height": 79
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-inline-script-in-devtools.png": {
+    "width": 1400,
+    "height": 1323
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-user-profile-is-initialised.png": {
+    "width": 1400,
+    "height": 634
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-bbc-user-body.png": {
+    "width": 972,
+    "height": 1822
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-userinfo-response.png": {
+    "width": 1270,
+    "height": 166
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-fig-response.png": {
+    "width": 796,
+    "height": 252
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-isukcombined-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 718
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-onuserforeignregion-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 741
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-update-isforeignregion-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 332
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-action-user-set-foreign-region-breakpoint-in-devtools.png": {
+    "width": 1400,
+    "height": 132
+  },
+  "/bbc-iplayer-geolocation-identification/iplayer-foreignregionbanner-rerender.png": {
+    "width": 1400,
+    "height": 903
+  },
+  "/boolean-condition/step1-example-of-use.png": {
+    "width": 856,
+    "height": 574
+  },
+  "/boolean-condition/step2-solution.png": {
+    "width": 1096,
+    "height": 364
+  },
+  "/exclude-under-the-hood/step1-example-of-use.png": {
+    "width": 914,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step2-distributive-conditional-types.png": {
+    "width": 1054,
+    "height": 468
+  },
+  "/exclude-under-the-hood/step3-distributive-conditional-types-explanation.png": {
+    "width": 1054,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step3-distributive-conditional-types-explanation-for-never.png": {
+    "width": 1082,
+    "height": 574
+  },
+  "/exclude-under-the-hood/step4-before-solution.png": {
+    "width": 986,
+    "height": 608
+  },
+  "/exclude-under-the-hood/step4-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/extract-under-the-hood/step1-example-of-use.png": {
+    "width": 1140,
+    "height": 678
+  },
+  "/extract-under-the-hood/step2-exclude-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/extract-under-the-hood/step3-solution-1.png": {
+    "width": 1042,
+    "height": 364
+  },
+  "/extract-under-the-hood/step3-solution-2.png": {
+    "width": 894,
+    "height": 364
+  },
+  "/flatten-tuple-type-in-typescript/step1-example-of-use.png": {
+    "width": 1070,
+    "height": 574
+  },
+  "/flatten-tuple-type-in-typescript/step2-iterate-over-tuple.png": {
+    "width": 1012,
+    "height": 504
+  },
+  "/flatten-tuple-type-in-typescript/step3-always-put-elements-to-the-result-type.png": {
+    "width": 1012,
+    "height": 504
+  },
+  "/flatten-tuple-type-in-typescript/step4-not-applying-recursively-for-elements-which-are-tuples.png": {
+    "width": 952,
+    "height": 468
+  },
+  "/flatten-tuple-type-in-typescript/step5-solution.png": {
+    "width": 1094,
+    "height": 574
+  },
+  "/includes-in-typescript/step1-example-of-use.png": {
+    "width": 1266,
+    "height": 608
+  },
+  "/includes-in-typescript/step2-union-out-of-tuple.png": {
+    "width": 994,
+    "height": 434
+  },
+  "/includes-in-typescript/step3-solution.png": {
+    "width": 1192,
+    "height": 434
+  },
+  "/infer-first-element/step1-example-of-use.png": {
+    "width": 990,
+    "height": 574
+  },
+  "/infer-first-element/step2-solution.png": {
+    "width": 754,
+    "height": 364
+  },
+  "/infer-length/step1-example-of-use.png": {
+    "width": 996,
+    "height": 574
+  },
+  "/infer-length/step2-solution.png": {
+    "width": 1004,
+    "height": 364
+  },
+  "/making-object-out-of-tuple/step1-example-of-use.png": {
+    "width": 1184,
+    "height": 574
+  },
+  "/making-object-out-of-tuple/step0-tuples.png": {
+    "width": 1260,
+    "height": 574
+  },
+  "/making-object-out-of-tuple/step0-arrays.png": {
+    "width": 1322,
+    "height": 504
+  },
+  "/making-object-out-of-tuple/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/making-object-out-of-tuple/step3-mapped-types-for-tuples.png": {
+    "width": 1232,
+    "height": 958
+  },
+  "/making-object-out-of-tuple/step4-solution.png": {
+    "width": 954,
+    "height": 434
+  },
+  "/making-union-out-of-string/step1-example-of-use.png": {
+    "width": 1136,
+    "height": 652
+  },
+  "/making-union-out-of-string/step2-get-first-character-v1.png": {
+    "width": 1094,
+    "height": 544
+  },
+  "/making-union-out-of-string/step3-get-first-character-v2.png": {
+    "width": 1098,
+    "height": 580
+  },
+  "/making-union-out-of-string/step4-solution.png": {
+    "width": 1064,
+    "height": 472
+  },
+  "/making-union-out-of-string/step5-never-in-a-union.png": {
+    "width": 1064,
+    "height": 436
+  },
+  "/making-union-out-of-tuple/step1-example-of-use.png": {
+    "width": 1102,
+    "height": 574
+  },
+  "/making-union-out-of-tuple/step2-solution.png": {
+    "width": 940,
+    "height": 364
+  },
+  "/manipulation-with-tuple-elements/step1-example-of-use.png": {
+    "width": 1162,
+    "height": 644
+  },
+  "/manipulation-with-tuple-elements/step2-pop-solution.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/manipulation-with-tuple-elements/step3-push-solution.png": {
+    "width": 864,
+    "height": 364
+  },
+  "/manipulation-with-tuple-elements/step4-shift-solution.png": {
+    "width": 1244,
+    "height": 434
+  },
+  "/manipulation-with-tuple-elements/step5-unshift-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/mapped-types-in-functions/step1-example-of-use.png": {
+    "width": 1236,
+    "height": 748
+  },
+  "/mapped-types-in-functions/step2-chainable-return-type.png": {
+    "width": 916,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step3-add-generic-type.png": {
+    "width": 916,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step4-add-key-and-value-for-every-option-call.png": {
+    "width": 1232,
+    "height": 468
+  },
+  "/mapped-types-in-functions/step5-solution.png": {
+    "width": 1452,
+    "height": 468
+  },
+  "/omit-under-the-hood/step1-example-of-use.png": {
+    "width": 1324,
+    "height": 714
+  },
+  "/omit-under-the-hood/step2-pick-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/omit-under-the-hood/step3-exclude-solution.png": {
+    "width": 924,
+    "height": 364
+  },
+  "/omit-under-the-hood/step4-solution.png": {
+    "width": 970,
+    "height": 364
+  },
+  "/partial-readonly/step1-example-of-use.png": {
+    "width": 1300,
+    "height": 678
+  },
+  "/partial-readonly/step2-readonly-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/partial-readonly/step3-pick-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/partial-readonly/step4-omit-solution.png": {
+    "width": 970,
+    "height": 364
+  },
+  "/partial-readonly/step5-solution-v1.png": {
+    "width": 1126,
+    "height": 364
+  },
+  "/partial-readonly/step5-solution-v2.png": {
+    "width": 846,
+    "height": 434
+  },
+  "/partial-readonly/step5-final-solution.png": {
+    "width": 984,
+    "height": 434
+  },
+  "/permutations-in-typescript/step1-example-of-use.png": {
+    "width": 1334,
+    "height": 854
+  },
+  "/permutations-in-typescript/step2-distribute-union-and-put-to-tuple.png": {
+    "width": 846,
+    "height": 434
+  },
+  "/permutations-in-typescript/step3-solution-v2.png": {
+    "width": 932,
+    "height": 434
+  },
+  "/permutations-in-typescript/step4-show-never-problem.png": {
+    "width": 1152,
+    "height": 608
+  },
+  "/permutations-in-typescript/step5-solution.png": {
+    "width": 964,
+    "height": 504
+  },
+  "/pick-under-the-hood/step1-example-of-use.png": {
+    "width": 1302,
+    "height": 714
+  },
+  "/pick-under-the-hood/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/pick-under-the-hood/step3-add-keys.png": {
+    "width": 1376,
+    "height": 888
+  },
+  "/pick-under-the-hood/step4-solution.png": {
+    "width": 836,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step1-example-of-use.png": {
+    "width": 1216,
+    "height": 678
+  },
+  "/promise-all-under-the-hood/step2-awaited-solution.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step2-tuple-in-object.png": {
+    "width": 954,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step2-tuple-in-tuple.png": {
+    "width": 1226,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step3-promise-reducer.png": {
+    "width": 1114,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step4-solution-v1.png": {
+    "width": 1256,
+    "height": 364
+  },
+  "/promise-all-under-the-hood/step5-promise-all-test-3.png": {
+    "width": 1156,
+    "height": 468
+  },
+  "/promise-all-under-the-hood/step6-make-values-tuple.png": {
+    "width": 914,
+    "height": 434
+  },
+  "/promise-all-under-the-hood/step7-solution.png": {
+    "width": 1116,
+    "height": 714
+  },
+  "/readonly-under-the-hood/step1-example-of-use.png": {
+    "width": 1232,
+    "height": 1098
+  },
+  "/readonly-under-the-hood/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/readonly-under-the-hood/step3-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step1-example-of-use.png": {
+    "width": 1196,
+    "height": 574
+  },
+  "/recursive-readonly-for-objects/step3-readonly-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step2-example-of-recursive-conditional-types.png": {
+    "width": 1046,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step4-solution.png": {
+    "width": 1244,
+    "height": 504
+  },
+  "/recursive-readonly-for-objects/step5-property-key.png": {
+    "width": 1020,
+    "height": 364
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png": {
+    "width": 1424,
+    "height": 924
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step2-replace-solution.png": {
+    "width": 1312,
+    "height": 538
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step3-solution-v1.png": {
+    "width": 1316,
+    "height": 538
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step4-example-for-v1-solution.png": {
+    "width": 894,
+    "height": 468
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step5-solution.png": {
+    "width": 1314,
+    "height": 538
+  },
+  "/research-joyn-scripts-obfuscation/joyn-player-page.png": {
+    "width": 1400,
+    "height": 900
+  },
+  "/research-joyn-scripts-obfuscation/joyn-js-files-in-devtools-network.png": {
+    "width": 1400,
+    "height": 696
+  },
+  "/research-joyn-scripts-obfuscation/psf-json-response-body.png": {
+    "width": 1200,
+    "height": 1316
+  },
+  "/research-joyn-scripts-obfuscation/beat-request-body.png": {
+    "width": 622,
+    "height": 927
+  },
+  "/research-joyn-scripts-obfuscation/wsg-request-body.png": {
+    "width": 1168,
+    "height": 1114
+  },
+  "/research-joyn-scripts-obfuscation/js-file-structure-after-obfuscation.png": {
+    "width": 698,
+    "height": 682
+  },
+  "/research-joyn-scripts-obfuscation/entire-package-json-in-playback-source-fetcher.png": {
+    "width": 1690,
+    "height": 1624
+  },
+  "/research-joyn-scripts-obfuscation/comparison-before-and-after-obfuscation.png": {
+    "width": 1000,
+    "height": 1814
+  },
+  "/return-type-under-the-hood/step1-example-of-use.png": {
+    "width": 1274,
+    "height": 468
+  },
+  "/return-type-under-the-hood/step2-example-of-conditional-type.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/return-type-under-the-hood/step3-find-any-function.png": {
+    "width": 974,
+    "height": 608
+  },
+  "/return-type-under-the-hood/step4-solution.png": {
+    "width": 1126,
+    "height": 434
+  },
+  "/scrollbar-customisation/macos-scrollbar.png": {
+    "width": 1400,
+    "height": 851
+  },
+  "/scrollbar-customisation/mac-ff-before-changes.png": {
+    "width": 424,
+    "height": 226
+  },
+  "/scrollbar-customisation/mac-ff-after-changes.png": {
+    "width": 419,
+    "height": 224
+  },
+  "/scrollbar-customisation/win-ff-before-changes.png": {
+    "width": 313,
+    "height": 168
+  },
+  "/scrollbar-customisation/win-ff-after-changes.png": {
+    "width": 316,
+    "height": 167
+  },
+  "/scrollbar-customisation/trident-colour-customisation.png": {
+    "width": 594,
+    "height": 560
+  },
+  "/scrollbar-customisation/trident-scrolbar-generator.png": {
+    "width": 411,
+    "height": 343
+  },
+  "/spread-in-tuple-types-in-typescript/step1-example-of-use.png": {
+    "width": 864,
+    "height": 468
+  },
+  "/spread-in-tuple-types-in-typescript/step2-solution-v1.png": {
+    "width": 746,
+    "height": 364
+  },
+  "/spread-in-tuple-types-in-typescript/step2-final-solution.png": {
+    "width": 1146,
+    "height": 364
+  },
+  "/string-length-in-typescript/step1-example-of-use.png": {
+    "width": 1196,
+    "height": 714
+  },
+  "/string-length-in-typescript/step2-iteration-over-string.png": {
+    "width": 1122,
+    "height": 504
+  },
+  "/string-length-in-typescript/step3-array-of-numbers.png": {
+    "width": 956,
+    "height": 364
+  },
+  "/string-length-in-typescript/step4-shift-array.png": {
+    "width": 1192,
+    "height": 678
+  },
+  "/string-length-in-typescript/step5-solution-v1.png": {
+    "width": 1192,
+    "height": 678
+  },
+  "/string-length-in-typescript/step6-check-2-characters-if-possible.png": {
+    "width": 1192,
+    "height": 608
+  },
+  "/string-length-in-typescript/step7-check-4-characters-if-possible.png": {
+    "width": 1236,
+    "height": 678
+  },
+  "/trim-in-typescript/step1-example-of-use.png": {
+    "width": 1094,
+    "height": 644
+  },
+  "/trim-in-typescript/step2-solution.png": {
+    "width": 1200,
+    "height": 574
+  },
+  "/trim-left-in-typescript/step1-example-of-use.png": {
+    "width": 1100,
+    "height": 574
+  },
+  "/trim-left-in-typescript/step2-whitespace.png": {
+    "width": 786,
+    "height": 364
+  },
+  "/trim-left-in-typescript/step3-remove-one-whitespace.png": {
+    "width": 1304,
+    "height": 504
+  },
+  "/trim-left-in-typescript/step4-solution.png": {
+    "width": 1304,
+    "height": 504
+  },
+  "/type-aliases-for-string-manipulation/step1-example-of-use.png": {
+    "width": 1122,
+    "height": 504
+  },
+  "/type-aliases-for-string-manipulation/step2-solution.png": {
+    "width": 1342,
+    "height": 434
+  },
+  "/type-challenges/featured.png": {
+    "width": 1030,
+    "height": 558
+  },
+  "/typed-get/get-usage-example.png": {
+    "width": 1274,
+    "height": 784
+  },
+  "/typed-get/get-in-js-v1.png": {
+    "width": 1176,
+    "height": 504
+  },
+  "/typed-get/path-v1.png": {
+    "width": 1030,
+    "height": 434
+  },
+  "/typed-get/path-v2.png": {
+    "width": 1026,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v1.png": {
+    "width": 1160,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v2.png": {
+    "width": 840,
+    "height": 574
+  },
+  "/typed-get/get-for-type-challenge.png": {
+    "width": 850,
+    "height": 364
+  },
+  "/typed-get/problem-1-with-get-for-type-challenge.png": {
+    "width": 896,
+    "height": 1168
+  },
+  "/typed-get/filter-undefined-and-null.png": {
+    "width": 1184,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v2.5.png": {
+    "width": 942,
+    "height": 574
+  },
+  "/typed-get/get-with-array-v3.png": {
+    "width": 1304,
+    "height": 644
+  },
+  "/typed-get/problem-2-with-get-for-type-challenge.png": {
+    "width": 884,
+    "height": 1064
+  },
+  "/typed-get/get-for-arrays-in-js.png": {
+    "width": 852,
+    "height": 608
+  },
+  "/typed-get/get-with-array-for-arrays-v1.png": {
+    "width": 836,
+    "height": 574
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-normal-string-array.png": {
+    "width": 1170,
+    "height": 468
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-readonly-string-array.png": {
+    "width": 980,
+    "height": 538
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-tuples.png": {
+    "width": 1112,
+    "height": 468
+  },
+  "/typed-get/get-with-array-for-arrays-v1.5.png": {
+    "width": 912,
+    "height": 574
+  },
+  "/typed-get/get-with-array-for-arrays-v2.png": {
+    "width": 892,
+    "height": 644
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v2-for-tuples.png": {
+    "width": 1172,
+    "height": 748
+  },
+  "/typed-get/extends-table.png": {
+    "width": 1072,
+    "height": 574
+  },
+  "/typed-get/use-extends-table.png": {
+    "width": 1186,
+    "height": 364
+  },
+  "/typed-get/get-with-array-for-arrays-v3.png": {
+    "width": 886,
+    "height": 784
+  },
+  "/typed-get/extract-from-object.png": {
+    "width": 1226,
+    "height": 538
+  },
+  "/typed-get/extract-from-array.png": {
+    "width": 1246,
+    "height": 574
+  },
+  "/typed-get/get-with-array-v4.png": {
+    "width": 1040,
+    "height": 644
+  },
+  "/typed-get/get-in-js-v2.png": {
+    "width": 1044,
+    "height": 854
+  },
+  "/typed-get/get-in-js-v3-fallback.png": {
+    "width": 1236,
+    "height": 888
+  },
+  "/typed-get/get-in-js-v4.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/typed-get/tuples.png": {
+    "width": 984,
+    "height": 504
+  },
+  "/typed-get/variadic-tuple-types.png": {
+    "width": 982,
+    "height": 574
+  },
+  "/typed-get/conditional-types.png": {
+    "width": 1082,
+    "height": 364
+  },
+  "/typed-get/infer-keyword-in-conditional-types.png": {
+    "width": 1386,
+    "height": 504
+  },
+  "/typed-get/recursive-conditional-types.png": {
+    "width": 1044,
+    "height": 434
+  },
+  "/typed-get/template-literal-types.png": {
+    "width": 864,
+    "height": 468
+  },
+  "/typed-get/example-of-generic-constrains.png": {
+    "width": 1054,
+    "height": 364
+  },
+  "/typed-get/function-overloads.png": {
+    "width": 834,
+    "height": 504
+  },
+  "/unwrapping-promises/step1-example-of-use.png": {
+    "width": 1110,
+    "height": 504
+  },
+  "/unwrapping-promises/step2-example-of-type-inference-in-conditional-types.png": {
+    "width": 1102,
+    "height": 434
+  },
+  "/unwrapping-promises/step3-example-of-recursive-conditional-types.png": {
+    "width": 1046,
+    "height": 434
+  },
+  "/unwrapping-promises/step4-solution.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png": {
+    "width": 866,
+    "height": 720
+  },
+  "/whats-inside-udemy-player/udemy-player-page.png": {
+    "width": 1400,
+    "height": 966
+  },
+  "/whats-inside-udemy-player/subtitles-vtt-file-structure.png": {
+    "width": 1400,
+    "height": 1032
+  },
+  "/whats-inside-udemy-player/thumbnail-sprites-vtt-file-structure.png": {
+    "width": 1400,
+    "height": 1037
+  },
+  "/whats-inside-udemy-player/statistics-sync-event-example.png": {
+    "width": 710,
+    "height": 528
+  },
+  "/whats-inside-udemy-player/statistics-async-event-example.png": {
+    "width": 1248,
+    "height": 2184
+  },
+  "/whats-inside-udemy-player/MEDIA_ERR_SRC_NOT_SUPPORTED.png": {
+    "width": 1400,
+    "height": 94
+  }
+}

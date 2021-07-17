@@ -11,7 +11,7 @@ keywords:
   - flatten
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /flatten-tuple-type-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Flatten use](/flatten-tuple-type-in-typescript/step1-example-of-use.png)

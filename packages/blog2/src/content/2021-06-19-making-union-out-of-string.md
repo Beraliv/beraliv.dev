@@ -11,7 +11,7 @@ keywords:
   - stringtounion
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /making-union-out-of-string/step1-example-of-use.png
 ---
 
 ![Example of StringToUnion use](/making-union-out-of-string/step1-example-of-use.png)

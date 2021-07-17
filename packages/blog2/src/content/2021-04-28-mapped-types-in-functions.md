@@ -10,7 +10,7 @@ keywords:
   - challenges
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /mapped-types-in-functions/step1-example-of-use.png
 ---
 
 ![Example of Chainable Options use](/mapped-types-in-functions/step1-example-of-use.png)

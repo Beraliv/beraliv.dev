@@ -11,7 +11,7 @@ keywords:
   - first
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /infer-first-element/step1-example-of-use.png
 ---
 
 ![Example of First use](/infer-first-element/step1-example-of-use.png)

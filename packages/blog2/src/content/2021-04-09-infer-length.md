@@ -11,7 +11,7 @@ keywords:
   - length
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /infer-length/step1-example-of-use.png
 ---
 
 ![Example of Length use](/infer-length/step1-example-of-use.png)
