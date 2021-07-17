@@ -494,5 +494,349 @@
   "/replace-all-occurrences-in-a-string-in-typescript/step5-solution.png": {
     "width": 1314,
     "height": 538
+  },
+  "/research-joyn-scripts-obfuscation/joyn-player-page.png": {
+    "width": 1400,
+    "height": 900
+  },
+  "/research-joyn-scripts-obfuscation/joyn-js-files-in-devtools-network.png": {
+    "width": 1400,
+    "height": 696
+  },
+  "/research-joyn-scripts-obfuscation/psf-json-response-body.png": {
+    "width": 1200,
+    "height": 1316
+  },
+  "/research-joyn-scripts-obfuscation/beat-request-body.png": {
+    "width": 622,
+    "height": 927
+  },
+  "/research-joyn-scripts-obfuscation/wsg-request-body.png": {
+    "width": 1168,
+    "height": 1114
+  },
+  "/research-joyn-scripts-obfuscation/js-file-structure-after-obfuscation.png": {
+    "width": 698,
+    "height": 682
+  },
+  "/research-joyn-scripts-obfuscation/entire-package-json-in-playback-source-fetcher.png": {
+    "width": 1690,
+    "height": 1624
+  },
+  "/research-joyn-scripts-obfuscation/comparison-before-and-after-obfuscation.png": {
+    "width": 1000,
+    "height": 1814
+  },
+  "/return-type-under-the-hood/step1-example-of-use.png": {
+    "width": 1274,
+    "height": 468
+  },
+  "/return-type-under-the-hood/step2-example-of-conditional-type.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/return-type-under-the-hood/step3-find-any-function.png": {
+    "width": 974,
+    "height": 608
+  },
+  "/return-type-under-the-hood/step4-solution.png": {
+    "width": 1126,
+    "height": 434
+  },
+  "/scrollbar-customisation/macos-scrollbar.png": {
+    "width": 1400,
+    "height": 851
+  },
+  "/scrollbar-customisation/mac-ff-before-changes.png": {
+    "width": 424,
+    "height": 226
+  },
+  "/scrollbar-customisation/mac-ff-after-changes.png": {
+    "width": 419,
+    "height": 224
+  },
+  "/scrollbar-customisation/win-ff-before-changes.png": {
+    "width": 313,
+    "height": 168
+  },
+  "/scrollbar-customisation/win-ff-after-changes.png": {
+    "width": 316,
+    "height": 167
+  },
+  "/scrollbar-customisation/trident-colour-customisation.png": {
+    "width": 594,
+    "height": 560
+  },
+  "/scrollbar-customisation/trident-scrolbar-generator.png": {
+    "width": 411,
+    "height": 343
+  },
+  "/spread-in-tuple-types-in-typescript/step1-example-of-use.png": {
+    "width": 864,
+    "height": 468
+  },
+  "/spread-in-tuple-types-in-typescript/step2-solution-v1.png": {
+    "width": 746,
+    "height": 364
+  },
+  "/spread-in-tuple-types-in-typescript/step2-final-solution.png": {
+    "width": 1146,
+    "height": 364
+  },
+  "/string-length-in-typescript/step1-example-of-use.png": {
+    "width": 1196,
+    "height": 714
+  },
+  "/string-length-in-typescript/step2-iteration-over-string.png": {
+    "width": 1122,
+    "height": 504
+  },
+  "/string-length-in-typescript/step3-array-of-numbers.png": {
+    "width": 956,
+    "height": 364
+  },
+  "/string-length-in-typescript/step4-shift-array.png": {
+    "width": 1192,
+    "height": 678
+  },
+  "/string-length-in-typescript/step5-solution-v1.png": {
+    "width": 1192,
+    "height": 678
+  },
+  "/string-length-in-typescript/step6-check-2-characters-if-possible.png": {
+    "width": 1192,
+    "height": 608
+  },
+  "/string-length-in-typescript/step7-check-4-characters-if-possible.png": {
+    "width": 1236,
+    "height": 678
+  },
+  "/trim-in-typescript/step1-example-of-use.png": {
+    "width": 1094,
+    "height": 644
+  },
+  "/trim-in-typescript/step2-solution.png": {
+    "width": 1200,
+    "height": 574
+  },
+  "/trim-left-in-typescript/step1-example-of-use.png": {
+    "width": 1100,
+    "height": 574
+  },
+  "/trim-left-in-typescript/step2-whitespace.png": {
+    "width": 786,
+    "height": 364
+  },
+  "/trim-left-in-typescript/step3-remove-one-whitespace.png": {
+    "width": 1304,
+    "height": 504
+  },
+  "/trim-left-in-typescript/step4-solution.png": {
+    "width": 1304,
+    "height": 504
+  },
+  "/type-aliases-for-string-manipulation/step1-example-of-use.png": {
+    "width": 1122,
+    "height": 504
+  },
+  "/type-aliases-for-string-manipulation/step2-solution.png": {
+    "width": 1342,
+    "height": 434
+  },
+  "/type-challenges/featured.png": {
+    "width": 1030,
+    "height": 558
+  },
+  "/typed-get/get-usage-example.png": {
+    "width": 1274,
+    "height": 784
+  },
+  "/typed-get/get-in-js-v1.png": {
+    "width": 1176,
+    "height": 504
+  },
+  "/typed-get/path-v1.png": {
+    "width": 1030,
+    "height": 434
+  },
+  "/typed-get/path-v2.png": {
+    "width": 1026,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v1.png": {
+    "width": 1160,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v2.png": {
+    "width": 840,
+    "height": 574
+  },
+  "/typed-get/get-for-type-challenge.png": {
+    "width": 850,
+    "height": 364
+  },
+  "/typed-get/problem-1-with-get-for-type-challenge.png": {
+    "width": 896,
+    "height": 1168
+  },
+  "/typed-get/filter-undefined-and-null.png": {
+    "width": 1184,
+    "height": 504
+  },
+  "/typed-get/get-with-array-v2.5.png": {
+    "width": 942,
+    "height": 574
+  },
+  "/typed-get/get-with-array-v3.png": {
+    "width": 1304,
+    "height": 644
+  },
+  "/typed-get/problem-2-with-get-for-type-challenge.png": {
+    "width": 884,
+    "height": 1064
+  },
+  "/typed-get/get-for-arrays-in-js.png": {
+    "width": 852,
+    "height": 608
+  },
+  "/typed-get/get-with-array-for-arrays-v1.png": {
+    "width": 836,
+    "height": 574
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-normal-string-array.png": {
+    "width": 1170,
+    "height": 468
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-readonly-string-array.png": {
+    "width": 980,
+    "height": 538
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v1-for-tuples.png": {
+    "width": 1112,
+    "height": 468
+  },
+  "/typed-get/get-with-array-for-arrays-v1.5.png": {
+    "width": 912,
+    "height": 574
+  },
+  "/typed-get/get-with-array-for-arrays-v2.png": {
+    "width": 892,
+    "height": 644
+  },
+  "/typed-get/debug-get-with-array-for-arrays-v2-for-tuples.png": {
+    "width": 1172,
+    "height": 748
+  },
+  "/typed-get/extends-table.png": {
+    "width": 1072,
+    "height": 574
+  },
+  "/typed-get/use-extends-table.png": {
+    "width": 1186,
+    "height": 364
+  },
+  "/typed-get/get-with-array-for-arrays-v3.png": {
+    "width": 886,
+    "height": 784
+  },
+  "/typed-get/extract-from-object.png": {
+    "width": 1226,
+    "height": 538
+  },
+  "/typed-get/extract-from-array.png": {
+    "width": 1246,
+    "height": 574
+  },
+  "/typed-get/get-with-array-v4.png": {
+    "width": 1040,
+    "height": 644
+  },
+  "/typed-get/get-in-js-v2.png": {
+    "width": 1044,
+    "height": 854
+  },
+  "/typed-get/get-in-js-v3-fallback.png": {
+    "width": 1236,
+    "height": 888
+  },
+  "/typed-get/get-in-js-v4.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/typed-get/tuples.png": {
+    "width": 984,
+    "height": 504
+  },
+  "/typed-get/variadic-tuple-types.png": {
+    "width": 982,
+    "height": 574
+  },
+  "/typed-get/conditional-types.png": {
+    "width": 1082,
+    "height": 364
+  },
+  "/typed-get/infer-keyword-in-conditional-types.png": {
+    "width": 1386,
+    "height": 504
+  },
+  "/typed-get/recursive-conditional-types.png": {
+    "width": 1044,
+    "height": 434
+  },
+  "/typed-get/template-literal-types.png": {
+    "width": 864,
+    "height": 468
+  },
+  "/typed-get/example-of-generic-constrains.png": {
+    "width": 1054,
+    "height": 364
+  },
+  "/typed-get/function-overloads.png": {
+    "width": 834,
+    "height": 504
+  },
+  "/unwrapping-promises/step1-example-of-use.png": {
+    "width": 1110,
+    "height": 504
+  },
+  "/unwrapping-promises/step2-example-of-type-inference-in-conditional-types.png": {
+    "width": 1102,
+    "height": 434
+  },
+  "/unwrapping-promises/step3-example-of-recursive-conditional-types.png": {
+    "width": 1046,
+    "height": 434
+  },
+  "/unwrapping-promises/step4-solution.png": {
+    "width": 906,
+    "height": 434
+  },
+  "/work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png": {
+    "width": 866,
+    "height": 720
+  },
+  "/whats-inside-udemy-player/udemy-player-page.png": {
+    "width": 1400,
+    "height": 966
+  },
+  "/whats-inside-udemy-player/subtitles-vtt-file-structure.png": {
+    "width": 1400,
+    "height": 1032
+  },
+  "/whats-inside-udemy-player/thumbnail-sprites-vtt-file-structure.png": {
+    "width": 1400,
+    "height": 1037
+  },
+  "/whats-inside-udemy-player/statistics-sync-event-example.png": {
+    "width": 710,
+    "height": 528
+  },
+  "/whats-inside-udemy-player/statistics-async-event-example.png": {
+    "width": 1248,
+    "height": 2184
+  },
+  "/whats-inside-udemy-player/MEDIA_ERR_SRC_NOT_SUPPORTED.png": {
+    "width": 1400,
+    "height": 94
   }
 }

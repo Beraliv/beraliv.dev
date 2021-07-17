@@ -12,7 +12,7 @@ keywords:
   - capitalise
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /type-aliases-for-string-manipulation/step1-example-of-use.png
 ---
 
 ![Example of Capitalize use](/type-aliases-for-string-manipulation/step1-example-of-use.png)

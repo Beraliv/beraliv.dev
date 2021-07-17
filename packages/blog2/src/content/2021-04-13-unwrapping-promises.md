@@ -11,7 +11,7 @@ keywords:
   - await
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /unwrapping-promises/step1-example-of-use.png
 ---
 
 ![Example of Awaited use](/unwrapping-promises/step1-example-of-use.png)
