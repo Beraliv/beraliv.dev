@@ -442,5 +442,57 @@
   "/promise-all-under-the-hood/step7-solution.png": {
     "width": 1116,
     "height": 714
+  },
+  "/readonly-under-the-hood/step1-example-of-use.png": {
+    "width": 1232,
+    "height": 1098
+  },
+  "/readonly-under-the-hood/step2-mapped-types.png": {
+    "width": 1236,
+    "height": 958
+  },
+  "/readonly-under-the-hood/step3-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step1-example-of-use.png": {
+    "width": 1196,
+    "height": 574
+  },
+  "/recursive-readonly-for-objects/step3-readonly-solution.png": {
+    "width": 772,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step2-example-of-recursive-conditional-types.png": {
+    "width": 1046,
+    "height": 434
+  },
+  "/recursive-readonly-for-objects/step4-solution.png": {
+    "width": 1244,
+    "height": 504
+  },
+  "/recursive-readonly-for-objects/step5-property-key.png": {
+    "width": 1020,
+    "height": 364
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png": {
+    "width": 1424,
+    "height": 924
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step2-replace-solution.png": {
+    "width": 1312,
+    "height": 538
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step3-solution-v1.png": {
+    "width": 1316,
+    "height": 538
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step4-example-for-v1-solution.png": {
+    "width": 894,
+    "height": 468
+  },
+  "/replace-all-occurrences-in-a-string-in-typescript/step5-solution.png": {
+    "width": 1314,
+    "height": 538
   }
 }

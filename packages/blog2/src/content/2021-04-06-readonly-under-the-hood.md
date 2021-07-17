@@ -11,7 +11,7 @@ keywords:
   - readonly
 categories:
   - typechallenge
-featured: ./step1-example-of-use.png
+featured: /readonly-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Readonly use](/readonly-under-the-hood/step1-example-of-use.png)
