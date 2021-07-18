@@ -9,7 +9,7 @@ interface DataSnapshot {
 
 const viewsRef = "beraliv-blog/views";
 
-export default async (
+const views = async (
   request: NextApiRequest,
   response: NextApiResponse<ViewsApi>
 ) => {
@@ -47,4 +47,6 @@ export default async (
   }
 
   return response.status(404);
-};
+}
+
+export default views;
