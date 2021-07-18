@@ -1,6 +1,6 @@
 .label {
-  color: rgba(75, 85, 99, 1);
-  background-color: rgba(229, 231, 235, 1);
+  color: var(--label-color);
+  background-color: var(--label-background-color);
   text-decoration: none;
   display: inline-block;
 
@@ -11,9 +11,4 @@
 
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-.dark.label {
-  color: rgba(107, 114, 128, 1);
-  background-color: rgba(17, 24, 39, 1);
 }
