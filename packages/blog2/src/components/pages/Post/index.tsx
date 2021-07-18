@@ -66,7 +66,7 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
               (label) => label && <Label key={label} title={label} />
             )}
           </main>
-          <footer>
+          <footer className={styles.articleFooter}>
             <Bio />
           </footer>
         </article>
