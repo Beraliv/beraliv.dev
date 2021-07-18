@@ -878,5 +878,53 @@
   "/opaque-type-in-typescript/step6-days-example.png": {
     "width": 1036,
     "height": 434
+  },
+  "/opaque-type-in-typescript/step1-example-of-opaque-type.png": {
+    "width": 1286,
+    "height": 888
+  },
+  "/opaque-type-in-typescript/step2-structural-type-system-example.png": {
+    "width": 966,
+    "height": 924
+  },
+  "/spread-in-typescript/step1-example-of-use.png": {
+    "width": 1290,
+    "height": 580
+  },
+  "/spread-in-typescript/step2-spread-in-js.png": {
+    "width": 1182,
+    "height": 616
+  },
+  "/spread-in-typescript/step3-solution-v1.png": {
+    "width": 978,
+    "height": 508
+  },
+  "/spread-in-typescript/step4-solution.png": {
+    "width": 958,
+    "height": 580
+  },
+  "/infer-last-element/step1-example-of-use.png": {
+    "width": 1010,
+    "height": 574
+  },
+  "/opaque-type-in-typescript/step3-class-with-private-property.png": {
+    "width": 1266,
+    "height": 958
+  },
+  "/opaque-type-in-typescript/step3-class-with-intersection-types.png": {
+    "width": 1126,
+    "height": 924
+  },
+  "/infer-last-element/step2-first-solution.png": {
+    "width": 754,
+    "height": 364
+  },
+  "/infer-last-element/step3-rest-in-ts-4-2.png": {
+    "width": 914,
+    "height": 468
+  },
+  "/infer-last-element/step4-solution.png": {
+    "width": 1126,
+    "height": 434
   }
 }
