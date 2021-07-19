@@ -75,7 +75,7 @@ export const SubscriptionForm = () => {
 
   if (state.status === "idle") {
     return (
-      <>
+      <div className={styles.idle}>
         <h3>Let&#39;s chat and have fun 🧑‍💻👩‍💻</h3>
         <p>
           No more often than once a week I write 📄 about TypeScript 💪, video
@@ -130,7 +130,7 @@ export const SubscriptionForm = () => {
             </button>
           </Form>
         </Formik>
-      </>
+      </div>
     );
   }
 
