@@ -61,7 +61,10 @@ export const SubscriptionForm = () => {
         setState({ status: "submitted" });
       })
       .catch(() => {
-        setState({ status: "error", message: `Something went wrong` });
+        setState({
+          status: "error",
+          message: `Something went wrong. Please write me and report the problem`,
+        });
       });
   }, []);
 
