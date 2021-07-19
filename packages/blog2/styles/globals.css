@@ -3,6 +3,10 @@
   --dark-mode-toggle-background-color: rgba(17, 24, 39, 1);
   --label-color: rgba(75, 85, 99, 1);
   --label-background-color: rgba(229, 231, 235, 1);
+  --subscription-form-error-message-color: rgba(153, 27, 27, 1);
+  --subscription-form-field-border-width: 2px;
+  --subscription-form-submit-button-color: rgba(255, 255, 255, 1);
+  --subscription-form-submit-button-background-color: rgba(0, 91, 153, 1);
 }
 
 .dark {
@@ -10,6 +14,10 @@
   --dark-mode-toggle-background-color: rgba(252, 211, 77, 1);
   --label-color: rgba(107, 114, 128, 1);
   --label-background-color: rgba(17, 24, 39, 1);
+  --subscription-form-error-message-color: rgba(255, 112, 79, 1);
+  --subscription-form-field-border-width: 0px;
+  --subscription-form-submit-button-color: rgba(0, 0, 0, 1);
+  --subscription-form-submit-button-background-color: rgba(112, 181, 255, 1);
 }
 
 html,
