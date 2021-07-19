@@ -1,0 +1,61 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.form label {
+  margin-right: 1rem;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  color: rgba(153, 27, 27, 1);
+}
+
+.dark .errorMessage {
+  color: #ff704f;
+}
+
+.field {
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 1);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  height: 3rem;
+  border-width: 2px;
+  border-color: rgba(229, 231, 235, 1);
+}
+.dark .field {
+  border-width: 0px;
+}
+
+.submitButton {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 3rem;
+  color: rgba(255, 255, 255, 1);
+  background-color: #005b99;
+}
+
+.dark .submitButton {
+  color: rgba(0, 0, 0, 1);
+  background-color: #70b5ff;
+}
+
+.submitted,
+.submitting,
+.error {
+  display: flex;
+  align-items: center;
+  height: 72px;
+}
