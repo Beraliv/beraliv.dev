@@ -54,3 +54,21 @@
 .error {
   color: var(--subscription-form-error-message-color);
 }
+
+@media (max-width: 42rem) {
+  .form {
+    flex-direction: column;
+    align-items: inherit;
+  }
+
+  .form label {
+    margin-right: initial;
+    margin-bottom: 1rem;
+  }
+
+  .submitted,
+  .submitting,
+  .error {
+    height: 224px;
+  }
+}
