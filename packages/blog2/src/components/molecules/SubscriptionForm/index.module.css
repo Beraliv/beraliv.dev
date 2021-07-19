@@ -1,0 +1,74 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.form label {
+  margin-right: 1rem;
+  flex-grow: 1;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  color: var(--subscription-form-error-message-color);
+}
+
+.field {
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 1);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  height: 3rem;
+  border-width: var(--subscription-form-field-border-width);
+  border-color: rgba(229, 231, 235, 1);
+}
+
+.submitButton {
+  padding: 0.75rem 1rem;
+  height: 3rem;
+  color: var(--subscription-form-submit-button-color);
+  background-color: var(--subscription-form-submit-button-background-color);
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.idle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.submitted,
+.submitting,
+.error {
+  display: flex;
+  align-items: center;
+  height: 72px;
+}
+
+.error {
+  color: var(--subscription-form-error-message-color);
+}
+
+@media (max-width: 42rem) {
+  .form {
+    flex-direction: column;
+    align-items: inherit;
+  }
+
+  .form label {
+    margin-right: initial;
+    margin-bottom: 1rem;
+  }
+
+  .submitted,
+  .submitting,
+  .error {
+    height: 224px;
+  }
+}
