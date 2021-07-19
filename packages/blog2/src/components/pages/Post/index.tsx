@@ -13,6 +13,7 @@ import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { imageLoader } from "../../../functions/imageLoader";
+import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 
 export interface PostPropsType {
   post: PickRequired<
@@ -70,6 +71,9 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
             <Bio />
           </footer>
         </article>
+        <aside>
+          <SubscriptionForm />
+        </aside>
       </main>
 
       <Footer />
