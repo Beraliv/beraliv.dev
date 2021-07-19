@@ -29,13 +29,9 @@
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;
-  border-color: rgba(0, 0, 0, 1) transparent transparent transparent;
+  border-color: var(--loader-border-color) transparent transparent transparent;
 
   animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-}
-
-.dark .loader div {
-  border-color: rgba(255, 255, 255, 1) transparent transparent transparent;
 }
 
 .loader div:nth-child(1) {

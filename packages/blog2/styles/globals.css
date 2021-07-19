@@ -7,6 +7,7 @@
   --subscription-form-field-border-width: 2px;
   --subscription-form-submit-button-color: rgba(255, 255, 255, 1);
   --subscription-form-submit-button-background-color: rgba(0, 91, 153, 1);
+  --loader-border-color: rgba(0, 0, 0, 1);
 }
 
 .dark {
@@ -18,6 +19,7 @@
   --subscription-form-field-border-width: 0px;
   --subscription-form-submit-button-color: rgba(0, 0, 0, 1);
   --subscription-form-submit-button-background-color: rgba(112, 181, 255, 1);
+  --loader-border-color: rgba(255, 255, 255, 1);
 }
 
 html,
