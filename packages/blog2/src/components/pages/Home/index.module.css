@@ -10,12 +10,13 @@
   align-items: center;
 }
 
-.bio {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
+.bio,
+.aside {
   max-width: 42rem;
+  margin: 0 auto;
+}
+
+.bio {
   padding-top: 2.5rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;

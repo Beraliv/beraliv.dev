@@ -7,6 +7,7 @@ import { Footer } from "../../atoms/Footer";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
+import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 
 export const Home = ({
@@ -42,6 +43,10 @@ export const Home = ({
             </a>
           ))}
         </div>
+
+        <aside className={styles.aside}>
+          <SubscriptionForm />
+        </aside>
       </main>
 
       <Footer />
