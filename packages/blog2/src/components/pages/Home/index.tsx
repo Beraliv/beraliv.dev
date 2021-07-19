@@ -11,6 +11,8 @@ import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 
 export const Home = ({
+  apiKey,
+  formId,
   posts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
@@ -45,7 +47,7 @@ export const Home = ({
         </div>
 
         <aside className={styles.aside}>
-          <SubscriptionForm />
+          <SubscriptionForm apiKey={apiKey} formId={formId} />
         </aside>
       </main>
 
