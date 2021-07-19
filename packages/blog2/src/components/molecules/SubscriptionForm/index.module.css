@@ -50,3 +50,7 @@
   align-items: center;
   height: 72px;
 }
+
+.error {
+  color: var(--subscription-form-error-message-color);
+}
