@@ -1,12 +1,9 @@
-import React, { useCallback, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "./index.module.css";
 import { Loader } from "../../atoms/Loader";
 import { validateNever } from "../../../validators/validateNever";
-
-const FORM_ID = process.env.CONVERTKIT_SIGNUP_FORM_ID;
-const API_KEY = process.env.CONVERTKIT_PUBLIC_KEY;
 
 type SubscriptionFormState =
   | {
@@ -36,45 +33,48 @@ const INITIAL_VALUES: SubscriptionSchemaType = {
   email: "",
 } as SubscriptionSchemaType;
 
-export const SubscriptionForm = () => {
+export interface SubscriptionFormPropsType {
+  apiKey: string;
+  formId: string;
+}
+
+export const SubscriptionForm: FC<SubscriptionFormPropsType> = ({
+  apiKey,
+  formId,
+}) => {
   const [state, setState] = useState<SubscriptionFormState>({ status: "idle" });
 
-  const handleSubmit = useCallback((values) => {
-    const url = `https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`;
+  const handleSubmit = useCallback(
+    (values) => {
+      const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`;
 
-    const body = JSON.stringify({
-      ...values,
-      api_key: API_KEY,
-    });
-
-    setState({ status: "submitting" });
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body,
-    })
-      .then((response) => response.json())
-      .then(() => {
-        setState({ status: "submitted" });
-      })
-      .catch(() => {
-        setState({
-          status: "error",
-          message: `Something went wrong. Please write me and report the problem`,
-        });
+      const body = JSON.stringify({
+        ...values,
+        api_key: apiKey,
       });
-  }, []);
 
-  if (!FORM_ID) {
-    console.warn(`[SubscriptionForm]: CANNOT_FIND_CONVERTKIT_SIGNUP_FORM_ID`);
-  }
+      setState({ status: "submitting" });
 
-  if (!API_KEY) {
-    console.warn(`[SubscriptionForm]: CANNOT_FIND_CONVERTKIT_PUBLIC_KEY`);
-  }
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      })
+        .then((response) => response.json())
+        .then(() => {
+          setState({ status: "submitted" });
+        })
+        .catch(() => {
+          setState({
+            status: "error",
+            message: `Something went wrong. Please write me and report the problem`,
+          });
+        });
+    },
+    [apiKey, formId]
+  );
 
   if (state.status === "idle") {
     return (

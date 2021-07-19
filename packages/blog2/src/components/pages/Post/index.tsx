@@ -16,6 +16,9 @@ import { imageLoader } from "../../../functions/imageLoader";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 
 export interface PostPropsType {
+  apiKey: string;
+  content: Awaited<ReturnType<typeof serialize>>;
+  formId: string;
   post: PickRequired<
     Partial<PostType>,
     | "date"
@@ -26,10 +29,9 @@ export interface PostPropsType {
     | "slug"
     | "title"
   >;
-  content: Awaited<ReturnType<typeof serialize>>;
 }
 
-export const Post: FC<PostPropsType> = ({ content, post }) => {
+export const Post: FC<PostPropsType> = ({ apiKey, content, formId, post }) => {
   const { title, url } = BLOG_META_INFO;
 
   const imageWidth = 1280;
@@ -72,7 +74,7 @@ export const Post: FC<PostPropsType> = ({ content, post }) => {
           </footer>
         </article>
         <aside>
-          <SubscriptionForm />
+          <SubscriptionForm apiKey={apiKey} formId={formId} />
         </aside>
       </main>
 
