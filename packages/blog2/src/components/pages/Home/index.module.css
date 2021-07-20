@@ -45,7 +45,6 @@
   align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
   margin-top: 3rem;
 }
 
@@ -79,14 +78,22 @@
 }
 
 .card h2 {
+  --header-size: 1.5rem;
+  --header-line-height: 1.5;
+
   margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  font-size: var(--header-size);
+  height: calc(2 * var(--header-size) * var(--header-line-height));
 }
 
 .card p {
+  --text-size: 1.25rem;
+  --text-line-height: 1.5;
+
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: var(--text-size);
+  line-height: var(--text-line-height);
+  height: calc(3 * var(--text-size) * var(--text-line-height));
 }
 
 @media (max-width: 600px) {
