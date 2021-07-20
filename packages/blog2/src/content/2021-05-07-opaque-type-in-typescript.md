@@ -1,7 +1,7 @@
 ---
 title: Opaque Types in TypeScript
 date: "2021-05-07"
-description: Today we discuss Opaque types. 1. What problems do they solve. 2. What ways could we solve this problem. 3. Why I chose this solution. 4. Describe the solution in more technical details
+description: Structural type system, workaround in TypeScript, unique symbol and code examples
 labels:
   - typescript
 keywords:

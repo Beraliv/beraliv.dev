@@ -1,7 +1,7 @@
 ---
 title: Permutations in TypeScript
 date: "2021-05-30"
-description: Permutation is a synthetic example which can hardly be used in production
+description: Given a union, return a union of tuples with all possible permutations (all possible positions of elements without repetition)
 labels:
   - typescript
   - medium

@@ -1,7 +1,7 @@
 ---
 title: Trim Left in TypeScript
 date: "2021-05-10"
-description: Today we discuss Trim Left. String.prototype.trimStart does the same in JavaScript what we are about to do in TypeScript. Let's try 👩‍💻
+description: Given the string, remove whitespaces from the beginning
 labels:
   - typescript
   - medium

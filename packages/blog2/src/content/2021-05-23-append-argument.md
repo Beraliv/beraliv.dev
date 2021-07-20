@@ -1,7 +1,7 @@
 ---
 title: Append argument to a function in TypeScript
 date: "2021-05-23"
-description: Today we discuss AppendArgument. I didn't have that example in production so not sure if it's practical at all. Anyway let's try to solve it 🚀
+description: Given the function and the type, include the type as the following argument in the list of function arguments
 labels:
   - typescript
   - medium

@@ -1,7 +1,7 @@
 ---
-title: Making object out of tuple
+title: Making object out of tuple in TypeScript
 date: "2021-04-07"
-description: Third challenge is TupleToObject. I would say it's rarely used. But what we want to achieve here is having identical keys and values for the result object.
+description: Given the tuple, we need to get object where key and value equals to the elements of the tuple
 labels:
   - typescript
   - easy

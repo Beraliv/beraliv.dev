@@ -1,7 +1,7 @@
 ---
-title: Mapped Types in functions
+title: Mapped Types in functions in TypeScript
 date: "2021-04-28"
-description: Today we discuss Chainable Options. That's one of the most popular challenges I've worked with. You need to connect the data type with event type, e.g. for your tracking or logging. But the difference here is that you need to infer type from the calls.
+description: Given API, collect the object with keys and values after each call
 labels:
   - typescript
   - medium

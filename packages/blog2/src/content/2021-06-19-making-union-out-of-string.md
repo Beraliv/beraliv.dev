@@ -1,7 +1,7 @@
 ---
-title: Making Union out of String in TypeScript
+title: Making Union out of string in TypeScript
 date: "2021-06-19"
-description: This is the challenge where we need to transform existing type to another one. This one is useful when we need to know which character can be found in a string beforehand.
+description: Given a string, return a union of all characters from the string
 labels:
   - typescript
   - medium

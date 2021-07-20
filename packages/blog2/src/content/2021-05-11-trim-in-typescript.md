@@ -1,7 +1,7 @@
 ---
 title: Trim in TypeScript
 date: "2021-05-11"
-description: Today we discuss Trim. String.prototype.trim does the same in JavaScript what we are about to do in TypeScript. Let's try 👩‍💻
+description: Given the string, remove whitespaces from the beginning and the end
 labels:
   - typescript
   - medium

@@ -1,7 +1,7 @@
 ---
-title: Infer last element
+title: Infer last element in TypeScript
 date: "2021-04-29"
-description: Today we discuss Last of Array. We already know how to get the first element. We can use it for both arrays and tuples, but for tuples you get exact value. To distinguish arrays and tuples, please visit Making object out of tuple.
+description: Given the tuple, return its last element
 labels:
   - typescript
   - medium

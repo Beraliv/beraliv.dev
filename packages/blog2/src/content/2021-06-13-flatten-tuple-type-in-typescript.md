@@ -1,7 +1,7 @@
 ---
 title: Flatten Tuple Type in TypeScript
 date: "2021-06-13"
-description: We have Array.prototype.flat function in JavaScript, let's find out how to do that in TypeScript.
+description: Given the tuple, make it flatten as Array.prototype.flat when pass Infinity
 labels:
   - typescript
   - medium
@@ -18,7 +18,7 @@ image: /flatten-tuple-type-in-typescript/step1-example-of-use.png
 
 Today we discuss [Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md)
 
-It works the same way as [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) when you pass `Infinity`
+It works the same way as [Array.prototype.flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat/) when you pass `Infinity`
 
 Let's find out how to do that in TypeScript 💪
 

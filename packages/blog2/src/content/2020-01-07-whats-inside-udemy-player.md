@@ -1,7 +1,7 @@
 ---
-title: What's inside Udemy player
+title: Video player in Udemy
 date: "2020-01-07"
-description: What do you know about WebVTT, statistics and DRM in video players? I had several hours to have a look at Udemy player
+description: Subtitles with WebVTT, statistics and DRM
 labels:
   - player
 keywords:

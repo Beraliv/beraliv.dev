@@ -1,7 +1,7 @@
 ---
-title: Boolean conditional statement
+title: Boolean conditional statement in TypeScript
 date: "2021-04-14"
-description: Eighth challenge is If. It is common to use conditional statement to get either of branches. Like conditional, or ternary, operator in JavaScript.
+description: Given the boolean, in case of true return first type, otherwise second one
 labels:
   - typescript
   - easy

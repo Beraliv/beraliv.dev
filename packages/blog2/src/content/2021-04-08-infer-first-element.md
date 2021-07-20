@@ -1,7 +1,7 @@
 ---
-title: Infer first element
+title: Infer first element in TypeScript
 date: "2021-04-08"
-description: Fourth challenge is First of Array. Here you can use it for tuples and arrays. But for tuples you get exact value.
+description: Given the tuple, return its first element
 labels:
   - typescript
   - easy

@@ -1,7 +1,7 @@
 ---
-title: Partial readonly
+title: Partial Readonly in TypeScript
 date: "2021-04-23"
-description: We already solved the challenge with readonly. Today we want to apply readonly modifier only to the specified keys.
+description: Given the object and a union of properties, return object where those properties are readonly
 labels:
   - typescript
   - medium

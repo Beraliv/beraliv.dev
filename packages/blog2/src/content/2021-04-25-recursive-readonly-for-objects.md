@@ -1,7 +1,7 @@
 ---
-title: Recursive Readonly for objects
+title: Recursive Readonly for objects in TypeScript
 date: "2021-04-25"
-description: We already solved several challenges with readonly. Today we discuss Deep Readonly. We apply readonly modifier to all object types inside our object type recursively if we need to prohibit mutations of the whole object, but not only the first layer.
+description: Given the object, return object where all properties on all levels are readonly
 labels:
   - typescript
   - medium

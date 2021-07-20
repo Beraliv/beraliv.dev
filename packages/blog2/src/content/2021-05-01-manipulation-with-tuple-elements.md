@@ -1,7 +1,7 @@
 ---
-title: Manipulation with Tuple elements
+title: Manipulation with Tuple elements in TypeScript
 date: "2021-05-01"
-description: Today we discuss Pop and other methods, like Shift, Push and Unshift. We already practiced getting first and last elements of tuples. Let's apply our knowledge again 💪
+description: Given the tuple, implement Pop, Shift, Push and Unshift methods like Array.prototype has
 labels:
   - typescript
   - medium

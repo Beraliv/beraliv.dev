@@ -1,7 +1,7 @@
 ---
 title: Replace occurrence in a string in TypeScript
 date: "2021-05-17"
-description: Today we discuss Replace. We need to remove one occurrence in the string and place instead the different value. Let's do that 🚀
+description: Given the string, replace first string occurrence with specified string
 labels:
   - typescript
   - medium

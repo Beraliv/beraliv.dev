@@ -1,7 +1,7 @@
 ---
-title: Promise.all under the hood
+title: Promise.all under the hood in TypeScript
 date: "2021-05-04"
-description: Today we discuss Promise.all. This is helpful in case we need to wait for all the values. Let's solve it 🚀
+description: Given the tuple with Promise elements, return Promise of tuple
 labels:
   - typescript
   - medium

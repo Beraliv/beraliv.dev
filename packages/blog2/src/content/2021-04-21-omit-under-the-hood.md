@@ -1,7 +1,7 @@
 ---
-title: Omit under the hood
+title: Omit under the hood in TypeScript
 date: "2021-04-21"
-description: Today we're talking about Omit. First challenge was Pick under the hood where we discussed how Pick is working. Omit is the opposite of Pick, it excludes the keys we specify.
+description: Given the object and a union of properties, return the object but without those properties
 labels:
   - typescript
   - medium

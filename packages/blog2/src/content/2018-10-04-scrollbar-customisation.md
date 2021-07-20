@@ -1,8 +1,7 @@
 ---
-title: Scrollbar customisation in JavaScript and CSS
+title: Scrollbar customisation
 date: "2018-10-04"
-description: What is the current state of scrollbar customisation?
-  Let's have a look at the browser capabilities, CSS hacks and JS libraries.
+description: CSS support in different browser engines, hacks and tricks, JS libraries
 labels:
   - css
   - javascript

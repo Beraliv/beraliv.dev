@@ -1,7 +1,7 @@
 ---
 title: Absolute in TypeScript
 date: "2021-06-21"
-description: Today we discuss Absolute. To return a number here is a very complicated task because a number of iterations is limited (if we try to solve it with arrays). Instead we can use string literals and return a string as a result.
+description: Given a number as a string, return its absolute value as a string too
 labels:
   - typescript
   - medium

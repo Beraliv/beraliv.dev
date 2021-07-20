@@ -1,7 +1,7 @@
 ---
-title: Pick under the hood
+title: Pick under the hood in TypeScript
 date: "2021-04-05"
-description: First challenge is Pick. It's usually used when you need to declare the type which is based on another type. And you know in advance which keys are included.
+description: Given existing type or interface, we need to extract part of properties
 labels:
   - typescript
   - easy

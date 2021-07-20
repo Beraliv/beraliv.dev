@@ -1,7 +1,7 @@
 ---
 title: Length of String in TypeScript
 date: "2021-05-31"
-description: Finding the string length sounds easy but can be tricky.
+description: Given the string, calculate its length. Also try to find the maximum computable string length having a limit of recursive calls
 labels:
   - typescript
   - medium

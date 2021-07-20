@@ -1,7 +1,7 @@
 ---
 title: Type Challenges
 date: "2021-04-04"
-description: I am fan of Typescript since my last work at Yandex. Since TypeScript can be easy 😌 and difficult 😰 depending on your requirements, I decided to post the solution and the concepts behind every task I solve.
+description: Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript
 labels:
   - typescript
   - easy

@@ -1,7 +1,7 @@
 ---
-title: Exclude under the hood
+title: Exclude under the hood in TypeScript
 date: "2021-04-12"
-description: Sixth challenge is Exclude. Don't mix up Exclude with Omit. Exclude is used for union types. Omit is used for object types so you can remove specified keys within it.
+description: Given two unions, remove all the elements of the second one from the first union
 labels:
   - typescript
   - easy

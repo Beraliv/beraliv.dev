@@ -1,7 +1,7 @@
 ---
-title: Making union out of tuple
+title: Making union out of tuple in TypeScript
 date: "2021-04-27"
-description: Today we discuss Tuple to Union. We already solved a similar challenge Making object out of tuple. This one is useful when we need to extract elements type out of tuple.
+description: Given the tuple, return a union of tuple elements
 labels:
   - typescript
   - medium

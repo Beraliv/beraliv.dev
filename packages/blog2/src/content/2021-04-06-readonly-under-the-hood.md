@@ -1,7 +1,7 @@
 ---
-title: Readonly under the hood
+title: Readonly under the hood in TypeScript
 date: "2021-04-06"
-description: Second challenge is Readonly. Similarly to Pick, it's usually used when you need to declare the type which is based on another type. The values on the first layer are immutable, or readonly&nbsp;🔒
+description: Given the object, we need to make properties on the first level readonly
 labels:
   - typescript
   - easy
