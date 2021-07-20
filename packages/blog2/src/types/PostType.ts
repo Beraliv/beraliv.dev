@@ -7,5 +7,5 @@ export interface PostType {
   labels: string[];
   keywords: string[];
   categories: string[];
-  featured: string;
+  image: string;
 }

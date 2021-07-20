@@ -4,7 +4,7 @@ import { PostType } from "../types/PostType";
 export const validatePost = ({
   date,
   description,
-  featured,
+  image,
   keywords,
   labels,
   slug,
@@ -37,14 +37,14 @@ export const validatePost = ({
     throw new Error(`Cannot find labels for post ${slug}`);
   }
 
-  if (!featured) {
-    throw new Error(`Cannot find featured for post ${slug}`);
+  if (!image) {
+    throw new Error(`Cannot find image for post ${slug}`);
   }
 
   return {
     date,
     description,
-    featured,
+    image,
     keywords,
     labels,
     slug,

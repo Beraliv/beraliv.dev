@@ -21,9 +21,7 @@ describe(getPostBySlug.name, () => {
       "css",
     ]);
     expect(data.categories).toEqual(null);
-    expect(data.featured).toEqual(
-      "/scrollbar-customisation/macos-scrollbar.png"
-    );
+    expect(data.image).toEqual("/scrollbar-customisation/macos-scrollbar.png");
 
     expect(name).toBe("2018-10-04-scrollbar-customisation");
   });

@@ -21,13 +21,7 @@ export interface PostPropsType {
   formId: string;
   post: PickRequired<
     Partial<PostType>,
-    | "date"
-    | "description"
-    | "featured"
-    | "keywords"
-    | "labels"
-    | "slug"
-    | "title"
+    "date" | "description" | "image" | "keywords" | "labels" | "slug" | "title"
   >;
 }
 
@@ -35,7 +29,7 @@ export const Post: FC<PostPropsType> = ({ apiKey, content, formId, post }) => {
   const { title, url } = BLOG_META_INFO;
 
   const imageWidth = 1280;
-  const imageUrl = imageLoader({ src: post.featured, width: imageWidth });
+  const imageUrl = imageLoader({ src: post.image, width: imageWidth });
 
   return (
     <div className={styles.container}>
