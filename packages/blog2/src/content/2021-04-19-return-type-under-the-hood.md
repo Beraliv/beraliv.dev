@@ -11,7 +11,7 @@ keywords:
   - returntype
 categories:
   - typechallenge
-featured: /return-type-under-the-hood/step1-example-of-use.png
+image: /return-type-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of ReturnType use](/return-type-under-the-hood/step1-example-of-use.png)

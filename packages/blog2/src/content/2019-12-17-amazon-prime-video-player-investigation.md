@@ -10,7 +10,7 @@ keywords:
   - Amazon Prime
   - video player
 categories:
-featured: /amazon-prime-video-player-investigation/amazon-prime-page.png
+image: /amazon-prime-video-player-investigation/amazon-prime-page.png
 ---
 
 ![Amazon Prime page](/amazon-prime-video-player-investigation/amazon-prime-page.png)

@@ -11,7 +11,7 @@ keywords:
   - extract
 categories:
   - typechallenge
-featured: /extract-under-the-hood/step1-example-of-use.png
+image: /extract-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Promise.all use](/extract-under-the-hood/step1-example-of-use.png)

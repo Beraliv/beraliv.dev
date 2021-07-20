@@ -11,7 +11,7 @@ keywords:
   - trim
 categories:
   - typechallenge
-featured: /trim-left-in-typescript/step1-example-of-use.png
+image: /trim-left-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of TrimLeft use](/trim-left-in-typescript/step1-example-of-use.png)

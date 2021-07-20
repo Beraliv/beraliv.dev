@@ -11,7 +11,7 @@ keywords:
   - replace
 categories:
   - typechallenge
-featured: /replace-occurrence-in-a-string-in-typescript/step1-example-of-use.png
+image: /replace-occurrence-in-a-string-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Replace use](/replace-occurrence-in-a-string-in-typescript/step1-example-of-use.png)

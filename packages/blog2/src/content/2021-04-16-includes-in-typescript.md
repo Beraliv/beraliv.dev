@@ -11,7 +11,7 @@ keywords:
   - includes
 categories:
   - typechallenge
-featured: /includes-in-typescript/step1-example-of-use.png
+image: /includes-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Includes use](/includes-in-typescript/step1-example-of-use.png)

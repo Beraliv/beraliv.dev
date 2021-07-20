@@ -11,7 +11,7 @@ keywords:
   - conditional
 categories:
   - typechallenge
-featured: /boolean-condition/step1-example-of-use.png
+image: /boolean-condition/step1-example-of-use.png
 ---
 
 ![Example of If use](/boolean-condition/step1-example-of-use.png)

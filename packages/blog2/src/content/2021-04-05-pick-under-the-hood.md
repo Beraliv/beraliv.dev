@@ -11,7 +11,7 @@ keywords:
   - pick
 categories:
   - typechallenge
-featured: /pick-under-the-hood/step1-example-of-use.png
+image: /pick-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Pick use](/pick-under-the-hood/step1-example-of-use.png)

@@ -11,7 +11,7 @@ keywords:
   - last
 categories:
   - typechallenge
-featured: /infer-last-element/step1-example-of-use.png
+image: /infer-last-element/step1-example-of-use.png
 ---
 
 ![Example of Chainable Options use](/infer-last-element/step1-example-of-use.png)

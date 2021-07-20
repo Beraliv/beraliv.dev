@@ -11,7 +11,7 @@ keywords:
   - omit
 categories:
   - typechallenge
-featured: /omit-under-the-hood/step1-example-of-use.png
+image: /omit-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Omit use](/omit-under-the-hood/step1-example-of-use.png)

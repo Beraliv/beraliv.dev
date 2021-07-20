@@ -12,7 +12,7 @@ keywords:
   - javascript
   - css
 categories:
-featured: /scrollbar-customisation/macos-scrollbar.png
+image: /scrollbar-customisation/macos-scrollbar.png
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:

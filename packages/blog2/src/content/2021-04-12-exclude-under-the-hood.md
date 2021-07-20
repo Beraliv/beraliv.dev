@@ -11,7 +11,7 @@ keywords:
   - exclude
 categories:
   - typechallenge
-featured: /exclude-under-the-hood/step1-example-of-use.png
+image: /exclude-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Exclude use](/exclude-under-the-hood/step1-example-of-use.png)

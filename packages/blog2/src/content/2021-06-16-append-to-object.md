@@ -11,7 +11,7 @@ keywords:
   - appendtoobject
 categories:
   - typechallenge
-featured: /append-to-object/step1-example-of-use.png
+image: /append-to-object/step1-example-of-use.png
 ---
 
 ![Example of AppendToObject use](/append-to-object/step1-example-of-use.png)

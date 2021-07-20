@@ -10,7 +10,7 @@ keywords:
   - challenges
 categories:
   - typechallenge
-featured: /making-object-out-of-tuple/step1-example-of-use.png
+image: /making-object-out-of-tuple/step1-example-of-use.png
 ---
 
 ![Example of TupleToObject use](/making-object-out-of-tuple/step1-example-of-use.png)

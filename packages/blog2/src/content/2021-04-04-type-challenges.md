@@ -12,7 +12,7 @@ keywords:
   - challenges
 categories:
   - typechallenge:main
-featured: /type-challenges/featured.png
+image: /type-challenges/featured.png
 ---
 
 ![Type Challenges](/type-challenges/featured.png)

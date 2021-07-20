@@ -7,7 +7,7 @@ labels:
 keywords:
   - typescript
   - opaque type
-featured: /opaque-type-in-typescript/step1-example-of-opaque-type.png
+image: /opaque-type-in-typescript/step1-example-of-opaque-type.png
 ---
 
 ![Example of Opaque Types](/opaque-type-in-typescript/step1-example-of-opaque-type.png)

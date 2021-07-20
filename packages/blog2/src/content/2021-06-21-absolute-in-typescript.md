@@ -11,7 +11,7 @@ keywords:
   - absolute
 categories:
   - typechallenge
-featured: /absolute-in-typescript/step1-example-of-use.png
+image: /absolute-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Absolute use](/absolute-in-typescript/step1-example-of-use.png)

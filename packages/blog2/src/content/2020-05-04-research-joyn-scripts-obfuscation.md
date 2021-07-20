@@ -9,7 +9,7 @@ keywords:
   - Joyn
   - obfuscation
 categories:
-featured: /research-joyn-scripts-obfuscation/joyn-player-page.png
+image: /research-joyn-scripts-obfuscation/joyn-player-page.png
 ---
 
 ![Joyn player page for TV series](/research-joyn-scripts-obfuscation/joyn-player-page.png)

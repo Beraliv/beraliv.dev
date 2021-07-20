@@ -10,7 +10,7 @@ keywords:
   - video player
   - technology stack
 categories:
-featured: /work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png
+image: /work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png
 ---
 
 ![Yandex overlay in player](/work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png)

@@ -12,7 +12,7 @@ keywords:
   - readonly
 categories:
   - typechallenge
-featured: /recursive-readonly-for-objects/step1-example-of-use.png
+image: /recursive-readonly-for-objects/step1-example-of-use.png
 ---
 
 ![Example of DeepReadonly use](/recursive-readonly-for-objects/step1-example-of-use.png)

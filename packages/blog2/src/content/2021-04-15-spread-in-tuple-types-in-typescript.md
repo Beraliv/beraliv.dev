@@ -11,7 +11,7 @@ keywords:
   - spread
 categories:
   - typechallenge
-featured: /spread-in-tuple-types-in-typescript/step1-example-of-use.png
+image: /spread-in-tuple-types-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Concat use](/spread-in-tuple-types-in-typescript/step1-example-of-use.png)
