@@ -8,4 +8,5 @@ export interface PostType {
   keywords: string[];
   categories: string[];
   image: string;
+  featured?: boolean;
 }

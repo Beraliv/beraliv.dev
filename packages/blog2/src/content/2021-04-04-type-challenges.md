@@ -7,12 +7,14 @@ labels:
   - easy
   - medium
   - hard
+  - extreme
 keywords:
   - typescript
   - challenges
 categories:
   - typechallenge:main
 image: /type-challenges/featured.png
+featured: true
 ---
 
 ![Type Challenges](/type-challenges/featured.png)

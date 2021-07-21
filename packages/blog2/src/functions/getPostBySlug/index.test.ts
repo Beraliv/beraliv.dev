@@ -1,17 +1,17 @@
 import { getPostBySlug } from ".";
 
 describe(getPostBySlug.name, () => {
-  test("returns real data from 2018-10-04-scrollbar-customisation", () => {
+  test("returns not featured post data", () => {
     const { content, data, name } = getPostBySlug(
       "2018-10-04-scrollbar-customisation"
     );
 
     expect(typeof content).toBe("string");
 
-    expect(data.title).toBe("Scrollbar customisation in JavaScript and CSS");
+    expect(data.title).toBe("Scrollbar customisation");
     expect(data.date).toBe("2018-10-04");
     expect(data.description).toBe(
-      "What is the current state of scrollbar customisation? Let's have a look at the browser capabilities, CSS hacks and JS libraries."
+      "CSS support in different browser engines, hacks and tricks, JS libraries"
     );
     expect(data.labels).toEqual(["css", "javascript"]);
     expect(data.keywords).toEqual([
@@ -22,7 +22,33 @@ describe(getPostBySlug.name, () => {
     ]);
     expect(data.categories).toEqual(null);
     expect(data.image).toEqual("/scrollbar-customisation/macos-scrollbar.png");
+    expect(data.featured).toEqual(undefined);
 
     expect(name).toBe("2018-10-04-scrollbar-customisation");
+  });
+
+  test("returns featured post data", () => {
+    const { content, data, name } = getPostBySlug("2021-04-04-type-challenges");
+
+    expect(typeof content).toBe("string");
+
+    expect(data.title).toBe("Type Challenges");
+    expect(data.date).toBe("2021-04-04");
+    expect(data.description).toBe(
+      "Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript"
+    );
+    expect(data.labels).toEqual([
+      "typescript",
+      "easy",
+      "medium",
+      "hard",
+      "extreme",
+    ]);
+    expect(data.keywords).toEqual(["typescript", "challenges"]);
+    expect(data.categories).toEqual(["typechallenge:main"]);
+    expect(data.image).toEqual("/type-challenges/featured.png");
+    expect(data.featured).toEqual(true);
+
+    expect(name).toBe("2021-04-04-type-challenges");
   });
 });
