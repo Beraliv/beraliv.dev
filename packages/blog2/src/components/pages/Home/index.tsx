@@ -13,7 +13,9 @@ import styles from "./index.module.css";
 export const Home = ({
   apiKey,
   formId,
-  posts,
+  featuredPosts,
+  latestPosts,
+  mostViewedPosts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
 
@@ -37,8 +39,29 @@ export const Home = ({
           <Bio />
         </div>
 
+        <h1>Featured</h1>
         <div className={styles.grid}>
-          {posts.map(({ description, slug, title }) => (
+          {featuredPosts.map(({ description, slug, title }) => (
+            <a href={slug} key={slug} className={styles.card}>
+              <h2>{title}</h2>
+              <p>{description}</p>
+            </a>
+          ))}
+        </div>
+
+        <h1>Latest</h1>
+        <div className={styles.grid}>
+          {latestPosts.map(({ description, slug, title }) => (
+            <a href={slug} key={slug} className={styles.card}>
+              <h2>{title}</h2>
+              <p>{description}</p>
+            </a>
+          ))}
+        </div>
+
+        <h1>Most viewed</h1>
+        <div className={styles.grid}>
+          {mostViewedPosts.map(({ description, slug, title }) => (
             <a href={slug} key={slug} className={styles.card}>
               <h2>{title}</h2>
               <p>{description}</p>
