@@ -25,53 +25,53 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 
 ## easy
 
-- [4 • Pick](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) - [Pick under the hood](/2021-04-05-pick-under-the-hood/)
-- [7 • Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) - [Readonly under the hood](/2021-04-06-readonly-under-the-hood/)
-- [11 • Tuple to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) - [Making object out of tuple](/2021-04-07-making-object-out-of-tuple/)
-- [14 • First of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) - [Infer first element](/2021-04-08-infer-first-element/)
-- [18 • Length of Tuple](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) - [Infer length](/2021-04-09-infer-length)
-- [43 • Exclude](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) - [Exclude under the hood](/2021-04-12-exclude-under-the-hood)
-- [189 • Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) - [Unwrapping the Promises](/2021-04-13-unwrapping-promises/)
-- [268 • If](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) - [Boolean conditional statement](/2021-04-14-boolean-condition/)
-- [533 • Concat](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) - [Spread in Tuple types in TypeScript](/2021-04-15-spread-in-tuple-types-in-typescript/)
-- [898 • Includes](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) - [Includes in TypeScript](/2021-04-16-includes-in-typescript/)
+- Pick • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/4-easy-pick/README.md) • [Solution](/2021-04-05-pick-under-the-hood/)
+- Readonly • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/7-easy-readonly/README.md) • [Solution](/2021-04-06-readonly-under-the-hood/)
+- Tuple to Object • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/11-easy-tuple-to-object/README.md) • [Solution](/2021-04-07-making-object-out-of-tuple/)
+- First of Array • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/14-easy-first/README.md) • [Solution](/2021-04-08-infer-first-element/)
+- Length of Tuple • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/18-easy-tuple-length/README.md) • [Solution](/2021-04-09-infer-length)
+- Exclude • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/43-easy-exclude/README.md) • [Solution](/2021-04-12-exclude-under-the-hood)
+- Awaited • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md) • [Solution](/2021-04-13-unwrapping-promises/)
+- If • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/268-easy-if/README.md) • [Solution](/2021-04-14-boolean-condition/)
+- Concat • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) • [Solution](/2021-04-15-spread-in-tuple-types-in-typescript/)
+- Includes • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) • [Solution](/2021-04-16-includes-in-typescript/)
 
 ## medium
 
-- [2 • Get Return Type](https://github.com/type-challenges/type-challenges/blob/master/questions/2-medium-return-type/README.md) - [ReturnType under the hood](/2021-04-19-return-type-under-the-hood/)
-- [3 • Omit](https://github.com/type-challenges/type-challenges/blob/master/questions/3-medium-omit/README.md) - [Omit under the hood](/2021-04-21-omit-under-the-hood/)
-- [8 • Readonly 2](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) - [Partial Readonly](/2021-04-23-partial-readonly/)
-- [9 • Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) - [Recursive Readonly for objects](/2021-04-25-recursive-readonly-for-objects/)
-- [10 • Tuple to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) - [Making union out of tuple](/2021-04-27-making-union-out-of-tuple/)
-- [12 • Chainable Options](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) - [Mapped types in functions](/2021-04-28-mapped-types-in-functions/)
-- [15 • Last of Array](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) - [Infer last element](/2021-04-29-infer-last-element/)
-- [16 • Pop](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) - [Manipulation with Tuple elements](/2021-05-01-manipulation-with-tuple-elements/)
-- [20 • Promise.all](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) - [Promise.all under the hood](/2021-05-04-promise-all-under-the-hood/)
-- [62 • Type Lookup](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) - [Extract under the hood](/2021-05-06-extract-under-the-hood/)
-- [106 • Trim Left](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) - [Trim Left in TypeScript](/2021-05-10-trim-left-in-typescript/)
-- [108 • Trim](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) - [Trim in TypeScript](/2021-05-11-trim-in-typescript/)
-- [110 • Capitalize](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) - [Type Aliases for String manipulation](/2021-05-14-type-aliases-for-string-manipulation/)
-- [116 • Replace](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) - [Replace occurrence in a string in TypeScript](/2021-05-17-replace-occurrence-in-a-string-in-typescript/)
-- [119 • ReplaceAll](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) - [Replace all occurrences in a string in TypeScript](/2021-05-22-replace-all-occurrences-in-a-string-in-typescript/)
-- [191 • Append Argument](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) - [Append argument to a function in TypeScript](/2021-05-23-append-argument/)
-- [296 • Permutation](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) - [Permutations in TypeScript](/2021-05-30-permutations-in-typescript/)
-- [298 • Length of String](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) - [Length of String in TypeScript](/2021-05-31-string-length-in-typescript/)
-- [459 • Flatten](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) - [Flatten Tuple Type in TypeScript](/2021-06-13-flatten-tuple-type-in-typescript/)
-- [527 • Append to Object](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) - [Append to Object in TypeScript](/2021/06/16/append-to-object/)
-- [529 • Absolute](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) - [Absolute in TypeScript](/2021/06/21/absolute-in-typescript/)
-- [531 • String to Union](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) - [Making Union out of String in TypeScript](/2021/06/19/making-union-out-of-string/)
-- [599 • Merge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) - [Spread in TypeScript](/2021/07/05/spread-in-typescript/)
-- [610 • CamelCase](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) - will be added on May 21, 2021
-- [612 • KebabCase](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) - will be added on May 24, 2021
-- [612 • Diff](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) - will be added on May 25, 2021
-- [612 • AnyOf](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) - will be added on May 26, 2021
-- [612 • IsNever](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) - will be added on May 27, 2021
-- [612 • IsUnion](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) - will be added on May 28, 2021
-- [612 • ReplaceKeys](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) - will be added on May 31, 2021
+- Get Return Type • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2-medium-return-type/README.md) • [Solution](/2021-04-19-return-type-under-the-hood/)
+- Omit • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/3-medium-omit/README.md) • [Solution](/2021-04-21-omit-under-the-hood/)
+- Readonly 2 • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/8-medium-readonly-2/README.md) • [Solution](/2021-04-23-partial-readonly/)
+- Deep Readonly • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md) • [Solution](/2021-04-25-recursive-readonly-for-objects/)
+- Tuple to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/10-medium-tuple-to-union/README.md) • [Solution](/2021-04-27-making-union-out-of-tuple/)
+- Chainable Options • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/12-medium-chainable-options/README.md) • [Solution](/2021-04-28-mapped-types-in-functions/)
+- Last of Array • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/15-medium-last/README.md) • [Solution](/2021-04-29-infer-last-element/)
+- Pop • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/16-medium-pop/README.md) • [Solution](/2021-05-01-manipulation-with-tuple-elements/)
+- Promise.all • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/20-medium-promise-all/README.md) • [Solution](/2021-05-04-promise-all-under-the-hood/)
+- Type Lookup • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/62-medium-type-lookup/README.md) • [Solution](/2021-05-06-extract-under-the-hood/)
+- Trim Left • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/106-medium-trimleft/README.md) • [Solution](/2021-05-10-trim-left-in-typescript/)
+- Trim • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/108-medium-trim/README.md) • [Solution](/2021-05-11-trim-in-typescript/)
+- Capitalize • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/110-medium-capitalize/README.md) • [Solution](/2021-05-14-type-aliases-for-string-manipulation/)
+- Replace • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/116-medium-replace/README.md) • [Solution](/2021-05-17-replace-occurrence-in-a-string-in-typescript/)
+- ReplaceAll • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/119-medium-replaceall/README.md) • [Solution](/2021-05-22-replace-all-occurrences-in-a-string-in-typescript/)
+- Append Argument • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/191-medium-append-argument/README.md) • [Solution](/2021-05-23-append-argument/)
+- Permutation • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/296-medium-permutation/README.md) • [Solution](/2021-05-30-permutations-in-typescript/)
+- Length of String • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/298-medium-length-of-string/README.md) • [Solution](/2021-05-31-string-length-in-typescript/)
+- Flatten • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/459-medium-flatten/README.md) • [Solution](/2021-06-13-flatten-tuple-type-in-typescript/)
+- Append to Object • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/527-medium-append-to-object/README.md) • [Solution](/2021/06/16/append-to-object/)
+- Absolute • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) • [Solution](/2021/06/21/absolute-in-typescript/)
+- String to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) • [Solution](/2021/06/19/making-union-out-of-string/)
+- Merge • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) • [Solution](/2021/07/05/spread-in-typescript/)
+- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) • will be added on May 21, 2021
+- KebabCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) • will be added on May 24, 2021
+- Diff • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) • will be added on May 25, 2021
+- AnyOf • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) • will be added on May 26, 2021
+- IsNever • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) • will be added on May 27, 2021
+- IsUnion • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) • will be added on May 28, 2021
+- ReplaceKeys • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) • will be added on May 31, 2021
 
 ## hard
 
-- [270 • Typed Get](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Advanced Typed Get](/2021-03-26-typed-get/)
+- Typed Get • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Solution](/2021-03-26-typed-get/)
 
 Will be added more solutions after May 31, 2021
 
