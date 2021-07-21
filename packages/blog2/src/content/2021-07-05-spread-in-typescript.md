@@ -1,5 +1,5 @@
 ---
-title: Spread in TypeScript
+title: Spread in Object types in TypeScript
 date: "2021-07-05"
 description: Given two objects, returns the object which is formed as a spread of two objects
 labels:
