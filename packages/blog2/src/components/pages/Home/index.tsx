@@ -1,9 +1,9 @@
 import { InferGetStaticPropsType } from "next";
-import Head from "next/head";
 import React from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
 import { Footer } from "../../atoms/Footer";
+import { PostPreview } from "../../atoms/PostPreview";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
@@ -42,30 +42,36 @@ export const Home = ({
         <h1>Featured</h1>
         <div className={styles.grid}>
           {featuredPosts.map(({ description, slug, title }) => (
-            <a href={slug} key={slug} className={styles.card}>
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </a>
+            <PostPreview
+              key={slug}
+              description={description}
+              slug={slug}
+              title={title}
+            />
           ))}
         </div>
 
         <h1>Latest</h1>
         <div className={styles.grid}>
           {latestPosts.map(({ description, slug, title }) => (
-            <a href={slug} key={slug} className={styles.card}>
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </a>
+            <PostPreview
+              key={slug}
+              description={description}
+              slug={slug}
+              title={title}
+            />
           ))}
         </div>
 
         <h1>Most viewed</h1>
         <div className={styles.grid}>
           {mostViewedPosts.map(({ description, slug, title }) => (
-            <a href={slug} key={slug} className={styles.card}>
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </a>
+            <PostPreview
+              key={slug}
+              description={description}
+              slug={slug}
+              title={title}
+            />
           ))}
         </div>
 

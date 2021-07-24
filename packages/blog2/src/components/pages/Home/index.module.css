@@ -49,54 +49,6 @@
   margin-top: 3rem;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 44.5%;
-}
-
-/*
-  min-width + .card width doesn't work the same way here
-  as we need to set maximum width to 42rem
-*/
-@media (max-width: 42rem) {
-  .card {
-    width: initial;
-  }
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  --header-size: 1.5rem;
-  --header-line-height: 1.5;
-
-  margin: 0 0 1rem 0;
-  font-size: var(--header-size);
-  height: calc(2 * var(--header-size) * var(--header-line-height));
-}
-
-.card p {
-  --text-size: 1.25rem;
-  --text-line-height: 1.5;
-
-  margin: 0;
-  font-size: var(--text-size);
-  line-height: var(--text-line-height);
-  height: calc(3 * var(--text-size) * var(--text-line-height));
-}
-
 @media (max-width: 600px) {
   .grid {
     width: 100%;
