@@ -1,17 +1,14 @@
 ---
-title: Unwrapping the Promises
+title: Unwrapping Promises
 date: "2021-04-13"
-description: Seventh challenge is Awaited. Like await in JavaScript, it unwraps Promise and gets the value in the same way. Sometimes it's useful to get the value even if it's double wrapped with Promise so this is also possible.
+description: Given the promise, return the value after applying await recursively
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - await
-categories:
-  - typechallenge
-featured: /unwrapping-promises/step1-example-of-use.png
+image: /unwrapping-promises/step1-example-of-use.png
 ---
 
 ![Example of Awaited use](/unwrapping-promises/step1-example-of-use.png)

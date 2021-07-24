@@ -1,17 +1,14 @@
 ---
-title: Partial readonly
+title: Partial Readonly
 date: "2021-04-23"
-description: We already solved the challenge with readonly. Today we want to apply readonly modifier only to the specified keys.
+description: Given the object and a union of properties, return object where those properties are readonly
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - partial
-categories:
-  - typechallenge
-featured: /partial-readonly/step1-example-of-use.png
+image: /partial-readonly/step1-example-of-use.png
 ---
 
 ![Example of Readonly use](/partial-readonly/step1-example-of-use.png)

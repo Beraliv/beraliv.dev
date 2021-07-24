@@ -1,17 +1,14 @@
 ---
 title: Infer last element
 date: "2021-04-29"
-description: Today we discuss Last of Array. We already know how to get the first element. We can use it for both arrays and tuples, but for tuples you get exact value. To distinguish arrays and tuples, please visit Making object out of tuple.
+description: Given the tuple, return its last element
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - last
-categories:
-  - typechallenge
-featured: /infer-last-element/step1-example-of-use.png
+image: /infer-last-element/step1-example-of-use.png
 ---
 
 ![Example of Chainable Options use](/infer-last-element/step1-example-of-use.png)

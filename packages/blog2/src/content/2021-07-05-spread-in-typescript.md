@@ -1,17 +1,14 @@
 ---
-title: Spread in TypeScript
+title: Spread in Object types
 date: "2021-07-05"
-description: Today we discuss Merge. You can use it the same way as use spread in JavaScript. The final object will contain the result of two objects.
+description: Given two objects, returns the object which is formed as a spread of two objects
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - merge
-categories:
-  - typechallenge
-featured: /spread-in-typescript/step1-example-of-use.png
+image: /spread-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Merge use](/spread-in-typescript/step1-example-of-use.png)

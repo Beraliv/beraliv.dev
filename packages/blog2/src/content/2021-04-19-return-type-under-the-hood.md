@@ -1,17 +1,14 @@
 ---
 title: ReturnType under the hood
 date: "2021-04-19"
-description: We start solving medium challenges today. And we are going to discuss Get Return Type. To get rid of repetitive code we sometimes need to reuse return type of any functions.
+description: Given the function, we need to extract what it returns
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - returntype
-categories:
-  - typechallenge
-featured: /return-type-under-the-hood/step1-example-of-use.png
+image: /return-type-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of ReturnType use](/return-type-under-the-hood/step1-example-of-use.png)

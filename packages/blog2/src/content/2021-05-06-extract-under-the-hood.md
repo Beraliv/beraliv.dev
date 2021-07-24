@@ -1,17 +1,14 @@
 ---
 title: Extract under the hood
 date: "2021-05-06"
-description: Today we discuss Type Lookup. This is quite a rare case but if you need to match every element inside a union type by its field type (and you know in advance which one), that's what you need. Let's take a look 👀
+description: Given a union of several types, remove those types which doesn't extend the specified structure
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - extract
-categories:
-  - typechallenge
-featured: /extract-under-the-hood/step1-example-of-use.png
+image: /extract-under-the-hood/step1-example-of-use.png
 ---
 
 ![Example of Promise.all use](/extract-under-the-hood/step1-example-of-use.png)

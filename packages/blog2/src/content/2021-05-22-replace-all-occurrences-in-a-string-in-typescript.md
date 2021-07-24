@@ -1,17 +1,14 @@
 ---
-title: Replace all occurrences in a string in TypeScript
+title: Replace all occurrences in a string
 date: "2021-05-22"
-description: Today we discuss ReplaceAll. We need to remove all occurrences in the string and place instead the different value. Let's do that 🚀
+description: Given the string, replace all string occurrences with specified string
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - replaceall
-categories:
-  - typechallenge
-featured: /replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png
+image: /replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of ReplaceAll use](/replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png)

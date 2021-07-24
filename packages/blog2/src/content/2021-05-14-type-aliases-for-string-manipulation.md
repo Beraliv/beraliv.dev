@@ -1,18 +1,15 @@
 ---
 title: Type Aliases for String manipulation
 date: "2021-05-14"
-description: Today we discuss Capitalize. If you need to make first character in a string uppercase, that's the challenge you looked for. Let's have a look 👀
+description: Uppercase, Lowercase, Capitalize and Uncapitalize since TypeScript 4.1
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - uppercase
   - capitalise
-categories:
-  - typechallenge
-featured: /type-aliases-for-string-manipulation/step1-example-of-use.png
+image: /type-aliases-for-string-manipulation/step1-example-of-use.png
 ---
 
 ![Example of Capitalize use](/type-aliases-for-string-manipulation/step1-example-of-use.png)

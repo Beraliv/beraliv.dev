@@ -1,17 +1,14 @@
 ---
-title: Includes in TypeScript
+title: Includes
 date: "2021-04-16"
-description: Tenth challenge is Includes. If you have a tuple and want to check if the specific value exists, this is a challenge for you.
+description: Given the tuple and the type, return true if the type is an element of the tuple. Otherwise, return false
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - includes
-categories:
-  - typechallenge
-featured: /includes-in-typescript/step1-example-of-use.png
+image: /includes-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Includes use](/includes-in-typescript/step1-example-of-use.png)

@@ -1,17 +1,14 @@
 ---
 title: Infer length
 date: "2021-04-09"
-description: Fifth challenge is Length of Tuple. As for First of Array, we can use it for both arrays and tuples, but for tuples you get exact value.
+description: Given the tuple, return its length
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - length
-categories:
-  - typechallenge
-featured: /infer-length/step1-example-of-use.png
+image: /infer-length/step1-example-of-use.png
 ---
 
 ![Example of Length use](/infer-length/step1-example-of-use.png)

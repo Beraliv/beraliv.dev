@@ -1,15 +1,14 @@
 ---
-title: Research Joyn scripts obfuscation
+title: Video player in Joyn
 date: "2020-05-04"
-description: Did you hear anything about code obfuscation? Let’s have a look at Joyn video player and how they use that in production.
+description: Code obfuscation using confusion and the way how to make it readable again
 labels:
   - player
   - javascript
 keywords:
   - Joyn
   - obfuscation
-categories:
-featured: /research-joyn-scripts-obfuscation/joyn-player-page.png
+image: /research-joyn-scripts-obfuscation/joyn-player-page.png
 ---
 
 ![Joyn player page for TV series](/research-joyn-scripts-obfuscation/joyn-player-page.png)

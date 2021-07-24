@@ -1,10 +1,11 @@
+import { labelToIconMapping } from "../components/atoms/labelToIconMapping";
 import { PostPropsType } from "../components/pages/Post";
 import { PostType } from "../types/PostType";
 
 export const validatePost = ({
   date,
   description,
-  featured,
+  image,
   keywords,
   labels,
   slug,
@@ -37,14 +38,21 @@ export const validatePost = ({
     throw new Error(`Cannot find labels for post ${slug}`);
   }
 
-  if (!featured) {
-    throw new Error(`Cannot find featured for post ${slug}`);
+  const labelsWithoutIcons = labels.filter(
+    (label) => !Object.keys(labelToIconMapping).includes(label)
+  );
+  if (labelsWithoutIcons.length > 0) {
+    throw new Error(`Cannot use labels without icons ${labelsWithoutIcons}`);
+  }
+
+  if (!image) {
+    throw new Error(`Cannot find image for post ${slug}`);
   }
 
   return {
     date,
     description,
-    featured,
+    image,
     keywords,
     labels,
     slug,

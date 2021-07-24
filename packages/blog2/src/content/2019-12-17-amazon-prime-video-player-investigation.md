@@ -1,16 +1,13 @@
 ---
-title: Amazon Prime Video Player investigation
+title: Video player in Amazon
 date: "2019-12-17"
-description:
-  Today I had an hour of my free time to learn how Amazon Prime Video Player is working.
-  I’ll show you my small investigation of what I found.
+description: From video tag to the implementation, state machine, the way bundle is loaded, bundle names
 labels:
   - player
 keywords:
   - Amazon Prime
   - video player
-categories:
-featured: /amazon-prime-video-player-investigation/amazon-prime-page.png
+image: /amazon-prime-video-player-investigation/amazon-prime-page.png
 ---
 
 ![Amazon Prime page](/amazon-prime-video-player-investigation/amazon-prime-page.png)

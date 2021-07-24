@@ -1,16 +1,13 @@
 ---
 title: Making union out of tuple
 date: "2021-04-27"
-description: Today we discuss Tuple to Union. We already solved a similar challenge Making object out of tuple. This one is useful when we need to extract elements type out of tuple.
+description: Given the tuple, return a union of tuple elements
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
-categories:
-  - typechallenge
-featured: /making-union-out-of-tuple/step1-example-of-use.png
+image: /making-union-out-of-tuple/step1-example-of-use.png
 ---
 
 ![Example of TupleToUnion use](/making-union-out-of-tuple/step1-example-of-use.png)

@@ -1,17 +1,14 @@
 ---
 title: Infer first element
 date: "2021-04-08"
-description: Fourth challenge is First of Array. Here you can use it for tuples and arrays. But for tuples you get exact value.
+description: Given the tuple, return its first element
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - first
-categories:
-  - typechallenge
-featured: /infer-first-element/step1-example-of-use.png
+image: /infer-first-element/step1-example-of-use.png
 ---
 
 ![Example of First use](/infer-first-element/step1-example-of-use.png)

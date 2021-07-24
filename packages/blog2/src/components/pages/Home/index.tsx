@@ -1,9 +1,9 @@
 import { InferGetStaticPropsType } from "next";
-import Head from "next/head";
 import React from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
 import { Footer } from "../../atoms/Footer";
+import { PostPreview } from "../../molecules/PostPreview";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
@@ -13,7 +13,9 @@ import styles from "./index.module.css";
 export const Home = ({
   apiKey,
   formId,
-  posts,
+  featuredPosts,
+  latestPosts,
+  mostViewedPosts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
 
@@ -37,12 +39,42 @@ export const Home = ({
           <Bio />
         </div>
 
+        <h1>Featured</h1>
         <div className={styles.grid}>
-          {posts.map(({ description, slug, title }) => (
-            <a href={slug} key={slug} className={styles.card}>
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </a>
+          {featuredPosts.map(({ description, labels, slug, title }) => (
+            <PostPreview
+              key={slug}
+              description={description}
+              labels={labels}
+              slug={slug}
+              title={title}
+            />
+          ))}
+        </div>
+
+        <h1>Most viewed</h1>
+        <div className={styles.grid}>
+          {mostViewedPosts.map(({ description, labels, slug, title }) => (
+            <PostPreview
+              key={slug}
+              description={description}
+              labels={labels}
+              slug={slug}
+              title={title}
+            />
+          ))}
+        </div>
+
+        <h1>Latest</h1>
+        <div className={styles.grid}>
+          {latestPosts.map(({ description, labels, slug, title }) => (
+            <PostPreview
+              key={slug}
+              description={description}
+              labels={labels}
+              slug={slug}
+              title={title}
+            />
           ))}
         </div>
 

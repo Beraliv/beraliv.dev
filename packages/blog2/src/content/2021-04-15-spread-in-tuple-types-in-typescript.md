@@ -1,17 +1,14 @@
 ---
-title: Spread in Tuple types in TypeScript
+title: Spread in Tuple types
 date: "2021-04-15"
-description: Ninth challenge is Concat. Sometimes it's useful to collect 2 tuples' elements in one tuple, like Array.prototype.concat.
+description: Given two tuples, put the elements of both of them into the resulting tuple
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - spread
-categories:
-  - typechallenge
-featured: /spread-in-tuple-types-in-typescript/step1-example-of-use.png
+image: /spread-in-tuple-types-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Concat use](/spread-in-tuple-types-in-typescript/step1-example-of-use.png)

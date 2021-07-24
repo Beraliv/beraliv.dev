@@ -1,17 +1,14 @@
 ---
-title: Permutations in TypeScript
+title: Permutations
 date: "2021-05-30"
-description: Permutation is a synthetic example which can hardly be used in production
+description: Given a union, return a union of tuples with all possible permutations (all possible positions of elements without repetition)
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - permutations
-categories:
-  - typechallenge
-featured: /permutations-in-typescript/step1-example-of-use.png
+image: /permutations-in-typescript/step1-example-of-use.png
 ---
 
 ![Example of Permutation use](/permutations-in-typescript/step1-example-of-use.png)

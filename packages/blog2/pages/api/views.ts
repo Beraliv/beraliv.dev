@@ -1,13 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import { FIREBASE_VIEWS_REF } from "../../src/constants/FIREBASE_VIEWS_REF";
 import { firebaseDb } from "../../src/functions/firebaseDb";
+import { getViews } from "../../src/functions/getViews";
 import { ViewsApi } from "../../src/types/ViewsApi";
 
 interface DataSnapshot {
   val(): unknown;
 }
-
-const viewsRef = "beraliv-blog/views";
 
 const views = async (
   request: NextApiRequest,
@@ -20,7 +20,7 @@ const views = async (
 
   if (request.method === "POST") {
     // you cannot use destructuring here
-    const ref = firebaseDb.ref(viewsRef).child(slug);
+    const ref = firebaseDb.ref(FIREBASE_VIEWS_REF).child(slug);
 
     const { snapshot } = await ref.transaction((views: unknown) => {
       if (typeof views !== "number") {
@@ -38,15 +38,12 @@ const views = async (
   }
 
   if (request.method === "GET") {
-    // you cannot use destructuring here
-    const snapshot = await firebaseDb.ref(viewsRef).child(slug).once("value");
-
-    const views = snapshot.val();
+    const { views } = await getViews({ slug });
 
     return response.status(200).json({ views });
   }
 
   return response.status(404);
-}
+};
 
 export default views;
