@@ -49,4 +49,9 @@
   font-size: var(--text-size);
   line-height: var(--text-line-height);
   height: calc(3 * var(--text-size) * var(--text-line-height));
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
