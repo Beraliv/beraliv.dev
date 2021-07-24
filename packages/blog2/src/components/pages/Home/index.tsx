@@ -41,10 +41,11 @@ export const Home = ({
 
         <h1>Featured</h1>
         <div className={styles.grid}>
-          {featuredPosts.map(({ description, slug, title }) => (
+          {featuredPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
+              labels={labels}
               slug={slug}
               title={title}
             />
@@ -53,10 +54,11 @@ export const Home = ({
 
         <h1>Latest</h1>
         <div className={styles.grid}>
-          {latestPosts.map(({ description, slug, title }) => (
+          {latestPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
+              labels={labels}
               slug={slug}
               title={title}
             />
@@ -65,10 +67,11 @@ export const Home = ({
 
         <h1>Most viewed</h1>
         <div className={styles.grid}>
-          {mostViewedPosts.map(({ description, slug, title }) => (
+          {mostViewedPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
+              labels={labels}
               slug={slug}
               title={title}
             />
