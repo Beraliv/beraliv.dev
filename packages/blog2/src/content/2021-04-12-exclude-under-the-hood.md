@@ -1,5 +1,5 @@
 ---
-title: Exclude under the hood in TypeScript
+title: Exclude under the hood
 date: "2021-04-12"
 description: Given two unions, remove all the elements of the second one from the first union
 labels:

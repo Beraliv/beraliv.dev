@@ -1,5 +1,5 @@
 ---
-title: Mapped Types in functions in TypeScript
+title: Mapped Types in functions
 date: "2021-04-28"
 description: Given API, collect the object with keys and values after each call
 labels:

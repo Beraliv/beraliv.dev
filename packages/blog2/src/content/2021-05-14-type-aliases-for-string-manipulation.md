@@ -1,5 +1,5 @@
 ---
-title: Type Aliases for String manipulation in TypeScript
+title: Type Aliases for String manipulation
 date: "2021-05-14"
 description: Uppercase, Lowercase, Capitalize and Uncapitalize since TypeScript 4.1
 labels:

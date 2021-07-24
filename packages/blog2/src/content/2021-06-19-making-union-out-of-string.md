@@ -1,5 +1,5 @@
 ---
-title: Making Union out of string in TypeScript
+title: Making Union out of string
 date: "2021-06-19"
 description: Given a string, return a union of all characters from the string
 labels:

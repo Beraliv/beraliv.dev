@@ -1,5 +1,5 @@
 ---
-title: Manipulation with Tuple elements in TypeScript
+title: Manipulation with Tuple elements
 date: "2021-05-01"
 description: Given the tuple, implement Pop, Shift, Push and Unshift methods like Array.prototype has
 labels:

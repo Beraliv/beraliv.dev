@@ -1,5 +1,5 @@
 ---
-title: Replace all occurrences in a string in TypeScript
+title: Replace all occurrences in a string
 date: "2021-05-22"
 description: Given the string, replace all string occurrences with specified string
 labels:

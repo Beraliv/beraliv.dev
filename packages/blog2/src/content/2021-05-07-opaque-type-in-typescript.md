@@ -1,5 +1,5 @@
 ---
-title: Opaque Types in TypeScript
+title: Opaque Types
 date: "2021-05-07"
 description: Structural type system, workaround in TypeScript, unique symbol and code examples
 labels:

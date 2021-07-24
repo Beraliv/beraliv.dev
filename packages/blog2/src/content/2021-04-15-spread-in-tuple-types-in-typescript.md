@@ -1,5 +1,5 @@
 ---
-title: Spread in Tuple types in TypeScript
+title: Spread in Tuple types
 date: "2021-04-15"
 description: Given two tuples, put the elements of both of them into the resulting tuple
 labels:

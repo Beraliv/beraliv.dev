@@ -1,5 +1,5 @@
 ---
-title: Boolean conditional statement in TypeScript
+title: Boolean conditional statement
 date: "2021-04-14"
 description: Given the boolean, in case of true return first type, otherwise second one
 labels:

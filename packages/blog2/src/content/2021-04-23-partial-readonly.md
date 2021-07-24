@@ -1,5 +1,5 @@
 ---
-title: Partial Readonly in TypeScript
+title: Partial Readonly
 date: "2021-04-23"
 description: Given the object and a union of properties, return object where those properties are readonly
 labels:

@@ -1,5 +1,5 @@
 ---
-title: Making union out of tuple in TypeScript
+title: Making union out of tuple
 date: "2021-04-27"
 description: Given the tuple, return a union of tuple elements
 labels:

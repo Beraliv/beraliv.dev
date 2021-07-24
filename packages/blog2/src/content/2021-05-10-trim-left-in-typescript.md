@@ -1,5 +1,5 @@
 ---
-title: Trim Left in TypeScript
+title: Trim Left
 date: "2021-05-10"
 description: Given the string, remove whitespaces from the beginning
 labels:

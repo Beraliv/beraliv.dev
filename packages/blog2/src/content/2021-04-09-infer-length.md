@@ -1,5 +1,5 @@
 ---
-title: Infer length in TypeScript
+title: Infer length
 date: "2021-04-09"
 description: Given the tuple, return its length
 labels:

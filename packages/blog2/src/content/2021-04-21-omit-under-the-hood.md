@@ -1,5 +1,5 @@
 ---
-title: Omit under the hood in TypeScript
+title: Omit under the hood
 date: "2021-04-21"
 description: Given the object and a union of properties, return the object but without those properties
 labels:

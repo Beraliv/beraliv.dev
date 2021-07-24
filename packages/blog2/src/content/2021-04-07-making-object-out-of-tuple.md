@@ -1,5 +1,5 @@
 ---
-title: Making object out of tuple in TypeScript
+title: Making object out of tuple
 date: "2021-04-07"
 description: Given the tuple, we need to get object where key and value equals to the elements of the tuple
 labels:

@@ -1,5 +1,5 @@
 ---
-title: Promise.all under the hood in TypeScript
+title: Promise.all under the hood
 date: "2021-05-04"
 description: Given the tuple with Promise elements, return Promise of tuple
 labels:
