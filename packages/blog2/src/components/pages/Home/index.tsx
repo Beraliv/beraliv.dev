@@ -52,9 +52,9 @@ export const Home = ({
           ))}
         </div>
 
-        <h1>Latest</h1>
+        <h1>Most viewed</h1>
         <div className={styles.grid}>
-          {latestPosts.map(({ description, labels, slug, title }) => (
+          {mostViewedPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
@@ -65,9 +65,9 @@ export const Home = ({
           ))}
         </div>
 
-        <h1>Most viewed</h1>
+        <h1>Latest</h1>
         <div className={styles.grid}>
-          {mostViewedPosts.map(({ description, labels, slug, title }) => (
+          {latestPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
