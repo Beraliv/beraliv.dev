@@ -36,13 +36,7 @@ describe(getPostBySlug.name, () => {
     expect(data.description).toBe(
       "Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript"
     );
-    expect(data.labels).toEqual([
-      "typescript",
-      "easy",
-      "medium",
-      "hard",
-      "extreme",
-    ]);
+    expect(data.labels).toEqual(["typescript"]);
     expect(data.keywords).toEqual(["typescript", "challenges"]);
     expect(data.image).toEqual("/type-challenges/featured.png");
     expect(data.featured).toEqual(true);
