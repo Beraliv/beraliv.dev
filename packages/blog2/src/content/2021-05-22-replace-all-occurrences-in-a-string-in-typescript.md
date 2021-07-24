@@ -4,13 +4,10 @@ date: "2021-05-22"
 description: Given the string, replace all string occurrences with specified string
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - replaceall
-categories:
-  - typechallenge
 image: /replace-all-occurrences-in-a-string-in-typescript/step1-example-of-use.png
 ---
 

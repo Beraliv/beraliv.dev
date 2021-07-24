@@ -4,13 +4,10 @@ date: "2021-05-23"
 description: Given the function and the type, include the type as the following argument in the list of function arguments
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - append argument
-categories:
-  - typechallenge
 image: /append-argument/step1-example-of-use.png
 ---
 

@@ -4,13 +4,10 @@ date: "2021-06-21"
 description: Given a number as a string, return its absolute value as a string too
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - absolute
-categories:
-  - typechallenge
 image: /absolute-in-typescript/step1-example-of-use.png
 ---
 

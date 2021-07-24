@@ -4,14 +4,11 @@ date: "2021-05-04"
 description: Given the tuple with Promise elements, return Promise of tuple
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - promise
   - promise.all
-categories:
-  - typechallenge
 image: /promise-all-under-the-hood/step1-example-of-use.png
 ---
 

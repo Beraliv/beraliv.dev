@@ -4,13 +4,10 @@ date: "2021-07-05"
 description: Given two objects, returns the object which is formed as a spread of two objects
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - merge
-categories:
-  - typechallenge
 image: /spread-in-typescript/step1-example-of-use.png
 ---
 

@@ -20,7 +20,6 @@ describe(getPostBySlug.name, () => {
       "javascript",
       "css",
     ]);
-    expect(data.categories).toEqual(null);
     expect(data.image).toEqual("/scrollbar-customisation/macos-scrollbar.png");
     expect(data.featured).toEqual(undefined);
 
@@ -45,7 +44,6 @@ describe(getPostBySlug.name, () => {
       "extreme",
     ]);
     expect(data.keywords).toEqual(["typescript", "challenges"]);
-    expect(data.categories).toEqual(["typechallenge:main"]);
     expect(data.image).toEqual("/type-challenges/featured.png");
     expect(data.featured).toEqual(true);
 

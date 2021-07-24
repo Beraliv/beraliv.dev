@@ -4,13 +4,10 @@ date: "2021-04-05"
 description: Given existing type or interface, we need to extract part of properties
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - pick
-categories:
-  - typechallenge
 image: /pick-under-the-hood/step1-example-of-use.png
 ---
 

@@ -4,15 +4,9 @@ date: "2021-04-04"
 description: Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript
 labels:
   - typescript
-  - easy
-  - medium
-  - hard
-  - extreme
 keywords:
   - typescript
   - challenges
-categories:
-  - typechallenge:main
 image: /type-challenges/featured.png
 featured: true
 ---

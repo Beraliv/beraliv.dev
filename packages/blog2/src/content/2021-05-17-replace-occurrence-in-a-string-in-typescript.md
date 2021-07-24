@@ -4,13 +4,10 @@ date: "2021-05-17"
 description: Given the string, replace first string occurrence with specified string
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - replace
-categories:
-  - typechallenge
 image: /replace-occurrence-in-a-string-in-typescript/step1-example-of-use.png
 ---
 

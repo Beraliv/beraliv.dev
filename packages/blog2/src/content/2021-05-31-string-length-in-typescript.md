@@ -4,13 +4,10 @@ date: "2021-05-31"
 description: Given the string, calculate its length. Also try to find the maximum computable string length having a limit of recursive calls
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - permutations
-categories:
-  - typechallenge
 image: /string-length-in-typescript/step1-example-of-use.png
 ---
 

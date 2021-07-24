@@ -4,13 +4,10 @@ date: "2021-04-14"
 description: Given the boolean, in case of true return first type, otherwise second one
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - conditional
-categories:
-  - typechallenge
 image: /boolean-condition/step1-example-of-use.png
 ---
 

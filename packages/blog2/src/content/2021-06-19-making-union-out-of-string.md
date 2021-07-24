@@ -4,13 +4,10 @@ date: "2021-06-19"
 description: Given a string, return a union of all characters from the string
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - stringtounion
-categories:
-  - typechallenge
 image: /making-union-out-of-string/step1-example-of-use.png
 ---
 

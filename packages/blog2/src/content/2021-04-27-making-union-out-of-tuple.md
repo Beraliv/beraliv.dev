@@ -4,12 +4,9 @@ date: "2021-04-27"
 description: Given the tuple, return a union of tuple elements
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
-categories:
-  - typechallenge
 image: /making-union-out-of-tuple/step1-example-of-use.png
 ---
 

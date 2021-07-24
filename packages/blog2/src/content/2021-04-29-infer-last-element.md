@@ -4,13 +4,10 @@ date: "2021-04-29"
 description: Given the tuple, return its last element
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - last
-categories:
-  - typechallenge
 image: /infer-last-element/step1-example-of-use.png
 ---
 

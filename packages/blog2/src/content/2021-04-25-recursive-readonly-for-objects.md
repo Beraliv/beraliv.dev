@@ -4,14 +4,11 @@ date: "2021-04-25"
 description: Given the object, return object where all properties on all levels are readonly
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - recursive
   - readonly
-categories:
-  - typechallenge
 image: /recursive-readonly-for-objects/step1-example-of-use.png
 ---
 

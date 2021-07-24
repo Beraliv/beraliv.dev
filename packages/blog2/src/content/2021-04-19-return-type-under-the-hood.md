@@ -4,13 +4,10 @@ date: "2021-04-19"
 description: Given the function, we need to extract what it returns
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - returntype
-categories:
-  - typechallenge
 image: /return-type-under-the-hood/step1-example-of-use.png
 ---
 

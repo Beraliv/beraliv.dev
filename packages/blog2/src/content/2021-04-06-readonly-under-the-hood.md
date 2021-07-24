@@ -4,13 +4,10 @@ date: "2021-04-06"
 description: Given the object, we need to make properties on the first level readonly
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - readonly
-categories:
-  - typechallenge
 image: /readonly-under-the-hood/step1-example-of-use.png
 ---
 

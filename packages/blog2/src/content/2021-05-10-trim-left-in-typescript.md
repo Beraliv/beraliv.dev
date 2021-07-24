@@ -4,13 +4,10 @@ date: "2021-05-10"
 description: Given the string, remove whitespaces from the beginning
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - trim
-categories:
-  - typechallenge
 image: /trim-left-in-typescript/step1-example-of-use.png
 ---
 

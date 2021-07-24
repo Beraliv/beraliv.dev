@@ -4,13 +4,10 @@ date: "2021-04-12"
 description: Given two unions, remove all the elements of the second one from the first union
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - exclude
-categories:
-  - typechallenge
 image: /exclude-under-the-hood/step1-example-of-use.png
 ---
 

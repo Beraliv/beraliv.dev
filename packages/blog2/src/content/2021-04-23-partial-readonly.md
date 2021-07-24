@@ -4,13 +4,10 @@ date: "2021-04-23"
 description: Given the object and a union of properties, return object where those properties are readonly
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - partial
-categories:
-  - typechallenge
 image: /partial-readonly/step1-example-of-use.png
 ---
 

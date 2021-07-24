@@ -7,7 +7,6 @@ labels:
 keywords:
   - Amazon Prime
   - video player
-categories:
 image: /amazon-prime-video-player-investigation/amazon-prime-page.png
 ---
 

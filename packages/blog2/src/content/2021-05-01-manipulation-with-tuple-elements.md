@@ -4,7 +4,6 @@ date: "2021-05-01"
 description: Given the tuple, implement Pop, Shift, Push and Unshift methods like Array.prototype has
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
@@ -13,8 +12,6 @@ keywords:
   - push
   - shift
   - unshift
-categories:
-  - typechallenge
 image: /manipulation-with-tuple-elements/step1-example-of-use.png
 ---
 

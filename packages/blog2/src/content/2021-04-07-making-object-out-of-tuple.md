@@ -4,12 +4,9 @@ date: "2021-04-07"
 description: Given the tuple, we need to get object where key and value equals to the elements of the tuple
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
-categories:
-  - typechallenge
 image: /making-object-out-of-tuple/step1-example-of-use.png
 ---
 

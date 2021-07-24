@@ -4,13 +4,10 @@ date: "2021-04-13"
 description: Given the promise, return the value after applying await recursively
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - await
-categories:
-  - typechallenge
 image: /unwrapping-promises/step1-example-of-use.png
 ---
 

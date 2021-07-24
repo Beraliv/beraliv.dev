@@ -7,7 +7,6 @@ labels:
 keywords:
   - BBC iPlayer
   - geolocation identification
-categories:
 image: /bbc-iplayer-geolocation-identification/bbc-iplayer-page.png
 ---
 

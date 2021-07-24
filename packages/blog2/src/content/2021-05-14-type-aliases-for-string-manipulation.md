@@ -4,14 +4,11 @@ date: "2021-05-14"
 description: Uppercase, Lowercase, Capitalize and Uncapitalize since TypeScript 4.1
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - uppercase
   - capitalise
-categories:
-  - typechallenge
 image: /type-aliases-for-string-manipulation/step1-example-of-use.png
 ---
 

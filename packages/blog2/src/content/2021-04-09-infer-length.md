@@ -4,13 +4,10 @@ date: "2021-04-09"
 description: Given the tuple, return its length
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - length
-categories:
-  - typechallenge
 image: /infer-length/step1-example-of-use.png
 ---
 

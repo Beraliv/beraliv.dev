@@ -10,7 +10,6 @@ keywords:
   - customisation
   - javascript
   - css
-categories:
 image: /scrollbar-customisation/macos-scrollbar.png
 ---
 

@@ -4,13 +4,10 @@ date: "2021-04-21"
 description: Given the object and a union of properties, return the object but without those properties
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - omit
-categories:
-  - typechallenge
 image: /omit-under-the-hood/step1-example-of-use.png
 ---
 

@@ -4,13 +4,10 @@ date: "2021-05-06"
 description: Given a union of several types, remove those types which doesn't extend the specified structure
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - extract
-categories:
-  - typechallenge
 image: /extract-under-the-hood/step1-example-of-use.png
 ---
 

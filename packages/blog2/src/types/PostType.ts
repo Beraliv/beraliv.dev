@@ -6,7 +6,6 @@ export interface PostType {
   content: string;
   labels: string[];
   keywords: string[];
-  categories: string[];
   image: string;
   featured?: boolean;
 }

@@ -8,7 +8,6 @@ labels:
 keywords:
   - Joyn
   - obfuscation
-categories:
 image: /research-joyn-scripts-obfuscation/joyn-player-page.png
 ---
 

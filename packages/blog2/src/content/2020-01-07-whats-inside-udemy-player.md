@@ -10,7 +10,6 @@ keywords:
   - WebVTT
   - statistics
   - DRM
-categories:
 image: /whats-inside-udemy-player/udemy-player-page.png
 ---
 

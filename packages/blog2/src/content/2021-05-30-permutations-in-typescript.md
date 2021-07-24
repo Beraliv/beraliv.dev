@@ -4,13 +4,10 @@ date: "2021-05-30"
 description: Given a union, return a union of tuples with all possible permutations (all possible positions of elements without repetition)
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - permutations
-categories:
-  - typechallenge
 image: /permutations-in-typescript/step1-example-of-use.png
 ---
 

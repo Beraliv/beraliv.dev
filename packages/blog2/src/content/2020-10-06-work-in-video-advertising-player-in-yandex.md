@@ -9,7 +9,6 @@ keywords:
   - video advertising
   - video player
   - technology stack
-categories:
 image: /work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png
 ---
 

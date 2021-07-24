@@ -4,13 +4,10 @@ date: "2021-04-08"
 description: Given the tuple, return its first element
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - first
-categories:
-  - typechallenge
 image: /infer-first-element/step1-example-of-use.png
 ---
 

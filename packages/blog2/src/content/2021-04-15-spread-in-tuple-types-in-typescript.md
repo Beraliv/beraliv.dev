@@ -4,13 +4,10 @@ date: "2021-04-15"
 description: Given two tuples, put the elements of both of them into the resulting tuple
 labels:
   - typescript
-  - easy
 keywords:
   - typescript
   - challenges
   - spread
-categories:
-  - typechallenge
 image: /spread-in-tuple-types-in-typescript/step1-example-of-use.png
 ---
 

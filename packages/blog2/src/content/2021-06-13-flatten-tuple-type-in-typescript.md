@@ -4,13 +4,10 @@ date: "2021-06-13"
 description: Given the tuple, make it flatten as Array.prototype.flat when pass Infinity
 labels:
   - typescript
-  - medium
 keywords:
   - typescript
   - challenges
   - flatten
-categories:
-  - typechallenge
 image: /flatten-tuple-type-in-typescript/step1-example-of-use.png
 ---
 
