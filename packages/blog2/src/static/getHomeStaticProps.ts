@@ -2,6 +2,7 @@ import { fetchJson } from "../functions/fetchJson";
 import { getAllPosts } from "../functions/getAllPosts";
 import { ViewsApi } from "../types/ViewsApi";
 import { validateEnvParameters } from "../validators/validateEnvParameters";
+import { validatePost } from "../validators/validatePost";
 
 export const getHomeStaticProps = async () => {
   const posts = getAllPosts();
@@ -9,16 +10,20 @@ export const getHomeStaticProps = async () => {
 
   const featuredPosts = posts
     .filter((post) => post.data.featured)
-    .map(({ data, name }) => ({
-      ...data,
-      slug: name,
-    }));
+    .map(({ data, name }) =>
+      validatePost({
+        ...data,
+        slug: name,
+      })
+    );
 
   const latestPosts = posts
-    .map(({ data, name }) => ({
-      ...data,
-      slug: name,
-    }))
+    .map(({ data, name }) =>
+      validatePost({
+        ...data,
+        slug: name,
+      })
+    )
     .sort((a, b) => {
       if (!a.date) return -1;
       if (!b.date) return 1;
@@ -47,7 +52,8 @@ export const getHomeStaticProps = async () => {
       if (!b.views) return 1;
       return b.views - a.views;
     })
-    .slice(0, 6);
+    .slice(0, 6)
+    .map(({ views, ...uncheckedPost }) => validatePost(uncheckedPost));
 
   return {
     props: {
