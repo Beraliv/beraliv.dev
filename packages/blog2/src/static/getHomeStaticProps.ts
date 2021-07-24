@@ -1,6 +1,5 @@
-import { fetchJson } from "../functions/fetchJson";
 import { getAllPosts } from "../functions/getAllPosts";
-import { ViewsApi } from "../types/ViewsApi";
+import { getViews } from "../functions/getViews";
 import { validateEnvParameters } from "../validators/validateEnvParameters";
 import { validatePost } from "../validators/validatePost";
 
@@ -34,9 +33,7 @@ export const getHomeStaticProps = async () => {
   const readablePosts = await Promise.all(
     posts.map(async ({ data, name }) => {
       const slug = name;
-      const { views }: ViewsApi = await fetchJson(
-        `http://localhost:3000/api/views?slug=${slug}`
-      );
+      const { views } = await getViews({ slug });
 
       return {
         ...data,
