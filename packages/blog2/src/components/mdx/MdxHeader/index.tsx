@@ -1,5 +1,5 @@
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
-import { toKebabCase } from "../../../functions/toKebabCase";
+import { createLocalLinkId } from "../../../functions/createLocalLinkId";
 import { validateNever } from "../../../validators/validateNever";
 import { LinkIcon } from "../../atoms/LinkIcon";
 import styles from "./index.module.css";
@@ -44,16 +44,12 @@ export const MdxHeader: FC<MdxHeaderPropsType> = ({ children, type }) => {
   };
 
   const title = children;
-  const href = toKebabCase(title.toLowerCase());
+  const id = createLocalLinkId(title);
 
   if (type === "h2") {
     return (
-      <HeaderComponent id={href} className={styles.header}>
-        <a
-          href={`#${href}`}
-          aria-label={`${title} link`}
-          className={styles.link}
-        >
+      <HeaderComponent id={id} className={styles.header}>
+        <a href={`#${id}`} aria-label={`${title} link`} className={styles.link}>
           <div className={styles.icon}>
             <LinkIcon />
           </div>
