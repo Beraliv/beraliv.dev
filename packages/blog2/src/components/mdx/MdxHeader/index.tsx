@@ -46,18 +46,14 @@ export const MdxHeader: FC<MdxHeaderPropsType> = ({ children, type }) => {
   const title = children;
   const id = createLocalLinkId(title);
 
-  if (type === "h2") {
-    return (
-      <HeaderComponent id={id} className={styles.header}>
-        <a href={`#${id}`} aria-label={`${title} link`} className={styles.link}>
-          <div className={styles.icon}>
-            <LinkIcon />
-          </div>
-        </a>
-        {title}
-      </HeaderComponent>
-    );
-  }
-
-  return null;
+  return (
+    <HeaderComponent id={id} className={styles.header}>
+      <a href={`#${id}`} aria-label={`${title} link`} className={styles.link}>
+        <div className={styles.icon}>
+          <LinkIcon />
+        </div>
+      </a>
+      {title}
+    </HeaderComponent>
+  );
 };
