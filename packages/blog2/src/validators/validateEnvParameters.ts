@@ -7,16 +7,16 @@ export const validateEnvParameters = (): Pick<
   const apiKey = process.env.CONVERTKIT_PUBLIC_KEY;
   const formId = process.env.CONVERTKIT_SIGNUP_FORM_ID;
 
-  if (!apiKey) {
-    throw new Error(`Cannot find api key in env parameters`);
-  }
+  // if (!apiKey) {
+  //   throw new Error(`Cannot find api key in env parameters`);
+  // }
 
-  if (!formId) {
-    throw new Error(`Cannot find form id in env parameters`);
-  }
+  // if (!formId) {
+  //   throw new Error(`Cannot find form id in env parameters`);
+  // }
 
   return {
-    apiKey,
-    formId,
+    apiKey: "",
+    formId: "",
   };
 };
