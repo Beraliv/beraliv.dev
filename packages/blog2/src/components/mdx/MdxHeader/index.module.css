@@ -1,5 +1,7 @@
 .header {
   position: relative;
+  /* half of the size for link icon */
+  margin-left: 10px;
 }
 
 .icon {
