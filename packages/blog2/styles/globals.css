@@ -1,4 +1,5 @@
 :root {
+  --font-color: rgba(31, 41, 55, 1);
   --dark-mode-toggle-color: rgba(255, 255, 255, 1);
   --dark-mode-toggle-background-color: rgba(17, 24, 39, 1);
   --label-color: rgba(75, 85, 99, 1);
@@ -11,6 +12,7 @@
 }
 
 .dark {
+  --font-color: rgba(209, 213, 219, 1);
   --dark-mode-toggle-color: rgba(0, 0, 0, 1);
   --dark-mode-toggle-background-color: rgba(252, 211, 77, 1);
   --label-color: rgba(107, 114, 128, 1);
@@ -66,15 +68,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  color: rgba(31, 41, 55, 1);
-}
-
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  color: rgba(209, 213, 219, 1);
+  color: var(--font-color);
 }
 
 h1 {
