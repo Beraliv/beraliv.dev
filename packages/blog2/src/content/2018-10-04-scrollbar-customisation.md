@@ -24,7 +24,7 @@ But the reality is… a customisation of scrollbars remains same since the end o
 
 ### ✅ Webkit and Blink
 
-```css
+```css title=WebKIT Pseudo-elements for scrollbar
 ::-webkit-scrollbar {
   /** */
 }
@@ -58,7 +58,7 @@ I remind you, that [original bug](https://bugzilla.mozilla.org/show_bug.cgi?id=7
 
 Yet it’s not working for me when you try this chunk of CSS:
 
-```css
+```css title=Gecko CSS properties for scrollbar color and width
 .container {
   scrollbar-color: rebeccapurple green;
   scrollbar-width: 5px;
@@ -71,7 +71,7 @@ Example: https://jsfiddle.net/beraliv/4yd7bg2r/14/
 
 However, if you [try this](https://jsfiddle.net/beraliv/4yd7bg2r/15/), it works perfect:
 
-```css
+```css title=Gecko CSS property for thin scrollbar
 .container {
   scrollbar-width: thin;
 }
