@@ -1,8 +1,24 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  color: var(--font-color) !important;
+  font-weight: 500;
+
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border: 1px solid var(--pre-border-color);
+}
+
 .pre {
-  text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
   overflow: scroll;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border: 1px solid var(--pre-border-color);
+  border-top-width: 0;
 }
 
 pre .token-line {
