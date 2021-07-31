@@ -28,7 +28,7 @@ Playing and pausing is the core functionality of the player. Therefore it’s ea
 
 3. You need `DevTools > Console` to mock standard play method having current video:
 
-```js
+```javascript
 $0.play = () => {
   debugger;
 };
