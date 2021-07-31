@@ -21,7 +21,7 @@ Let's try 👩‍💻
 
 ## Apply filtering to both sides
 
-Last challenge was [Trim Left in TypeScript](/2021-05-10-trim-left-in-typescript/)
+Last challenge was [Trim Left](/2021-05-10-trim-left-in-typescript/)
 
 We removed whitespaces only for the left part of the string, let's remove them from the right side:
 
