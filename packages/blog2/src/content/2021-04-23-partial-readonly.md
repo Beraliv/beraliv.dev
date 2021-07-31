@@ -19,7 +19,7 @@ We already solved the challenge with readonly (see [Readonly under the hood](/20
 
 Again, as for previous challenge [Omit under the hood](/2021-04-21-omit-under-the-hood/), we have a combination of challenges that we already did:
 
-1. We already learnt how [to apply readonly modifier to the keys](/2021-04-06-readonly-under-the-hood/):
+1. We already learnt how [to apply readonly modifier to the keys](/2021-04-06-readonly-under-the-hood#make-values-readonly):
 
 ![Readonly solution](/partial-readonly/step2-readonly-solution.png)
 
@@ -27,7 +27,7 @@ Again, as for previous challenge [Omit under the hood](/2021-04-21-omit-under-th
 
 ![Pick solution](/partial-readonly/step3-pick-solution.png)
 
-3. And we need [to have excluded keys without readonly modifier](/2021-04-21-omit-under-the-hood/):
+3. And we need [to have excluded keys without readonly modifier](/2021-04-21-omit-under-the-hood#combination-of-2-challenges):
 
 ![Omit solution](/partial-readonly/step4-omit-solution.png)
 
