@@ -17,5 +17,5 @@ export const mdxComponents = {
   h4: H4,
   h5: H5,
   h6: H6,
-  // img: MdxImage,
+  img: MdxImage,
 };
