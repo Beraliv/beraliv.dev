@@ -22,5 +22,6 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn
+      - run: yarn type
       - run: yarn test
 

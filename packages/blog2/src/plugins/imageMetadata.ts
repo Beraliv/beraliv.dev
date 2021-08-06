@@ -1,10 +1,9 @@
 import { readFile, writeFile } from "fs";
 import { join } from "path";
-import type { Processor } from "unified";
+import type { Pluggable } from "unified";
 import type { Node } from "unist";
 import visit from "unist-util-visit";
 import { promisify } from "util";
-import type { VFile } from "vfile";
 import { fetchJson } from "../functions/fetchJson";
 import { imageLoader } from "../functions/imageLoader";
 import { sizeLoader } from "../functions/sizeLoader";
@@ -123,8 +122,8 @@ async function addMetadata(node: ImageNode): Promise<void> {
  * This is a Rehype plugin that finds image `<img>` elements and adds the height and width to the properties.
  * Read more about Next.js image: https://nextjs.org/docs/api-reference/next/image#layout
  */
-export function imageMetadata(this: Processor) {
-  return async function transformer(tree: Node, file: VFile): Promise<Node> {
+export const imageMetadata: Pluggable = () =>
+  async function transformer(tree, file): Promise<Node> {
     const imgNodes: ImageNode[] = [];
 
     visit(tree, "element", (node) => {
@@ -139,4 +138,3 @@ export function imageMetadata(this: Processor) {
 
     return tree;
   };
-}
