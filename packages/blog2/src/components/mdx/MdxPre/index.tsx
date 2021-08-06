@@ -18,8 +18,6 @@ export interface MdxPrePropsType {
 }
 
 export const MdxPre = (props: MdxPrePropsType) => {
-  console.log(`>>> MdxPre`, props);
-
   const { children, className, metastring } = props.children.props;
   const code = children.trim();
   const language = getCodeLanguageType(className);
