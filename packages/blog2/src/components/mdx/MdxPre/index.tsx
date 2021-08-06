@@ -5,6 +5,7 @@ import { getCodeLanguageType } from "../../../functions/getCodeLanguageType";
 import { classNames } from "../../../functions/classNames";
 import styles from "./index.module.css";
 import { getCodeTitle } from "../../../functions/getCodeTitle";
+import { CopyToClipboardButton } from "../../molecules/CopyToClipboardButton";
 
 export interface MdxPrePropsType {
   children: {
@@ -35,7 +36,9 @@ export const MdxPre = (props: MdxPrePropsType) => {
           {title && (
             <div className={classNames(className, styles.title)} style={style}>
               <span>{title}</span>
-              <div>copy</div>
+              <div>
+                <CopyToClipboardButton whatToCopy={code} />
+              </div>
             </div>
           )}
           <pre className={classNames(className, styles.pre)} style={style}>
