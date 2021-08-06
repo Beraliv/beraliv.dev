@@ -1,0 +1,10 @@
+.svg {
+  cursor: pointer;
+}
+
+.path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2px;
+  stroke: var(--copy-to-clipboard-color);
+}
