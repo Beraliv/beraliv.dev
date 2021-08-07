@@ -9,6 +9,10 @@ import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
+import { sanitiseHtml } from "../../../functions/sanitiseHtml";
+import { SanitisedString } from "../../../types/SanitisedString";
+
+const HOME_TITLE = "All posts" as SanitisedString;
 
 export const Home = ({
   apiKey,
@@ -29,7 +33,7 @@ export const Home = ({
         // imageWidth={}
         keywords={keywords}
         path={url}
-        title="All posts"
+        title={HOME_TITLE}
       />
 
       <Header title={title} path="home" />
@@ -47,7 +51,7 @@ export const Home = ({
               description={description}
               labels={labels}
               slug={slug}
-              title={title}
+              title={sanitiseHtml(title)}
             />
           ))}
         </div>
@@ -60,7 +64,7 @@ export const Home = ({
               description={description}
               labels={labels}
               slug={slug}
-              title={title}
+              title={sanitiseHtml(title)}
             />
           ))}
         </div>
@@ -73,7 +77,7 @@ export const Home = ({
               description={description}
               labels={labels}
               slug={slug}
-              title={title}
+              title={sanitiseHtml(title)}
             />
           ))}
         </div>
