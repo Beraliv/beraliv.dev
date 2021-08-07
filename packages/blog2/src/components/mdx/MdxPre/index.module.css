@@ -4,7 +4,8 @@
   align-items: center;
   padding: 1rem 1rem 0.5rem;
 
-  color: var(--font-color) !important;
+  color: var(--font-color);
+  background-color: var(--vscode-background-color);
   font-weight: 500;
 
   border-top-left-radius: 2rem;
@@ -20,6 +21,8 @@
   border-bottom-right-radius: 2rem;
   border: 1px solid var(--pre-border-color);
   border-top-width: 0;
+
+  background-color: var(--vscode-background-color);
 }
 
 pre .token-line {
