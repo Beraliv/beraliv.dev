@@ -9,6 +9,12 @@
   --subscription-form-submit-button-color: rgba(255, 255, 255, 1);
   --subscription-form-submit-button-background-color: rgba(0, 91, 153, 1);
   --loader-border-color: rgba(0, 0, 0, 1);
+  --pre-border-color: rgba(75, 85, 99, 1);
+  --copy-to-clipboard-color: rgba(0, 0, 0, 1);
+  --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
+
+  --vscode-background-color: rgb(255, 255, 255, 1);
+  --code-color: rgba(133, 0, 14, 1);
 }
 
 .dark {
@@ -22,6 +28,12 @@
   --subscription-form-submit-button-color: rgba(0, 0, 0, 1);
   --subscription-form-submit-button-background-color: rgba(112, 181, 255, 1);
   --loader-border-color: rgba(255, 255, 255, 1);
+  --pre-border-color: rgba(0, 0, 0, 1);
+  --copy-to-clipboard-color: rgba(255, 255, 255, 1);
+  --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
+
+  --vscode-background-color: rgba(30, 30, 30, 1);
+  --code-color: rgba(199, 118, 93, 1);
 }
 
 html,
@@ -152,10 +164,109 @@ figure {
   margin: 0;
 }
 
+code {
+  background-color: var(--vscode-background-color);
+  color: var(--code-color);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
 button,
 input {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+}
+
+.language-css,
+.language-javascript {
+  --token-line: rgb(4, 0, 114, 1);
+  --token-number: rgba(0, 132, 79, 1);
+  --token-punctuation: rgba(0, 0, 0, 1);
+}
+
+.language-css {
+  --token-comment: rgba(0, 116, 0, 1);
+  --token-unit: rgba(0, 132, 79, 1);
+  --token-property: rgba(255, 0, 0, 1);
+  --token-selector-class: rgba(120, 0, 0, 1);
+  --token-selector-pseudo-element: rgba(120, 0, 0, 1);
+}
+
+.language-javascript {
+  --token-function-access: rgba(107, 76, 20, 1);
+  --token-keyword: rgb(0, 0, 255, 1);
+  --token-arrow-operator: rgba(0, 0, 255, 1);
+  --token-operator: rgba(0, 0, 0, 1);
+}
+
+.dark .language-css,
+.dark .language-javascript {
+  --token-line: rgba(156, 220, 254, 1);
+  --token-number: rgba(181, 206, 168, 1);
+  --token-punctuation: rgba(212, 212, 212, 1);
+}
+
+.dark .language-css {
+  --token-comment: rgba(106, 153, 85, 1);
+  --token-unit: rgba(181, 206, 168, 1);
+  --token-property: rgba(156, 220, 254, 1);
+  --token-selector-class: rgba(215, 186, 125, 1);
+  --token-selector-pseudo-element: rgba(215, 186, 125, 1);
+}
+
+.dark .language-javascript {
+  --token-function-access: rgba(220, 220, 170, 1);
+  --token-keyword: rgba(86, 156, 214, 1);
+  --token-arrow-operator: rgba(86, 156, 214, 1);
+  --token-operator: rgba(212, 212, 212, 1);
+}
+
+.token-line {
+  color: var(--token-line);
+}
+
+.token.keyword {
+  color: var(--token-keyword);
+}
+
+.token.comment {
+  color: var(--token-comment);
+}
+
+.token.property {
+  color: var(--token-property);
+}
+
+.token.operator.arrow {
+  color: var(--token-arrow-operator);
+}
+
+.token.operator {
+  color: var(--token-operator);
+}
+
+.token.punctuation {
+  color: var(--token-punctuation);
+}
+
+.token.number {
+  color: var(--token-number);
+}
+
+.token.unit {
+  color: var(--token-unit);
+}
+
+.token.selector.class {
+  color: var(--token-selector-class);
+}
+
+.token.selector.pseudo-element {
+  color: var(--token-selector-pseudo-element);
+}
+
+.token.method-variable.function-variable.method.function.property-access {
+  color: var(--token-function-access);
 }

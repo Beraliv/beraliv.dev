@@ -1,0 +1,50 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem 0.5rem;
+
+  color: var(--font-color);
+  background-color: var(--vscode-background-color);
+  font-weight: 500;
+
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border: 1px solid var(--pre-border-color);
+}
+
+.container {
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border: 1px solid var(--pre-border-color);
+  border-top-width: 0;
+
+  background-color: var(--vscode-background-color);
+}
+
+.pre {
+  margin: 0 1rem 0.5rem;
+  padding: 1rem 0 0.5rem;
+  overflow: scroll;
+}
+
+pre .token-line {
+  line-height: 1.3em;
+  height: 1.3em;
+}
+
+.line {
+  display: table-row;
+}
+
+.lineNumber {
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.lineContent {
+  display: table-cell;
+}
