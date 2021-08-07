@@ -13,16 +13,19 @@
   border: 1px solid var(--pre-border-color);
 }
 
-.pre {
-  margin: 0 0 1rem 0;
-  padding: 1rem;
-  overflow: scroll;
+.container {
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   border: 1px solid var(--pre-border-color);
   border-top-width: 0;
 
   background-color: var(--vscode-background-color);
+}
+
+.pre {
+  margin: 0 1rem 0.5rem;
+  padding: 1rem 0 0.5rem;
+  overflow: scroll;
 }
 
 pre .token-line {

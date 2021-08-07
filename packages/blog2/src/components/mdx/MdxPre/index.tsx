@@ -43,29 +43,33 @@ export const MdxPre = (props: MdxPrePropsType) => {
               </div>
             </div>
           )}
-          <pre className={classNames(className, styles.pre)} style={style}>
-            {tokens.map((line, i) => {
-              const { className: lineClassName, ...lineProps } = getLineProps({
-                line,
-                key: i,
-              });
+          <div className={styles.container}>
+            <pre className={classNames(className, styles.pre)} style={style}>
+              {tokens.map((line, i) => {
+                const { className: lineClassName, ...lineProps } = getLineProps(
+                  {
+                    line,
+                    key: i,
+                  }
+                );
 
-              return (
-                <div
-                  key={i}
-                  {...lineProps}
-                  className={classNames(lineClassName, styles.line)}
-                >
-                  <span className={styles.lineNumber}>{i + 1}</span>
-                  <span className={styles.lineContent}>
-                    {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({ token, key })} />
-                    ))}
-                  </span>
-                </div>
-              );
-            })}
-          </pre>
+                return (
+                  <div
+                    key={i}
+                    {...lineProps}
+                    className={classNames(lineClassName, styles.line)}
+                  >
+                    <span className={styles.lineNumber}>{i + 1}</span>
+                    <span className={styles.lineContent}>
+                      {line.map((token, key) => (
+                        <span key={key} {...getTokenProps({ token, key })} />
+                      ))}
+                    </span>
+                  </div>
+                );
+              })}
+            </pre>
+          </div>
         </>
       )}
     </Highlight>
