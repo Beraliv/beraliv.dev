@@ -1,5 +1,5 @@
 ---
-title: Scrollbar customisation
+title: Scrollbar cus&shy;tomi&shy;sa&shy;tion
 date: "2018-10-04"
 description: CSS support in different browser engines, hacks and tricks, JS libraries
 labels:
