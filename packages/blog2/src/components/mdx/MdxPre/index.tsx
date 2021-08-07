@@ -1,7 +1,4 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
-// compare the styles between VSCode and custom highlighting
-// import darkTheme from "prism-react-renderer/themes/vsDark";
-import lightTheme from "prism-react-renderer/themes/vsLight";
 import { CodeLanguageType } from "../../../types/CodeLanguageType";
 import { getCodeLanguageType } from "../../../functions/getCodeLanguageType";
 import { classNames } from "../../../functions/classNames";
@@ -34,7 +31,6 @@ export const MdxPre = (props: MdxPrePropsType) => {
       {...defaultProps}
       code={code}
       language={language}
-      // theme={darkTheme}
       theme={{ plain: {}, styles: [] }}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
