@@ -2,6 +2,8 @@ import NextHead from "next/head";
 import { FC } from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { classNames } from "../../../functions/classNames";
+import { PostType } from "../../../types/PostType";
+import { SanitisedString } from "../../../types/SanitisedString";
 
 const {
   title: metaTitle,
@@ -53,15 +55,13 @@ const OpenGraphSeo: FC<OpenGraphSeoPropsType> = ({
   </>
 );
 
-interface SeoPropsType {
-  description: string;
+type SeoPropsType = Pick<PostType, "description" | "keywords"> & {
   imageUrl: string;
   imageHeight: number;
   imageWidth: number;
-  keywords: string[];
   path: string;
-  title: string;
-}
+  title: SanitisedString;
+};
 
 export const Seo: FC<SeoPropsType> = ({
   description,
