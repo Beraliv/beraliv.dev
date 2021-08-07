@@ -14,6 +14,7 @@
   --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
 
   --vscode-background-color: rgb(255, 255, 255, 1);
+  --code-color: rgba(133, 0, 14, 1);
 }
 
 .dark {
@@ -32,6 +33,7 @@
   --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
 
   --vscode-background-color: rgba(30, 30, 30, 1);
+  --code-color: rgba(199, 118, 93, 1);
 }
 
 html,
@@ -160,6 +162,13 @@ p {
 
 figure {
   margin: 0;
+}
+
+code {
+  background-color: var(--vscode-background-color);
+  color: var(--code-color);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 button,
