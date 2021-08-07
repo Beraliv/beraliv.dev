@@ -169,3 +169,58 @@ input {
   line-height: 1.15;
   margin: 0;
 }
+
+.language-css,
+.language-javascript {
+  --token-function-access: rgba(220, 220, 170, 1);
+  --token-line: rgba(156, 220, 254, 1);
+  --token-number: rgba(181, 206, 168, 1);
+  --token-punctuation: rgba(212, 212, 212, 1);
+}
+
+.language-css {
+  --token-comment: rgba(106, 153, 85, 1);
+  --token-selector-class: rgba(215, 186, 125, 1);
+  --token-selector-pseudo-element: rgba(215, 186, 125, 1);
+}
+
+.language-javascript {
+  --token-keyword: rgba(86, 156, 214, 1);
+  --token-operator: rgba(212, 212, 212, 1);
+}
+
+.token-line {
+  color: var(--token-line);
+}
+
+.token.keyword {
+  color: var(--token-keyword);
+}
+
+.token.comment {
+  color: var(--token-comment);
+}
+
+.token.operator {
+  color: var(--token-operator);
+}
+
+.token.punctuation {
+  color: var(--token-punctuation);
+}
+
+.token.number {
+  color: var(--token-number);
+}
+
+.token.selector.class {
+  color: var(--token-selector-class);
+}
+
+.token.selector.pseudo-element {
+  color: var(--token-selector-pseudo-element);
+}
+
+.token.method-variable.function-variable.method.function.property-access {
+  color: var(--token-function-access);
+}
