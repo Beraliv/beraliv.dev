@@ -8,7 +8,7 @@ describe(getPostBySlug.name, () => {
 
     expect(typeof content).toBe("string");
 
-    expect(data.title).toBe("Scrollbar customisation");
+    expect(data.title).toBe("Scrollbar cus&shy;tomi&shy;sa&shy;tion");
     expect(data.date).toBe("2018-10-04");
     expect(data.description).toBe(
       "CSS support in different browser engines, hacks and tricks, JS libraries"

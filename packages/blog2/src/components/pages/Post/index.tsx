@@ -14,6 +14,7 @@ import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { imageLoader } from "../../../functions/imageLoader";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
+import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 
 export interface PostPropsType {
   apiKey: string;
@@ -41,7 +42,7 @@ export const Post: FC<PostPropsType> = ({ apiKey, content, formId, post }) => {
         imageWidth={imageWidth}
         keywords={post.keywords}
         path={`${url}${post.slug}`}
-        title={post.title}
+        title={sanitiseHtml(post.title)}
       />
 
       <Header title={title} path="post" />
@@ -49,7 +50,11 @@ export const Post: FC<PostPropsType> = ({ apiKey, content, formId, post }) => {
       <main className={styles.main}>
         <article>
           <header>
-            <h1>{post.title}</h1>
+            <h1
+              dangerouslySetInnerHTML={{
+                __html: post.title,
+              }}
+            />
             <div className={styles.headerMetadata}>
               <small>{post.date}</small>
               <small>

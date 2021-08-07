@@ -1,12 +1,15 @@
 import { Fragment, FC } from "react";
 import { PostType } from "../../../types/PostType";
+import { SanitisedString } from "../../../types/SanitisedString";
 import { labelToIconMapping } from "../../atoms/labelToIconMapping";
 import styles from "./index.module.css";
 
 type PostPreviewPropsType = Pick<
   PostType,
-  "slug" | "title" | "description" | "labels"
->;
+  "slug" | "description" | "labels"
+> & {
+  title: SanitisedString;
+};
 
 export const PostPreview: FC<PostPreviewPropsType> = ({
   description,
