@@ -69,13 +69,16 @@ export const Search = ({
           <Bio />
         </div>
 
-        <input
-          aria-label="search"
-          type="text"
-          placeholder="What article are you looking for?"
-          onInput={handleInputChange}
-        />
-        <div>{filteredPosts.length}</div>
+        <div className={styles.search}>
+          <input
+            aria-label="search"
+            className={styles.searchBar}
+            type="text"
+            placeholder="What article are you looking for?"
+            onInput={handleInputChange}
+          />
+          <div className={styles.searchElements}>{filteredPosts.length}</div>
+        </div>
 
         <div className={styles.grid}>
           {filteredPosts.map(({ description, labels, slug, title }) => (

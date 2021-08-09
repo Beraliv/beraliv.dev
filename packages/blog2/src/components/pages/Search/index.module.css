@@ -17,9 +17,48 @@
 }
 
 .bio {
-  padding-top: 2.5rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding: 2.5rem 1.25rem;
+}
+
+.search {
+  position: relative;
+
+  margin: 1rem;
+}
+
+.search,
+.searchBar {
+  width: 40rem;
+}
+
+.searchBar {
+  padding: 1rem 2.5rem 1rem 2rem;
+}
+
+.searchBar {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+.searchElements {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  text-align: center;
+
+  color: var(--);
+}
+
+@media (max-width: 42rem) {
+  .search,
+  .searchBar {
+    width: 100%;
+  }
 }
 
 .grid {
@@ -27,10 +66,4 @@
   align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    flex-direction: column;
-  }
 }
