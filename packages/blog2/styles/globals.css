@@ -1,4 +1,7 @@
 :root {
+  --color: rgba(17, 24, 39, 1);
+  --background-color: rgba(255, 255, 255, 1);
+
   --font-color: rgba(31, 41, 55, 1);
   --dark-mode-toggle-color: rgba(255, 255, 255, 1);
   --dark-mode-toggle-background-color: rgba(17, 24, 39, 1);
@@ -19,6 +22,9 @@
 }
 
 .dark {
+  --color: rgba(229, 231, 235, 1);
+  --background-color: rgba(0, 0, 0, 1);
+
   --font-color: rgba(209, 213, 219, 1);
   --dark-mode-toggle-color: rgba(0, 0, 0, 1);
   --dark-mode-toggle-background-color: rgba(252, 211, 77, 1);
@@ -51,13 +57,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: Merriweather, ui-serif, Georgia, Cambria, "Times New Roman",
     Times, serif;
-  color: rgba(17, 24, 39, 1);
-  background-color: rgba(255, 255, 255, 1);
-}
-
-body.dark {
-  color: rgba(229, 231, 235, 1);
-  background-color: rgba(0, 0, 0, 1);
+  color: var(--color);
+  background-color: var(--background-color);
 }
 
 h1,
