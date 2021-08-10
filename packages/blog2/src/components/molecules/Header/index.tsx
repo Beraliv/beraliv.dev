@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 
 interface HeaderPropsType {
   title: string;
-  path: "home" | "post";
+  path: "home" | "post" | "search";
 }
 
 export const Header: FC<HeaderPropsType> = ({ title, path }) => {
@@ -15,7 +15,7 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
 
   if (path === "home") {
     header = <h1 className={styles.atHome}>{title}</h1>;
-  } else if (path === "post") {
+  } else if (path === "post" || path === "search") {
     header = (
       <NextLink href="/">
         <a className={styles.toHome}>{title}</a>
