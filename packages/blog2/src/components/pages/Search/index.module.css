@@ -23,12 +23,8 @@
 .search {
   position: relative;
 
+  width: 42rem;
   margin: 1rem;
-}
-
-.search,
-.searchBar {
-  width: 40rem;
 }
 
 .searchBar {
@@ -36,6 +32,8 @@
 }
 
 .searchBar {
+  width: 100%;
+
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
 
@@ -50,14 +48,17 @@
   transform: translateY(-50%);
   width: 2.5rem;
   text-align: center;
+}
 
-  color: var(--);
+@media (max-width: 66.5rem) {
+  .search {
+    width: 30rem;
+  }
 }
 
 @media (max-width: 42rem) {
-  .search,
-  .searchBar {
-    width: 100%;
+  .search {
+    width: calc(100% - 2rem);
   }
 }
 
