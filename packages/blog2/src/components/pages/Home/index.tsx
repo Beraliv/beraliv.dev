@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from "next";
+import NextLink from "next/link";
 import React from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { getHomeStaticProps } from "../../../static/getHomeStaticProps";
@@ -80,6 +81,10 @@ export const Home = ({
               title={sanitiseHtml(title)}
             />
           ))}
+        </div>
+
+        <div className={styles.goToSearch}>
+          <NextLink href="/search">🔎 See all articles</NextLink>
         </div>
 
         <aside className={styles.aside}>
