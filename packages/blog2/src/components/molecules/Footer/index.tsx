@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import { VercelIcon } from "../../atoms/VercelIcon";
 import styles from "./index.module.css";
 
 export const Footer = () => (
@@ -9,9 +9,9 @@ export const Footer = () => (
       rel="noopener noreferrer"
     >
       © {new Date().getFullYear()}, Powered by{" "}
-      <span className={styles.logo}>
-        <NextImage src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-      </span>
+      <div className={styles.logo}>
+        <VercelIcon />
+      </div>
     </a>
   </footer>
 );
