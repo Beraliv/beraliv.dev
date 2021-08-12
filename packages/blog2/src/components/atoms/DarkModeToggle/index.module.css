@@ -4,8 +4,19 @@
   right: 0px;
   width: 2rem;
   height: 2rem;
+
   border-radius: 9999px;
   cursor: pointer;
   color: var(--dark-mode-toggle-color);
   background-color: var(--dark-mode-toggle-background-color);
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle:hover,
+.toggle:active,
+.toggle:focus {
+  outline: none;
+  transform: scale(1.25);
 }
