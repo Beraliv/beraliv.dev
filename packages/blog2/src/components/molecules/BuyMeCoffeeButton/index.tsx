@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import NextImage from "next/image";
-import butMyACoffeeIcon from "../../../../public/buy-me-a-coffee-icon.png";
 import styles from "./index.module.css";
+import { BuyMeCoffeeIcon } from "../../atoms/BuyMeCoffeeIcon";
 
 export const BuyMeCoffeeButton: FC = () => (
   <a
@@ -9,7 +8,8 @@ export const BuyMeCoffeeButton: FC = () => (
     href="https://www.buymeacoffee.com/beraliv"
     target="_blank"
     rel="nofollow noopener noreferrer"
+    tabIndex={-1}
   >
-    <NextImage src={butMyACoffeeIcon} alt="buy me a coffee" />
+    <BuyMeCoffeeIcon />
   </a>
 );
