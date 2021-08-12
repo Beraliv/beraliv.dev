@@ -30,7 +30,6 @@ export const Search = ({
   >(
     (event) => {
       const search = (event.target as HTMLInputElement).value.toLowerCase();
-      console.log(`>>> handleInputChange`, search);
 
       if (!search) {
         setFilteredPosts(posts);
