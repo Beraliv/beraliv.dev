@@ -11,6 +11,7 @@
     "dev": "yarn workspace blog2 dev",
     "build": "yarn workspace blog2 build",
     "start": "yarn workspace blog2 start",
+    "lint": "yarn workspace blog2 lint",
     "type": "yarn workspace blog2 type",
     "test": "yarn workspace blog2 test"
   },
