@@ -1,7 +1,6 @@
 .buymecoffee {
   display: flex;
   font-size: 1rem;
-  width: 10rem;
 }
 
 @media (max-width: 42rem) {
