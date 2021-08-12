@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from "next";
 import React from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
-import { Footer } from "../../atoms/Footer";
+import { Footer } from "../../molecules/Footer";
 import { PostPreview } from "../../molecules/PostPreview";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";

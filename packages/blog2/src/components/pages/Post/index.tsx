@@ -7,7 +7,7 @@ import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
 import { Bio } from "../../molecules/Bio";
-import { Footer } from "../../atoms/Footer";
+import { Footer } from "../../molecules/Footer";
 import styles from "./index.module.css";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
