@@ -29,6 +29,7 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
     <header
       className={classNames(styles.header, {
         [styles.homeHeader]: path === "home",
+        [styles.searchHeader]: path === "search",
       })}
     >
       {header}
