@@ -1,4 +1,4 @@
-type ClassName = string | Record<string, boolean>;
+type ClassName = string | Record<string, boolean> | undefined;
 
 export const classNames = (...args: ClassName[]): string => {
   const array = [];
