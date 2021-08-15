@@ -1,4 +1,4 @@
-import { labelToIconMapping } from "../components/atoms/labelToIconMapping";
+import { labelToIconMapping } from "../components/molecules/labelToIconMapping";
 import { PostPropsType } from "../components/pages/Post";
 import { PostType } from "../types/PostType";
 

@@ -1,7 +1,7 @@
 import { Fragment, FC } from "react";
 import { PostType } from "../../../types/PostType";
 import { SanitisedString } from "../../../types/SanitisedString";
-import { labelToIconMapping } from "../../atoms/labelToIconMapping";
+import { labelToIconMapping } from "../labelToIconMapping";
 import styles from "./index.module.css";
 
 type PostPreviewPropsType = Pick<

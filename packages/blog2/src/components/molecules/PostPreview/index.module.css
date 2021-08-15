@@ -16,7 +16,7 @@
   */
 @media (max-width: 42rem) {
   .card {
-    width: initial;
+    width: 100%;
   }
 }
 

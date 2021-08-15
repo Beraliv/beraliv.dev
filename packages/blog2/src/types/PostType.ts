@@ -1,4 +1,4 @@
-import { labelToIconMapping } from "../components/atoms/labelToIconMapping";
+import { LabelType } from "./LabelType";
 import { UnsanitisedString } from "./UnsanitisedString";
 
 export interface PostType {
@@ -7,7 +7,7 @@ export interface PostType {
   slug: string;
   description: string;
   content: string;
-  labels: (keyof typeof labelToIconMapping)[];
+  labels: LabelType[];
   keywords: string[];
   image: string;
   featured?: boolean;

@@ -8,6 +8,8 @@
 
   --label-color: rgba(75, 85, 99, 1);
   --label-background-color: rgba(229, 231, 235, 1);
+  --label-selected-color: rgba(118, 133, 155, 1);
+  --label-selected-background-color: rgba(6, 8, 14, 1);
 
   --subscription-form-error-message-color: rgba(153, 27, 27, 1);
   --subscription-form-field-border-width: 1px;
@@ -47,6 +49,8 @@
 
   --label-color: rgba(107, 114, 128, 1);
   --label-background-color: rgba(17, 24, 39, 1);
+  --label-selected-color: rgba(160, 170, 190, 1);
+  --label-selected-background-color: rgba(67, 95, 146, 1);
 
   --subscription-form-error-message-color: rgba(255, 112, 79, 1);
   --subscription-form-field-border-width: 0px;
