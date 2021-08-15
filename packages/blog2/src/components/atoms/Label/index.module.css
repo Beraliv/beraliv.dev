@@ -12,3 +12,8 @@
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+.selected {
+  color: var(--label-selected-color);
+  background-color: var(--label-selected-background-color);
+}
