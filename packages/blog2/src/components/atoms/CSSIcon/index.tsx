@@ -1,6 +1,7 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
-export const CSSIcon: FC = () => (
+// eslint-disable-next-line react/display-name
+export const CSSIcon: FC = memo(() => (
   <svg
     width="24"
     height="24"
@@ -22,4 +23,4 @@ export const CSSIcon: FC = () => (
       fill="white"
     />
   </svg>
-);
+));
