@@ -13,9 +13,10 @@ import { SanitisedString } from "../../../types/SanitisedString";
 import { getSearchStaticProps } from "../../../static/getSearchStaticProps";
 import { useState } from "react";
 import { useCallback } from "react";
-import { useLayoutEffect } from "react";
-import { getLocationSearchParameters } from "../../../functions/getLocationSearchParameters";
-import { validateLabel } from "../../../validators/validateLabel";
+import { useLabel } from "../../../hooks/useLabel";
+import { useEffect } from "react";
+import { KNOWN_LABELS } from "../../../constants/KNOWN_LABELS";
+import { Label } from "../../atoms/Label";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
@@ -25,8 +26,38 @@ export const Search = ({
   posts,
 }: InferGetStaticPropsType<typeof getSearchStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
+  const searchLabel = useLabel();
 
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [filteredPosts, setFilteredPosts] = useState<typeof posts>([]);
+
+  const startSearch = useCallback(
+    (search: string) => {
+      const foundPosts = posts.filter((post) => {
+        const byLabel = (() => {
+          if (searchLabel.state === "loading") {
+            return true;
+          }
+
+          if (searchLabel.state === "loaded" && searchLabel.value) {
+            return post.labels.includes(searchLabel.value);
+          }
+
+          return true;
+        })();
+        const byTitle = sanitiseHtml(post.title).toLowerCase().includes(search);
+        const byDescription = post.description.toLowerCase().includes(search);
+
+        return byLabel && (byTitle || byDescription);
+      });
+
+      setFilteredPosts(foundPosts);
+    },
+    [posts, searchLabel]
+  );
+
+  useEffect(() => {
+    startSearch("");
+  }, [searchLabel.state, startSearch]);
 
   const handleInputChange = useCallback<
     React.FormEventHandler<HTMLInputElement>
@@ -35,43 +66,14 @@ export const Search = ({
       const search = (event.target as HTMLInputElement).value.toLowerCase();
 
       if (!search) {
-        setFilteredPosts(posts);
+        startSearch("");
         return;
       }
 
-      const foundPosts = posts.filter((post) => {
-        const byTitle = sanitiseHtml(post.title).toLowerCase().includes(search);
-        const byDescription = post.description.toLowerCase().includes(search);
-
-        return byTitle || byDescription;
-      });
-
-      setFilteredPosts(foundPosts);
+      startSearch(search);
     },
-    [posts]
+    [startSearch]
   );
-
-  useLayoutEffect(() => {
-    const { label } = getLocationSearchParameters(location.search);
-    if (!label) {
-      return;
-    }
-
-    try {
-      const knownLabel = validateLabel(label);
-
-      const foundPosts = posts.filter((post) => {
-        const byLabel = post.labels.includes(knownLabel);
-
-        return byLabel;
-      });
-
-      setFilteredPosts(foundPosts);
-    } catch (error) {
-      console.error(`label ${label} is unknown`);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -91,6 +93,18 @@ export const Search = ({
       <main className={styles.main}>
         <div className={styles.bio}>
           <Bio />
+        </div>
+
+        <div className={styles.grid}>
+          {KNOWN_LABELS.map((label) => (
+            <Label
+              key={label}
+              selected={
+                searchLabel.state === "loaded" && searchLabel.value === label
+              }
+              title={label}
+            />
+          ))}
         </div>
 
         <div className={styles.search}>
