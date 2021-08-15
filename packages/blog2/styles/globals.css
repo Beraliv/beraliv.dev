@@ -32,6 +32,9 @@
   --typescript-icon-background-color: rgba(0, 91, 153, 1);
 
   --video-player-icon-background-color: rgba(153, 27, 27, 1);
+
+  --blockquote-border-color: rgba(0, 91, 153, 1);
+  --blockquote-color: rgba(55, 65, 81, 1);
 }
 
 .dark {
@@ -71,6 +74,9 @@
   /* same --buy-me-coffee-hover-background-color */
 
   --video-player-icon-background-color: rgba(255, 112, 79, 1);
+
+  --blockquote-border-color: rgba(112, 181, 255, 1);
+  --blockquote-color: rgba(229, 231, 235, 1);
 }
 
 html,
@@ -209,6 +215,38 @@ input {
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+}
+
+blockquote {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding: 0px;
+  margin-left: -1.5rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  font-style: italic;
+  border-left-width: 4px;
+  border-style: solid;
+  border-color: var(--blockquote-border-color);
+  color: var(--blockquote-color);
+}
+
+blockquote > :last-child {
+  margin-bottom: 0px;
+}
+
+blockquote > ul,
+blockquote > ol {
+  list-style-position: inside;
+}
+
+@media (max-width: 42rem) {
+  blockquote {
+    padding: 0px;
+    padding-left: 1rem;
+    margin-left: 0px;
+  }
 }
 
 .language-css,
