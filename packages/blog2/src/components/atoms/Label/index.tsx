@@ -6,12 +6,7 @@ interface LabelPropsType {
 }
 
 export const Label: FC<LabelPropsType> = ({ title }) => (
-  <a
-    className={styles.label}
-    href={`/tag/${title}`}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a className={styles.label} href={`/search?label=${title}`}>
     {title}
   </a>
 );
