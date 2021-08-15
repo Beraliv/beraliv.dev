@@ -30,6 +30,8 @@
   --buy-me-coffee-hover-background-color: rgb(190, 161, 12, 1);
 
   --typescript-icon-background-color: rgba(0, 91, 153, 1);
+
+  --video-player-icon-background-color: rgba(153, 27, 27, 1);
 }
 
 .dark {
@@ -67,6 +69,8 @@
 
   /* same --buy-me-coffee-background-color */
   /* same --buy-me-coffee-hover-background-color */
+
+  --video-player-icon-background-color: rgba(255, 112, 79, 1);
 }
 
 html,
