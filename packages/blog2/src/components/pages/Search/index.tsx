@@ -13,6 +13,9 @@ import { SanitisedString } from "../../../types/SanitisedString";
 import { getSearchStaticProps } from "../../../static/getSearchStaticProps";
 import { useState } from "react";
 import { useCallback } from "react";
+import { useLayoutEffect } from "react";
+import { getLocationSearchParameters } from "../../../functions/getLocationSearchParameters";
+import { validateLabel } from "../../../validators/validateLabel";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
@@ -47,6 +50,28 @@ export const Search = ({
     },
     [posts]
   );
+
+  useLayoutEffect(() => {
+    const { label } = getLocationSearchParameters(location.search);
+    if (!label) {
+      return;
+    }
+
+    try {
+      const knownLabel = validateLabel(label);
+
+      const foundPosts = posts.filter((post) => {
+        const byLabel = post.labels.includes(knownLabel);
+
+        return byLabel;
+      });
+
+      setFilteredPosts(foundPosts);
+    } catch (error) {
+      console.error(`label ${label} is unknown`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={styles.container}>
