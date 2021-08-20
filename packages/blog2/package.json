@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "firebase-admin": "9.9.0",
+    "firebase-admin": "9.11.1",
     "formik": "2.2.9",
     "gray-matter": "4.0.3",
     "next": "11.1.0",
