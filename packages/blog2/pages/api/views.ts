@@ -40,7 +40,9 @@ const views = async (
   if (request.method === "GET") {
     const { views } = await getViews({ slug });
 
-    return response.status(200).json(views ? { views } : {});
+    return response
+      .status(200)
+      .json(typeof views === "number" ? { views } : {});
   }
 
   return response.status(404);
