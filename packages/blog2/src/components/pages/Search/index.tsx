@@ -17,8 +17,15 @@ import { useLabel } from "../../../hooks/useLabel";
 import { useEffect } from "react";
 import { KNOWN_LABELS } from "../../../constants/KNOWN_LABELS";
 import { Label } from "../../atoms/Label";
+import { ImageType } from "../../../types/ImageType";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
+
+const SEARCH_IMAGE: ImageType = {
+  url: "/profile.jpg",
+  width: 640,
+  height: 640,
+};
 
 export const Search = ({
   apiKey,
@@ -77,12 +84,9 @@ export const Search = ({
 
   return (
     <div className={styles.container}>
-      {/* @ts-expect-error add information about image */}
       <Seo
         description={`${author} blog`}
-        // imageUrl={}
-        // imageHeight={}
-        // imageWidth={}
+        image={SEARCH_IMAGE}
         keywords={keywords}
         path={url}
         title={SEARCH_TITLE}
