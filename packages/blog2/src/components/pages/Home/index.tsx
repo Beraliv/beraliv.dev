@@ -12,8 +12,15 @@ import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
+import { ImageType } from "../../../types/ImageType";
 
 const HOME_TITLE = "All posts" as SanitisedString;
+
+const HOME_IMAGE: ImageType = {
+  url: "/profile.jpg",
+  width: 640,
+  height: 640,
+};
 
 export const Home = ({
   apiKey,
@@ -26,12 +33,9 @@ export const Home = ({
 
   return (
     <div className={styles.container}>
-      {/* @ts-expect-error add information about image */}
       <Seo
         description={`${author} blog`}
-        // imageUrl={}
-        // imageHeight={}
-        // imageWidth={}
+        image={HOME_IMAGE}
         keywords={keywords}
         path={url}
         title={HOME_TITLE}
