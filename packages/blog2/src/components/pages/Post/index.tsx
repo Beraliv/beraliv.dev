@@ -3,6 +3,8 @@ import { PostType } from "../../../types/PostType";
 import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
 import { Awaited } from "../../../types/Awaited";
+import { ImageType } from "../../../types/ImageType";
+import { StrictOmit } from "../../../types/StrictOmit";
 import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
@@ -12,7 +14,6 @@ import styles from "./index.module.css";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
-import { imageLoader } from "../../../functions/imageLoader";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 
@@ -20,28 +21,32 @@ export interface PostPropsType {
   apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
   formId: string;
-  post: PickRequired<
-    Partial<PostType>,
-    "date" | "description" | "image" | "keywords" | "labels" | "slug" | "title"
+  post: StrictOmit<
+    PickRequired<
+      Partial<PostType>,
+      "date" | "description" | "keywords" | "labels" | "slug" | "title"
+    >,
+    "image"
   >;
+  image: ImageType;
 }
 
-export const Post: FC<PostPropsType> = ({ apiKey, content, formId, post }) => {
-  const { title, url } = BLOG_META_INFO;
-
-  const imageWidth = 1280;
-  const imageUrl = imageLoader({ src: post.image, width: imageWidth });
+export const Post: FC<PostPropsType> = ({
+  apiKey,
+  content,
+  formId,
+  image,
+  post,
+}) => {
+  const { title, url: baseUrl } = BLOG_META_INFO;
 
   return (
     <div className={styles.container}>
-      {/* @ts-expect-error add imageHeight */}
       <Seo
         description={post.description}
-        imageUrl={imageUrl}
-        // imageHeight={0}
-        imageWidth={imageWidth}
+        image={image}
         keywords={post.keywords}
-        path={`${url}${post.slug}`}
+        path={`${baseUrl}${post.slug}`}
         title={sanitiseHtml(post.title)}
       />
 
