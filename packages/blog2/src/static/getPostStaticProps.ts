@@ -6,6 +6,9 @@ import { serialize } from "next-mdx-remote/serialize";
 import { imageMetadata } from "../plugins/imageMetadata";
 import { validatePost } from "../validators/validatePost";
 import { validateEnvParameters } from "../validators/validateEnvParameters";
+import { imageLoader } from "../functions/imageLoader";
+import { ImageType } from "../types/ImageType";
+import cache from "../cache/imageMetadata.json";
 
 export const getPostStaticProps: GetStaticProps<
   PostPropsType,
@@ -27,11 +30,24 @@ export const getPostStaticProps: GetStaticProps<
     },
   });
 
+  const normalisedWidth = 1280;
+  const imageUrl = imageLoader({
+    src: checkedPost.image,
+    width: normalisedWidth,
+  });
+  const { width, height } = cache[checkedPost.image as keyof typeof cache];
+  const image: ImageType = {
+    url: imageUrl,
+    width: normalisedWidth,
+    height: Math.round((height * normalisedWidth) / width),
+  };
+
   return {
     props: {
       apiKey,
       content: mdxContent,
       formId,
+      image,
       post: checkedPost,
     },
   };
