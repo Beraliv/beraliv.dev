@@ -11,7 +11,8 @@ export const validatePost = ({
   slug,
   title,
   ...rest
-}: Partial<PostType> & Pick<PostType, "slug">): PostPropsType["post"] => {
+}: Partial<PostType> & Pick<PostType, "slug">): PostPropsType["post"] &
+  Pick<PostType, "image"> => {
   if (!title) {
     throw new Error(`Cannot find title for post ${slug}`);
   }

@@ -4,6 +4,7 @@ import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
 import { Awaited } from "../../../types/Awaited";
 import { ImageType } from "../../../types/ImageType";
+import { StrictOmit } from "../../../types/StrictOmit";
 import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
@@ -20,9 +21,12 @@ export interface PostPropsType {
   apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
   formId: string;
-  post: PickRequired<
-    Partial<PostType>,
-    "date" | "description" | "image" | "keywords" | "labels" | "slug" | "title"
+  post: StrictOmit<
+    PickRequired<
+      Partial<PostType>,
+      "date" | "description" | "keywords" | "labels" | "slug" | "title"
+    >,
+    "image"
   >;
   image: ImageType;
 }
