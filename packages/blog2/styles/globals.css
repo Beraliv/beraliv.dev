@@ -37,6 +37,8 @@
 
   --blockquote-border-color: rgba(0, 91, 153, 1);
   --blockquote-color: rgba(55, 65, 81, 1);
+
+  --table-border-color: rgba(229, 231, 235, 1);
 }
 
 .dark {
@@ -81,6 +83,8 @@
 
   --blockquote-border-color: rgba(112, 181, 255, 1);
   --blockquote-color: rgba(229, 231, 235, 1);
+
+  --table-border-color: rgba(55, 65, 81, 1);
 }
 
 html,
@@ -243,6 +247,19 @@ blockquote > :last-child {
 blockquote > ul,
 blockquote > ol {
   list-style-position: inside;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0.25rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+table thead tr th {
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--table-border-color);
 }
 
 @media (max-width: 42rem) {
