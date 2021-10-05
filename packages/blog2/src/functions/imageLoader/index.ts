@@ -18,5 +18,5 @@ export const imageLoader = ({
     return `https://res.cloudinary.com/beraliv/image/upload/f_auto,w_${width},q_${quality}/v1626453732/blog_beraliv_dev${src}`;
   }
 
-  return `https://res.cloudinary.com/beraliv/image/upload/v1626453732/blog_beraliv_dev${src}`;
+  return `https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev${src}`;
 };
