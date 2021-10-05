@@ -4,6 +4,7 @@ import { MdxHeader } from "./MdxHeader";
 import { FC } from "react";
 import { MdxLink } from "./MdxLink";
 import { MdxPre } from "./MdxPre";
+import { MdxVideo } from "./MdxVideo";
 
 const H2: FC = ({ children }) => <MdxHeader type="h2">{children}</MdxHeader>;
 const H3: FC = ({ children }) => <MdxHeader type="h3">{children}</MdxHeader>;
@@ -20,4 +21,5 @@ export const mdxComponents = {
   h6: H6,
   img: MdxImage,
   pre: MdxPre,
+  video: MdxVideo,
 };
