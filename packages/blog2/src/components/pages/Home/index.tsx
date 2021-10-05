@@ -12,15 +12,9 @@ import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
-import { ImageType } from "../../../types/ImageType";
+import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
 
 const HOME_TITLE = "All posts" as SanitisedString;
-
-const HOME_IMAGE: ImageType = {
-  url: "/profile.jpg",
-  width: 640,
-  height: 640,
-};
 
 export const Home = ({
   apiKey,
@@ -35,7 +29,7 @@ export const Home = ({
     <div className={styles.container}>
       <Seo
         description={`${author} blog`}
-        image={HOME_IMAGE}
+        image={PROMO_IMAGE}
         keywords={keywords}
         path={url}
         title={HOME_TITLE}
