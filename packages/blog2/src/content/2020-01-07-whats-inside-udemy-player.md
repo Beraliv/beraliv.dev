@@ -51,11 +51,98 @@ Video player development isn’t obvious: it includes browser-specific features 
 
 Udemy uses `XMLHttpRequest` in [`_sendBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11123) for synchronous and [`sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) in [`_clearBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11099) for asynchronous requests. The data is sent as a sequence of events.
 
-![Statistics synchronous event example](/whats-inside-udemy-player/statistics-sync-event-example.png)
+```javascript title=Statistics synchronous event example
+{
+  mapve: "2.0",
+  bdm: "litix.io",
+  psqno: 26,
+  xsqno: 26,
+  pispa: false,
+  pphti: 1339532,
+  uti: 1578401570429,
+  ake: "vfq2nsli1v76fglgdl9puq0cd",
+  vid: 247298,
+  xid: "50097cd1-9249-4b4c-a1cf-a6de924abadc",
+  xwati: 16971,
+  xrefq: 0.000058924046903541334,
+  xrepe: 0.020859112603853633,
+  sex: 1578403070430,
+  e: "play"
+}
+```
 
 The full `XMLHttpRequest` example is available [here](https://gist.github.com/Beraliv/fe146fdaf7b87c141ddaf5da10779fda). You can see UTC timestamp as `uti`, event name as `e`, video id as `vid`, etc. The events are send to `https://<ake>.litix.io` where `<ake>` is user id. The `beaconUrl` is `https://vfq2nsli1v76fglgdl9puq0cd.litix.io`.
 
-![Statistics asynchronous event example](/whats-inside-udemy-player/statistics-async-event-example.png)
+```javascript title=Statistics asynchronous event example
+{
+  mapve: "2.0",
+  memve: "2.7.0",
+  ualnm: "Chrome",
+  ualve: "79.0.3945.88",
+  ualeg: "Blink",
+  udvnm: null,
+  udvcg: "",
+  udvmn: null,
+  uosfm: "OS X",
+  uosar: 64,
+  uosve: "10.15.2",
+  pinid: "07auyu",
+  msara: 1,
+  bdm: "litix.io",
+  psqno: 8,
+  xsqno: 8,
+  pispa: false,
+  pisfs: false,
+  pauon: true,
+  ppron: "auto",
+  pwd: 760,
+  pht: 494,
+  placd: "en-us",
+  vsomity: "video/mp4",
+  vsodu: 1203002,
+  vsoht: 720,
+  vsowd: 1280,
+  pphti: 6648,
+  uti: 1578423421619,
+  pswnm: "Video.js",
+  pswve: "6.12.1",
+  pmxpinm: "videojs-mux",
+  pmxpive: "2.5.0",
+  ake: "vfq2nsli1v76fglgdl9puq0cd",
+  pnm: "Lecture Video Player",
+  piiti: 1578423407410,
+  uusid: "x01hQuPoFKZNyZJ-CFzjb7bWQ==",
+  vid: 258661,
+  vdn: "centurylink",
+  vtt: 258661,
+  vdu: 1203,
+  vsmty: "on-demand",
+  vsr: 41295,
+  fnm: 0,
+  xid: "d5430c5b-eccb-494f-a5b3-260a21bc869d",
+  xwati: 6766,
+  xskco: 1,
+  xskdu: 119,
+  xmaskti: 119,
+  pvwco: 1,
+  xst: 1578423414954,
+  xtitofifr: 130,
+  xagsuti: 26144278,
+  xctpbti: 6634,
+  vsoisli: false,
+  vsodm: "udemycdn.com",
+  vsohn: "a2.udemycdn.com",
+  sid: "efdff00e-15a0-4fc0-9cb5-c36da18fdaa4",
+  sst: "1578423398399",
+  sex: 1578424921620,
+  mvrid: "5f28be71-d37d-4a5d-bc4c-c1e1cdef474c",
+  msano: "0.21694370671278884",
+  e: "viewend",
+  wur: "https://www.udemy.com/course/learn-html5-programming-from-scratch/learn/lecture/235793#overview",
+  vpour: "",
+  vsour: "https://a2.udemycdn.com/2013-03-01_00-27-17-15d79c069f7f94ff9b8037f0ab0bad3f/WebHD_720p.mp4?<...private-params-for-access>"
+}
+```
 
 The full `sendBeacon` example is available [here](https://gist.github.com/Beraliv/2b5e7383bf339e04cd004d99096cf81f). You can see more data about browser, OS, libraries, content, course and so on and so forth. The `beaconUrl` here is https://vfq2nsli1v76fglgdl9puq0cd.litix.io as well.
 
