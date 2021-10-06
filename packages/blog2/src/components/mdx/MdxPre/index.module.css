@@ -14,6 +14,8 @@
 }
 
 .container {
+  margin-bottom: 2rem;
+
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   border: 1px solid var(--pre-border-color);
