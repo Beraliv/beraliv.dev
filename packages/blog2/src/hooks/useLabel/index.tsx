@@ -1,7 +1,8 @@
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { getLocationSearchParameters } from "../../functions/getLocationSearchParameters";
 import { LabelType } from "../../types/LabelType";
 import { validateLabel } from "../../validators/validateLabel";
+import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
 
 type LabelReturnType =
   | {
@@ -15,7 +16,7 @@ type LabelReturnType =
 export const useLabel = () => {
   const [state, setState] = useState<LabelReturnType>({ state: "loading" });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const { label } = getLocationSearchParameters(location.search);
     if (!label) {
       setState({ state: "loaded", value: undefined });
