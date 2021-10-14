@@ -27,7 +27,8 @@ export const generateRssXml = (posts: ValidatedPostType[]): string => {
         <lastBuildDate>${toUtcString(latestUtcTimestamp)}</lastBuildDate>
         <atom:link href="${url}rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
-        ${posts.map((post) => generateRssXmlItem(post))}
+        ${posts.map((post) => generateRssXmlItem(post)).join(`
+        `)}
     </channel>
     </rss>`;
 };
