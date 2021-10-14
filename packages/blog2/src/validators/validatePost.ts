@@ -1,6 +1,6 @@
-import { labelToIconMapping } from "../components/molecules/labelToIconMapping";
-import { PostPropsType } from "../components/pages/Post";
+import { KNOWN_LABELS } from "../constants/KNOWN_LABELS";
 import { PostType } from "../types/PostType";
+import { ValidatedPostType } from "../types/ValidatedPostType";
 
 export const validatePost = ({
   date,
@@ -11,8 +11,7 @@ export const validatePost = ({
   slug,
   title,
   ...rest
-}: Partial<PostType> & Pick<PostType, "slug">): PostPropsType["post"] &
-  Pick<PostType, "image"> => {
+}: Partial<PostType> & Pick<PostType, "slug">): ValidatedPostType => {
   if (!title) {
     throw new Error(`Cannot find title for post ${slug}`);
   }
@@ -40,7 +39,7 @@ export const validatePost = ({
   }
 
   const labelsWithoutIcons = labels.filter(
-    (label) => !Object.keys(labelToIconMapping).includes(label)
+    (label) => !KNOWN_LABELS.includes(label)
   );
   if (labelsWithoutIcons.length > 0) {
     throw new Error(`Cannot use labels without icons ${labelsWithoutIcons}`);
