@@ -10,14 +10,12 @@ export const generateRssXmlItem = (post: ValidatedPostType): string => {
   const utcTimestamp = getPostUtcDate(post);
   const link = `https://blog2.beraliv.dev/${post.slug}`;
 
-  return `
-        <item>
+  return `<item>
             <title><![CDATA[${sanitiseHtml(post.title)}]]></title>
             <description><![CDATA[${post.description}]]></description>
             <link>${link}</link>
             <guid isPermaLink="false">${link}</guid>
             <dc:creator><![CDATA[${author}]]></dc:creator>
             <pubDate>${toUtcString(utcTimestamp)}</pubDate>
-        </item>
-    `;
+        </item>`;
 };
