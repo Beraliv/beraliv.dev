@@ -31,7 +31,7 @@ Let's try it out 🚀
 
 As I previously said, EcmaScript 6 introduced the spread operator which does the same in JavaScript which we want to achieve here. Let's have an example:
 
-```typescript Spread in JavaScript
+```typescript title=Spread in JavaScript
 const emptyObject = {
   title: "<title>",
   description: "<description>",
