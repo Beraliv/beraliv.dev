@@ -334,6 +334,7 @@ table thead tr th {
   --token-class-name-constant: rgba(61, 201, 176, 1);
   --token-string: rgba(206, 145, 120, 1);
   --token-plain: rgba(212, 212, 212, 1);
+  --token-constant: rgba(61, 201, 176, 1);
 }
 
 .token-line {
@@ -366,6 +367,10 @@ table thead tr th {
 
 .token.punctuation {
   color: var(--token-punctuation);
+}
+
+.token.constant {
+  color: var(--token-constant);
 }
 
 .token.number {
