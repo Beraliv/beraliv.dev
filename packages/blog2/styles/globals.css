@@ -306,10 +306,10 @@ table thead tr th {
   --token-line: rgba(156, 220, 254, 1);
   --token-number: rgba(181, 206, 168, 1);
   --token-punctuation: rgba(212, 212, 212, 1);
+  --token-comment: rgba(106, 153, 85, 1);
 }
 
 .dark .language-css {
-  --token-comment: rgba(106, 153, 85, 1);
   --token-unit: rgba(181, 206, 168, 1);
   --token-property: rgba(156, 220, 254, 1);
   --token-selector-class: rgba(215, 186, 125, 1);
@@ -328,6 +328,12 @@ table thead tr th {
   --token-keyword: rgba(86, 156, 214, 1);
   --token-arrow-operator: rgba(86, 156, 214, 1);
   --token-operator: rgba(212, 212, 212, 1);
+
+  --token-maybe-class-name: rgba(61, 201, 176, 1);
+  --token-builtin: rgba(86, 156, 214, 1);
+  --token-class-name-constant: rgba(61, 201, 176, 1);
+  --token-string: rgba(206, 145, 120, 1);
+  --token-plain: rgba(212, 212, 212, 1);
 }
 
 .token-line {
@@ -340,6 +346,10 @@ table thead tr th {
 
 .token.comment {
   color: var(--token-comment);
+}
+
+.token.plain {
+  color: var(--token-plain);
 }
 
 .token.property {
@@ -362,6 +372,10 @@ table thead tr th {
   color: var(--token-number);
 }
 
+.token.string {
+  color: var(--token-string);
+}
+
 .token.unit {
   color: var(--token-unit);
 }
@@ -376,4 +390,16 @@ table thead tr th {
 
 .token.method-variable.function-variable.method.function.property-access {
   color: var(--token-function-access);
+}
+
+.token.class-name.constant {
+  color: var(--token-class-name-constant);
+}
+
+.token.maybe-class-name {
+  color: var(--token-maybe-class-name);
+}
+
+.token.builtin {
+  color: var(--token-builtin);
 }
