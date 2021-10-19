@@ -1,1 +1,1 @@
-export const CODE_LANGUAGES = ["css", "javascript"] as const;
+export const CODE_LANGUAGES = ["css", "javascript", "typescript"] as const;
