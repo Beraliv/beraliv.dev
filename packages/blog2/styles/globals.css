@@ -276,10 +276,10 @@ table thead tr th {
   --token-line: rgb(4, 0, 114, 1);
   --token-number: rgba(0, 132, 79, 1);
   --token-punctuation: rgba(0, 0, 0, 1);
+  --token-comment: rgba(0, 116, 0, 1);
 }
 
 .language-css {
-  --token-comment: rgba(0, 116, 0, 1);
   --token-unit: rgba(0, 132, 79, 1);
   --token-property: rgba(255, 0, 0, 1);
   --token-selector-class: rgba(120, 0, 0, 1);
@@ -298,6 +298,13 @@ table thead tr th {
   --token-keyword: rgb(0, 0, 255, 1);
   --token-arrow-operator: rgba(0, 0, 255, 1);
   --token-operator: rgba(0, 0, 0, 1);
+
+  --token-maybe-class-name: rgba(39, 127, 153, 1);
+  --token-builtin: rgba(39, 127, 153, 1);
+  --token-class-name-constant: rgba(39, 127, 153, 1);
+  --token-string: rgba(175, 50, 51, 1);
+  --token-plain: rgba(19, 34, 137, 1);
+  --token-constant: rgba(39, 127, 153, 1);
 }
 
 .dark .language-css,
