@@ -2,7 +2,7 @@ import { readFile, writeFile } from "fs";
 import { join } from "path";
 import type { Pluggable } from "unified";
 import type { Node } from "unist";
-import visit from "unist-util-visit";
+import { visit } from "unist-util-visit";
 import { promisify } from "util";
 import { fetchJson } from "../functions/fetchJson";
 import { imageLoader } from "../functions/imageLoader";
