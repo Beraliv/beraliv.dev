@@ -9,6 +9,7 @@ import { validateEnvParameters } from "../validators/validateEnvParameters";
 import { imageLoader } from "../functions/imageLoader";
 import { ImageType } from "../types/ImageType";
 import cache from "../cache/imageMetadata.json";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 const NORMALISED_WIDTH = 1280;
 
@@ -28,6 +29,7 @@ export const getPostStaticProps: GetStaticProps<
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
     mdxOptions: {
+      remarkPlugins: [remarkUnwrapImages],
       rehypePlugins: [imageMetadata],
     },
   });
