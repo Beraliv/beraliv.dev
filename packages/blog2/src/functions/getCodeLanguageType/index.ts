@@ -3,9 +3,9 @@ import { CODE_LANGUAGES } from "../../constants/CODE_LANGUAGES";
 import { CodeLanguageType } from "../../types/CodeLanguageType";
 
 export const getCodeLanguageType = (
-  className: MdxPrePropsType["children"]["props"]["className"]
+  className: MdxPrePropsType["children"]["props"]["className"] | undefined
 ): CodeLanguageType | undefined => {
-  const matches = className.match(/language-(?<language>.*)/);
+  const matches = className?.match(/language-(?<language>.*)/);
   if (!matches) {
     return undefined;
   }
