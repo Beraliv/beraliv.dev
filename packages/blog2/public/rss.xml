@@ -13,7 +13,7 @@
         <atom:link href="https://blog2.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
-            <title><![CDATA[Advanced types (Holy.js notes)]]></title>
+            <title><![CDATA[Advanced types / Holy.js notes]]></title>
             <description><![CDATA[The power of TypeScript will be revealed by the example of several tasks from type-challenges of the hard level.]]></description>
             <link>https://blog2.beraliv.dev/2021-11-20-advanced-types-holyjs-notes</link>
             <guid isPermaLink="false">https://blog2.beraliv.dev/2021-11-20-advanced-types-holyjs-notes</guid>
