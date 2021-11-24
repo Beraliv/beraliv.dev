@@ -108,3 +108,68 @@ export const Label: React.FC<LabelPropsType> = ({
   title,
 }) => <a href={selected ? `/search` : `/search?label=${title}`}>{title}</a>;
 ```
+
+## Basic types
+
+Before discussing advanced types, I would like to touch on some examples of the basic types:
+
+1. `Pick` allows us to get the object with the fields that we need.
+
+```typescript title=Example of Pick
+interface Person {
+  name: string;
+  age: number;
+  alive: boolean;
+}
+
+//  { name: string; }
+type PersonWithNameOnly = Pick<Person, "name">;
+//  { name: string; age: number; }
+type PersonWithNameAndAge = Pick<Person, "name" | "age">;
+```
+
+2. `Exclude` allows to remove elements from union type
+
+```typescript title=Example of Exclude
+type Status = "loading" | "loaded" | "error";
+
+//  "loading" | "loaded"
+type StatusWithoutErrorOnly = Exclude<Status, "error">;
+//  "error"
+type ErrorStatus = Exclude<Status, "loading" | "loaded">;
+```
+
+3. We use `never` in different constructions. We can draw an anology between `never` for union types and the empty set.
+
+```typescript title=Example of keyword never
+type Status = "loading" | "loaded" | "error";
+
+//  never
+type SuccessStatus = Exclude<Status, Status>;
+```
+
+4. Tuples, which works like arrays but the number of elements is always fixed.
+
+```typescript title=Example of tuples
+type Statuses = ["loading", "loaded", "error"];
+type VideoFormats = ["mp4", "mov", "wmv", "avi"];
+type EmptyTuple = [];
+```
+
+```typescript title=Spread in tuples
+type TupleWithZero = [0];
+
+type Test1 = [1, ...TupleWithZero, 1]; // [1, 0, 1]
+type Test2 = [...TupleWithZero, 1, ...TupleWithZero]; // [0, 1, 0]
+```
+
+5. Arrays, to be able to store multiple values, e.g. array of numbers or strings.
+
+```typescript title=Example of arrays
+interface School {
+  log: Record<string, number[]>;
+}
+
+type MathMarks = School["log"]["math"]; // number[]
+type Subjects = (keyof School["log"])[]; // string[]
+```

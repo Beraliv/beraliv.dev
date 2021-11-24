@@ -36,14 +36,12 @@ export const MdxPre = (props: MdxPrePropsType) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <>
-          {title && (
-            <div className={classNames(className, styles.title)} style={style}>
-              <span>{title}</span>
-              <div>
-                <CopyToClipboardButton whatToCopy={code} />
-              </div>
+          <div className={classNames(className, styles.title)} style={style}>
+            <span>{title}</span>
+            <div>
+              <CopyToClipboardButton whatToCopy={code} />
             </div>
-          )}
+          </div>
           <div className={styles.container}>
             <pre className={classNames(className, styles.pre)} style={style}>
               {tokens.map((line, i) => {
