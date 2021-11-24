@@ -173,3 +173,107 @@ interface School {
 type MathMarks = School["log"]["math"]; // number[]
 type Subjects = (keyof School["log"])[]; // string[]
 ```
+
+## Advanced types
+
+Let's now discuss some examples of advanced types
+
+1. Construction like `T extends string` can be used in 2 cases: Generic constrains (where we can restrict the accepted types) and conditional types (where e.g. we can check if it's a string or not)
+
+```typescript title=Examples of generic constraints and conditional types
+type AcceptsStrings<T extends string> = `${string}${T}`;
+type IsString<T> = T extends string ? true : false;
+
+// ❌ Type 'number' does not satisfy the constraint 'string'
+type Test1 = AcceptsStrings<number>;
+type Test2 = IsString<number>; // false
+```
+
+These 2 examples show the difference: `number` in `Test1` will be marked as the error in Typescript while `Test2` will be just `false`.
+
+2. Mapped types allow us to create an object with new keys and values. For example, we made 2 objects with identical keys and values.
+
+```typescript title=Example of mapped types
+type KeyToKeyMapping<Keys extends PropertyKey> = { [K in Keys]: K };
+
+//  { 1: 1, 2: 2, 3: 3; }
+type Test1 = KeyToKeyMapping<1 | 2 | 3>;
+// { a: "a"; b: "b"; c: "c"; }
+type Test2 = KeyToKeyMapping<"a" | "b" | "c">;
+```
+
+3. Conditional types can use keyword `infer` to be able to identify what we have on the specific place.
+
+```typescript title=Inference in conditional types
+// type ReturnType<T> = T extends (...args: any) => infer R ? R : any
+
+type Test1 = ReturnType<() => void>; // void
+type Test2 = ReturnType<() => number>; // number
+type Test3 = ReturnType<() => boolean>; // boolean
+```
+
+If we use basic type `ReturnType`, we can get the return value of the function, e.g. `void`, `number` and `boolean` respectively.
+
+4. Given type or interface, we can get the keys with keyword `keyof`
+
+```typescript title=Examples of keyof
+type Person = { name: string };
+type School = { pupils: Person[]; teachers: Person[] };
+
+type Test1 = keyof Person; // "name"
+type Test2 = keyof School & string; // "pupils" | "teachers"
+```
+
+5. Recursive condition types are condition types where we can use another recursive call to get results.
+
+```typescript title=Putting characters into the tuple
+type CharacterIteration<T> = T extends `${infer Ch}${infer Rest}`
+  ? [Ch, ...CharacterIteration<Rest>]
+  : [];
+
+type Test1 = CharacterIteration<"123">; //  ["1", "2", "3"]
+type Test2 = CharacterIteration<"">; // []
+```
+
+Also here we can see the iteration over string literal type using `` T extends `${infer Ch}${infer Rest}`  ``
+
+6. Using `[T] extends [U]` we can check that one type can equal to another one. But we also have an exception in `any` here.
+
+```typescript title=Check if types are equal
+type Equals<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
+
+type Test1 = Equals<never, never>; //  true
+type Test2 = Equals<unknown, any>; //  true 🧐
+type Test3 = Equals<1, number>; //  false
+```
+
+7. Check for a string literal type which still requires `T extends string` conditional type to return `false` for anything other than `string`
+
+```typescript title=Check for string literal type
+type IsStringLiteral<T> = T extends string
+  ? string extends T
+    ? false
+    : true
+  : false;
+
+type Test1 = IsStringLiteral<string>; // false
+type Test2 = IsStringLiteral<"123">; // true
+type Test3 = IsStringLiteral<123>; // false
+```
+
+8. To be able to convert tuples to number literal type, we can use `length`
+
+```typescript title=Tuple to number literal type examples
+type Test1 = []["length"]; // 0
+type Test2 = [1, 2, 3]["length"]; // 3
+```
+
+9. This conditional types is used for union type elements iteration and it's called distributed conditional types
+
+```typescript title=Example of distributed conditional types
+type UnionIteration<T> = T extends unknown ? [T] : never;
+
+type Test1 = UnionIteration<never>; //  never
+type Test2 = UnionIteration<1>; //  [1]
+type Test3 = UnionIteration<1 | 2>; //  [1] | [2]
+```
