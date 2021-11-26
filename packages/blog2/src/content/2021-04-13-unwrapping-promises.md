@@ -15,6 +15,8 @@ image: /unwrapping-promises/step1-example-of-use.png
 
 Seventh challenge is [Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md)
 
+It's available since [TypeScript@4.5 beta](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-5.html#the-awaited-type-and-promise-improvements) 🔥🔥🔥
+
 Like `await` in JavaScript, it unwraps `Promise` and gets the value in the same way.
 
 Sometimes it's useful to get the value even if it's double wrapped with `Promise` so this is also possible.
