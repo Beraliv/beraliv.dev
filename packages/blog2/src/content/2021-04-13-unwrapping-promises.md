@@ -25,15 +25,21 @@ Sometimes it's useful to get the value even if it's double wrapped with `Promise
 
 > Within the extends clause of a conditional type, it is now possible to have infer declarations that introduce a type variable to be inferred. Such inferred type variables may be referenced in the true branch of the conditional type
 
-![Example of type inference in conditional types](/unwrapping-promises/step2-example-of-type-inference-in-conditional-types.png)
+```typescript title=Example of type inference in conditional types
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
+```
 
 As we want to unbox double or maybe thrice wrapped `Promise` we need [Recursive Conditional Types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#recursive-conditional-types):
 
-![Example of recursive conditional types](/unwrapping-promises/step3-example-of-recursive-conditional-types.png)
+```typescript title=Example of recursive conditional types
+type ElementType<T> = T extends ReadonlyArray<infer U> ? ElementType<U> : T;
+```
 
 It's available since [TypeScript 4.1](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/) and allows us to do so with `Promise` too:
 
-![Solution](/unwrapping-promises/step4-solution.png)
+```typescript title=Solution
+type Awaited<T> = T extends Promise<infer U> ? Awaited<U> : T;
+```
 
 This is it ⭐️
 
