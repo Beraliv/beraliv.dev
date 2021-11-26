@@ -277,3 +277,23 @@ type Test1 = UnionIteration<never>; //  never
 type Test2 = UnionIteration<1>; //  [1]
 type Test3 = UnionIteration<1 | 2>; //  [1] | [2]
 ```
+
+## Basic or advanced types?
+
+Let's have a look at [Advanced Types | TypeScript docs v1](https://www.typescriptlang.org/docs/handbook/advanced-types.html) where the advanced type was defined. It says:
+
+> This page lists some of the more advanced ways in which you can model types, it works in tandem with the [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) doc which includes types which are included in TypeScript and available globally.
+
+In [Creating Types from Types | TypeScript docs v2](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html) TypeScript steps aside from this term, but the idea is still the same:
+
+> By combining various type operators, we can express complex operations and values in a succinct, maintainable way.
+
+And below there are 7 ways to express a new type in TypeScript:
+
+- [Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html) - Types which take parameters
+- [Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html) - Using the keyof operator to create new types
+- [Typeof Type Operator](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html) - Using the typeof operator to create new types
+- [Indexed Access Types](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html) - Using `Type['a']` syntax to access a subset of a type
+- [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Types which act like if statements in the type system
+- [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Creating types by mapping each property in an existing type
+- [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) - Mapped types which change properties via template literal strings
