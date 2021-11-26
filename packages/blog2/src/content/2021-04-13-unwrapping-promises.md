@@ -11,7 +11,13 @@ keywords:
 image: /unwrapping-promises/step1-example-of-use.png
 ---
 
-![Example of Awaited use](/unwrapping-promises/step1-example-of-use.png)
+```typescript title=Example of Awaited use
+type Awaited<T> = any; // implementation
+
+type Step1 = Awaited<Promise<Promise<string | undefined>>>;
+type Step2 = Awaited<Promise<string | undefined>>;
+type Result = string | undefined;
+```
 
 Seventh challenge is [Awaited](https://github.com/type-challenges/type-challenges/blob/master/questions/189-easy-awaited/README.md)
 
