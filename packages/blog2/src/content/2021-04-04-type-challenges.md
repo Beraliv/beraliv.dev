@@ -73,7 +73,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – will be added on November 27, 2021
 - Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md) – will be added on November 28, 2021
 
-Will be added more solutions after January 1, 2022
+Will add more solutions after January 1, 2022
 
 ## extreme
 
