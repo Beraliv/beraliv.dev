@@ -405,3 +405,49 @@ type Test1 = KeyToKeyMapping<1 | 2 | 3>;
 // { a: "a"; b: "b"; c: "c"; }
 type Test2 = KeyToKeyMapping<"a" | "b" | "c">;
 ```
+
+## Type challenges
+
+To understand how advanced types are working, let's have a look at [type-challenges](https://github.com/type-challenges/type-challenges)
+
+> It's the collection of TypeScript type challenges with online judge
+
+> This project is aimed at helping you better understand how the type system works, writing your own utilities, or just having fun with the challenges
+
+Here we will concentrate on category "hard"
+
+### Testing challenges
+
+If you're not familiar with the format of the challenges, one of the most important part of it – passing the tests. Here I want to let you know how it's working.
+
+```typescript title=Playground format of taking challenges
+/*
+  Description about the challenge
+*/
+
+/* _____________ Your Code Here _____________ */
+
+type ChallengeToImplement<T> = any;
+
+/* _____________ Test Cases _____________ */
+import { Equal, Expect } from "@type-challenges/utils";
+
+type Parameter1 = any;
+type ExpectedResult1 = any;
+type Parameter2 = any;
+type ExpectedResult2 = any;
+
+type cases = [
+  Expect<Equal<ChallengeToImplement<Parameter1>, ExpectedResult1>>,
+  Expect<Equal<ChallengeToImplement<Parameter2>, ExpectedResult2>>
+];
+```
+
+Usually we have some implementation which we want to test (here it's `ChallengeToImplement`).
+
+Then under a part with "Test Cases" we import two functions – `Equal` and `Expect`:
+
+- `Expect` accepts one parameter and check if it's `true`. Otherwise, we will see TypeScript error that it's not `true`.
+- `Equal` accepts two parameters and check that they are equal. If they are, it returns `true`.
+
+At the bottom we create `type cases` where we define all the checks. If all checks are working, we won't see any TypeScript errors
