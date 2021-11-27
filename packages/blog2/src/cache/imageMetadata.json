@@ -926,5 +926,9 @@
   "/infer-last-element/step4-solution.png": {
     "width": 1126,
     "height": 434
+  },
+  "/tuple-filter/image.png": {
+    "width": 1600,
+    "height": 900
   }
 }
