@@ -2,349 +2,349 @@
     <channel>
         <title><![CDATA[Alexey Berezin blog]]></title>
         <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript.]]></description>
-        <link>https://blog2.beraliv.dev/</link>
+        <link>https://blog.beraliv.dev/</link>
         <image>
             <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner.png</url>
             <title>Alexey Berezin blog</title>
-            <link>https://blog2.beraliv.dev/</link>
+            <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
         <lastBuildDate>Mon, 05 Jul 2021 00:00:00 GMT</lastBuildDate>
-        <atom:link href="https://blog2.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
+        <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[Spread in Object types]]></title>
             <description><![CDATA[Given two objects, returns the object which is formed as a spread of two objects]]></description>
-            <link>https://blog2.beraliv.dev/2021-07-05-spread-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-07-05-spread-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-07-05-spread-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-07-05-spread-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Absolute]]></title>
             <description><![CDATA[Given a number as a string, return its absolute value as a string too]]></description>
-            <link>https://blog2.beraliv.dev/2021-06-21-absolute-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-06-21-absolute-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-06-21-absolute-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-06-21-absolute-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 21 Jun 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Making Union out of string]]></title>
             <description><![CDATA[Given a string, return a union of all characters from the string]]></description>
-            <link>https://blog2.beraliv.dev/2021-06-19-making-union-out-of-string</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-06-19-making-union-out-of-string</guid>
+            <link>https://blog.beraliv.dev/2021-06-19-making-union-out-of-string</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-06-19-making-union-out-of-string</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sat, 19 Jun 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Append to Object]]></title>
             <description><![CDATA[We have spread on objects in JavaScript so we can add value by the specified key, let's find out how to do that in TypeScript.]]></description>
-            <link>https://blog2.beraliv.dev/2021-06-16-append-to-object</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-06-16-append-to-object</guid>
+            <link>https://blog.beraliv.dev/2021-06-16-append-to-object</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-06-16-append-to-object</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 16 Jun 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Flatten Tuple Type]]></title>
             <description><![CDATA[Given the tuple, make it flatten as Array.prototype.flat when pass Infinity]]></description>
-            <link>https://blog2.beraliv.dev/2021-06-13-flatten-tuple-type-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-06-13-flatten-tuple-type-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-06-13-flatten-tuple-type-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-06-13-flatten-tuple-type-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 13 Jun 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Length of String]]></title>
             <description><![CDATA[Given the string, calculate its length. Also try to find the maximum computable string length having a limit of recursive calls]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-31-string-length-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-31-string-length-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-31-string-length-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-31-string-length-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 31 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Permutations]]></title>
             <description><![CDATA[Given a union, return a union of tuples with all possible permutations (all possible positions of elements without repetition)]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-30-permutations-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-30-permutations-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-30-permutations-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-30-permutations-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 30 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Append argument to a function]]></title>
             <description><![CDATA[Given the function and the type, include the type as the following argument in the list of function arguments]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-23-append-argument</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-23-append-argument</guid>
+            <link>https://blog.beraliv.dev/2021-05-23-append-argument</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-23-append-argument</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 23 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Replace all occurrences in a string]]></title>
             <description><![CDATA[Given the string, replace all string occurrences with specified string]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-22-replace-all-occurrences-in-a-string-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-22-replace-all-occurrences-in-a-string-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-22-replace-all-occurrences-in-a-string-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-22-replace-all-occurrences-in-a-string-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sat, 22 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Replace occurrence in a string]]></title>
             <description><![CDATA[Given the string, replace first string occurrence with specified string]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-17-replace-occurrence-in-a-string-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-17-replace-occurrence-in-a-string-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-17-replace-occurrence-in-a-string-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-17-replace-occurrence-in-a-string-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 17 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Type Aliases for String manipulation]]></title>
             <description><![CDATA[Uppercase, Lowercase, Capitalize and Uncapitalize since TypeScript 4.1]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-14-type-aliases-for-string-manipulation</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-14-type-aliases-for-string-manipulation</guid>
+            <link>https://blog.beraliv.dev/2021-05-14-type-aliases-for-string-manipulation</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-14-type-aliases-for-string-manipulation</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 14 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Trim]]></title>
             <description><![CDATA[Given the string, remove whitespaces from the beginning and the end]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-11-trim-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-11-trim-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-11-trim-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-11-trim-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 11 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Trim Left]]></title>
             <description><![CDATA[Given the string, remove whitespaces from the beginning]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-10-trim-left-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-10-trim-left-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-10-trim-left-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-10-trim-left-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 10 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Opaque Types]]></title>
             <description><![CDATA[Structural type system, workaround in TypeScript, unique symbol and code examples]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-07-opaque-type-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-07-opaque-type-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-05-07-opaque-type-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-07-opaque-type-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 07 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Extract under the hood]]></title>
             <description><![CDATA[Given a union of several types, remove those types which doesn't extend the specified structure]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-06-extract-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-06-extract-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-05-06-extract-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-06-extract-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 06 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Promise.all under the hood]]></title>
             <description><![CDATA[Given the tuple with Promise elements, return Promise of tuple]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-04-promise-all-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-04-promise-all-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-05-04-promise-all-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-04-promise-all-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 04 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Manipulation with Tuple elements]]></title>
             <description><![CDATA[Given the tuple, implement Pop, Shift, Push and Unshift methods like Array.prototype has]]></description>
-            <link>https://blog2.beraliv.dev/2021-05-01-manipulation-with-tuple-elements</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-05-01-manipulation-with-tuple-elements</guid>
+            <link>https://blog.beraliv.dev/2021-05-01-manipulation-with-tuple-elements</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-05-01-manipulation-with-tuple-elements</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Infer last element]]></title>
             <description><![CDATA[Given the tuple, return its last element]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-29-infer-last-element</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-29-infer-last-element</guid>
+            <link>https://blog.beraliv.dev/2021-04-29-infer-last-element</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-29-infer-last-element</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 29 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Mapped Types in functions]]></title>
             <description><![CDATA[Given API, collect the object with keys and values after each call]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-28-mapped-types-in-functions</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-28-mapped-types-in-functions</guid>
+            <link>https://blog.beraliv.dev/2021-04-28-mapped-types-in-functions</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-28-mapped-types-in-functions</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 28 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Making union out of tuple]]></title>
             <description><![CDATA[Given the tuple, return a union of tuple elements]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-27-making-union-out-of-tuple</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-27-making-union-out-of-tuple</guid>
+            <link>https://blog.beraliv.dev/2021-04-27-making-union-out-of-tuple</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-27-making-union-out-of-tuple</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 27 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Recursive Readonly for objects]]></title>
             <description><![CDATA[Given the object, return object where all properties on all levels are readonly]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-25-recursive-readonly-for-objects</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-25-recursive-readonly-for-objects</guid>
+            <link>https://blog.beraliv.dev/2021-04-25-recursive-readonly-for-objects</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-25-recursive-readonly-for-objects</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Partial Readonly]]></title>
             <description><![CDATA[Given the object and a union of properties, return object where those properties are readonly]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-23-partial-readonly</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-23-partial-readonly</guid>
+            <link>https://blog.beraliv.dev/2021-04-23-partial-readonly</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-23-partial-readonly</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 23 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Omit under the hood]]></title>
             <description><![CDATA[Given the object and a union of properties, return the object but without those properties]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-21-omit-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-21-omit-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-04-21-omit-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-21-omit-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 21 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[ReturnType under the hood]]></title>
             <description><![CDATA[Given the function, we need to extract what it returns]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-19-return-type-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-19-return-type-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-04-19-return-type-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-19-return-type-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 19 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Includes]]></title>
             <description><![CDATA[Given the tuple and the type, return true if the type is an element of the tuple. Otherwise, return false]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-16-includes-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-16-includes-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-04-16-includes-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-16-includes-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 16 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Spread in Tuple types]]></title>
             <description><![CDATA[Given two tuples, put the elements of both of them into the resulting tuple]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-15-spread-in-tuple-types-in-typescript</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-15-spread-in-tuple-types-in-typescript</guid>
+            <link>https://blog.beraliv.dev/2021-04-15-spread-in-tuple-types-in-typescript</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-15-spread-in-tuple-types-in-typescript</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 15 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Boolean conditional statement]]></title>
             <description><![CDATA[Given the boolean, in case of true return first type, otherwise second one]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-14-boolean-condition</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-14-boolean-condition</guid>
+            <link>https://blog.beraliv.dev/2021-04-14-boolean-condition</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-14-boolean-condition</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 14 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Unwrapping Promises]]></title>
             <description><![CDATA[Given the promise, return the value after applying await recursively]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-13-unwrapping-promises</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-13-unwrapping-promises</guid>
+            <link>https://blog.beraliv.dev/2021-04-13-unwrapping-promises</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-13-unwrapping-promises</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 13 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Exclude under the hood]]></title>
             <description><![CDATA[Given two unions, remove all the elements of the second one from the first union]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-12-exclude-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-12-exclude-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-04-12-exclude-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-12-exclude-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Infer length]]></title>
             <description><![CDATA[Given the tuple, return its length]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-09-infer-length</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-09-infer-length</guid>
+            <link>https://blog.beraliv.dev/2021-04-09-infer-length</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-09-infer-length</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 09 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Infer first element]]></title>
             <description><![CDATA[Given the tuple, return its first element]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-08-infer-first-element</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-08-infer-first-element</guid>
+            <link>https://blog.beraliv.dev/2021-04-08-infer-first-element</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-08-infer-first-element</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 08 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Making object out of tuple]]></title>
             <description><![CDATA[Given the tuple, we need to get object where key and value equals to the elements of the tuple]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-07-making-object-out-of-tuple</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-07-making-object-out-of-tuple</guid>
+            <link>https://blog.beraliv.dev/2021-04-07-making-object-out-of-tuple</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-07-making-object-out-of-tuple</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 07 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Readonly under the hood]]></title>
             <description><![CDATA[Given the object, we need to make properties on the first level readonly]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-06-readonly-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-06-readonly-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-04-06-readonly-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-06-readonly-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 06 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Pick under the hood]]></title>
             <description><![CDATA[Given existing type or interface, we need to extract part of properties]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-05-pick-under-the-hood</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-05-pick-under-the-hood</guid>
+            <link>https://blog.beraliv.dev/2021-04-05-pick-under-the-hood</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-05-pick-under-the-hood</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 05 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Type Challenges]]></title>
             <description><![CDATA[Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript]]></description>
-            <link>https://blog2.beraliv.dev/2021-04-04-type-challenges</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-04-04-type-challenges</guid>
+            <link>https://blog.beraliv.dev/2021-04-04-type-challenges</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-04-type-challenges</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 04 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Advanced Get]]></title>
             <description><![CDATA[Basic implementation of getting a value in an object, optional paths, array and tuples, one solution with connection to JavaScript]]></description>
-            <link>https://blog2.beraliv.dev/2021-03-26-typed-get</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2021-03-26-typed-get</guid>
+            <link>https://blog.beraliv.dev/2021-03-26-typed-get</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-03-26-typed-get</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Fri, 26 Mar 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Video ads player in Yandex]]></title>
             <description><![CDATA[Developed features, team members and collaboration inside the team]]></description>
-            <link>https://blog2.beraliv.dev/2020-10-06-work-in-video-advertising-player-in-yandex</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2020-10-06-work-in-video-advertising-player-in-yandex</guid>
+            <link>https://blog.beraliv.dev/2020-10-06-work-in-video-advertising-player-in-yandex</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2020-10-06-work-in-video-advertising-player-in-yandex</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Video player in Joyn]]></title>
             <description><![CDATA[Code obfuscation using confusion and the way how to make it readable again]]></description>
-            <link>https://blog2.beraliv.dev/2020-05-04-research-joyn-scripts-obfuscation</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2020-05-04-research-joyn-scripts-obfuscation</guid>
+            <link>https://blog.beraliv.dev/2020-05-04-research-joyn-scripts-obfuscation</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2020-05-04-research-joyn-scripts-obfuscation</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Mon, 04 May 2020 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Video player in Udemy]]></title>
             <description><![CDATA[Subtitles with WebVTT, statistics and DRM]]></description>
-            <link>https://blog2.beraliv.dev/2020-01-07-whats-inside-udemy-player</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2020-01-07-whats-inside-udemy-player</guid>
+            <link>https://blog.beraliv.dev/2020-01-07-whats-inside-udemy-player</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2020-01-07-whats-inside-udemy-player</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 07 Jan 2020 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Video player in BBC]]></title>
             <description><![CDATA[Geolocation identification in iPlayer]]></description>
-            <link>https://blog2.beraliv.dev/2019-12-22-bbc-iplayer-geolocation-identification</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2019-12-22-bbc-iplayer-geolocation-identification</guid>
+            <link>https://blog.beraliv.dev/2019-12-22-bbc-iplayer-geolocation-identification</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2019-12-22-bbc-iplayer-geolocation-identification</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Sun, 22 Dec 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Video player in Amazon]]></title>
             <description><![CDATA[From video tag to the implementation, state machine, the way bundle is loaded, bundle names]]></description>
-            <link>https://blog2.beraliv.dev/2019-12-17-amazon-prime-video-player-investigation</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2019-12-17-amazon-prime-video-player-investigation</guid>
+            <link>https://blog.beraliv.dev/2019-12-17-amazon-prime-video-player-investigation</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2019-12-17-amazon-prime-video-player-investigation</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Tue, 17 Dec 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Scrollbar customisation]]></title>
             <description><![CDATA[CSS support in different browser engines, hacks and tricks, JS libraries]]></description>
-            <link>https://blog2.beraliv.dev/2018-10-04-scrollbar-customisation</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2018-10-04-scrollbar-customisation</guid>
+            <link>https://blog.beraliv.dev/2018-10-04-scrollbar-customisation</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2018-10-04-scrollbar-customisation</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 04 Oct 2018 00:00:00 GMT</pubDate>
         </item>

@@ -16,8 +16,8 @@ describe(generateRssXmlItem.name, () => {
     const expected = `<item>
             <title><![CDATA[Scrollbar customisation]]></title>
             <description><![CDATA[CSS support in different browser engines, hacks and tricks, JS libraries]]></description>
-            <link>https://blog2.beraliv.dev/2018-10-04-scrollbar-customisation</link>
-            <guid isPermaLink="false">https://blog2.beraliv.dev/2018-10-04-scrollbar-customisation</guid>
+            <link>https://blog.beraliv.dev/2018-10-04-scrollbar-customisation</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2018-10-04-scrollbar-customisation</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Thu, 04 Oct 2018 00:00:00 GMT</pubDate>
         </item>`;
