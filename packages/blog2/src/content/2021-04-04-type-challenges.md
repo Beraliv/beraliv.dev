@@ -57,8 +57,8 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - Absolute • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) • [Solution](/2021/06/21/absolute-in-typescript/)
 - String to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) • [Solution](/2021/06/19/making-union-out-of-string/)
 - Merge • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) • [Solution](/2021/07/05/spread-in-typescript/)
-- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) • will be added on after January 1, 2022
-- KebabCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) • will be added on after January 1, 2022
+- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) • will be added after January 1, 2022
+- KebabCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) • will be added after January 1, 2022
 - Diff • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) • will be added after January 1, 2022
 - AnyOf • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) • will be added after January 1, 2022
 - IsNever • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) • will be added after January 1, 2022
