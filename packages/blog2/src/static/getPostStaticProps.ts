@@ -10,6 +10,7 @@ import { imageLoader } from "../functions/imageLoader";
 import { ImageType } from "../types/ImageType";
 import cache from "../cache/imageMetadata.json";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { extractMetadata } from "../functions/extractMetadata";
 
 const NORMALISED_WIDTH = 1280;
 
@@ -35,8 +36,12 @@ export const getPostStaticProps: GetStaticProps<
   });
 
   if (!(imageUrl in cache)) {
+    await extractMetadata(imageUrl);
+  }
+  if (!(imageUrl in cache)) {
     throw new Error(`Cannot find cache for image ${imageUrl}`);
   }
+
   const { width, height } = cache[imageUrl as keyof typeof cache];
   const image: ImageType = {
     url: imageLoader({
