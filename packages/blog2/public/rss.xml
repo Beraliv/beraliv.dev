@@ -9,9 +9,17 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 Nov 2021 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Tuple Filter]]></title>
+            <description><![CDATA[Given a tuple and a filter, returns the tuple without elements that are part of the filter]]></description>
+            <link>https://blog.beraliv.dev/2021-11-27-tuple-filter</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-11-27-tuple-filter</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Sat, 27 Nov 2021 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Spread in Object types]]></title>
             <description><![CDATA[Given two objects, returns the object which is formed as a spread of two objects]]></description>
