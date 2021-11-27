@@ -57,19 +57,23 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - Absolute • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/529-medium-absolute/README.md) • [Solution](/2021/06/21/absolute-in-typescript/)
 - String to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) • [Solution](/2021/06/19/making-union-out-of-string/)
 - Merge • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) • [Solution](/2021/07/05/spread-in-typescript/)
-- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) • will be added on May 21, 2021
-- KebabCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) • will be added on May 24, 2021
-- Diff • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) • will be added on May 25, 2021
-- AnyOf • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) • will be added on May 26, 2021
-- IsNever • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) • will be added on May 27, 2021
-- IsUnion • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) • will be added on May 28, 2021
-- ReplaceKeys • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) • will be added on May 31, 2021
+- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/610-medium-camelcase/README.md) • will be added on after January 1, 2022
+- KebabCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/612-medium-kebabcase/README.md) • will be added on after January 1, 2022
+- Diff • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/645-medium-diff/README.md) • will be added after January 1, 2022
+- AnyOf • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/949-medium-anyof/README.md) • will be added after January 1, 2022
+- IsNever • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1042-medium-isnever/README.md) • will be added after January 1, 2022
+- IsUnion • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1097-medium-isunion/README.md) • will be added after January 1, 2022
+- ReplaceKeys • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/1130-medium-replacekeys/README.md) • will be added after January 1, 2022
 
 ## hard
 
+- Get Optional • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/59-hard-get-optional/README.md) - will be added on November 30, 2021
 - Typed Get • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Solution](/2021-03-26-typed-get/)
+- String to Number • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/300-hard-string-to-number/README.md) – will be added on November 29, 2021
+- Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – will be added on November 27, 2021
+- Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md) – will be added on November 28, 2021
 
-Will be added more solutions after May 31, 2021
+Will be added more solutions after January 1, 2022
 
 ## extreme
 
