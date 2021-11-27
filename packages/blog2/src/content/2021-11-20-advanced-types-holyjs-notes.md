@@ -297,3 +297,107 @@ And below there are 7 ways to express a new type in TypeScript:
 - [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Types which act like if statements in the type system
 - [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Creating types by mapping each property in an existing type
 - [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html) - Mapped types which change properties via template literal strings
+
+## Ways to express advanced types
+
+We will discuss only 4 ways of expressing advanced types:
+
+1. Number literal types
+2. [Tuples](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types)
+3. [String or Template literal types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
+4. [Mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html)
+
+### Number literal types
+
+We can come to number literal types from tuples by accessing `Tuple['length']`
+
+```typescript title=Example of number literal types inference
+type ToTuple<T> = any; // implementation
+type BinaryToDecimal<T> = any; // implementation
+
+type BinaryNumber = "101";
+type Step1 = ToTuple<BinaryNumber>; // [1, 0, 1]
+type Step2 = BinaryToDecimal<Step1>; // [1, 1, 1, 1, 1]
+type Result = Step2["length"]; // 5
+```
+
+More details about number literal types in [TypeScript Issue#26382 – Math with Number Literal Type](https://github.com/microsoft/TypeScript/issues/26382)
+
+### Tuples
+
+We can create tuples
+
+```typescript title=Creating tuples of different length
+type Statuses = ["loading", "loaded", "error"];
+type VideoFormats = ["mp4", "mov", "wmv", "avi"];
+type EmptyTuple = [];
+```
+
+We are able to iterate over them from the beginning and the end
+
+```typescript title=Iteration over tuples
+type FindFromStart<U, T> = T extends [infer Head, ...infer Tail]
+  ? U extends Head
+    ? true
+    : FindFromStart<U, Tail>
+  : false;
+
+type Example1 = FindFromStart<1, [1, 2, 3]>; // true
+type Example2 = FindFromStart<0, [1, 2, 3]>; // false
+
+type FindFromEnd<U, T> = T extends [...infer Start, infer Last]
+  ? U extends Last
+    ? true
+    : FindFromEnd<U, Start>
+  : false;
+
+type Example3 = FindFromEnd<1, [1, 2, 3]>; // true
+type Example4 = FindFromEnd<0, [1, 2, 3]>; // false
+```
+
+As you see, we also used them in conditional types to match some pattern. For example, the tuple `T` has at least one element with `T extends [infer Head, ...infer Tail]`
+
+And also we can transform string literal types to tuples if we have difficulties doing it for string literal types.
+
+### String literal types
+
+We can create string literal types
+
+```typescript title=Creating string literal types
+// types only
+type Mp4Extension = "mp4";
+// runtime + types
+let extension: Mp4Extension = "mp4";
+// @ts-expect-error ❌ Type '"mp3"' is not assignable to type '"mp4"'
+extension = "mp3";
+```
+
+We can iterate over them but from the beginning only
+
+```typescript title=Iteration over string literal types
+type FindFromStart<U, T> = T extends `${infer Head}${infer Tail}`
+  ? U extends Head
+    ? true
+    : FindFromStart<U, Tail>
+  : false;
+
+type Example1 = FindFromStart<"1", "123">; // true
+type Example2 = FindFromStart<"0", "123">; // false
+```
+
+As for tuples, we also can use string literal types in conditional types to match some pattern. For example, the string literal type `T` has at least one character with `` T extends `${infer Head}${infer Tail}` ``
+
+### Mapped types
+
+And finally, it's mapped types
+
+We can extract either keys or values of just created mapped types. Also depending on the task, we can express new dependencies of keys and values
+
+```typescript title=Identical keys and values with mapped types
+type KeyToKeyMapping<Keys extends PropertyKey> = { [K in Keys]: K };
+
+//  { 1: 1, 2: 2, 3: 3; }
+type Test1 = KeyToKeyMapping<1 | 2 | 3>;
+// { a: "a"; b: "b"; c: "c"; }
+type Test2 = KeyToKeyMapping<"a" | "b" | "c">;
+```
