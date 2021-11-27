@@ -23,6 +23,10 @@ On November, 5, together with [Max](https://github.com/ColCh) we had a talk abou
   - [Advanced types](/2021-11-20-advanced-types-holyjs-notes#advanced-types)
   - [Difference between basic and advanced types](/2021-11-20-advanced-types-holyjs-notes#basic-or-advanced-types)
   - [Ways to express advanced types](/2021-11-20-advanced-types-holyjs-notes#ways-to-express-advanced-types)
+    - [Number literal types](/2021-11-20-advanced-types-holyjs-notes#number-literal-types)
+    - [Tuples](/2021-11-20-advanced-types-holyjs-notes#tuples)
+    - [String literal types](/2021-11-20-advanced-types-holyjs-notes#string-literal-types)
+    - [Mapped types](/2021-11-20-advanced-types-holyjs-notes#mapped-types)
 - [Type challenges](/2021-11-20-advanced-types-holyjs-notes#type-challenges)
   - [Testing challenges](/2021-11-20-advanced-types-holyjs-notes#testing-challenges)
   - Solutions
