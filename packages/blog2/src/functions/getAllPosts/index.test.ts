@@ -48,7 +48,7 @@ describe(getAllPosts.name, () => {
       "2021-06-19-making-union-out-of-string",
       "2021-06-21-absolute-in-typescript",
       "2021-07-05-spread-in-typescript",
-      "2021-11-20-advanced-types-holyjs-notes",
+      "2021-12-01-advanced-types-holyjs-notes",
     ]);
   });
 });

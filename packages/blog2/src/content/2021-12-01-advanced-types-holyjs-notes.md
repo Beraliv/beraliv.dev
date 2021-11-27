@@ -17,24 +17,24 @@ On November, 5, together with [Max](https://github.com/ColCh) we had a talk abou
 
 ## Table of contents
 
-- [Why do we need types](/2021-11-20-advanced-types-holyjs-notes#why-do-we-need-types)
+- [Why do we need types](/2021-12-01-advanced-types-holyjs-notes#why-do-we-need-types)
 - Basic and advanced types
-  - [Basic types](/2021-11-20-advanced-types-holyjs-notes#basic-types)
-  - [Advanced types](/2021-11-20-advanced-types-holyjs-notes#advanced-types)
-  - [Difference between basic and advanced types](/2021-11-20-advanced-types-holyjs-notes#basic-or-advanced-types)
-  - [Ways to express advanced types](/2021-11-20-advanced-types-holyjs-notes#ways-to-express-advanced-types)
-    - [Number literal types](/2021-11-20-advanced-types-holyjs-notes#number-literal-types)
-    - [Tuples](/2021-11-20-advanced-types-holyjs-notes#tuples)
-    - [String literal types](/2021-11-20-advanced-types-holyjs-notes#string-literal-types)
-    - [Mapped types](/2021-11-20-advanced-types-holyjs-notes#mapped-types)
-- [Type challenges](/2021-11-20-advanced-types-holyjs-notes#type-challenges)
-  - [Testing challenges](/2021-11-20-advanced-types-holyjs-notes#testing-challenges)
-  - [Solutions](/2021-11-20-advanced-types-holyjs-notes#solutions)
-    - [Tuple Filter](/2021-11-20-advanced-types-holyjs-notes#tuple-filter)
-    - [Split](/2021-11-20-advanced-types-holyjs-notes#split)
-    - [StringToNumber](/2021-11-20-advanced-types-holyjs-notes#stringtonumber)
-    - [GetOptional](/2021-11-20-advanced-types-holyjs-notes#getoptional)
-- [Conclusion](/2021-11-20-advanced-types-holyjs-notes#conclusion)
+  - [Basic types](/2021-12-01-advanced-types-holyjs-notes#basic-types)
+  - [Advanced types](/2021-12-01-advanced-types-holyjs-notes#advanced-types)
+  - [Difference between basic and advanced types](/2021-12-01-advanced-types-holyjs-notes#basic-or-advanced-types)
+  - [Ways to express advanced types](/2021-12-01-advanced-types-holyjs-notes#ways-to-express-advanced-types)
+    - [Number literal types](/2021-12-01-advanced-types-holyjs-notes#number-literal-types)
+    - [Tuples](/2021-12-01-advanced-types-holyjs-notes#tuples)
+    - [String literal types](/2021-12-01-advanced-types-holyjs-notes#string-literal-types)
+    - [Mapped types](/2021-12-01-advanced-types-holyjs-notes#mapped-types)
+- [Type challenges](/2021-12-01-advanced-types-holyjs-notes#type-challenges)
+  - [Testing challenges](/2021-12-01-advanced-types-holyjs-notes#testing-challenges)
+- [Solutions](/2021-12-01-advanced-types-holyjs-notes#solutions)
+  - [Tuple Filter](/2021-12-01-advanced-types-holyjs-notes#tuple-filter)
+  - [Split](/2021-12-01-advanced-types-holyjs-notes#split)
+  - [StringToNumber](/2021-12-01-advanced-types-holyjs-notes#stringtonumber)
+  - [GetOptional](/2021-12-01-advanced-types-holyjs-notes#getoptional)
+- [Conclusion](/2021-12-01-advanced-types-holyjs-notes#conclusion)
 
 ## Why do we need types?
 
