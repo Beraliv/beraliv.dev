@@ -8,7 +8,7 @@ keywords:
   - typescript
   - challenges
   - tuple filter
-image: /spread-in-typescript/step1-example-of-use.png
+image: /tuple-filter/image.png
 ---
 
 ```typescript title=Example of FilterOut use
