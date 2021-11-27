@@ -29,7 +29,7 @@ On November, 5, together with [Max](https://github.com/ColCh) we had a talk abou
     - [Mapped types](/2021-11-20-advanced-types-holyjs-notes#mapped-types)
 - [Type challenges](/2021-11-20-advanced-types-holyjs-notes#type-challenges)
   - [Testing challenges](/2021-11-20-advanced-types-holyjs-notes#testing-challenges)
-  - Solutions
+  - [Solutions](/2021-11-20-advanced-types-holyjs-notes#solutions)
     - [Tuple Filter](/2021-11-20-advanced-types-holyjs-notes#tuple-filter)
     - [Split](/2021-11-20-advanced-types-holyjs-notes#split)
     - [StringToNumber](/2021-11-20-advanced-types-holyjs-notes#stringtonumber)
@@ -451,3 +451,53 @@ Then under a part with "Test Cases" we import two functions – `Equal` and `Ex
 - `Equal` accepts two parameters and check that they are equal. If they are, it returns `true`.
 
 At the bottom we create `type cases` where we define all the checks. If all checks are working, we won't see any TypeScript errors
+
+## Solutions
+
+### Tuple Filter
+
+To show the potential of tuples, we have a challenge about `TupleFilter`
+
+- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md
+- Solution – TODO
+
+### Split
+
+`Split` is next challenge where we manipulate string literal types
+
+- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md
+- Solution – TODO
+
+### StringToNumber
+
+To get familiar with number literal types, we will check `StringToNumber`
+
+- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/300-hard-string-to-number/README.md
+- Solution – TODO
+
+### GetOptional
+
+And last challenge `GetOptional` is about mapped types
+
+- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/59-hard-get-optional/README.md
+- Solution – TODO
+
+## Conclusion
+
+So we had a look at the basic and advanced types and their difference.
+
+We've seen that the implementation of the solution for challenges requires advanced types and that even between different challenges we have a lot in common – terms, expressions and constructions.
+
+Knowing how to work with the specific way of creating new types doesn't really mean that you will know all the ways without problems.
+
+We also know that TypeScript has a wide set of terms (basic or advanced) which makes it possible to solve different types of challenges.
+
+Regarding the usage, given advanced types, we're able to solve different challenges. And there are different projects, for example:
+
+- [type-fest](https://github.com/sindresorhus/type-fest)
+- [ts-essentials](https://github.com/krzkaczor/ts-essentials)
+- [ts-toolbelt](https://github.com/millsp/ts-toolbelt)
+
+where those advanced types are already implemented and can be used in your project.
+
+We can read the codebase now and contribute to these kinds of projects which makes us even better 🚀
