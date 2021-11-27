@@ -458,8 +458,8 @@ At the bottom we create `type cases` where we define all the checks. If all chec
 
 To show the potential of tuples, we have a challenge about `TupleFilter`
 
-- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md
-- Solution – TODO
+- [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md)
+- [Solution](/2021-11-27-tuple-filter/)
 
 ### Split
 

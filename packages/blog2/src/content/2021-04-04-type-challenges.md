@@ -70,7 +70,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - Get Optional • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/59-hard-get-optional/README.md) - will be added on November 30, 2021
 - Typed Get • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Solution](/2021-03-26-typed-get/)
 - String to Number • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/300-hard-string-to-number/README.md) – will be added on November 29, 2021
-- Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – will be added on November 27, 2021
+- Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – [Solution](/2021-11-27-tuple-filter/)
 - Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md) – will be added on November 28, 2021
 
 Will add more solutions after January 1, 2022
