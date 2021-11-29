@@ -930,5 +930,9 @@
   "/tuple-filter/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/split/image.png": {
+    "width": 1600,
+    "height": 900
   }
 }
