@@ -21,6 +21,14 @@
             <pubDate>Wed, 01 Dec 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[Split]]></title>
+            <description><![CDATA[Given a string and a separator, returns an array or a tuple with the substrings between the separator]]></description>
+            <link>https://blog.beraliv.dev/2021-11-29-split</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-11-29-split</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Mon, 29 Nov 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Tuple Filter]]></title>
             <description><![CDATA[Given a tuple and a filter, returns the tuple without elements that are part of the filter]]></description>
             <link>https://blog.beraliv.dev/2021-11-27-tuple-filter</link>
