@@ -69,6 +69,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 
 - Typed Get • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/270-hard-typed-get/README.md) – [Solution](/2021-03-26-typed-get/)
 - Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – [Solution](/2021-11-27-tuple-filter/)
+- Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md) – [Solution](/2021-11-29-split/)
 
 Will be added more solutions after May 31, 2021
 
