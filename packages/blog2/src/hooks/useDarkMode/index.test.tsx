@@ -2,113 +2,109 @@
  * @jest-environment jsdom
  */
 
-import { act, renderHook } from "@testing-library/react-hooks"
-import { DARK_MODE_CLASSNAME, DARK_MODE_STORAGE_KEY, useDarkMode } from "."
+import { expect } from "earljs";
+import { act, renderHook } from "@testing-library/react-hooks";
+import { DARK_MODE_CLASSNAME, DARK_MODE_STORAGE_KEY, useDarkMode } from ".";
 
 describe(useDarkMode.name, () => {
-  beforeEach(() => {
-    jest.useFakeTimers()
-  })
-
   afterEach(() => {
-    localStorage.clear()
-    jest.resetAllMocks()
-  })
+    localStorage.clear();
+  });
 
-  test("uses false as initial value for the first time", () => {
-    const { result } = renderHook(() => useDarkMode())
+  it("uses false as initial value for the first time", () => {
+    const { result } = renderHook(() => useDarkMode());
 
-    expect(result.current.darkMode).toBe(false)
-  })
+    expect(result.current.darkMode).toEqual(false);
+  });
 
-  test("uses false as initial value if it was false before", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false))
+  it("uses false as initial value if it was false before", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false));
 
-    const { result } = renderHook(() => useDarkMode())
+    const { result } = renderHook(() => useDarkMode());
 
-    expect(result.current.darkMode).toBe(false)
-  })
+    expect(result.current.darkMode).toEqual(false);
+  });
 
-  test("uses true as initial value if it was true before", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true))
+  it("uses true as initial value if it was true before", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true));
 
-    const { result } = renderHook(() => useDarkMode())
+    const { result } = renderHook(() => useDarkMode());
 
-    expect(result.current.darkMode).toBe(true)
-  })
+    expect(result.current.darkMode).toEqual(true);
+  });
 
-  test("updates value (undefined => true) in storage and dom if the value is changed", () => {
-    const { result } = renderHook(() => useDarkMode())
-
-    act(() => {
-      result.current.toggle()
-    })
-
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
-      true
-    )
-    expect(document.body.classList.value).toBe(DARK_MODE_CLASSNAME)
-  })
-
-  test("updates value (false => true) in storage and dom if the value is changed", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false))
-
-    const { result } = renderHook(() => useDarkMode())
+  it("updates value (undefined => true) in storage and dom if the value is changed", () => {
+    const { result } = renderHook(() => useDarkMode());
 
     act(() => {
-      result.current.toggle()
-    })
+      result.current.toggle();
+    });
 
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
-      true
-    )
-    expect(document.body.classList.value).toBe(DARK_MODE_CLASSNAME)
-  })
+    expect(
+      JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")
+    ).toEqual(true);
+    expect(document.body.classList.value).toEqual(DARK_MODE_CLASSNAME);
+  });
 
-  test("updates value (true => false) in storage and dom if the value is changed", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true))
+  it("updates value (false => true) in storage and dom if the value is changed", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false));
 
-    const { result } = renderHook(() => useDarkMode())
+    const { result } = renderHook(() => useDarkMode());
 
     act(() => {
-      result.current.toggle()
-    })
+      result.current.toggle();
+    });
 
-    expect(JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")).toBe(
-      false
-    )
-    expect(document.body.classList.value).toBe("")
-  })
+    expect(
+      JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")
+    ).toEqual(true);
+    expect(document.body.classList.value).toEqual(DARK_MODE_CLASSNAME);
+  });
 
-  test("obtains correctly after remount value (false)", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false))
+  it("updates value (true => false) in storage and dom if the value is changed", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true));
+
+    const { result } = renderHook(() => useDarkMode());
+
+    act(() => {
+      result.current.toggle();
+    });
+
+    expect(
+      JSON.parse(localStorage.getItem(DARK_MODE_STORAGE_KEY) ?? "")
+    ).toEqual(false);
+    expect(document.body.classList.value).toEqual("");
+  });
+
+  it("obtains correctly after remount value (false)", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(false));
 
     const { result: firstComponentResult, unmount } = renderHook(() =>
       useDarkMode()
-    )
+    );
 
-    const darkModeBefore = firstComponentResult.current.darkMode
+    const darkModeBefore = firstComponentResult.current.darkMode;
 
-    unmount()
+    unmount();
 
-    const { result: secondComponentResult } = renderHook(() => useDarkMode())
+    const { result: secondComponentResult } = renderHook(() => useDarkMode());
 
-    expect(secondComponentResult.current.darkMode).toBe(darkModeBefore)
-  })
+    expect(secondComponentResult.current.darkMode).toEqual(darkModeBefore);
+  });
 
-  test("obtains correctly after remount value (true)", () => {
-    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true))
+  it("obtains correctly after remount value (true)", () => {
+    localStorage.setItem(DARK_MODE_STORAGE_KEY, JSON.stringify(true));
 
     const { result: firstComponentResult, unmount } = renderHook(() =>
       useDarkMode()
-    )
+    );
 
-    const darkModeBefore = firstComponentResult.current.darkMode
+    const darkModeBefore = firstComponentResult.current.darkMode;
 
-    unmount()
+    unmount();
 
-    const { result: secondComponentResult } = renderHook(() => useDarkMode())
+    const { result: secondComponentResult } = renderHook(() => useDarkMode());
 
-    expect(secondComponentResult.current.darkMode).toBe(darkModeBefore)
-  })
-})
+    expect(secondComponentResult.current.darkMode).toEqual(darkModeBefore);
+  });
+});

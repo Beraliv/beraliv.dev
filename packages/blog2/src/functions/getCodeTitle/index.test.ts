@@ -2,21 +2,21 @@ import { expect } from "earljs";
 import { getCodeTitle } from ".";
 
 describe(getCodeTitle.name, () => {
-  test("returns undefined if meta is undefined", () => {
+  it("returns undefined if meta is undefined", () => {
     const actual = getCodeTitle(undefined);
     const expected = undefined;
 
     expect(actual).toEqual(expected);
   });
 
-  test("returns undefined if meta does NOT match", () => {
+  it("returns undefined if meta does NOT match", () => {
     const actual = getCodeTitle("random-string");
     const expected = undefined;
 
     expect(actual).toEqual(expected);
   });
 
-  test("returns title", () => {
+  it("returns title", () => {
     const actual = getCodeTitle("title=Testing title");
     const expected = "Testing title";
 

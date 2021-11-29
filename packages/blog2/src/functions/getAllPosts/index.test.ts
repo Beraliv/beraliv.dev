@@ -2,7 +2,7 @@ import { expect } from "earljs";
 import { getAllPosts } from ".";
 
 describe(getAllPosts.name, () => {
-  test("returns all posts from content directory", () => {
+  it("returns all posts from content directory", () => {
     const posts = getAllPosts();
     const slugs = posts.map(({ name }) => name);
 

@@ -26,7 +26,7 @@ const AMAZON_POST: ValidatedPostType = {
 };
 
 describe(generateRssXml.name, () => {
-  test("returns xml item for 1 post", () => {
+  it("returns xml item for 1 post", () => {
     const actual = generateRssXml([SCROLLBAR_CUSTOMISATION_POST]);
     const expected = `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
@@ -56,7 +56,7 @@ describe(generateRssXml.name, () => {
     expect(actual).toEqual(expected);
   });
 
-  test("returns xml item for 2 posts", () => {
+  it("returns xml item for 2 posts", () => {
     const actual = generateRssXml([SCROLLBAR_CUSTOMISATION_POST, AMAZON_POST]);
     const expected = `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
