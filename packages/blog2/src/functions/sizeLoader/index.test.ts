@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { sizeLoader } from ".";
 
 describe(sizeLoader.name, () => {

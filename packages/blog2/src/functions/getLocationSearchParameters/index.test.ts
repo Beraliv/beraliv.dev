@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { getLocationSearchParameters } from ".";
 
 describe(getLocationSearchParameters.name, () => {

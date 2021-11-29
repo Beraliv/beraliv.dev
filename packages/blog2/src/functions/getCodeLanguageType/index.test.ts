@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { getCodeLanguageType } from ".";
 import { CODE_LANGUAGES } from "../../constants/CODE_LANGUAGES";
 
@@ -7,7 +8,7 @@ describe(getCodeLanguageType.name, () => {
     const actual = getCodeLanguageType("random-string");
     const expected = undefined;
 
-    expect(actual).toEqual<typeof actual>(expected);
+    expect(actual).toEqual(expected);
   });
 
   test("returns undefined if matched language is unknown", () => {
@@ -15,7 +16,7 @@ describe(getCodeLanguageType.name, () => {
     const actual = getCodeLanguageType("language-");
     const expected = undefined;
 
-    expect(actual).toEqual<typeof actual>(expected);
+    expect(actual).toEqual(expected);
   });
 
   CODE_LANGUAGES.forEach((language) => {
@@ -23,7 +24,7 @@ describe(getCodeLanguageType.name, () => {
       const actual = getCodeLanguageType(`language-${language}`);
       const expected = language;
 
-      expect(actual).toEqual<typeof actual>(expected);
+      expect(actual).toEqual(expected);
     });
   });
 });

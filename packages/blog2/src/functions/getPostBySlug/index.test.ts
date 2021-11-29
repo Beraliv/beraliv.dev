@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { getPostBySlug } from ".";
 
 describe(getPostBySlug.name, () => {

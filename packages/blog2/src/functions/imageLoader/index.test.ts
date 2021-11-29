@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { imageLoader } from ".";
 
 describe(imageLoader.name, () => {

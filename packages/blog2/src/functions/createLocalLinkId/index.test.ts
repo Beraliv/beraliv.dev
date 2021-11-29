@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { createLocalLinkId } from ".";
 
 describe(createLocalLinkId.name, () => {

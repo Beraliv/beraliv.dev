@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { classNames } from ".";
 
 describe(classNames.name, () => {
@@ -31,9 +32,9 @@ describe(classNames.name, () => {
 
   test("does NOT filter the keys which has falsy values in object", () => {
     const actual = classNames(
-      // @ts-expect-error
       { "1": undefined },
       { "2": null },
+      // @ts-expect-error
       { "3": 0 }
     );
     const expected = "";

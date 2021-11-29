@@ -1,3 +1,4 @@
+import { expect } from "earljs";
 import { UnsanitisedString } from "../../../types/UnsanitisedString";
 import { generateRssXmlItem } from "./";
 
