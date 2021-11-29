@@ -1,16 +1,20 @@
+import { expect } from "earljs";
 import { getPostBySlug } from ".";
+import { UnsanitisedString } from "../../types/UnsanitisedString";
 
 describe(getPostBySlug.name, () => {
-  test("returns not featured post data", () => {
+  it("returns not featured post data", () => {
     const { content, data, name } = getPostBySlug(
       "2018-10-04-scrollbar-customisation"
     );
 
-    expect(typeof content).toBe("string");
+    expect(typeof content).toEqual("string");
 
-    expect(data.title).toBe("Scrollbar cus&shy;tomi&shy;sa&shy;tion");
-    expect(data.date).toBe("2018-10-04");
-    expect(data.description).toBe(
+    expect(data.title).toEqual(
+      "Scrollbar cus&shy;tomi&shy;sa&shy;tion" as UnsanitisedString
+    );
+    expect(data.date).toEqual("2018-10-04");
+    expect(data.description).toEqual(
       "CSS support in different browser engines, hacks and tricks, JS libraries"
     );
     expect(data.labels).toEqual(["css", "javascript"]);
@@ -23,17 +27,17 @@ describe(getPostBySlug.name, () => {
     expect(data.image).toEqual("/scrollbar-customisation/macos-scrollbar.png");
     expect(data.featured).toEqual(undefined);
 
-    expect(name).toBe("2018-10-04-scrollbar-customisation");
+    expect(name).toEqual("2018-10-04-scrollbar-customisation");
   });
 
-  test("returns featured post data", () => {
+  it("returns featured post data", () => {
     const { content, data, name } = getPostBySlug("2021-04-04-type-challenges");
 
-    expect(typeof content).toBe("string");
+    expect(typeof content).toEqual("string");
 
-    expect(data.title).toBe("Type Challenges");
-    expect(data.date).toBe("2021-04-04");
-    expect(data.description).toBe(
+    expect(data.title).toEqual("Type Challenges" as UnsanitisedString);
+    expect(data.date).toEqual("2021-04-04");
+    expect(data.description).toEqual(
       "Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript"
     );
     expect(data.labels).toEqual(["typescript"]);
@@ -41,6 +45,6 @@ describe(getPostBySlug.name, () => {
     expect(data.image).toEqual("/type-challenges/featured.png");
     expect(data.featured).toEqual(true);
 
-    expect(name).toBe("2021-04-04-type-challenges");
+    expect(name).toEqual("2021-04-04-type-challenges");
   });
 });
