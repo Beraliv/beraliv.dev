@@ -1,8 +1,9 @@
+import { expect } from "earljs";
 import { UnsanitisedString } from "../../../types/UnsanitisedString";
 import { generateRssXmlItem } from "./";
 
 describe(generateRssXmlItem.name, () => {
-  test("returns xml item for validated post", () => {
+  it("returns xml item for validated post", () => {
     const actual = generateRssXmlItem({
       title: "Scrollbar cus&shy;tomi&shy;sa&shy;tion" as UnsanitisedString,
       date: "2018-10-04",

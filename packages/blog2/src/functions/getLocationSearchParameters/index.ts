@@ -7,9 +7,9 @@ export const getLocationSearchParameters = (
   // ['label=typescript']
   const parameters = withoutQuestionMark.split("&");
   // [['label', 'typescript']]
-  const parameterEntries = parameters.map(
-    (entry) => entry.split("=") as [string, string]
-  );
+  const parameterEntries = parameters
+    .filter((entry) => entry !== "")
+    .map((entry) => entry.split("=") as [string, string]);
   // { label: 'typescript' }
   const parametersObject = Object.fromEntries(parameterEntries);
 

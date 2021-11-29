@@ -1,11 +1,12 @@
+import { expect } from "earljs";
 import { getAllPosts } from ".";
 
 describe(getAllPosts.name, () => {
-  test("returns all posts from content directory", () => {
+  it("returns all posts from content directory", () => {
     const posts = getAllPosts();
     const slugs = posts.map(({ name }) => name);
 
-    expect(slugs).toEqual<typeof slugs>([
+    expect(slugs).toEqual([
       "2018-10-04-scrollbar-customisation",
       "2019-12-17-amazon-prime-video-player-investigation",
       "2019-12-22-bbc-iplayer-geolocation-identification",
