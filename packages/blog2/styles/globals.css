@@ -265,6 +265,11 @@ table thead tr th {
   border-color: var(--table-border-color);
 }
 
+table thead tr th,
+table tbody tr td {
+  padding: 0.25rem;
+}
+
 @media (max-width: 42rem) {
   blockquote {
     padding: 0px;
