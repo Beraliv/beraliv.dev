@@ -254,6 +254,8 @@ table {
   border-spacing: 0.25rem;
   margin-bottom: 2rem;
   width: 100%;
+  display: inline-block;
+  overflow-x: auto;
 }
 
 table thead tr th {
