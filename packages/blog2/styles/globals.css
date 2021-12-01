@@ -253,6 +253,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0.25rem;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
   width: 100%;
   display: inline-block;
   overflow-x: auto;
