@@ -253,13 +253,21 @@ table {
   border-collapse: collapse;
   border-spacing: 0.25rem;
   margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
   width: 100%;
+  display: inline-block;
+  overflow-x: auto;
 }
 
 table thead tr th {
   border-bottom-width: 1px;
   border-style: solid;
   border-color: var(--table-border-color);
+}
+
+table thead tr th,
+table tbody tr td {
+  padding: 0.25rem;
 }
 
 @media (max-width: 42rem) {
