@@ -51,8 +51,8 @@ describe(getAllPosts.name, () => {
       "2021-07-05-spread-in-typescript",
       "2021-11-27-tuple-filter",
       "2021-11-29-split",
-      "2021-12-01-advanced-types-holyjs-notes",
       "2021-12-03-string-to-number",
+      "2021-12-10-advanced-types-holyjs-notes",
     ]);
   });
 });
