@@ -934,5 +934,9 @@
   "/split/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/string-to-number/image.png": {
+    "width": 1600,
+    "height": 900
   }
 }
