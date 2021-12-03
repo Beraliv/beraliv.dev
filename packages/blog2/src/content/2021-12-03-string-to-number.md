@@ -8,7 +8,7 @@ keywords:
   - typescript
   - challenges
   - stringtonumber
-image: /split/image.png
+image: /string-to-number/image.png
 ---
 
 ```typescript title=Example of StringToNumber use
