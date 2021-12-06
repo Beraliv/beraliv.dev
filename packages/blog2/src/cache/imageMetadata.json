@@ -391,22 +391,6 @@
     "width": 964,
     "height": 504
   },
-  "/pick-under-the-hood/step1-example-of-use.png": {
-    "width": 1302,
-    "height": 714
-  },
-  "/pick-under-the-hood/step2-mapped-types.png": {
-    "width": 1236,
-    "height": 958
-  },
-  "/pick-under-the-hood/step3-add-keys.png": {
-    "width": 1376,
-    "height": 888
-  },
-  "/pick-under-the-hood/step4-solution.png": {
-    "width": 836,
-    "height": 434
-  },
   "/promise-all-under-the-hood/step1-example-of-use.png": {
     "width": 1216,
     "height": 678
@@ -936,6 +920,10 @@
     "height": 900
   },
   "/string-to-number/image.png": {
+    "width": 1600,
+    "height": 900
+  },
+  "/pick-under-the-hood/image.png": {
     "width": 1600,
     "height": 900
   }
