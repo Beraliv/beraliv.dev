@@ -9,9 +9,17 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 03 Dec 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 07 Dec 2021 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[GetOptional]]></title>
+            <description><![CDATA[Given an object, returns object with all optional fields]]></description>
+            <link>https://blog.beraliv.dev/2021-12-07-get-optional</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-12-07-get-optional</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Tue, 07 Dec 2021 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[StringToNumber]]></title>
             <description><![CDATA[Given a number as string literal type, returns a number as number literal type]]></description>
