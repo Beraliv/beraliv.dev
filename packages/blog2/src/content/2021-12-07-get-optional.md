@@ -8,10 +8,8 @@ keywords:
   - typescript
   - challenges
   - getoptional
-image: /string-to-number/image.png
+image: /get-optional/image.png
 ---
-
-<!-- TODO: use /get-optional/image.png instead of /string-to-number/image.png  -->
 
 ```typescript title=Example of GetOptional use
 type GetOptional<T> = any; // implementation
