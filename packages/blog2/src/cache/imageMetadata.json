@@ -926,5 +926,9 @@
   "/pick-under-the-hood/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/get-optional/image.png": {
+    "width": 1600,
+    "height": 900
   }
 }
