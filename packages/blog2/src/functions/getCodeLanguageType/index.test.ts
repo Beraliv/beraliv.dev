@@ -3,6 +3,13 @@ import { getCodeLanguageType } from ".";
 import { CODE_LANGUAGES } from "../../constants/CODE_LANGUAGES";
 
 describe(getCodeLanguageType.name, () => {
+  it("returns undefined for undefined className", () => {
+    const actual = getCodeLanguageType(undefined);
+    const expected = undefined;
+
+    expect(actual).toEqual(expected);
+  });
+
   it("returns undefined if className does NOT match", () => {
     // @ts-expect-error
     const actual = getCodeLanguageType("random-string");

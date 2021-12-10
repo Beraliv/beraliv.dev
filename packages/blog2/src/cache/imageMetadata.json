@@ -930,5 +930,9 @@
   "/get-optional/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/advanced-types-holyjs-notes/image.png": {
+    "width": 2880,
+    "height": 1800
   }
 }
