@@ -465,22 +465,22 @@ To show the potential of tuples, we have a challenge about `TupleFilter`
 
 `Split` is next challenge where we manipulate string literal types
 
-- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md
-- Solution – TODO
+- [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md)
+- [Solution](/2021-11-29-split/)
 
 ### StringToNumber
 
 To get familiar with number literal types, we will check `StringToNumber`
 
-- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/300-hard-string-to-number/README.md
-- Solution – TODO
+- [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/300-hard-string-to-number/README.md)
+- [Solution](/2021-12-03-string-to-number/)
 
 ### GetOptional
 
 And last challenge `GetOptional` is about mapped types
 
-- Challenge – https://github.com/type-challenges/type-challenges/blob/master/questions/59-hard-get-optional/README.md
-- Solution – TODO
+- [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/59-hard-get-optional/README.md)
+- [Solution](/2021-12-07-get-optional/)
 
 ## Conclusion
 
