@@ -40,11 +40,10 @@ export const Post: FC<PostPropsType> = ({
   post,
 }) => {
   const { title, url: baseUrl } = BLOG_META_INFO;
-  const articleMainRef = useRef<HTMLElement>(null);
 
   return (
     <div className={styles.container}>
-      <ArticleMainProgress articleMainRef={articleMainRef} />
+      <ArticleMainProgress />
 
       <Seo
         description={post.description}
@@ -71,7 +70,7 @@ export const Post: FC<PostPropsType> = ({
               </small>
             </div>
           </header>
-          <main ref={articleMainRef}>
+          <main>
             <PostBody content={content} />
             {post.labels.map(
               (label) => label && <Label key={label} title={label} />

@@ -1,21 +1,15 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Percents } from "../../types/Percents";
-
-interface UseScrollProgressPropsType {
-  scrollableRef: RefObject<HTMLElement>;
-}
 
 export interface UseScrollProgressReturnType {
   progress: Percents;
 }
 
-export const useScrollProgress = ({
-  scrollableRef,
-}: UseScrollProgressPropsType): UseScrollProgressReturnType => {
+export const useScrollProgress = (): UseScrollProgressReturnType => {
   const [progress, setProgress] = useState(0 as Percents);
 
   const handleScroll = useCallback(() => {
-    const height = scrollableRef.current?.scrollHeight ?? 0;
+    const height = document.body.clientHeight - window.screen.height;
     const position = global.scrollY;
     const fraction = position / height;
     const progress = Math.floor(fraction * 100) as Percents;
