@@ -23,7 +23,7 @@ export const useScrollProgress = (): UseScrollProgressReturnType => {
     return () => {
       global.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   return {
     progress,
