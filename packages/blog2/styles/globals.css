@@ -39,6 +39,8 @@
   --blockquote-color: rgba(55, 65, 81, 1);
 
   --table-border-color: rgba(229, 231, 235, 1);
+
+  --article-main-progress-color: rgba(0, 91, 153, 1);
 }
 
 .dark {
@@ -85,6 +87,8 @@
   --blockquote-color: rgba(229, 231, 235, 1);
 
   --table-border-color: rgba(55, 65, 81, 1);
+
+  --article-main-progress-color: rgba(0, 91, 153, 1);
 }
 
 html,

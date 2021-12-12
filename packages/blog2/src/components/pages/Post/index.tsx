@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useRef } from "react";
 import { PostType } from "../../../types/PostType";
 import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
@@ -16,6 +16,7 @@ import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
+import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
 
 export interface PostPropsType {
   apiKey: string;
@@ -42,6 +43,8 @@ export const Post: FC<PostPropsType> = ({
 
   return (
     <div className={styles.container}>
+      <ArticleMainProgress />
+
       <Seo
         description={post.description}
         image={image}
