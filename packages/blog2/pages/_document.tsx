@@ -6,7 +6,7 @@ import Document, {
   DocumentContext,
 } from "next/document";
 
-const GOOGLE_ANALYTICS_TRACKING_ID = 'UA-191938568-1';
+const GOOGLE_ANALYTICS_TRACKING_ID = "UA-191938568-1";
 
 class ExtendedDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -28,17 +28,27 @@ class ExtendedDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@700;900&display=swap"
             rel="stylesheet"
           />
-          <link rel="preconnect dns-prefetch" href="https://www.google-analytics.com" />
-          <script type="text/javascript" async src="https://www.google-analytics.com/analytics.js" />
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`} />
+          <link
+            rel="preconnect dns-prefetch"
+            href="https://www.google-analytics.com"
+          />
+          <script
+            type="text/javascript"
+            async
+            src="https://www.google-analytics.com/analytics.js"
+          />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
+          />
           <script
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GOOGLE_ANALYTICS_TRACKING_ID}', {"send_page_view":false});
-              `
+                gtag('config', '${GOOGLE_ANALYTICS_TRACKING_ID}', { page_path: window.location.pathname });
+              `,
             }}
           />
         </Head>
