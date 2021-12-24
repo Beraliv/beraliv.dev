@@ -30,6 +30,7 @@ export const getPostStaticProps: GetStaticProps<
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
     mdxOptions: {
+      // to handle types correctly here, you need remark
       remarkPlugins: [remarkUnwrapImages],
       rehypePlugins: [imageMetadata],
     },
