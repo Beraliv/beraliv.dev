@@ -12,6 +12,7 @@
     "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha"
   },
   "dependencies": {
+    "@sindresorhus/is": "4.2.0",
     "firebase-admin": "10.0.1",
     "formik": "2.2.9",
     "gray-matter": "4.0.3",
