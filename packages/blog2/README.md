@@ -1,34 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# blog.beraliv.dev
+
+This is the blog page where I write articles about TypeScript 🦺 and video players 📺
 
 ## Getting Started
 
-First, run the development server:
+First, install all dependencies
 
 ```bash
-npm run dev
-# or
+yarn
+```
+
+To be able to run the project, you run dev server
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To be able to continue working on the project, you need to set environment variables:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. [packages/blog2/src/functions/firebaseDb.ts](https://github.com/Beraliv/beraliv.dev/blob/main/packages/blog2/src/functions/firebaseDb.ts)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+```ts
+const privateKey = process.env.FIREBASE_PRIVATE_KEY;
+const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+These variables are required to work with Firebase. In this particular project, it's connected to see and update the views for every article.
 
-## Learn More
+2. [packages/blog2/src/validators/validateEnvParameters.ts](https://github.com/Beraliv/beraliv.dev/blob/main/packages/blog2/src/validators/validateEnvParameters.ts)
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+const apiKey = process.env.CONVERTKIT_PUBLIC_KEY;
+const formId = process.env.CONVERTKIT_SIGNUP_FORM_ID;
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This part is connected to ConvertKit. On the bottom of the page you will see the form where they are used.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Once, you've set them all, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy on Vercel
+## Technologies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Firebase](https://firebase.google.com/?gclsrc=aw.ds&gclid=Cj0KCQiA_JWOBhDRARIsANymNOZHP8ZGgGZaai_oWZ_L9ajH6IqX4FcM4Hfbi7094cCGAY2M057LbWAaAkO8EALw_wcB) - storing data
+- [Formik](https://formik.org/) - building forms
+- [MDX](https://mdxjs.com/) - write articles
+  - [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) - transform MDX to HTML
+  - [gray-matter](https://github.com/jonschlinkert/gray-matter) - extract metadata from MDX
+- [Next.js](https://nextjs.org/) - static rendering
+- [Prism](https://github.com/FormidableLabs/prism-react-renderer) - code highlights
+- [React](https://reactjs.org/) - building User Interfaces
+- [SWR](https://github.com/vercel/swr) - data fetching
+- [Vercel](https://vercel.com/) - deployment and serving content
