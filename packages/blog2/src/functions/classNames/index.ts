@@ -1,15 +1,17 @@
+import is from "@sindresorhus/is";
+
 type ClassName = string | Record<string, boolean> | undefined;
 
 export const classNames = (...args: ClassName[]): string => {
   const array = [];
 
   for (const arg of args) {
-    if (typeof arg === "string") {
+    if (is.string(arg)) {
       array.push(arg);
       continue;
     }
 
-    if (typeof arg === "object") {
+    if (is.object(arg)) {
       const keys = Object.keys(arg);
 
       for (const key of keys) {

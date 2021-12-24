@@ -1,7 +1,7 @@
+import is from "@sindresorhus/is";
 /**
  * @jest-environment jsdom
  */
-
 import { JSDOM } from "jsdom";
 import { expect } from "earljs";
 import { act, renderHook } from "@testing-library/react-hooks";
@@ -18,7 +18,7 @@ describe(useDarkMode.name, () => {
     global.localStorage = {
       getItem: function (key) {
         const value = this[key];
-        return typeof value === "undefined" ? null : value;
+        return is.undefined(value) ? null : value;
       },
       setItem: function (key, value) {
         this[key] = value;

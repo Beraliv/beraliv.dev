@@ -1,3 +1,4 @@
+import is from "@sindresorhus/is";
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { createLocalLinkId } from "../../../functions/createLocalLinkId";
 import { validateNever } from "../../../validators/validateNever";
@@ -9,7 +10,7 @@ interface MdxHeaderPropsType {
 }
 
 export const MdxHeader: FC<MdxHeaderPropsType> = ({ children, type }) => {
-  if (typeof children !== "string") {
+  if (!is.string(children)) {
     return null;
   }
 

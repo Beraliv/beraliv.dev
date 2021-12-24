@@ -1,3 +1,5 @@
+import is from "@sindresorhus/is";
+
 import { ImageLoaderProps } from "next/image";
 
 /**
@@ -14,7 +16,7 @@ export const imageLoader = ({
   width,
   quality = 75,
 }: ExtendedImageLoaderProps) => {
-  if (typeof width === "number") {
+  if (is.number(width)) {
     return `https://res.cloudinary.com/beraliv/image/upload/f_auto,w_${width},q_${quality}/v1633444777/blog_beraliv_dev${src}`;
   }
 

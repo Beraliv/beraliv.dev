@@ -1,3 +1,4 @@
+import is from "@sindresorhus/is";
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { FIREBASE_VIEWS_REF } from "../../src/constants/FIREBASE_VIEWS_REF";
@@ -14,7 +15,7 @@ const views = async (
   response: NextApiResponse<ViewsApi>
 ) => {
   const { slug } = request.query;
-  if (typeof slug !== "string") {
+  if (!is.string(slug)) {
     return response.status(400);
   }
 
@@ -23,7 +24,7 @@ const views = async (
     const ref = firebaseDb.ref(FIREBASE_VIEWS_REF).child(slug);
 
     const { snapshot } = await ref.transaction((views: unknown) => {
-      if (typeof views !== "number") {
+      if (!is.number(views)) {
         return 1;
       }
 
@@ -40,9 +41,7 @@ const views = async (
   if (request.method === "GET") {
     const { views } = await getViews({ slug });
 
-    return response
-      .status(200)
-      .json(typeof views === "number" ? { views } : {});
+    return response.status(200).json(is.number(views) ? { views } : {});
   }
 
   return response.status(404);
