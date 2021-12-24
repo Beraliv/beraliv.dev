@@ -1,7 +1,5 @@
 # beraliv.dev
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/vercel/tree/master/examples/nuxtjs)
+My digital garden 🌳🌲 with projects that I support:
 
-## Portfolio
-
-![](https://raw.githubusercontent.com/Beraliv/beraliv.dev/master/static/page.png)
+- [blog workspace](https://github.com/Beraliv/beraliv.dev/tree/main/packages/blog2) – [blog.beraliv.dev](https://blog.beraliv.dev/)
