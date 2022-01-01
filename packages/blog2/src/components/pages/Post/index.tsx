@@ -43,8 +43,6 @@ export const Post: FC<PostPropsType> = ({
 
   return (
     <div className={styles.container}>
-      <ArticleMainProgress />
-
       <Seo
         description={post.description}
         image={image}
@@ -52,6 +50,8 @@ export const Post: FC<PostPropsType> = ({
         path={`${baseUrl}${post.slug}`}
         title={sanitiseHtml(post.title)}
       />
+
+      <ArticleMainProgress />
 
       <Header title={title} path="post" />
 
