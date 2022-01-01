@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import { KNOWN_LABELS } from "../../../constants/KNOWN_LABELS";
 import { Label } from "../../atoms/Label";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
+import { Snow } from "../../atoms/Snow";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
@@ -85,6 +86,8 @@ export const Search = ({
         path={url}
         title={SEARCH_TITLE}
       />
+
+      <Snow number={15} />
 
       <Header title={title} path="search" />
 
