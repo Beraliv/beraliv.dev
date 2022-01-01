@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import React, { FC } from "react";
 import { classNames } from "../../../functions/classNames";
+import { isWinter } from "../../../functions/isWinter";
 import { validateNever } from "../../../validators/validateNever";
 import { DarkModeToggle } from "../../atoms/DarkModeToggle";
 import { Snow } from "../../atoms/Snow";
@@ -35,7 +36,7 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
     >
       {header}
 
-      <Snow number={50} />
+      {isWinter(new Date()) && <Snow number={50} />}
 
       <DarkModeToggle />
     </header>
