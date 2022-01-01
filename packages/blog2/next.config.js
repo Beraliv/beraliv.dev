@@ -1,6 +1,9 @@
-module.exports = {
-  reactStrictMode: true,
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   experimental: { esmExternals: true },
+  reactStrictMode: true,
   async redirects() {
     return [
       {
@@ -26,3 +29,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = nextConfig;
