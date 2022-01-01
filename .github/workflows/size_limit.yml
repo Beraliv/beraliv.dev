@@ -1,10 +1,13 @@
-name: "size"
+name: size
+
 on:
-  pull_request:
+  push:
     branches:
-      - master
+      - '**'
+      - '!main'
+
 jobs:
-  size:
+  size_limit:
     runs-on: ubuntu-latest
     env:
       CI_JOB_NUMBER: 1
@@ -13,3 +16,4 @@ jobs:
       - uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          build_script: yarn workspace blog2 build
