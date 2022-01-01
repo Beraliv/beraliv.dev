@@ -42,7 +42,7 @@
 
   --article-main-progress-color: rgba(0, 91, 153, 1);
 
-  --snowflake-color: rgba(0, 112, 243, 1);
+  --snowflake-color: rgba(160, 227, 246, 1);
 }
 
 .dark {
@@ -92,7 +92,7 @@
 
   --article-main-progress-color: rgba(0, 91, 153, 1);
 
-  --snowflake-color: rgba(255, 255, 255, 1);
+  /* same --snowflake-color */
 }
 
 html,
