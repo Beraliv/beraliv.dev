@@ -12,5 +12,5 @@ export const Snow = ({ number }: SnowPropsType) => {
       <div className={styles.snowflake} />
     ));
 
-  return <>{snowflakes}</>;
+  return <div className={styles.snow}>{snowflakes}</div>;
 };
