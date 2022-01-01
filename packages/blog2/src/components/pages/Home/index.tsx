@@ -13,7 +13,6 @@ import styles from "./index.module.css";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
-import { Snow } from "../../atoms/Snow";
 
 const HOME_TITLE = "All posts" as SanitisedString;
 
@@ -35,8 +34,6 @@ export const Home = ({
         path={url}
         title={HOME_TITLE}
       />
-
-      <Snow number={15} />
 
       <Header title={title} path="home" />
 

@@ -17,7 +17,6 @@ import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
-import { Snow } from "../../atoms/Snow";
 
 export interface PostPropsType {
   apiKey: string;
@@ -53,8 +52,6 @@ export const Post: FC<PostPropsType> = ({
       />
 
       <ArticleMainProgress />
-
-      <Snow number={15} />
 
       <Header title={title} path="post" />
 

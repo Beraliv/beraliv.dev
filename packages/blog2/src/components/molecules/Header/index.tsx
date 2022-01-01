@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { classNames } from "../../../functions/classNames";
 import { validateNever } from "../../../validators/validateNever";
 import { DarkModeToggle } from "../../atoms/DarkModeToggle";
+import { Snow } from "../../atoms/Snow";
 import styles from "./index.module.css";
 
 interface HeaderPropsType {
@@ -33,6 +34,9 @@ export const Header: FC<HeaderPropsType> = ({ title, path }) => {
       })}
     >
       {header}
+
+      <Snow number={50} />
+
       <DarkModeToggle />
     </header>
   );
