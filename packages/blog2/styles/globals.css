@@ -41,6 +41,8 @@
   --table-border-color: rgba(229, 231, 235, 1);
 
   --article-main-progress-color: rgba(0, 91, 153, 1);
+
+  --snowflake-color: rgba(0, 112, 243, 1);
 }
 
 .dark {
@@ -89,6 +91,8 @@
   --table-border-color: rgba(55, 65, 81, 1);
 
   --article-main-progress-color: rgba(0, 91, 153, 1);
+
+  --snowflake-color: rgba(255, 255, 255, 1);
 }
 
 html,
