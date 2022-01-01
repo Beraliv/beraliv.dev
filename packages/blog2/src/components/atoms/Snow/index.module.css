@@ -6,6 +6,7 @@
   border-radius: 50%;
   position: absolute;
   top: -5vh;
+  pointer-events: none;
 }
 
 @keyframes snowfall {
