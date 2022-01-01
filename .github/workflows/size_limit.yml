@@ -31,4 +31,4 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - run: yarn install
-      - run: yarn workspace blog2 size
+      - run: yarn size
