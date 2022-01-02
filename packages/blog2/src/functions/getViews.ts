@@ -11,9 +11,11 @@ export const getViews = async ({
 }: GetViewsPropsType): Promise<ViewsApi> => {
   // you cannot use destructuring here
   const snapshot = await firebaseDb
-    .ref(FIREBASE_VIEWS_REF)
-    .child(slug)
-    .once("value");
+    ?.ref(FIREBASE_VIEWS_REF)
+    ?.child(slug)
+    ?.once("value");
+
+  if (!snapshot) return { views: 0 };
 
   const views = snapshot.val() as number;
 
