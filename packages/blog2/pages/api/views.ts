@@ -9,6 +9,7 @@ interface DataSnapshot {
   val(): unknown;
 }
 
+// TODO: remove
 const views = async (
   request: NextApiRequest,
   response: NextApiResponse<ViewsApi>
