@@ -21,6 +21,9 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
       - run: pnpm install
       - run: pnpm run type
       - run: pnpm run test
