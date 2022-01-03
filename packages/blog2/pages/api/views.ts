@@ -19,10 +19,12 @@ const views = async (
   }
 
   if (request.method === "POST") {
-    // you cannot use destructuring here
-    const ref = firebaseDb?.ref(FIREBASE_VIEWS_REF)?.child(slug);
+    if (!firebaseDb) {
+      return response.status(503);
+    }
 
-    if (!ref) return undefined;
+    // you cannot use destructuring here
+    const ref = firebaseDb.ref(FIREBASE_VIEWS_REF).child(slug);
 
     const { snapshot } = await ref.transaction((views: unknown) => {
       if (typeof views !== "number") {
