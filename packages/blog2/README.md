@@ -7,13 +7,13 @@ This is the blog page where I write articles about TypeScript 🦺 and video pla
 First, install all dependencies
 
 ```bash
-yarn
+pnpm install
 ```
 
 To be able to run the project, you run dev server
 
 ```bash
-yarn dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
