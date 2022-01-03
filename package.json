@@ -4,15 +4,6 @@
   "description": "My website",
   "author": "beraliv",
   "private": true,
-  "scripts": {
-    "dev": "yarn workspace blog2 dev",
-    "build": "yarn workspace blog2 build",
-    "start": "yarn workspace blog2 start",
-    "lint": "yarn workspace blog2 lint",
-    "type": "yarn workspace blog2 type",
-    "test": "yarn workspace blog2 test",
-    "size": "yarn workspace blog2 size"
-  },
   "engines": {
     "node": ">= 14.17.0"
   }

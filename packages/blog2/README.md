@@ -13,7 +13,7 @@ pnpm install
 To be able to run the project, you run dev server
 
 ```bash
-pnpm run dev
+pnpm run dev --filter ./packages/blog2
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
