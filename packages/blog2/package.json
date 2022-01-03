@@ -44,7 +44,32 @@
   },
   "size-limit": [
     {
-      "path": ".next/static/chunks/**/*.js"
+      "path": ".next/static/chunks/framework-*.js",
+      "limit": "45 kB"
+    },
+    {
+      "path": ".next/static/chunks/761-*.js",
+      "limit": "37 kB"
+    },
+    {
+      "path": ".next/static/chunks/152-*.js",
+      "limit": "30 kB"
+    },
+    {
+      "path": ".next/static/chunks/main-*.js",
+      "limit": "29 kB"
+    },
+    {
+      "path": ".next/static/chunks/pages/[slug]-*.js",
+      "limit": "5 kB"
+    },
+    {
+      "path": ".next/static/chunks/pages/search-*.js",
+      "limit": "4 kB"
+    },
+    {
+      "path": ".next/static/chunks/pages/index-*.js",
+      "limit": "3 kB"
     }
   ]
 }
