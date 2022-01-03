@@ -10,7 +10,7 @@
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
     "type": "tsc --noEmit",
     "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
-    "size": "yarn build && size-limit"
+    "size": "size-limit"
   },
   "dependencies": {
     "firebase-admin": "10.0.1",
