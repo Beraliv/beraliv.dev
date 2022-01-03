@@ -31,7 +31,7 @@ describe(generateRssXml.name, () => {
     const expected = `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title><![CDATA[Alexey Berezin blog]]></title>
-        <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript.]]></description>
+        <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript 🦺.]]></description>
         <link>https://blog.beraliv.dev/</link>
         <image>
             <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner.png</url>
@@ -61,7 +61,7 @@ describe(generateRssXml.name, () => {
     const expected = `<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title><![CDATA[Alexey Berezin blog]]></title>
-        <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript.]]></description>
+        <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript 🦺.]]></description>
         <link>https://blog.beraliv.dev/</link>
         <image>
             <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner.png</url>
