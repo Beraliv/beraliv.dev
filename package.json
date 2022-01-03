@@ -4,9 +4,6 @@
   "description": "My website",
   "author": "beraliv",
   "private": true,
-  "workspaces": [
-    "packages/blog2"
-  ],
   "scripts": {
     "dev": "yarn workspace blog2 dev",
     "build": "yarn workspace blog2 build",
