@@ -9,6 +9,10 @@ interface GetViewsPropsType {
 export const getViews = async ({
   slug,
 }: GetViewsPropsType): Promise<ViewsApi> => {
+  if (!firebaseDb) {
+    return { views: 0 };
+  }
+
   // you cannot use destructuring here
   const snapshot = await firebaseDb
     .ref(FIREBASE_VIEWS_REF)

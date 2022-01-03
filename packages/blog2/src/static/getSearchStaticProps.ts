@@ -1,5 +1,5 @@
 import { getAllPosts } from "../functions/getAllPosts";
-import { validateEnvParameters } from "../validators/validateEnvParameters";
+import { validateConvertKitParameters } from "../validators/validateConvertKitParameters";
 import { validatePost } from "../validators/validatePost";
 
 export const getSearchStaticProps = async () => {
@@ -15,7 +15,7 @@ export const getSearchStaticProps = async () => {
     })
     .map(validatePost);
 
-  const { apiKey, formId } = validateEnvParameters();
+  const { apiKey, formId } = validateConvertKitParameters();
 
   return {
     props: {

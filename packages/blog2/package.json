@@ -9,7 +9,8 @@
     "lint": "next lint",
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
     "type": "tsc --noEmit",
-    "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha"
+    "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
+    "size": "size-limit"
   },
   "dependencies": {
     "firebase-admin": "10.0.1",
@@ -26,6 +27,7 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
+    "@size-limit/preset-app": "7.0.5",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jsdom": "16.2.14",
     "@types/mocha": "9.0.0",
@@ -36,7 +38,13 @@
     "jsdom": "19.0.0",
     "mocha": "9.1.3",
     "remark": "14.0.2",
+    "size-limit": "7.0.5",
     "ts-node": "10.4.0",
     "typescript": "4.5.4"
-  }
+  },
+  "size-limit": [
+    {
+      "path": ".next/static/chunks/**/*.js"
+    }
+  ]
 }

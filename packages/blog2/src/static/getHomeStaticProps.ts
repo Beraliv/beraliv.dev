@@ -1,6 +1,6 @@
 import { getAllPosts } from "../functions/getAllPosts";
 import { getViews } from "../functions/getViews";
-import { validateEnvParameters } from "../validators/validateEnvParameters";
+import { validateConvertKitParameters } from "../validators/validateConvertKitParameters";
 import { validatePost } from "../validators/validatePost";
 
 export const getHomeStaticProps = async () => {
@@ -41,7 +41,7 @@ export const getHomeStaticProps = async () => {
     .slice(0, 6)
     .map(({ views, ...uncheckedPost }) => uncheckedPost);
 
-  const { apiKey, formId } = validateEnvParameters();
+  const { apiKey, formId } = validateConvertKitParameters();
 
   return {
     props: {

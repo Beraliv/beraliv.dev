@@ -5,7 +5,7 @@ import { PostPropsParamsType } from "./getPostStaticPaths";
 import { serialize } from "next-mdx-remote/serialize";
 import { imageMetadata } from "../plugins/imageMetadata";
 import { validatePost } from "../validators/validatePost";
-import { validateEnvParameters } from "../validators/validateEnvParameters";
+import { validateConvertKitParameters } from "../validators/validateConvertKitParameters";
 import { imageLoader } from "../functions/imageLoader";
 import { ImageType } from "../types/ImageType";
 import cache from "../cache/imageMetadata.json";
@@ -25,7 +25,7 @@ export const getPostStaticProps: GetStaticProps<
   const { content, data } = getPostBySlug(params.slug);
   const uncheckedPost = { ...data, slug: params.slug };
   const { image: imageUrl, ...checkedPost } = validatePost(uncheckedPost);
-  const { apiKey, formId } = validateEnvParameters();
+  const { apiKey, formId } = validateConvertKitParameters();
 
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,

@@ -19,6 +19,10 @@ const views = async (
   }
 
   if (request.method === "POST") {
+    if (!firebaseDb) {
+      return response.status(503);
+    }
+
     // you cannot use destructuring here
     const ref = firebaseDb.ref(FIREBASE_VIEWS_REF).child(slug);
 
