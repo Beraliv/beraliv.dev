@@ -35,6 +35,7 @@ importers:
       swr: 1.1.2
       ts-node: 10.4.0
       typescript: 4.5.4
+      unified: 10.1.1
       unist-util-visit: 4.1.0
       yup: 0.32.11
     dependencies:
@@ -69,6 +70,7 @@ importers:
       size-limit: 7.0.5
       ts-node: 10.4.0_363b79b4558bc414430ff119289ee3db
       typescript: 4.5.4
+      unified: 10.1.1
 
 packages:
 
