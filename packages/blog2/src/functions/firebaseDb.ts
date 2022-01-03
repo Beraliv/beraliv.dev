@@ -1,4 +1,5 @@
 import admin from "firebase-admin";
+import { error } from "./error";
 
 export const firebaseDb = (() => {
   const privateKey = process.env.FIREBASE_PRIVATE_KEY;
@@ -6,13 +7,11 @@ export const firebaseDb = (() => {
 
   if (!privateKey || !clientEmail) {
     if (!privateKey) {
-      // TODO: throw error in production
-      console.error(`Cannot find private key in env parameters`);
+      error(`Cannot find private key in env parameters`);
     }
 
     if (!clientEmail) {
-      // TODO: throw error in production
-      console.error(`Cannot find client email in env parameters`);
+      error(`Cannot find client email in env parameters`);
     }
 
     return undefined;

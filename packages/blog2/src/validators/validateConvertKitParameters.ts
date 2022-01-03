@@ -1,4 +1,5 @@
 import { PostPropsType } from "../components/pages/Post";
+import { error } from "../functions/error";
 
 export const validateConvertKitParameters = (): Pick<
   PostPropsType,
@@ -8,13 +9,11 @@ export const validateConvertKitParameters = (): Pick<
   const formId = process.env.CONVERTKIT_SIGNUP_FORM_ID ?? "";
 
   if (!apiKey) {
-    // TODO: throw error in production
-    console.error(`Cannot find api key in env parameters`);
+    error(`Cannot find api key in env parameters`);
   }
 
   if (!formId) {
-    // TODO: throw error in production
-    console.error(`Cannot find form id in env parameters`);
+    error(`Cannot find form id in env parameters`);
   }
 
   return {
