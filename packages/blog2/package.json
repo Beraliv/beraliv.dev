@@ -51,23 +51,19 @@
         "!.next/static/chunks/polyfills-*.js",
         "!.next/static/chunks/webpack-*.js"
       ],
-      "limit": "86 kB"
+      "limit": "88 kB"
     },
     {
       "path": ".next/static/chunks/framework-*.js",
       "limit": "45 kB"
     },
     {
+      "path": ".next/static/chunks/polyfills-*.js",
+      "limit": "32 kB"
+    },
+    {
       "path": ".next/static/chunks/main-*.js",
       "limit": "29 kB"
-    },
-    {
-      "path": ".next/static/chunks/polyfills-*.js",
-      "limit": "31 kB"
-    },
-    {
-      "path": ".next/static/chunks/webpack-*.js",
-      "limit": "2 kB"
     },
     {
       "path": ".next/static/chunks/pages/[slug]-*.js",
@@ -80,6 +76,10 @@
     {
       "path": ".next/static/chunks/pages/index-*.js",
       "limit": "3 kB"
+    },
+    {
+      "path": ".next/static/chunks/webpack-*.js",
+      "limit": "2 kB"
     }
   ]
 }
