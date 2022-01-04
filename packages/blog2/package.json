@@ -51,7 +51,7 @@
         "!.next/static/chunks/polyfills-*.js",
         "!.next/static/chunks/webpack-*.js"
       ],
-      "limit": "86 kB"
+      "limit": "88 kB"
     },
     {
       "path": ".next/static/chunks/framework-*.js",
@@ -63,7 +63,7 @@
     },
     {
       "path": ".next/static/chunks/polyfills-*.js",
-      "limit": "31 kB"
+      "limit": "32 kB"
     },
     {
       "path": ".next/static/chunks/webpack-*.js",
