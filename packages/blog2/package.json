@@ -87,11 +87,5 @@
       "path": ".next/static/chunks/webpack-*.js",
       "limit": "2 kB"
     }
-  ],
-  "peerDependencies": {
-    "@babel/core": ">=7.0.0 <8.0.0",
-    "@firebase/app-compat": "0.x",
-    "@firebase/app-types": "0.x",
-    "@types/node": "*"
-  }
+  ]
 }
