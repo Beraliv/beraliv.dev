@@ -16,12 +16,15 @@ jobs:
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - run: yarn
-      - run: yarn type
-      - run: yarn test
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
+      - run: pnpm install
+      - run: pnpm run type --filter ./packages/blog2
+      - run: pnpm run test --filter ./packages/blog2
 
