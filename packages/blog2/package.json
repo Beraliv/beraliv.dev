@@ -27,9 +27,9 @@
     "yup": "0.32.11"
   },
   "devDependencies": {
-    "@babel/core": ">=7.0.0 <8.0.0",
-    "@firebase/app-compat": "0.x",
-    "@firebase/app-types": "0.x",
+    "@babel/core": "7.16.7",
+    "@firebase/app-compat": "0.1.12",
+    "@firebase/app-types": "0.7.0",
     "@size-limit/preset-app": "7.0.5",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jsdom": "16.2.14",
