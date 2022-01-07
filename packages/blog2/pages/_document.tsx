@@ -32,6 +32,13 @@ class ExtendedDocument extends Document {
             data-domain="blog.beraliv.dev"
             src="/stats/js/script.js"
           ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+              `,
+            }}
+          />
         </Head>
         <body>
           <script
