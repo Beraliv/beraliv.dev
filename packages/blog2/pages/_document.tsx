@@ -30,6 +30,11 @@ class ExtendedDocument extends Document {
             rel="preconnect dns-prefetch"
             href="https://www.google-analytics.com"
           />
+          <script
+            defer
+            data-domain="blog.beraliv.dev"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
         </Head>
         <body>
           <script
