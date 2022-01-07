@@ -6,8 +6,6 @@ import Document, {
   DocumentContext,
 } from "next/document";
 
-const GOOGLE_ANALYTICS_TRACKING_ID = "UA-191938568-1";
-
 class ExtendedDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -31,25 +29,6 @@ class ExtendedDocument extends Document {
           <link
             rel="preconnect dns-prefetch"
             href="https://www.google-analytics.com"
-          />
-          <script
-            type="text/javascript"
-            async
-            src="https://www.google-analytics.com/analytics.js"
-          />
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GOOGLE_ANALYTICS_TRACKING_ID}', { page_path: window.location.pathname });
-              `,
-            }}
           />
         </Head>
         <body>
