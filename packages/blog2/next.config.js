@@ -1,6 +1,9 @@
-module.exports = {
-  reactStrictMode: true,
+/**
+ * @type {import('next').NextConfig}
+ */
+const config = {
   experimental: { esmExternals: true },
+  reactStrictMode: true,
   async redirects() {
     return [
       {
@@ -25,4 +28,18 @@ module.exports = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/stats/js/script.js",
+        destination: "https://plausible.io/js/plausible.js",
+      },
+      {
+        source: "/stats/api/event",
+        destination: "https://plausible.io/api/event",
+      },
+    ];
+  },
 };
+
+module.exports = config;

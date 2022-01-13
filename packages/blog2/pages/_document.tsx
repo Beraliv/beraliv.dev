@@ -32,8 +32,9 @@ class ExtendedDocument extends Document {
           />
           <script
             defer
+            data-api="/stats/api/event"
             data-domain="blog.beraliv.dev"
-            src="https://plausible.io/js/plausible.js"
+            src="/stats/js/script.js"
           ></script>
         </Head>
         <body>
