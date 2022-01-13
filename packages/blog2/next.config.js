@@ -1,6 +1,12 @@
+/**
+ * @type {import('next').NextConfig}
+ */
 module.exports = {
-  reactStrictMode: true,
   experimental: { esmExternals: true },
+  generateBuildId: async () => {
+    return "fixed-hash";
+  },
+  reactStrictMode: true,
   async redirects() {
     return [
       {
