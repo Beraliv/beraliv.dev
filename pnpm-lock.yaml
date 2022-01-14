@@ -24,7 +24,7 @@ importers:
       formik: 2.2.9
       gray-matter: 4.0.3
       jsdom: 19.0.0
-      mocha: 9.1.3
+      mocha: 9.1.4
       next: 12.0.7
       next-mdx-remote: 3.0.8
       prism-react-renderer: 1.2.1
@@ -67,7 +67,7 @@ importers:
       eslint: 8.6.0
       eslint-config-next: 12.0.7_7d5ff8d8e1054d856b46ec86cec9a25f
       jsdom: 19.0.0
-      mocha: 9.1.3
+      mocha: 9.1.4
       remark: 14.0.2
       size-limit: 7.0.5
       ts-node: 10.4.0_363b79b4558bc414430ff119289ee3db
@@ -4879,8 +4879,8 @@ packages:
     hasBin: true
     dev: true
 
-  /mocha/9.1.3:
-    resolution: {integrity: sha512-Xcpl9FqXOAYqI3j79pEtHBBnQgVXIhpULjGQa7DVb0Po+VzmSIK9kanAiWLHoRR/dbZ2qpdPshuXr8l1VaHCzw==}
+  /mocha/9.1.4:
+    resolution: {integrity: sha512-+q2aV5VlJZuLgCWoBvGI5zEwPF9eEI0kr/sAA9Jm4xMND7RfIEyF8JE7C0JIg8WXRG+P1sdIAb5ccoHPlXLzcw==}
     engines: {node: '>= 12.0.0'}
     hasBin: true
     dependencies:
