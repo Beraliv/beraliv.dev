@@ -38,7 +38,7 @@
     "@types/react": "17.0.38",
     "csstype": "3.0.10",
     "earljs": "0.1.12",
-    "eslint": "8.6.0",
+    "eslint": "8.7.0",
     "eslint-config-next": "12.0.7",
     "jsdom": "19.0.0",
     "mocha": "9.1.3",
