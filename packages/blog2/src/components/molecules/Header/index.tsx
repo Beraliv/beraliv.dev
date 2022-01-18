@@ -1,5 +1,4 @@
 import NextLink from "next/link";
-import React, { FC } from "react";
 import { classNames } from "../../../functions/classNames";
 import { isWinter } from "../../../functions/isWinter";
 import { validateNever } from "../../../validators/validateNever";
@@ -12,7 +11,7 @@ interface HeaderPropsType {
   path: "home" | "post" | "search";
 }
 
-export const Header: FC<HeaderPropsType> = ({ title, path }) => {
+export const Header = ({ title, path }: HeaderPropsType) => {
   let header;
 
   if (path === "home") {

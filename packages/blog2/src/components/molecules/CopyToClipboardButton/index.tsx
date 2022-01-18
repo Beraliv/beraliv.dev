@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { copyToClipboard } from "../../../functions/copyToClipboard";
 import { validateNever } from "../../../validators/validateNever";
 import { CopyToClipboardIcon } from "../../atoms/CopyToClipboardIcon";
@@ -10,9 +10,9 @@ interface CopyToClipboardButtonPropsType {
   whatToCopy: string;
 }
 
-export const CopyToClipboardButton: FC<CopyToClipboardButtonPropsType> = ({
+export const CopyToClipboardButton = ({
   whatToCopy,
-}) => {
+}: CopyToClipboardButtonPropsType) => {
   const [stage, setStage] = useState<CopyStageType>("copy");
 
   const handleClick = useCallback(() => {

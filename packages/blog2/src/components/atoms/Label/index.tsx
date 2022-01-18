@@ -1,4 +1,3 @@
-import React, { FC } from "react";
 import { classNames } from "../../../functions/classNames";
 import styles from "./index.module.css";
 
@@ -7,7 +6,7 @@ interface LabelPropsType {
   title: string;
 }
 
-export const Label: FC<LabelPropsType> = ({ selected = false, title }) => (
+export const Label = ({ selected = false, title }: LabelPropsType) => (
   <a
     className={classNames(styles.label, {
       [styles.selected]: selected,

@@ -1,5 +1,4 @@
 import NextHead from "next/head";
-import { FC } from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { classNames } from "../../../functions/classNames";
 import { ImageType } from "../../../types/ImageType";
@@ -17,13 +16,13 @@ type SeoPropsType = Pick<PostType, "description" | "keywords"> & {
   title: SanitisedString;
 };
 
-export const Seo: FC<SeoPropsType> = ({
+export const Seo = ({
   description,
   image,
   keywords,
   path,
   title,
-}) => (
+}: SeoPropsType) => (
   <NextHead>
     {/* general */}
     <title>
