@@ -15,9 +15,9 @@ const getAccessToken = async (): Promise<string> => {
       Authorization: `Basic ${basic}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify({
+    body: new URLSearchParams({
       grant_type: "refresh_token",
-      refresh_token: refreshToken,
+      refresh_token: refreshToken ?? "",
     }),
   });
 
