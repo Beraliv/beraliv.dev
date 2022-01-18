@@ -29,7 +29,7 @@ const getAccessToken = async (): Promise<string> => {
 
 type NowPlayingMetadata =
   | {
-      is_playing: true;
+      is_playing: boolean;
       item: {
         album: {
           artists: {
