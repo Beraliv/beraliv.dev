@@ -1,8 +1,8 @@
-import { FC, memo } from "react";
+import { memo } from "react";
 import styles from "./index.module.css";
 
 // eslint-disable-next-line react/display-name
-export const TypeScriptIcon: FC = memo(() => (
+export const TypeScriptIcon = memo(() => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"

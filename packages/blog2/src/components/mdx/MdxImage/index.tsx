@@ -1,5 +1,4 @@
 import NextImage from "next/image";
-import { FC } from "react";
 import { imageLoader } from "../../../functions/imageLoader";
 import styles from "./index.module.css";
 
@@ -10,7 +9,7 @@ interface MxdImagePropsType {
   height: number;
 }
 
-export const MdxImage: FC<MxdImagePropsType> = (props) => (
+export const MdxImage = (props: MxdImagePropsType) => (
   <figure className={styles.figure}>
     <NextImage {...props} loader={imageLoader} />
     <figcaption>{props.alt}</figcaption>

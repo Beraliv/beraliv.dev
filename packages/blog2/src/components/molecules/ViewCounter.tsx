@@ -1,11 +1,11 @@
-import React, { FC, useEffect } from "react";
+import { useEffect } from "react";
 import { ViewReader } from "../atoms/ViewReader";
 
 interface ViewCounterProps {
   slug: string;
 }
 
-export const ViewCounter: FC<ViewCounterProps> = ({ slug }) => {
+export const ViewCounter = ({ slug }: ViewCounterProps) => {
   useEffect(() => {
     const registerView = () =>
       fetch(`/api/views?slug=${slug}`, {

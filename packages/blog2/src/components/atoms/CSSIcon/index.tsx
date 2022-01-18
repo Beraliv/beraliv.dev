@@ -1,7 +1,7 @@
-import { FC, memo } from "react";
+import { memo } from "react";
 
 // eslint-disable-next-line react/display-name
-export const CSSIcon: FC = memo(() => (
+export const CSSIcon = memo(() => (
   <svg
     width="24"
     height="24"

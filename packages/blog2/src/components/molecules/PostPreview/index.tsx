@@ -1,4 +1,4 @@
-import { Fragment, FC } from "react";
+import { Fragment } from "react";
 import { PostType } from "../../../types/PostType";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { labelToIconMapping } from "../labelToIconMapping";
@@ -11,12 +11,12 @@ type PostPreviewPropsType = Pick<
   title: SanitisedString;
 };
 
-export const PostPreview: FC<PostPreviewPropsType> = ({
+export const PostPreview = ({
   description,
   labels,
   slug,
   title,
-}) => (
+}: PostPreviewPropsType) => (
   <a href={slug} key={slug} className={styles.card}>
     <pre>
       {labels.map((label) => (

@@ -1,8 +1,7 @@
-import React, { FC } from "react";
 import styles from "./index.module.css";
 import { BuyMeCoffeeIcon } from "../../atoms/BuyMeCoffeeIcon";
 
-export const BuyMeCoffeeButton: FC = () => (
+export const BuyMeCoffeeButton = () => (
   <a
     className={styles.buymecoffee}
     href="https://www.buymeacoffee.com/beraliv"

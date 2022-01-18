@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "./index.module.css";
@@ -38,10 +38,10 @@ export interface SubscriptionFormPropsType {
   formId: string;
 }
 
-export const SubscriptionForm: FC<SubscriptionFormPropsType> = ({
+export const SubscriptionForm = ({
   apiKey,
   formId,
-}) => {
+}: SubscriptionFormPropsType) => {
   const [state, setState] = useState<SubscriptionFormState>({ status: "idle" });
 
   const handleSubmit = useCallback(

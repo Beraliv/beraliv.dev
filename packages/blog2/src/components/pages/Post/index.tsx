@@ -1,4 +1,3 @@
-import React, { FC, useRef } from "react";
 import { PostType } from "../../../types/PostType";
 import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
@@ -32,13 +31,13 @@ export interface PostPropsType {
   image: ImageType;
 }
 
-export const Post: FC<PostPropsType> = ({
+export const Post = ({
   apiKey,
   content,
   formId,
   image,
   post,
-}) => {
+}: PostPropsType) => {
   const { title, url: baseUrl } = BLOG_META_INFO;
 
   return (

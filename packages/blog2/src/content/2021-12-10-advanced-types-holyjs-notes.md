@@ -100,17 +100,14 @@ interface Country {
 3. Documentation
 
 ```typescript title=React component Label which accepts object props with 2 fields – selected and title
-import { FC } from "react";
-
 interface LabelPropsType {
   selected?: boolean;
   title: string;
 }
 
-export const Label: React.FC<LabelPropsType> = ({
-  selected = false,
-  title,
-}) => <a href={selected ? `/search` : `/search?label=${title}`}>{title}</a>;
+export const Label = ({ selected = false, title }: LabelPropsType) => (
+  <a href={selected ? `/search` : `/search?label=${title}`}>{title}</a>
+);
 ```
 
 ## Basic types

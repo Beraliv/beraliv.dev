@@ -1,10 +1,9 @@
 import NextImage from "next/image";
-import React, { FC } from "react";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { BuyMeCoffeeButton } from "../BuyMeCoffeeButton";
 import styles from "./index.module.css";
 
-export const Bio: FC = () => {
+export const Bio = () => {
   const { author, summary, social } = BLOG_META_INFO;
   const { twitter } = social;
 
