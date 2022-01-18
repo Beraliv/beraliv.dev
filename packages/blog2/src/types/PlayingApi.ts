@@ -3,10 +3,10 @@ export type PlayingApi =
       isPlaying: false;
     }
   | {
-      album: string;
       albumImageUrl: string | undefined;
-      artist: string;
+      albumName: string;
+      artistName: string;
       isPlaying: boolean;
+      songName: string;
       songUrl: string;
-      title: string;
     };

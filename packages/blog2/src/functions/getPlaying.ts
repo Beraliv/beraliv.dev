@@ -73,11 +73,13 @@ export const getPlaying = async (): Promise<PlayingApi> => {
   }
 
   return {
-    album: metadata.item.album.name,
     albumImageUrl: metadata.item.album.images[0]?.url,
-    artist: metadata.item.album.artists.map((artist) => artist.name).join(", "),
+    albumName: metadata.item.album.name,
+    artistName: metadata.item.album.artists
+      .map((artist) => artist.name)
+      .join(", "),
     isPlaying: metadata.is_playing,
+    songName: metadata.item.name,
     songUrl: metadata.item.external_urls.spotify,
-    title: metadata.item.name,
   };
 };
