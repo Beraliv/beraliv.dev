@@ -72,6 +72,10 @@ export const getPlaying = async (): Promise<PlayingApi> => {
     return { isPlaying: false };
   }
 
+  if (!metadata.is_playing) {
+    return { isPlaying: false };
+  }
+
   return {
     albumImageUrl: metadata.item.album.images[0]?.url,
     albumName: metadata.item.album.name,
