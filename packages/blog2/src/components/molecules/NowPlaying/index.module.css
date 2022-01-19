@@ -1,0 +1,22 @@
+.nowPlaying {
+  display: flex;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+.albumImage {
+  margin-left: 11px;
+}
+
+.albumImage,
+.spotifyIcon {
+  display: inline-flex;
+
+  margin-right: 0.5rem;
+}
+
+.equaliser {
+  margin-right: 0.5rem;
+  margin-top: 5px;
+}
