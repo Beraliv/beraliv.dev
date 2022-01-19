@@ -3,6 +3,12 @@
  */
 const config = {
   experimental: { esmExternals: true },
+  images: {
+    domains: [
+      // packages/blog2/src/components/molecules/NowPlaying/index.tsx
+      "i.scdn.co",
+    ],
+  },
   reactStrictMode: true,
   async redirects() {
     return [
