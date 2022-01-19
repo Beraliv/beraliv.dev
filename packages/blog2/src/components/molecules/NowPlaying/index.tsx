@@ -13,8 +13,8 @@ export const NowPlaying = () => {
       {data?.albumImageUrl ? (
         <div className={styles.albumImage}>
           <NextImage
-            width={28}
-            height={28}
+            width={50}
+            height={50}
             alt="cover of album"
             src={data.albumImageUrl}
           />
@@ -28,8 +28,8 @@ export const NowPlaying = () => {
         <>
           <div className={styles.equaliser}>
             <NextImage
-              width={14}
-              height={14}
+              width={25}
+              height={25}
               alt="equaliser"
               src="/equaliser-animated.gif"
             />

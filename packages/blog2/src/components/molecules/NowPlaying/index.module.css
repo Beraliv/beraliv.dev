@@ -1,6 +1,8 @@
 .nowPlaying {
   display: flex;
   align-items: center;
+
+  margin: 1rem;
 }
 
 .albumImage {
@@ -16,4 +18,5 @@
 
 .equaliser {
   margin-right: 0.5rem;
+  margin-top: 5px;
 }
