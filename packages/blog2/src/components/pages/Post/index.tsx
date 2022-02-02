@@ -64,9 +64,6 @@ export const Post = ({
             />
             <div className={styles.headerMetadata}>
               <small>{post.date}</small>
-              <small>
-                <ViewCounter slug={post.slug} />
-              </small>
             </div>
           </header>
           <main>
