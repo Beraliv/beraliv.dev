@@ -4,7 +4,6 @@ import type { serialize } from "next-mdx-remote/serialize";
 import { Awaited } from "../../../types/Awaited";
 import { ImageType } from "../../../types/ImageType";
 import { StrictOmit } from "../../../types/StrictOmit";
-import { ViewCounter } from "../../molecules/ViewCounter";
 import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
 import { Bio } from "../../molecules/Bio";
@@ -64,9 +63,6 @@ export const Post = ({
             />
             <div className={styles.headerMetadata}>
               <small>{post.date}</small>
-              <small>
-                <ViewCounter slug={post.slug} />
-              </small>
             </div>
           </header>
           <main>

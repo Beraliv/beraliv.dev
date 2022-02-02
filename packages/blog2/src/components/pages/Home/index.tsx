@@ -21,7 +21,6 @@ export const Home = ({
   formId,
   featuredPosts,
   latestPosts,
-  mostViewedPosts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
 
@@ -45,19 +44,6 @@ export const Home = ({
         <h1>Featured</h1>
         <div className={styles.grid}>
           {featuredPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
-          ))}
-        </div>
-
-        <h1>Most viewed</h1>
-        <div className={styles.grid}>
-          {mostViewedPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
               key={slug}
               description={description}
