@@ -13,7 +13,7 @@ importers:
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.0
       '@types/node': '*'
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       csstype: 3.0.10
       earljs: 0.2.0
       eslint: 8.8.0
@@ -55,7 +55,7 @@ importers:
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.0
       '@types/node': 17.0.7
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       csstype: 3.0.10
       earljs: 0.2.0_typescript@4.5.5
       eslint: 8.8.0
@@ -640,7 +640,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.16.7
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
       '@types/react-dom': 17.0.11
       '@types/react-test-renderer': 17.0.1
       react: 17.0.2
@@ -765,17 +765,17 @@ packages:
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
   /@types/react-test-renderer/17.0.1:
     resolution: {integrity: sha512-3Fi2O6Zzq/f3QR9dRnlnHso9bMl7weKCviFmfF6B4LS1Uat6Hkm15k0ZAQuDz+UBq6B3+g+NM6IT2nr5QgPzCw==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
-  /@types/react/17.0.38:
-    resolution: {integrity: sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==}
+  /@types/react/17.0.39:
+    resolution: {integrity: sha512-UVavlfAxDd/AgAacMa60Azl7ygyQNRwC/DsHZmKgNvPmRR5p70AJ5Q9EAmL2NWOJmeV+vVUI4IAP7GZrN8h8Ug==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
