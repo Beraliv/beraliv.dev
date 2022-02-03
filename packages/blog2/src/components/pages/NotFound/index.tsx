@@ -6,6 +6,7 @@ import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
 import { getNotFoundStaticProps } from "../../../static/getNotFoundStaticProps";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { Bio } from "../../molecules/Bio";
+import { Footer } from "../../molecules/Footer";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
@@ -48,6 +49,8 @@ export const NotFound = ({
           <SubscriptionForm apiKey={apiKey} formId={formId} />
         </aside>
       </main>
+
+      <Footer />
     </div>
   );
 };
