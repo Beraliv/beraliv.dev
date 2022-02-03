@@ -32,7 +32,7 @@
     "@types/jsdom": "16.2.14",
     "@types/mocha": "9.1.0",
     "@types/node": "*",
-    "@types/react": "17.0.38",
+    "@types/react": "17.0.39",
     "csstype": "3.0.10",
     "earljs": "0.2.0",
     "eslint": "8.8.0",
