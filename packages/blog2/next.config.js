@@ -38,7 +38,7 @@ const config = {
     return [
       {
         source: "/stats/js/script.js",
-        destination: "https://plausible.io/js/plausible.js",
+        destination: "https://plausible.io/js/plausible.outbound-links.js",
       },
       {
         source: "/stats/api/event",
