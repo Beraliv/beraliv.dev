@@ -2,12 +2,25 @@
   padding: 1rem 1.25rem;
 }
 
-.notFound {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.toHome a {
+  flex-grow: 1;
+
+  padding: 0.75rem 1rem;
+
+  height: 3rem;
+  color: var(--subscription-form-submit-button-color);
+  background-color: var(--subscription-form-submit-button-background-color);
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
