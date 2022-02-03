@@ -3,13 +3,14 @@ import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
 import { useDarkMode } from "../../../hooks/useDarkMode";
 import { SanitisedString } from "../../../types/SanitisedString";
+import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import styles from "./index.module.css";
 
 const NOT_FOUND_TITLE = "Not Found" as SanitisedString;
 
 export const NotFound = () => {
-  const { author, keywords, url } = BLOG_META_INFO;
+  const { author, keywords, title, url } = BLOG_META_INFO;
 
   const { darkMode } = useDarkMode();
 
@@ -26,6 +27,8 @@ export const NotFound = () => {
         path={url}
         title={NOT_FOUND_TITLE}
       />
+
+      <Header title={title} path="404" />
 
       <h1 className={styles.notFound}>{darkMode ? "🤷" : "🤷🏿"}</h1>
     </div>
