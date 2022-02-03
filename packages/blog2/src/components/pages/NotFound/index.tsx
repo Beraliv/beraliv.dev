@@ -39,10 +39,12 @@ export const NotFound = ({
       <main className={styles.main}>
         <Bio />
 
-        <h1>404: Cannot find what you look for 😢</h1>
+        <div className={styles.notFound}>
+          <h1>404: Cannot find what you look for 😢</h1>
 
-        <div className={styles.toHome}>
-          <NextLink href="/">Return Home</NextLink>
+          <div className={styles.toHome}>
+            <NextLink href="/">Return Home</NextLink>
+          </div>
         </div>
 
         <aside className={styles.aside}>
