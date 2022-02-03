@@ -7,7 +7,8 @@
 }
 
 .homeHeader,
-.searchHeader {
+.searchHeader,
+.notFoundHeader {
   max-width: 42rem;
 
   margin: 0 auto;

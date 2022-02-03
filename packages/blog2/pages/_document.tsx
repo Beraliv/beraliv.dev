@@ -26,16 +26,19 @@ class ExtendedDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@700;900&display=swap"
             rel="stylesheet"
           />
-          <link
-            rel="preconnect dns-prefetch"
-            href="https://www.google-analytics.com"
-          />
           <script
             defer
             data-api="/stats/api/event"
             data-domain="blog.beraliv.dev"
             src="/stats/js/script.js"
           ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }
+              `,
+            }}
+          />
         </Head>
         <body>
           <script

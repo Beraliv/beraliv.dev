@@ -8,3 +8,18 @@ declare module "csstype" {
     "--scroll"?: `${Percents}%`;
   }
 }
+
+declare global {
+  interface PlausibleEventOptions {
+    "404": {
+      props: {
+        path: string;
+      };
+    };
+  }
+
+  declare var plausible: <K extends keyof PlausibleEventOptions>(
+    event: K,
+    options: PlausibleEventOptions[K]
+  ) => void;
+}
