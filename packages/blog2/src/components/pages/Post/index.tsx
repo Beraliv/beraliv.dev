@@ -15,6 +15,7 @@ import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
+import { useEffect } from "react";
 
 export interface PostPropsType {
   apiKey: string;
@@ -38,6 +39,14 @@ export const Post = ({
   post,
 }: PostPropsType) => {
   const { title, url: baseUrl } = BLOG_META_INFO;
+
+  useEffect(() => {
+    const { labels } = post;
+
+    labels.forEach((label) => {
+      plausible("Label", { props: { type: label } });
+    });
+  }, [post.labels]);
 
   return (
     <div className={styles.container}>

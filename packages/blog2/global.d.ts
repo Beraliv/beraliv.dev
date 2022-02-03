@@ -1,4 +1,5 @@
 import { Percents } from "./src/types/Percents";
+import { LabelType } from "./src/types/LabelType";
 
 // My css.d.ts file
 import * as CSS from "csstype";
@@ -14,6 +15,11 @@ declare global {
     "404": {
       props: {
         path: string;
+      };
+    };
+    Label: {
+      props: {
+        type: LabelType;
       };
     };
   }
