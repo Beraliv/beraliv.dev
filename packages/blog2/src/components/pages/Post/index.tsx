@@ -1,7 +1,6 @@
 import { PostType } from "../../../types/PostType";
 import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
-import { Awaited } from "../../../types/Awaited";
 import { ImageType } from "../../../types/ImageType";
 import { StrictOmit } from "../../../types/StrictOmit";
 import { PickRequired } from "../../../types/PickRequired";
