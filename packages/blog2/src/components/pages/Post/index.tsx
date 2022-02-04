@@ -1,10 +1,8 @@
 import { PostType } from "../../../types/PostType";
 import { PostBody } from "../../atoms/PostBody";
 import type { serialize } from "next-mdx-remote/serialize";
-import { Awaited } from "../../../types/Awaited";
 import { ImageType } from "../../../types/ImageType";
 import { StrictOmit } from "../../../types/StrictOmit";
-import { PickRequired } from "../../../types/PickRequired";
 import { Label } from "../../atoms/Label";
 import { Bio } from "../../molecules/Bio";
 import { Footer } from "../../molecules/Footer";
@@ -16,13 +14,14 @@ import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
 import { useEffect } from "react";
+import type { MarkRequired } from "ts-essentials";
 
 export interface PostPropsType {
   apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
   formId: string;
   post: StrictOmit<
-    PickRequired<
+    MarkRequired<
       Partial<PostType>,
       "date" | "description" | "keywords" | "labels" | "slug" | "title"
     >,

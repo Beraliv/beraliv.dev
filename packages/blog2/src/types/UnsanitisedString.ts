@@ -1,3 +1,3 @@
-import { OpaqueType } from "./OpaqueType";
+import type { Opaque } from "ts-essentials";
 
-export type UnsanitisedString = OpaqueType<string, "unsanitised">;
+export type UnsanitisedString = Opaque<string, "unsanitised">;
