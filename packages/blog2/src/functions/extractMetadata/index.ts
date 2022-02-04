@@ -1,11 +1,11 @@
 import { readFile, writeFile } from "fs";
 import { join } from "path";
+import { DeepPartial } from "ts-essentials";
 import { promisify } from "util";
 import { SizeInformation } from "../../types/SizeInformation";
 import { fetchJson } from "../fetchJson";
 import { sizeLoader } from "../sizeLoader";
 import { imageLoader } from "../imageLoader";
-import { DeepPartial } from "../../types/DeepPartial";
 
 const readFileAsync = promisify(readFile);
 const writeFileAsync = promisify(writeFile);
