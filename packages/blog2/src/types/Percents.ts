@@ -1,3 +1,3 @@
-import { OpaqueType } from "./OpaqueType";
+import type { Opaque } from "ts-essentials";
 
-export type Percents = OpaqueType<number, "percents">;
+export type Percents = Opaque<number, "percents">;
