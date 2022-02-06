@@ -85,4 +85,16 @@ Now it's working as expected 🔥
 
 Check out Playground – https://tsplay.dev/WKk0DW
 
+And last but not least, as you see we return empty array `[]` in several places, let's simplify solution a little bit:
+
+```typescript title=Shorter solution
+type Flatten<T> = T extends [infer Head, ...infer Tail]
+  ? Head extends any[]
+    ? [...Flatten<Head>, ...Flatten<Tail>]
+    : [Head, ...Flatten<Tail>]
+  : [];
+```
+
+Shorter solution – https://tsplay.dev/WP7gzm
+
 Thank you for your time and have a productive upcoming week 🚀
