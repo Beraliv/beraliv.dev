@@ -187,25 +187,9 @@
     "width": 894,
     "height": 364
   },
-  "/flatten-tuple-type-in-typescript/step1-example-of-use.png": {
-    "width": 1070,
-    "height": 574
-  },
-  "/flatten-tuple-type-in-typescript/step2-iterate-over-tuple.png": {
-    "width": 1012,
-    "height": 504
-  },
-  "/flatten-tuple-type-in-typescript/step3-always-put-elements-to-the-result-type.png": {
-    "width": 1012,
-    "height": 504
-  },
-  "/flatten-tuple-type-in-typescript/step4-not-applying-recursively-for-elements-which-are-tuples.png": {
-    "width": 952,
-    "height": 468
-  },
-  "/flatten-tuple-type-in-typescript/step5-solution.png": {
-    "width": 1094,
-    "height": 574
+  "/flatten-tuple-type-in-typescript/image.png": {
+    "width": 1600,
+    "height": 900
   },
   "/includes-in-typescript/step1-example-of-use.png": {
     "width": 1266,
