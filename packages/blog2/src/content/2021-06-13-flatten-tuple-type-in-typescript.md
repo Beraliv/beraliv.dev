@@ -8,7 +8,7 @@ keywords:
   - typescript
   - challenges
   - flatten
-image: /flatten-tuple-type-in-typescript/step1-example-of-use.png
+image: /flatten-tuple-type-in-typescript/image.png
 ---
 
 ```typescript title=Example of Flatten use
