@@ -12,6 +12,6 @@ interface MxdImagePropsType {
 export const MdxImage = (props: MxdImagePropsType) => (
   <figure className={styles.figure}>
     <NextImage {...props} loader={imageLoader} />
-    <figcaption>{props.alt}</figcaption>
+    <figcaption className={styles.figcaption}>{props.alt}</figcaption>
   </figure>
 );
