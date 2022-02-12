@@ -40,9 +40,7 @@ export const Post = ({
   const { title, url: baseUrl } = BLOG_META_INFO;
 
   useEffect(() => {
-    const { labels } = post;
-
-    labels.forEach((label) => {
+    post.labels.forEach((label) => {
       plausible("Label", { props: { type: label } });
     });
   }, [post.labels]);
