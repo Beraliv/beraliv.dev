@@ -106,8 +106,8 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Merriweather, ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  font-family: Montserrat, ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
   color: var(--color);
   background-color: var(--background-color);
 }
