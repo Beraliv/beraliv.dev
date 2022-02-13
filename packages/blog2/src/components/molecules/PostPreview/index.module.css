@@ -48,7 +48,7 @@
 }
 
 .card p {
-  --text-size: 1.25rem;
+  --text-size: 1rem;
   --text-line-height: 1.5;
 
   margin: 0;

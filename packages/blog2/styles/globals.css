@@ -43,6 +43,10 @@
   --article-main-progress-color: rgba(0, 91, 153, 1);
 
   --snowflake-color: rgba(160, 227, 246, 1);
+
+  /* colours */
+
+  --a-color: rgba(0, 91, 153, 1);
 }
 
 .dark {
@@ -90,7 +94,7 @@
 
   --table-border-color: rgba(55, 65, 81, 1);
 
-  --article-main-progress-color: rgba(0, 91, 153, 1);
+  /* same --article-main-progress-color */
 
   /* same --snowflake-color */
 }
@@ -106,8 +110,8 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Merriweather, ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  font-family: Montserrat, ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
   color: var(--color);
   background-color: var(--background-color);
 }
@@ -174,7 +178,7 @@ h6 {
 }
 
 a {
-  color: #005b99;
+  color: var(--a-color);
   text-decoration: inherit;
 }
 

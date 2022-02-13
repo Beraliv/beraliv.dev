@@ -6,9 +6,11 @@
 .summary {
   margin-right: 1rem;
   margin-bottom: 0;
+  line-height: 1.5;
 }
 
 .avatar {
+  display: inline-flex;
   flex: 0 0 50px;
   margin-bottom: 0px;
   border-radius: 9999px;
