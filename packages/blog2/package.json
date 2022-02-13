@@ -43,7 +43,7 @@
     "size-limit": "7.0.8",
     "ts-essentials": "9.1.2",
     "ts-node": "10.5.0",
-    "typescript": "4.6.0-dev.20220118",
+    "typescript": "rc",
     "unified": "10.1.1"
   },
   "size-limit": [
