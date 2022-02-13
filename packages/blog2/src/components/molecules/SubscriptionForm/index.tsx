@@ -81,7 +81,7 @@ export const SubscriptionForm = ({
       <div className={styles.idle}>
         <h3>Let&#39;s chat and have fun 🧑‍💻👩‍💻</h3>
         <p>
-          No more often than once a week I write 📄 about TypeScript 💪, video
+          No more often than once a week I write 📄 about TypeScript 🦺, video
           playback 📺 and frontend related topics. You can unsubscribe in any
           time ↘️
         </p>
