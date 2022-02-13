@@ -65,6 +65,11 @@
   flex-direction: column;
 }
 
+.idle p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .submitted,
 .submitting,
 .error {

@@ -41,7 +41,7 @@ export const Home = ({
           <Bio />
         </div>
 
-        <h1>Featured</h1>
+        <h3>Featured</h3>
         <div className={styles.grid}>
           {featuredPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
@@ -54,7 +54,7 @@ export const Home = ({
           ))}
         </div>
 
-        <h1>Latest</h1>
+        <h3>Latest</h3>
         <div className={styles.grid}>
           {latestPosts.map(({ description, labels, slug, title }) => (
             <PostPreview
