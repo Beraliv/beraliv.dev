@@ -30,7 +30,7 @@ importers:
       remark: 14.0.2
       remark-unwrap-images: 3.0.1
       size-limit: 7.0.8
-      swr: 1.2.1
+      swr: 1.2.2
       ts-essentials: 9.1.2
       ts-node: 10.5.0
       typescript: 4.5.5
@@ -46,7 +46,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       remark-unwrap-images: 3.0.1
-      swr: 1.2.1_react@17.0.2
+      swr: 1.2.2_react@17.0.2
       unist-util-visit: 4.1.0
       yup: 0.32.11
     devDependencies:
@@ -4821,8 +4821,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /swr/1.2.1_react@17.0.2:
-    resolution: {integrity: sha512-1cuWXqJqXcFwbgONGCY4PHZ8v05009JdHsC3CIC6u7d00kgbMswNr1sHnnhseOBxtzVqcCNpOHEgVDciRer45w==}
+  /swr/1.2.2_react@17.0.2:
+    resolution: {integrity: sha512-ky0BskS/V47GpW8d6RU7CPsr6J8cr7mQD6+do5eky3bM0IyJaoi3vO8UhvrzJaObuTlGhPl2szodeB2dUd76Xw==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
