@@ -15,7 +15,7 @@
   "dependencies": {
     "formik": "2.2.9",
     "gray-matter": "4.0.3",
-    "next": "12.0.10",
+    "next": "12.1.0",
     "next-mdx-remote": "3.0.8",
     "prism-react-renderer": "1.2.1",
     "react": "17.0.2",
@@ -36,7 +36,7 @@
     "csstype": "3.0.10",
     "earljs": "0.2.1",
     "eslint": "8.9.0",
-    "eslint-config-next": "12.0.10",
+    "eslint-config-next": "12.1.0",
     "jsdom": "19.0.0",
     "mocha": "9.2.0",
     "remark": "14.0.2",
