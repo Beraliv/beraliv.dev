@@ -11,7 +11,7 @@ keywords:
 image: /tuple-filter/image.png
 ---
 
-```typescript title=Example of FilterOut use
+```typescript title="Example of FilterOut use"
 type FilterOut<T extends any[], Filter> = any; // implementation
 
 type cases = [
@@ -28,7 +28,7 @@ Let's try it out 🚀
 
 Let's start the solution from iteration over the tuple using recursive conditional types.
 
-```typescript title=Iteration over the tuple
+```typescript title="Iteration over the tuple"
 type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
   ? [Head, ...FilterOut<Tail, F>]
   : [];
@@ -36,7 +36,7 @@ type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
 
 This way we don't really filter anything. Let's delegate the filtering part to `FilterElement`.
 
-```typescript title=Delegate filtering to FilterElement
+```typescript title="Delegate filtering to FilterElement"
 type FilterElement<Element, F> = [Element];
 
 type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
@@ -52,7 +52,7 @@ As you see, this way we don't really filter anything yet as we don't use a filte
 
 To be able to filter the element, let's use a filter `F`:
 
-```typescript title=Incorrect way to filter the element
+```typescript title="Incorrect way to filter the element"
 type FilterElement<Element, F> = Element extends F ? [] : [Element];
 
 type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
@@ -66,7 +66,7 @@ To be able to test incorrect behaviour, let's have a look at the current impleme
 
 We will see broken cases, let's focus on the first one.
 
-```typescript title=The first broken case with never
+```typescript title="The first broken case with never"
 type BrokenFilterOut = FilterOut<[never], never>; // never
 type BrokenFilterElement = FilterElement<never, never>; // never
 type Test2 = [...never]; // never
@@ -74,7 +74,7 @@ type Test2 = [...never]; // never
 
 It happens because we used not just usual conditional type but instead distributed conditional type like `T extends unknown` or `T extends never`:
 
-```typescript title=Examples of distributed conditional types
+```typescript title="Examples of distributed conditional types"
 type DistributedConditionalTypeWithNever<T> = T extends never ? never : [T];
 type DistributedConditionalTypeWithUnknown<T> = T extends unknown ? [T] : never;
 
@@ -88,7 +88,7 @@ For `never` element with a filter `never` we get `never` which is later put into
 
 To be able to filter it correctly, let's try to check the equality of the types with the expression `[T] extends [U]`:
 
-```typescript title=Correct way to filter the element
+```typescript title="Correct way to filter the element"
 type FilterElement<Element, F> = [Element] extends [F] ? [] : [Element];
 
 type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
@@ -98,7 +98,7 @@ type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
 
 First of all it's working for `never` as `[never] extends [never]` goes to "then" branch. See:
 
-```typescript title=
+```typescript title="Identify if we have never or not"
 type IsNever<T> = [T] extends [never] ? true : false;
 
 type Check1 = IsNever<never>; // true
@@ -109,7 +109,7 @@ type Check4 = IsNever<"1">; // false
 
 Second, it's working fine if the filter is a union type like `'a' | 'b'`:
 
-```typescript title=Checking union type filter
+```typescript title="Checking union type filter"
 type HasAOrB<T> = [T] extends ["a" | "b"] ? true : false;
 
 type Check1 = HasAOrB<never>; // true
@@ -125,7 +125,7 @@ type Check7 = HasAOrB<"c">; // false
 
 So the final solution looks like this
 
-```typescript title=Solution
+```typescript title="Solution"
 type FilterElement<Element, F> = [Element] extends [F] ? [] : [Element];
 
 type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]

@@ -11,7 +11,7 @@ keywords:
 image: /spread-in-typescript/step1-example-of-use.png
 ---
 
-```typescript title=Example of Merge use
+```typescript title="Example of Merge use"
 type Merge<F, S> = any; // implementation
 
 type EmptyArticle = { title: "<title>"; description: "<description>" };
@@ -31,7 +31,7 @@ Let's try it out 🚀
 
 As I previously said, EcmaScript 6 introduced the spread operator which does the same in JavaScript which we want to achieve here. Let's have an example:
 
-```typescript title=Spread in JavaScript
+```typescript title="Spread in JavaScript"
 const emptyObject = {
   title: "<title>",
   description: "<description>",
@@ -46,7 +46,7 @@ If we have the same key in both objects, we use if from the second object. Other
 
 So let's iterate over all keys of two objects in TypeScript and check whether we have a key in second object. If so, we extract value from the second object. Otherwise, we get value from the first object – https://tsplay.dev/Nl0BlN
 
-```typescript title=Merge, version 1
+```typescript title="Merge, version 1"
 type Merge<F, S> = {
   [K in keyof F | keyof S]: K extends keyof S ? S[K] : F[K];
 };
@@ -54,7 +54,7 @@ type Merge<F, S> = {
 
 Unfortunately, we have an error when we use `F[K]` as TypeScript doesn't know in advance if `K` is a key of first object `F`. Let's add the condition explicitly:
 
-```typescript title=Merge, final version
+```typescript title="Merge, final version"
 type Merge<F, S> = {
   [K in keyof F | keyof S]: K extends keyof S
     ? S[K]

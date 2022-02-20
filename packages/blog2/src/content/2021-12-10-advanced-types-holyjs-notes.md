@@ -60,7 +60,7 @@ In terms of TypeScript, we use it for the same reasons. Let's focus on the first
 
 1. Detecting errors
 
-```typescript title=Analysing AST-tree, TypeScript finds and shows errors
+```typescript title="Analysing AST-tree, TypeScript finds and shows errors"
 type Status = "loading" | "loaded" | "error";
 
 let currentStatus: Status;
@@ -74,7 +74,7 @@ currentStatus = "lagged";
 
 2. Abstraction
 
-```typescript title=Creating new entities with types and interfaces
+```typescript title="Creating new entities with types and interfaces"
 type SquareMeters = number;
 
 interface Room {
@@ -99,7 +99,7 @@ interface Country {
 
 3. Documentation
 
-```typescript title=React component Label which accepts object props with 2 fields – selected and title
+```typescript title="React component Label which accepts object props with 2 fields – selected and title"
 interface LabelPropsType {
   selected?: boolean;
   title: string;
@@ -116,7 +116,7 @@ Before discussing advanced types, I would like to touch on some examples of the 
 
 1. `Pick` allows us to get the object with the fields that we need.
 
-```typescript title=Example of Pick
+```typescript title="Example of Pick"
 interface Person {
   name: string;
   age: number;
@@ -131,7 +131,7 @@ type PersonWithNameAndAge = Pick<Person, "name" | "age">;
 
 2. `Exclude` allows to remove elements from union type
 
-```typescript title=Example of Exclude
+```typescript title="Example of Exclude"
 type Status = "loading" | "loaded" | "error";
 
 //  "loading" | "loaded"
@@ -142,7 +142,7 @@ type ErrorStatus = Exclude<Status, "loading" | "loaded">;
 
 3. We use `never` in different constructions. We can draw an anology between `never` for union types and the empty set.
 
-```typescript title=Example of keyword never
+```typescript title="Example of keyword never"
 type Status = "loading" | "loaded" | "error";
 
 //  never
@@ -151,13 +151,13 @@ type SuccessStatus = Exclude<Status, Status>;
 
 4. Tuples, which works like arrays but the number of elements is always fixed.
 
-```typescript title=Example of tuples
+```typescript title="Example of tuples"
 type Statuses = ["loading", "loaded", "error"];
 type VideoFormats = ["mp4", "mov", "wmv", "avi"];
 type EmptyTuple = [];
 ```
 
-```typescript title=Spread in tuples
+```typescript title="Spread in tuples"
 type TupleWithZero = [0];
 
 type Test1 = [1, ...TupleWithZero, 1]; // [1, 0, 1]
@@ -166,7 +166,7 @@ type Test2 = [...TupleWithZero, 1, ...TupleWithZero]; // [0, 1, 0]
 
 5. Arrays, to be able to store multiple values, e.g. array of numbers or strings.
 
-```typescript title=Example of arrays
+```typescript title="Example of arrays"
 interface School {
   log: Record<string, number[]>;
 }
@@ -181,7 +181,7 @@ Let's now discuss some examples of advanced types
 
 1. Construction like `T extends string` can be used in 2 cases: Generic constrains (where we can restrict the accepted types) and conditional types (where e.g. we can check if it's a string or not)
 
-```typescript title=Examples of generic constraints and conditional types
+```typescript title="Examples of generic constraints and conditional types"
 type AcceptsStrings<T extends string> = `${string}${T}`;
 type IsString<T> = T extends string ? true : false;
 
@@ -194,7 +194,7 @@ These 2 examples show the difference: `number` in `Test1` will be marked as the 
 
 2. Mapped types allow us to create an object with new keys and values. For example, we made 2 objects with identical keys and values.
 
-```typescript title=Example of mapped types
+```typescript title="Example of mapped types"
 type KeyToKeyMapping<Keys extends PropertyKey> = { [K in Keys]: K };
 
 //  { 1: 1, 2: 2, 3: 3; }
@@ -205,7 +205,7 @@ type Test2 = KeyToKeyMapping<"a" | "b" | "c">;
 
 3. Conditional types can use keyword `infer` to be able to identify what we have on the specific place.
 
-```typescript title=Inference in conditional types
+```typescript title="Inference in conditional types"
 // type ReturnType<T> = T extends (...args: any) => infer R ? R : any
 
 type Test1 = ReturnType<() => void>; // void
@@ -217,7 +217,7 @@ If we use basic type `ReturnType`, we can get the return value of the function, 
 
 4. Given type or interface, we can get the keys with keyword `keyof`
 
-```typescript title=Examples of keyof
+```typescript title="Examples of keyof"
 type Person = { name: string };
 type School = { pupils: Person[]; teachers: Person[] };
 
@@ -227,7 +227,7 @@ type Test2 = keyof School & string; // "pupils" | "teachers"
 
 5. Recursive condition types are condition types where we can use another recursive call to get results.
 
-```typescript title=Putting characters into the tuple
+```typescript title="Putting characters into the tuple"
 type CharacterIteration<T> = T extends `${infer Ch}${infer Rest}`
   ? [Ch, ...CharacterIteration<Rest>]
   : [];
@@ -240,7 +240,7 @@ Also here we can see the iteration over string literal type using `` T extends `
 
 6. Using `[T] extends [U]` we can check that one type can equal to another one. But we also have an exception in `any` here.
 
-```typescript title=Check if types are equal
+```typescript title="Check if types are equal"
 type Equals<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
 type Test1 = Equals<never, never>; //  true
@@ -250,7 +250,7 @@ type Test3 = Equals<1, number>; //  false
 
 7. Check for a string literal type which still requires `T extends string` conditional type to return `false` for anything other than `string`
 
-```typescript title=Check for string literal type
+```typescript title="Check for string literal type"
 type IsStringLiteral<T> = T extends string
   ? string extends T
     ? false
@@ -264,14 +264,14 @@ type Test3 = IsStringLiteral<123>; // false
 
 8. To be able to convert tuples to number literal type, we can use `length`
 
-```typescript title=Tuple to number literal type examples
+```typescript title="Tuple to number literal type examples"
 type Test1 = []["length"]; // 0
 type Test2 = [1, 2, 3]["length"]; // 3
 ```
 
 9. This conditional types is used for union type elements iteration and it's called distributed conditional types
 
-```typescript title=Example of distributed conditional types
+```typescript title="Example of distributed conditional types"
 type UnionIteration<T> = T extends unknown ? [T] : never;
 
 type Test1 = UnionIteration<never>; //  never
@@ -312,7 +312,7 @@ We will discuss only 4 ways of expressing advanced types:
 
 We can come to number literal types from tuples by accessing `Tuple['length']`
 
-```typescript title=Example of number literal types inference
+```typescript title="Example of number literal types inference"
 type ToTuple<T> = any; // implementation
 type BinaryToDecimal<T> = any; // implementation
 
@@ -328,7 +328,7 @@ More details about number literal types in [TypeScript Issue#26382 – Math with
 
 We can create tuples
 
-```typescript title=Creating tuples of different length
+```typescript title="Creating tuples of different length"
 type Statuses = ["loading", "loaded", "error"];
 type VideoFormats = ["mp4", "mov", "wmv", "avi"];
 type EmptyTuple = [];
@@ -336,7 +336,7 @@ type EmptyTuple = [];
 
 We are able to iterate over them from the beginning and the end
 
-```typescript title=Iteration over tuples
+```typescript title="Iteration over tuples"
 type FindFromStart<U, T> = T extends [infer Head, ...infer Tail]
   ? U extends Head
     ? true
@@ -364,7 +364,7 @@ And also we can transform string literal types to tuples if we have difficulties
 
 We can create string literal types
 
-```typescript title=Creating string literal types
+```typescript title="Creating string literal types"
 // types only
 type Mp4Extension = "mp4";
 // runtime + types
@@ -375,7 +375,7 @@ extension = "mp3";
 
 We can iterate over them but from the beginning only
 
-```typescript title=Iteration over string literal types
+```typescript title="Iteration over string literal types"
 type FindFromStart<U, T> = T extends `${infer Head}${infer Tail}`
   ? U extends Head
     ? true
@@ -394,7 +394,7 @@ And finally, it's mapped types
 
 We can extract either keys or values of just created mapped types. Also depending on the task, we can express new dependencies of keys and values
 
-```typescript title=Identical keys and values with mapped types
+```typescript title="Identical keys and values with mapped types"
 type KeyToKeyMapping<Keys extends PropertyKey> = { [K in Keys]: K };
 
 //  { 1: 1, 2: 2, 3: 3; }
@@ -417,7 +417,7 @@ Here we will concentrate on category "hard"
 
 If you're not familiar with the format of the challenges, one of the most important part of it – passing the tests. Here I want to let you know how it's working.
 
-```typescript title=Playground format of taking challenges
+```typescript title="Playground format of taking challenges"
 /*
   Description about the challenge
 */

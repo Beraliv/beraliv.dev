@@ -11,7 +11,7 @@ keywords:
 image: /get-optional/image.png
 ---
 
-```typescript title=Example of GetOptional use
+```typescript title="Example of GetOptional use"
 type GetOptional<T> = any; // implementation
 
 type cases = [
@@ -30,7 +30,7 @@ Let's have a look ⤵️
 
 First things first, we split the solution into 2 parts.
 
-```typescript title=Use OptionalKeys to get optional keys
+```typescript title="Use OptionalKeys to get optional keys"
 type OptionalKeys<T> = keyof T;
 
 type GetOptional<T> = Pick<T, OptionalKeys<T>>;
@@ -40,7 +40,7 @@ Let's implement `OptionalKeys` properly as now it returns all the keys from the 
 
 If we have an optional key, we can skip the definition of it in the object. It means that given the object with only one optional key, it's allowed to assign empty object to it.
 
-```typescript title=Meaning of optional key
+```typescript title="Meaning of optional key"
 type WithOptional = { a?: string };
 type WithRequired = { a: string };
 
@@ -52,7 +52,7 @@ let obj2: WithRequired = {};
 
 Knowing that, we can come up with the conditional type `{} extends Pick<T, K> ? T[K] : never`:
 
-```typescript title=Adding mapped type and conditional type
+```typescript title="Adding mapped type and conditional type"
 type OptionalKeys<T> = keyof {
   [K in keyof T]: {} extends Pick<T, K> ? T[K] : never;
 };
@@ -64,7 +64,7 @@ Let's check the solution in Playground – https://tsplay.dev/wenOaN
 
 If we check it on any object type, we will see that it's not working correct
 
-```typescript title=Checking current solution
+```typescript title="Checking current solution"
 // "a" | "b"
 type Test1 = OptionalKeys<{ a?: 1; b: 2 }>;
 ```
@@ -75,7 +75,7 @@ But this is because we use `keyof { [K in keyof T]: ... }` which literally means
 
 Let's change the mapped type a bit:
 
-```typescript title=Return only optional keys
+```typescript title="Return only optional keys"
 type Values<T> = T[keyof T];
 
 type OptionalKeys<T> = Values<{
@@ -100,7 +100,7 @@ Currently we know that the main conditional type is `{} extends Pick<T, K> ? K :
 
 Also we know there is [Key Remapping via as](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#key-remapping-via-as) in [TypeScript 4.1](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html) 💡
 
-```typescript title=Example of key remapping
+```typescript title="Example of key remapping"
 type MappedTypeWithNewKeys<T> = {
   [K in keyof T as NewKeyType]: T[K];
   //            ^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ type MappedTypeWithNewKeys<T> = {
 
 We can try it in our shorter solution, it will look like that:
 
-```typescript title=Short solution
+```typescript title="Short solution"
 type GetOptional<T> = {
   [K in keyof T as {} extends Pick<T, K> ? K : never]: T[K];
 };

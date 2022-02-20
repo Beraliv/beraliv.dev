@@ -3,7 +3,6 @@ import { CodeLanguageType } from "../../../types/CodeLanguageType";
 import { getCodeLanguageType } from "../../../functions/getCodeLanguageType";
 import { classNames } from "../../../functions/classNames";
 import styles from "./index.module.css";
-import { getCodeTitle } from "../../../functions/getCodeTitle";
 import { CopyToClipboardButton } from "../../molecules/CopyToClipboardButton";
 
 export interface MdxPrePropsType {
@@ -11,16 +10,16 @@ export interface MdxPrePropsType {
     props: {
       children: string;
       className: `language-${CodeLanguageType}`;
-      metastring?: string;
     };
   };
+  title?: string;
 }
 
 export const MdxPre = (props: MdxPrePropsType) => {
-  const { children, className, metastring } = props.children.props;
+  const { children, className } = props.children.props;
   const code = children.trim();
   const language = getCodeLanguageType(className);
-  const title = getCodeTitle(metastring);
+  const title = props.title ?? "";
 
   if (!language) {
     console.warn(`Cannot find language for <pre> with props`, props);

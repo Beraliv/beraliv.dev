@@ -51,7 +51,7 @@ Video player development isn’t obvious: it includes browser-specific features 
 
 Udemy uses `XMLHttpRequest` in [`_sendBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11123) for synchronous and [`sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) in [`_clearBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11099) for asynchronous requests. The data is sent as a sequence of events.
 
-```javascript title=Statistics synchronous event example
+```javascript title="Statistics synchronous event example"
 {
   mapve: "2.0",
   bdm: "litix.io",
@@ -73,7 +73,7 @@ Udemy uses `XMLHttpRequest` in [`_sendBeaconQueue`](https://gist.github.com/Bera
 
 The full `XMLHttpRequest` example is available [here](https://gist.github.com/Beraliv/fe146fdaf7b87c141ddaf5da10779fda). You can see UTC timestamp as `uti`, event name as `e`, video id as `vid`, etc. The events are send to `https://<ake>.litix.io` where `<ake>` is user id. The `beaconUrl` is `https://vfq2nsli1v76fglgdl9puq0cd.litix.io`.
 
-```javascript title=Statistics asynchronous event example
+```javascript title="Statistics asynchronous event example"
 {
   mapve: "2.0",
   memve: "2.7.0",

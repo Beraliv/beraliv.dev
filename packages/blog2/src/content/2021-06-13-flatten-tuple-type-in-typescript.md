@@ -11,7 +11,7 @@ keywords:
 image: /flatten-tuple-type-in-typescript/image.png
 ---
 
-```typescript title=Example of Flatten use
+```typescript title="Example of Flatten use"
 type Flatten<T> = any; // implementation
 
 type Step1 = Flatten<[1, [2, [3, [4]]]]>;
@@ -33,7 +33,7 @@ Knowing the approach from different challenges, as we want to save the structure
 
 We iterate over elements:
 
-```typescript title=Iterate over tuple elements
+```typescript title="Iterate over tuple elements"
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...infer Tail]
@@ -48,7 +48,7 @@ Then we have 2 cases:
 
 Let's add second case:
 
-```typescript title=Put element to the result tuple type
+```typescript title="Put element to the result tuple type"
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...infer Tail]
@@ -62,7 +62,7 @@ At the moment, if we have a look at Playground – https://tsplay.dev/w18bXW, we
 
 We forgot to apply function recursively when we have an element as tuple. Let's have an example here:
 
-```typescript title=Example where Flatten isn't working
+```typescript title="Example where Flatten isn't working"
 type Step1 = Flatten<[1, [2]]>;
 type Step2 = [1, ...Flatten<[[2]]>];
 // ❌ Expected to have [1, 2] instead
@@ -71,7 +71,7 @@ type Result = [1, [2]];
 
 In this case we cannot just add it to result tuple, we need to call `Flatten` before and then put all the elements of it to the result type. Let's change the implementation based on that:
 
-```typescript title=Solution
+```typescript title="Solution"
 type Flatten<T> = T extends []
   ? []
   : T extends [infer Head, ...infer Tail]
@@ -87,7 +87,7 @@ Check out Playground – https://tsplay.dev/WKk0DW
 
 And last but not least, as you see we return empty array `[]` in several places, let's simplify solution a little bit:
 
-```typescript title=Shorter solution
+```typescript title="Shorter solution"
 type Flatten<T> = T extends [infer Head, ...infer Tail]
   ? Head extends any[]
     ? [...Flatten<Head>, ...Flatten<Tail>]

@@ -11,6 +11,8 @@ import { ImageType } from "../types/ImageType";
 import cache from "../cache/imageMetadata.json";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { extractMetadata } from "../functions/extractMetadata";
+import { remarkMdxCodeMeta } from "remark-mdx-code-meta";
+import remarkGfm from "remark-gfm";
 
 const NORMALISED_WIDTH = 1280;
 
@@ -31,7 +33,7 @@ export const getPostStaticProps: GetStaticProps<
     scope: data as Record<string, unknown>,
     mdxOptions: {
       // to handle types correctly here, you need remark
-      remarkPlugins: [remarkUnwrapImages],
+      remarkPlugins: [remarkUnwrapImages, remarkMdxCodeMeta, remarkGfm],
       rehypePlugins: [imageMetadata],
     },
   });
