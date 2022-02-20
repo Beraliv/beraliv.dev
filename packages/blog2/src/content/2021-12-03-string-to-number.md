@@ -11,7 +11,7 @@ keywords:
 image: /string-to-number/image.png
 ---
 
-```typescript title=Example of StringToNumber use
+```typescript title="Example of StringToNumber use"
 type ToNumber<S extends string> = any; // implementation
 
 type cases = [
@@ -30,7 +30,7 @@ It's not easy topic but let's try what we can do here 🔥
 
 Let's quickly plan how we can solve the challenge:
 
-```typescript title=Idea 1
+```typescript title="Idea 1"
 type Input = '210';
 
 // 1. Split number into digits
@@ -55,7 +55,7 @@ But instead if we replace:
 
 So let's update the approach for the challenge:
 
-```typescript title=Idea 2 of solving the challenge
+```typescript title="Idea 2 of solving the challenge"
 type Input = '210';
 
 // 1. Split number into digits
@@ -76,7 +76,7 @@ Now it looks clear. Let's try it out!
 
 As we plan to deal with digits, let's create a mapping between digits and tuples:
 
-```typescript title=Map digits to tuples
+```typescript title="Map digits to tuples"
 type DigitMapping = {
   "0": [];
   "1": [0];
@@ -93,7 +93,7 @@ type DigitMapping = {
 
 Let's save it in https://tsplay.dev/w6Xqrm and check the length of tuples for all possible digits:
 
-```typescript title=Checking tuples for all digits
+```typescript title="Checking tuples for all digits"
 type cases = [
   Expect<Equal<DigitMapping["0"]["length"], 0>>,
   Expect<Equal<DigitMapping["1"]["length"], 1>>,
@@ -114,7 +114,7 @@ It's working as expected 💪
 
 Next, we want to "multiply" tuples by 10. It means that we want to return the tuple with the length of original tuple multiplied by 10. For that we use spread 10 times:
 
-```typescript title=Multiply tuples by 10
+```typescript title="Multiply tuples by 10"
 type Multiply10<T extends readonly any[]> = [
   ...T,
   ...T,
@@ -131,7 +131,7 @@ type Multiply10<T extends readonly any[]> = [
 
 Let's save current progress in https://tsplay.dev/WPxJeW and add tests.
 
-```typescript title=Test cases for multiplication
+```typescript title="Test cases for multiplication"
 type cases = [
   Expect<Equal<Multiply10<[]>["length"], 0>>,
   Expect<Equal<Multiply10<[0]>["length"], 10>>,
@@ -154,13 +154,13 @@ Pretty neat, ha 🤓
 
 Another most important part is adding one tuple to another. That means we want to return the tuple which length is the sum of two tuples' lengths:
 
-```typescript title=Addition
+```typescript title="Addition"
 type Add<N1 extends readonly any[], N2 extends readonly any[]> = [...N1, ...N2];
 ```
 
 Let's save it https://tsplay.dev/w8Kq0W and test it as usual:
 
-```typescript title=Test cases for Add
+```typescript title="Test cases for Add"
 type cases = [
   Expect<Equal<Add<[], [0, 0, 0, 0, 0, 0, 0, 0, 0]>["length"], 9>>,
   Expect<Equal<Add<[0], [0, 0, 0, 0, 0, 0, 0, 0]>["length"], 9>>,
@@ -181,7 +181,7 @@ Now we're ready to combine it all together and come to the implementation of `St
 
 So let's combine all we have together and come up with the final solution:
 
-```typescript title=Final solution
+```typescript title="Final solution"
 type DigitMapping = {
   "0": [];
   "1": [0];

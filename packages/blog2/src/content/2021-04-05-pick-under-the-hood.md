@@ -11,7 +11,7 @@ keywords:
 image: /pick-under-the-hood/image.png
 ---
 
-```typescript title=Example of Pick use
+```typescript title="Example of Pick use"
 type MyPick<T, Keys> = any; // implementation
 
 type Post = {
@@ -33,7 +33,7 @@ It's usually used when you need to declare the type which is based on another ty
 
 First, you need to iterate over an object `T`. Usually [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) are used in this case:
 
-```typescript title=Example of Mapped Types
+```typescript title="Example of Mapped Types"
 type MappedType<T> = {
   [Key in keyof T]: T[Key];
 };
@@ -48,7 +48,7 @@ type MappedType<T> = {
 
 Second, to iterate over the part of an object, we need to specify `Keys` to iterate over:
 
-```typescript title=Iteration over Keys
+```typescript title="Iteration over Keys"
 type MappedType<T, Keys> = {
   [Key in Keys]: T[Key];
 };
@@ -68,7 +68,7 @@ If **rule 2** is true, **rule 1** will be true as existing keys are one of the s
 
 This way, if we specify non-existing key, TypeScript will throw an error `We cannot call T[Key] if Key doesn't exist in T` so we're safe now ✅
 
-```typescript title=Solution
+```typescript title="Solution"
 type MyPick<T, Keys extends keyof T> = {
   [Key in Keys]: T[Key];
 };
