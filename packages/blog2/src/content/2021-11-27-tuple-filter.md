@@ -98,7 +98,7 @@ type FilterOut<T extends any[], F> = T extends [infer Head, ...infer Tail]
 
 First of all it's working for `never` as `[never] extends [never]` goes to "then" branch. See:
 
-```typescript title=""
+```typescript title="Identify if we have never or not"
 type IsNever<T> = [T] extends [never] ? true : false;
 
 type Check1 = IsNever<never>; // true
