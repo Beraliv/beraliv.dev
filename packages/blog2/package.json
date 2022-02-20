@@ -40,6 +40,7 @@
     "jsdom": "19.0.0",
     "mocha": "9.2.1",
     "remark": "14.0.2",
+    "remark-mdx-code-meta": "1.0.0",
     "size-limit": "7.0.8",
     "ts-essentials": "9.1.2",
     "ts-node": "10.5.0",
