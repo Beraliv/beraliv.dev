@@ -34,7 +34,7 @@ importers:
       size-limit: 7.0.8
       swr: 1.2.2
       ts-essentials: 9.1.2
-      ts-node: 10.5.0
+      ts-node: 10.6.0
       typescript: 4.6.2
       unified: 10.1.1
       unist-util-visit: 4.1.0
@@ -70,7 +70,7 @@ importers:
       remark: 14.0.2
       size-limit: 7.0.8
       ts-essentials: 9.1.2_typescript@4.6.2
-      ts-node: 10.5.0_a885f649e46b606332cfef991a1fe923
+      ts-node: 10.6.0_a885f649e46b606332cfef991a1fe923
       typescript: 4.6.2
       unified: 10.1.1
 
@@ -5143,8 +5143,8 @@ packages:
       typescript: 4.6.2
     dev: true
 
-  /ts-node/10.5.0_a885f649e46b606332cfef991a1fe923:
-    resolution: {integrity: sha512-6kEJKwVxAJ35W4akuiysfKwKmjkbYxwQMTBaAxo9KKAx/Yd26mPUyhGz3ji+EsJoAgrLqVsYHNuuYwQe22lbtw==}
+  /ts-node/10.6.0_a885f649e46b606332cfef991a1fe923:
+    resolution: {integrity: sha512-CJen6+dfOXolxudBQXnVjRVvYTmTWbyz7cn+xq2XTsvnaXbHqr4gXSCNbS2Jj8yTZMuGwUoBESLaOkLascVVvg==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
