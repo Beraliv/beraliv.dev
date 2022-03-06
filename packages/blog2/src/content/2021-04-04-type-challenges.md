@@ -32,6 +32,8 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - Concat • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/533-easy-concat/README.md) • [Solution](/2021-04-15-spread-in-tuple-types-in-typescript/)
 - Includes • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/898-easy-includes/README.md) • [Solution](/2021-04-16-includes-in-typescript/)
 
+Will add more solutions soon...
+
 ## medium
 
 - Get Return Type • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2-medium-return-type/README.md) • [Solution](/2021-04-19-return-type-under-the-hood/)
@@ -58,7 +60,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - String to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/531-medium-string-to-union/README.md) • [Solution](/2021/06/19/making-union-out-of-string/)
 - Merge • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/599-medium-merge/README.md) • [Solution](/2021/07/05/spread-in-typescript/)
 
-Will add more solutions at January, 2021
+Will add more solutions soon...
 
 ## hard
 
@@ -68,8 +70,8 @@ Will add more solutions at January, 2021
 - Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/399-hard-tuple-filter/README.md) – [Solution](/2021-11-27-tuple-filter/)
 - Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/2822-hard-split/README.md) – [Solution](/2021-11-29-split/)
 
-Will add more solutions at January, 2021
+Will add more solutions soon...
 
 ## extreme
 
-Will add more solutions at January, 2021
+Will add more solutions soon...
