@@ -23,7 +23,7 @@ importers:
       jsdom: 19.0.0
       mocha: 9.2.2
       next: 12.1.0
-      next-mdx-remote: 4.0.0
+      next-mdx-remote: 4.0.2
       prism-react-renderer: 1.2.1
       react: 17.0.2
       react-dom: 17.0.2
@@ -43,7 +43,7 @@ importers:
       formik: 2.2.9_react@17.0.2
       gray-matter: 4.0.3
       next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
-      next-mdx-remote: 4.0.0_react-dom@17.0.2+react@17.0.2
+      next-mdx-remote: 4.0.2_react-dom@17.0.2+react@17.0.2
       prism-react-renderer: 1.2.1_react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -3316,7 +3316,7 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       mdast-util-from-markdown: 1.2.0
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3353,7 +3353,7 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.10
       mdast-util-from-markdown: 1.2.0
-      mdast-util-to-markdown: 1.2.6
+      mdast-util-to-markdown: 1.3.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3371,18 +3371,6 @@ packages:
       unist-util-generated: 2.0.0
       unist-util-position: 4.0.1
       unist-util-visit: 4.1.0
-    dev: false
-
-  /mdast-util-to-markdown/1.2.6:
-    resolution: {integrity: sha512-doJZmTEGagHypWvJ8ltinmwUsT9ZaNgNIQW6Gl7jNdsI1QZkTHTimYW561Niy2s8AEPAqEgV0dIh2UOVlSXUJA==}
-    dependencies:
-      '@types/mdast': 3.0.10
-      '@types/unist': 2.0.6
-      longest-streak: 3.0.1
-      mdast-util-to-string: 3.1.0
-      micromark-util-decode-string: 1.0.2
-      unist-util-visit: 4.1.0
-      zwitch: 2.0.2
     dev: false
 
   /mdast-util-to-markdown/1.3.0:
@@ -3883,8 +3871,8 @@ packages:
     resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
 
-  /next-mdx-remote/4.0.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-WEEBe5OaIiiACvWsYwkf6uFnVcuam33dghDu2WpALE1BcH8Oozwvmjb0KFLURuAQsYL/yOZCTr8urmYtOZifRQ==}
+  /next-mdx-remote/4.0.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-1cZM2xm+G1FyYodGt92lCXisP0owPeppVHeH5TIaXUGdt6ENBZYOxLNFaVl9fkS9wP/s2sLcC9m2c1iLH2H4rA==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=17.x'
