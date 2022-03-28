@@ -36,7 +36,7 @@
     "@types/node": "*",
     "@types/react": "17.0.43",
     "csstype": "3.0.11",
-    "earljs": "0.2.1",
+    "earljs": "0.2.3",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.0",
     "jsdom": "19.0.0",
