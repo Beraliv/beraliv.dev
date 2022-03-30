@@ -15,7 +15,7 @@ importers:
       '@types/node': '*'
       '@types/react': 17.0.43
       csstype: 3.0.11
-      earljs: 0.2.1
+      earljs: 0.2.3
       eslint: 8.12.0
       eslint-config-next: 12.1.0
       formik: 2.2.9
@@ -62,7 +62,7 @@ importers:
       '@types/node': 17.0.7
       '@types/react': 17.0.43
       csstype: 3.0.11
-      earljs: 0.2.1_typescript@4.6.3
+      earljs: 0.2.3_typescript@4.6.3
       eslint: 8.12.0
       eslint-config-next: 12.1.0_76e32292f8a384672f9f34a07ea74135
       jsdom: 19.0.0
@@ -1592,8 +1592,8 @@ packages:
       webidl-conversions: 7.0.0
     dev: true
 
-  /earljs/0.2.1_typescript@4.6.3:
-    resolution: {integrity: sha512-hbmWdvgB6Bc0L2m0fmbR3okQLm+sdnoN+vqaPijtqlIX9nBmNRQLbS6HsKG+Q91/FNmgul+OcUEBCyuD7N97Xw==}
+  /earljs/0.2.3_typescript@4.6.3:
+    resolution: {integrity: sha512-3o4BlGOw+AoeLpcw4QTuIM+ceIIBWOaYvGTCMQ6Yg0yhzJbA5C1fqWNp8hgNCMaATCN0oD6iG3G0D3g3aruaNg==}
     dependencies:
       debug: 4.3.3
       jest-snapshot: 26.6.2
