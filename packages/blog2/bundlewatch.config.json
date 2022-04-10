@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "path": ".next/static/chunks/*.js",
+      "maxSize": "40 KB"
+    },
+    {
+      "path": ".next/static/chunks/framework-*.js",
+      "maxSize": "45 KB"
+    },
+    {
+      "path": ".next/static/chunks/polyfills-*.js",
+      "maxSize": "32 KB"
+    },
+    {
+      "path": ".next/static/chunks/main-*.js",
+      "maxSize": "31 KB"
+    },
+    {
+      "path": ".next/static/chunks/pages/\\[slug\\]-*.js",
+      "maxSize": "5 KB"
+    },
+    {
+      "path": ".next/static/chunks/pages/search-*.js",
+      "maxSize": "4 KB"
+    },
+    {
+      "path": ".next/static/chunks/pages/index-*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": ".next/static/chunks/webpack-*.js",
+      "maxSize": "2 KB"
+    }
+  ]
+}
