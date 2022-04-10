@@ -32,5 +32,8 @@
       "path": ".next/static/chunks/webpack-*.js",
       "maxSize": "2 KB"
     }
-  ]
+  ],
+  "ci": {
+    "trackBranches": ["main"]
+  }
 }
