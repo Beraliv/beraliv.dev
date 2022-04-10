@@ -10,7 +10,7 @@
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
     "type": "tsc --noEmit",
     "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
-    "size": "size-limit"
+    "size": "bundlewatch"
   },
   "dependencies": {
     "formik": "2.2.9",
@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@babel/core": "7.17.9",
-    "@size-limit/preset-app": "7.0.8",
     "@testing-library/react-hooks": "7.0.2",
     "@types/jsdom": "16.2.14",
     "@types/mocha": "9.1.0",
@@ -43,50 +42,51 @@
     "jsdom": "19.0.0",
     "mocha": "9.2.2",
     "remark": "14.0.2",
-    "size-limit": "7.0.8",
     "ts-essentials": "9.1.2",
     "ts-node": "10.7.0",
     "typescript": "4.6.3",
     "unified": "10.1.2"
   },
-  "size-limit": [
-    {
-      "path": [
-        ".next/static/chunks/*.js",
-        "!.next/static/chunks/framework-*.js",
-        "!.next/static/chunks/main-*.js",
-        "!.next/static/chunks/polyfills-*.js",
-        "!.next/static/chunks/webpack-*.js"
-      ],
-      "limit": "88 kB"
-    },
-    {
-      "path": ".next/static/chunks/framework-*.js",
-      "limit": "45 kB"
-    },
-    {
-      "path": ".next/static/chunks/polyfills-*.js",
-      "limit": "32 kB"
-    },
-    {
-      "path": ".next/static/chunks/main-*.js",
-      "limit": "31 kB"
-    },
-    {
-      "path": ".next/static/chunks/pages/[slug]-*.js",
-      "limit": "5 kB"
-    },
-    {
-      "path": ".next/static/chunks/pages/search-*.js",
-      "limit": "4 kB"
-    },
-    {
-      "path": ".next/static/chunks/pages/index-*.js",
-      "limit": "3 kB"
-    },
-    {
-      "path": ".next/static/chunks/webpack-*.js",
-      "limit": "2 kB"
-    }
-  ]
+  "bundlewatch": {
+    "files": [
+      {
+        "path": [
+          ".next/static/chunks/*.js",
+          "!.next/static/chunks/framework-*.js",
+          "!.next/static/chunks/main-*.js",
+          "!.next/static/chunks/polyfills-*.js",
+          "!.next/static/chunks/webpack-*.js"
+        ],
+        "limit": "88 kB"
+      },
+      {
+        "path": ".next/static/chunks/framework-*.js",
+        "limit": "45 kB"
+      },
+      {
+        "path": ".next/static/chunks/polyfills-*.js",
+        "limit": "32 kB"
+      },
+      {
+        "path": ".next/static/chunks/main-*.js",
+        "limit": "31 kB"
+      },
+      {
+        "path": ".next/static/chunks/pages/[slug]-*.js",
+        "limit": "5 kB"
+      },
+      {
+        "path": ".next/static/chunks/pages/search-*.js",
+        "limit": "4 kB"
+      },
+      {
+        "path": ".next/static/chunks/pages/index-*.js",
+        "limit": "3 kB"
+      },
+      {
+        "path": ".next/static/chunks/webpack-*.js",
+        "limit": "2 kB"
+      }
+    ]
+  }
 }
