@@ -57,35 +57,35 @@
           "!.next/static/chunks/polyfills-*.js",
           "!.next/static/chunks/webpack-*.js"
         ],
-        "limit": "88 kB"
+        "maxSize": "88kB"
       },
       {
         "path": ".next/static/chunks/framework-*.js",
-        "limit": "45 kB"
+        "maxSize": "45kB"
       },
       {
         "path": ".next/static/chunks/polyfills-*.js",
-        "limit": "32 kB"
+        "maxSize": "32kB"
       },
       {
         "path": ".next/static/chunks/main-*.js",
-        "limit": "31 kB"
+        "maxSize": "31kB"
       },
       {
         "path": ".next/static/chunks/pages/[slug]-*.js",
-        "limit": "5 kB"
+        "maxSize": "5kB"
       },
       {
         "path": ".next/static/chunks/pages/search-*.js",
-        "limit": "4 kB"
+        "maxSize": "4kB"
       },
       {
         "path": ".next/static/chunks/pages/index-*.js",
-        "limit": "3 kB"
+        "maxSize": "3kB"
       },
       {
         "path": ".next/static/chunks/webpack-*.js",
-        "limit": "2 kB"
+        "maxSize": "2kB"
       }
     ]
   }
