@@ -10,7 +10,7 @@
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
     "type": "tsc --noEmit",
     "test": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
-    "size": "bundlewatch"
+    "size": "bundlewatch --config bundlewatch.config.json"
   },
   "dependencies": {
     "formik": "2.2.9",
@@ -46,47 +46,5 @@
     "ts-node": "10.7.0",
     "typescript": "4.6.3",
     "unified": "10.1.2"
-  },
-  "bundlewatch": {
-    "files": [
-      {
-        "path": [
-          ".next/static/chunks/*.js",
-          "!.next/static/chunks/framework-*.js",
-          "!.next/static/chunks/main-*.js",
-          "!.next/static/chunks/polyfills-*.js",
-          "!.next/static/chunks/webpack-*.js"
-        ],
-        "maxSize": "88kB"
-      },
-      {
-        "path": ".next/static/chunks/framework-*.js",
-        "maxSize": "45kB"
-      },
-      {
-        "path": ".next/static/chunks/polyfills-*.js",
-        "maxSize": "32kB"
-      },
-      {
-        "path": ".next/static/chunks/main-*.js",
-        "maxSize": "31kB"
-      },
-      {
-        "path": ".next/static/chunks/pages/[slug]-*.js",
-        "maxSize": "5kB"
-      },
-      {
-        "path": ".next/static/chunks/pages/search-*.js",
-        "maxSize": "4kB"
-      },
-      {
-        "path": ".next/static/chunks/pages/index-*.js",
-        "maxSize": "3kB"
-      },
-      {
-        "path": ".next/static/chunks/webpack-*.js",
-        "maxSize": "2kB"
-      }
-    ]
   }
 }
