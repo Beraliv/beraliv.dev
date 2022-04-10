@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.1
+        with:
+          version: 6.29.1
+      - run: pnpm install
       - name: Build
         run: pnpm --filter blog2 run build
       - name: Check bundle sizes
