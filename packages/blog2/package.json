@@ -35,6 +35,7 @@
     "@types/mocha": "9.1.0",
     "@types/node": "*",
     "@types/react": "17.0.44",
+    "bundlewatch": "0.3.3",
     "csstype": "3.0.11",
     "earljs": "0.2.3",
     "eslint": "8.13.0",
