@@ -33,7 +33,7 @@
       "maxSize": "2 KB"
     }
   ],
-  "normalizeFilenames": ".+?(-.+?)\\.\\w+",
+  "normalizeFilenames": "^.+?(-.+?)\\.(?:js|css)$",
   "ci": {
     "repoBranchBase": "main",
     "trackBranches": ["main"]
