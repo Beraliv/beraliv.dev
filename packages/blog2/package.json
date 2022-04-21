@@ -31,7 +31,7 @@
     "@babel/core": "7.17.9",
     "@testing-library/react-hooks": "8.0.0",
     "@types/jsdom": "16.2.14",
-    "@types/mocha": "9.1.0",
+    "@types/mocha": "9.1.1",
     "@types/node": "*",
     "@types/react": "17.0.44",
     "bundlewatch": "0.3.3",
