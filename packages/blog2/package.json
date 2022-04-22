@@ -37,7 +37,7 @@
     "bundlewatch": "0.3.3",
     "csstype": "3.0.11",
     "earljs": "0.2.3",
-    "eslint": "8.13.0",
+    "eslint": "8.14.0",
     "eslint-config-next": "12.1.4",
     "jsdom": "19.0.0",
     "mocha": "9.2.2",
