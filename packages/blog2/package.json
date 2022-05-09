@@ -33,7 +33,7 @@
     "@types/jsdom": "16.2.14",
     "@types/mocha": "9.1.1",
     "@types/node": "*",
-    "@types/react": "17.0.44",
+    "@types/react": "17.0.45",
     "bundlewatch": "0.3.3",
     "csstype": "3.0.11",
     "earljs": "0.2.3",
