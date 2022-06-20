@@ -39,7 +39,7 @@
     "earljs": "0.2.3",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.4",
-    "jsdom": "19.0.0",
+    "jsdom": "20.0.0",
     "mocha": "10.0.0",
     "remark": "14.0.2",
     "ts-essentials": "9.1.2",
