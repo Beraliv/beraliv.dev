@@ -8,7 +8,7 @@ importers:
   packages/blog2:
     specifiers:
       '@babel/core': 7.17.9
-      '@testing-library/react-hooks': 8.0.0
+      '@testing-library/react-hooks': 8.0.1
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.1
       '@types/node': '*'
@@ -54,7 +54,7 @@ importers:
       yup: 0.32.11
     devDependencies:
       '@babel/core': 7.17.9
-      '@testing-library/react-hooks': 8.0.0_ooduvn556nbrhgv6qu3va5yxde
+      '@testing-library/react-hooks': 8.0.1_ooduvn556nbrhgv6qu3va5yxde
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.1
       '@types/node': 17.0.7
@@ -499,8 +499,8 @@ packages:
     resolution: {integrity: sha512-ZK5v4bJwgXldAUA8r3q9YKfCwOqoHTK/ZqRjSeRXQrBXWouoPnS4MQtgC4AXGiiBuUu5wxrRgTlv0ktmM4P1Aw==}
     dev: true
 
-  /@testing-library/react-hooks/8.0.0_ooduvn556nbrhgv6qu3va5yxde:
-    resolution: {integrity: sha512-uZqcgtcUUtw7Z9N32W13qQhVAD+Xki2hxbTR461MKax8T6Jr8nsUvZB+vcBTkzY2nFvsUet434CsgF0ncW2yFw==}
+  /@testing-library/react-hooks/8.0.1_ooduvn556nbrhgv6qu3va5yxde:
+    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
       '@types/react': ^16.9.0 || ^17.0.0
