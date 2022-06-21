@@ -1,4 +1,9 @@
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  PropsWithChildren,
+} from "react";
 import { createLocalLinkId } from "../../../functions/createLocalLinkId";
 import { validateNever } from "../../../validators/validateNever";
 import { LinkIcon } from "../../atoms/LinkIcon";
@@ -8,7 +13,10 @@ interface MdxHeaderPropsType {
   type: "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-export const MdxHeader: FC<MdxHeaderPropsType> = ({ children, type }) => {
+export const MdxHeader: FC<PropsWithChildren<MdxHeaderPropsType>> = ({
+  children,
+  type,
+}) => {
   if (typeof children !== "string") {
     return null;
   }
