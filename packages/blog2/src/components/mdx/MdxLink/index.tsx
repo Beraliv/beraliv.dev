@@ -1,10 +1,13 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 
 interface MdxLinkPropsType {
   href: string;
 }
 
-export const MdxLink: FC<MdxLinkPropsType> = ({ children, href }) => {
+export const MdxLink: FC<PropsWithChildren<MdxLinkPropsType>> = ({
+  children,
+  href,
+}) => {
   if (href.startsWith("/")) {
     return <a href={href}>{children}</a>;
   }
