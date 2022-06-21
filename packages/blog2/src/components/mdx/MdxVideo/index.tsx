@@ -1,32 +1,35 @@
+import {
+  Children,
+  DetailedHTMLProps,
+  ReactNode,
+  VideoHTMLAttributes,
+} from "react";
 import styles from "./index.module.css";
 
-export interface MdxVideoPropsType {
-  autoplay?: boolean;
-  loop?: boolean;
-  muted?: boolean;
-  playsinline?: boolean;
-  children: {
-    props: {
-      src: string;
-      type: string;
-    };
-  }[];
-}
+export type MdxVideoPropsType = DetailedHTMLProps<
+  VideoHTMLAttributes<HTMLVideoElement>,
+  HTMLVideoElement
+>;
+
+const getAttributes = <S extends string>(node: ReactNode, _: S[]) =>
+  node as unknown as { [K in S]: string };
 
 export const MdxVideo = (props: MdxVideoPropsType) => {
-  const { autoplay, loop, muted, playsinline, children } = props;
+  const { autoPlay, loop, muted, playsInline, children } = props;
 
   return (
     <video
-      autoPlay={autoplay}
+      autoPlay={autoPlay}
       className={styles.video}
       loop={loop}
       muted={muted}
-      playsInline={playsinline}
+      playsInline={playsInline}
     >
-      {children.map(({ props }) => (
-        <source key={props.type} src={props.src} type={props.type} />
-      ))}
+      {Children.map(children, (child) => {
+        const { src, type } = getAttributes(child, ["src", "type"]);
+
+        return <source key={type} src={src} type={type} />;
+      })}
     </video>
   );
 };

@@ -12,7 +12,7 @@ importers:
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.1
       '@types/node': '*'
-      '@types/react': 17.0.47
+      '@types/react': 18.0.14
       bundlewatch: 0.3.3
       csstype: 3.1.0
       earljs: 0.2.3
@@ -54,11 +54,11 @@ importers:
       yup: 0.32.11
     devDependencies:
       '@babel/core': 7.17.9
-      '@testing-library/react-hooks': 8.0.1_h3umwasw2xj55xde6qtxq6tis4
+      '@testing-library/react-hooks': 8.0.1_twyhzqqpkwvvgrmyeapdo6i4my
       '@types/jsdom': 16.2.14
       '@types/mocha': 9.1.1
       '@types/node': 17.0.7
-      '@types/react': 17.0.47
+      '@types/react': 18.0.14
       bundlewatch: 0.3.3
       csstype: 3.1.0
       earljs: 0.2.3_typescript@4.7.4
@@ -365,7 +365,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.1
-      '@types/react': 17.0.47
+      '@types/react': 18.0.14
       react: 18.2.0
     dev: false
 
@@ -499,7 +499,7 @@ packages:
     resolution: {integrity: sha512-WiBSI6JBIhC6LRIsB2Kwh8DsGTlbBU+mLRxJmAe3LjHTdkDpwIbEOZgoXBbZilk/vlfjK8i6nKRAvIRn1XaIMw==}
     dev: true
 
-  /@testing-library/react-hooks/8.0.1_h3umwasw2xj55xde6qtxq6tis4:
+  /@testing-library/react-hooks/8.0.1_twyhzqqpkwvvgrmyeapdo6i4my:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -516,7 +516,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.16.7
-      '@types/react': 17.0.47
+      '@types/react': 18.0.14
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-error-boundary: 3.1.4_react@18.2.0
@@ -665,8 +665,8 @@ packages:
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
 
-  /@types/react/17.0.47:
-    resolution: {integrity: sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==}
+  /@types/react/18.0.14:
+    resolution: {integrity: sha512-x4gGuASSiWmo0xjDLpm5mPb52syZHJx02VKbqUKdLmKtAwIh63XClGsiTI1K6DO5q7ox4xAsQrU+Gl3+gGXF9Q==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
