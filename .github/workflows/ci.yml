@@ -3,12 +3,12 @@ name: CI
 on: push
 
 jobs:
-  checks:
-    name: Checks
+  install:
+    name: Install
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 14
@@ -37,9 +37,50 @@ jobs:
       - name: Install
         run: pnpm install
 
+  type-check:
+    name: Type check
+    needs: [install]
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
       - name: Type check
         run: pnpm --filter blog2 run type
 
-      - name: Test
-        run: pnpm --filter blog2 run test
+  test:
+    name: Tests
+    needs: [install]
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [blog2]
+    steps:
+      - name: Unit tests
+        run: pnpm --filter ${{ matrix.package }} run test:unit
+
+  build:
+    name: Build blog
+    needs: [install]
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [blog2]
+    steps:
+      - name: Build
+        run: pnpm --filter ${{ matrix.package }} run build
+
+  size:
+    name: Bundle size
+    needs: [build]
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [blog2]
+    steps:
+      - name: Build
+        run: pnpm --filter ${{ matrix.package }} run size
+        env:
+          BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
