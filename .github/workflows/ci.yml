@@ -73,7 +73,7 @@ jobs:
         with:
           name: build-artifact ${{ matrix.package }}
           path: packages/${{ matrix.package }}/.next
-          if-no-files-found: error
+          if-no-files-found: 'error'
 
   size:
     name: Bundle size
