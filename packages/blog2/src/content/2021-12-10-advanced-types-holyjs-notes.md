@@ -40,11 +40,11 @@ On November, 5, together with [Max](https://github.com/ColCh) we had a talk abou
 
 Based on the book of [Benjamin C. Pierce – Types and Programming Languages](https://www.cis.upenn.edu/~bcpierce/tapl/index.html), type systems in general are good for:
 
-1. [Detecting errors](https://mitpress.ublish.com/ereader/21/?preview#page/4)
-2. [Abstraction](https://mitpress.ublish.com/ereader/21/?preview#page/5)
-3. [Documentation](https://mitpress.ublish.com/ereader/21/?preview#page/5)
-4. [Language safety](https://mitpress.ublish.com/ereader/21/?preview#page/6)
-5. [Efficiency](https://mitpress.ublish.com/ereader/21/?preview#page/8)
+1. Detecting errors
+2. Abstraction
+3. Documentation
+4. Language safety
+5. Efficiency
 
 Of course, it allows early detection of some programming errors. It can be not only trivial mental slips (e.g. forgetting to convert a string to a number), but also deeper conceptual errors (e.g. neglecting a boundary condition, confusing units and etc.)
 

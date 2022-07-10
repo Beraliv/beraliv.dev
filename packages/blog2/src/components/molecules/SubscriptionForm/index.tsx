@@ -22,7 +22,7 @@ type SubscriptionFormState =
 
 const SubscriptionSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
+  email: Yup.string().email("Invalid").required("Required"),
 });
 
 interface SubscriptionSchemaType

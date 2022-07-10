@@ -14,7 +14,7 @@
     },
     {
       "path": ".next/static/chunks/main-*.js",
-      "maxSize": "31 KB"
+      "maxSize": "35 KB"
     },
     {
       "path": ".next/static/chunks/pages/\\[slug\\]-*.js",
