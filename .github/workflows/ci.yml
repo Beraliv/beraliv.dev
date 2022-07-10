@@ -68,12 +68,12 @@ jobs:
       - name: Build
         run: pnpm --filter ${{ matrix.package }} run build
 
-      - name: Upload build
+      - name: Upload build files
         run: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.package }}
+          name: build-artifact ${{ matrix.package }}
           path: packages/${{ matrix.package }}/.next
-          if-no-files-found: 'error'
+          if-no-files-found: error
 
   size:
     name: Bundle size
@@ -90,10 +90,10 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup-node-pnpm
 
-      - name: Download build
+      - name: Download build files
         uses: actions/download-artifact@v3
         with:
-          name: ${{ matrix.package }}
+          name: build-artifact ${{ matrix.package }}
           path: packages/${{ matrix.package }}/.next
 
       - name: Bundlewatch report
