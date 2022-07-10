@@ -31,6 +31,10 @@
     {
       "path": ".next/static/chunks/webpack-*.js",
       "maxSize": "2 KB"
+    },
+    {
+      "path": "node_modules/**/*",
+      "maxSize": "300 MB"
     }
   ],
   "ci": {
