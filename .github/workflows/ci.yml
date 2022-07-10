@@ -69,7 +69,7 @@ jobs:
         run: pnpm --filter ${{ matrix.package }} run build
 
       - name: Upload build files
-        run: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: build-artifact ${{ matrix.package }}
           path: packages/${{ matrix.package }}/.next
