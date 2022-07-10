@@ -1,5 +1,5 @@
 name: Setup node and pnpm
-description: Configures node, installs and caches dependencies
+description: Configures node and pnpm, installs and caches dependencies
 
 runs:
   using: composite
