@@ -1,0 +1,31 @@
+name: CI
+
+on: push
+
+jobs:
+  checks:
+    name: Type check
+    needs: [install]
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [blog2]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Caches node modules
+        uses: .github/actions/cache-node-modules
+
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Type check
+        run: pnpm --filter ${{ matrix.package }} run type
+
+      - name: Unit tests
+        run: pnpm --filter ${{ matrix.package }} run test:unit
