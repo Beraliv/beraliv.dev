@@ -1,14 +1,9 @@
-name: Setup node and pnpm
-description: Configures node and pnpm, installs and caches dependencies
+name: Cache node modules
+description: Caches dependencies by lock file
 
 runs:
   using: composite
   steps:
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 14
-
     - name: Cache files
       uses: actions/cache@v3
       env:
@@ -21,12 +16,3 @@ runs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2.2.2
-      with:
-        version: 7.5.0
-
-    - name: Install dependencies
-      run: pnpm install
-      shell: bash
