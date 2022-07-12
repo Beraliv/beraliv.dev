@@ -41,9 +41,9 @@ Previously there was [another medium challenge](https://github.com/type-challeng
 | camelCase     | ❌     | ❌   |
 | PascalCase    | ❌     | ❌   |
 
-Playgrounds – https://tsplay.dev/WvV9AW & https://tsplay.dev/Wyb06w respectively.
+Playgrounds for 2 solutions – https://tsplay.dev/WvV9AW & https://tsplay.dev/Wyb06w.
 
-Let's break a typical format and define our own test cases which will be covered in our own solution.
+Let's solve this type challenge differently: to define wider test cases and come up with the solution for them.
 
 ## Test cases
 
@@ -79,7 +79,7 @@ type cases = [
 
 Now, let's think if we can add something else here.
 
-If we check CamelCase (medium) test cases once again https://tsplay.dev/WvV9AW, there are a lot of cases where a separator `-` is in all possible positions, let's add them too:
+If we check CamelCase (medium) test cases once again https://tsplay.dev/WvV9AW, there are a lot of tests where a separator `-` is in all possible positions, let's add them too:
 
 ```typescript title="Separator in different positions"
 type cases = [
@@ -106,9 +106,9 @@ type cases = [
   // string
   Expect<Equal<CamelCase<string>, string>>,
   // other types
-  // @ts-expect-error
+  // @ts-expect-error: Expected `string` but got `number` instead
   CamelCase<number>,
-  // @ts-expect-error
+  // @ts-expect-error: Expected `string` but got `symbol` instead
   CamelCase<symbol>
 ];
 ```
@@ -124,7 +124,7 @@ Now we need to think how in general we want to solve this challenge. Let's break
 - [Split into words](#split-into-words) – GIVEN a string, THEN it is split into words
 - [Make it camel case](#make-it-camel-case) – GIVEN words, THEN first word becomes lowercase AND other words become Uppercase
 - [Formatted words are joined together](#formatted-words-are-joined-together) – GIVEN formatted words, THEN they are joined together
-- GIVEN different cases, THEN returned string is in camel case
+- GIVEN different cases, THEN result is in camel case
 
 ## Split into words
 
@@ -166,7 +166,7 @@ A link to a Playground – https://tsplay.dev/NrKklm
 
 I know it's a rare case, but let's try to understand why it's broken.
 
-> Feel free to skip this heading and move on to the next one if you're not interested in this part.
+> If you want to dive into details, please continue reading. Otherwise, I would suggest to skip it as it's not a common case and only helpful in educational purposes.
 
 Having a look at any of them, we see that unions are involved in these examples:
 
@@ -274,7 +274,7 @@ Playground – https://tsplay.dev/mZ4RPw
 
 > If we have another separator in the future, we only need to update `Separator`, which is useful
 
-Let's stop on it and will fix camel and Pascal cases.
+Let's stop here and move on to camel and Pascal cases.
 
 ### Pascal and camel cases
 
@@ -317,6 +317,8 @@ type SplitByCapital<
   : [];
 ```
 
+Long story short, we iterate over letters and accumulate each new word in `Word` until we reach capital letter. We understand it when `IsUppercase` returns true. When a string is empty, a tuple with all words is returned.
+
 https://tsplay.dev/w6PD0m 🏝
 
 That's not final solution. If you have a look at it, you will see that it's correctly working for lowercase oneword and camel case. How come?
@@ -341,7 +343,7 @@ type FilterEmptyWord<
 
 Together it will look as the following:
 
-```typescript title=""
+```typescript title="Removing empty string from words"
 type FilterEmptyWord<
   Word,
   T extends unknown[],
@@ -372,7 +374,7 @@ type SplitByCapital<
 
 Much better – https://tsplay.dev/WPRQEN 🏝
 
-The only thing remained is to fix uppercase oneword. We can do it when we add `SplitByCapital` to `Words`:
+Fixing uppercase oneword is not a big deal. We can just add one conditional type `IsUppercase` and if it is `true`, then return the string as is. Together with `SplitByCapital` it will look like:
 
 ```typescript title="Add support for camel and upper cases"
 type Words<S> = {
@@ -390,7 +392,7 @@ Now we have words and we need to prepare them before joining together. To do so,
 1. Make first word lower case
 2. Capitalise other words
 
-We start from `WordCase` to support both lower and camel case:
+We start from `WordCase` to support both lower and pascal case:
 
 ```typescript title="Word case"
 type WordCase<S> = {
@@ -399,7 +401,7 @@ type WordCase<S> = {
 };
 ```
 
-Iterating over words, let's apply pascal case for `PascalCasify`:
+Iterating over words, let's apply pascal case:
 
 ```typescript title="Make all words pascal case"
 type PascalCasify<T, R extends unknown[] = []> = T extends [
@@ -418,9 +420,15 @@ type CamelCasify<T> = T extends [infer Head, ...infer Rest]
   : [];
 ```
 
-Almost done here, now we have `type CamelCaseWords<S> = CamelCasify<Words<S>>;` – https://tsplay.dev/NlEZBm 🏝
+Almost done here, now we have `type CamelCaseWords<S> = CamelCasify<Words<S>>;`.
+
+I updated tests to be able to test transformations with words – https://tsplay.dev/NlEZBm 🏝
+
+Well done ✅
 
 ## Formatted words are joined together
+
+Given a tuple with all words in correct case, we need to join them together. Let's write `Join`:
 
 ```typescript title="Join"
 type Join<T, S extends string = ""> = T extends [infer Word, ...infer Rest]
@@ -428,7 +436,11 @@ type Join<T, S extends string = ""> = T extends [infer Word, ...infer Rest]
   : S;
 ```
 
-And combining 3 types `Join`, `CamelCasify` and `Words`, we can create `CamelCase`:
+As you see here, we get the word from tuple and add it to the end of string literal. Therefore, at the end we will get the concatenated string.
+
+I used `Word & string` to get rid of extra conditional type where I would check that it's the string (we know it's a string here anyway).
+
+And after all, combining 3 types `Join`, `CamelCasify` and `Words`, we can create `CamelCase`:
 
 ```typescript title="Final solution"
 type CamelCase<S extends string> = Join<CamelCasify<Words<S>>>;
