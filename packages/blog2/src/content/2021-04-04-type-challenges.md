@@ -67,6 +67,7 @@ Will add more solutions at January, 2021
 - String to Number • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/00300-hard-string-to-number/README.md) – [Solution](/2021-12-03-string-to-number/)
 - Tuple Filter • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/00399-hard-tuple-filter/README.md) – [Solution](/2021-11-27-tuple-filter/)
 - Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/02822-hard-split/README.md) – [Solution](/2021-11-29-split/)
+- CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/main/questions/00114-hard-camelcase/README.md) – [Solution](/2022-07-14-camel-case/)
 
 Will add more solutions at January, 2021
 
