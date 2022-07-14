@@ -1,6 +1,6 @@
 ---
 title: CamelCase
-date: "2022-07-10"
+date: "2022-07-14"
 description: Given a string in any case, returns a string in camel case
 labels:
   - typescript
