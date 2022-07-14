@@ -77,7 +77,7 @@ type cases = [
 ];
 ```
 
-Now, let's think if we can add something else here.
+Now, let's think what else we can add here.
 
 If we check CamelCase (medium) test cases once again https://tsplay.dev/WvV9AW, there are a lot of tests where a separator `-` is in all possible positions, let's add them too:
 
@@ -99,7 +99,7 @@ type cases = [
 ];
 ```
 
-Also don't forget that in case of `string` we should return `string` as well. Other types are not allowed:
+Also last but not least, in case of `string` we should return `string` as well. Other types are not allowed:
 
 ```typescript title="string and other types"
 type cases = [
@@ -117,9 +117,9 @@ I combined all of them together in Playground – https://tsplay.dev/NabBEm
 
 Looks neat 👀 Let's solve it now ⬇️
 
-## Steps to solve it
+## Steps
 
-Now we need to think how in general we want to solve this challenge. Let's break it into steps using [a Gherkin syntax](https://cucumber.io/docs/gherkin/reference/):
+Now we need to think how we want to solve this challenge. Let's break it into steps using [a Gherkin syntax](https://cucumber.io/docs/gherkin/reference/):
 
 - [Split into words](#split-into-words) – GIVEN a string, THEN it is split into words
 - [Make it camel case](#make-it-camel-case) – GIVEN words, THEN first word becomes lowercase AND other words become Uppercase
@@ -293,6 +293,8 @@ type Words<S> = {
 }[WhichApproach<S>];
 ```
 
+We use lazy evaluation here to get `SplitBySeparator<RemoveRepeatedSeparator<S>>` or `[S]` based on what `WhichApproach<S>` is.
+
 https://tsplay.dev/N71DnW 🏝
 
 As oneword strings are now capital letter based, I used `capitalBased: [S]` to not break it.
@@ -395,10 +397,10 @@ Now we have words and we need to prepare them before joining together. To do so,
 We start from `WordCase` to support both lower and pascal case:
 
 ```typescript title="Word case"
-type WordCase<S> = {
-  pascal: Capitalize<WordCase<S>["lower"]>;
+type WordCase<S, C extends "pascal" | "lower"> = {
+  pascal: Capitalize<WordCase<S, "lower"> & string>;
   lower: Lowercase<S & string>;
-};
+}[C];
 ```
 
 Iterating over words, let's apply pascal case:
@@ -408,7 +410,7 @@ type PascalCasify<T, R extends unknown[] = []> = T extends [
   infer Head,
   ...infer Rest
 ]
-  ? PascalCasify<Rest, [...R, WordCase<Head>["pascal"]]>
+  ? PascalCasify<Rest, [...R, WordCase<Head, "pascal">]>
   : R;
 ```
 
@@ -416,13 +418,13 @@ And will use it in `CamelCasify`:
 
 ```typescript title="Make first word lower case and other pascal case"
 type CamelCasify<T> = T extends [infer Head, ...infer Rest]
-  ? PascalCasify<Rest, [WordCase<Head>["lower"]]>
+  ? PascalCasify<Rest, [WordCase<Head, "lower">]>
   : [];
 ```
 
 Almost done here, now we have `type CamelCaseWords<S> = CamelCasify<Words<S>>;`.
 
-I updated tests to be able to test transformations with words – https://tsplay.dev/NlEZBm 🏝
+I updated tests to be able to test transformations with words – https://tsplay.dev/NdAedm 🏝
 
 Well done ✅
 
@@ -448,7 +450,7 @@ type CamelCase<S extends string> = Join<CamelCasify<Words<S>>>;
 
 Don't forget about generic constrain as we also have tests for types other than a string.
 
-Playground – https://tsplay.dev/wRGknN 👏
+Playground – https://tsplay.dev/N71rPW 👏
 
 Thank you for your attention and have a wonderful evening and the rest of the weekend!
 
