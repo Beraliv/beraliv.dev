@@ -81,4 +81,71 @@ That's it 💪
 
 Don't forget to check the solution in Playground – https://tsplay.dev/wXQ6kN
 
+## Real-life example
+
+You can find chainable options in [yargs](https://www.npmjs.com/package/yargs) when you create a CLI in node.js
+
+For example, you need to create a command `test` which can accept optional `testDir`, `ip` and `testCount` options:
+
+```typescript title="Test command which accepts 3 optional options"
+import * as yargs from "yargs";
+
+const buildTestCommand = (argv: yargs.Argv) =>
+  argv
+    .option("testDir", {
+      type: "string",
+      description: "A path to a directory containing test files",
+    })
+    .option("ip", {
+      type: "string",
+      description: "IP of device where you want to run tests",
+    })
+    .option("testCount", {
+      type: "number",
+      description: "Number of times you want to run tests",
+    });
+
+yargs.command(
+  "test",
+  "Running one or more tests",
+  (argv) => void buildTestCommand(argv),
+  handleTestCommand
+);
+```
+
+And then we need to define `handleTestCommand` where `config` is infered from options that we included in `buildTestCommand`.
+
+I will show the solution for it as is:
+
+```typescript title="Infer command config out of build function"
+type AnyFunction = (...args: any[]) => any;
+type ExtractCommandConfig<Fun extends AnyFunction> =
+  ReturnType<Fun> extends yargs.Argv<infer ParsedOptions>
+    ? yargs.Argv<ParsedOptions>["argv"]
+    : never;
+type FilterPromise<Union> = Union extends Promise<any> ? never : Union;
+
+type TestCommandConfig = Partial<
+  FilterPromise<ExtractCommandConfig<typeof buildTestCommand>>
+>;
+
+const handleTestCommand = (config: TestCommandConfig): void => {
+  const { testDir, ip, testCount } = config;
+
+  testDir;
+  // ^? string | undefined
+
+  ip;
+  // ^? string | undefined
+
+  testCount;
+  // ^? string | undefined
+
+  unknownOption;
+  // ^? unknown
+};
+```
+
+We correctly infer `string | undefined` for known options and `unknown` for unknown option ✅
+
 Have a nice day ☀️
