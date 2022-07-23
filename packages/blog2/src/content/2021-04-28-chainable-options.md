@@ -8,7 +8,7 @@ keywords:
   - typescript
   - challenges
   - chainable options
-image: /mapped-types-in-functions/step1-example-of-use.png
+image: /chainable-options/image.png
 ---
 
 ```typescript title="Example of Chainable Options use"
