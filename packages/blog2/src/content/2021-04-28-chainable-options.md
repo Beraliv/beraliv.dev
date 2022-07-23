@@ -87,7 +87,7 @@ Don't forget to check the solution in Playground – https://tsplay.dev/mLqMAW
 
 ## Improve readability
 
-If you hover over `result`, you will see it:
+If you create `type Test = typeof result` and hover over `Test`, you will see this:
 
 ```typescript title="Inferred type for result"
 const result: Record<"foo", number> &
@@ -102,7 +102,7 @@ const result: Record<"foo", number> &
 
 That happens because we use [Intersection types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types), or in other words `&`.
 
-We will use [Mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) to add key and value without `&`:
+We can use [Mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) to add key and value without `&`:
 
 ```typescript title="Hack with Flatten type"
 type AddOption<ParsedConfig, Key extends string, Value> = {
@@ -120,7 +120,7 @@ interface Chainable<ParsedConfig = {}> {
 }
 ```
 
-Now if we add `type Test = typeof result;` and hover over it, we will see:
+Now if we hover over `Test` again, we will see:
 
 ```typescript title="Updated inferred type for result"
 type Test = {
@@ -136,9 +136,9 @@ We improved the readability of inferred value, you can see the updated `Chainabl
 
 ## Real-life example
 
-You can find chainable options in [yargs](https://www.npmjs.com/package/yargs) when you create a CLI in node.js
+You can find chainable options in [yargs](https://www.npmjs.com/package/yargs) – the node.js library to create a CLI for your needs.
 
-For example, you need to create a command `test` which can accept optional `testDir`, `ip` and `testCount` options:
+For example, when you need to create a command `test` which can accept optional `testDir`, `ip` and `testCount` options, you can define it this way:
 
 ```typescript title="Test command which accepts 3 optional options"
 import * as yargs from "yargs";
@@ -166,9 +166,9 @@ yargs.command(
 );
 ```
 
-And then we need to define `handleTestCommand` where `config` is infered from options that we included in `buildTestCommand`.
+Then we will need to define `handleTestCommand` where `config` is inferred from options that we included in `buildTestCommand`.
 
-I will show the solution for it as is:
+How can we do it? I will show the solution for it as is:
 
 ```typescript title="Infer command config out of build function"
 type AnyFunction = (...args: any[]) => any;
@@ -201,6 +201,6 @@ const handleTestCommand = (config: TestCommandConfig): void => {
 
 The whole `yargs` example is available here – https://tsplay.dev/wXQJ1N 👏
 
-We correctly infer `string | undefined` for known options and `unknown` for unknown option ✅
+We correctly inferred `string | undefined` for known options and `unknown` for unknown option ✅
 
-Have a nice day ☀️
+Thank you for your time and have a nice day ☀️
