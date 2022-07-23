@@ -46,41 +46,91 @@ interface Chainable {
 }
 ```
 
-Next, we say that we start from an empty object type and call after call we collect the data type in it. Let's add `T` as [Generic](https://www.typescriptlang.org/docs/handbook/2/generics.html):
+Next, we say that we start from an empty object type and call after call we collect the data type in it. Let's add `ParsedConfig` as [Generic](https://www.typescriptlang.org/docs/handbook/2/generics.html):
 
 ```typescript title="Added generic type T"
-interface Chainable<T = {}> {
+interface Chainable<ParsedConfig = {}> {
   option(key: string, value: any): Chainable;
-  get(): T;
+  get(): ParsedConfig;
 }
 ```
 
 Last but not least is the collection itself. Let's add types for a key and a value as [Generic](https://www.typescriptlang.org/docs/handbook/2/generics.html):
 
 ```typescript title="Add key and value for every option call"
-interface Chainable<T = {}> {
-  option<K, V>(key: K, value: V): Chainable<T & { [Key in K]: V }>;
-  get(): T;
+interface Chainable<ParsedConfig = {}> {
+  option<Key, Value>(
+    key: Key,
+    value: Value
+  ): Chainable<ParsedConfig & Record<Key, Value>>;
+  get(): ParsedConfig;
 }
 ```
 
-If you check temporary solution in Playground (https://tsplay.dev/m3PZAW), you will see that `Type 'K' is not assignable to type 'string | number | symbol'`
+If you check temporary solution in Playground (https://tsplay.dev/wOGbrw), you will see that `Type 'Key' does not satisfy the constraint 'string | number | symbol'`
 
-It means we need to apply [Generic Constrain](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints) for `K`, it should be a `string`:
+It means we need to apply [Generic Constrain](https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints) for `Key`, it should be a `string`:
 
 ```typescript title="Solution"
-interface Chainable<T = {}> {
-  option<K extends string, V>(
-    key: K,
-    value: V
-  ): Chainable<T & { [Key in K]: V }>;
-  get(): T;
+interface Chainable<ParsedConfig = {}> {
+  option<Key extends string, Value>(
+    key: Key,
+    value: Value
+  ): Chainable<ParsedConfig & Record<Key, Value>>;
+  get(): ParsedConfig;
 }
 ```
 
 That's it 💪
 
-Don't forget to check the solution in Playground – https://tsplay.dev/wXQ6kN
+Don't forget to check the solution in Playground – https://tsplay.dev/mLqMAW
+
+## Improve readability
+
+If you hover over `result`, you will see it:
+
+```typescript title="Inferred type for result"
+const result: Record<"foo", number> &
+  Record<
+    "bar",
+    {
+      value: string;
+    }
+  > &
+  Record<"name", string>;
+```
+
+That happens because we use [Intersection types](https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types), or in other words `&`.
+
+We will use [Mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) to add key and value without `&`:
+
+```typescript title="Hack with Flatten type"
+type AddOption<ParsedConfig, Key extends string, Value> = {
+  [K in keyof ParsedConfig | Key]: K extends keyof ParsedConfig
+    ? ParsedConfig[K]
+    : Value;
+};
+
+interface Chainable<ParsedConfig = {}> {
+  option<Key extends string, Value>(
+    key: Key,
+    value: Value
+  ): Chainable<AddOption<ParsedConfig, Key, Value>>;
+  get(): ParsedConfig;
+}
+```
+
+Now if we add `type Test = typeof result;` and hover over it, we will see:
+
+```typescript title="Updated inferred type for result"
+type Test = {
+  foo: number;
+  bar: {
+    value: string;
+  };
+  name: string;
+};
+```
 
 ## Real-life example
 
