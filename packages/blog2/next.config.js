@@ -32,6 +32,11 @@ const config = {
         destination: "/2021-07-05-spread-in-typescript",
         permanent: true,
       },
+      {
+        source: "/2021-04-28-mapped-types-in-functions",
+        destination: "/2021-04-28-chainable-options",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
