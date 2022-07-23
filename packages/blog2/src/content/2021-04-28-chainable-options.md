@@ -147,6 +147,8 @@ const handleTestCommand = (config: TestCommandConfig): void => {
 };
 ```
 
+The whole `yargs` example is available here – https://tsplay.dev/wXQJ1N 👏
+
 We correctly infer `string | undefined` for known options and `unknown` for unknown option ✅
 
 Have a nice day ☀️
