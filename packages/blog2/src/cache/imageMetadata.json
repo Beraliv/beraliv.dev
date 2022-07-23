@@ -291,26 +291,6 @@
     "width": 924,
     "height": 364
   },
-  "/mapped-types-in-functions/step1-example-of-use.png": {
-    "width": 1236,
-    "height": 748
-  },
-  "/mapped-types-in-functions/step2-chainable-return-type.png": {
-    "width": 916,
-    "height": 468
-  },
-  "/mapped-types-in-functions/step3-add-generic-type.png": {
-    "width": 916,
-    "height": 468
-  },
-  "/mapped-types-in-functions/step4-add-key-and-value-for-every-option-call.png": {
-    "width": 1232,
-    "height": 468
-  },
-  "/mapped-types-in-functions/step5-solution.png": {
-    "width": 1452,
-    "height": 468
-  },
   "/omit-under-the-hood/step1-example-of-use.png": {
     "width": 1324,
     "height": 714
@@ -920,6 +900,10 @@
     "height": 1800
   },
   "/camel-case/image2.png": {
+    "width": 1600,
+    "height": 900
+  },
+  "/chainable-options/image.png": {
     "width": 1600,
     "height": 900
   }
