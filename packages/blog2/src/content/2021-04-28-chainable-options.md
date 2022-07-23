@@ -132,6 +132,8 @@ type Test = {
 };
 ```
 
+We improved the readability of inferred value, you can see the updated `Chainable` type in Playground – https://tsplay.dev/w1PMGW
+
 ## Real-life example
 
 You can find chainable options in [yargs](https://www.npmjs.com/package/yargs) when you create a CLI in node.js
