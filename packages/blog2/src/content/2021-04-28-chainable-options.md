@@ -1,5 +1,5 @@
 ---
-title: Mapped Types in functions
+title: Chainable Options
 date: "2021-04-28"
 description: Given API, collect the object with keys and values after each call
 labels:
@@ -7,6 +7,7 @@ labels:
 keywords:
   - typescript
   - challenges
+  - chainable options
 image: /mapped-types-in-functions/step1-example-of-use.png
 ---
 
