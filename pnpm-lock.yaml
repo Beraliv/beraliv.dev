@@ -14,7 +14,7 @@ importers:
       '@types/node': '*'
       '@types/react': 18.0.15
       '@types/unist': 2.0.6
-      bundlewatch: 0.3.3
+      bundlewatch: git+https://github.com/cheapsteak/bundlewatch
       csstype: 3.1.0
       earljs: 0.2.3
       eslint: 8.20.0
@@ -61,7 +61,7 @@ importers:
       '@types/node': 17.0.7
       '@types/react': 18.0.15
       '@types/unist': 2.0.6
-      bundlewatch: 0.3.3
+      bundlewatch: github.com/cheapsteak/bundlewatch/4528239b0cf0376e00d213e1867c52bf7a90a772
       csstype: 3.1.0
       earljs: 0.2.3_typescript@4.7.4
       eslint: 8.20.0
@@ -1131,25 +1131,6 @@ packages:
     resolution: {integrity: sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==}
     dependencies:
       node-int64: 0.4.0
-    dev: true
-
-  /bundlewatch/0.3.3:
-    resolution: {integrity: sha512-qzSVWrZyyWXa546JpAPRPTFmnXms9YNVnfzB05DRJKmN6wRRa7SkxE4OgKQmbAY74Z6CM2mKAc6vwvd2R+1lUQ==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      axios: 0.24.0
-      bytes: 3.1.2
-      chalk: 4.1.2
-      ci-env: 1.17.0
-      commander: 5.1.0
-      glob: 7.2.0
-      gzip-size: 6.0.0
-      jsonpack: 1.1.5
-      lodash.merge: 4.6.2
-      read-pkg-up: 7.0.1
-    transitivePeerDependencies:
-      - debug
     dev: true
 
   /bytes/3.1.2:
@@ -2585,7 +2566,7 @@ packages:
     dev: false
 
   /is-arrayish/0.2.1:
-    resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=}
+    resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
     dev: true
 
   /is-bigint/1.0.4:
@@ -3065,7 +3046,7 @@ packages:
     hasBin: true
 
   /jsonpack/1.1.5:
-    resolution: {integrity: sha1-1CsNz9kaxY7zEQ+W0sWZQEw9wnw=}
+    resolution: {integrity: sha512-d2vwomK605ks7Q+uCpbwGyoIF5j+UZuJjlYcugISBt3CxM+eBo/W6y63yVPIyIvbYON+pvJYsYZjCYbzqJj/xQ==}
     dev: true
 
   /jsx-ast-utils/3.2.1:
@@ -5479,3 +5460,26 @@ packages:
 
   /zwitch/2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
+
+  github.com/cheapsteak/bundlewatch/4528239b0cf0376e00d213e1867c52bf7a90a772:
+    resolution: {tarball: https://codeload.github.com/cheapsteak/bundlewatch/tar.gz/4528239b0cf0376e00d213e1867c52bf7a90a772}
+    name: bundlewatch
+    version: 0.0.0
+    engines: {node: '>=10'}
+    hasBin: true
+    prepare: true
+    requiresBuild: true
+    dependencies:
+      axios: 0.24.0
+      bytes: 3.1.2
+      chalk: 4.1.2
+      ci-env: 1.17.0
+      commander: 5.1.0
+      glob: 7.2.0
+      gzip-size: 6.0.0
+      jsonpack: 1.1.5
+      lodash.merge: 4.6.2
+      read-pkg-up: 7.0.1
+    transitivePeerDependencies:
+      - debug
+    dev: true

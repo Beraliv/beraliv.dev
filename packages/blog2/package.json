@@ -35,7 +35,7 @@
     "@types/node": "*",
     "@types/react": "18.0.15",
     "@types/unist": "2.0.6",
-    "bundlewatch": "0.3.3",
+    "bundlewatch": "git+https://github.com/cheapsteak/bundlewatch",
     "csstype": "3.1.0",
     "earljs": "0.2.3",
     "eslint": "8.20.0",
