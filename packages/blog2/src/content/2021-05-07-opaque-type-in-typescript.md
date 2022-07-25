@@ -76,8 +76,6 @@ Let's see how we can imitate nominal type feature for TypeScript 4.2:
 
 Here we define `class` for every nominal type and add `__nominal` mark as a private property:
 
-<!-- do NOT use 'class' word in title, otherwise the code won't be visible -->
-
 ```typescript title="Class with private property"
 class USD {
   private __nominal: void;
@@ -104,8 +102,6 @@ Playground – https://tsplay.dev/we4a1W
 ### 2. Class + intersection types
 
 We still define `class` here, but for every nominal type we have [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html):
-
-<!-- do NOT use 'class' word in title, otherwise the code won't be visible -->
 
 ```typescript title="Class with intersection types"
 class Currency<T extends string> {
