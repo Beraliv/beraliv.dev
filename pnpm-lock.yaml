@@ -24,7 +24,7 @@ importers:
       jsdom: 20.0.0
       mocha: 10.0.0
       next: 12.2.3
-      next-mdx-remote: 4.0.3
+      next-mdx-remote: 4.1.0
       prism-react-renderer: 1.2.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -43,7 +43,7 @@ importers:
       formik: 2.2.9_react@18.2.0
       gray-matter: 4.0.3
       next: 12.2.3_t7ss3ubh4wigfvyfclbvqff3gm
-      next-mdx-remote: 4.0.3_biqbaboplfbrettd7655fr4n2y
+      next-mdx-remote: 4.1.0_biqbaboplfbrettd7655fr4n2y
       prism-react-renderer: 1.2.1_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3876,8 +3876,8 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-mdx-remote/4.0.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-jKpZyBN0cOUmfBRId5iGpplWOO79hV2A5qfo17VG4Avn0G5PEs6vR9vf9IngKEw1G4aVqzhCs3j9CEbMFzZoAg==}
+  /next-mdx-remote/4.1.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-ZdL5AFJcEqvInGkYYRKda930D6AJt1GOLX/OXFE/vTwaqV/Mw+l3/njZ4kWqvYSAkl89Z6W7WZrTtN0fd0XwPg==}
     engines: {node: '>=14', npm: '>=7'}
     peerDependencies:
       react: '>=16.x <=18.x'
