@@ -30,7 +30,7 @@ importers:
       react-dom: 18.2.0
       remark: 14.0.2
       remark-gfm: 3.0.1
-      remark-mdx-code-meta: 1.0.0
+      remark-mdx-code-meta: 2.0.0
       remark-unwrap-images: 3.0.1
       swr: 1.3.0
       ts-essentials: 9.1.2
@@ -48,7 +48,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       remark-gfm: 3.0.1
-      remark-mdx-code-meta: 1.0.0
+      remark-mdx-code-meta: 2.0.0
       remark-unwrap-images: 3.0.1
       swr: 1.3.0_react@18.2.0
       unist-util-visit: 4.1.0
@@ -1969,10 +1969,6 @@ packages:
       estree-walker: 3.0.1
     dev: false
 
-  /estree-util-is-identifier-name/1.1.0:
-    resolution: {integrity: sha512-OVJZ3fGGt9By77Ix9NhaRbzfbDV/2rx9EP7YIDJTmsZSEc5kYn2vWcNccYyahJL2uAQZK2a5Or2i0wtIKTPoRQ==}
-    dev: false
-
   /estree-util-is-identifier-name/2.0.1:
     resolution: {integrity: sha512-rxZj1GkQhY4x1j/CSnybK9cGuMFQYFPLq0iNyopqf14aOVLFtMv7Esika+ObJWPWiOHuMOAHz3YkWoLYYRnzWQ==}
     dev: false
@@ -2467,8 +2463,10 @@ packages:
       - supports-color
     dev: false
 
-  /hast-util-to-string/1.0.4:
-    resolution: {integrity: sha512-eK0MxRX47AV2eZ+Lyr18DCpQgodvaS3fAQO2+b9Two9F5HEoRPhiUMNzoXArMJfZi2yieFzUBMRl3HNJ3Jus3w==}
+  /hast-util-to-string/2.0.0:
+    resolution: {integrity: sha512-02AQ3vLhuH3FisaMM+i/9sm4OXGSq1UhOOCpTLLQtHdL3tZt7qil69r8M8iDkZYyC0HCFylcYoP+8IO7ddta1A==}
+    dependencies:
+      '@types/hast': 2.3.4
     dev: false
 
   /hast-util-whitespace/2.0.0:
@@ -4420,15 +4418,17 @@ packages:
       - supports-color
     dev: false
 
-  /remark-mdx-code-meta/1.0.0:
-    resolution: {integrity: sha512-7lu7aX7EeBQOwTQL8uYRvUhjAujMAC/bpOEv4p5pPL3xb9R6SR+8BKpiEA8CrbBEc8nhNac9QJ7/K3VpR5I7yQ==}
-    engines: {node: '>=12.2.0'}
+  /remark-mdx-code-meta/2.0.0:
+    resolution: {integrity: sha512-UA7i3ooevNEmgr5DAVtUY+KRIkvbVe5OOysvJcNXEjS2ZiT3gaibPHN57JPbbiT1kq4x8+e3viy88svrReuLfw==}
+    engines: {node: '>=14'}
     dependencies:
+      '@types/mdast': 3.0.10
       acorn: 8.8.0
       acorn-jsx: 5.3.2_acorn@8.8.0
-      estree-util-is-identifier-name: 1.1.0
-      hast-util-to-string: 1.0.4
-      unist-util-visit: 2.0.3
+      estree-util-is-identifier-name: 2.0.1
+      hast-util-to-string: 2.0.0
+      unified: 10.1.2
+      unist-util-visit: 4.1.0
     dev: false
 
   /remark-mdx/2.1.2:
@@ -5169,10 +5169,6 @@ packages:
     resolution: {integrity: sha512-TiWE6DVtVe7Ye2QxOVW9kqybs6cZexNwTwSMVgkfjEReqy/xwGpAXb99OxktoWwmL+Z+Epb0Dn8/GNDYP1wnUw==}
     dev: false
 
-  /unist-util-is/4.1.0:
-    resolution: {integrity: sha512-ZOQSsnce92GrxSqlnEEseX0gi7GH9zTJZ0p9dtu87WRb/37mMPO2Ilx1s/t9vBHrFhbgweUwb+t7cIn5dxPhZg==}
-    dev: false
-
   /unist-util-is/5.1.1:
     resolution: {integrity: sha512-F5CZ68eYzuSvJjGhCLPL3cYx45IxkqXSetCcRgUXtbcm50X2L9oOWQlfUfDdAf+6Pd27YDblBfdtmsThXmwpbQ==}
 
@@ -5200,26 +5196,11 @@ packages:
     dependencies:
       '@types/unist': 2.0.6
 
-  /unist-util-visit-parents/3.1.1:
-    resolution: {integrity: sha512-1KROIZWo6bcMrZEwiH2UrXDyalAa0uqzWCxCJj6lPOvTve2WkfgCytoDTPaMnodXh1WrXOq0haVYHj99ynJlsg==}
-    dependencies:
-      '@types/unist': 2.0.6
-      unist-util-is: 4.1.0
-    dev: false
-
   /unist-util-visit-parents/5.1.0:
     resolution: {integrity: sha512-y+QVLcY5eR/YVpqDsLf/xh9R3Q2Y4HxkZTp7ViLDU6WtJCEcPmRzW1gpdWDCDIqIlhuPDXOgttqPlykrHYDekg==}
     dependencies:
       '@types/unist': 2.0.6
       unist-util-is: 5.1.1
-
-  /unist-util-visit/2.0.3:
-    resolution: {integrity: sha512-iJ4/RczbJMkD0712mGktuGpm/U4By4FfDonL7N/9tATGIF4imikjOuagyMY53tnZq3NP6BcmlrHhEKAfGWjh7Q==}
-    dependencies:
-      '@types/unist': 2.0.6
-      unist-util-is: 4.1.0
-      unist-util-visit-parents: 3.1.1
-    dev: false
 
   /unist-util-visit/4.1.0:
     resolution: {integrity: sha512-n7lyhFKJfVZ9MnKtqbsqkQEk5P1KShj0+//V7mAcoI6bpbUjh3C/OG8HVD+pBihfh6Ovl01m8dkcv9HNqYajmQ==}
