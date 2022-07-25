@@ -866,5 +866,9 @@
   "/chainable-options/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/opaque-type-in-typescript/step1-example-of-opaque-type.png": {
+    "width": 1286,
+    "height": 888
   }
 }
