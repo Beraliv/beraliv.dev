@@ -10,7 +10,7 @@ keywords:
 image: /opaque-type-in-typescript/step1-example-of-opaque-type.png
 ---
 
-```typescript title=Example of Opaque Types
+```typescript title="Example of Opaque Types"
 declare const __opaque__type__: unique symbol;
 
 type OpaqueType<BaseType, TagName> = BaseType & {
@@ -40,7 +40,7 @@ Today we discuss Opaque types:
 
 TypeScript, like Elm and Haskell, has a [structural type system](https://www.typescriptlang.org/docs/handbook/type-compatibility.html). It means that 2 different types but of the same shape are compatible:
 
-```typescript title=Example of structural type system
+```typescript title="Example of structural type system"
 type Animal = { animal: true };
 type Cat = { animal: true; meow: VoidFunction };
 type Dog = { animal: true; bark: VoidFunction };
@@ -76,9 +76,9 @@ Let's see how we can imitate nominal type feature for TypeScript 4.2:
 
 Here we define `class` for every nominal type and add `__nominal` mark as a private property:
 
-<!-- do NOT use 'class' work in title, otherwise the code won't be visible -->
+<!-- do NOT use 'class' word in title, otherwise the code won't be visible -->
 
-```typescript title=Class with private property
+```typescript title="Class with private property"
 class USD {
   private __nominal: void;
   constructor(public value: number) {}
@@ -105,9 +105,9 @@ Playground – https://tsplay.dev/we4a1W
 
 We still define `class` here, but for every nominal type we have [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html):
 
-<!-- do NOT use 'class' work in title, otherwise the code won't be visible -->
+<!-- do NOT use 'class' word in title, otherwise the code won't be visible -->
 
-```typescript title=Class with intersection types
+```typescript title="Class with intersection types"
 class Currency<T extends string> {
   private as: T;
 }
@@ -133,7 +133,7 @@ Playground – https://tsplay.dev/wgXa9N
 
 We only define `type` here and use [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html) with intersection types:
 
-```typescript title=Type with intersection types
+```typescript title="Type with intersection types"
 type Brand<K, T> = K & { __brand: T };
 
 type USD = Brand<number, "USD">;
@@ -160,7 +160,7 @@ Playground – https://tsplay.dev/NnQM6w
 
 We still define `type`, use [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html), use intersection types with `unique symbol`:
 
-```typescript title=Type with intersection types and unique symbol property
+```typescript title="Type with intersection types and unique symbol property"
 declare const brand: unique symbol;
 
 type Brand<K, T> = K & { readonly [brand]: T };
@@ -207,13 +207,13 @@ I will stop on [Type + intersection types + unique symbol](/2021-05-07-opaque-ty
 
 It's possible to create a symbol in TypeScript without creating it in JavaScript. So it won't exist after compiling
 
-```typescript title=Declare unique symbol
+```typescript title="Declare unique symbol"
 declare const brand: unique symbol;
 ```
 
 Also, if you plan to reuse `OpaqueType` and put it to the separate file:
 
-```typescript title=Opaque type implementation
+```typescript title="Opaque type implementation"
 declare const __opaque__type__: unique symbol;
 
 type OpaqueType<K, T> = K & { readonly [__opaque__type__]: T };
@@ -225,7 +225,7 @@ It's a good idea as in this case `symbol` won't be accessible outside of the fil
 
 Let's have a look at [CodeSandbox](https://codesandbox.io/s/ts-opaque-units-6j3ti?file=/src/index.ts)
 
-```typescript title=ts-opaque-units example
+```typescript title="ts-opaque-units example"
 import { convert, Days } from "ts-opaque-units";
 
 const daysSinceLast6months = () => {
@@ -243,7 +243,7 @@ document.body.innerHTML = daysSinceLast6months();
 
 It uses [ts-opaque-units](https://www.npmjs.com/package/ts-opaque-units) which implements `Opaque` function with unique symbol. For instance, `Days` is defined as:
 
-```typescript title=Days example
+```typescript title="Days example"
 import { Opaque } from "../../internal/types/Opaque";
 
 export type Days = Opaque<number, "days">;
