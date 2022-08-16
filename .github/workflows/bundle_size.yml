@@ -14,8 +14,14 @@ jobs:
       - name: Checkout to current branch
         uses: actions/checkout@v3
 
-      - name: Setup
-        uses: ./.github/actions/setup-node-pnpm
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Caches node modules
+        uses: .github/actions/cache-node-modules
+
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
 
       - name: Install dependencies
         run: pnpm install
