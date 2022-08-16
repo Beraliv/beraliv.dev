@@ -23,7 +23,7 @@ jobs:
             ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.2.2
         with:
-          version: 7.6.0
+          version: 7.9.0
       - run: pnpm install
       - run: pnpm --filter blog2 run type
       - run: pnpm --filter blog2 run test
