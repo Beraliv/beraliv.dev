@@ -18,7 +18,7 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Caches node modules
-        uses: .github/actions/cache-node-modules
+        uses: ./.github/actions/cache-node-modules
 
       - name: Setup pnpm
         uses: ./.github/actions/setup-pnpm
