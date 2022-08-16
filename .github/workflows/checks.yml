@@ -24,6 +24,10 @@ jobs:
       - name: Setup pnpm
         uses: ./.github/actions/setup-pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+        shell: bash
+
       - name: Type check
         run: pnpm --filter ${{ matrix.package }} run type
 
