@@ -4,7 +4,7 @@ on: push
 
 jobs:
   checks:
-    name: Type check
+    name: Checks
     timeout-minutes: 5
     runs-on: ubuntu-latest
     strategy:
