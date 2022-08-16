@@ -30,7 +30,7 @@ describe(getAllPosts.name, () => {
       "2021-04-23-partial-readonly",
       "2021-04-25-recursive-readonly-for-objects",
       "2021-04-27-making-union-out-of-tuple",
-      "2021-04-28-mapped-types-in-functions",
+      "2021-04-28-chainable-options",
       "2021-04-29-infer-last-element",
       "2021-05-01-manipulation-with-tuple-elements",
       "2021-05-04-promise-all-under-the-hood",
@@ -54,6 +54,7 @@ describe(getAllPosts.name, () => {
       "2021-12-03-string-to-number",
       "2021-12-07-get-optional",
       "2021-12-10-advanced-types-holyjs-notes",
+      "2022-07-14-camel-case",
     ]);
   });
 });

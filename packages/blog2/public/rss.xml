@@ -9,9 +9,17 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 10 Dec 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Jul 2022 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[CamelCase]]></title>
+            <description><![CDATA[Given a string in any case, returns a string in camel case]]></description>
+            <link>https://blog.beraliv.dev/2022-07-14-camel-case</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2022-07-14-camel-case</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Thu, 14 Jul 2022 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Advanced types / Holy.js notes]]></title>
             <description><![CDATA[The power of TypeScript will be revealed by the example of several tasks from type-challenges of the hard level.]]></description>
