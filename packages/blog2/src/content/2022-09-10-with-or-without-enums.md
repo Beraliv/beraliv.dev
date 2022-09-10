@@ -7,8 +7,7 @@ labels:
 keywords:
   - typescript
   - enums
-# TODO: create /avoid-enums/image.png and replace with it
-image: /camel-case/image2.png
+image: /with-or-without-enums/image.png
 ---
 
 ## What
