@@ -55,6 +55,7 @@ describe(getAllPosts.name, () => {
       "2021-12-07-get-optional",
       "2021-12-10-advanced-types-holyjs-notes",
       "2022-07-14-camel-case",
+      "2022-09-10-with-or-without-enums",
     ]);
   });
 });
