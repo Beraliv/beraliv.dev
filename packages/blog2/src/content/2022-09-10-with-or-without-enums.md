@@ -135,7 +135,7 @@ Ambient enums are rarely used in a codebase. If you DO use them, you probably al
 
 1. They are incompatible with `isolatedModules`
 
-1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. https://github.com/microsoft/TypeScript/issues/5219 🐞
+1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
 
 1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
 
@@ -434,18 +434,18 @@ const A_Y = "Y";
 
 ## Links 🔗
 
-1. Difference between `const enum` and `enum` – https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript
+1. [Difference between `const enum` and `enum` | Stackoverflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
 
-1. TS features to avoid – https://www.executeprogram.com/blog/typescript-features-to-avoid
+1. [TS features to avoid | Execute Program](https://www.executeprogram.com/blog/typescript-features-to-avoid)
 
-1. Numeric enums – https://www.typescriptlang.org/docs/handbook/enums.html#numeric-enums
+1. [Numeric enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#numeric-enums)
 
-1. String enums – https://www.typescriptlang.org/docs/handbook/enums.html#string-enums
+1. [String enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#string-enums)
 
-1. Heterogeneous enums – https://www.typescriptlang.org/docs/handbook/enums.html#heterogeneous-enums
+1. [Heterogeneous enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#heterogeneous-enums)
 
-1. Const enums – https://www.typescriptlang.org/docs/handbook/enums.html#const-enums
+1. [Const enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)
 
-1. Const enum pitfalls – https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls
+1. [Const enum pitfalls | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls)
 
-1. Do you need ambient const enums or would a non-const enum work – https://github.com/microsoft/TypeScript/issues/40344#issuecomment-956368612
+1. [Do you need ambient const enums or would a non-const enum work | TypeScript Issue comment](https://github.com/microsoft/TypeScript/issues/40344#issuecomment-956368612)
