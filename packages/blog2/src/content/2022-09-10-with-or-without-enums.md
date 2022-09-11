@@ -365,7 +365,7 @@ TypeScript advises to:
 
 > B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
 
-### Bundle size impact
+## Bundle size impact
 
 ```typescript title="Enums"
 // typescript
