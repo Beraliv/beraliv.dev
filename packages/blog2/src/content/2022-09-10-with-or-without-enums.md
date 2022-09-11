@@ -174,7 +174,7 @@ Let's sum up what we just discussed in a table:
 
 1. Only union is a type-only feature, meaning there's no JS code added. Const enums leave only values. String enums leave the whole object structure. Numeric enums (normal and heterogeneous) leave mirror object structure. See the comparison below.
 
-## How (Proposal) ❓
+## How to get rid of enums
 
 If you decided to get rid of enums, here are my suggestions.
 
