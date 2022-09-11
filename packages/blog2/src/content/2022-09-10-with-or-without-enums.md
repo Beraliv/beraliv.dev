@@ -309,121 +309,121 @@ It will definitely increase your bundle size. But again, it will keep you code s
 
 ```typescript title="Enums"
 // typescript
-enum A {
-  X = 0,
-  Y = "Y",
+enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-var A;
-(function (A) {
-  A[(A["X"] = 0)] = "X";
-  A["Y"] = "Y";
-})(A || (A = {}));
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 ```
 
 ```typescript title="Const enums"
 // typescript
-const enum A {
-  X = 0,
-  Y = "Y",
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Const enums with enabled preserveConstEnums"
 // typescript
-const enum A {
-  X = 0,
-  Y = "Y",
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-var A;
-(function (A) {
-  A[(A["X"] = 0)] = "X";
-  A["Y"] = "Y";
-})(A || (A = {}));
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
 
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Ambient enums"
 // typescript
-declare enum A {
-  X = 0,
-  Y = "Y",
+declare enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 ```
 
 ```typescript title="Ambient const enums"
 // typescript
-declare const enum A {
-  X = 0,
-  Y = "Y",
+declare const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Object + as const"
 // typescript
-const a = {
-  X: 0,
-  Y: "Y",
+const ANSWER = {
+  No: 0,
+  Yes: "Yes",
 } as const;
 
-const A_X = a.X;
-const A_Y = a.Y;
+const yes = ANSWER.Yes;
+const no = ANSWER.No;
 
 // javascript
-const a = {
-  X: 0,
-  Y: "Y",
+const ANSWER = {
+  No: 0,
+  Yes: "Yes",
 };
 
-const A_X = a.X;
-const A_Y = a.Y;
+const yes = ANSWER.Yes;
+const no = ANSWER.No;
 ```
 
 ```typescript title="Union types"
 // typescript
-type A = 0 | "Y";
+type Answer = 0 | "Yes";
 
-const A_X: A = 0;
-const A_Y: A = "Y";
+const yes: Answer = "Yes";
+const no: Answer = 0;
 
 // javascript
-const A_X = 0;
-const A_Y = "Y";
+const yes = "Yes";
+const no = 0;
 ```
 
 ## Links 🔗
