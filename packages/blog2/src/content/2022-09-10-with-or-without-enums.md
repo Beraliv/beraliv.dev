@@ -16,7 +16,7 @@ You're uncertain whether you need to use enums or not.
 
 Here are some points that make it easy to come to a conclusion.
 
-## Why not (pros) ✅
+## Why use enums
 
 ### Refactoring
 
@@ -63,7 +63,7 @@ volume.status = "AUDIBLE";
 
 🏝 Playground – https://tsplay.dev/W4xY4W
 
-## Why (cons) ❌
+## Why not use enums
 
 ### Numeric enums are NOT safe
 
