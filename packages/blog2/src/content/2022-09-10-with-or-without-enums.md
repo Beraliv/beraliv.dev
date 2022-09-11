@@ -16,7 +16,7 @@ You're uncertain whether you need to use enums or not.
 
 Here are some points that make it easy to come to a conclusion.
 
-## Why not (pros) ✅
+## Why use enums
 
 ### Refactoring
 
@@ -41,9 +41,28 @@ This argument isn't very strong, because:
 
 ### Opaque-like type
 
-Only string enums act like opaque types. It means that we cannot assign string literal values.
+If you're not familiar with [Opaque types](/2021-05-07-opaque-type-in-typescript), it's a way to declare types of the same structure, which are not assignable to each other.
 
-```typescript title="You cannot use string literal values as string enums value"
+The perfect example can be 2 currencies (e.g. USD and EUR). You cannot simply put dollars into euro account without taking into account currency exchange rate:
+
+```typescript title="Opaque type example"
+declare const brand: unique symbol;
+
+type Brand<K, T> = K & { readonly [brand]: T };
+
+type USD = Brand<number, "USD">;
+type EUR = Brand<number, "EUR">;
+
+let euroAccount = 0 as EUR;
+let dollarAccount = 50 as USD;
+
+// Error: Type '"USD"' is not assignable to type '"EUR"'.
+euroAccount = dollarAccount;
+```
+
+String enums act like opaque types. It means that we can only assign values of this enum, but not string literals.
+
+```typescript title="You cannot use string literals as string enum value"
 const enum VolumeStatus {
   AUDIBLE = "AUDIBLE",
   MUTED = "MUTED",
@@ -63,9 +82,9 @@ volume.status = "AUDIBLE";
 
 🏝 Playground – https://tsplay.dev/W4xY4W
 
-## Why (cons) ❌
+## Why not use enums
 
-### Numeric enums are NOT safe
+### Numeric enums are NOT type-safe
 
 Given numeric enum and any variable of its type, TypeScript allow you to assign any number to it.
 
@@ -97,11 +116,15 @@ options.output = 5;
 
 ### Enum is NOT just a type feature added
 
-TypeScript is supposed to be JavaScript, but with static type features added
+TypeScript is supposed to be JavaScript, but with static type features added.
 
-If we remove all of the types from TypeScript code, what's left should be valid JavaScript code. The formal word used in the TypeScript documentation is "type-level extension":
+If we remove all of the types from TypeScript code, what's left should be valid JavaScript code.
+
+The formal word used in the TypeScript documentation is "type-level extension":
 
 > Most TypeScript features are type-level extensions to JavaScript, and they don't affect the code's runtime behaviour.
+
+Given function `add` in TypeScript:
 
 ```typescript title="TypeScript example"
 function add(x: number, y: number): number {
@@ -123,50 +146,37 @@ add(1, 2); // Evaluates to 3
 
 Unfortunately, enums break this rule (in comparison to classes which only add type information on top of existing JS code) for now.
 
+You can simply try to execute this code in the browser and you will get a syntax error:
+
+```javascript title="Enum is reserved keyword but cannot be used now"
+// Uncaught SyntaxError: Unexpected reserved word
+enum Answer { No = 0, Yes = 1 }
+```
+
+At the moment of writing this blog post, [proposal for ECMAScript enums](https://github.com/rbuckton/proposal-enum) was on stage 0.
+
 ### Const enum + preserveConstEnums option === enum + potential surprising bugs
 
 Some projects use const enums as normal enums by enabling [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums).
 
 See [bundle-size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
 
-### Ambient const enum pitfalls
-
-Ambient enums are rarely used in a codebase. If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
-
-1. They are incompatible with `isolatedModules`
-
-1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
-
-1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
-
-TypeScript advises to:
-
-> A. Do not use const enums at all. You can easily ban const enums with the help of a linter. Obviously this avoids any issues with const enums, but prevents your project from inlining its own enums. Unlike inlining enums from other projects, inlining a project’s own enums is not problematic and has performance implications.
-
-> B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
-
 ## Choose your solution
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                                                                                   | Declaration                                 | Strict<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
-| :--------------------------------------------------------------------------------------------------------- | :------------------------------------------ | :----------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
-| [Numeric enums](https://tsplay.dev/N5LnPw)                                                                 | `enum A { X = 0, Y = 1 }`                   |         ❌         |           ✅            |           ❌            |                           3                           |
-| [String enums](https://tsplay.dev/m0AjnW)                                                                  | `enum A { X = 'X', Y = 'Y' }`               |         ✅         |           ✅            |           ✅            |                           2                           |
-| [Heterogeneous enums](https://tsplay.dev/wERK4N)                                                           | `enum A { X = 0, Y = 'Y' }`                 |         ❌         |           ✅            |           ❌            |                           3                           |
-| [Numeric const enums](https://tsplay.dev/mZjM1m)                                                           | `const enum A { X = 0, Y = 1 }`             |         ❌         |           ✅            |           ❌            |                           1                           |
-| [String const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)                  | `const enum A { X = 'X', Y = 'Y' }`         |         ✅         |           ✅            |           ✅            |                           1                           |
-| [Heterogeneous const enums](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)           | `const enum A { X = 0, Y = 'Y' }`           |         ❌         |           ✅            |           ❌            |                           1                           |
-| [Numeric ambient enums](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)             | `declare enum A { X = 0, Y = 1 }`           |         ❌         |           ✅            |           ❌            |                           0                           |
-| [String ambient enums](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)              | `declare enum A { X = 'X', Y = 'Y' }`       |         ✅         |           ✅            |           ✅            |                           0                           |
-| [Heterogeneous ambient enums](https://tsplay.dev/NdYMvm)                                                   | `declare enum A { X = 0, Y = 'Y' }`         |         ❌         |           ✅            |           ❌            |                           0                           |
-| [Numeric ambient const enums](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)       | `declare const enum A { X = 0, Y = 1 }`     |         ❌         |           ✅            |           ❌            |                           0                           |
-| [String ambient const enums](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)        | `declare const enum A { X = 'X', Y = 'Y' }` |         ✅         |           ✅            |           ✅            |                           0                           |
-| [Heterogeneous ambient const enums](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums) | `declare const enum A { X = 0, Y = 'Y' }`   |         ❌         |           ✅            |           ❌            |                           0                           |
-| [Object + as const](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)              | `const a = { X: 'X', Y: 'Y' } as const`     |         ✅         |           ✅            |           ❌            |                           2                           |
-| [Union types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)              | `type A = 'X' \| 'Y' `                      |         ✅         |           ❌            |           ❌            |                           0                           |
+| Approach                                               | Declaration                                     | Type-safe<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :-------------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |          ❌           |           ✅            |           ❌            |                           3                           |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |          ✅           |           ✅            |           ✅            |                           2                           |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |          ❌           |           ✅            |           ❌            |                           3                           |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |          ❌           |           ✅            |           ❌            |                           1                           |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |          ✅           |           ✅            |           ✅            |                           1                           |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |          ❌           |           ✅            |           ❌            |                           1                           |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |          ✅           |           ✅            |           ❌            |                           2                           |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |          ✅           |           ❌            |           ❌            |                           0                           |
 
-1. All numeric enums (whether normal, heterogeneous, const or ambient) aren't strict as you can assign any number to the variable of its type.
+1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
 
 1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving the mapping in its structure.
 
@@ -174,7 +184,7 @@ Let's sum up what we just discussed in a table:
 
 1. Only union is a type-only feature, meaning there's no JS code added. Const enums leave only values. String enums leave the whole object structure. Numeric enums (normal and heterogeneous) leave mirror object structure. See the comparison below.
 
-## How (Proposal) ❓
+## How to get rid of enums
 
 If you decided to get rid of enums, here are my suggestions.
 
@@ -297,7 +307,7 @@ type TOutput = OutputEvent2["type"];
 
 🏝 Together in Playground – https://tsplay.dev/mM1klm
 
-### Numeric const enums => open to suggestions
+### Numeric const enums => it depends
 
 Values within numeric const enums are usually unreadable (e.g. `0`, `1`).
 
@@ -309,128 +319,182 @@ type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-=>-object-+-as-const-+-values).
 
-It will definitely increase your bundle size. But again, it will keep you code safe by eliminating assignment of any number.
+It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
-### Bundle size impact
+## What about ambient enums
+
+Apart from enums and const enums, there are ambient enums.
+
+It's a way to describe the shape of existing enum types, e.g.:
+
+```typescript title="Declaration of ambient enum"
+declare enum Colour {
+  Red = "red",
+  Green = "green",
+  Blue = "blue",
+}
+```
+
+Usually you can find them in declaration files, e.g. [@prisma/client](https://github.com/prisma/prisma/blob/main/packages/engine-core/src/common/types/Transaction.ts#L1-L7)
+
+```typescript title="@prisma/client/runtime/index.d.ts"
+declare enum IsolationLevel {
+  ReadUncommitted = "ReadUncommitted",
+  ReadCommitted = "ReadCommitted",
+  RepeatableRead = "RepeatableRead",
+  Snapshot = "Snapshot",
+  Serializable = "Serializable",
+}
+```
+
+It's still very unlikely that you use ambient enums directly in your codebase. I would recommend to avoid using them.
+
+### Ambient const enum pitfalls
+
+If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
+
+1. They are incompatible with `isolatedModules`
+
+1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
+
+1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
+
+TypeScript advises to:
+
+> A. Do not use const enums at all. You can easily ban const enums with the help of a linter. Obviously this avoids any issues with const enums, but prevents your project from inlining its own enums. Unlike inlining enums from other projects, inlining a project’s own enums is not problematic and has performance implications.
+
+> B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
+
+## Bundle size impact
 
 ```typescript title="Enums"
 // typescript
-enum A {
-  X = 0,
-  Y = "Y",
+enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-var A;
-(function (A) {
-  A[(A["X"] = 0)] = "X";
-  A["Y"] = "Y";
-})(A || (A = {}));
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 ```
 
 ```typescript title="Const enums"
 // typescript
-const enum A {
-  X = 0,
-  Y = "Y",
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Const enums with enabled preserveConstEnums"
 // typescript
-const enum A {
-  X = 0,
-  Y = "Y",
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-var A;
-(function (A) {
-  A[(A["X"] = 0)] = "X";
-  A["Y"] = "Y";
-})(A || (A = {}));
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
 
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Ambient enums"
 // typescript
-declare enum A {
-  X = 0,
-  Y = "Y",
+declare enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 ```
 
 ```typescript title="Ambient const enums"
 // typescript
-declare const enum A {
-  X = 0,
-  Y = "Y",
+declare const enum Answer {
+  No = 0,
+  Yes = "Yes",
 }
 
-const A_X = A.X;
-const A_Y = A.Y;
+const yes = Answer.Yes;
+const no = Answer.No;
 
 // javascript
-const A_X = 0; /* A.X */
-const A_Y = "Y"; /* A.Y */
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
 ```
 
 ```typescript title="Object + as const"
 // typescript
-const a = {
-  X: 0,
-  Y: "Y",
+const ANSWER = {
+  No: 0,
+  Yes: "Yes",
 } as const;
 
-const A_X = a.X;
-const A_Y = a.Y;
+const yes = ANSWER.Yes;
+const no = ANSWER.No;
 
 // javascript
-const a = {
-  X: 0,
-  Y: "Y",
+const ANSWER = {
+  No: 0,
+  Yes: "Yes",
 };
 
-const A_X = a.X;
-const A_Y = a.Y;
+const yes = ANSWER.Yes;
+const no = ANSWER.No;
 ```
 
 ```typescript title="Union types"
 // typescript
-type A = 0 | "Y";
+type Answer = 0 | "Yes";
 
-const A_X: A = 0;
-const A_Y: A = "Y";
+const yes: Answer = "Yes";
+const no: Answer = 0;
 
 // javascript
-const A_X = 0;
-const A_Y = "Y";
+const yes = "Yes";
+const no = 0;
 ```
+
+## Shout out
+
+This article couldn't be that good without the help of:
+
+- [AleksandrSI](https://github.com/AleksandrSl)
+- [Joe Previte](https://github.com/jsjoeio)
+- [bautistaaa](https://github.com/bautistaaa)
+
+Thank you mates, your feedback was really helpful! 👏
 
 ## Links 🔗
 
@@ -448,4 +512,10 @@ const A_Y = "Y";
 
 1. [Const enum pitfalls | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls)
 
+1. [Ambient enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)
+
 1. [Do you need ambient const enums or would a non-const enum work | TypeScript Issue comment](https://github.com/microsoft/TypeScript/issues/40344#issuecomment-956368612)
+
+1. [JavaScript reserved keywords](https://www.w3schools.com/js/js_reserved.asp)
+
+1. [Proposal for ECMAScript enums | GitHub](https://github.com/rbuckton/proposal-enum)
