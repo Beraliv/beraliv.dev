@@ -486,6 +486,16 @@ const yes = "Yes";
 const no = 0;
 ```
 
+## Shout out
+
+This article couldn't be that good without the help of:
+
+- [AleksandrSI](https://github.com/AleksandrSl)
+- [Joe Previte](https://github.com/jsjoeio)
+- [bautistaaa](https://github.com/bautistaaa)
+
+Thank you mates, your feedback was really helpful! 👏
+
 ## Links 🔗
 
 1. [Difference between `const enum` and `enum` | Stackoverflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
