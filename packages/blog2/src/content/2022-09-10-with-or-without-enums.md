@@ -297,7 +297,7 @@ type TOutput = OutputEvent2["type"];
 
 🏝 Together in Playground – https://tsplay.dev/mM1klm
 
-### Numeric const enums => open to suggestions
+### Numeric const enums => it depends
 
 Values within numeric const enums are usually unreadable (e.g. `0`, `1`).
 
