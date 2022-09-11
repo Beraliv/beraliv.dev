@@ -65,7 +65,7 @@ volume.status = "AUDIBLE";
 
 ## Why not use enums
 
-### Numeric enums are NOT safe
+### Numeric enums are NOT type-safe
 
 Given numeric enum and any variable of its type, TypeScript allow you to assign any number to it.
 
@@ -146,18 +146,18 @@ See [bundle-size impact for const enums with enabled preserveConstEnums](#bundle
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                               | Declaration                                     | Strict<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
-| :----------------------------------------------------- | :---------------------------------------------- | :----------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |         ❌         |           ✅            |           ❌            |                           3                           |
-| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |         ✅         |           ✅            |           ✅            |                           2                           |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |         ❌         |           ✅            |           ❌            |                           3                           |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |         ❌         |           ✅            |           ❌            |                           1                           |
-| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |         ✅         |           ✅            |           ✅            |                           1                           |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |         ❌         |           ✅            |           ❌            |                           1                           |
-| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |         ✅         |           ✅            |           ❌            |                           2                           |
-| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |         ✅         |           ❌            |           ❌            |                           0                           |
+| Approach                                               | Declaration                                     | Type-safe<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :-------------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |          ❌           |           ✅            |           ❌            |                           3                           |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |          ✅           |           ✅            |           ✅            |                           2                           |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |          ❌           |           ✅            |           ❌            |                           3                           |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |          ❌           |           ✅            |           ❌            |                           1                           |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |          ✅           |           ✅            |           ✅            |                           1                           |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |          ❌           |           ✅            |           ❌            |                           1                           |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |          ✅           |           ✅            |           ❌            |                           2                           |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |          ✅           |           ❌            |           ❌            |                           0                           |
 
-1. All numeric enums (whether normal, heterogeneous or const) aren't strict as you can assign any number to the variable of its type.
+1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
 
 1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving the mapping in its structure.
 
@@ -300,7 +300,7 @@ type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
 Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-=>-object-+-as-const-+-values).
 
-It will definitely increase your bundle size. But again, it will keep you code safe by eliminating assignment of any number.
+It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
 ## What about ambient enums
 
