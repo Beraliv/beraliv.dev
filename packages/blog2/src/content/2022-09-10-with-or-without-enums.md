@@ -97,11 +97,15 @@ options.output = 5;
 
 ### Enum is NOT just a type feature added
 
-TypeScript is supposed to be JavaScript, but with static type features added
+TypeScript is supposed to be JavaScript, but with static type features added.
 
-If we remove all of the types from TypeScript code, what's left should be valid JavaScript code. The formal word used in the TypeScript documentation is "type-level extension":
+If we remove all of the types from TypeScript code, what's left should be valid JavaScript code.
+
+The formal word used in the TypeScript documentation is "type-level extension":
 
 > Most TypeScript features are type-level extensions to JavaScript, and they don't affect the code's runtime behaviour.
+
+Given function `add` in TypeScript:
 
 ```typescript title="TypeScript example"
 function add(x: number, y: number): number {
@@ -122,6 +126,15 @@ add(1, 2); // Evaluates to 3
 ```
 
 Unfortunately, enums break this rule (in comparison to classes which only add type information on top of existing JS code) for now.
+
+You can simply try to execute this code in the browser and you will get a syntax error:
+
+```javascript title="Enum is reserved keyword but cannot be used now"
+// Uncaught SyntaxError: Unexpected reserved word
+enum Answer { No = 0, Yes = 1 }
+```
+
+At the moment of writing this blog post, [proposal for ECMAScript enums](https://github.com/rbuckton/proposal-enum) was on stage 0.
 
 ### Const enum + preserveConstEnums option === enum + potential surprising bugs
 
@@ -443,3 +456,7 @@ const no = 0;
 1. [Const enum pitfalls | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls)
 
 1. [Do you need ambient const enums or would a non-const enum work | TypeScript Issue comment](https://github.com/microsoft/TypeScript/issues/40344#issuecomment-956368612)
+
+1. [JavaScript reserved keywords](https://www.w3schools.com/js/js_reserved.asp)
+
+1. [Proposal for ECMAScript enums | GitHub](https://github.com/rbuckton/proposal-enum)
