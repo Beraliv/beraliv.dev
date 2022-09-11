@@ -142,22 +142,6 @@ Some projects use const enums as normal enums by enabling [preserveConstEnums](h
 
 See [bundle-size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
 
-### Ambient const enum pitfalls
-
-Ambient enums are rarely used in a codebase. If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
-
-1. They are incompatible with `isolatedModules`
-
-1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
-
-1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
-
-TypeScript advises to:
-
-> A. Do not use const enums at all. You can easily ban const enums with the help of a linter. Obviously this avoids any issues with const enums, but prevents your project from inlining its own enums. Unlike inlining enums from other projects, inlining a project’s own enums is not problematic and has performance implications.
-
-> B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
-
 ## Choose your solution
 
 Let's sum up what we just discussed in a table:
@@ -173,7 +157,7 @@ Let's sum up what we just discussed in a table:
 | [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |         ✅         |           ✅            |           ❌            |                           2                           |
 | [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |         ✅         |           ❌            |           ❌            |                           0                           |
 
-1. All numeric enums (whether normal, heterogeneous, const or ambient) aren't strict as you can assign any number to the variable of its type.
+1. All numeric enums (whether normal, heterogeneous or const) aren't strict as you can assign any number to the variable of its type.
 
 1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving the mapping in its structure.
 
@@ -318,6 +302,44 @@ Otherwise, follow the approach with [Numeric enum => object + as const + Values]
 
 It will definitely increase your bundle size. But again, it will keep you code safe by eliminating assignment of any number.
 
+## What about ambient enums
+
+Apart from enums and const enums, there are ambient enums.
+
+It's a way to describe the shape of existing enum types, e.g.:
+
+```typescript title="Declaration of ambient enum"
+declare enum Colour {
+  Red = "red",
+  Green = "green",
+  Blue = "blue",
+}
+```
+
+Usually you can find them in declaration files, e.g.:
+
+- TODO
+- [example 1]()
+- [example 2]()
+
+However it's very unlikely that you use ambient enums directly in your codebase.
+
+### Ambient const enum pitfalls
+
+If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
+
+1. They are incompatible with `isolatedModules`
+
+1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
+
+1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
+
+TypeScript advises to:
+
+> A. Do not use const enums at all. You can easily ban const enums with the help of a linter. Obviously this avoids any issues with const enums, but prevents your project from inlining its own enums. Unlike inlining enums from other projects, inlining a project’s own enums is not problematic and has performance implications.
+
+> B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
+
 ### Bundle size impact
 
 ```typescript title="Enums"
@@ -454,6 +476,8 @@ const no = 0;
 1. [Const enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enums)
 
 1. [Const enum pitfalls | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls)
+
+1. [Ambient enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#ambient-enums)
 
 1. [Do you need ambient const enums or would a non-const enum work | TypeScript Issue comment](https://github.com/microsoft/TypeScript/issues/40344#issuecomment-956368612)
 
