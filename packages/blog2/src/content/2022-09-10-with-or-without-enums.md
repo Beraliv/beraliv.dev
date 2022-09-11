@@ -318,9 +318,17 @@ declare enum Colour {
 
 Usually you can find them in declaration files, e.g.:
 
-- TODO
-- [example 1]()
-- [example 2]()
+- [@prisma/client](https://github.com/prisma/prisma/blob/main/packages/engine-core/src/common/types/Transaction.ts#L1-L7)
+
+  ```typescript title="@prisma/client/runtime/index.d.ts"
+  declare enum IsolationLevel {
+    ReadUncommitted = "ReadUncommitted",
+    ReadCommitted = "ReadCommitted",
+    RepeatableRead = "RepeatableRead",
+    Snapshot = "Snapshot",
+    Serializable = "Serializable",
+  }
+  ```
 
 However it's very unlikely that you use ambient enums directly in your codebase.
 
