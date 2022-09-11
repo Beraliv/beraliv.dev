@@ -41,9 +41,28 @@ This argument isn't very strong, because:
 
 ### Opaque-like type
 
-Only string enums act like opaque types. It means that we cannot assign string literal values.
+If you're not familiar with [Opaque types](/2021-05-07-opaque-type-in-typescript), it's a way to declare types of the same structure, which are not assignable to each other.
 
-```typescript title="You cannot use string literal values as string enums value"
+The perfect example can be 2 currencies (e.g. USD and EUR). You cannot simply put dollars into euro account without taking into account currency exchange rate:
+
+```typescript title="Opaque type example"
+declare const brand: unique symbol;
+
+type Brand<K, T> = K & { readonly [brand]: T };
+
+type USD = Brand<number, "USD">;
+type EUR = Brand<number, "EUR">;
+
+let euroAccount = 0 as EUR;
+let dollarAccount = 50 as USD;
+
+// Error: Type '"USD"' is not assignable to type '"EUR"'.
+euroAccount = dollarAccount;
+```
+
+String enums act like opaque types. It means that we can only assign values of this enum, but not string literals.
+
+```typescript title="You cannot use string literals as string enum value"
 const enum VolumeStatus {
   AUDIBLE = "AUDIBLE",
   MUTED = "MUTED",
