@@ -347,7 +347,7 @@ declare enum IsolationLevel {
 }
 ```
 
-However it's very unlikely that you use ambient enums directly in your codebase. I would recommend to avoid using them.
+It's still very unlikely that you use ambient enums directly in your codebase. I would recommend to avoid using them.
 
 ### Ambient const enum pitfalls
 
