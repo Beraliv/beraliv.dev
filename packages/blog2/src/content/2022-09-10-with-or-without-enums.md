@@ -149,16 +149,16 @@ TypeScript advises to:
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                                                                      | Declaration                                    | Strict<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
-| :-------------------------------------------------------------------------------------------- | :--------------------------------------------- | :----------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)                                                    | `enum Answer { No = 0, Yes = 1 }`              |         ❌         |           ✅            |           ❌            |                           3                           |
-| [String enums](https://tsplay.dev/w1peKW)                                                     | `enum Answer { No = 'No', Yes = 'Yes' }`       |         ✅         |           ✅            |           ✅            |                           2                           |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)                                              | `enum Answer { No = 0, Yes = 'Yes' }`          |         ❌         |           ✅            |           ❌            |                           3                           |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)                                              | `const enum Answer { No = 0, Yes = 1 }`        |         ❌         |           ✅            |           ❌            |                           1                           |
-| [String const enums](https://tsplay.dev/m3Xg2W)                                               | `const enum Answer { No = 'No', Yes = 'Yes' }` |         ✅         |           ✅            |           ✅            |                           1                           |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm)                                        | `const enum Answer { No = 0, Yes = 'Yes' }`    |         ❌         |           ✅            |           ❌            |                           1                           |
-| [Object + as const](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums) | `const a = { X: 'X', Y: 'Y' } as const`        |         ✅         |           ✅            |           ❌            |                           2                           |
-| [Union types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types) | `type A = 'X' \| 'Y' `                         |         ✅         |           ❌            |           ❌            |                           0                           |
+| Approach                                               | Declaration                                     | Strict<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :----------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |         ❌         |           ✅            |           ❌            |                           3                           |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |         ✅         |           ✅            |           ✅            |                           2                           |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |         ❌         |           ✅            |           ❌            |                           3                           |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |         ❌         |           ✅            |           ❌            |                           1                           |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |         ✅         |           ✅            |           ✅            |                           1                           |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |         ❌         |           ✅            |           ❌            |                           1                           |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |         ✅         |           ✅            |           ❌            |                           2                           |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |         ✅         |           ❌            |           ❌            |                           0                           |
 
 1. All numeric enums (whether normal, heterogeneous, const or ambient) aren't strict as you can assign any number to the variable of its type.
 
