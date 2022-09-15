@@ -15,7 +15,7 @@ importers:
       '@types/react': 18.0.18
       '@types/unist': 2.0.6
       bundlewatch: 0.3.3
-      csstype: 3.1.0
+      csstype: 3.1.1
       earljs: 0.2.3
       eslint: 8.23.0
       eslint-config-next: 12.2.5
@@ -62,7 +62,7 @@ importers:
       '@types/react': 18.0.18
       '@types/unist': 2.0.6
       bundlewatch: 0.3.3
-      csstype: 3.1.0
+      csstype: 3.1.1
       earljs: 0.2.3_typescript@4.8.2
       eslint: 8.23.0
       eslint-config-next: 12.2.5_yqf6kl63nyoq5megxukfnom5rm
@@ -748,7 +748,7 @@ packages:
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
-      csstype: 3.1.0
+      csstype: 3.1.1
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
@@ -1399,8 +1399,8 @@ packages:
       cssom: 0.3.8
     dev: true
 
-  /csstype/3.1.0:
-    resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
 
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
