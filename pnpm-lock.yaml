@@ -12,7 +12,7 @@ importers:
       '@types/jsdom': 20.0.0
       '@types/mocha': 9.1.1
       '@types/node': '*'
-      '@types/react': 18.0.18
+      '@types/react': 18.0.20
       '@types/unist': 2.0.6
       bundlewatch: 0.3.3
       csstype: 3.1.0
@@ -59,7 +59,7 @@ importers:
       '@types/jsdom': 20.0.0
       '@types/mocha': 9.1.1
       '@types/node': 18.7.5
-      '@types/react': 18.0.18
+      '@types/react': 18.0.20
       '@types/unist': 2.0.6
       bundlewatch: 0.3.3
       csstype: 3.1.0
@@ -406,7 +406,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.2
-      '@types/react': 18.0.18
+      '@types/react': 18.0.20
       react: 18.2.0
     dev: false
 
@@ -740,11 +740,11 @@ packages:
   /@types/react-dom/18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.0.18
+      '@types/react': 18.0.20
     dev: true
 
-  /@types/react/18.0.18:
-    resolution: {integrity: sha512-6hI08umYs6NaiHFEEGioXnxJ+oEhY3eRz8VCUaudZmGdtvPviCJB8mgaMxaDWAdPSYd4eFavrPk2QIolwbLYrg==}
+  /@types/react/18.0.20:
+    resolution: {integrity: sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
