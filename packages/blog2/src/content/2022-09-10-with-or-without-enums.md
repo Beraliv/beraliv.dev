@@ -178,11 +178,34 @@ enum Answer { No = 0, Yes = 1 }
 
 At the moment of writing this blog post, [proposal for ECMAScript enums](https://github.com/rbuckton/proposal-enum) was on stage 0.
 
-### Const enum + preserveConstEnums option === enum + potential surprising bugs
+### Const enum + preserveConstEnums option === enum + potential pitfalls
 
-Some projects use const enums as normal enums by enabling [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums).
+When you use const enums, their values are inlined and no lookup object is emitted to JavaScript.
 
-See [bundle size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
+However, when you enable [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums) option in `tsconfig.json`, lookup object is emitted.
+
+```typescript title="Const enums with enabled preserveConstEnums"
+// typescript
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
+}
+
+const yes = Answer.Yes;
+const no = Answer.No;
+
+// javascript
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
+
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
+```
+
+In addition, when you publish const enums or consume them from declaration files, you may face [ambient const enums pitfalls](#ambient-const-enum-pitfalls).
 
 ## Choose your solution
 
@@ -376,17 +399,19 @@ It's still very unlikely that you use ambient enums directly in your codebase. I
 
 If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
 
-1. They are incompatible with `isolatedModules`
+1. They are incompatible with [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules) option in `tsconfig.json`
 
 1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
 
-1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
+1. Unresolvable imports for const enums used as values cause errors at runtime with [importsNotUsedAsValues](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues) option in `tsconfig.json` set to `"preserve"`
 
 TypeScript advises to:
 
 > A. Do not use const enums at all. You can easily ban const enums with the help of a linter. Obviously this avoids any issues with const enums, but prevents your project from inlining its own enums. Unlike inlining enums from other projects, inlining a project’s own enums is not problematic and has performance implications.
 
 > B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
+
+Read more about [const enum pitfalls](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls).
 
 ## Bundle size impact
 
