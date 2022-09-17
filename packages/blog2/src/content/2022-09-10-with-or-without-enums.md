@@ -500,6 +500,8 @@ Thank you mates, your feedback was really helpful! 👏
 
 1. [Difference between `const enum` and `enum` | Stackoverflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
 
+1. [How do the different enum variants work in TypeScript? | Stack Overflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
+
 1. [TS features to avoid | Execute Program](https://www.executeprogram.com/blog/typescript-features-to-avoid)
 
 1. [Numeric enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#numeric-enums)
