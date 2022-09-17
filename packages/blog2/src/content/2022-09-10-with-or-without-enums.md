@@ -18,6 +18,29 @@ Here are some points that make it easy to come to a conclusion.
 
 ## Why use enums
 
+### Inlined values for const enums
+
+Values of const enums are inlined and lookup object isn't emitted to JavaScript.
+
+```typescript title="Const enums"
+// typescript
+const enum Answer {
+  No = "No",
+  Yes = "Yes",
+}
+
+const yes = Answer.Yes;
+const no = Answer.No;
+
+// javascript
+const yes = "Yes"; /* Answer.Yes */
+const no = "No"; /* Answer.No */
+```
+
+🏝 Playground – https://tsplay.dev/m3Xg2W
+
+See [the difference in bundle size impact for enums and const enums](#bundle-size-impact)
+
 ### Refactoring
 
 Given existing enum `HttpMethod`, when you want to replace existing value `"POST"` with e.g. `"post"`, you change enum's value and you're done!
@@ -159,7 +182,7 @@ At the moment of writing this blog post, [proposal for ECMAScript enums](https:/
 
 Some projects use const enums as normal enums by enabling [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums).
 
-See [bundle-size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
+See [bundle size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
 
 ## Choose your solution
 
@@ -192,7 +215,7 @@ If you decided to get rid of enums, here are my suggestions.
 
 We can use `as const` and expose JS objects the same way we do it with numeric enums but in a safe way.
 
-It's also included in [TypeScript Docs | Enums - Objects vs. Enums](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)
+It's also included in [Enums - Objects vs. Enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)
 
 Before:
 
@@ -493,13 +516,11 @@ This article couldn't be that good without the help of:
 - [AleksandrSI](https://github.com/AleksandrSl)
 - [Joe Previte](https://github.com/jsjoeio)
 - [bautistaaa](https://github.com/bautistaaa)
-- [Bishwajit Jha](https://twitter.com/jha_bisu)
+- [Bishwajit Jha](https://github.com/ajitjha393)
 
 Thank you mates, your feedback was really helpful! 👏
 
 ## Links 🔗
-
-1. [Difference between `const enum` and `enum` | Stackoverflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
 
 1. [How do the different enum variants work in TypeScript? | Stack Overflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
 
