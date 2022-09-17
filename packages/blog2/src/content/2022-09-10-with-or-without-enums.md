@@ -493,6 +493,7 @@ This article couldn't be that good without the help of:
 - [AleksandrSI](https://github.com/AleksandrSl)
 - [Joe Previte](https://github.com/jsjoeio)
 - [bautistaaa](https://github.com/bautistaaa)
+- [Bishwajit Jha](https://twitter.com/jha_bisu)
 
 Thank you mates, your feedback was really helpful! 👏
 
