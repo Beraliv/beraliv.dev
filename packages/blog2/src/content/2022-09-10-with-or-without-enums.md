@@ -18,9 +18,9 @@ Here are some points that make it easy to come to a conclusion.
 
 ## Why use enums
 
-### Inlined values for const enums
+### No lookup objects for const enums
 
-Values of const enums are inlined and lookup object isn't emitted to JavaScript.
+Values of const enums are inlined and lookup objects aren't emitted to JavaScript.
 
 ```typescript title="Const enums"
 // typescript
@@ -211,24 +211,28 @@ In addition, when you publish const enums or consume them from declaration files
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                               | Declaration                                     | Type-safe<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
-| :----------------------------------------------------- | :---------------------------------------------- | :-------------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |          ❌           |           ✅            |           ❌            |                           3                           |
-| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |          ✅           |           ✅            |           ✅            |                           2                           |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |          ❌           |           ✅            |           ❌            |                           3                           |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |          ❌           |           ✅            |           ❌            |                           1                           |
-| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |          ✅           |           ✅            |           ✅            |                           1                           |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |          ❌           |           ✅            |           ❌            |                           1                           |
-| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |          ✅           |           ✅            |           ❌            |                           2                           |
-| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |          ✅           |           ❌            |           ❌            |                           0                           |
+| Approach                                               | Declaration                                     | No lookup objects<sup>1</sup> | Type-safe<sup>2</sup> | Refactoring<sup>3</sup> | Opaque-like<sup>4</sup> | Type-only<sup>5</sup> | Optimal<sup>6</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :---------------------------: | :-------------------: | :---------------------: | :---------------------: | :-------------------: | :-----------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |              ❌               |          ✅           |           ✅            |           ✅            |          ❌           |         ❌          |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |          ❌           |           ✅            |           ❌            |          ❌           |         ✅          |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |              ✅               |          ✅           |           ✅            |           ✅            |          ❌           |         ❌          |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |              ❌               |          ✅           |           ✅            |           ❌            |          ❌           |         ✅          |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |              ✅               |          ✅           |           ❌            |           ❌            |          ✅           |         ✅          |
+
+1. Union types are type-only feature so no JS code is emitted. Const enums inline their values and don't emit lookup objects. Other solutions, i.e. object + as const and normal enums, emit lookup objects.
 
 1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
 
-1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving the mapping in its structure.
+1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
 
 1. We treat all string enums as opaque-like types. It means that only their values can be assigned to the variable of its type.
 
-1. Only union is a type-only feature, meaning there's no JS code added. Const enums leave only values. String enums leave the whole object structure. Numeric enums (normal and heterogeneous) leave mirror object structure. See the comparison below.
+1. Only union types are type-only feature. Other solutions emit lookup objects or aren't just a type feature added.
+
+1. To be able to compare solutions between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
 
 ## How to get rid of enums
 
@@ -533,6 +537,15 @@ const no: Answer = 0;
 const yes = "Yes";
 const no = 0;
 ```
+
+Numeric enums – 126 B  
+String enums – 116 B  
+Heterogeneous enums – 124 B  
+Numeric const enums – 44 / 112 B  
+String const enums – 49 / 108 B  
+Heterogeneous const enums – 48 / 117 B  
+Object + as const – 80 / 83 / 83 B  
+Union types – 44 / 48 / 49 B
 
 ## Shout out
 
