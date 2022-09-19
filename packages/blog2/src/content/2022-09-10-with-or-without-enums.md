@@ -226,7 +226,7 @@ Let's sum up what we just discussed in a table:
 
 1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
 
-1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
+1. Only union type lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
 
 1. To be able to compare solutions between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
 
