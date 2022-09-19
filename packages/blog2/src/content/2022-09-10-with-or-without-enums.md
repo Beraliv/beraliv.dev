@@ -18,6 +18,29 @@ Here are some points that make it easy to come to a conclusion.
 
 ## Why use enums
 
+### No lookup objects for const enums
+
+Values of const enums are inlined and lookup objects aren't emitted to JavaScript.
+
+```typescript title="Const enums"
+// typescript
+const enum Answer {
+  No = "No",
+  Yes = "Yes",
+}
+
+const yes = Answer.Yes;
+const no = Answer.No;
+
+// javascript
+const yes = "Yes"; /* Answer.Yes */
+const no = "No"; /* Answer.No */
+```
+
+🏝 Playground – https://tsplay.dev/m3Xg2W
+
+See [the difference in bundle size impact for enums and const enums](#bundle-size-impact)
+
 ### Refactoring
 
 Given existing enum `HttpMethod`, when you want to replace existing value `"POST"` with e.g. `"post"`, you change enum's value and you're done!
@@ -155,34 +178,61 @@ enum Answer { No = 0, Yes = 1 }
 
 At the moment of writing this blog post, [proposal for ECMAScript enums](https://github.com/rbuckton/proposal-enum) was on stage 0.
 
-### Const enum + preserveConstEnums option === enum + potential surprising bugs
+### Const enum + preserveConstEnums option === enum + potential pitfalls
 
-Some projects use const enums as normal enums by enabling [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums).
+When you use const enums, their values are inlined and no lookup object is emitted to JavaScript.
 
-See [bundle-size impact for const enums with enabled preserveConstEnums](#bundle-size-impact)
+However, when you enable [preserveConstEnums](https://www.typescriptlang.org/tsconfig#preserveConstEnums) option in `tsconfig.json`, lookup object is emitted.
+
+```typescript title="Const enums with enabled preserveConstEnums"
+// typescript
+const enum Answer {
+  No = 0,
+  Yes = "Yes",
+}
+
+const yes = Answer.Yes;
+const no = Answer.No;
+
+// javascript
+var Answer;
+(function (Answer) {
+  Answer[(Answer["No"] = 0)] = "No";
+  Answer["Yes"] = "Yes";
+})(Answer || (Answer = {}));
+
+const yes = "Yes"; /* Answer.Yes */
+const no = 0; /* Answer.No */
+```
+
+In addition, when you publish const enums or consume them from declaration files, you may face [ambient const enums pitfalls](#ambient-const-enum-pitfalls).
 
 ## Choose your solution
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                               | Declaration                                     | Type-safe<sup>1</sup> | Refactoring<sup>2</sup> | Opaque-like<sup>3</sup> | [Bundle-size impact](#bundle-size-impact)<sup>4</sup> |
-| :----------------------------------------------------- | :---------------------------------------------- | :-------------------: | :---------------------: | :---------------------: | :---------------------------------------------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |          ❌           |           ✅            |           ❌            |                           3                           |
-| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |          ✅           |           ✅            |           ✅            |                           2                           |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |          ❌           |           ✅            |           ❌            |                           3                           |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |          ❌           |           ✅            |           ❌            |                           1                           |
-| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |          ✅           |           ✅            |           ✅            |                           1                           |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |          ❌           |           ✅            |           ❌            |                           1                           |
-| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |          ✅           |           ✅            |           ❌            |                           2                           |
-| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |          ✅           |           ❌            |           ❌            |                           0                           |
+| Approach                                               | Declaration                                     | No lookup objects<sup>1</sup> | Type-safe<sup>2</sup> | Refactoring<sup>3</sup> | Optimal<sup>4</sup> | Type-only<sup>5</sup> | Opaque-like<sup>6</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :---------------------------: | :-------------------: | :---------------------: | :-----------------: | :-------------------: | :---------------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |              ❌               |          ✅           |           ✅            |         ❌          |          ❌           |           ✅            |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |          ❌           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |              ✅               |          ✅           |           ✅            |         ✅          |          ❌           |           ✅            |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |          ❌           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |              ❌               |          ✅           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |              ✅               |          ✅           |           ❌            |         ✅          |          ✅           |           ❌            |
+
+1. Union types are type-only feature so no JS code is emitted. Const enums inline their values and don't emit lookup objects. Other solutions, i.e. object + as const and normal enums, emit lookup objects.
 
 1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
 
-1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving the mapping in its structure.
+1. Only union type lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
+
+1. To be able to compare approaches between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
+
+1. Only union types are type-only feature. Other solutions emit lookup objects or aren't just a type feature added.
 
 1. We treat all string enums as opaque-like types. It means that only their values can be assigned to the variable of its type.
-
-1. Only union is a type-only feature, meaning there's no JS code added. Const enums leave only values. String enums leave the whole object structure. Numeric enums (normal and heterogeneous) leave mirror object structure. See the comparison below.
 
 ## How to get rid of enums
 
@@ -192,7 +242,7 @@ If you decided to get rid of enums, here are my suggestions.
 
 We can use `as const` and expose JS objects the same way we do it with numeric enums but in a safe way.
 
-It's also included in [TypeScript Docs | Enums - Objects vs. Enums](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)
+It's also included in [Enums - Objects vs. Enums | TypeScript Docs](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums)
 
 Before:
 
@@ -321,6 +371,8 @@ Otherwise, follow the approach with [Numeric enum => object + as const + Values]
 
 It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
+To compare the bundle size, please have a look at [Bundle size impact](#bundle-size-impact)
+
 ## What about ambient enums
 
 Apart from enums and const enums, there are ambient enums.
@@ -353,11 +405,11 @@ It's still very unlikely that you use ambient enums directly in your codebase. I
 
 If you DO use them, you probably already know that inlining enum values come with subtle implication, here are some of them:
 
-1. They are incompatible with `isolatedModules`
+1. They are incompatible with [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules) option in `tsconfig.json`
 
 1. If you export const enums and provide them as an API to other libraries, it can lead to surprising bugs, e.g. [Const enums in the TS Compiler API can make depending on typescript difficult](https://github.com/microsoft/TypeScript/issues/5219) 🐞
 
-1. Unresolvable imports for const enums used as values cause errors at runtime with `importsNotUsedAsValues: "preserve"`
+1. Unresolvable imports for const enums used as values cause errors at runtime with [importsNotUsedAsValues](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues) option in `tsconfig.json` set to `"preserve"`
 
 TypeScript advises to:
 
@@ -365,7 +417,11 @@ TypeScript advises to:
 
 > B. Do not publish ambient const enums, by deconstifying them with the help of `preserveConstEnums`. This is the approach taken internally by the TypeScript project itself. `preserveConstEnums` emits the same JavaScript for const enums as plain enums. You can then safely strip the const modifier from .d.ts files in a build step.
 
+Read more about [const enum pitfalls](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls).
+
 ## Bundle size impact
+
+Let's first have a look at examples (I left only examples with heterogeneous values):
 
 ```typescript title="Enums"
 // typescript
@@ -486,6 +542,20 @@ const yes = "Yes";
 const no = 0;
 ```
 
+Given 3 different types of values (numeric, string and heterogeneous), let's compare the bundle size (in bytes) of different solutions:
+
+| Approach             | Enum | Const enum | Const enum + `preserveConstEnums` | Object + `as const` | Union type |
+| :------------------- | :--- | :--------- | :-------------------------------- | :------------------ | :--------- |
+| Numeric values       | 126  | 44         | 112                               | 80                  | 44         |
+| Heterogeneous values | 124  | 48         | 117                               | 83                  | 48         |
+| String values        | 116  | 49         | 108                               | 83                  | 49         |
+
+When you need to keep a lookup object (enum, const enum + `preserveConstEnums` and object + `as const`), the optimal solution is always an object + `as const`.
+
+When you don't need a lookup object (const enum and union type), both const enum and union type are optimal.
+
+If you're interested in comparison itself, please go to Github repo [with-or-without-enums-bundle-size-impact](https://github.com/Beraliv/with-or-without-enums-bundle-size-impact) 🔗
+
 ## Shout out
 
 This article couldn't be that good without the help of:
@@ -493,12 +563,13 @@ This article couldn't be that good without the help of:
 - [AleksandrSI](https://github.com/AleksandrSl)
 - [Joe Previte](https://github.com/jsjoeio)
 - [bautistaaa](https://github.com/bautistaaa)
+- [Bishwajit Jha](https://github.com/ajitjha393)
 
 Thank you mates, your feedback was really helpful! 👏
 
 ## Links 🔗
 
-1. [Difference between `const enum` and `enum` | Stackoverflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
+1. [How do the different enum variants work in TypeScript? | Stack Overflow](https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript)
 
 1. [TS features to avoid | Execute Program](https://www.executeprogram.com/blog/typescript-features-to-avoid)
 
@@ -519,3 +590,5 @@ Thank you mates, your feedback was really helpful! 👏
 1. [JavaScript reserved keywords](https://www.w3schools.com/js/js_reserved.asp)
 
 1. [Proposal for ECMAScript enums | GitHub](https://github.com/rbuckton/proposal-enum)
+
+1. [with-or-without-enums-bundle-size-impact | GitHub](https://github.com/Beraliv/with-or-without-enums-bundle-size-impact)
