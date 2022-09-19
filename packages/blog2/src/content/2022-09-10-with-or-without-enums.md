@@ -211,16 +211,16 @@ In addition, when you publish const enums or consume them from declaration files
 
 Let's sum up what we just discussed in a table:
 
-| Approach                                               | Declaration                                     | No lookup objects<sup>1</sup> | Type-safe<sup>2</sup> | Refactoring<sup>3</sup> | Opaque-like<sup>4</sup> | Type-only<sup>5</sup> | Optimal<sup>6</sup> |
-| :----------------------------------------------------- | :---------------------------------------------- | :---------------------------: | :-------------------: | :---------------------: | :---------------------: | :-------------------: | :-----------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
-| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |              ❌               |          ✅           |           ✅            |           ✅            |          ❌           |         ❌          |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |          ❌           |           ✅            |           ❌            |          ❌           |         ✅          |
-| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |              ✅               |          ✅           |           ✅            |           ✅            |          ❌           |         ❌          |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |          ❌           |           ✅            |           ❌            |          ❌           |         ❌          |
-| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |              ❌               |          ✅           |           ✅            |           ❌            |          ❌           |         ✅          |
-| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |              ✅               |          ✅           |           ❌            |           ❌            |          ✅           |         ✅          |
+| Approach                                               | Declaration                                     | No lookup objects<sup>1</sup> | Type-safe<sup>2</sup> | Refactoring<sup>3</sup> | Optimal<sup>4</sup> | Type-only<sup>5</sup> | Opaque-like<sup>6</sup> |
+| :----------------------------------------------------- | :---------------------------------------------- | :---------------------------: | :-------------------: | :---------------------: | :-----------------: | :-------------------: | :---------------------: |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |              ❌               |          ✅           |           ✅            |         ❌          |          ❌           |           ✅            |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |          ❌           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |              ✅               |          ✅           |           ✅            |         ❌          |          ❌           |           ✅            |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |              ❌               |          ✅           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |              ✅               |          ✅           |           ❌            |         ✅          |          ✅           |           ❌            |
 
 1. Union types are type-only feature so no JS code is emitted. Const enums inline their values and don't emit lookup objects. Other solutions, i.e. object + as const and normal enums, emit lookup objects.
 
@@ -228,11 +228,11 @@ Let's sum up what we just discussed in a table:
 
 1. Because union type is type-only feature, it lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
 
-1. We treat all string enums as opaque-like types. It means that only their values can be assigned to the variable of its type.
+1. To be able to compare solutions between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
 
 1. Only union types are type-only feature. Other solutions emit lookup objects or aren't just a type feature added.
 
-1. To be able to compare solutions between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
+1. We treat all string enums as opaque-like types. It means that only their values can be assigned to the variable of its type.
 
 ## How to get rid of enums
 
