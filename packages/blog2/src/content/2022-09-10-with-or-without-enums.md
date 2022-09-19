@@ -371,6 +371,8 @@ Otherwise, follow the approach with [Numeric enum => object + as const + Values]
 
 It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
+To compare the bundle size, please have a look at [Bundle size impact](#bundle-size-impact)
+
 ## What about ambient enums
 
 Apart from enums and const enums, there are ambient enums.
@@ -418,6 +420,8 @@ TypeScript advises to:
 Read more about [const enum pitfalls](https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls).
 
 ## Bundle size impact
+
+Let's first have a look at examples (I left only examples with heterogeneous values):
 
 ```typescript title="Enums"
 // typescript
@@ -538,14 +542,19 @@ const yes = "Yes";
 const no = 0;
 ```
 
-Numeric enums – 126 B  
-String enums – 116 B  
-Heterogeneous enums – 124 B  
-Numeric const enums – 44 / 112 B  
-String const enums – 49 / 108 B  
-Heterogeneous const enums – 48 / 117 B  
-Object + as const – 80 / 83 / 83 B  
-Union types – 44 / 48 / 49 B
+Given 3 different types of values (numeric, string and heterogeneous), let's compare the bundle size (in bytes) of different solutions:
+
+| Approach             | Enum | Const enum | Const enum + `preserveConstEnums` | Object + `as const` | Union type |
+| :------------------- | :--- | :--------- | :-------------------------------- | :------------------ | :--------- |
+| Numeric values       | 126  | 44         | 112                               | 80                  | 44         |
+| Heterogeneous values | 124  | 48         | 117                               | 83                  | 48         |
+| String values        | 116  | 49         | 108                               | 83                  | 49         |
+
+When you need to keep a lookup object (enum, const enum + `preserveConstEnums` and object + `as const`), the optimal solution is always an object + `as const`.
+
+When you don't need a lookup object (const enum and union type), both const enum and union type are optimal.
+
+If you're interested in comparison itself, please go to Github repo [with-or-without-enums-bundle-size-impact](https://github.com/Beraliv/with-or-without-enums-bundle-size-impact) 🔗
 
 ## Shout out
 
@@ -581,3 +590,5 @@ Thank you mates, your feedback was really helpful! 👏
 1. [JavaScript reserved keywords](https://www.w3schools.com/js/js_reserved.asp)
 
 1. [Proposal for ECMAScript enums | GitHub](https://github.com/rbuckton/proposal-enum)
+
+1. [with-or-without-enums-bundle-size-impact | GitHub](https://github.com/Beraliv/with-or-without-enums-bundle-size-impact)
