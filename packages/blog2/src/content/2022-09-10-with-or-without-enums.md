@@ -228,7 +228,7 @@ Let's sum up what we just discussed in a table:
 
 1. Only union type lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
 
-1. To be able to compare solutions between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
+1. To be able to compare approaches between each other, please have a look at [Bundle-size impact](#bundle-size-impact).
 
 1. Only union types are type-only feature. Other solutions emit lookup objects or aren't just a type feature added.
 
