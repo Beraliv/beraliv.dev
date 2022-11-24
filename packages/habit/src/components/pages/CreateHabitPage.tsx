@@ -27,6 +27,7 @@ const CreateHabitPage: Component = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        // https://github.com/solidjs/solid/issues/116
         // @ts-expect-error: Variable 'inputRef' is used before being assigned
         ref={inputRef}
         onInput={(e) => setHabitTitle(e.currentTarget.value)}
