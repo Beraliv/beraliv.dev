@@ -13,15 +13,10 @@
   color: white;
 }
 
-.link {
-  color: #b318f0;
+.habit > * {
+  display: inline-block;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.link {
+  color: #b318f0;
 }
