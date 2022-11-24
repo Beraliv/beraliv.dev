@@ -2,6 +2,7 @@ import { batch, Component, createSignal, For } from "solid-js";
 import { createStore } from "solid-js/store";
 
 import styles from "./App.module.css";
+import { HabitCard } from "./components/atoms/HabitCard";
 import { IHabit } from "./interfaces/IHabit";
 
 const App: Component = () => {
@@ -34,16 +35,12 @@ const App: Component = () => {
         </form>
         <For each={habits}>
           {(habit, index) => (
-            <div class={styles.habit}>
-              <input
-                type="checkbox"
-                checked={habit.completed}
-                onChange={(e) =>
-                  setHabits(index(), "completed", e.currentTarget.checked)
-                }
-              />
-              <div>{habit.title}</div>
-            </div>
+            <HabitCard
+              habit={habit}
+              handleComplete={(checked) =>
+                setHabits(index(), "completed", checked)
+              }
+            />
           )}
         </For>
       </header>

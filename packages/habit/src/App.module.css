@@ -13,10 +13,6 @@
   color: white;
 }
 
-.habit > * {
-  display: inline-block;
-}
-
 .link {
   color: #b318f0;
 }
