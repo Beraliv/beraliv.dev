@@ -1,46 +1,26 @@
-import { batch, Component, createSignal, For } from "solid-js";
-import { createStore } from "solid-js/store";
-import { IHabit } from "../../interfaces/IHabit";
-import { HabitCard } from "../atoms/HabitCard";
+import { Component, For } from "solid-js";
+import { useUnit } from "effector-solid";
+import { HabitCard } from "../molecules/HabitCard";
+import { $habits, setHabitCompleted } from "../../state/habits";
+import { Header } from "../molecules/Header";
 
 const HabitsPage: Component = () => {
-  const [habitTitle, setHabitTitle] = createSignal("");
-  const [habits, setHabits] = createStore<IHabit[]>([]);
-
-  const addHabit = (e: SubmitEvent) => {
-    e.preventDefault();
-
-    batch(() => {
-      setHabits(habits.length, {
-        title: habitTitle(),
-        completed: false,
-      });
-      setHabitTitle("");
-    });
-  };
+  const habits = useUnit($habits);
 
   return (
-    <>
-      <form onSubmit={addHabit}>
-        <input
-          placeholder="Add a habit"
-          required
-          value={habitTitle()}
-          onInput={(e) => setHabitTitle(e.currentTarget.value)}
-        />
-        <button>+</button>
-      </form>
-      <For each={habits}>
+    <div>
+      <Header />
+      <For each={habits()}>
         {(habit, index) => (
           <HabitCard
             habit={habit}
-            handleComplete={(checked) =>
-              setHabits(index(), "completed", checked)
+            handleComplete={(completed) =>
+              setHabitCompleted({ index: index(), completed })
             }
           />
         )}
       </For>
-    </>
+    </div>
   );
 };
 

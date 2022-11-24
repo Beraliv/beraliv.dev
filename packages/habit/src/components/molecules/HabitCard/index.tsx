@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
 import { IHabit } from "../../../interfaces/IHabit";
-import { SmileIcon } from "../SmileIcon";
+import { SmileIcon } from "../../atoms/SmileIcon";
 
 import styles from "./index.module.css";
 
