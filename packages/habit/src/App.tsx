@@ -2,15 +2,11 @@ import { batch, Component, createSignal, For } from "solid-js";
 import { createStore } from "solid-js/store";
 
 import styles from "./App.module.css";
-
-interface Habit {
-  title: string;
-  completed: boolean;
-}
+import { IHabit } from "./interfaces/IHabit";
 
 const App: Component = () => {
   const [habitTitle, setHabitTitle] = createSignal("");
-  const [habits, setHabits] = createStore<Habit[]>([]);
+  const [habits, setHabits] = createStore<IHabit[]>([]);
 
   const addHabit = (e: SubmitEvent) => {
     e.preventDefault();
