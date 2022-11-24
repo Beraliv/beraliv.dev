@@ -1,0 +1,73 @@
+.outerCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 1rem 0.75rem;
+}
+
+/** Checkbox customisation */
+
+.checkbox {
+  /* hide native checkbox */
+  appearance: none;
+  background-color: var(--form-background);
+  margin: 0;
+
+  display: grid;
+  place-content: center;
+
+  cursor: pointer;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  margin-right: 0.75rem;
+}
+
+.checkbox:checked {
+  background-color: #2e8bc0;
+}
+
+.checkbox::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+}
+
+.checkbox:checked::before {
+  transform: scale(1);
+}
+
+.innerCard {
+  display: flex;
+  align-items: center;
+
+  width: 200px;
+  height: 75px;
+
+  background-color: #e32636;
+  border-radius: 15px;
+}
+
+.icon {
+  width: 1rem;
+  margin: 0 1rem;
+}
+
+.title {
+  margin-right: 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: left;
+}
