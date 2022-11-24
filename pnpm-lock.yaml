@@ -77,12 +77,16 @@ importers:
   packages/habit:
     specifiers:
       '@solidjs/router': 0.5.1
+      effector: 22.4.0
+      effector-solid: 0.22.6
       solid-js: ^1.5.1
       typescript: ^4.8.2
       vite: ^3.0.9
       vite-plugin-solid: ^2.3.0
     dependencies:
       '@solidjs/router': 0.5.1_solid-js@1.6.2
+      effector: 22.4.0
+      effector-solid: 0.22.6_wcqktydo3i3mw5c2xhe4rnflpe
       solid-js: 1.6.2
     devDependencies:
       typescript: 4.8.2
@@ -1757,6 +1761,22 @@ packages:
       - supports-color
       - typescript
     dev: true
+
+  /effector-solid/0.22.6_wcqktydo3i3mw5c2xhe4rnflpe:
+    resolution: {integrity: sha512-cjxjnHA8vJbDHV323vCpZIhRgBE/RLojkgiOx9btpXofEQVNW9mQp5Ci74hnk8Csgo3Bt4IFtoUFBB6RZV/ePw==}
+    engines: {node: '>=11.0.0'}
+    peerDependencies:
+      effector: ^22.0.2
+      solid-js: '>= 1.3.0'
+    dependencies:
+      effector: 22.4.0
+      solid-js: 1.6.2
+    dev: false
+
+  /effector/22.4.0:
+    resolution: {integrity: sha512-WQ0rboUp1fvkzo2rPymtWzR9isUl8v9McGvBA4g8zvQaTgZnXQ1iCbNj2S54bADGpSNl1CYv1/61vvdbc5Goyw==}
+    engines: {node: '>=11.0.0'}
+    dev: false
 
   /electron-to-chromium/1.4.265:
     resolution: {integrity: sha512-38KaYBNs0oCzWCpr6j7fY/W9vF0vSp4tKFIshQTgdZMhUpkxgotkQgjJP6iGMdmlsgMs3i0/Hkko4UXLTrkYVQ==}
