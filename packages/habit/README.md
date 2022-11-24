@@ -1,34 +1,26 @@
-## Usage
+# Habits
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+This is habits page where I track my activity and progress over habits I try to keep up with.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+## Getting Started
+
+First, install all dependencies
 
 ```bash
-$ npm install # or pnpm install or yarn install
+pnpm install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+To be able to run the project, you run dev server
 
-## Available Scripts
+```bash
+pnpm --filter "./packages/habit" dev
+```
 
-In the project directory, you can run:
+Open [http://127.0.0.1:3000/](http://127.0.0.1:3000/) with your browser to see the result.
 
-### `npm dev` or `npm start`
+## Technologies
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+- [Effector](https://effector.dev/) - state management
+- [Solid](https://www.solidjs.com/) - building User Interfaces
+- [Solid Router](https://github.com/solidjs/solid-router) - for navigating between pages
+- [Vercel](https://vercel.com/) - deployment and serving content
