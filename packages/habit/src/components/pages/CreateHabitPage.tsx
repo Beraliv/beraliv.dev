@@ -1,43 +1,6 @@
-import { useNavigate } from "@solidjs/router";
-import { batch, Component, createSignal } from "solid-js";
-import { addNewHabit } from "../../state/habits";
+import { Component } from "solid-js";
+import { CreateHabitForm } from "../molecules/CreateHabitForm";
 
-const CreateHabitPage: Component = () => {
-  const [habitTitle, setHabitTitle] = createSignal("");
-  const navigate = useNavigate();
-
-  const handleSubmit = (e: SubmitEvent) => {
-    e.preventDefault();
-
-    batch(() => {
-      addNewHabit({
-        title: habitTitle(),
-        completed: false,
-      });
-      setHabitTitle("");
-      navigate("/");
-    });
-  };
-
-  let inputRef: HTMLInputElement;
-
-  // autofocus input by default
-  setTimeout(() => inputRef.focus());
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        // https://github.com/solidjs/solid/issues/116
-        // @ts-expect-error: Variable 'inputRef' is used before being assigned
-        ref={inputRef}
-        onInput={(e) => setHabitTitle(e.currentTarget.value)}
-        placeholder="Add a habit"
-        required
-        value={habitTitle()}
-      />
-      <button>+</button>
-    </form>
-  );
-};
+const CreateHabitPage: Component = () => <CreateHabitForm />;
 
 export { CreateHabitPage };
