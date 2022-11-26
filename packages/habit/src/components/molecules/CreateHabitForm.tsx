@@ -1,18 +1,18 @@
 import { useNavigate } from "@solidjs/router";
-import { batch, Component, createSignal, Show } from "solid-js";
-import { addNewHabit } from "../../../state/habits";
-import { TColor } from "../../../types/TColor";
-import { cx } from "../../../utils/cx";
-import { SmileIcon } from "../../atoms/SmileIcon";
-import { ColorPopup } from "../ColorPopup";
-import { IconPopup } from "../IconPopup";
+import { batch, Component, createSignal } from "solid-js";
+import { addNewHabit } from "../../state/habits";
+import { TColor } from "../../types/TColor";
+import { cx } from "../../utils/cx";
+import { SmileIcon } from "../atoms/SmileIcon";
+import { ColorPopup } from "./ColorPopup";
+import { IconPopup } from "./IconPopup";
 
-import styles from "./index.module.css";
+import styles from "./CreateHabitForm.module.css";
 
 const CreateHabitForm: Component = () => {
   const [isValidationVisible, setValidationVisibility] = createSignal(false);
   const [habitTitle, setHabitTitle] = createSignal("");
-  const [habitColor, setHabitColor] = createSignal<TColor>("blue");
+  const colorSignal = createSignal<TColor>("blue");
   const navigate = useNavigate();
 
   const handleSubmit = (e: SubmitEvent) => {
@@ -24,6 +24,7 @@ const CreateHabitForm: Component = () => {
     }
 
     batch(() => {
+      const [habitColor, setHabitColor] = colorSignal;
       addNewHabit({
         title: habitTitle(),
         completed: false,
@@ -58,13 +59,13 @@ const CreateHabitForm: Component = () => {
         placeholder="Habit name"
         value={habitTitle()}
       />
-      <div class={cx(styles.cardProperties, habitColor())}>
+      <div class={cx(styles.cardProperties, "gray")}>
         <div class={styles.icon}>
           <SmileIcon />
         </div>
         <div class={styles.popups}>
           <IconPopup />
-          <ColorPopup handleColorUpdate={setHabitColor} />
+          <ColorPopup colorSignal={colorSignal} />
         </div>
       </div>
       <button class={cx(styles.save, "green")}>Save</button>
