@@ -1,5 +1,6 @@
 import { Component } from "solid-js";
 import { IHabit } from "../../../interfaces/IHabit";
+import { cx } from "../../../utils/cx";
 import { SmileIcon } from "../../atoms/SmileIcon";
 
 import styles from "./index.module.css";
@@ -17,7 +18,7 @@ const HabitCard: Component<IHabitCardProps> = ({ habit, handleComplete }) => (
       onChange={(e) => handleComplete(e.currentTarget.checked)}
       type="checkbox"
     />
-    <div class={styles.innerCard}>
+    <div class={cx(styles.innerCard, habit.color)}>
       <div class={styles.icon}>
         <SmileIcon />
       </div>

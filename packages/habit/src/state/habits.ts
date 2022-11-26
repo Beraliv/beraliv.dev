@@ -2,8 +2,8 @@ import { createApi, createStore } from "effector";
 import { IHabit } from "../interfaces/IHabit";
 
 const $habits = createStore<IHabit[]>([
-  { title: "German", completed: false },
-  { title: "Meditation", completed: false },
+  { title: "German", completed: false, color: "orange" },
+  { title: "Meditation", completed: false, color: "green" },
 ]);
 
 interface HabitCompleted extends Pick<IHabit, "completed"> {

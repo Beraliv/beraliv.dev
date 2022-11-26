@@ -1,16 +1,16 @@
 import { useNavigate } from "@solidjs/router";
 import { batch, Component, createSignal, Show } from "solid-js";
 import { addNewHabit } from "../../../state/habits";
-import { Popup } from "../../atoms/Popup";
+import { TColor } from "../../../types/TColor";
+import { ColorPopup } from "../ColorPickup";
+import { IconPopup } from "../IconPopup";
 
 import styles from "./index.module.css";
 
 const CreateHabitForm: Component = () => {
   const [habitTitle, setHabitTitle] = createSignal("");
+  const [habitColor, setHabitColor] = createSignal<TColor>("blue");
   const navigate = useNavigate();
-
-  const [isPopupVisible, setPopupVisibility] = createSignal(false);
-  const closePopup = () => setPopupVisibility(false);
 
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
@@ -19,8 +19,10 @@ const CreateHabitForm: Component = () => {
       addNewHabit({
         title: habitTitle(),
         completed: false,
+        color: habitColor(),
       });
       setHabitTitle("");
+      setHabitColor("blue");
       navigate("/");
     });
   };
@@ -41,12 +43,8 @@ const CreateHabitForm: Component = () => {
         required
         value={habitTitle()}
       />
-      <button onClick={() => setPopupVisibility(true)}>Show Popup</button>
-      <Show when={isPopupVisible()}>
-        <Popup handleCancel={closePopup} handleSave={closePopup}>
-          <p>Haha I'm a POP UP</p>
-        </Popup>
-      </Show>
+      <IconPopup />
+      <ColorPopup />
       <button>Save</button>
     </form>
   );
