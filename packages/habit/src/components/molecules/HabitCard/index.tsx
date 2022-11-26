@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
+import { ICON_MAPPING } from "../../../const/ICON_MAPPING";
 import { IHabit } from "../../../interfaces/IHabit";
 import { cx } from "../../../utils/cx";
-import { SmileIcon } from "../../atoms/SmileIcon";
 
 import styles from "./index.module.css";
 
@@ -19,9 +19,7 @@ const HabitCard: Component<IHabitCardProps> = ({ habit, handleComplete }) => (
       type="checkbox"
     />
     <div class={cx(styles.innerCard, habit.color)}>
-      <div class={styles.icon}>
-        <SmileIcon />
-      </div>
+      <div class={styles.icon}>{ICON_MAPPING[habit.icon]({})}</div>
       <div class={styles.title}>{habit.title}</div>
     </div>
   </div>

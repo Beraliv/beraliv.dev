@@ -3,16 +3,17 @@ import { batch, Component, createSignal } from "solid-js";
 import { addNewHabit } from "../../state/habits";
 import { TColor } from "../../types/TColor";
 import { cx } from "../../utils/cx";
-import { SmileIcon } from "../atoms/SmileIcon";
 import { ColorPopup } from "./ColorPopup";
 import { IconPopup } from "./IconPopup";
 
 import styles from "./CreateHabitForm.module.css";
+import { TIconType } from "../../types/TIconType";
 
 const CreateHabitForm: Component = () => {
   const [isValidationVisible, setValidationVisibility] = createSignal(false);
   const [habitTitle, setHabitTitle] = createSignal("");
   const colorSignal = createSignal<TColor>("blue");
+  const iconSignal = createSignal<TIconType>("faceSmile");
   const navigate = useNavigate();
 
   const handleSubmit = (e: SubmitEvent) => {
@@ -25,13 +26,16 @@ const CreateHabitForm: Component = () => {
 
     batch(() => {
       const [habitColor, setHabitColor] = colorSignal;
+      const [habitIcon, setHabitIcon] = iconSignal;
       addNewHabit({
         title: habitTitle(),
         completed: false,
         color: habitColor(),
+        icon: habitIcon(),
       });
       setHabitTitle("");
       setHabitColor("blue");
+      setHabitIcon("faceSmile");
       navigate("/");
     });
   };
@@ -60,11 +64,8 @@ const CreateHabitForm: Component = () => {
         value={habitTitle()}
       />
       <div class={cx(styles.cardProperties, "gray")}>
-        <div class={styles.icon}>
-          <SmileIcon />
-        </div>
         <div class={styles.popups}>
-          <IconPopup />
+          <IconPopup iconSignal={iconSignal} />
           <ColorPopup colorSignal={colorSignal} />
         </div>
       </div>
