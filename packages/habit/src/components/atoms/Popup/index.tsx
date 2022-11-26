@@ -18,8 +18,8 @@ const Popup: ParentComponent<IPopupProps> = ({
     <div class={styles.container}>
       <div class={styles.body}>
         {body()}
-        <button onClick={handleCancel}>Cancel</button>
-        <button onClick={handleSave}>Save</button>
+        <input onClick={handleCancel} type="button" value="Cancel" />
+        <input onClick={handleSave} type="button" value="Save" />
       </div>
     </div>
   );
