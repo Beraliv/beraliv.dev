@@ -4,7 +4,7 @@ import { Color } from "../atoms/Color";
 
 import styles from "./ColorPopup.module.css";
 import { TColor } from "../../types/TColor";
-import { FormButton } from "./FormButton/FormButton";
+import { ColorButton } from "./ColorButton";
 
 interface IColorPopupProps {
   colorSignal: Signal<TColor>;
@@ -23,7 +23,7 @@ const ColorPopup: Component<IColorPopupProps> = ({ colorSignal }) => {
 
   return (
     <>
-      <FormButton handleClick={openPopup} text="Color" />
+      <ColorButton handleClick={openPopup} colorSignal={colorSignal} />
       <Show when={isPopupVisible()}>
         <Popup handleCancel={closePopup} handleSave={handleSave}>
           <h3 class={styles.h3}>Icon color</h3>
