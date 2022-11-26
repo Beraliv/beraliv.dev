@@ -1,6 +1,6 @@
 import { Component, createSignal, Show } from "solid-js";
 import { Popup } from "../../atoms/Popup";
-import { FormButton } from "../FormButton";
+import { IconButton } from "../IconButton";
 
 import styles from "./index.module.css";
 
@@ -11,7 +11,7 @@ const IconPopup: Component = () => {
 
   return (
     <>
-      <FormButton handleClick={openPopup} text="Icon" />
+      <IconButton handleClick={openPopup} />
       <Show when={isPopupVisible()}>
         <Popup handleCancel={closePopup} handleSave={closePopup}>
           <h3 class={styles.h3}>Icon</h3>
