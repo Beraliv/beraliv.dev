@@ -17,7 +17,7 @@ const Popup: ParentComponent<IPopupProps> = ({
 
   return (
     <div class={styles.container}>
-      <div class={styles.body}>
+      <div class={cx(styles.body, "gray")}>
         {body()}
         <div class={styles.buttons}>
           <input
@@ -27,7 +27,7 @@ const Popup: ParentComponent<IPopupProps> = ({
             value="Cancel"
           />
           <input
-            class={cx(styles.button, "blue")}
+            class={cx(styles.button, "green")}
             onClick={handleSave}
             type="button"
             value="Save"
