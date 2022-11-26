@@ -1,0 +1,12 @@
+.grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row {
+  margin: 0.25rem;
+}
+
+.cell {
+}
