@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
 
-import styles from "./index.module.css";
+import styles from "./PlusIcon.module.css";
 
 const PlusIcon: Component = () => (
   <svg

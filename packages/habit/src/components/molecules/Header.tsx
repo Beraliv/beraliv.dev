@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
-import { CreateHabitButton } from "../CreateHabitButton";
+import { CreateHabitButton } from "./CreateHabitButton";
 
-import styles from "./index.module.css";
+import styles from "./Header.module.css";
 
 const Header: Component = () => {
   return (
