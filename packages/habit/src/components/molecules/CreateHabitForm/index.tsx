@@ -1,19 +1,27 @@
 import { useNavigate } from "@solidjs/router";
-import { batch, Component, createSignal } from "solid-js";
+import { batch, Component, createSignal, Show } from "solid-js";
 import { addNewHabit } from "../../../state/habits";
 import { TColor } from "../../../types/TColor";
+import { cx } from "../../../utils/cx";
+import { SmileIcon } from "../../atoms/SmileIcon";
 import { ColorPopup } from "../ColorPopup";
 import { IconPopup } from "../IconPopup";
 
 import styles from "./index.module.css";
 
 const CreateHabitForm: Component = () => {
+  const [isValidationVisible, setValidationVisibility] = createSignal(false);
   const [habitTitle, setHabitTitle] = createSignal("");
   const [habitColor, setHabitColor] = createSignal<TColor>("blue");
   const navigate = useNavigate();
 
   const handleSubmit = (e: SubmitEvent) => {
     e.preventDefault();
+
+    if (habitTitle() === "") {
+      setValidationVisibility(true);
+      return;
+    }
 
     batch(() => {
       addNewHabit({
@@ -34,18 +42,32 @@ const CreateHabitForm: Component = () => {
 
   return (
     <form class={styles.form} onSubmit={handleSubmit}>
+      <div
+        class={cx(styles.error, {
+          [styles.visible]: isValidationVisible(),
+        })}
+      >
+        Please enter the habit name
+      </div>
       <input
+        class={styles.input}
         // https://github.com/solidjs/solid/issues/116
         // @ts-expect-error: Variable 'inputRef' is used before being assigned
         ref={inputRef}
         onInput={(e) => setHabitTitle(e.currentTarget.value)}
         placeholder="Habit name"
-        required
         value={habitTitle()}
       />
-      <IconPopup />
-      <ColorPopup handleColorUpdate={setHabitColor} />
-      <button>Save</button>
+      <div class={cx(styles.cardProperties, habitColor())}>
+        <div class={styles.icon}>
+          <SmileIcon />
+        </div>
+        <div class={styles.popups}>
+          <IconPopup />
+          <ColorPopup handleColorUpdate={setHabitColor} />
+        </div>
+      </div>
+      <button class={cx(styles.save, "green")}>Save</button>
     </form>
   );
 };
