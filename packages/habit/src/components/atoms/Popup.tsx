@@ -1,7 +1,7 @@
 import { children, ParentComponent } from "solid-js";
-import { cx } from "../../../utils/cx";
+import { cx } from "../../utils/cx";
 
-import styles from "./index.module.css";
+import styles from "./Popup.module.css";
 
 interface IPopupProps {
   handleCancel: () => void;
