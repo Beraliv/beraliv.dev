@@ -4,6 +4,7 @@ import { Color } from "../../atoms/Color";
 
 import styles from "./index.module.css";
 import { TColor } from "../../../types/TColor";
+import { FormButton } from "../FormButton";
 
 interface IColorPopupProps {
   handleColorUpdate: (color: TColor) => void;
@@ -23,7 +24,7 @@ const ColorPopup: Component<IColorPopupProps> = ({ handleColorUpdate }) => {
 
   return (
     <>
-      <button onClick={openPopup}>Color</button>
+      <FormButton handleClick={openPopup} text="Color" />
       <Show when={isPopupVisible()}>
         <Popup handleCancel={closePopup} handleSave={handleSave}>
           <div class={styles.grid}>
