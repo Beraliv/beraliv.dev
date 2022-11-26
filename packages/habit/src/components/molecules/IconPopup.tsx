@@ -1,8 +1,8 @@
 import { Component, createSignal, Show } from "solid-js";
-import { Popup } from "../../atoms/Popup";
-import { IconButton } from "../IconButton";
+import { Popup } from "../atoms/Popup";
+import { IconButton } from "./IconButton";
 
-import styles from "./index.module.css";
+import styles from "./IconPopup.module.css";
 
 const IconPopup: Component = () => {
   const [isPopupVisible, setPopupVisibility] = createSignal(false);
