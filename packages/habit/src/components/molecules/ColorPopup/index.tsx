@@ -27,6 +27,7 @@ const ColorPopup: Component<IColorPopupProps> = ({ handleColorUpdate }) => {
       <FormButton handleClick={openPopup} text="Color" />
       <Show when={isPopupVisible()}>
         <Popup handleCancel={closePopup} handleSave={handleSave}>
+          <h3 class={styles.h3}>Icon color</h3>
           <div class={styles.grid}>
             <Color color="blue" colorSignal={colorSignal}></Color>
             <Color color="brown" colorSignal={colorSignal}></Color>

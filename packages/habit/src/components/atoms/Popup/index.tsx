@@ -1,4 +1,5 @@
 import { children, ParentComponent } from "solid-js";
+import { cx } from "../../../utils/cx";
 
 import styles from "./index.module.css";
 
@@ -18,8 +19,20 @@ const Popup: ParentComponent<IPopupProps> = ({
     <div class={styles.container}>
       <div class={styles.body}>
         {body()}
-        <input onClick={handleCancel} type="button" value="Cancel" />
-        <input onClick={handleSave} type="button" value="Save" />
+        <div class={styles.buttons}>
+          <input
+            class={cx(styles.button, "lightgray")}
+            onClick={handleCancel}
+            type="button"
+            value="Cancel"
+          />
+          <input
+            class={cx(styles.button, "blue")}
+            onClick={handleSave}
+            type="button"
+            value="Save"
+          />
+        </div>
       </div>
     </div>
   );
