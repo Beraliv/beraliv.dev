@@ -1,9 +1,9 @@
 import { Component } from "solid-js";
-import { ICON_MAPPING } from "../../../const/ICON_MAPPING";
-import { IHabit } from "../../../interfaces/IHabit";
-import { cx } from "../../../utils/cx";
+import { ICON_MAPPING } from "../../const/ICON_MAPPING";
+import { IHabit } from "../../interfaces/IHabit";
+import { cx } from "../../utils/cx";
 
-import styles from "./index.module.css";
+import styles from "./HabitCard.module.css";
 
 interface IHabitCardProps {
   habit: IHabit;
