@@ -1,8 +1,8 @@
 import { useNavigate } from "@solidjs/router";
-import { batch, Component, createSignal, Show } from "solid-js";
+import { batch, Component, createSignal } from "solid-js";
 import { addNewHabit } from "../../../state/habits";
 import { TColor } from "../../../types/TColor";
-import { ColorPopup } from "../ColorPickup";
+import { ColorPopup } from "../ColorPopup";
 import { IconPopup } from "../IconPopup";
 
 import styles from "./index.module.css";
@@ -44,7 +44,7 @@ const CreateHabitForm: Component = () => {
         value={habitTitle()}
       />
       <IconPopup />
-      <ColorPopup />
+      <ColorPopup handleColorUpdate={setHabitColor} />
       <button>Save</button>
     </form>
   );

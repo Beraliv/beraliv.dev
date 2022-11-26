@@ -1,12 +1,8 @@
 .grid {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
-}
-
-.row {
+  flex-wrap: wrap;
+  gap: 0.25rem;
   margin: 0.25rem;
-}
-
-.cell {
 }

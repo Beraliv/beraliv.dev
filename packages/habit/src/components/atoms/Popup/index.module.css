@@ -11,9 +11,9 @@
 
 .body {
   position: absolute;
+  width: 250px;
+  height: 280px;
   left: 30%;
-  right: 30%;
-  bottom: 30%;
   top: 30%;
   text-align: center;
   margin: auto;
