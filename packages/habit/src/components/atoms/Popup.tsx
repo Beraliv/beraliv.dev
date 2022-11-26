@@ -6,18 +6,25 @@ import styles from "./Popup.module.css";
 interface IPopupProps {
   handleCancel: () => void;
   handleSave: () => void;
+  width: number;
+  height: number;
 }
 
 const Popup: ParentComponent<IPopupProps> = ({
   children: _children,
   handleCancel,
   handleSave,
+  width,
+  height,
 }) => {
   const body = children(() => _children);
 
   return (
     <div class={styles.container}>
-      <div class={cx(styles.body, "gray")}>
+      <div
+        class={cx(styles.body, "gray")}
+        style={{ width: `${width}px`, height: `${height}px` }}
+      >
         {body()}
         <div class={styles.buttons}>
           <input

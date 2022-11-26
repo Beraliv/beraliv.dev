@@ -25,7 +25,12 @@ const ColorPopup: Component<IColorPopupProps> = ({ colorSignal }) => {
     <>
       <ColorButton handleClick={openPopup} colorSignal={colorSignal} />
       <Show when={isPopupVisible()}>
-        <Popup handleCancel={closePopup} handleSave={handleSave}>
+        <Popup
+          handleCancel={closePopup}
+          handleSave={handleSave}
+          width={250}
+          height={325}
+        >
           <h3 class={styles.h3}>Icon color</h3>
           <div class={styles.grid}>
             <PickColor type="blue" signal={colorSignal} />

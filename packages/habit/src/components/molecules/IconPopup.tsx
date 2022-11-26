@@ -19,7 +19,12 @@ const IconPopup: Component<IIconPopupProps> = ({ iconSignal }) => {
     <>
       <IconButton handleClick={openPopup} iconSignal={iconSignal} />
       <Show when={isPopupVisible()}>
-        <Popup handleCancel={closePopup} handleSave={closePopup}>
+        <Popup
+          handleCancel={closePopup}
+          handleSave={closePopup}
+          width={250}
+          height={260}
+        >
           <h3 class={styles.h3}>Icon</h3>
           <div class={styles.grid}>
             <PickIcon type="faceSmile" signal={iconSignal} />
