@@ -1,6 +1,6 @@
 import { Component, createSignal, Show, Signal } from "solid-js";
 import { Popup } from "../atoms/Popup";
-import { Color } from "../atoms/Color";
+import { PickColor } from "../atoms/PickColor";
 
 import styles from "./ColorPopup.module.css";
 import { TColor } from "../../types/TColor";
@@ -28,15 +28,15 @@ const ColorPopup: Component<IColorPopupProps> = ({ colorSignal }) => {
         <Popup handleCancel={closePopup} handleSave={handleSave}>
           <h3 class={styles.h3}>Icon color</h3>
           <div class={styles.grid}>
-            <Color color="blue" colorSignal={colorSignal}></Color>
-            <Color color="brown" colorSignal={colorSignal}></Color>
-            <Color color="darkblue" colorSignal={colorSignal}></Color>
-            <Color color="green" colorSignal={colorSignal}></Color>
-            <Color color="orange" colorSignal={colorSignal}></Color>
-            <Color color="pink" colorSignal={colorSignal}></Color>
-            <Color color="red" colorSignal={colorSignal}></Color>
-            <Color color="violet" colorSignal={colorSignal}></Color>
-            <Color color="yellow" colorSignal={colorSignal}></Color>
+            <PickColor type="blue" signal={colorSignal} />
+            <PickColor type="brown" signal={colorSignal} />
+            <PickColor type="darkblue" signal={colorSignal} />
+            <PickColor type="green" signal={colorSignal} />
+            <PickColor type="orange" signal={colorSignal} />
+            <PickColor type="pink" signal={colorSignal} />
+            <PickColor type="red" signal={colorSignal} />
+            <PickColor type="violet" signal={colorSignal} />
+            <PickColor type="yellow" signal={colorSignal} />
           </div>
         </Popup>
       </Show>
