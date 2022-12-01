@@ -19,7 +19,9 @@ const HabitCard: Component<IHabitCardProps> = ({ habit, handleComplete }) => (
       type="checkbox"
     />
     <div class={cx(styles.innerCard, habit.color)}>
-      <div class={styles.icon}>{ICON_MAPPING[habit.icon]({})}</div>
+      <div class={styles.icon}>
+        {ICON_MAPPING[habit.icon]({ width: 16, height: 16 })}
+      </div>
       <div class={styles.title}>{habit.title}</div>
     </div>
   </div>
