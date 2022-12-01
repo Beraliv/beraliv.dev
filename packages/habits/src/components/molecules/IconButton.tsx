@@ -16,7 +16,7 @@ const IconButton: Component<IIconButtonProps> = ({
 }) => (
   <fieldset class={styles.fieldset} onClick={handleClick}>
     <div class={styles.text}>Icon</div>
-    <div class={styles.icon}>{ICON_MAPPING[icon()]({})}</div>
+    {ICON_MAPPING[icon()]({ width: 16, height: 16 })}
     <RightChevronIcon />
   </fieldset>
 );

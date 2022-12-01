@@ -1,7 +1,5 @@
-interface IIconProps {
-  width?: number;
-  height?: number;
-  fill: string;
-}
+import { JSX } from "solid-js";
+
+interface IIconProps extends JSX.SvgSVGAttributes<SVGSVGElement> {}
 
 export type { IIconProps };
