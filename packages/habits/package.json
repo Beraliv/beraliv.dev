@@ -6,7 +6,8 @@
     "dev": "vite",
     "serve": "vite preview",
     "size": "bundlewatch --config bundlewatch.config.json",
-    "start": "vite"
+    "start": "vite",
+    "type": "tsc --noEmit"
   },
   "license": "MIT",
   "devDependencies": {
