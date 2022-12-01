@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "path": "dist/assets/CreateHabitPage.*.js",
+      "maxSize": "6 KB"
+    },
+    {
+      "path": "dist/assets/CreateHabitPage.*.css",
+      "maxSize": "2 KB"
+    },
+    {
+      "path": "dist/assets/HabitsPage.*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "dist/assets/HabitsPage.*.css",
+      "maxSize": "1 KB"
+    },
+    {
+      "path": "dist/assets/ICON_MAPPING.*.js",
+      "maxSize": "18 KB"
+    },
+    {
+      "path": "dist/assets/index.*.js",
+      "maxSize": "24 KB"
+    },
+    {
+      "path": "dist/assets/index.*.css",
+      "maxSize": "1 KB"
+    }
+  ],
+  "ci": {
+    "repoBranchBase": "main",
+    "trackBranches": ["main"]
+  }
+}
