@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
-    "type": "tsc --noEmit",
+    "size": "bundlewatch --config bundlewatch.config.json",
+    "start": "next start",
     "test:unit": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
-    "size": "bundlewatch --config bundlewatch.config.json"
+    "type": "tsc --noEmit"
   },
   "dependencies": {
     "formik": "2.2.9",

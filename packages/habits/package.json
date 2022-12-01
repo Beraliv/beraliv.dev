@@ -1,0 +1,27 @@
+{
+  "name": "habits",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "serve": "vite preview",
+    "size": "bundlewatch --config bundlewatch.config.json",
+    "start": "vite",
+    "test:unit": "vitest run --reporter verbose",
+    "type": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.2",
+    "vite": "^3.0.9",
+    "vite-plugin-solid": "^2.3.0",
+    "vitest": "0.25.3"
+  },
+  "dependencies": {
+    "@solidjs/router": "0.5.1",
+    "bundlewatch": "0.3.3",
+    "effector": "22.4.0",
+    "effector-solid": "0.22.6",
+    "solid-js": "^1.5.1"
+  }
+}

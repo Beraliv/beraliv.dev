@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: [blog2]
+        package: [blog2, habits]
     steps:
       - name: Checkout to current branch
         uses: actions/checkout@v3
