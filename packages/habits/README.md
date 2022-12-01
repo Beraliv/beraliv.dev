@@ -13,7 +13,7 @@ pnpm install
 To be able to run the project, you run dev server
 
 ```bash
-pnpm --filter "./packages/habit" dev
+pnpm --filter habits dev
 ```
 
 Open [http://127.0.0.1:3000/](http://127.0.0.1:3000/) with your browser to see the result.
