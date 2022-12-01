@@ -2,11 +2,11 @@
   "name": "habits",
   "version": "0.0.0",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
     "serve": "vite preview",
-    "size": "bundlewatch --config bundlewatch.config.json"
+    "size": "bundlewatch --config bundlewatch.config.json",
+    "start": "vite"
   },
   "license": "MIT",
   "devDependencies": {
