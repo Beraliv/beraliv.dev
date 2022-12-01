@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "size": "bundlewatch --config bundlewatch.config.json",
     "start": "vite",
-    "test:unit": "vitest",
+    "test:unit": "vitest run --reporter verbose",
     "type": "tsc --noEmit"
   },
   "license": "MIT",
