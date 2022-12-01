@@ -6,8 +6,9 @@ import { TIconType } from "../types/TIconType";
 import { PawIcon } from "../components/atoms/PawIcon";
 import { PersonRunningIcon } from "../components/atoms/PersonRunningIcon";
 import { HeartPulseIcon } from "../components/atoms/HeartPulseIcon";
+import { IIconProps } from "../interfaces/IIconProps";
 
-const ICON_MAPPING: Record<TIconType, Component> = {
+const ICON_MAPPING: Record<TIconType, Component<IIconProps>> = {
   handsBubbles: HandsBubblesIcon,
   language: LanguageIcon,
   paw: PawIcon,
