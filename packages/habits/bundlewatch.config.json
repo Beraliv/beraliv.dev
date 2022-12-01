@@ -18,11 +18,11 @@
     },
     {
       "path": "dist/assets/ICON_MAPPING.*.js",
-      "maxSize": "8 KB"
+      "maxSize": "9 KB"
     },
     {
       "path": "dist/assets/index.*.js",
-      "maxSize": "10 KB"
+      "maxSize": "11 KB"
     },
     {
       "path": "dist/assets/index.*.css",
