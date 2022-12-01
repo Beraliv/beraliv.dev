@@ -74,7 +74,7 @@ importers:
       typescript: 4.8.2
       unified: 10.1.2
 
-  packages/habit:
+  packages/habits:
     specifiers:
       '@solidjs/router': 0.5.1
       effector: 22.4.0
