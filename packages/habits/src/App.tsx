@@ -1,7 +1,8 @@
-import { Component, lazy } from "solid-js";
+import { Component, lazy, onMount } from "solid-js";
 import { Route, Routes } from "@solidjs/router";
 
 import styles from "./App.module.css";
+import { signIn } from "./state/google-sso";
 
 const CreateHabitPage = lazy(() =>
   import("./components/pages/CreateHabitPage").then((module) => ({
@@ -22,6 +23,10 @@ const SignInPage = lazy(() =>
 );
 
 const App: Component = () => {
+  onMount(() => {
+    signIn();
+  });
+
   return (
     <div class={styles.App}>
       <header class={styles.header}>
