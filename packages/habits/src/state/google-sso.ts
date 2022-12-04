@@ -5,9 +5,10 @@ import { z } from "zod";
 import { TPrimitive } from "../types/TPrimitive";
 
 type TGoogleSsoState =
-  | { type: "signedOut" }
+  | { type: "SIGNED_OUT" }
+  | { type: "SIGNING" }
   | ({
-      type: "signedIn";
+      type: "LOGGED_IN";
     } & z.infer<typeof SignedInData>);
 
 const SignedInData = z.object({
@@ -18,7 +19,7 @@ const SignedInData = z.object({
 });
 
 const $googleSso = createStore<TGoogleSsoState>({
-  type: "signedOut",
+  type: "SIGNED_OUT",
 });
 
 const { handleCredentialResponse, signIn, signOut } = createApi($googleSso, {
@@ -38,11 +39,15 @@ const { handleCredentialResponse, signIn, signOut } = createApi($googleSso, {
     console.log("Signing in...");
 
     google.accounts.id.prompt();
-  },
-  signOut: (state) => {
-    state.type = "signedOut";
 
-    console.log("signed out ✅");
+    return { type: "SIGNING" };
+  },
+  signOut: () => {
+    console.log("🔄 Signing out...");
+
+    console.log("✅ Signed out");
+
+    return { type: "SIGNED_OUT" };
   },
   handleCredentialResponse: (
     state,
@@ -76,7 +81,7 @@ const { handleCredentialResponse, signIn, signOut } = createApi($googleSso, {
       console.log("✅ Signed in");
 
       return {
-        type: "signedIn",
+        type: "LOGGED_IN",
         ...validatedData,
       };
     } catch (error) {
