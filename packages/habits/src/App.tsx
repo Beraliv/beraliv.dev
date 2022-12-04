@@ -15,12 +15,19 @@ const HabitsPage = lazy(() =>
   }))
 );
 
+const SignInPage = lazy(() =>
+  import("./components/pages/SignInPage").then((module) => ({
+    default: module.SignInPage,
+  }))
+);
+
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <header class={styles.header}>
         <Routes>
           <Route path="/create" component={CreateHabitPage} />
+          <Route path="/sign_in" component={SignInPage} />
           <Route path="/" component={HabitsPage} />
         </Routes>
       </header>
