@@ -77,6 +77,7 @@ importers:
   packages/habits:
     specifiers:
       '@solidjs/router': 0.5.1
+      '@types/google.accounts': 0.0.4
       bundlewatch: 0.3.3
       effector: 22.4.0
       effector-solid: 0.22.6
@@ -85,13 +86,16 @@ importers:
       vite: ^3.0.9
       vite-plugin-solid: ^2.3.0
       vitest: 0.25.3
+      zod: 3.19.1
     dependencies:
       '@solidjs/router': 0.5.1_solid-js@1.6.2
       bundlewatch: 0.3.3
       effector: 22.4.0
       effector-solid: 0.22.6_wcqktydo3i3mw5c2xhe4rnflpe
       solid-js: 1.6.2
+      zod: 3.19.1
     devDependencies:
+      '@types/google.accounts': 0.0.4
       typescript: 4.8.2
       vite: 3.2.4
       vite-plugin-solid: 2.4.0_solid-js@1.6.2+vite@3.2.4
@@ -818,6 +822,10 @@ packages:
   /@types/estree/1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: false
+
+  /@types/google.accounts/0.0.4:
+    resolution: {integrity: sha512-X42obEgMx+Ptt3RZShgfRNLxGfm9PTLB/zdQkVBYtjnQnbQvTdbU02kZuS6pahp7LA9a5tUxB5vGBnD81SUhjg==}
+    dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
@@ -6109,6 +6117,10 @@ packages:
       nanoclone: 0.2.1
       property-expr: 2.0.5
       toposort: 2.0.2
+    dev: false
+
+  /zod/3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
     dev: false
 
   /zwitch/2.0.2:
