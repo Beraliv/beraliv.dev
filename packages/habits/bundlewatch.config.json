@@ -6,7 +6,7 @@
     },
     {
       "path": "dist/assets/CreateHabitPage.*.css",
-      "maxSize": "800 B"
+      "maxSize": "880 B"
     },
     {
       "path": "dist/assets/HabitsPage.*.js",
@@ -22,7 +22,7 @@
     },
     {
       "path": "dist/assets/index.*.js",
-      "maxSize": "11 KB"
+      "maxSize": "28 KB"
     },
     {
       "path": "dist/assets/index.*.css",
