@@ -15,7 +15,7 @@
     "typescript": "^4.8.2",
     "vite": "^3.0.9",
     "vite-plugin-solid": "^2.3.0",
-    "vitest": "0.25.3"
+    "vitest": "0.29.8"
   },
   "dependencies": {
     "@solidjs/router": "0.5.1",
