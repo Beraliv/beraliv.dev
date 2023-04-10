@@ -29,6 +29,7 @@
       "maxSize": "500 B"
     }
   ],
+  "normalizeFilenames": "^.+?(\\..+?)\\.\\w+$",
   "ci": {
     "repoBranchBase": "main",
     "trackBranches": ["main"]
