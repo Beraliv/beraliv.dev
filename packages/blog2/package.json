@@ -7,7 +7,6 @@
     "dev": "next dev",
     "lint": "next lint",
     "rss": "TS_NODE_PROJECT=\"tsconfig-tsnode.json\" TS_NODE_TRANSPILE_ONLY=true ts-node src/plugins/rssMetadata/index.ts",
-    "size": "bundlewatch --config bundlewatch.config.json",
     "start": "next start",
     "test:unit": "env TS_NODE_PROJECT=\"tsconfig-tsnode.json\" mocha",
     "type": "tsc --noEmit"
@@ -35,7 +34,6 @@
     "@types/node": "*",
     "@types/react": "18.0.33",
     "@types/unist": "2.0.6",
-    "bundlewatch": "0.3.3",
     "csstype": "3.1.0",
     "earljs": "0.2.3",
     "eslint": "8.23.0",
