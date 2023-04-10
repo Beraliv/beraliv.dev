@@ -1,35 +1,35 @@
 {
   "files": [
     {
-      "path": "packages/blog2/.next/static/chunks/*.js",
+      "path": "packages/blog2/dist/static/chunks/*.js",
       "maxSize": "40 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/framework-*.js",
+      "path": "packages/blog2/dist/static/chunks/framework-*.js",
       "maxSize": "45 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/polyfills-*.js",
+      "path": "packages/blog2/dist/static/chunks/polyfills-*.js",
       "maxSize": "32 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/main-*.js",
+      "path": "packages/blog2/dist/static/chunks/main-*.js",
       "maxSize": "35 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/pages/\\[slug\\]-*.js",
+      "path": "packages/blog2/dist/static/chunks/pages/\\[slug\\]-*.js",
       "maxSize": "5 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/pages/search-*.js",
+      "path": "packages/blog2/dist/static/chunks/pages/search-*.js",
       "maxSize": "4 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/pages/index-*.js",
+      "path": "packages/blog2/dist/static/chunks/pages/index-*.js",
       "maxSize": "3 KB"
     },
     {
-      "path": "packages/blog2/.next/static/chunks/webpack-*.js",
+      "path": "packages/blog2/dist/static/chunks/webpack-*.js",
       "maxSize": "2 KB"
     },
     {
@@ -61,7 +61,7 @@
       "maxSize": "500 B"
     }
   ],
-  "normalizeFilenames": "^packages\\/blog2\\/\\.next\\/.+?([\\-\\.].+?)\\.\\w+$|^.+?([\\-\\.].+?)\\.\\w+$",
+  "normalizeFilenames": "^.+?([\\-\\.].+?)\\.\\w+$",
   "ci": {
     "repoBranchBase": "main",
     "trackBranches": ["main"]

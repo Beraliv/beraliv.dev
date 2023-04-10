@@ -29,11 +29,13 @@ jobs:
       - name: Build
         run: pnpm --filter ${{ matrix.package }} run build
 
-      - name: Upload projects
+      - name: Upload builds
         uses: actions/upload-artifact@v3
         with:
-          name: projects-${{ matrix.package }}
-          path: packages/${{ matrix.package }}/(.next|dist)
+          name: build-${{ matrix.package }}
+          path: packages/${{ matrix.package }}/dist
+          if-no-files-found: 'error'
+          retention-days: 1
   size:
     name: Build size
     timeout-minutes: 5
@@ -52,16 +54,16 @@ jobs:
       - name: Setup pnpm
         uses: ./.github/actions/setup-pnpm
 
-      - name: Download blog2 project
+      - name: Download blog2 build
         uses: actions/download-artifacts@v3
         with:
-          name: projects-blog2
-          path: packages/blog2/.next
+          name: build-blog2
+          path: packages/blog2/dist
 
-      - name: Download habits project
+      - name: Download habits build
         uses: actions/download-artifacts@v3
         with:
-          name: projects-habits
+          name: build-habits
           path: packages/habits/dist
 
       - name: Build size report
