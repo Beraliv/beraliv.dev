@@ -1,0 +1,14 @@
+.color {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  margin: 2px;
+}
+
+.color:hover {
+  cursor: pointer;
+}
+
+.selected {
+  outline: 3px solid white;
+}
