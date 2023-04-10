@@ -31,7 +31,7 @@ jobs:
   size:
     name: Build size
     timeout-minutes: 5
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Build size report
