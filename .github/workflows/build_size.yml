@@ -28,12 +28,42 @@ jobs:
 
       - name: Build
         run: pnpm --filter ${{ matrix.package }} run build
+
+      - name: Upload projects
+        uses: actions/upload-artifact@v3
+        with:
+          name: projects-${{ matrix.package }}
+          path: packages/${{ matrix.package }}/(.next|dist)
   size:
     name: Build size
     timeout-minutes: 5
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout to current branch
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Caches node modules
+        uses: ./.github/actions/cache-node-modules
+
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Download blog2 project
+        uses: actions/download-artifacts@v3
+        with:
+          name: projects-blog2
+          path: packages/blog2/.next
+
+      - name: Download habits project
+        uses: actions/download-artifacts@v3
+        with:
+          name: projects-habits
+          path: packages/habits/dist
+
       - name: Build size report
         run: pnpm run size
         env:
