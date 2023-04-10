@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  bundlewatch@0.3.3:
+    hash: uj6jncoatjcwavg7n4jojs6nni
+    path: patches/bundlewatch@0.3.3.patch
+
 importers:
 
   .: {}
@@ -69,7 +74,7 @@ importers:
         version: 2.0.6
       bundlewatch:
         specifier: 0.3.3
-        version: 0.3.3
+        version: 0.3.3(patch_hash=uj6jncoatjcwavg7n4jojs6nni)
       csstype:
         specifier: 3.1.0
         version: 3.1.0
@@ -111,7 +116,7 @@ importers:
         version: 0.5.1(solid-js@1.6.2)
       bundlewatch:
         specifier: 0.3.3
-        version: 0.3.3
+        version: 0.3.3(patch_hash=uj6jncoatjcwavg7n4jojs6nni)
       effector:
         specifier: 22.4.0
         version: 22.4.0
@@ -1426,7 +1431,7 @@ packages:
       node-int64: 0.4.0
     dev: true
 
-  /bundlewatch@0.3.3:
+  /bundlewatch@0.3.3(patch_hash=uj6jncoatjcwavg7n4jojs6nni):
     resolution: {integrity: sha512-qzSVWrZyyWXa546JpAPRPTFmnXms9YNVnfzB05DRJKmN6wRRa7SkxE4OgKQmbAY74Z6CM2mKAc6vwvd2R+1lUQ==}
     engines: {node: '>=10'}
     hasBin: true
@@ -1443,6 +1448,7 @@ packages:
       read-pkg-up: 7.0.1
     transitivePeerDependencies:
       - debug
+    patched: true
 
   /bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
