@@ -55,13 +55,13 @@ jobs:
         uses: ./.github/actions/setup-pnpm
 
       - name: Download blog2 build
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
           name: build-blog2
           path: packages/blog2/dist
 
       - name: Download habits build
-        uses: actions/download-artifacts@v3
+        uses: actions/download-artifact@v3
         with:
           name: build-habits
           path: packages/habits/dist
