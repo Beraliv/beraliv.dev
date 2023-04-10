@@ -54,6 +54,9 @@ jobs:
       - name: Setup pnpm
         uses: ./.github/actions/setup-pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Download blog2 build
         uses: actions/download-artifact@v3
         with:
