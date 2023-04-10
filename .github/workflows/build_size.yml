@@ -3,8 +3,8 @@ name: CI
 on: push
 
 jobs:
-  size:
-    name: Bundle size
+  build:
+    name: Build projects
     timeout-minutes: 5
     runs-on: ubuntu-latest
     strategy:
@@ -28,9 +28,14 @@ jobs:
 
       - name: Build
         run: pnpm --filter ${{ matrix.package }} run build
-        
+  size:
+    name: Build size
+    timeout-minutes: 5
+    run-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Build size report
-        run: pnpm --filter ${{ matrix.package }} run size
+        run: pnpm run size
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
 
