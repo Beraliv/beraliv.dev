@@ -4,7 +4,11 @@
   "groupName": "All dependencies",
   "groupSlug": "all",
   "lockFileMaintenance": { "enabled": true },
-  "schedule": ["before 6am every weekend"],
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
+  ],
   "separateMajorMinor": true,
   "packageRules": [
     {
