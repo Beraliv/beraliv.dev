@@ -1,15 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "groupName": "All dependencies",
-  "groupSlug": "all",
+  "ignoreUnstable": false,
   "lockFileMaintenance": { "enabled": true },
-  "schedule": [
-    "after 10pm every weekday",
-    "before 5am every weekday",
-    "every weekend"
-  ],
-  "separateMajorMinor": true,
   "packageRules": [
     {
       "groupName": "all patch dependencies",
@@ -30,5 +23,11 @@
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["major"]
     }
-  ]
+  ],
+  "schedule": [
+    "after 10pm every weekday",
+    "before 5am every weekday",
+    "every weekend"
+  ],
+  "separateMajorMinor": true
 }
