@@ -19,14 +19,27 @@ Requirements:
 - Update packages with beta version
 - Support of workspaces
 
-| Name     | Scheduled job | Check for updates | 1 branch for multiple updates | Custom changelog | Automerge | Beta version updates | Npm workspaces |
-| -------- | ------------- | ----------------- | ----------------------------- | ---------------- | --------- | -------------------- | -------------- |
-| renovate | ✅ (⚠️)       | ✅ (🚀)           | ✅                            | ✅🕓 (⚠️)        | ✅ (⚠️)   | ✅                   | ✅             |
+## Summary
+
+| Requirement                   | Renovate |
+| ----------------------------- | -------- |
+| Scheduled job                 | ✅ ⚠️    |
+| Check for updates             | ✅ 🚀    |
+| 1 branch for multiple updates | ✅       |
+| Custom changelog              | ✅ 🕓 ⚠️ |
+| Automerge                     | ✅ ⚠️    |
+| Beta version updates          | ✅       |
+| Workspaces                    | ✅       |
 
 ✅ - possible
+
 ⚠️ - limitations
+
 🚀 - customisable
+
 🕓 - time-consuming (requires additional work)
+
+## Implementation
 
 ✅ **Process scheduled based on a cron job**
 
