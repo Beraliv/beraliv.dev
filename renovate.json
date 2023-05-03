@@ -15,7 +15,8 @@
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch",
       "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["patch"]
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
     },
     {
       "groupName": "all minor dependencies",
