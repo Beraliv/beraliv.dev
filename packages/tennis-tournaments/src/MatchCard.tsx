@@ -107,4 +107,4 @@ const MatchCard: Component<MatchCardProps> = ({
   );
 };
 
-export { MatchCard };
+export { MatchCard, type MatchCardProps };

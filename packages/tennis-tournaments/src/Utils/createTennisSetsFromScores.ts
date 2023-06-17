@@ -1,5 +1,4 @@
 import { TennisSet } from "../Types/TennisSet";
-import * as EventResponse from "../event-mock.json";
 
 type DeepPartial<T> = T extends object
   ? { [K in keyof T]?: DeepPartial<T[K]> }
