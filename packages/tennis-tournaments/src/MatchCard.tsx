@@ -3,6 +3,8 @@ import { For, type Component, Show } from "solid-js";
 import styles from "./MatchCard.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { COUNTRY_MAPPING } from "./Constants/COUNTRY_MAPPING";
+import { createShortName } from "./Utils/createShortName";
+import winnerIcon from "./Icons/Winner.svg";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
@@ -17,49 +19,66 @@ const MatchCard: Component<MatchCardProps> = ({
   sets,
   winner,
 }) => {
-  const homeCountryUrl = COUNTRY_MAPPING[homePlayer.country];
-  const awayCountryUrl = COUNTRY_MAPPING[awayPlayer.country];
+  const homeCountryIcon = COUNTRY_MAPPING[homePlayer.country];
+  const awayCountryIcon = COUNTRY_MAPPING[awayPlayer.country];
+
+  const homeShortName = createShortName(homePlayer);
+  const awayShortName = createShortName(awayPlayer);
 
   return (
     <div class={styles.MatchCard}>
       <div class={styles.Home}>
         <div class={styles.Player}>
           <div class={styles.Avatar}>
-            <img src={homePlayer.imageUrl} />
+            <img class={styles.AvatarImage} src={homePlayer.imageUrl} />
           </div>
-          <Show when={homeCountryUrl}>
+          <Show when={homeCountryIcon}>
             <div class={styles.CountryFlag}>
-              <img src={homeCountryUrl} />
+              <img class={styles.CountryFlagImage} src={homeCountryIcon} />
             </div>
           </Show>
-          <div class={styles.Name}>{homePlayer.name}</div>
+          <div class={styles.Name}>{homeShortName}</div>
           <div class={styles.Ranking}>{`(${homePlayer.ranking})`}</div>
         </div>
         <div class={styles.Score}>
           <Show when={winner === "home"}>
-            <div class={styles.Victory}>{"✅"}</div>
+            <div class={styles.Winner}>
+              <img class={styles.WinnerImage} src={winnerIcon} />
+            </div>
           </Show>
-          <For each={sets}>{([firstItem]) => <div>{firstItem}</div>}</For>
+          <div class={styles.SetScores}>
+            <For each={sets}>
+              {([firstItem]) => <div class={styles.SetScore}>{firstItem}</div>}
+            </For>
+          </div>
         </div>
       </div>
       <div class={styles.Away}>
         <div class={styles.Player}>
           <div class={styles.Avatar}>
-            <img src={awayPlayer.imageUrl} />
+            <img class={styles.AvatarImage} src={awayPlayer.imageUrl} />
           </div>
-          <Show when={awayCountryUrl}>
+          <Show when={awayCountryIcon}>
             <div class={styles.CountryFlag}>
-              <img src={awayCountryUrl} />
+              <img class={styles.CountryFlagImage} src={awayCountryIcon} />
             </div>
           </Show>
-          <div class={styles.Name}>{awayPlayer.name}</div>
+          <div class={styles.Name}>{awayShortName}</div>
           <div class={styles.Ranking}>{`(${awayPlayer.ranking})`}</div>
         </div>
         <div class={styles.Score}>
           <Show when={winner === "away"}>
-            <div class={styles.Victory}>{"✅"}</div>
+            <div class={styles.Winner}>
+              <img class={styles.WinnerImage} src={winnerIcon} />
+            </div>
           </Show>
-          <For each={sets}>{([, secondItem]) => <div>{secondItem}</div>}</For>
+          <div class={styles.SetScores}>
+            <For each={sets}>
+              {([, secondItem]) => (
+                <div class={styles.SetScore}>{secondItem}</div>
+              )}
+            </For>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
-interface TennisPlayer {
-  imageUrl: string;
+import { type Person } from "./Person";
+
+interface TennisPlayer extends Person {
   country: string;
-  name: string;
+  imageUrl: string;
   ranking: number;
 }
 
