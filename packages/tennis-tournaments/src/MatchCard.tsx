@@ -7,6 +7,8 @@ import { createShortName } from "./Utils/createShortName";
 import winnerIcon from "./Icons/Winner.svg";
 import { TennisSet } from "./Types/TennisSet";
 import { hasTieBreak } from "./Utils/hasTieBreak";
+import { doesWinSet } from "./Utils/doesWinSet";
+import { classNames } from "./Utils/classNames";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
@@ -27,6 +29,9 @@ const MatchCard: Component<MatchCardProps> = ({
   const homeShortName = createShortName(homePlayer);
   const awayShortName = createShortName(awayPlayer);
 
+  const doesHomeWinMatch = winner === "home";
+  const doesAwayWinMatch = winner === "away";
+
   return (
     <div class={styles.MatchCard}>
       <div class={styles.Home}>
@@ -39,19 +44,32 @@ const MatchCard: Component<MatchCardProps> = ({
               <img class={styles.CountryFlagImage} src={homeCountryIcon} />
             </div>
           </Show>
-          <div>{homeShortName}</div>
+          <div
+            class={classNames({
+              [styles.WinHighlighter]: doesHomeWinMatch,
+            })}
+          >
+            {homeShortName}
+          </div>
           <div class={styles.Ranking}>{`(${homePlayer.ranking})`}</div>
         </div>
         <div class={styles.Score}>
-          <Show when={winner === "home"}>
+          <Show when={doesHomeWinMatch}>
             <div class={styles.Winner}>
               <img class={styles.WinnerImage} src={winnerIcon} />
             </div>
           </Show>
           <div class={styles.SetScores}>
             <For each={sets}>
-              {([firstItem]) => (
-                <div class={styles.SetScore}>
+              {([firstItem, secondItem]) => (
+                <div
+                  class={classNames(styles.SetScore, {
+                    [styles.WinHighlighter]: doesWinSet([
+                      firstItem,
+                      secondItem,
+                    ]),
+                  })}
+                >
                   {firstItem.games}
                   <Show when={hasTieBreak(firstItem)}>
                     {
@@ -76,19 +94,32 @@ const MatchCard: Component<MatchCardProps> = ({
               <img class={styles.CountryFlagImage} src={awayCountryIcon} />
             </div>
           </Show>
-          <div>{awayShortName}</div>
+          <div
+            class={classNames({
+              [styles.WinHighlighter]: doesAwayWinMatch,
+            })}
+          >
+            {awayShortName}
+          </div>
           <div class={styles.Ranking}>{`(${awayPlayer.ranking})`}</div>
         </div>
         <div class={styles.Score}>
-          <Show when={winner === "away"}>
+          <Show when={doesAwayWinMatch}>
             <div class={styles.Winner}>
               <img class={styles.WinnerImage} src={winnerIcon} />
             </div>
           </Show>
           <div class={styles.SetScores}>
             <For each={sets}>
-              {([, secondItem]) => (
-                <div class={styles.SetScore}>
+              {([firstItem, secondItem]) => (
+                <div
+                  class={classNames(styles.SetScore, {
+                    [styles.WinHighlighter]: doesWinSet([
+                      secondItem,
+                      firstItem,
+                    ]),
+                  })}
+                >
                   {secondItem.games}
                   <Show when={hasTieBreak(secondItem)}>
                     {
