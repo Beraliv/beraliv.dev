@@ -15,6 +15,8 @@ const createTennisPlayerFromTeam = (team: Team): TennisPlayer => {
     firstName,
     imageUrl,
     lastName,
+    // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA
+    // https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
     ranking: team.ranking,
   };
 };
