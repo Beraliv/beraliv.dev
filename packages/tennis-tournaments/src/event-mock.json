@@ -1,0 +1,259 @@
+{
+  "event": {
+    "awayScore": {
+      "current": 3,
+      "display": 3,
+      "normaltime": 3,
+      "period1": 3,
+      "period2": 7,
+      "period3": 3,
+      "period4": 7,
+      "period5": 7,
+      "period5TieBreak": 10,
+      "point": "9"
+    },
+    "awayTeam": {
+      "country": {
+        "alpha2": "ES",
+        "name": "Spain"
+      },
+      "fullName": "Nadal, Rafael",
+      "gender": "M",
+      "id": 14486,
+      "name": "Nadal R.",
+      "nameCode": "NAD",
+      "national": false,
+      "playerTeamInfo": {
+        "birthDateTimestamp": 518140800,
+        "birthplace": "Manacor, Mallorca, Spain",
+        "currentRanking": 133,
+        "height": 1.85,
+        "id": 2,
+        "plays": "left-handed",
+        "prizeCurrent": 258998,
+        "prizeCurrentRaw": {
+          "currency": "EUR",
+          "value": 258998
+        },
+        "prizeTotal": 112200599,
+        "prizeTotalRaw": {
+          "currency": "EUR",
+          "value": 112200599
+        },
+        "residence": "Manacor, Mallorca, Spain",
+        "turnedPro": "2001",
+        "weight": 85
+      },
+      "ranking": 136,
+      "shortName": "Nadal R.",
+      "slug": "nadal-rafael",
+      "sport": {
+        "id": 5,
+        "name": "Tennis",
+        "slug": "tennis"
+      },
+      "subTeams": [],
+      "teamColors": {
+        "primary": "#52b030",
+        "secondary": "#52b030",
+        "text": "#ffffff"
+      },
+      "type": 1,
+      "userCount": 176166
+    },
+    "bet365ExcludedCountryCodes": [
+      "AT",
+      "BY",
+      "CH",
+      "DE",
+      "FI",
+      "IT",
+      "NO",
+      "RU",
+      "SE",
+      "UM",
+      "US",
+      "VI",
+      "IR",
+      "GR",
+      "CA"
+    ],
+    "changes": {
+      "changeTimestamp": 1657132266,
+      "changes": [
+        "homeScore.period5TieBreak",
+        "awayScore.period5TieBreak",
+        "time.currentPeriodStart",
+        "time.period5"
+      ]
+    },
+    "crowdsourcingDataDisplayEnabled": false,
+    "cupMatchesInRound": 1,
+    "currentPeriodStartTimestamp": 1657127863,
+    "customId": "LOfsRveb",
+    "defaultPeriodCount": 5,
+    "fanRatingEvent": false,
+    "finalResultOnly": false,
+    "firstToServe": 2,
+    "groundType": "Grass",
+    "hasBet365LiveStream": true,
+    "hasGlobalHighlights": true,
+    "homeScore": {
+      "current": 2,
+      "display": 2,
+      "normaltime": 2,
+      "period1": 6,
+      "period2": 5,
+      "period3": 6,
+      "period4": 5,
+      "period5": 6,
+      "period5TieBreak": 4,
+      "point": "4"
+    },
+    "homeTeam": {
+      "country": {
+        "alpha2": "US",
+        "name": "USA"
+      },
+      "disabled": false,
+      "fullName": "Fritz, Taylor",
+      "gender": "M",
+      "id": 136042,
+      "name": "Fritz T.",
+      "nameCode": "FRI",
+      "national": false,
+      "playerTeamInfo": {
+        "birthDateTimestamp": 877996800,
+        "birthplace": "Rancho Santa Fe, CA, USA",
+        "currentRanking": 8,
+        "height": 1.96,
+        "id": 46,
+        "plays": "right-handed",
+        "prizeCurrent": 1766249,
+        "prizeCurrentRaw": {
+          "currency": "EUR",
+          "value": 1766249
+        },
+        "prizeTotal": 10190787,
+        "prizeTotalRaw": {
+          "currency": "EUR",
+          "value": 10190787
+        },
+        "residence": "Rancho Palos Verdes, CA, USA",
+        "turnedPro": "2015",
+        "weight": 86
+      },
+      "ranking": 8,
+      "shortName": "Fritz T.",
+      "slug": "fritz-taylor",
+      "sport": {
+        "id": 5,
+        "name": "Tennis",
+        "slug": "tennis"
+      },
+      "subTeams": [],
+      "teamColors": {
+        "primary": "#52b030",
+        "secondary": "#52b030",
+        "text": "#ffffff"
+      },
+      "type": 1,
+      "userCount": 16245
+    },
+    "id": 10400727,
+    "periods": {
+      "current": "Match",
+      "period1": "1st set",
+      "period2": "2nd set",
+      "period3": "3rd set",
+      "period4": "4th set",
+      "period5": "5th set",
+      "point": "Game"
+    },
+    "roundInfo": {
+      "cupRoundType": 4,
+      "name": "Quarterfinal",
+      "round": 4,
+      "slug": "quarterfinal"
+    },
+    "season": {
+      "editor": false,
+      "id": 42300,
+      "name": "Wimbledon Men Singles 2022",
+      "year": "2022"
+    },
+    "showTotoPromo": false,
+    "slug": "nadal-fritz",
+    "startTimestamp": 1657116000,
+    "status": {
+      "code": 100,
+      "description": "Ended",
+      "type": "finished"
+    },
+    "time": {
+      "currentPeriodStartTimestamp": 1657127863,
+      "period1": 2241,
+      "period2": 3534,
+      "period3": 2044,
+      "period4": 3524,
+      "period5": 4373
+    },
+    "tournament": {
+      "category": {
+        "flag": "atp",
+        "id": 3,
+        "name": "ATP",
+        "slug": "atp",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        }
+      },
+      "competitionType": 2,
+      "id": 56785,
+      "name": "Wimbledon, London, Great Britain",
+      "priority": 0,
+      "slug": "wimbledon-london-great-britain",
+      "uniqueTournament": {
+        "category": {
+          "flag": "atp",
+          "id": 3,
+          "name": "ATP",
+          "slug": "atp",
+          "sport": {
+            "id": 5,
+            "name": "Tennis",
+            "slug": "tennis"
+          }
+        },
+        "country": {},
+        "crowdsourcingEnabled": false,
+        "displayInverseHomeAwayTeams": false,
+        "groundType": "Grass",
+        "hasEventPlayerStatistics": false,
+        "hasPerformanceGraphFeature": false,
+        "id": 2361,
+        "name": "Wimbledon",
+        "primaryColorHex": "#006633",
+        "secondaryColorHex": "#54008b",
+        "slug": "wimbledon",
+        "userCount": 47248
+      }
+    },
+    "venue": {
+      "city": {
+        "name": "London"
+      },
+      "country": {
+        "alpha2": "GB",
+        "name": "United Kingdom"
+      },
+      "id": 17270,
+      "stadium": {
+        "name": "Centre Court"
+      }
+    },
+    "winnerCode": 2
+  }
+}
