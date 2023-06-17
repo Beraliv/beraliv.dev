@@ -4,13 +4,13 @@ import styles from "./App.module.css";
 import eventMock from "./event-mock.json";
 import { MatchCard } from "./MatchCard";
 import { createTennisPlayerFromTeam } from "./Utils/createTennisPlayerFromTeam";
-import { createSetsFromScores } from "./Utils/createSetsFromScores";
+import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
 
 const App: Component = () => {
   const awayPlayer = createTennisPlayerFromTeam(eventMock.event.awayTeam);
   const homePlayer = createTennisPlayerFromTeam(eventMock.event.homeTeam);
 
-  const sets = createSetsFromScores(
+  const sets = createTennisSetsFromScores(
     eventMock.event.homeScore,
     eventMock.event.awayScore
   );

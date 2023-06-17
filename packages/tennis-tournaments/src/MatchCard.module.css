@@ -13,18 +13,10 @@
   justify-content: flex-start;
 }
 
-.Avatar {
-  /* */
-}
-
 .AvatarImage {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-}
-
-.CountryFlag {
-  /* */
 }
 
 .CountryFlagImage {
@@ -34,13 +26,7 @@
   border-radius: 3px;
 }
 
-.Name {
-  /* */
-}
-
 .Ranking {
-  /* TODO: understand why? */
-  /* margin-top: 10px; */
   margin-left: 5px;
 }
 
@@ -58,6 +44,12 @@
   width: 21px;
   margin: 0 2px;
   text-align: center;
+}
+
+.TieBreakScore {
+  position: relative;
+  top: -0.9em;
+  vertical-align: baseline;
 }
 
 .Winner {
