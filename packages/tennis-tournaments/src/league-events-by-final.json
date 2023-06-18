@@ -1,0 +1,170 @@
+{
+  "events": [
+    {
+      "awayScore": {
+        "current": 1,
+        "display": 1,
+        "normaltime": 1,
+        "period1": 6,
+        "period2": 3,
+        "period3": 4,
+        "period4": 6,
+        "period4TieBreak": 3,
+        "point": "3"
+      },
+      "awayTeam": {
+        "disabled": false,
+        "gender": "M",
+        "id": 62490,
+        "name": "Kyrgios N.",
+        "nameCode": "KYR",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 72
+        },
+        "ranking": 25,
+        "shortName": "Kyrgios N.",
+        "slug": "kyrgios-nick",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 34860
+      },
+      "changes": {
+        "changeTimestamp": 1657469539,
+        "changes": [
+          "homeScore.period4TieBreak",
+          "awayScore.period4TieBreak",
+          "time.currentPeriodStart",
+          "time.period4"
+        ]
+      },
+      "crowdsourcingDataDisplayEnabled": false,
+      "customId": "HXfsPZz",
+      "finalResultOnly": false,
+      "firstToServe": 1,
+      "groundType": "Grass",
+      "hasGlobalHighlights": true,
+      "homeScore": {
+        "current": 3,
+        "display": 3,
+        "normaltime": 3,
+        "period1": 4,
+        "period2": 6,
+        "period3": 6,
+        "period4": 7,
+        "period4TieBreak": 7,
+        "point": "6"
+      },
+      "homeTeam": {
+        "disabled": false,
+        "gender": "M",
+        "id": 14882,
+        "name": "Djokovic N.",
+        "nameCode": "DJO",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 1
+        },
+        "ranking": 1,
+        "shortName": "Djokovic N.",
+        "slug": "djokovic-novak",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 185370
+      },
+      "id": 10400728,
+      "periods": {
+        "current": "Match",
+        "period1": "1st set",
+        "period2": "2nd set",
+        "period3": "3rd set",
+        "period4": "4th set",
+        "period5": "5th set",
+        "point": "Game"
+      },
+      "roundInfo": {
+        "cupRoundType": 1,
+        "name": "Final",
+        "round": 1,
+        "slug": "final"
+      },
+      "slug": "kyrgios-djokovic",
+      "startTimestamp": 1657458000,
+      "status": {
+        "code": 100,
+        "description": "Ended",
+        "type": "finished"
+      },
+      "time": {
+        "currentPeriodStartTimestamp": 1657465801,
+        "period1": 1895,
+        "period2": 2352,
+        "period3": 2994,
+        "period4": 3682
+      },
+      "tournament": {
+        "category": {
+          "flag": "atp",
+          "id": 3,
+          "name": "ATP",
+          "slug": "atp",
+          "sport": {
+            "id": 5,
+            "name": "Tennis",
+            "slug": "tennis"
+          }
+        },
+        "id": 56785,
+        "name": "Wimbledon, London, Great Britain",
+        "priority": 0,
+        "slug": "wimbledon-london-great-britain",
+        "uniqueTournament": {
+          "category": {
+            "flag": "atp",
+            "id": 3,
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "id": 5,
+              "name": "Tennis",
+              "slug": "tennis"
+            }
+          },
+          "crowdsourcingEnabled": false,
+          "displayInverseHomeAwayTeams": false,
+          "groundType": "Grass",
+          "hasEventPlayerStatistics": false,
+          "hasPerformanceGraphFeature": false,
+          "id": 2361,
+          "name": "Wimbledon",
+          "primaryColorHex": "#006633",
+          "secondaryColorHex": "#54008b",
+          "slug": "wimbledon",
+          "userCount": 47272
+        }
+      },
+      "winnerCode": 1
+    }
+  ],
+  "hasNextPage": false
+}

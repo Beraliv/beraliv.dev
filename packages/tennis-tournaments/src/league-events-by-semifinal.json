@@ -1,0 +1,297 @@
+{
+  "events": [
+    {
+      "awayScore": {
+        "current": 1,
+        "display": 1,
+        "normaltime": 1,
+        "period1": 6,
+        "period2": 3,
+        "period3": 2,
+        "period4": 4,
+        "point": "30"
+      },
+      "awayTeam": {
+        "disabled": false,
+        "gender": "M",
+        "id": 95935,
+        "name": "Norrie C.",
+        "nameCode": "NOR",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 64
+        },
+        "ranking": 13,
+        "shortName": "Norrie C.",
+        "slug": "norrie-cameron",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 12864
+      },
+      "changes": {
+        "changeTimestamp": 1657299261,
+        "changes": ["time.currentPeriodStart", "time.period4"]
+      },
+      "crowdsourcingDataDisplayEnabled": false,
+      "customId": "HXfsKtN",
+      "finalResultOnly": false,
+      "firstToServe": 1,
+      "groundType": "Grass",
+      "hasGlobalHighlights": true,
+      "homeScore": {
+        "current": 3,
+        "display": 3,
+        "normaltime": 3,
+        "period1": 2,
+        "period2": 6,
+        "period3": 6,
+        "period4": 6,
+        "point": "40"
+      },
+      "homeTeam": {
+        "disabled": false,
+        "gender": "M",
+        "id": 14882,
+        "name": "Djokovic N.",
+        "nameCode": "DJO",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 1
+        },
+        "ranking": 1,
+        "shortName": "Djokovic N.",
+        "slug": "djokovic-novak",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 185370
+      },
+      "id": 10400725,
+      "periods": {
+        "current": "Match",
+        "period1": "1st set",
+        "period2": "2nd set",
+        "period3": "3rd set",
+        "period4": "4th set",
+        "period5": "5th set",
+        "point": "Game"
+      },
+      "roundInfo": {
+        "cupRoundType": 2,
+        "name": "Semifinal",
+        "round": 2,
+        "slug": "semifinal"
+      },
+      "slug": "norrie-djokovic",
+      "startTimestamp": 1657288800,
+      "status": {
+        "code": 100,
+        "description": "Ended",
+        "type": "finished"
+      },
+      "time": {
+        "currentPeriodStartTimestamp": 1657296461,
+        "period1": 1933,
+        "period2": 2323,
+        "period3": 2251,
+        "period4": 2783
+      },
+      "tournament": {
+        "category": {
+          "flag": "atp",
+          "id": 3,
+          "name": "ATP",
+          "slug": "atp",
+          "sport": {
+            "id": 5,
+            "name": "Tennis",
+            "slug": "tennis"
+          }
+        },
+        "id": 56785,
+        "name": "Wimbledon, London, Great Britain",
+        "priority": 0,
+        "slug": "wimbledon-london-great-britain",
+        "uniqueTournament": {
+          "category": {
+            "flag": "atp",
+            "id": 3,
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "id": 5,
+              "name": "Tennis",
+              "slug": "tennis"
+            }
+          },
+          "crowdsourcingEnabled": false,
+          "displayInverseHomeAwayTeams": false,
+          "groundType": "Grass",
+          "hasEventPlayerStatistics": false,
+          "hasPerformanceGraphFeature": false,
+          "id": 2361,
+          "name": "Wimbledon",
+          "primaryColorHex": "#006633",
+          "secondaryColorHex": "#54008b",
+          "slug": "wimbledon",
+          "userCount": 47272
+        }
+      },
+      "winnerCode": 1
+    },
+    {
+      "awayScore": {},
+      "awayTeam": {
+        "gender": "M",
+        "id": 14486,
+        "name": "Nadal R.",
+        "nameCode": "NAD",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 2
+        },
+        "ranking": 136,
+        "shortName": "Nadal R.",
+        "slug": "nadal-rafael",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 176042
+      },
+      "changes": {
+        "changeTimestamp": 1657218680,
+        "changes": ["time.currentPeriodStart"]
+      },
+      "crowdsourcingDataDisplayEnabled": false,
+      "customId": "LOfsPZz",
+      "finalResultOnly": false,
+      "groundType": "Grass",
+      "hasGlobalHighlights": true,
+      "homeScore": {},
+      "homeTeam": {
+        "disabled": false,
+        "gender": "M",
+        "id": 62490,
+        "name": "Kyrgios N.",
+        "nameCode": "KYR",
+        "national": false,
+        "playerTeamInfo": {
+          "id": 72
+        },
+        "ranking": 25,
+        "shortName": "Kyrgios N.",
+        "slug": "kyrgios-nick",
+        "sport": {
+          "id": 5,
+          "name": "Tennis",
+          "slug": "tennis"
+        },
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#52b030",
+          "secondary": "#52b030",
+          "text": "#ffffff"
+        },
+        "type": 1,
+        "userCount": 34860
+      },
+      "id": 10400731,
+      "periods": {
+        "current": "Match",
+        "period1": "1st set",
+        "period2": "2nd set",
+        "period3": "3rd set",
+        "period4": "4th set",
+        "period5": "5th set",
+        "point": "Game"
+      },
+      "roundInfo": {
+        "cupRoundType": 2,
+        "name": "Semifinal",
+        "round": 2,
+        "slug": "semifinal"
+      },
+      "slug": "kyrgios-nadal",
+      "startTimestamp": 1657290600,
+      "status": {
+        "code": 91,
+        "description": "Walkover",
+        "type": "finished"
+      },
+      "time": {
+        "currentPeriodStartTimestamp": 1657218676
+      },
+      "tournament": {
+        "category": {
+          "flag": "atp",
+          "id": 3,
+          "name": "ATP",
+          "slug": "atp",
+          "sport": {
+            "id": 5,
+            "name": "Tennis",
+            "slug": "tennis"
+          }
+        },
+        "id": 56785,
+        "name": "Wimbledon, London, Great Britain",
+        "priority": 0,
+        "slug": "wimbledon-london-great-britain",
+        "uniqueTournament": {
+          "category": {
+            "flag": "atp",
+            "id": 3,
+            "name": "ATP",
+            "slug": "atp",
+            "sport": {
+              "id": 5,
+              "name": "Tennis",
+              "slug": "tennis"
+            }
+          },
+          "crowdsourcingEnabled": false,
+          "displayInverseHomeAwayTeams": false,
+          "groundType": "Grass",
+          "hasEventPlayerStatistics": false,
+          "hasPerformanceGraphFeature": false,
+          "id": 2361,
+          "name": "Wimbledon",
+          "primaryColorHex": "#006633",
+          "secondaryColorHex": "#54008b",
+          "slug": "wimbledon",
+          "userCount": 47272
+        }
+      },
+      "winnerCode": 1
+    }
+  ],
+  "hasNextPage": false
+}
