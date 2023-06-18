@@ -7,7 +7,7 @@ const createTennisPlayerFromTeam = (team: Team): TennisPlayer => {
   // Kyrgios N. => [Kyrgios, N.]
   const [lastName, firstName] = team.name.split(" ").map((name) => name.trim());
 
-  const imageUrl = `/src/assets/${lastName.toLowerCase()}.avif`;
+  const imageUrl = `https://res.cloudinary.com/beraliv/image/upload/v1687048409/tennis_tournaments/players/${lastName.toLowerCase()}.avif`;
 
   return {
     country: "",
