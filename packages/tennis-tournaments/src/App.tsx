@@ -32,7 +32,7 @@ const App: Component = () => {
     <div class={styles.App}>
       <For each={data}>
         {([title, matches]) => (
-          <div>
+          <div class={styles.CardParent}>
             <h1>{title}</h1>
             <For each={matches}>
               {(match) => (
