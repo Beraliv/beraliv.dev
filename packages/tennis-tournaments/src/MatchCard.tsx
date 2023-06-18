@@ -2,7 +2,6 @@ import { For, type Component, Show } from "solid-js";
 
 import styles from "./MatchCard.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
-import { COUNTRY_MAPPING } from "./Constants/COUNTRY_MAPPING";
 import { createShortName } from "./Utils/createShortName";
 import winnerIcon from "./Icons/Winner.svg";
 import { TennisSet } from "./Types/TennisSet";
@@ -23,9 +22,6 @@ const MatchCard: Component<MatchCardProps> = ({
   sets,
   winner,
 }) => {
-  const homeCountryIcon = COUNTRY_MAPPING[homePlayer.country];
-  const awayCountryIcon = COUNTRY_MAPPING[awayPlayer.country];
-
   const homeShortName = createShortName(homePlayer);
   const awayShortName = createShortName(awayPlayer);
 
@@ -39,11 +35,6 @@ const MatchCard: Component<MatchCardProps> = ({
           <div>
             <img class={styles.AvatarImage} src={homePlayer.imageUrl} />
           </div>
-          <Show when={homeCountryIcon}>
-            <div>
-              <img class={styles.CountryFlagImage} src={homeCountryIcon} />
-            </div>
-          </Show>
           <div
             class={classNames({
               [styles.WinHighlighter]: doesHomeWinMatch,
@@ -89,11 +80,6 @@ const MatchCard: Component<MatchCardProps> = ({
           <div>
             <img class={styles.AvatarImage} src={awayPlayer.imageUrl} />
           </div>
-          <Show when={awayCountryIcon}>
-            <div>
-              <img class={styles.CountryFlagImage} src={awayCountryIcon} />
-            </div>
-          </Show>
           <div
             class={classNames({
               [styles.WinHighlighter]: doesAwayWinMatch,
