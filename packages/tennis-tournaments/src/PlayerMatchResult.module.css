@@ -1,0 +1,59 @@
+.PlayerMatchResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.Player {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.AvatarImage {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.Ranking {
+  margin-left: 5px;
+}
+
+.Score {
+  display: flex;
+  align-items: center;
+}
+
+.SetScores {
+  display: flex;
+  margin-left: 10px;
+}
+
+.SetScore {
+  width: 21px;
+  margin: 0 2px;
+  text-align: center;
+}
+
+.TieBreakScore {
+  position: relative;
+  top: -0.9em;
+  vertical-align: baseline;
+  font-size: 75%;
+}
+
+.WinHighlighter {
+  font-weight: 900;
+}
+
+.Winner {
+  display: flex;
+}
+
+.WinnerImage {
+  width: 21px;
+  height: 19px;
+}
