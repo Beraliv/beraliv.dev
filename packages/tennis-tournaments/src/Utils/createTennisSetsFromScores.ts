@@ -1,18 +1,13 @@
+import { ScoreApiModel } from "../Types/ScoreApiModel";
 import { TennisSet } from "../Types/TennisSet";
 
 type DeepPartial<T> = T extends object
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
-type Score = {
-  [key in 1 | 2 | 3 | 4 | 5 as `period${key}` | `period${key}TieBreak`]?:
-    | number
-    | undefined;
-};
-
 const createTennisSetsFromScores = (
-  homeScore: Score,
-  awayScore: Score
+  homeScore: ScoreApiModel,
+  awayScore: ScoreApiModel
 ): TennisSet[] => {
   const sets: DeepPartial<TennisSet>[] = [
     [

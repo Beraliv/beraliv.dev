@@ -1,9 +1,7 @@
-import { Api } from "../Types/Api";
+import { TeamApiModel } from "../Types/TeamApiModel";
 import { TennisPlayer } from "../Types/TennisPlayer";
 
-type Team = Api["events"][number]["awayTeam" | "homeTeam"];
-
-const createTennisPlayerFromTeam = (team: Team): TennisPlayer => {
+const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
   // Kyrgios N. => [Kyrgios, N.]
   const [lastName, firstName] = team.name.split(" ").map((name) => name.trim());
 
