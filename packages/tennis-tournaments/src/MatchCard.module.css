@@ -5,6 +5,7 @@
   padding: 12px;
   height: inherit;
   background-color: #f4f4f4;
+  min-width: 305px;
 }
 
 .Home {
