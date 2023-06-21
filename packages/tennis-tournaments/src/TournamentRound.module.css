@@ -1,0 +1,49 @@
+.TournamentRound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* MatchCard min-width (305px) + 2 padding (12px) + 2 border (1px) */
+  width: 331px;
+  margin-right: 40px;
+}
+
+@media (min-width: 1110px) {
+  .Order2 {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .Order1 {
+    margin-right: 0px;
+  }
+
+  .Order2 {
+    display: none;
+  }
+}
+
+@media (max-width: 740px) {
+  .Order0 {
+    /* Adds 40px to left and right so for smaller screen cards don't stick to the left edge */
+    margin: 0px 40px;
+  }
+
+  .Order1 {
+    display: none;
+  }
+}
+
+.CardWrapper {
+  margin-bottom: 30px;
+}
+
+.Order1 .CardWrapper {
+  /* (2 MatchCard height (120px) + margin-bottom (30px) - MatchCard height (120px)) / 2 */
+  padding: 75px 0;
+}
+
+.Order2 .CardWrapper {
+  /* (4 MatchCard height (120px) + 3 margin-bottom (30px) - MatchCard height (120px)) / 2 */
+  margin: 225px 0;
+}

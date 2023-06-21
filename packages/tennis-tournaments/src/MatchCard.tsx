@@ -33,6 +33,7 @@ const MatchCard: Component<MatchCardProps> = ({
         playerCentricSets={homeCentricSets}
       />
       <PlayerMatchResult
+        className={styles.Away}
         doesWinMatch={winner === "away"}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}

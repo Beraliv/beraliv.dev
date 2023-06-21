@@ -1,6 +1,5 @@
 import { type Person } from "../Types/Person";
 
-const createShortName = ({ firstName, lastName }: Person): string =>
-  `${firstName[0]}. ${lastName}`;
+const createShortName = ({ lastName }: Person): string => lastName;
 
 export { createShortName };
