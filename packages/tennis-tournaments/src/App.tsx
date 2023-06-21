@@ -4,7 +4,7 @@ import styles from "./App.module.css";
 import finalMock from "./league-events-by-final.json";
 import semifinalMock from "./league-events-by-semifinal.json";
 import quarterfinalMock from "./league-events-by-quarterfinal.json";
-import { MatchCard, MatchCardProps } from "./MatchCard";
+import { MatchCardProps } from "./MatchCard";
 import { createTennisPlayerFromTeam } from "./Utils/createTennisPlayerFromTeam";
 import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
 import { Api } from "./Types/Api";

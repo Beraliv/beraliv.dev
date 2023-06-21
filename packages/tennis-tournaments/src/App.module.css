@@ -3,6 +3,13 @@
   margin: 15px;
 }
 
+/* MatchCard min-width (305px) + 2 padding (12px) + 2 border (1px) + 2 margin (40px) */
+@media (min-width: 411px) {
+  .App {
+    justify-content: center;
+  }
+}
+
 .CardParent {
   max-width: 500px;
   margin: 0 auto;
