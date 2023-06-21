@@ -1,4 +1,14 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
-  "lockFileMaintenance": { "enabled": true }
+  "groupName": "All dependencies",
+  "groupSlug": "all",
+  "lockFileMaintenance": { "enabled": true },
+  "schedule": ["before 6am every weekend"],
+  "separateMajorMinor": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"]
+    }
+  ]
 }
