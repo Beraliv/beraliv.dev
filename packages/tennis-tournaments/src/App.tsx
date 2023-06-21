@@ -8,6 +8,7 @@ import { MatchCard, MatchCardProps } from "./MatchCard";
 import { createTennisPlayerFromTeam } from "./Utils/createTennisPlayerFromTeam";
 import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
 import { Api } from "./Types/Api";
+import { TournamentRound } from "./TournamentRound";
 
 const extractMatchCardProps = (data: Api): MatchCardProps[] =>
   data.events.map((event) => ({
@@ -22,29 +23,17 @@ const semifinalMatches = extractMatchCardProps(semifinalMock);
 const quarterfinalMatches = extractMatchCardProps(quarterfinalMock);
 
 const data = [
-  ["Final", finalMatches],
-  ["Semifinal", semifinalMatches],
   ["Quarterfinal", quarterfinalMatches],
+  ["Semifinal", semifinalMatches],
+  ["Final", finalMatches],
 ] satisfies [string, MatchCardProps[]][];
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
       <For each={data}>
-        {([title, matches]) => (
-          <div class={styles.CardParent}>
-            <h1>{title}</h1>
-            <For each={matches}>
-              {(match) => (
-                <MatchCard
-                  awayPlayer={match.awayPlayer}
-                  homePlayer={match.homePlayer}
-                  sets={match.sets}
-                  winner={match.winner}
-                />
-              )}
-            </For>
-          </div>
+        {([title, matches], index) => (
+          <TournamentRound matches={matches} title={title} order={index()} />
         )}
       </For>
     </div>
