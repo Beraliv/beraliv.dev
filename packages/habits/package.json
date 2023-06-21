@@ -17,9 +17,9 @@
     "vitest": "0.29.8"
   },
   "dependencies": {
-    "@solidjs/router": "0.5.1",
-    "effector": "22.4.0",
-    "effector-solid": "0.22.6",
+    "@solidjs/router": "0.8.2",
+    "effector": "22.8.6",
+    "effector-solid": "0.22.7",
     "solid-js": "^1.5.1"
   }
 }
