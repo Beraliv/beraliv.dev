@@ -37,6 +37,7 @@ describe(getAllPosts.name, () => {
       "2021-05-06-extract-under-the-hood",
       "2021-05-07-opaque-type-in-typescript",
       "2021-05-10-trim-left-in-typescript",
+      "2021-05-10-typed-get-ru",
       "2021-05-11-trim-in-typescript",
       "2021-05-14-type-aliases-for-string-manipulation",
       "2021-05-17-replace-occurrence-in-a-string-in-typescript",
