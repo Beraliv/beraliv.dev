@@ -115,5 +115,9 @@ It uses [ts-opaque-units](https://www.npmjs.com/package/ts-opaque-units) which i
 ## Resources
 
 1. [Nominal typing techniques in TypeScript](https://michalzalecki.com/nominal-typing-in-typescript/)
-2. [Implementing an opaque type in typescript](https://evertpot.com/opaque-ts-types/)
-3. [Support some non-structural (nominal) type matching #202](https://github.com/Microsoft/TypeScript/issues/202)
+
+1. [Implementing an opaque type in typescript](https://evertpot.com/opaque-ts-types/)
+
+1. [Support some non-structural (nominal) type matching #202](https://github.com/Microsoft/TypeScript/issues/202)
+
+1. [Functional Typescript: Opaque Types](https://denistakeda.github.io/articles/004_typescript_opaque.html)

@@ -1,0 +1,69 @@
+{
+  "files": [
+    {
+      "path": "packages/blog2/dist/static/chunks/*.js",
+      "maxSize": "40 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/framework-*.js",
+      "maxSize": "45 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/polyfills-*.js",
+      "maxSize": "32 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/main-*.js",
+      "maxSize": "35 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/pages/\\[slug\\]-*.js",
+      "maxSize": "5 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/pages/search-*.js",
+      "maxSize": "4 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/pages/index-*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "packages/blog2/dist/static/chunks/webpack-*.js",
+      "maxSize": "2 KB"
+    },
+    {
+      "path": "packages/habits/dist/assets/CreateHabitPage.*.js",
+      "maxSize": "3 KB"
+    },
+    {
+      "path": "packages/habits/dist/assets/CreateHabitPage.*.css",
+      "maxSize": "800 B"
+    },
+    {
+      "path": "packages/habits/dist/assets/HabitsPage.*.js",
+      "maxSize": "2 KB"
+    },
+    {
+      "path": "packages/habits/dist/assets/HabitsPage.*.css",
+      "maxSize": "700 B"
+    },
+    {
+      "path": "packages/habits/dist/assets/ICON_MAPPING.*.js",
+      "maxSize": "9 KB"
+    },
+    {
+      "path": "packages/habits/dist/assets/index.*.js",
+      "maxSize": "11 KB"
+    },
+    {
+      "path": "packages/habits/dist/assets/index.*.css",
+      "maxSize": "500 B"
+    }
+  ],
+  "normalizeFilenames": "^.+?([\\-\\.].+?)\\.\\w+$",
+  "ci": {
+    "repoBranchBase": "main",
+    "trackBranches": ["main"]
+  }
+}

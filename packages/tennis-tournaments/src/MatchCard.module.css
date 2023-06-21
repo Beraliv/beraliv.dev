@@ -1,0 +1,12 @@
+.MatchCard {
+  box-shadow: 0 0 30px 0 #e1e1e1;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  padding: 12px;
+  height: inherit;
+  background-color: #f4f4f4;
+}
+
+.Home {
+  border-bottom: 1px solid #e8e8e8;
+}

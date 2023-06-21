@@ -1,0 +1,10 @@
+name: Setup pnpm
+description: Configures pnpm
+
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8.6.3

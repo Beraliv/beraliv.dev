@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikConfig } from "formik";
 import * as Yup from "yup";
 import styles from "./index.module.css";
 import { Loader } from "../../atoms/Loader";
@@ -22,7 +22,7 @@ type SubscriptionFormState =
 
 const SubscriptionSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email address").required("Required"),
+  email: Yup.string().email("Invalid").required("Required"),
 });
 
 interface SubscriptionSchemaType
@@ -44,7 +44,9 @@ export const SubscriptionForm = ({
 }: SubscriptionFormPropsType) => {
   const [state, setState] = useState<SubscriptionFormState>({ status: "idle" });
 
-  const handleSubmit = useCallback(
+  const handleSubmit = useCallback<
+    FormikConfig<SubscriptionSchemaType>["onSubmit"]
+  >(
     (values) => {
       const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`;
 
