@@ -1,4 +1,10 @@
-import { Index, type Component, createResource, createSignal } from "solid-js";
+import {
+  Index,
+  type Component,
+  createResource,
+  createSignal,
+  Show,
+} from "solid-js";
 
 import styles from "./App.module.css";
 import { TournamentRound } from "./TournamentRound";
@@ -6,6 +12,7 @@ import { fetchRounds } from "./Utils/fetchRounds";
 import { chooseVisibleRounds } from "./Utils/chooseVisibleRounds";
 import { fetchMatchesByRound } from "./Utils/fetchMatchesByRound";
 import { createMatchCardPropsFromMatches } from "./Utils/createMatchCardPropsFromMatches";
+import { RoundsNavigation } from "./RoundsNavigation";
 
 const App: Component = () => {
   // 1. Choose tournament
@@ -17,7 +24,10 @@ const App: Component = () => {
 
   // 2. Given tournament ID and season ID, request tournament rounds
 
-  const [roundsApiModel] = createResource(tournament, fetchRounds);
+  const [roundsApiModel, { mutate: updateRoundsApiModel }] = createResource(
+    tournament,
+    fetchRounds
+  );
 
   // 3. Given tournament round, fetch tournament tree
 
@@ -73,6 +83,15 @@ const App: Component = () => {
           }}
         />
       </div>
+      <div>
+        <Show when={roundsApiModel.state === "ready"}>
+          <RoundsNavigation
+            roundsApiModel={roundsApiModel()!}
+            updateRoundsApiModel={updateRoundsApiModel}
+          />
+        </Show>
+      </div>
+      {/* TODO: grid isn't updated when updateRoundsApiModel */}
       <div class={styles.Grid}>
         <Index each={tree()}>
           {(roundData, index) => (

@@ -1,0 +1,36 @@
+.RoundsNavigation {
+  display: flex;
+  flex-direction: row;
+}
+
+.Round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Round:not(:last-child) {
+  margin-right: 10px;
+}
+
+.Round svg {
+  margin-top: 5px;
+}
+
+.Round svg path {
+  fill: #d8d8d8;
+}
+
+.Round.grass svg:hover path {
+  fill: #639080;
+}
+
+/* .clay is default */
+.Round svg:hover path {
+  fill: #993300;
+}
+
+.Round.hard svg:hover path {
+  fill: #336699;
+}
