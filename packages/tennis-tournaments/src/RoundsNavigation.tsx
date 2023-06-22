@@ -1,4 +1,4 @@
-import { Component, Index, Setter } from "solid-js";
+import { Component, For, Index, Resource, Setter } from "solid-js";
 
 import styles from "./RoundsNavigation.module.css";
 import { RoundsApiModel } from "./Types/RoundsApiModel";
@@ -11,9 +11,11 @@ import Round2 from "./Icons/Round2.svg";
 import Round1 from "./Icons/Round1.svg";
 import { classNames } from "./Utils/classNames";
 import { RoundApiModel } from "./Types/RoundApiModel";
+import { roundEquals } from "./Utils/roundEquals";
+import { isDefined } from "./Utils/isDefined";
 
 interface RoundsNavigationProps {
-  roundsApiModel: RoundsApiModel;
+  roundsApiModel: Resource<RoundsApiModel>;
   updateRoundsApiModel: Setter<RoundApiModel | undefined>;
 }
 
@@ -54,14 +56,19 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
   roundsApiModel,
   updateRoundsApiModel,
 }) => {
-  const AlignedIcons = alignRoundsAndIcons(roundsApiModel.rounds);
+  const AlignedIcons = alignRoundsAndIcons(roundsApiModel()?.rounds ?? []);
 
   return (
     <div class={styles.RoundsNavigation}>
-      <Index each={roundsApiModel.rounds}>
+      <For each={roundsApiModel()?.rounds ?? []}>
         {(round, index) => (
           <div
-            class={classNames(`${round().slug}-${round().id}`, styles.Round)}
+            class={classNames(`${round.slug}-${round.id}`, styles.Round, {
+              [styles.SelectedRound]:
+                isDefined(roundsApiModel()) &&
+                isDefined(roundsApiModel()?.currentRound) &&
+                roundEquals(roundsApiModel()!.currentRound!, round),
+            })}
             onClick={() => {
               updateRoundsApiModel((prev) => {
                 if (prev === undefined) {
@@ -70,16 +77,16 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
 
                 return {
                   ...prev,
-                  currentRound: round(),
+                  currentRound: round,
                 };
               });
             }}
           >
-            {round().name}
-            {AlignedIcons[index]({})}
+            {round.name}
+            {AlignedIcons[index()]({})}
           </div>
         )}
-      </Index>
+      </For>
     </div>
   );
 };

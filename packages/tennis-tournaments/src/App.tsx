@@ -90,7 +90,7 @@ const App: Component = () => {
       <div>
         <Show when={roundsApiModel.state === "ready"}>
           <RoundsNavigation
-            roundsApiModel={roundsApiModel()!}
+            roundsApiModel={roundsApiModel}
             updateRoundsApiModel={updateRoundsApiModel}
           />
         </Show>

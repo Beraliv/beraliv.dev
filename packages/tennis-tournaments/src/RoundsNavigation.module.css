@@ -22,15 +22,18 @@
   fill: #d8d8d8;
 }
 
+.SelectedRound.grass svg path,
 .Round.grass svg:hover path {
   fill: #639080;
 }
 
 /* .clay is default */
+.SelectedRound svg path,
 .Round svg:hover path {
   fill: #993300;
 }
 
+.SelectedRound.hard svg path,
 .Round.hard svg:hover path {
   fill: #336699;
 }

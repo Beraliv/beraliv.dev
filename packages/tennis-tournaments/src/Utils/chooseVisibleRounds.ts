@@ -1,5 +1,6 @@
 import { RoundApiModel } from "../Types/RoundApiModel";
 import { RoundsApiModel } from "../Types/RoundsApiModel";
+import { roundEquals } from "./roundEquals";
 
 const chooseVisibleRounds = ({
   currentRound,
@@ -11,8 +12,8 @@ const chooseVisibleRounds = ({
     return firstThreeRounds;
   }
 
-  const startIndex = rounds.findIndex(
-    (round) => round.id === currentRound.id && round.slug === currentRound.slug
+  const startIndex = rounds.findIndex((round) =>
+    roundEquals(round, currentRound)
   );
 
   if (startIndex === -1) {
