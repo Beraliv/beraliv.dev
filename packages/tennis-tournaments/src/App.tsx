@@ -54,8 +54,6 @@ const App: Component = () => {
       })
     );
 
-    console.log(">>> tree data", treeData);
-
     return treeData;
   });
 
@@ -98,6 +96,7 @@ const App: Component = () => {
         </Show>
       </div>
       <div class={styles.Grid}>
+        {/* TODO: the order in the tree isn't correct so have to restructure it */}
         <For each={tree()}>
           {(roundData, index) => (
             <TournamentRound
