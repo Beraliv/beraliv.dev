@@ -3,7 +3,7 @@ import { For, type Component, Show } from "solid-js";
 import styles from "./PlayerMatchResult.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { createShortName } from "./Utils/createShortName";
-import winnerIcon from "./Icons/Winner.svg";
+import WinnerIcon from "./Icons/Winner.svg";
 import { TennisSet } from "./Types/TennisSet";
 import { hasTieBreak } from "./Utils/hasTieBreak";
 import { doesWinSet } from "./Utils/doesWinSet";
@@ -46,7 +46,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
       <div class={styles.Score}>
         <Show when={doesWinMatch}>
           <div class={styles.Winner}>
-            <img class={styles.WinnerImage} src={winnerIcon} />
+            <WinnerIcon />
           </div>
         </Show>
         <div class={styles.SetScores}>
