@@ -1,9 +1,9 @@
 import {
-  Index,
   type Component,
   createResource,
   createSignal,
   Show,
+  For,
 } from "solid-js";
 
 import styles from "./App.module.css";
@@ -34,8 +34,10 @@ const App: Component = () => {
   const [tree] = createResource(roundsApiModel, async (model) => {
     const visibleRounds = chooseVisibleRounds(model);
 
-    return Promise.all(
+    const treeData = await Promise.all(
       visibleRounds.map(async (visibleRound) => {
+        console.log(">>> request visible round", visibleRound);
+
         const data = await fetchMatchesByRound({
           roundId: visibleRound.id,
           seasonId: tournament().seasonId,
@@ -43,14 +45,18 @@ const App: Component = () => {
           tournamentId: tournament().tournamentId,
         });
 
-        const treeData = {
+        const nodeData = {
           title: visibleRound.name,
           matches: createMatchCardPropsFromMatches(data),
         };
 
-        return treeData;
+        return nodeData;
       })
     );
+
+    console.log(">>> tree data", treeData);
+
+    return treeData;
   });
 
   return (
@@ -91,17 +97,16 @@ const App: Component = () => {
           />
         </Show>
       </div>
-      {/* TODO: grid isn't updated when updateRoundsApiModel */}
       <div class={styles.Grid}>
-        <Index each={tree()}>
+        <For each={tree()}>
           {(roundData, index) => (
             <TournamentRound
-              matches={roundData().matches}
-              title={roundData().title}
-              order={index}
+              matches={roundData.matches}
+              title={roundData.title}
+              order={index()}
             />
           )}
-        </Index>
+        </For>
       </div>
     </div>
   );
