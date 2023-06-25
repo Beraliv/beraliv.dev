@@ -9,11 +9,9 @@ import {
 import styles from "./App.module.css";
 import { TournamentRound } from "./TournamentRound";
 import { fetchRounds } from "./Utils/fetchRounds";
-import { chooseVisibleRounds } from "./Utils/chooseVisibleRounds";
-import { fetchMatchesByRound } from "./Utils/fetchMatchesByRound";
-import { createMatchCardPropsFromMatches } from "./Utils/createMatchCardPropsFromMatches";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Loading } from "./Loading";
+import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
 
 const App: Component = () => {
   // 1. Choose tournament (no requests yet)
@@ -34,29 +32,10 @@ const App: Component = () => {
   // Quarterfinal – 1.7s
   // Round of 128 – 2.3s
 
-  const [tree] = createResource(roundsApiModel, async (model) => {
-    const visibleRounds = chooseVisibleRounds(model);
-
-    const treeData = await Promise.all(
-      visibleRounds.map(async (visibleRound) => {
-        const data = await fetchMatchesByRound({
-          roundId: visibleRound.id,
-          seasonId: tournament().seasonId,
-          slug: visibleRound.slug,
-          tournamentId: tournament().tournamentId,
-        });
-
-        const nodeData = {
-          title: visibleRound.name,
-          matches: createMatchCardPropsFromMatches(data),
-        };
-
-        return nodeData;
-      })
-    );
-
-    return treeData;
-  });
+  const [tree] = createResource(
+    () => ({ rounds: roundsApiModel(), tournament: tournament() }),
+    fetchTournamentTree
+  );
 
   return (
     <div class={styles.App}>
