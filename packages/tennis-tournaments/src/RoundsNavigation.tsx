@@ -16,7 +16,7 @@ import { isDefined } from "./Utils/isDefined";
 
 interface RoundsNavigationProps {
   roundsApiModel: Resource<RoundsApiModel>;
-  updateRoundsApiModel: Setter<RoundApiModel | undefined>;
+  mutateRoundsApiModel: Setter<RoundApiModel | undefined>;
 }
 
 const OrderedIcons: Component[] = [
@@ -54,7 +54,7 @@ const alignRoundsAndIcons = (rounds: RoundApiModel[]) => {
 
 const RoundsNavigation: Component<RoundsNavigationProps> = ({
   roundsApiModel,
-  updateRoundsApiModel,
+  mutateRoundsApiModel,
 }) => {
   const AlignedIcons = alignRoundsAndIcons(roundsApiModel()?.rounds ?? []);
 
@@ -70,7 +70,7 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
                 roundEquals(roundsApiModel()!.currentRound!, round),
             })}
             onClick={() => {
-              updateRoundsApiModel((prev) => {
+              mutateRoundsApiModel((prev) => {
                 if (prev === undefined) {
                   return undefined;
                 }

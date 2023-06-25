@@ -10,6 +10,7 @@ const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
   return {
     country: "",
     firstName,
+    id: team.id,
     imageUrl,
     lastName,
     // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA

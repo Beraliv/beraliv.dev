@@ -16,6 +16,10 @@
   border-radius: 50%;
 }
 
+.WinHighlighter {
+  font-weight: 900;
+}
+
 .Ranking {
   margin-left: 5px;
 }
@@ -41,10 +45,6 @@
   top: -0.9em;
   vertical-align: baseline;
   font-size: 75%;
-}
-
-.WinHighlighter {
-  font-weight: 900;
 }
 
 .Winner {

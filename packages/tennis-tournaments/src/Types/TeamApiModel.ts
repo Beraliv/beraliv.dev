@@ -1,6 +1,7 @@
 interface TeamApiModel {
-  ranking: number;
+  id: number;
   name: string;
+  ranking: number;
 }
 
 export { type TeamApiModel };

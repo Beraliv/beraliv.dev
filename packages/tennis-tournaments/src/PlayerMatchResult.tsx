@@ -10,17 +10,17 @@ import { doesWinSet } from "./Utils/doesWinSet";
 import { classNames } from "./Utils/classNames";
 
 interface PlayerMatchResultProps {
+  className?: string;
+  doesWinMatch: boolean;
   player: TennisPlayer;
   playerCentricSets: TennisSet[];
-  doesWinMatch: boolean;
-  className?: string;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
+  className,
+  doesWinMatch,
   player,
   playerCentricSets,
-  doesWinMatch,
-  className,
 }) => {
   const shortName = createShortName(player);
 

@@ -27,12 +27,7 @@ const TournamentRound: Component<TournamentRoundProps> = ({
       <For each={matches}>
         {(match) => (
           <div class={styles.CardWrapper}>
-            <MatchCard
-              awayPlayer={match.awayPlayer}
-              homePlayer={match.homePlayer}
-              sets={match.sets}
-              winner={match.winner}
-            />
+            <MatchCard {...match} />
           </div>
         )}
       </For>

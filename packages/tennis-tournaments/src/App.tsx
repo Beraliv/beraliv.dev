@@ -13,31 +13,32 @@ import { chooseVisibleRounds } from "./Utils/chooseVisibleRounds";
 import { fetchMatchesByRound } from "./Utils/fetchMatchesByRound";
 import { createMatchCardPropsFromMatches } from "./Utils/createMatchCardPropsFromMatches";
 import { RoundsNavigation } from "./RoundsNavigation";
+import { Loading } from "./Loading";
 
 const App: Component = () => {
-  // 1. Choose tournament
+  // 1. Choose tournament (no requests yet)
 
   const [tournament, setTournament] = createSignal({
     tournamentId: localStorage.getItem("tennis-tournament/tournamentId") || "",
     seasonId: localStorage.getItem("tennis-tournament/seasonId") || "",
   });
 
-  // 2. Given tournament ID and season ID, request tournament rounds
+  // 2. Given tournament ID and season ID, request tournament rounds (1 request)
 
-  const [roundsApiModel, { mutate: updateRoundsApiModel }] = createResource(
+  const [roundsApiModel, { mutate: mutateRoundsApiModel }] = createResource(
     tournament,
     fetchRounds
   );
 
-  // 3. Given tournament round, fetch tournament tree
+  // 3. Given tournament round, request tournament tree (3 requests for each visible round)
+  // Quarterfinal – 1.7s
+  // Round of 128 – 2.3s
 
   const [tree] = createResource(roundsApiModel, async (model) => {
     const visibleRounds = chooseVisibleRounds(model);
 
     const treeData = await Promise.all(
       visibleRounds.map(async (visibleRound) => {
-        console.log(">>> request visible round", visibleRound);
-
         const data = await fetchMatchesByRound({
           roundId: visibleRound.id,
           seasonId: tournament().seasonId,
@@ -91,19 +92,14 @@ const App: Component = () => {
         <Show when={roundsApiModel.state === "ready"}>
           <RoundsNavigation
             roundsApiModel={roundsApiModel}
-            updateRoundsApiModel={updateRoundsApiModel}
+            mutateRoundsApiModel={mutateRoundsApiModel}
           />
         </Show>
       </div>
       <div class={styles.Grid}>
-        {/* TODO: the order in the tree isn't correct so have to restructure it */}
-        <For each={tree()}>
+        <For each={tree()} fallback={<Loading />}>
           {(roundData, index) => (
-            <TournamentRound
-              matches={roundData.matches}
-              title={roundData.title}
-              order={index()}
-            />
+            <TournamentRound {...roundData} order={index()} />
           )}
         </For>
       </div>

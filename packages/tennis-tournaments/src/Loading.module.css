@@ -1,0 +1,13 @@
+.Loading {
+  height: 2.75rem;
+  width: 2.75rem;
+
+  animation: loading-spin 500ms linear infinite;
+  fill: var(--p-color-border-info);
+}
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
