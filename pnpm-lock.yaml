@@ -140,6 +140,9 @@ importers:
 
   packages/tennis-tournaments:
     dependencies:
+      '@solidjs/router':
+        specifier: 0.8.2
+        version: 0.8.2(solid-js@1.7.6)
       solid-js:
         specifier: ^1.7.6
         version: 1.7.6
@@ -1361,6 +1364,14 @@ packages:
       solid-js: ^1.5.3
     dependencies:
       solid-js: 1.6.2
+    dev: false
+
+  /@solidjs/router@0.8.2(solid-js@1.7.6):
+    resolution: {integrity: sha512-gUKW+LZqxtX6y/Aw6JKyy4gQ9E7dLqp513oB9pSYJR1HM5c56Pf7eijzyXX+b3WuXig18Cxqah4tMtF0YGu80w==}
+    peerDependencies:
+      solid-js: ^1.5.3
+    dependencies:
+      solid-js: 1.7.6
     dev: false
 
   /@swc/helpers@0.4.11:

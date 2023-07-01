@@ -13,14 +13,21 @@ const fetchMatchesByRound = async ({
   seasonId,
   slug,
   tournamentId,
-}: FetchMatchesByRoundParameters): Promise<MatchesByRoundApiModel> => {
+}: FetchMatchesByRoundParameters): Promise<MatchesByRoundApiModel | null> => {
   const response = await fetchTennisApi(
     `tournament/${tournamentId}/season/${seasonId}/events/round/${roundId}/slug/${slug}`
   );
 
-  const data: MatchesByRoundApiModel = await response.json();
+  try {
+    const data: MatchesByRoundApiModel = await response.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    // It may happen when requesting round that wasn't played yet
+    console.error(error);
+
+    return null;
+  }
 };
 
 export { fetchMatchesByRound };

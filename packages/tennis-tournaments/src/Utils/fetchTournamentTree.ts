@@ -27,10 +27,14 @@ const fetchTournamentTree = async ({
     return [];
   }
 
+  if (!rounds.currentRound) {
+    return [];
+  }
+
   const visibleRounds = chooseVisibleRounds(rounds);
 
   const tournamentTreeData = await Promise.all(
-    visibleRounds.map(async (round) => {
+    visibleRounds.map(async (round): Promise<SimpleTournamentRound> => {
       const data = await fetchMatchesByRound({
         roundId: round.id,
         seasonId: tournament.seasonId,
@@ -38,13 +42,19 @@ const fetchTournamentTree = async ({
         tournamentId: tournament.tournamentId,
       });
 
-      const roundData: SimpleTournamentRound = {
+      if (data === null) {
+        return {
+          title: round.name,
+          order: round.order,
+          matches: [],
+        };
+      }
+
+      return {
         title: round.name,
         order: round.order,
         matches: createMatchCardPropsFromMatches(data),
       };
-
-      return roundData;
     })
   );
 
