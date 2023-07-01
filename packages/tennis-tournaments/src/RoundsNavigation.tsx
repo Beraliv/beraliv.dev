@@ -1,4 +1,4 @@
-import { Component, For, Index, Resource, Setter } from "solid-js";
+import { Accessor, Component, For, Setter } from "solid-js";
 
 import styles from "./RoundsNavigation.module.css";
 import { RoundsApiModel } from "./Types/RoundsApiModel";
@@ -15,7 +15,7 @@ import { roundEquals } from "./Utils/roundEquals";
 import { isDefined } from "./Utils/isDefined";
 
 interface RoundsNavigationProps {
-  roundsApiModel: Resource<RoundsApiModel>;
+  roundsApiModel: Accessor<RoundsApiModel>;
   mutateRoundsApiModel: Setter<RoundApiModel | undefined>;
 }
 
@@ -56,18 +56,21 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
   roundsApiModel,
   mutateRoundsApiModel,
 }) => {
-  const AlignedIcons = alignRoundsAndIcons(roundsApiModel()?.rounds ?? []);
+  const AlignedIcons = alignRoundsAndIcons(roundsApiModel().rounds);
 
   return (
     <div class={styles.RoundsNavigation}>
-      <For each={roundsApiModel()?.rounds ?? []}>
+      <For each={roundsApiModel().rounds}>
         {(round, index) => (
           <div
             class={classNames(`${round.slug}-${round.id}`, styles.Round, {
-              [styles.SelectedRound]:
-                isDefined(roundsApiModel()) &&
-                isDefined(roundsApiModel()?.currentRound) &&
-                roundEquals(roundsApiModel()!.currentRound!, round),
+              [styles.SelectedRound]: (() => {
+                const currentRound = roundsApiModel().currentRound;
+
+                return (
+                  isDefined(currentRound) && roundEquals(currentRound, round)
+                );
+              })(),
             })}
             onClick={() => {
               mutateRoundsApiModel((prev) => {

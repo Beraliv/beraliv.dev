@@ -68,11 +68,13 @@ const App: Component = () => {
         />
       </div>
       <div>
-        <Show when={roundsApiModel.state === "ready"}>
-          <RoundsNavigation
-            roundsApiModel={roundsApiModel}
-            mutateRoundsApiModel={mutateRoundsApiModel}
-          />
+        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+          {(roundsData) => (
+            <RoundsNavigation
+              roundsApiModel={roundsData}
+              mutateRoundsApiModel={mutateRoundsApiModel}
+            />
+          )}
         </Show>
       </div>
       <div class={styles.Grid}>

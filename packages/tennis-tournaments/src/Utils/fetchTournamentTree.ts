@@ -1,8 +1,8 @@
-import { Accessor } from "solid-js";
 import { RoundsApiModel } from "../Types/RoundsApiModel";
 import { chooseVisibleRounds } from "./chooseVisibleRounds";
 import { createMatchCardPropsFromMatches } from "./createMatchCardPropsFromMatches";
 import { fetchMatchesByRound } from "./fetchMatchesByRound";
+import { MatchCardProps } from "../MatchCard";
 
 interface FetchTournamentTreeParameters {
   rounds: RoundsApiModel | undefined;
@@ -12,17 +12,22 @@ interface FetchTournamentTreeParameters {
   };
 }
 
+interface TournamentRound {
+  matches: MatchCardProps[];
+  title: string;
+}
+
 const fetchTournamentTree = async ({
   rounds,
   tournament,
-}: FetchTournamentTreeParameters) => {
+}: FetchTournamentTreeParameters): Promise<TournamentRound[]> => {
   if (!rounds) {
     return [];
   }
 
   const visibleRounds = chooseVisibleRounds(rounds);
 
-  const treeData = await Promise.all(
+  const tournamentTreeData = await Promise.all(
     visibleRounds.map(async (visibleRound) => {
       const data = await fetchMatchesByRound({
         roundId: visibleRound.id,
@@ -31,16 +36,16 @@ const fetchTournamentTree = async ({
         tournamentId: tournament.tournamentId,
       });
 
-      const nodeData = {
+      const roundData: TournamentRound = {
         title: visibleRound.name,
         matches: createMatchCardPropsFromMatches(data),
       };
 
-      return nodeData;
+      return roundData;
     })
   );
 
-  return treeData;
+  return tournamentTreeData;
 };
 
 export { fetchTournamentTree };
