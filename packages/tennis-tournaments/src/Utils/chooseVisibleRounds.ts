@@ -1,12 +1,25 @@
 import { RoundApiModel } from "../Types/RoundApiModel";
 import { RoundsApiModel } from "../Types/RoundsApiModel";
+import {
+  VisibleRoundOrder,
+  getVisibleRoundOrders,
+} from "./getVisibleRoundOrders";
 import { roundEquals } from "./roundEquals";
+
+interface VisibleRound extends RoundApiModel {
+  order: VisibleRoundOrder;
+}
 
 const chooseVisibleRounds = ({
   currentRound,
   rounds,
-}: RoundsApiModel): RoundApiModel[] => {
-  const firstThreeRounds = rounds.slice(0, 3);
+}: RoundsApiModel): VisibleRound[] => {
+  const firstThreeRounds: VisibleRound[] = rounds
+    .slice(0, 3)
+    .map((round, index) => ({
+      ...round,
+      order: index as VisibleRoundOrder,
+    }));
 
   if (!currentRound) {
     return firstThreeRounds;
@@ -20,10 +33,24 @@ const chooseVisibleRounds = ({
     return firstThreeRounds;
   }
 
-  // if we're close to the end, pick previous rounds
+  // if we're close to the end, p ick previous rounds
   const effectiveStartIndex = Math.min(startIndex, rounds.length - 3);
 
-  return rounds.slice(effectiveStartIndex, effectiveStartIndex + 3);
+  const slicedRounds = rounds.slice(
+    effectiveStartIndex,
+    effectiveStartIndex + 3
+  );
+
+  const currentSlicedRoundIndex = slicedRounds.findIndex((round) =>
+    roundEquals(round, currentRound)
+  ) as VisibleRoundOrder;
+
+  const orders = getVisibleRoundOrders(currentSlicedRoundIndex);
+
+  return slicedRounds.map((round, index) => ({
+    ...round,
+    order: orders[index],
+  }));
 };
 
 export { chooseVisibleRounds };

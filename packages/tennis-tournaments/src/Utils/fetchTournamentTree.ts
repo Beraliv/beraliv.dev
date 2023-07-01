@@ -3,6 +3,7 @@ import { chooseVisibleRounds } from "./chooseVisibleRounds";
 import { createMatchCardPropsFromMatches } from "./createMatchCardPropsFromMatches";
 import { fetchMatchesByRound } from "./fetchMatchesByRound";
 import { MatchCardProps } from "../MatchCard";
+import { VisibleRoundOrder } from "./getVisibleRoundOrders";
 
 interface FetchTournamentTreeParameters {
   rounds: RoundsApiModel | undefined;
@@ -12,15 +13,16 @@ interface FetchTournamentTreeParameters {
   };
 }
 
-interface TournamentRound {
+interface SimpleTournamentRound {
   matches: MatchCardProps[];
+  order: VisibleRoundOrder;
   title: string;
 }
 
 const fetchTournamentTree = async ({
   rounds,
   tournament,
-}: FetchTournamentTreeParameters): Promise<TournamentRound[]> => {
+}: FetchTournamentTreeParameters): Promise<SimpleTournamentRound[]> => {
   if (!rounds) {
     return [];
   }
@@ -28,16 +30,17 @@ const fetchTournamentTree = async ({
   const visibleRounds = chooseVisibleRounds(rounds);
 
   const tournamentTreeData = await Promise.all(
-    visibleRounds.map(async (visibleRound) => {
+    visibleRounds.map(async (round) => {
       const data = await fetchMatchesByRound({
-        roundId: visibleRound.id,
+        roundId: round.id,
         seasonId: tournament.seasonId,
-        slug: visibleRound.slug,
+        slug: round.slug,
         tournamentId: tournament.tournamentId,
       });
 
-      const roundData: TournamentRound = {
-        title: visibleRound.name,
+      const roundData: SimpleTournamentRound = {
+        title: round.name,
+        order: round.order,
         matches: createMatchCardPropsFromMatches(data),
       };
 
@@ -48,4 +51,4 @@ const fetchTournamentTree = async ({
   return tournamentTreeData;
 };
 
-export { fetchTournamentTree };
+export { fetchTournamentTree, type SimpleTournamentRound };

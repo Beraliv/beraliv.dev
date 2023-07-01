@@ -80,7 +80,7 @@ const App: Component = () => {
       <div class={styles.Grid}>
         <For each={tree()} fallback={<Loading />}>
           {(roundData, index) => (
-            <TournamentRound {...roundData} order={index()} />
+            <TournamentRound {...roundData} index={index()} />
           )}
         </For>
       </div>
