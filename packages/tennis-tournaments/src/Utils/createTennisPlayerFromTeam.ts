@@ -1,22 +1,32 @@
-import { Api } from "../Types/Api";
+import { TeamApiModel } from "../Types/TeamApiModel";
 import { TennisPlayer } from "../Types/TennisPlayer";
+import { getImageUrlByLastName } from "./getImageUrlByLastName";
 
-type Team = Api["events"][number]["awayTeam" | "homeTeam"];
+const NAME_SEPARATOR = " ";
 
-const createTennisPlayerFromTeam = (team: Team): TennisPlayer => {
+const createTennisPlayerFromTeam = (
+  team: TeamApiModel,
+  teamSeed: string | undefined
+): TennisPlayer => {
+  // de Minaur A. => [de, Minaur, A.]
   // Kyrgios N. => [Kyrgios, N.]
-  const [lastName, firstName] = team.name.split(" ").map((name) => name.trim());
+  const names = team.name.split(NAME_SEPARATOR).map((name) => name.trim());
 
-  const imageUrl = `https://res.cloudinary.com/beraliv/image/upload/v1687048409/tennis_tournaments/players/${lastName.toLowerCase()}.avif`;
+  const firstName = names.at(-1) || "";
+  const lastName = names.slice(0, -1).join(NAME_SEPARATOR);
+  const imageUrl = getImageUrlByLastName(lastName);
+
+  // Use seed instead of rating – https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
+  // because global rating always changes but seed stays the same and connected to tournament
+  const seed = typeof teamSeed === "string" ? Number(teamSeed) : -1;
 
   return {
     country: "",
     firstName,
+    id: team.id,
     imageUrl,
     lastName,
-    // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA
-    // https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
-    ranking: team.ranking,
+    seed,
   };
 };
 

@@ -1,43 +1,25 @@
-import { For, type Component } from "solid-js";
+import { lazy, type Component } from "solid-js";
+import { Routes, Route, Router } from "@solidjs/router";
 
-import styles from "./App.module.css";
-import finalMock from "./league-events-by-final.json";
-import semifinalMock from "./league-events-by-semifinal.json";
-import quarterfinalMock from "./league-events-by-quarterfinal.json";
-import { MatchCardProps } from "./MatchCard";
-import { createTennisPlayerFromTeam } from "./Utils/createTennisPlayerFromTeam";
-import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
-import { Api } from "./Types/Api";
-import { TournamentRound } from "./TournamentRound";
+const TournamentPage = lazy(() =>
+  import("./TournamentPage").then(({ TournamentPage }) => ({
+    default: TournamentPage,
+  }))
+);
 
-const extractMatchCardProps = (data: Api): MatchCardProps[] =>
-  data.events.map((event) => ({
-    awayPlayer: createTennisPlayerFromTeam(event.awayTeam),
-    homePlayer: createTennisPlayerFromTeam(event.homeTeam),
-    sets: createTennisSetsFromScores(event.homeScore, event.awayScore),
-    winner: event.winnerCode === 1 ? "home" : "away",
-  }));
+const TournamentsPage = lazy(() =>
+  import("./TournamentsPage").then(({ TournamentsPage }) => ({
+    default: TournamentsPage,
+  }))
+);
 
-const finalMatches = extractMatchCardProps(finalMock);
-const semifinalMatches = extractMatchCardProps(semifinalMock);
-const quarterfinalMatches = extractMatchCardProps(quarterfinalMock);
-
-const data = [
-  ["Quarterfinal", quarterfinalMatches],
-  ["Semifinal", semifinalMatches],
-  ["Final", finalMatches],
-] satisfies [string, MatchCardProps[]][];
-
-const App: Component = () => {
-  return (
-    <div class={styles.App}>
-      <For each={data}>
-        {([title, matches], index) => (
-          <TournamentRound matches={matches} title={title} order={index()} />
-        )}
-      </For>
-    </div>
-  );
-};
+const App: Component = () => (
+  <Router>
+    <Routes>
+      <Route path="/" component={TournamentsPage} />
+      <Route path="/tournament/:tournamentId" component={TournamentPage} />
+    </Routes>
+  </Router>
+);
 
 export { App };

@@ -1,0 +1,68 @@
+.RoundsNavigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px;
+}
+
+.Round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  /* hide the blue colour when clicking on the round */
+  -webkit-tap-highlight-color: transparent;
+  /* When round name is too long, it's cut */
+  overflow: hidden;
+}
+
+.Name {
+  width: 100%;
+  text-align: center;
+
+  /* When round name is too long, it's cut */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Round:not(:last-child) {
+  margin-right: 10px;
+}
+
+.Round svg {
+  width: 100%;
+  height: 128px;
+  margin-top: 5px;
+}
+
+.Round svg path {
+  fill: #d8d8d8;
+}
+
+/* .grass is default */
+.SelectedRound svg path,
+.Round:hover svg path {
+  fill: #639080;
+}
+
+.SelectedRound.clay svg path,
+.Round.clay:hover svg path {
+  fill: #993300;
+}
+
+.SelectedRound.hard svg path,
+.Round.hard:hover svg path {
+  fill: #336699;
+}
+
+.RoundOf64 svg {
+  height: 62px;
+  margin-top: 0.28em;
+}
+
+.RoundOf128 svg {
+  height: 28px;
+  margin-top: 0.33em;
+}

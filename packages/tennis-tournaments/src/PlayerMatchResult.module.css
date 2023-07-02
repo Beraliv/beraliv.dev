@@ -8,6 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  /* When the name is too long, it's cut */
+  overflow: hidden;
 }
 
 .AvatarImage {
@@ -16,7 +19,19 @@
   border-radius: 50%;
 }
 
-.Ranking {
+.WinHighlighter {
+  font-weight: 900;
+}
+
+.Name {
+  /* When the name is too long, it's cut */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Name,
+.Seed {
   margin-left: 5px;
 }
 
@@ -27,7 +42,8 @@
 
 .SetScores {
   display: flex;
-  margin-left: 10px;
+  /* .SetScore margin-left (2px) + .Winner margin-left (3px) */
+  margin-left: 5px;
 }
 
 .SetScore {
@@ -43,12 +59,9 @@
   font-size: 75%;
 }
 
-.WinHighlighter {
-  font-weight: 900;
-}
-
 .Winner {
   display: flex;
+  margin-left: 3px;
 }
 
 .WinnerImage {

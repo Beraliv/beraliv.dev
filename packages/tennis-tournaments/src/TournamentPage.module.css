@@ -1,0 +1,28 @@
+.TournamentPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.Grid {
+  display: flex;
+  margin: 15px;
+}
+
+@media (max-width: 740px) {
+  .RoundsDesktop {
+    display: none;
+  }
+}
+
+@media (min-width: 740px) {
+  .RoundsMobile {
+    display: none;
+  }
+}
+
+/* MatchCard min-width (305px) + 2 padding (12px) + 2 border (1px) + 2 margin (40px) */
+@media (min-width: 411px) {
+  .Grid {
+    justify-content: center;
+  }
+}
