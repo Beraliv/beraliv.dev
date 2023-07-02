@@ -24,7 +24,6 @@ const fetchMatchesByRound = async ({
     return data;
   } catch (error) {
     // It may happen when requesting round that wasn't played yet
-    console.error(error);
 
     return null;
   }
