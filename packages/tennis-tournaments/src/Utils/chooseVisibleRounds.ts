@@ -33,8 +33,8 @@ const chooseVisibleRounds = ({
     return firstThreeRounds;
   }
 
-  // if we're close to the end, p ick previous rounds
-  const effectiveStartIndex = Math.min(startIndex, rounds.length - 3);
+  // if we're close to the end, pick previous rounds
+  const effectiveStartIndex = Math.min(startIndex - 1, rounds.length - 3);
 
   const slicedRounds = rounds.slice(
     effectiveStartIndex,
