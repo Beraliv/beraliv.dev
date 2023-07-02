@@ -3,6 +3,7 @@ import { RoundsApiModel } from "../Types/RoundsApiModel";
 import { createRoundApiModel } from "./createRoundApiModel";
 import { fetchTennisApi } from "./fetchTennisApi";
 import { isDefined } from "./isDefined";
+import { isQualification } from "./isQualification";
 
 interface FetchRoundsParameters {
   seasonId: string;
@@ -35,7 +36,9 @@ const fetchRounds = async ({
     currentRound: createRoundApiModel(data.currentRound) || undefined,
     rounds: (data.rounds as RoundApiModel[])
       .map((round) => createRoundApiModel(round))
-      .filter(isDefined),
+      .filter(isDefined)
+      // Qualifications are hidden because they are not adapted for UI
+      .filter((round) => !isQualification(round)),
   };
 
   return roundsApiModel;
