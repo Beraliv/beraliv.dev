@@ -90,7 +90,7 @@ const TournamentPage: Component = () => {
           {(seasonsData) => (
             <Select
               id="season"
-              current={() => seasonsData().seasons[0]?.year}
+              current={() => seasonsData().currentSeason?.year}
               values={() => seasonsData().seasons.map((season) => season.year)}
               onChange={handleSeasonChange}
             />

@@ -1,14 +1,14 @@
-import { Accessor, Component, For, Setter, Show } from "solid-js";
+import { Accessor, Component, For, Show } from "solid-js";
 
 import styles from "./RoundsNavigation.module.css";
 import { RoundsApiModel } from "./Types/RoundsApiModel";
 import FinalIcon from "./Icons/Final.svg";
 import SemifinalsIcon from "./Icons/Semifinals.svg";
 import Quarterfinals from "./Icons/Quarterfinals.svg";
-import Round4 from "./Icons/Round4.svg";
-import Round3 from "./Icons/Round3.svg";
-import Round2 from "./Icons/Round2.svg";
-import Round1 from "./Icons/Round1.svg";
+import RoundOf16 from "./Icons/RoundOf16.svg";
+import RoundOf32 from "./Icons/RoundOf32.svg";
+import HalfRoundOf64 from "./Icons/HalfRoundOf64.svg";
+import QuarterRoundOf128 from "./Icons/QuarterRoundOf128.svg";
 import { classNames } from "./Utils/classNames";
 import { RoundApiModel } from "./Types/RoundApiModel";
 import { roundEquals } from "./Utils/roundEquals";
@@ -19,44 +19,44 @@ interface RoundsNavigationProps {
   onRoundChange: (name: string) => void;
 }
 
-const OrderedIcons: Component[] = [
+const ORDERED_ICONS: Component[] = [
   () => (
-    <div class={styles.Round}>
-      <Round1 />
-      <Round1 />
-      <Round1 />
-      <Round1 />
+    <div class={classNames(styles.Round, styles.RoundOf128)}>
+      <QuarterRoundOf128 />
+      <QuarterRoundOf128 />
+      <QuarterRoundOf128 />
+      <QuarterRoundOf128 />
     </div>
   ),
   () => (
-    <div class={styles.Round}>
-      <Round2 />
-      <Round2 />
+    <div class={classNames(styles.Round, styles.RoundOf64)}>
+      <HalfRoundOf64 />
+      <HalfRoundOf64 />
     </div>
   ),
-  () => <Round3 />,
-  () => <Round4 />,
+  () => <RoundOf32 />,
+  () => <RoundOf16 />,
   () => <Quarterfinals />,
   () => <SemifinalsIcon />,
   () => <FinalIcon />,
 ];
 
 const alignRoundsAndIcons = (rounds: RoundApiModel[]) => {
-  const AlignedIcons = [];
+  const icons: Component[] = [];
 
   for (let i = 0; i < rounds.length; i++) {
-    const Icon = OrderedIcons[Math.max(0, OrderedIcons.length - 1 - i)];
-    AlignedIcons.unshift(Icon);
+    const icon = ORDERED_ICONS[Math.max(0, ORDERED_ICONS.length - 1 - i)];
+    icons.unshift(icon);
   }
 
-  return AlignedIcons;
+  return icons;
 };
 
 const RoundsNavigation: Component<RoundsNavigationProps> = ({
   roundsApiModel,
   onRoundChange,
 }) => {
-  const AlignedIcons = alignRoundsAndIcons(roundsApiModel().rounds);
+  const icons = alignRoundsAndIcons(roundsApiModel().rounds);
 
   return (
     <div class={styles.RoundsNavigation}>
@@ -74,8 +74,8 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
             })}
             onClick={() => onRoundChange(round.name)}
           >
-            {round.name}
-            <Show when={AlignedIcons[index()]}>{(icon) => icon()({})}</Show>
+            <div class={styles.Name}>{round.name}</div>
+            <Show when={icons[index()]}>{(icon) => icon()({})}</Show>
           </div>
         )}
       </For>
