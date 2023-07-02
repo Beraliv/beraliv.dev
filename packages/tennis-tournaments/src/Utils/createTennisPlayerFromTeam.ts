@@ -4,7 +4,10 @@ import { getImageUrlByLastName } from "./getImageUrlByLastName";
 
 const NAME_SEPARATOR = " ";
 
-const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
+const createTennisPlayerFromTeam = (
+  team: TeamApiModel,
+  teamSeed: string | undefined
+): TennisPlayer => {
   // de Minaur A. => [de, Minaur, A.]
   // Kyrgios N. => [Kyrgios, N.]
   const names = team.name.split(NAME_SEPARATOR).map((name) => name.trim());
@@ -13,9 +16,9 @@ const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
   const lastName = names.slice(0, -1).join(NAME_SEPARATOR);
   const imageUrl = getImageUrlByLastName(lastName);
 
-  // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA
-  // https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
-  const ranking = typeof team.ranking === "number" ? team.ranking : -1;
+  // Use seed instead of rating – https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
+  // because global rating always changes but seed stays the same and connected to tournament
+  const seed = typeof teamSeed === "string" ? Number(teamSeed) : -1;
 
   return {
     country: "",
@@ -23,7 +26,7 @@ const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
     id: team.id,
     imageUrl,
     lastName,
-    ranking,
+    seed,
   };
 };
 

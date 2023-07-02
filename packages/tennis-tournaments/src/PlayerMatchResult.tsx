@@ -41,8 +41,8 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         >
           {shortName}
         </div>
-        <Show when={player.ranking > 0 && player.ranking}>
-          {(ranking) => <div class={styles.Ranking}>{`(${ranking()})`}</div>}
+        <Show when={player.seed > 0 && player.seed}>
+          {(seed) => <div class={styles.Seed}>{`(${seed()})`}</div>}
         </Show>
       </div>
       <div class={styles.Score}>

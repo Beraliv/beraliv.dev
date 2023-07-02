@@ -7,8 +7,8 @@ const createMatchCardPropsFromMatches = (
   data: MatchesByRoundApiModel
 ): MatchCardProps[] =>
   data.events.map((event) => ({
-    awayPlayer: createTennisPlayerFromTeam(event.awayTeam),
-    homePlayer: createTennisPlayerFromTeam(event.homeTeam),
+    awayPlayer: createTennisPlayerFromTeam(event.awayTeam, event.awayTeamSeed),
+    homePlayer: createTennisPlayerFromTeam(event.homeTeam, event.homeTeamSeed),
     sets: createTennisSetsFromScores(event.homeScore, event.awayScore),
     winner: event.winnerCode === 1 ? "home" : "away",
   }));

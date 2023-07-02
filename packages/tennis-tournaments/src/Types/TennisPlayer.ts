@@ -4,7 +4,7 @@ interface TennisPlayer extends Person {
   country: string;
   id: number;
   imageUrl: string;
-  ranking: number;
+  seed: number;
 }
 
 export { type TennisPlayer };
