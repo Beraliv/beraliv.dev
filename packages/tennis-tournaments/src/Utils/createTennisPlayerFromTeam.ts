@@ -1,5 +1,6 @@
 import { TeamApiModel } from "../Types/TeamApiModel";
 import { TennisPlayer } from "../Types/TennisPlayer";
+import { getImageUrlByLastName } from "./getImageUrlByLastName";
 
 const NAME_SEPARATOR = " ";
 
@@ -10,8 +11,7 @@ const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
 
   const firstName = names.at(-1) || "";
   const lastName = names.slice(0, -1).join(NAME_SEPARATOR);
-
-  const imageUrl = `https://res.cloudinary.com/beraliv/image/upload/v1687048409/tennis_tournaments/players/${lastName.toLowerCase()}.avif`;
+  const imageUrl = getImageUrlByLastName(lastName);
 
   return {
     country: "",
