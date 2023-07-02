@@ -1,7 +1,7 @@
 interface TeamApiModel {
   id: number;
   name: string;
-  ranking: number;
+  ranking: number | undefined;
 }
 
 export { type TeamApiModel };

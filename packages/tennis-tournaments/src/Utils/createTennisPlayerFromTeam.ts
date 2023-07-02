@@ -13,15 +13,17 @@ const createTennisPlayerFromTeam = (team: TeamApiModel): TennisPlayer => {
   const lastName = names.slice(0, -1).join(NAME_SEPARATOR);
   const imageUrl = getImageUrlByLastName(lastName);
 
+  // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA
+  // https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
+  const ranking = typeof team.ranking === "number" ? team.ranking : -1;
+
   return {
     country: "",
     firstName,
     id: team.id,
     imageUrl,
     lastName,
-    // Ranking is up-to-date so it only shows what's the current ranking based on ATP or WTA
-    // https://rapidapi.com/fluis.lacasse/api/tennisapi1/discussions/94248
-    ranking: team.ranking,
+    ranking,
   };
 };
 

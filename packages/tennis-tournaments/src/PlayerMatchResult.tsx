@@ -41,7 +41,9 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         >
           {shortName}
         </div>
-        <div class={styles.Ranking}>{`(${player.ranking})`}</div>
+        <Show when={player.ranking > 0 && player.ranking}>
+          {(ranking) => <div class={styles.Ranking}>{`(${ranking()})`}</div>}
+        </Show>
       </div>
       <div class={styles.Score}>
         <Show when={doesWinMatch}>
