@@ -1,6 +1,6 @@
 import { type Component, createResource, Show, For } from "solid-js";
 
-import styles from "./App.module.css";
+import styles from "./TournamentPage.module.css";
 import { TournamentRound } from "./TournamentRound";
 import { fetchRounds } from "./Utils/fetchRounds";
 import { RoundsNavigation } from "./RoundsNavigation";
@@ -56,6 +56,21 @@ const TournamentPage: Component = () => {
     fetchRounds
   );
 
+  const handleRoundChange = (name: string) => {
+    mutateRoundsApiModel((prev) => {
+      if (prev === undefined) {
+        return undefined;
+      }
+
+      const nextRound = prev.rounds.find((round) => round.name === name);
+
+      return {
+        ...prev,
+        currentRound: nextRound,
+      };
+    });
+  };
+
   // 4. Given tournament round, request tournament tree (3 requests for each visible round)
   // Quarterfinal – 1.7s
   // Round of 128 – 2.3s
@@ -74,21 +89,34 @@ const TournamentPage: Component = () => {
         <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
           {(seasonsData) => (
             <Select
-              id="seasons"
-              values={() =>
-                seasonsData().seasons.map((season) => `${season.year}`)
-              }
+              id="season"
+              current={() => seasonsData().seasons[0]?.year}
+              values={() => seasonsData().seasons.map((season) => season.year)}
               onChange={handleSeasonChange}
             />
           )}
         </Show>
       </div>
-      <div>
+      <div class={styles.RoundsMobile}>
+        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+          {(roundsData) => (
+            <Select
+              id="round"
+              current={() =>
+                roundsData().currentRound?.name ?? roundsData().rounds[0]?.name
+              }
+              values={() => roundsData().rounds.map((round) => round.name)}
+              onChange={handleRoundChange}
+            />
+          )}
+        </Show>
+      </div>
+      <div class={styles.RoundsDesktop}>
         <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
           {(roundsData) => (
             <RoundsNavigation
               roundsApiModel={roundsData}
-              mutateRoundsApiModel={mutateRoundsApiModel}
+              onRoundChange={handleRoundChange}
             />
           )}
         </Show>
