@@ -35,7 +35,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
           <img class={styles.AvatarImage} src={player.imageUrl} />
         </div>
         <div
-          class={classNames({
+          class={classNames(styles.Name, {
             [styles.WinHighlighter]: doesWinMatch,
           })}
         >

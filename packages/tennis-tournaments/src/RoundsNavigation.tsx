@@ -1,4 +1,4 @@
-import { Accessor, Component, For, Setter } from "solid-js";
+import { Accessor, Component, For, Setter, Show } from "solid-js";
 
 import styles from "./RoundsNavigation.module.css";
 import { RoundsApiModel } from "./Types/RoundsApiModel";
@@ -86,7 +86,7 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
             }}
           >
             {round.name}
-            {AlignedIcons[index()]({})}
+            <Show when={AlignedIcons[index()]}>{(icon) => icon()({})}</Show>
           </div>
         )}
       </For>

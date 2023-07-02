@@ -8,6 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  /* When the name is too long, it's cut */
+  overflow: hidden;
 }
 
 .AvatarImage {
@@ -20,7 +23,14 @@
   font-weight: 900;
 }
 
-.WinHighlighter,
+.Name {
+  /* When the name is too long, it's cut */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Name,
 .Ranking {
   margin-left: 5px;
 }
@@ -32,7 +42,8 @@
 
 .SetScores {
   display: flex;
-  margin-left: 10px;
+  /* .SetScore margin-left (2px) + .Winner margin-left (3px) */
+  margin-left: 5px;
 }
 
 .SetScore {
@@ -50,6 +61,7 @@
 
 .Winner {
   display: flex;
+  margin-left: 3px;
 }
 
 .WinnerImage {
