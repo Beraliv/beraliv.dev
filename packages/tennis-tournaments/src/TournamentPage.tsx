@@ -34,6 +34,21 @@ const TournamentPage: Component = () => {
     return id;
   };
 
+  const handleSeasonChange = (year: string) => {
+    mutateSeasonsApiModel((prev) => {
+      if (prev === undefined) {
+        return prev;
+      }
+
+      const nextSeason = prev.seasons.find((season) => season.year === year);
+
+      return {
+        ...prev,
+        currentSeason: nextSeason,
+      };
+    });
+  };
+
   // 3. Given tournament ID and season ID, request tournament rounds (1 request)
 
   const [roundsApiModel, { mutate: mutateRoundsApiModel }] = createResource(
@@ -56,29 +71,14 @@ const TournamentPage: Component = () => {
   return (
     <div class={styles.TournamentPage}>
       <div>
-        <Show when={seasonsApiModel()}>
+        <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
           {(seasonsData) => (
             <Select
               id="seasons"
               values={() =>
                 seasonsData().seasons.map((season) => `${season.year}`)
               }
-              onChange={(year) => {
-                mutateSeasonsApiModel((prev) => {
-                  if (prev === undefined) {
-                    return prev;
-                  }
-
-                  const nextSeason = prev.seasons.find(
-                    (season) => season.year === year
-                  );
-
-                  return {
-                    ...prev,
-                    currentSeason: nextSeason,
-                  };
-                });
-              }}
+              onChange={handleSeasonChange}
             />
           )}
         </Show>
@@ -94,7 +94,7 @@ const TournamentPage: Component = () => {
         </Show>
       </div>
       <div class={styles.Grid}>
-        <For each={tree()} fallback={<Loading />}>
+        <For each={tree.state === "ready" && tree()} fallback={<Loading />}>
           {(roundData, index) => (
             <TournamentRound {...roundData} index={index()} />
           )}
