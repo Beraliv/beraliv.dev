@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start"
   },
   "license": "MIT",
   "devDependencies": {
@@ -17,7 +16,9 @@
     "vite-plugin-solid-svg": "0.6.1"
   },
   "dependencies": {
+    "@solidjs/meta": "0.28.5",
     "@solidjs/router": "0.8.2",
-    "solid-js": "^1.7.6"
+    "solid-js": "^1.7.6",
+    "solid-start": "0.2.26"
   }
 }

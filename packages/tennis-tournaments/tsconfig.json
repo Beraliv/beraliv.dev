@@ -11,6 +11,6 @@
     "resolveJsonModule": true,
     "strict": true,
     "target": "ESNext",
-    "types": ["vite/client"]
+    "types": ["solid-start/env"]
   }
 }

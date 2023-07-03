@@ -1,6 +1,6 @@
 /// <reference types="./vite-env-override.d.ts" />
 import { defineConfig, loadEnv } from "vite";
-import solidPlugin from "vite-plugin-solid";
+import solidPlugin from "solid-start/vite";
 import solidSvg from "vite-plugin-solid-svg";
 // import devtools from 'solid-devtools/vite';
 
