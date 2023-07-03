@@ -1,8 +1,8 @@
 import { type Component } from "solid-js";
 
 import styles from "./MatchCard.module.css";
-import { TennisPlayer } from "./Types/TennisPlayer";
-import { TennisSet } from "./Types/TennisSet";
+import { TennisPlayer } from "../Types/TennisPlayer";
+import { TennisSet } from "../Types/TennisSet";
 import { PlayerMatchResult } from "./PlayerMatchResult";
 
 interface MatchCardProps {

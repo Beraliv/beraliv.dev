@@ -2,8 +2,8 @@ import { type Component, For } from "solid-js";
 
 import styles from "./TournamentRound.module.css";
 import { MatchCard } from "./MatchCard";
-import { classNames } from "./Utils/classNames";
-import { type SimpleTournamentRound } from "./Utils/fetchTournamentTree";
+import { classNames } from "../Utils/classNames";
+import { type SimpleTournamentRound } from "../Utils/fetchTournamentTree";
 
 interface TournamentRoundProps extends SimpleTournamentRound {
   index: number;

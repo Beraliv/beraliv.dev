@@ -1,15 +1,16 @@
 import { type Component, createResource, Show, For } from "solid-js";
+import { useParams } from "solid-start";
 
-import styles from "./TournamentPage.module.css";
 import { TournamentRound } from "./TournamentRound";
-import { fetchRounds } from "./Utils/fetchRounds";
+import { fetchRounds } from "../Utils/fetchRounds";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Loading } from "./Loading";
-import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
-import { useParams } from "@solidjs/router";
-import { fetchSeasons } from "./Utils/fetchSeasons";
+import { fetchTournamentTree } from "../Utils/fetchTournamentTree";
+import { fetchSeasons } from "../Utils/fetchSeasons";
 import { Select } from "./Select";
-import { isDefined } from "./Utils/isDefined";
+import { isDefined } from "../Utils/isDefined";
+
+import styles from "./TournamentPage.module.css";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)

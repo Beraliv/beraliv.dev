@@ -1,13 +1,13 @@
 import { For, type Component, Show } from "solid-js";
 
 import styles from "./PlayerMatchResult.module.css";
-import { TennisPlayer } from "./Types/TennisPlayer";
-import { createShortName } from "./Utils/createShortName";
-import WinnerIcon from "./Icons/Winner.svg";
-import { TennisSet } from "./Types/TennisSet";
-import { hasTieBreak } from "./Utils/hasTieBreak";
-import { doesWinSet } from "./Utils/doesWinSet";
-import { classNames } from "./Utils/classNames";
+import { TennisPlayer } from "../Types/TennisPlayer";
+import { createShortName } from "../Utils/createShortName";
+import WinnerIcon from "../Icons/Winner.svg";
+import { TennisSet } from "../Types/TennisSet";
+import { hasTieBreak } from "../Utils/hasTieBreak";
+import { doesWinSet } from "../Utils/doesWinSet";
+import { classNames } from "../Utils/classNames";
 
 interface PlayerMatchResultProps {
   className?: string;

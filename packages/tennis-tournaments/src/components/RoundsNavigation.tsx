@@ -1,18 +1,18 @@
 import { Accessor, Component, For, Show } from "solid-js";
 
 import styles from "./RoundsNavigation.module.css";
-import { RoundsApiModel } from "./Types/RoundsApiModel";
-import FinalIcon from "./Icons/Final.svg";
-import SemifinalsIcon from "./Icons/Semifinals.svg";
-import Quarterfinals from "./Icons/Quarterfinals.svg";
-import RoundOf16 from "./Icons/RoundOf16.svg";
-import RoundOf32 from "./Icons/RoundOf32.svg";
-import HalfRoundOf64 from "./Icons/HalfRoundOf64.svg";
-import QuarterRoundOf128 from "./Icons/QuarterRoundOf128.svg";
-import { classNames } from "./Utils/classNames";
-import { RoundApiModel } from "./Types/RoundApiModel";
-import { roundEquals } from "./Utils/roundEquals";
-import { isDefined } from "./Utils/isDefined";
+import { RoundsApiModel } from "../Types/RoundsApiModel";
+import FinalIcon from "../Icons/Final.svg";
+import SemifinalsIcon from "../Icons/Semifinals.svg";
+import Quarterfinals from "../Icons/Quarterfinals.svg";
+import RoundOf16 from "../Icons/RoundOf16.svg";
+import RoundOf32 from "../Icons/RoundOf32.svg";
+import HalfRoundOf64 from "../Icons/HalfRoundOf64.svg";
+import QuarterRoundOf128 from "../Icons/QuarterRoundOf128.svg";
+import { classNames } from "../Utils/classNames";
+import { RoundApiModel } from "../Types/RoundApiModel";
+import { roundEquals } from "../Utils/roundEquals";
+import { isDefined } from "../Utils/isDefined";
 
 interface RoundsNavigationProps {
   roundsApiModel: Accessor<RoundsApiModel>;

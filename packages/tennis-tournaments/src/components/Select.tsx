@@ -1,4 +1,4 @@
-import { Accessor, Component, For, createSignal } from "solid-js";
+import { Accessor, Component, For } from "solid-js";
 
 interface SelectProps {
   id: string;
