@@ -1,6 +1,7 @@
 interface TeamApiModel {
   id: number;
   name: string;
+  slug: string;
   ranking: number | undefined;
 }
 
