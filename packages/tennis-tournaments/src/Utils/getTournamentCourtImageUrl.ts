@@ -4,9 +4,9 @@ import { CourtType } from "../Types/CourtType";
 const TOURNAMENT_COURT_PATH = "tennis_tournaments/courts";
 
 const COURT_HASH_MAP: Record<CourtType, number> = {
-  hard: 1688560502,
-  clay: 1688560498,
-  grass: 1688560802,
+  hard: 1688590951,
+  clay: 1688590954,
+  grass: 1688590952,
 };
 
 const getTournamentCourtImageUrl = (courtType: CourtType): string => {
