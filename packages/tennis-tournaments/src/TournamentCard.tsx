@@ -7,6 +7,7 @@ import styles from "./TournamentCard.module.css";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
 import { useNavigate } from "@solidjs/router";
 import { classNames } from "./Utils/classNames";
+import { formatTournamentPeriod } from "./Utils/formatTournamentPeriod";
 
 interface TournamentCardProps {
   courtType: CourtType;
@@ -25,11 +26,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
 }) => {
   const navigate = useNavigate();
   const imageUrl = getTournamentCourtImageUrl(courtType);
-
-  // TODO: format date
-
-  const tournamentPeriodStart = tournamentPeriod.start.toDateString();
-  const tournamentPeriodEnd = tournamentPeriod.end.toDateString();
+  const formattedPeriod = formatTournamentPeriod(tournamentPeriod);
 
   return (
     <div
@@ -48,7 +45,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
           <div class={styles.TournamentDateIcon}>
             <CalendarIcon />
           </div>
-          {`${tournamentPeriodStart} - ${tournamentPeriodEnd}`}
+          {formattedPeriod}
         </div>
         {/* TODO: add court icon */}
         <div class={styles.CourtType}>{courtType.toUpperCase()}</div>
