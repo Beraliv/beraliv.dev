@@ -1,11 +1,27 @@
 /* TODO 1: update fonts */
-/* TODO 2: make card responsive */
+
+@media (min-width: 1110px) {
+  .TournamentCard {
+    width: 33.3333333333333%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .TournamentCard {
+    width: 50%;
+  }
+}
+
+@media (max-width: 740px) {
+  .TournamentCard {
+    width: 100%;
+  }
+}
 
 .TournamentCard {
   height: 16rem;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  max-width: 500px;
 
   cursor: pointer;
 }

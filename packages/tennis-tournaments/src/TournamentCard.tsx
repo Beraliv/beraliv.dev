@@ -6,11 +6,12 @@ import CalendarIcon from "./Icons/Calendar.svg";
 import styles from "./TournamentCard.module.css";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
 import { useNavigate } from "@solidjs/router";
+import { classNames } from "./Utils/classNames";
 
 interface TournamentCardProps {
   courtType: CourtType;
   tournamentPeriod: TournamentPeriod;
-  tournamentId: string;
+  tournamentId: number;
   tournamentName: string;
   place: string;
 }
@@ -32,7 +33,11 @@ const TournamentCard: Component<TournamentCardProps> = ({
 
   return (
     <div
-      class={styles.TournamentCard}
+      class={classNames(styles.TournamentCard, {
+        [styles.HardCourt]: courtType === "hard",
+        [styles.ClayCourt]: courtType === "clay",
+        [styles.GrassCourt]: courtType === "grass",
+      })}
       onClick={() => navigate(`/tournament/${tournamentId}`)}
     >
       <div
