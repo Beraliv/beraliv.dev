@@ -10,10 +10,23 @@
   cursor: pointer;
 }
 
+.HardCourt .CourtType {
+  background-color: #015d87;
+}
+
+.ClayCourt .CourtType {
+  background-color: #8f4121;
+}
+
+.GrassCourt .CourtType {
+  background-color: #344a17;
+}
+
 .TournamentHead {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 
   display: flex;
   align-items: flex-end;
@@ -24,6 +37,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  background: #141414;
 }
 
 .TournamentDateIcon {
@@ -41,7 +56,6 @@
   font-size: 0.75rem;
   padding: 0.6rem 1rem;
 
-  background: #141414;
   color: white;
 }
 
@@ -49,7 +63,7 @@
 .TournamentFooter {
   padding: 0.8rem;
   margin: 5px;
-  background-color: grey;
+  background-color: #e6e6e6;
 }
 
 .TournamentFooter h2 {
