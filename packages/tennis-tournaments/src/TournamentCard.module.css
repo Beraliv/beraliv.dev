@@ -17,6 +17,8 @@
 }
 
 .TournamentCard {
+  /* inner card width (306.5px) + 2x padding (12.8px) + 2x margin (5px) */
+  min-width: 342.1px;
   height: 16rem;
   display: inline-flex;
   flex-direction: column;
@@ -52,10 +54,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  /* date and court icons change height, so setting it to the same value */
+  height: 16px;
 }
 
 .TournamentDates {
   background: #141414;
+  margin-right: 0.5rem;
 }
 
 .TournamentDateIcon {
