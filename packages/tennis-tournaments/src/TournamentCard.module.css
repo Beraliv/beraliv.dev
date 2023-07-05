@@ -1,0 +1,60 @@
+/* TODO 1: update fonts */
+/* TODO 2: make card responsive */
+
+.TournamentCard {
+  height: 16rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  cursor: pointer;
+}
+
+.TournamentHead {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.TournamentDates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.TournamentDateIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 1rem;
+}
+
+.TournamentDateIcon svg {
+  fill: white;
+}
+
+.TournamentDates,
+.CourtType {
+  font-size: 0.75rem;
+  padding: 0.6rem 1rem;
+
+  background: #141414;
+  color: white;
+}
+
+.TournamentHead,
+.TournamentFooter {
+  padding: 0.8rem;
+  margin: 5px;
+  background-color: grey;
+}
+
+.TournamentFooter h2 {
+  font-size: 1.8rem;
+  letter-spacing: -0.015rem;
+  line-height: 1.17;
+  margin-block: 0;
+}
