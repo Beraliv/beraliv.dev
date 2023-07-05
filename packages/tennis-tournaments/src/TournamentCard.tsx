@@ -2,6 +2,7 @@ import { Component } from "solid-js";
 import { TournamentPeriod } from "./Types/TournamentPeriod";
 import { CourtType } from "./Types/CourtType";
 import CalendarIcon from "./Icons/Calendar.svg";
+import CourtIcon from "./Icons/Court.svg";
 
 import styles from "./TournamentCard.module.css";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
@@ -47,8 +48,12 @@ const TournamentCard: Component<TournamentCardProps> = ({
           </div>
           {formattedPeriod}
         </div>
-        {/* TODO: add court icon */}
-        <div class={styles.CourtType}>{courtType.toUpperCase()}</div>
+        <div class={styles.CourtType}>
+          <div class={styles.TournamentCourtIcon}>
+            <CourtIcon />
+          </div>
+          {courtType.toUpperCase()}
+        </div>
       </div>
       <div class={styles.TournamentFooter}>
         <h2>{tournamentName}</h2>

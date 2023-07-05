@@ -47,11 +47,14 @@
   justify-content: space-between;
 }
 
-.TournamentDates {
+.TournamentDates,
+.CourtType {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
 
+.TournamentDates {
   background: #141414;
 }
 
@@ -61,7 +64,14 @@
   margin-right: 0.8rem;
 }
 
-.TournamentDateIcon svg {
+.TournamentCourtIcon {
+  width: 2.4rem;
+  height: 0.97rem;
+  margin-right: 0.8rem;
+}
+
+.TournamentDateIcon svg,
+.TournamentCourtIcon svg {
   fill: white;
 }
 
