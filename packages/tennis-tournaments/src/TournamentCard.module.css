@@ -20,6 +20,7 @@
   /* inner card width (306.5px) + 2x padding (12.8px) + 2x margin (5px) */
   min-width: 342.1px;
   height: 16rem;
+
   display: inline-flex;
   flex-direction: column;
 
@@ -93,8 +94,12 @@
 .TournamentHead,
 .TournamentFooter {
   padding: 0.8rem;
-  margin: 5px;
+  margin: 0 5px;
   background-color: #e6e6e6;
+}
+
+.TournamentFooter {
+  margin-bottom: 10px;
 }
 
 .TournamentFooter h2 {
