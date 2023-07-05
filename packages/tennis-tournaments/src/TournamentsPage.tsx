@@ -36,7 +36,7 @@ const TournamentsPage: Component = () => {
         }}
         tournamentId={2361}
         tournamentName="Wimbledon"
-        place="Wimbledon, UK"
+        place="London, UK"
       />
       <TournamentCard
         courtType="hard"
@@ -47,7 +47,7 @@ const TournamentsPage: Component = () => {
         }}
         tournamentId={2449}
         tournamentName="US Open"
-        place="Wimbledon, UK"
+        place="New York City, USA"
       />
     </div>
   );
