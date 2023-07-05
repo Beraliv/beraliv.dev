@@ -1,0 +1,111 @@
+@media (min-width: 1110px) {
+  .TournamentCard {
+    width: 33.3333333333333%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .TournamentCard {
+    width: 50%;
+  }
+}
+
+@media (max-width: 740px) {
+  .TournamentCard {
+    width: 100%;
+  }
+}
+
+.TournamentCard {
+  /* inner card width (306.5px) + 2x padding (12.8px) + 2x margin (5px) */
+  min-width: 342.1px;
+  height: 16rem;
+
+  display: inline-flex;
+  flex-direction: column;
+
+  cursor: pointer;
+}
+
+.HardCourt .CourtType {
+  background-color: #015d87;
+}
+
+.ClayCourt .CourtType {
+  background-color: #8f4121;
+}
+
+.GrassCourt .CourtType {
+  background-color: #344a17;
+}
+
+.TournamentHead {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.TournamentDates,
+.CourtType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /* date and court icons change height, so setting it to the same value */
+  height: 16px;
+}
+
+.TournamentDates {
+  background: #141414;
+  margin-right: 0.5rem;
+}
+
+.TournamentDateIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.8rem;
+}
+
+.TournamentCourtIcon {
+  width: 2.4rem;
+  height: 0.97rem;
+  margin-right: 0.8rem;
+}
+
+.TournamentDateIcon svg,
+.TournamentCourtIcon svg {
+  fill: white;
+}
+
+.TournamentDates,
+.CourtType {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 700;
+
+  color: white;
+}
+
+.TournamentHead,
+.TournamentFooter {
+  padding: 0.8rem;
+  margin: 0 5px;
+  background-color: #e6e6e6;
+}
+
+.TournamentFooter {
+  margin-bottom: 10px;
+}
+
+.TournamentFooter h2 {
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: -0.015rem;
+  line-height: 1.17;
+  margin-block: 0;
+}
