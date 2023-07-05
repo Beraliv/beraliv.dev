@@ -1,7 +1,7 @@
+import { CLOUDINARY_BASE_URL } from "../Constants/CLOUDINARY_BASE_URL";
 import { TENNIS_PLAYER_HASH_MAP } from "../Constants/TENNIS_PLAYER_HASH_MAP";
 import { TENNIS_PLAYER_PLACEHOLDER_VERSION } from "../Constants/TENNIS_PLAYER_PLACEHOLDER_VERSION";
 
-const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/beraliv/image/upload";
 const CLOUDINARY_PATH = "tennis_tournaments/players";
 
 const getImageUrlByLastName = (slug: string): string => {
