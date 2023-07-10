@@ -4,19 +4,20 @@ import styles from "./MatchCard.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { TennisSet } from "./Types/TennisSet";
 import { PlayerMatchResult } from "./PlayerMatchResult";
+import { MatchStatus } from "./Types/MatchStatus";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
   homePlayer: TennisPlayer;
   sets: TennisSet[];
-  winner: "away" | "home";
+  status: MatchStatus;
 }
 
 const MatchCard: Component<MatchCardProps> = ({
   awayPlayer,
   homePlayer,
   sets,
-  winner,
+  status,
 }) => {
   const homeCentricSets = sets;
   const awayCentricSets: TennisSet[] = sets.map(([opponentScore, score]) => [
@@ -24,17 +25,20 @@ const MatchCard: Component<MatchCardProps> = ({
     opponentScore,
   ]);
 
+  const isHomeWinner = status.type === "FINISHED" && status.winner === "home";
+  const isAwayWinner = status.type === "FINISHED" && status.winner === "away";
+
   return (
     <div class={styles.MatchCard}>
       <PlayerMatchResult
         className={styles.Home}
-        doesWinMatch={winner === "home"}
+        isWinner={isHomeWinner}
         player={homePlayer}
         playerCentricSets={homeCentricSets}
       />
       <PlayerMatchResult
         className={styles.Away}
-        doesWinMatch={winner === "away"}
+        isWinner={isAwayWinner}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}
       />

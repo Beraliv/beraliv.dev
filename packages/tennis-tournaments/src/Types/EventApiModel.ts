@@ -1,3 +1,4 @@
+import { EventStatusApiModel } from "./EventStatusApiModel";
 import { RoundApiModel } from "./RoundApiModel";
 import { ScoreApiModel } from "./ScoreApiModel";
 import { TeamApiModel } from "./TeamApiModel";
@@ -10,7 +11,8 @@ interface EventApiModel {
   homeTeamSeed: string | undefined;
   homeTeam: TeamApiModel;
   roundInfo: RoundApiModel;
-  winnerCode: 1 | 2;
+  status: EventStatusApiModel;
+  winnerCode: 0 | 1 | 2;
 }
 
 export { type EventApiModel };
