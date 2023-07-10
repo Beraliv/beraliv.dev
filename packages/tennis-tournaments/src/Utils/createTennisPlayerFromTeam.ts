@@ -30,7 +30,6 @@ const createTennisPlayerFromTeam = (
   const seed = typeof teamSeed === "string" ? Number(teamSeed) : -1;
 
   return {
-    country: "",
     firstName,
     id: team.id,
     imageUrl,
