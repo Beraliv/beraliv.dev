@@ -1,16 +1,15 @@
-import { RoundsApiModel } from "../Types/RoundsApiModel";
-import { chooseVisibleRounds } from "./chooseVisibleRounds";
-import { createMatchCardPropsFromMatches } from "./createMatchCardPropsFromMatches";
-import { fetchMatchesByRound } from "./fetchMatchesByRound";
 import { MatchCardProps } from "../MatchCard";
 import { VisibleRoundOrder } from "./getVisibleRoundOrders";
+import { fetchTennisApi } from "./fetchTennisApi";
+import { CupTreesApiModel } from "../Types/CupTreesApiModel";
+import {
+  AllRounds,
+  createRoundsFromCupTrees,
+} from "./createRoundsFromCupTrees";
 
 interface FetchTournamentTreeParameters {
-  rounds: RoundsApiModel | undefined;
-  tournament: {
-    tournamentId: string;
-    seasonId: string;
-  };
+  seasonId: string;
+  tournamentId: string;
 }
 
 interface SimpleTournamentRound {
@@ -20,45 +19,28 @@ interface SimpleTournamentRound {
 }
 
 const fetchTournamentTree = async ({
-  rounds,
-  tournament,
-}: FetchTournamentTreeParameters): Promise<SimpleTournamentRound[]> => {
-  if (!rounds) {
-    return [];
+  seasonId,
+  tournamentId,
+}: FetchTournamentTreeParameters): Promise<AllRounds[]> => {
+  if (!seasonId) {
+    return Promise.resolve([]);
   }
 
-  if (!rounds.currentRound) {
-    return [];
-  }
-
-  const visibleRounds = chooseVisibleRounds(rounds);
-
-  const tournamentTreeData = await Promise.all(
-    visibleRounds.map(async (round): Promise<SimpleTournamentRound> => {
-      const data = await fetchMatchesByRound({
-        roundId: round.id,
-        seasonId: tournament.seasonId,
-        slug: round.slug,
-        tournamentId: tournament.tournamentId,
-      });
-
-      if (data === null) {
-        return {
-          title: round.name,
-          order: round.order,
-          matches: [],
-        };
-      }
-
-      return {
-        title: round.name,
-        order: round.order,
-        matches: createMatchCardPropsFromMatches(data),
-      };
-    })
+  const response = await fetchTennisApi(
+    `tournament/${tournamentId}/season/${seasonId}/cup-trees`
   );
 
-  return tournamentTreeData;
+  try {
+    const cupTreesApiModel: CupTreesApiModel = await response.json();
+
+    const roundsData = createRoundsFromCupTrees(cupTreesApiModel);
+
+    return roundsData;
+  } catch (error) {
+    // It may happen when requesting round that wasn't played yet
+
+    return [];
+  }
 };
 
 export { fetchTournamentTree, type SimpleTournamentRound };
