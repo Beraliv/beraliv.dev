@@ -24,6 +24,7 @@ type CupNodeApiModel = TreeNode<{
   order: number;
   rightParticipant: ParticipantApiModel;
   round: CupRoundApiModel;
+  status?: string;
 }>;
 
 interface CupTreeApiModel {

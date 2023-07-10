@@ -1,5 +1,6 @@
 import { MatchCardProps } from "../MatchCard";
 import { CupTreesApiModel } from "../Types/CupTreesApiModel";
+import { TennisSet } from "../Types/TennisSet";
 import { breadthFirstTraversal } from "./breadthFirstTraversal";
 import { createTennisPlayerFromTeam } from "./createTennisPlayerFromTeam";
 
@@ -26,6 +27,13 @@ const createRoundsFromCupTrees = (model: CupTreesApiModel): AllRounds[] => {
           const title = node.round.description;
           const order = node.order;
 
+          // TODO: extract full score instead of sets only
+
+          const score =
+            node.status && node.status.includes(":")
+              ? node.status.split(":").map((value) => parseInt(value, 10))
+              : undefined;
+
           const homePlayer = node.leftParticipant;
           const awayPlayer = node.rightParticipant;
 
@@ -39,7 +47,9 @@ const createRoundsFromCupTrees = (model: CupTreesApiModel): AllRounds[] => {
               homePlayer.teamSeed
             ),
             order,
-            sets: [],
+            sets: score
+              ? [score.map((sets) => ({ games: sets })) as TennisSet]
+              : [],
             status: node.eventInProgress
               ? { type: "IN_PROGRESS" }
               : node.finished
