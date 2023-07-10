@@ -11,14 +11,14 @@ import { classNames } from "./Utils/classNames";
 
 interface PlayerMatchResultProps {
   className?: string;
-  doesWinMatch: boolean;
   player: TennisPlayer;
   playerCentricSets: TennisSet[];
+  isWinner: boolean;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
-  doesWinMatch,
+  isWinner,
   player,
   playerCentricSets,
 }) => {
@@ -36,7 +36,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         </div>
         <div
           class={classNames(styles.Name, {
-            [styles.WinHighlighter]: doesWinMatch,
+            [styles.WinHighlighter]: isWinner,
           })}
         >
           {shortName}
@@ -46,7 +46,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         </Show>
       </div>
       <div class={styles.Score}>
-        <Show when={doesWinMatch}>
+        <Show when={isWinner}>
           <div class={styles.Winner}>
             <WinnerIcon />
           </div>

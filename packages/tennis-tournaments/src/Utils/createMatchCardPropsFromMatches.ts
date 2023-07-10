@@ -1,5 +1,6 @@
 import { MatchCardProps } from "../MatchCard";
 import { MatchesByRoundApiModel } from "../Types/MatchesByRoundApiModel";
+import { createMatchStatusFromEvent } from "./createMatchStatusFromEvent";
 import { createTennisPlayerFromTeam } from "./createTennisPlayerFromTeam";
 import { createTennisSetsFromScores } from "./createTennisSetsFromScores";
 
@@ -10,7 +11,7 @@ const createMatchCardPropsFromMatches = (
     awayPlayer: createTennisPlayerFromTeam(event.awayTeam, event.awayTeamSeed),
     homePlayer: createTennisPlayerFromTeam(event.homeTeam, event.homeTeamSeed),
     sets: createTennisSetsFromScores(event.homeScore, event.awayScore),
-    winner: event.winnerCode === 1 ? "home" : "away",
+    status: createMatchStatusFromEvent(event),
   }));
 
 export { createMatchCardPropsFromMatches };
