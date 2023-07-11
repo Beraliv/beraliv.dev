@@ -17,7 +17,8 @@ const createRoundsFromCupTrees = (model: CupTreesApiModel): AllRounds[] => {
   const roundTitlesByType: Record<string, string> = {};
   const roundMatchesByType: Record<string, MatchCardPropsWithOrder[]> = {};
 
-  // Parsing Model API
+  // Iterating over each cupTree, views and view
+  // to extract all matches for all rounds
 
   for (const cupTree of model.cupTrees) {
     for (const views of cupTree.views) {
@@ -70,8 +71,9 @@ const createRoundsFromCupTrees = (model: CupTreesApiModel): AllRounds[] => {
             roundMatchesByType[type] = [];
           }
 
-          // removing matches with identical order
-          // as there is the same data between views
+          // Removing matches with identical order
+          // to remove duplicates between different views
+
           if (
             !roundMatchesByType[type].some(
               (storedMatch) => storedMatch.order === match.order
