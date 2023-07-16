@@ -24,6 +24,10 @@ const createRoundsFromCupTrees = (model: CupTreesApiModel): AllRounds[] => {
     for (const views of cupTree.views) {
       for (const view of views) {
         breadthFirstTraversal(view, (node) => {
+          if (!node.round) {
+            return;
+          }
+
           const type = node.round.type;
           const title = node.round.description;
 

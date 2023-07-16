@@ -23,7 +23,7 @@ type CupNodeApiModel = TreeNode<{
   leftParticipant?: ParticipantApiModel;
   order: number;
   rightParticipant?: ParticipantApiModel;
-  round: CupRoundApiModel;
+  round?: CupRoundApiModel;
   status?: string;
 }>;
 
