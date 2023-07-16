@@ -59,12 +59,24 @@
   font-size: 75%;
 }
 
-.Winner {
+.Winner,
+.TennisBall {
   display: flex;
   margin-left: 3px;
 }
 
-.WinnerImage {
-  width: 21px;
-  height: 19px;
+.TennisBall {
+  /* `ease-in` is used to to imitate gravity, so ball is getting to top position slower */
+  /* `alternate` is used to imitate ball jumping direction - down and up */
+  animation: ballJumping 0.75s ease-in infinite alternate;
+}
+
+@keyframes ballJumping {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(50%) rotate(180deg);
+  }
 }
