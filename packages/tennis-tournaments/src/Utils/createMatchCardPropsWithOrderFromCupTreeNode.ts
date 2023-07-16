@@ -1,3 +1,4 @@
+import { TENNIS_PLAYER_PLACEHOLDER } from "../Constants/TENNIS_PLAYER_PLACEHOLDER";
 import { CupNodeApiModel } from "../Types/CupTreesApiModel";
 import { TennisSet } from "../Types/TennisSet";
 import type { MatchCardPropsWithOrder } from "./createRoundsFromCupTrees";
@@ -19,14 +20,12 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
   const awayPlayer = node.rightParticipant;
 
   return {
-    awayPlayer: createTennisPlayerFromTeam(
-      awayPlayer.team,
-      awayPlayer.teamSeed
-    ),
-    homePlayer: createTennisPlayerFromTeam(
-      homePlayer.team,
-      homePlayer.teamSeed
-    ),
+    awayPlayer: awayPlayer
+      ? createTennisPlayerFromTeam(awayPlayer.team, awayPlayer.teamSeed)
+      : TENNIS_PLAYER_PLACEHOLDER,
+    homePlayer: homePlayer
+      ? createTennisPlayerFromTeam(homePlayer.team, homePlayer.teamSeed)
+      : TENNIS_PLAYER_PLACEHOLDER,
     order,
     sets: score ? [score.map((sets) => ({ games: sets })) as TennisSet] : [],
     status: node.eventInProgress
@@ -34,11 +33,12 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
       : node.finished
       ? {
           type: "FINISHED",
-          winner: homePlayer.winner
-            ? "home"
-            : awayPlayer.winner
-            ? "away"
-            : undefined,
+          winner:
+            homePlayer && homePlayer.winner
+              ? "home"
+              : awayPlayer && awayPlayer.winner
+              ? "away"
+              : undefined,
         }
       : { type: "DID_NOT_STARTED" },
   };
