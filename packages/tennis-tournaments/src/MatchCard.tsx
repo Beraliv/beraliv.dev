@@ -12,6 +12,7 @@ import { PlayerMatchResult } from "./PlayerMatchResult";
 import { MatchStatus } from "./Types/MatchStatus";
 import { fetchEvent } from "./Utils/fetchEvent";
 import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
+import { classNames } from "./Utils/classNames";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
@@ -29,6 +30,9 @@ const MatchCard: Component<MatchCardProps> = ({
   status,
 }) => {
   const [extendedEventEnabled, setExtendedEventEnabled] = createSignal(false);
+  const triggerLoadingExtendedScore = () => {
+    setExtendedEventEnabled(true);
+  };
 
   const [eventApiModel] = createResource(
     () => ({ eventId, enabled: extendedEventEnabled() }),
@@ -65,7 +69,14 @@ const MatchCard: Component<MatchCardProps> = ({
   const isAwayWinner = status.type === "FINISHED" && status.winner === "away";
 
   return (
-    <div class={styles.MatchCard} onClick={() => setExtendedEventEnabled(true)}>
+    <div
+      class={classNames(styles.MatchCard, {
+        [styles.MatchCardWithShortScore]: !extendedEventEnabled(),
+      })}
+      onClick={triggerLoadingExtendedScore}
+      onTouchEnd={triggerLoadingExtendedScore}
+    >
+      <div class={styles.ExtendedScore}>LOAD FULL SCORE</div>
       <PlayerMatchResult
         className={styles.Home}
         isWinner={isHomeWinner}
