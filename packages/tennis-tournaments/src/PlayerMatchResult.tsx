@@ -1,4 +1,4 @@
-import { For, type Component, Show } from "solid-js";
+import { For, type Component, Show, Accessor } from "solid-js";
 
 import styles from "./PlayerMatchResult.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
@@ -12,7 +12,7 @@ import { classNames } from "./Utils/classNames";
 interface PlayerMatchResultProps {
   className?: string;
   player: TennisPlayer;
-  playerCentricSets: TennisSet[];
+  playerCentricSets: Accessor<TennisSet[]>;
   isWinner: boolean;
 }
 
@@ -52,7 +52,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
           </div>
         </Show>
         <div class={styles.SetScores}>
-          <For each={playerCentricSets}>
+          <For each={playerCentricSets()}>
             {([score, opponentScore]) => (
               <div
                 class={classNames(styles.SetScore, {

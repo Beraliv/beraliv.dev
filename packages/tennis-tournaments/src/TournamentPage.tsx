@@ -10,13 +10,14 @@ import { useParams } from "@solidjs/router";
 import { fetchSeasons } from "./Utils/fetchSeasons";
 import { Select } from "./Select";
 import { isDefined } from "./Utils/isDefined";
+import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
 
   const { tournamentId } = useParams<{ tournamentId: string }>();
 
-  // 2. Given tournament ID, request seasons
+  // 2. Given tournament ID, request seasons (1 request)
 
   const [seasonsApiModel, { mutate: mutateSeasonsApiModel }] = createResource(
     tournamentId,
@@ -71,16 +72,18 @@ const TournamentPage: Component = () => {
     });
   };
 
-  // 4. Given tournament round, request tournament tree (3 requests for each visible round)
-  // Quarterfinal – 1.7s
-  // Round of 128 – 2.3s
+  // 4. Request tournament tree (1 request for the whole tree)
 
   const [tree] = createResource(
-    () => ({
-      rounds: roundsApiModel(),
-      tournament: { seasonId: seasonId(), tournamentId },
-    }),
+    () => ({ seasonId: seasonId(), tournamentId }),
     fetchTournamentTree
+  );
+
+  // 5. Given tournament tree and rounds, return visible tree (0 requests)
+
+  const [visibleTree] = createResource(
+    () => ({ tree: tree(), rounds: roundsApiModel() }),
+    chooseVisibleTree
   );
 
   return (
@@ -122,7 +125,10 @@ const TournamentPage: Component = () => {
         </Show>
       </div>
       <div class={styles.Grid}>
-        <For each={tree.state === "ready" && tree()} fallback={<Loading />}>
+        <For
+          each={visibleTree.state === "ready" && visibleTree()}
+          fallback={<Loading />}
+        >
           {(roundData, index) => (
             <TournamentRound {...roundData} index={index()} />
           )}
