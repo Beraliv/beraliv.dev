@@ -7,10 +7,6 @@ import { createTennisPlayerFromTeam } from "./createTennisPlayerFromTeam";
 const createMatchCardPropsWithOrderFromCupTreeNode = (
   node: CupNodeApiModel
 ): MatchCardPropsWithOrder => {
-  const order = node.order;
-
-  // TODO: extract full score instead of sets only
-
   const score =
     node.status && node.status.includes(":")
       ? node.status.split(":").map((value) => parseInt(value, 10))
@@ -23,10 +19,16 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
     awayPlayer: awayPlayer
       ? createTennisPlayerFromTeam(awayPlayer.team, awayPlayer.teamSeed)
       : TENNIS_PLAYER_PLACEHOLDER,
+    // set-by-games score isn't available for Cup Trees Model API
+    // so saving event id to request it separately using `fetchEvent`
+    eventId:
+      node.eventIds.length > 0
+        ? `${node.eventIds[node.eventIds.length - 1]}`
+        : undefined,
     homePlayer: homePlayer
       ? createTennisPlayerFromTeam(homePlayer.team, homePlayer.teamSeed)
       : TENNIS_PLAYER_PLACEHOLDER,
-    order,
+    order: node.order,
     sets: score ? [score.map((sets) => ({ games: sets })) as TennisSet] : [],
     status: node.eventInProgress
       ? { type: "IN_PROGRESS" }

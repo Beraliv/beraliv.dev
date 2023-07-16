@@ -18,6 +18,7 @@ interface CupRoundApiModel {
 }
 
 type CupNodeApiModel = TreeNode<{
+  eventIds: number[];
   eventInProgress: boolean;
   finished: boolean;
   leftParticipant?: ParticipantApiModel;
