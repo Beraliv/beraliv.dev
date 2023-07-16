@@ -4,6 +4,7 @@ import styles from "./PlayerMatchResult.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { createShortName } from "./Utils/createShortName";
 import WinnerIcon from "./Icons/Winner.svg";
+import TennisBall from "./Icons/TennisBall.svg";
 import { TennisSet } from "./Types/TennisSet";
 import { hasTieBreak } from "./Utils/hasTieBreak";
 import { doesWinSet } from "./Utils/doesWinSet";
@@ -11,13 +12,15 @@ import { classNames } from "./Utils/classNames";
 
 interface PlayerMatchResultProps {
   className?: string;
+  isInProgress?: boolean;
+  isWinner: boolean;
   player: TennisPlayer;
   playerCentricSets: Accessor<TennisSet[]>;
-  isWinner: boolean;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
+  isInProgress = false,
   isWinner,
   player,
   playerCentricSets,
@@ -49,6 +52,11 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         <Show when={isWinner}>
           <div class={styles.Winner}>
             <WinnerIcon />
+          </div>
+        </Show>
+        <Show when={isInProgress}>
+          <div class={styles.TennisBall}>
+            <TennisBall />
           </div>
         </Show>
         <div class={styles.SetScores}>

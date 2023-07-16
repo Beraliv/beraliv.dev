@@ -67,6 +67,7 @@ const MatchCard: Component<MatchCardProps> = ({
 
   const isHomeWinner = status.type === "FINISHED" && status.winner === "home";
   const isAwayWinner = status.type === "FINISHED" && status.winner === "away";
+  const isInProgress = status.type === "IN_PROGRESS";
 
   return (
     <div
@@ -80,6 +81,7 @@ const MatchCard: Component<MatchCardProps> = ({
       <PlayerMatchResult
         className={styles.Home}
         isWinner={isHomeWinner}
+        isInProgress={isInProgress}
         player={homePlayer}
         playerCentricSets={homeCentricSets}
       />
