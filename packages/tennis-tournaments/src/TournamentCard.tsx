@@ -63,4 +63,4 @@ const TournamentCard: Component<TournamentCardProps> = ({
   );
 };
 
-export { TournamentCard };
+export { TournamentCard, type TournamentCardProps };
