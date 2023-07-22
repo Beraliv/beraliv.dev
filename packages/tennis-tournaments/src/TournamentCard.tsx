@@ -36,7 +36,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
         [styles.ClayCourt]: courtType === "clay",
         [styles.GrassCourt]: courtType === "grass",
       })}
-      href={`/tournament/${tournamentId}`}
+      href={`/tournament/${tournamentId}/${courtType}`}
     >
       <div
         style={{ "background-image": `url(${imageUrl})` }}

@@ -17,7 +17,10 @@ const App: Component = () => (
   <Router>
     <Routes>
       <Route path="/" component={TournamentsPage} />
-      <Route path="/tournament/:tournamentId" component={TournamentPage} />
+      <Route
+        path="/tournament/:tournamentId/:courtType"
+        component={TournamentPage}
+      />
     </Routes>
   </Router>
 );

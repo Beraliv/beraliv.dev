@@ -11,11 +11,15 @@ import { fetchSeasons } from "./Utils/fetchSeasons";
 import { Select } from "./Select";
 import { isDefined } from "./Utils/isDefined";
 import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
+import { CourtType } from "./Types/CourtType";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
 
-  const { tournamentId } = useParams<{ tournamentId: string }>();
+  const { tournamentId, courtType } = useParams<{
+    tournamentId: string;
+    courtType: CourtType;
+  }>();
 
   // 2. Given tournament ID, request seasons (1 request)
 
@@ -120,6 +124,7 @@ const TournamentPage: Component = () => {
             <RoundsNavigation
               roundsApiModel={roundsData}
               onRoundChange={handleRoundChange}
+              courtType={courtType}
             />
           )}
         </Show>
