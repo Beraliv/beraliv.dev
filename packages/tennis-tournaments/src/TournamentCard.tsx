@@ -6,7 +6,7 @@ import CourtIcon from "./Icons/Court.svg";
 
 import styles from "./TournamentCard.module.css";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
-import { useNavigate } from "@solidjs/router";
+import { A } from "@solidjs/router";
 import { classNames } from "./Utils/classNames";
 import { formatTournamentPeriod } from "./Utils/formatTournamentPeriod";
 
@@ -25,18 +25,18 @@ const TournamentCard: Component<TournamentCardProps> = ({
   place,
   tournamentName,
 }) => {
-  const navigate = useNavigate();
   const imageUrl = getTournamentCourtImageUrl(courtType);
   const formattedPeriod = formatTournamentPeriod(tournamentPeriod);
 
   return (
-    <div
+    // use link to be able to open the tournament in a new tab and/or window
+    <A
       class={classNames(styles.TournamentCard, {
         [styles.HardCourt]: courtType === "hard",
         [styles.ClayCourt]: courtType === "clay",
         [styles.GrassCourt]: courtType === "grass",
       })}
-      onClick={() => navigate(`/tournament/${tournamentId}`)}
+      href={`/tournament/${tournamentId}`}
     >
       <div
         style={{ "background-image": `url(${imageUrl})` }}
@@ -59,7 +59,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
         <h2>{tournamentName}</h2>
         {place}
       </div>
-    </div>
+    </A>
   );
 };
 
