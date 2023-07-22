@@ -3,6 +3,30 @@
   flex-direction: column;
 }
 
+.TournamentPageHeader {
+  display: flex;
+  align-items: baseline;
+
+  margin-left: 15px;
+}
+
+.TournamentName {
+  margin-left: 10px;
+  font-weight: 900;
+}
+
+.SeasonSelect {
+  margin: 7px 15px;
+}
+
+.RoundsDesktop {
+  /* margin: 15px is already added in RoundsNavigation so add nothing here */
+}
+
+.RoundsMobile {
+  margin: 7px 15px;
+}
+
 .Grid {
   display: flex;
   margin: 15px;

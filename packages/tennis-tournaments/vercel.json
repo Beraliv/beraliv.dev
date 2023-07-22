@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/tournament/:tournamentId", "destination": "/" }]
+  "rewrites": [
+    {
+      "source": "/tournament/:tournamentName/:tournamentId/:courtType",
+      "destination": "/"
+    }
+  ]
 }

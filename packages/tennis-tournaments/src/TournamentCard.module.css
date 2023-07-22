@@ -24,7 +24,10 @@
   display: inline-flex;
   flex-direction: column;
 
-  cursor: pointer;
+  /* <a> element underlines text by default */
+  text-decoration: none;
+  /* <a> element has different colours depending on whether it's clicked or visited by default */
+  color: black;
 }
 
 .HardCourt .CourtType {

@@ -6,16 +6,27 @@ import { fetchRounds } from "./Utils/fetchRounds";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Loading } from "./Loading";
 import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
-import { useParams } from "@solidjs/router";
+import { A, useParams } from "@solidjs/router";
 import { fetchSeasons } from "./Utils/fetchSeasons";
 import { Select } from "./Select";
 import { isDefined } from "./Utils/isDefined";
 import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
+import { CourtType } from "./Types/CourtType";
+
+import BackIcon from "./Icons/BackIcon.svg";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
 
-  const { tournamentId } = useParams<{ tournamentId: string }>();
+  const routeParams = useParams<{
+    courtType: CourtType;
+    tournamentId: string;
+    tournamentName: string;
+  }>();
+
+  const { courtType, tournamentId } = routeParams;
+
+  const tournamentName = decodeURIComponent(routeParams.tournamentName);
 
   // 2. Given tournament ID, request seasons (1 request)
 
@@ -88,42 +99,51 @@ const TournamentPage: Component = () => {
 
   return (
     <div class={styles.TournamentPage}>
-      <div>
-        <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
-          {(seasonsData) => (
+      <div class={styles.TournamentPageHeader}>
+        <A href="/">
+          <BackIcon />
+        </A>
+        <h1 class={styles.TournamentName}>{tournamentName}</h1>
+      </div>
+
+      <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
+        {(seasonsData) => (
+          <div class={styles.SeasonSelect}>
             <Select
               id="season"
               current={() => seasonsData().currentSeason?.year}
               values={() => seasonsData().seasons.map((season) => season.year)}
               onChange={handleSeasonChange}
             />
-          )}
-        </Show>
-      </div>
-      <div class={styles.RoundsMobile}>
-        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
-          {(roundsData) => (
-            <Select
-              id="round"
-              current={() =>
-                roundsData().currentRound?.name ?? roundsData().rounds[0]?.name
-              }
-              values={() => roundsData().rounds.map((round) => round.name)}
-              onChange={handleRoundChange}
-            />
-          )}
-        </Show>
-      </div>
-      <div class={styles.RoundsDesktop}>
-        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
-          {(roundsData) => (
-            <RoundsNavigation
-              roundsApiModel={roundsData}
-              onRoundChange={handleRoundChange}
-            />
-          )}
-        </Show>
-      </div>
+          </div>
+        )}
+      </Show>
+
+      <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+        {(roundsData) => (
+          <>
+            <div class={styles.RoundsMobile}>
+              <Select
+                id="round"
+                current={() =>
+                  roundsData().currentRound?.name ??
+                  roundsData().rounds[0]?.name
+                }
+                values={() => roundsData().rounds.map((round) => round.name)}
+                onChange={handleRoundChange}
+              />
+            </div>
+            <div class={styles.RoundsDesktop}>
+              <RoundsNavigation
+                roundsApiModel={roundsData}
+                onRoundChange={handleRoundChange}
+                courtType={courtType}
+              />
+            </div>
+          </>
+        )}
+      </Show>
+
       <div class={styles.Grid}>
         <For
           each={visibleTree.state === "ready" && visibleTree()}

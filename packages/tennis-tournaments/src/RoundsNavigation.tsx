@@ -13,10 +13,12 @@ import { classNames } from "./Utils/classNames";
 import { RoundApiModel } from "./Types/RoundApiModel";
 import { roundEquals } from "./Utils/roundEquals";
 import { isDefined } from "./Utils/isDefined";
+import { CourtType } from "./Types/CourtType";
 
 interface RoundsNavigationProps {
   roundsApiModel: Accessor<RoundsApiModel>;
   onRoundChange: (name: string) => void;
+  courtType: CourtType;
 }
 
 const ORDERED_ICONS: Component[] = [
@@ -55,6 +57,7 @@ const alignRoundsAndIcons = (rounds: RoundApiModel[]) => {
 const RoundsNavigation: Component<RoundsNavigationProps> = ({
   roundsApiModel,
   onRoundChange,
+  courtType,
 }) => {
   const icons = alignRoundsAndIcons(roundsApiModel().rounds);
 
@@ -71,6 +74,9 @@ const RoundsNavigation: Component<RoundsNavigationProps> = ({
                   isDefined(currentRound) && roundEquals(currentRound, round)
                 );
               })(),
+              [styles.clay]: courtType === "clay",
+              [styles.grass]: courtType === "grass",
+              [styles.hard]: courtType === "hard",
             })}
             onClick={() => onRoundChange(round.name)}
           >
