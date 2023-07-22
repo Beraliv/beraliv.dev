@@ -1,3 +1,8 @@
 .TournamentsPage {
   margin: 10px;
 }
+
+.TournamentsPage h1 {
+  margin-left: 5px;
+  font-weight: 900;
+}

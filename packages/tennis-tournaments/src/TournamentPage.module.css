@@ -4,7 +4,9 @@
 }
 
 .TournamentName {
-  margin: 7px 15px;
+  margin-left: 15px;
+
+  font-weight: 900;
 }
 
 .SeasonSelect {

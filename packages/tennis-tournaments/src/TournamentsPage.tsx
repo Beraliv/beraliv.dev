@@ -52,6 +52,7 @@ const CARDS_INFORMATION: TournamentCardProps[] = [
 const TournamentsPage: Component = () => {
   return (
     <div class={styles.TournamentsPage}>
+      <h1>Tournaments</h1>
       <For each={CARDS_INFORMATION}>
         {(cardProps) => <TournamentCard {...cardProps} />}
       </For>
