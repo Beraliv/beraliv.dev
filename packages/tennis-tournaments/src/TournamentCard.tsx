@@ -27,6 +27,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
 }) => {
   const imageUrl = getTournamentCourtImageUrl(courtType);
   const formattedPeriod = formatTournamentPeriod(tournamentPeriod);
+  const tournamentPath = `/tournament/${tournamentName}/${tournamentId}/${courtType}`;
 
   return (
     // use link to be able to open the tournament in a new tab and/or window
@@ -36,7 +37,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
         [styles.ClayCourt]: courtType === "clay",
         [styles.GrassCourt]: courtType === "grass",
       })}
-      href={`/tournament/${tournamentId}/${courtType}`}
+      href={tournamentPath}
     >
       <div
         style={{ "background-image": `url(${imageUrl})` }}

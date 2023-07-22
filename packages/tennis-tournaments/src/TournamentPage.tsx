@@ -16,10 +16,15 @@ import { CourtType } from "./Types/CourtType";
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
 
-  const { tournamentId, courtType } = useParams<{
-    tournamentId: string;
+  const routeParams = useParams<{
     courtType: CourtType;
+    tournamentId: string;
+    tournamentName: string;
   }>();
+
+  const { courtType, tournamentId } = routeParams;
+
+  const tournamentName = decodeURIComponent(routeParams.tournamentName);
 
   // 2. Given tournament ID, request seasons (1 request)
 
@@ -92,7 +97,8 @@ const TournamentPage: Component = () => {
 
   return (
     <div class={styles.TournamentPage}>
-      <div>
+      <h1 class={styles.TournamentName}>{tournamentName}</h1>
+      <div class={styles.SeasonSelect}>
         <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
           {(seasonsData) => (
             <Select
