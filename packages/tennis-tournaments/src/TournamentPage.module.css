@@ -3,9 +3,15 @@
   flex-direction: column;
 }
 
-.TournamentName {
-  margin-left: 15px;
+.TournamentPageHeader {
+  display: flex;
+  align-items: baseline;
 
+  margin-left: 15px;
+}
+
+.TournamentName {
+  margin-left: 10px;
   font-weight: 900;
 }
 

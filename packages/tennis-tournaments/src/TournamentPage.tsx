@@ -6,12 +6,14 @@ import { fetchRounds } from "./Utils/fetchRounds";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Loading } from "./Loading";
 import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
-import { useParams } from "@solidjs/router";
+import { A, useParams } from "@solidjs/router";
 import { fetchSeasons } from "./Utils/fetchSeasons";
 import { Select } from "./Select";
 import { isDefined } from "./Utils/isDefined";
 import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
 import { CourtType } from "./Types/CourtType";
+
+import BackIcon from "./Icons/BackIcon.svg";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
@@ -97,7 +99,12 @@ const TournamentPage: Component = () => {
 
   return (
     <div class={styles.TournamentPage}>
-      <h1 class={styles.TournamentName}>{tournamentName}</h1>
+      <div class={styles.TournamentPageHeader}>
+        <A href="/">
+          <BackIcon />
+        </A>
+        <h1 class={styles.TournamentName}>{tournamentName}</h1>
+      </div>
       <div class={styles.SeasonSelect}>
         <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
           {(seasonsData) => (
