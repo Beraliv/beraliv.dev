@@ -105,43 +105,45 @@ const TournamentPage: Component = () => {
         </A>
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
-      <div class={styles.SeasonSelect}>
-        <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
-          {(seasonsData) => (
+
+      <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
+        {(seasonsData) => (
+          <div class={styles.SeasonSelect}>
             <Select
               id="season"
               current={() => seasonsData().currentSeason?.year}
               values={() => seasonsData().seasons.map((season) => season.year)}
               onChange={handleSeasonChange}
             />
-          )}
-        </Show>
-      </div>
-      <div class={styles.RoundsMobile}>
-        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
-          {(roundsData) => (
-            <Select
-              id="round"
-              current={() =>
-                roundsData().currentRound?.name ?? roundsData().rounds[0]?.name
-              }
-              values={() => roundsData().rounds.map((round) => round.name)}
-              onChange={handleRoundChange}
-            />
-          )}
-        </Show>
-      </div>
-      <div class={styles.RoundsDesktop}>
-        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
-          {(roundsData) => (
-            <RoundsNavigation
-              roundsApiModel={roundsData}
-              onRoundChange={handleRoundChange}
-              courtType={courtType}
-            />
-          )}
-        </Show>
-      </div>
+          </div>
+        )}
+      </Show>
+
+      <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+        {(roundsData) => (
+          <>
+            <div class={styles.RoundsMobile}>
+              <Select
+                id="round"
+                current={() =>
+                  roundsData().currentRound?.name ??
+                  roundsData().rounds[0]?.name
+                }
+                values={() => roundsData().rounds.map((round) => round.name)}
+                onChange={handleRoundChange}
+              />
+            </div>
+            <div class={styles.RoundsDesktop}>
+              <RoundsNavigation
+                roundsApiModel={roundsData}
+                onRoundChange={handleRoundChange}
+                courtType={courtType}
+              />
+            </div>
+          </>
+        )}
+      </Show>
+
       <div class={styles.Grid}>
         <For
           each={visibleTree.state === "ready" && visibleTree()}
