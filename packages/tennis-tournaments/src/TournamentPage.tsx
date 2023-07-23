@@ -150,7 +150,11 @@ const TournamentPage: Component = () => {
           fallback={<Loading />}
         >
           {(roundData, index) => (
-            <TournamentRound {...roundData} index={index()} />
+            <TournamentRound
+              {...roundData}
+              courtType={courtType}
+              index={index()}
+            />
           )}
         </For>
       </div>

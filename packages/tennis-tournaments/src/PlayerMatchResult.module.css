@@ -59,6 +59,18 @@
   font-size: 75%;
 }
 
+.grass .Winner svg path {
+  fill: #639080;
+}
+
+.clay .Winner svg path {
+  fill: #993300;
+}
+
+.hard .Winner svg path {
+  fill: #336699;
+}
+
 .Winner,
 .TennisBall {
   display: flex;
