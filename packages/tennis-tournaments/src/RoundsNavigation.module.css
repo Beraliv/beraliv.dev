@@ -43,7 +43,7 @@
 
 .SelectedRound.grass svg path,
 .Round.grass:hover svg path {
-  fill: #639080;
+  fill: #405e54;
 }
 
 .SelectedRound.clay svg path,
@@ -53,7 +53,7 @@
 
 .SelectedRound.hard svg path,
 .Round.hard:hover svg path {
-  fill: #336699;
+  fill: #2d5986;
 }
 
 .RoundOf64 svg {

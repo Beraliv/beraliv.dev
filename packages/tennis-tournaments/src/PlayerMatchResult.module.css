@@ -2,6 +2,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  /* use padding-bottom instead of margin to have indent between border and PlayerMatchResult */
+  padding: 9px 12px 11px 12px;
+}
+
+.Selected {
+  color: white;
+}
+
+.grass.Selected {
+  background-color: #405e54;
+}
+
+.clay.Selected {
+  background-color: #993300;
+}
+
+.hard.Selected {
+  background-color: #2d5986;
 }
 
 .Player {
@@ -60,7 +79,7 @@
 }
 
 .grass .Winner svg path {
-  fill: #639080;
+  fill: #405e54;
 }
 
 .clay .Winner svg path {
@@ -68,7 +87,11 @@
 }
 
 .hard .Winner svg path {
-  fill: #336699;
+  fill: #2d5986;
+}
+
+.Selected .Winner svg path {
+  fill: white;
 }
 
 .Winner,
