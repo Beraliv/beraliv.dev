@@ -34,7 +34,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
 }) => {
   const shortName = createShortName(player);
   const isCurrentPlayerSelected = () => selectedPlayerId() === player.id;
-  const handlePlayerIdUpdate = () => {
+  const togglePlayerId = () => {
     if (isCurrentPlayerSelected()) {
       onSelect(undefined);
     } else {
@@ -51,8 +51,8 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         [styles.hard]: courtType === "hard",
         [styles.Selected]: isCurrentPlayerSelected(),
       })}
-      onClick={handlePlayerIdUpdate}
-      onTouchStart={handlePlayerIdUpdate}
+      onClick={togglePlayerId}
+      onTouchEnd={togglePlayerId}
     >
       <div class={styles.Player}>
         <div>
