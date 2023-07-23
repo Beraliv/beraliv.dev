@@ -1,4 +1,11 @@
-import { type Component, createResource, Show, For } from "solid-js";
+import {
+  type Component,
+  createResource,
+  Show,
+  For,
+  createSignal,
+  createEffect,
+} from "solid-js";
 
 import styles from "./TournamentPage.module.css";
 import { TournamentRound } from "./TournamentRound";
@@ -14,6 +21,7 @@ import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
 import { CourtType } from "./Types/CourtType";
 
 import BackIcon from "./Icons/BackIcon.svg";
+import { TennisPlayer } from "./Types/TennisPlayer";
 
 const TournamentPage: Component = () => {
   // 1. Choose tournament (no requests on this page)
@@ -97,6 +105,10 @@ const TournamentPage: Component = () => {
     chooseVisibleTree
   );
 
+  // Store signal here to update players in all rounds
+
+  const selectedTennisPlayerIdSignal = createSignal<TennisPlayer["id"]>();
+
   return (
     <div class={styles.TournamentPage}>
       <div class={styles.TournamentPageHeader}>
@@ -152,6 +164,7 @@ const TournamentPage: Component = () => {
           {(roundData, index) => (
             <TournamentRound
               {...roundData}
+              selectedTennisPlayerIdSignal={selectedTennisPlayerIdSignal}
               courtType={courtType}
               index={index()}
             />

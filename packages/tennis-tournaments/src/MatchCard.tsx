@@ -3,6 +3,7 @@ import {
   type Component,
   createSignal,
   createEffect,
+  Signal,
 } from "solid-js";
 
 import styles from "./MatchCard.module.css";
@@ -20,6 +21,7 @@ interface MatchCardProps {
   courtType: CourtType;
   eventId: string | undefined;
   homePlayer: TennisPlayer;
+  selectedTennisPlayerIdSignal: Signal<TennisPlayer["id"] | undefined>;
   sets: TennisSet[];
   status: MatchStatus;
 }
@@ -29,6 +31,7 @@ const MatchCard: Component<MatchCardProps> = ({
   courtType,
   eventId,
   homePlayer,
+  selectedTennisPlayerIdSignal,
   sets,
   status,
 }) => {
@@ -72,6 +75,9 @@ const MatchCard: Component<MatchCardProps> = ({
   const isAwayWinner = status.type === "FINISHED" && status.winner === "away";
   const isInProgress = status.type === "IN_PROGRESS";
 
+  const [selectedTennisPlayerId, selectTennisPlayerId] =
+    selectedTennisPlayerIdSignal;
+
   return (
     <div
       class={classNames(styles.MatchCard, {
@@ -84,15 +90,18 @@ const MatchCard: Component<MatchCardProps> = ({
       <PlayerMatchResult
         className={styles.Home}
         courtType={courtType}
-        isWinner={isHomeWinner}
         isInProgress={isInProgress}
+        isSelected={() => selectedTennisPlayerId() === homePlayer.id}
+        isWinner={isHomeWinner}
+        onSelect={selectTennisPlayerId}
         player={homePlayer}
         playerCentricSets={homeCentricSets}
       />
       <PlayerMatchResult
-        className={styles.Away}
         courtType={courtType}
+        isSelected={() => selectedTennisPlayerId() === awayPlayer.id}
         isWinner={isAwayWinner}
+        onSelect={selectTennisPlayerId}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}
       />

@@ -1,4 +1,4 @@
-import { For, type Component, Show, Accessor } from "solid-js";
+import { For, type Component, Show, Accessor, Signal, Setter } from "solid-js";
 
 import styles from "./PlayerMatchResult.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
@@ -15,7 +15,9 @@ interface PlayerMatchResultProps {
   className?: string;
   courtType: CourtType;
   isInProgress?: boolean;
+  isSelected: Accessor<boolean>;
   isWinner: boolean;
+  onSelect: Setter<TennisPlayer["id"]>;
   player: TennisPlayer;
   playerCentricSets: Accessor<TennisSet[]>;
 }
@@ -24,11 +26,15 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
   courtType,
   isInProgress = false,
+  isSelected,
   isWinner,
+  onSelect,
   player,
   playerCentricSets,
 }) => {
   const shortName = createShortName(player);
+
+  const selectPlayerId = () => onSelect(player.id);
 
   return (
     <div
@@ -37,7 +43,10 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         [styles.grass]: courtType === "grass",
         [styles.clay]: courtType === "clay",
         [styles.hard]: courtType === "hard",
+        [styles.Selected]: isSelected(),
       })}
+      onClick={selectPlayerId}
+      onTouchStart={selectPlayerId}
     >
       <div class={styles.Player}>
         <div>
