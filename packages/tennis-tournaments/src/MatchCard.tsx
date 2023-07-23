@@ -3,6 +3,9 @@ import {
   type Component,
   createSignal,
   createEffect,
+  Signal,
+  onMount,
+  onCleanup,
 } from "solid-js";
 
 import styles from "./MatchCard.module.css";
@@ -14,12 +17,14 @@ import { fetchEvent } from "./Utils/fetchEvent";
 import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
 import { classNames } from "./Utils/classNames";
 import { CourtType } from "./Types/CourtType";
+import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
   courtType: CourtType;
   eventId: string | undefined;
   homePlayer: TennisPlayer;
+  selectedTennisPlayerIdSignal: Signal<TennisPlayer["id"] | undefined>;
   sets: TennisSet[];
   status: MatchStatus;
 }
@@ -29,6 +34,7 @@ const MatchCard: Component<MatchCardProps> = ({
   courtType,
   eventId,
   homePlayer,
+  selectedTennisPlayerIdSignal,
   sets,
   status,
 }) => {
@@ -36,6 +42,27 @@ const MatchCard: Component<MatchCardProps> = ({
   const triggerLoadingExtendedScore = () => {
     setExtendedEventEnabled(true);
   };
+
+  const { handleTouchStartEvent, handleTouchEndEvent } =
+    createOneTouchTapController(triggerLoadingExtendedScore);
+
+  let matchCardRef: HTMLDivElement;
+
+  onMount(() => {
+    matchCardRef.addEventListener("click", triggerLoadingExtendedScore);
+    matchCardRef.addEventListener("touchstart", handleTouchStartEvent, false);
+    matchCardRef.addEventListener("touchend", handleTouchEndEvent, false);
+  });
+
+  onCleanup(() => {
+    matchCardRef.removeEventListener("click", triggerLoadingExtendedScore);
+    matchCardRef.removeEventListener(
+      "touchstart",
+      handleTouchStartEvent,
+      false
+    );
+    matchCardRef.removeEventListener("touchend", handleTouchEndEvent, false);
+  });
 
   const [eventApiModel] = createResource(
     () => ({ eventId, enabled: extendedEventEnabled() }),
@@ -72,29 +99,34 @@ const MatchCard: Component<MatchCardProps> = ({
   const isAwayWinner = status.type === "FINISHED" && status.winner === "away";
   const isInProgress = status.type === "IN_PROGRESS";
 
+  const [selectedTennisPlayerId, selectTennisPlayerId] =
+    selectedTennisPlayerIdSignal;
+
   return (
     <div
       class={classNames(styles.MatchCard, {
         [styles.MatchCardWithShortScore]: !extendedEventEnabled(),
       })}
-      onClick={triggerLoadingExtendedScore}
-      onTouchEnd={triggerLoadingExtendedScore}
+      ref={matchCardRef!}
     >
       <div class={styles.ExtendedScore}>LOAD FULL SCORE</div>
       <PlayerMatchResult
         className={styles.Home}
         courtType={courtType}
-        isWinner={isHomeWinner}
         isInProgress={isInProgress}
+        isWinner={isHomeWinner}
+        onSelect={selectTennisPlayerId}
         player={homePlayer}
         playerCentricSets={homeCentricSets}
+        selectedPlayerId={selectedTennisPlayerId}
       />
       <PlayerMatchResult
-        className={styles.Away}
         courtType={courtType}
         isWinner={isAwayWinner}
+        onSelect={selectTennisPlayerId}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}
+        selectedPlayerId={selectedTennisPlayerId}
       />
     </div>
   );

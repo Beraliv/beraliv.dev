@@ -2,16 +2,14 @@
   position: relative;
   height: inherit;
   width: 305px;
-  padding: 2px 12px;
 
-  box-shadow: 0 0 30px 0 #e1e1e1;
   border: 1px solid #f4f4f4;
-  border-radius: 3px;
   background-color: #f4f4f4;
+
+  cursor: pointer;
 }
 
 .MatchCardWithShortScore:hover {
-  cursor: pointer;
   opacity: 0.6;
 }
 
@@ -34,11 +32,4 @@
 
 .Home {
   border-bottom: 1px solid #e8e8e8;
-}
-
-.Home,
-.Away {
-  margin-top: 8px;
-  /* use padding instead of margin to have indent between border and PlayerMatchResult */
-  padding-bottom: 10px;
 }
