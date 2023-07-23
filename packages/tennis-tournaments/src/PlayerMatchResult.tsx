@@ -15,26 +15,32 @@ interface PlayerMatchResultProps {
   className?: string;
   courtType: CourtType;
   isInProgress?: boolean;
-  isSelected: Accessor<boolean>;
   isWinner: boolean;
-  onSelect: Setter<TennisPlayer["id"]>;
+  onSelect: Setter<TennisPlayer["id"] | undefined>;
   player: TennisPlayer;
   playerCentricSets: Accessor<TennisSet[]>;
+  selectedPlayerId: Accessor<TennisPlayer["id"] | undefined>;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
   courtType,
   isInProgress = false,
-  isSelected,
   isWinner,
   onSelect,
   player,
   playerCentricSets,
+  selectedPlayerId,
 }) => {
   const shortName = createShortName(player);
-
-  const selectPlayerId = () => onSelect(player.id);
+  const isCurrentPlayerSelected = () => selectedPlayerId() === player.id;
+  const handlePlayerIdUpdate = () => {
+    if (isCurrentPlayerSelected()) {
+      onSelect(undefined);
+    } else {
+      onSelect(player.id);
+    }
+  };
 
   return (
     <div
@@ -43,10 +49,10 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         [styles.grass]: courtType === "grass",
         [styles.clay]: courtType === "clay",
         [styles.hard]: courtType === "hard",
-        [styles.Selected]: isSelected(),
+        [styles.Selected]: isCurrentPlayerSelected(),
       })}
-      onClick={selectPlayerId}
-      onTouchStart={selectPlayerId}
+      onClick={handlePlayerIdUpdate}
+      onTouchStart={handlePlayerIdUpdate}
     >
       <div class={styles.Player}>
         <div>

@@ -91,19 +91,19 @@ const MatchCard: Component<MatchCardProps> = ({
         className={styles.Home}
         courtType={courtType}
         isInProgress={isInProgress}
-        isSelected={() => selectedTennisPlayerId() === homePlayer.id}
         isWinner={isHomeWinner}
         onSelect={selectTennisPlayerId}
         player={homePlayer}
         playerCentricSets={homeCentricSets}
+        selectedPlayerId={selectedTennisPlayerId}
       />
       <PlayerMatchResult
         courtType={courtType}
-        isSelected={() => selectedTennisPlayerId() === awayPlayer.id}
         isWinner={isAwayWinner}
         onSelect={selectTennisPlayerId}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}
+        selectedPlayerId={selectedTennisPlayerId}
       />
     </div>
   );
