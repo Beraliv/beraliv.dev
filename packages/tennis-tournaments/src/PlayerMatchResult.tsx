@@ -1,4 +1,13 @@
-import { For, type Component, Show, Accessor, Signal, Setter } from "solid-js";
+import {
+  For,
+  type Component,
+  Show,
+  Accessor,
+  Setter,
+  onMount,
+  onCleanup,
+  createSignal,
+} from "solid-js";
 
 import styles from "./PlayerMatchResult.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
@@ -10,6 +19,7 @@ import { hasTieBreak } from "./Utils/hasTieBreak";
 import { doesWinSet } from "./Utils/doesWinSet";
 import { classNames } from "./Utils/classNames";
 import { CourtType } from "./Types/CourtType";
+import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
 
 interface PlayerMatchResultProps {
   className?: string;
@@ -33,6 +43,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   selectedPlayerId,
 }) => {
   const shortName = createShortName(player);
+
   const isCurrentPlayerSelected = () => selectedPlayerId() === player.id;
   const togglePlayerId = () => {
     if (isCurrentPlayerSelected()) {
@@ -41,6 +52,39 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
       onSelect(player.id);
     }
   };
+
+  let playerMatchResultRef: HTMLDivElement;
+
+  const { handleTouchStartEvent, handleTouchEndEvent } =
+    createOneTouchTapController(togglePlayerId);
+
+  onMount(() => {
+    playerMatchResultRef.addEventListener("click", togglePlayerId);
+    playerMatchResultRef.addEventListener(
+      "touchstart",
+      handleTouchStartEvent,
+      false
+    );
+    playerMatchResultRef.addEventListener(
+      "touchend",
+      handleTouchEndEvent,
+      false
+    );
+  });
+
+  onCleanup(() => {
+    playerMatchResultRef.removeEventListener("click", togglePlayerId);
+    playerMatchResultRef.removeEventListener(
+      "touchstart",
+      handleTouchStartEvent,
+      false
+    );
+    playerMatchResultRef.removeEventListener(
+      "touchend",
+      handleTouchEndEvent,
+      false
+    );
+  });
 
   return (
     <div
@@ -51,8 +95,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
         [styles.hard]: courtType === "hard",
         [styles.Selected]: isCurrentPlayerSelected(),
       })}
-      onClick={togglePlayerId}
-      onTouchEnd={togglePlayerId}
+      ref={playerMatchResultRef!}
     >
       <div class={styles.Player}>
         <div>
