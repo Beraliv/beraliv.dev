@@ -13,9 +13,11 @@ import { MatchStatus } from "./Types/MatchStatus";
 import { fetchEvent } from "./Utils/fetchEvent";
 import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
 import { classNames } from "./Utils/classNames";
+import { CourtType } from "./Types/CourtType";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
+  courtType: CourtType;
   eventId: string | undefined;
   homePlayer: TennisPlayer;
   sets: TennisSet[];
@@ -24,6 +26,7 @@ interface MatchCardProps {
 
 const MatchCard: Component<MatchCardProps> = ({
   awayPlayer,
+  courtType,
   eventId,
   homePlayer,
   sets,
@@ -80,6 +83,7 @@ const MatchCard: Component<MatchCardProps> = ({
       <div class={styles.ExtendedScore}>LOAD FULL SCORE</div>
       <PlayerMatchResult
         className={styles.Home}
+        courtType={courtType}
         isWinner={isHomeWinner}
         isInProgress={isInProgress}
         player={homePlayer}
@@ -87,6 +91,7 @@ const MatchCard: Component<MatchCardProps> = ({
       />
       <PlayerMatchResult
         className={styles.Away}
+        courtType={courtType}
         isWinner={isAwayWinner}
         player={awayPlayer}
         playerCentricSets={awayCentricSets}

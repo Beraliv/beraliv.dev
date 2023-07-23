@@ -4,15 +4,18 @@ import styles from "./TournamentRound.module.css";
 import { MatchCard } from "./MatchCard";
 import { classNames } from "./Utils/classNames";
 import { type SimpleTournamentRound } from "./Utils/fetchTournamentTree";
+import { CourtType } from "./Types/CourtType";
 
 interface TournamentRoundProps extends SimpleTournamentRound {
+  courtType: CourtType;
   index: number;
 }
 
 const TournamentRound: Component<TournamentRoundProps> = ({
+  courtType,
+  index,
   matches,
   order,
-  index,
   title,
 }) => {
   return (
@@ -30,7 +33,7 @@ const TournamentRound: Component<TournamentRoundProps> = ({
       <For each={matches}>
         {(match) => (
           <div class={styles.CardWrapper}>
-            <MatchCard {...match} />
+            <MatchCard {...match} courtType={courtType} />
           </div>
         )}
       </For>

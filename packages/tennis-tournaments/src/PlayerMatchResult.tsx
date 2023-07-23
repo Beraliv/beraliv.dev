@@ -9,9 +9,11 @@ import { TennisSet } from "./Types/TennisSet";
 import { hasTieBreak } from "./Utils/hasTieBreak";
 import { doesWinSet } from "./Utils/doesWinSet";
 import { classNames } from "./Utils/classNames";
+import { CourtType } from "./Types/CourtType";
 
 interface PlayerMatchResultProps {
   className?: string;
+  courtType: CourtType;
   isInProgress?: boolean;
   isWinner: boolean;
   player: TennisPlayer;
@@ -20,6 +22,7 @@ interface PlayerMatchResultProps {
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
+  courtType,
   isInProgress = false,
   isWinner,
   player,
@@ -31,6 +34,9 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
     <div
       class={classNames(styles.PlayerMatchResult, {
         [className || ""]: Boolean(className),
+        [styles.grass]: courtType === "grass",
+        [styles.clay]: courtType === "clay",
+        [styles.hard]: courtType === "hard",
       })}
     >
       <div class={styles.Player}>
