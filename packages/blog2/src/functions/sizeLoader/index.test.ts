@@ -19,4 +19,14 @@ describe(sizeLoader.name, () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it("does NOT replace substring if image name contains v", () => {
+    const actual = sizeLoader({
+      src: "https://res.cloudinary.com/beraliv/image/upload/v1690282001/blog_beraliv_dev/tennis-tournaments-poc/project-match-card-view-v1.png",
+    });
+    const expected =
+      "https://res.cloudinary.com/beraliv/image/upload/fl_getinfo/blog_beraliv_dev/tennis-tournaments-poc/project-match-card-view-v1.png";
+
+    expect(actual).toEqual(expected);
+  });
 });

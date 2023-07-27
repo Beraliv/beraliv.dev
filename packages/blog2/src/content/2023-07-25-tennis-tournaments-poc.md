@@ -99,22 +99,25 @@ Architecture contains only a frontend part which uses:
 
 ![Match card v1](/tennis-tournaments-poc/project-match-card-view-v1.png)
 
-1. Then I moved player images to Cloudinary CDN – https://github.com/Beraliv/beraliv.dev/pull/552 but it contained few tennis players
-1. Because match cards had duplicated logic, I’ve refactored it and split each player information into player match result – https://github.com/Beraliv/beraliv.dev/pull/555. It still looked exactly the same but looked better in the codebase.
-1. The next important step was too display match cards in a tree view – https://github.com/Beraliv/beraliv.dev/pull/557
+2. Then I moved player images to Cloudinary CDN – https://github.com/Beraliv/beraliv.dev/pull/552 but it contained few tennis players
+
+3. Because match cards had duplicated logic, I’ve refactored it and split each player information into player match result – https://github.com/Beraliv/beraliv.dev/pull/555. It still looked exactly the same but looked better in the codebase.
+
+4. The next important step was too display match cards in a tree view – https://github.com/Beraliv/beraliv.dev/pull/557
 
 ![Draws v1](/tennis-tournaments-poc/project-draws-v1.png)
 
-1. Previously all the data was mocked so I finally set up RapidAPI for tennis and requested real-time data – https://github.com/Beraliv/beraliv.dev/pull/558. I needed to do 5 requests on a single page (seasons for a tournament, rounds for a season, 3 requests for visible rounds), therefore I’ve added rate limit for a single user (though it’s not enough). I’ve also fixed rounds visibility for mobile devices and tablets, excluded qualification rounds (because the structure was different for them), fixed compound names (e.g. de Minaur), etc
+5. Previously all the data was mocked so I finally set up RapidAPI for tennis and requested real-time data – https://github.com/Beraliv/beraliv.dev/pull/558. I needed to do 5 requests on a single page (seasons for a tournament, rounds for a season, 3 requests for visible rounds), therefore I’ve added rate limit for a single user (though it’s not enough). I’ve also fixed rounds visibility for mobile devices and tablets, excluded qualification rounds (because the structure was different for them), fixed compound names (e.g. de Minaur), etc
 
 ![Draws v2, added list of rounds](/tennis-tournaments-poc/project-draws-v2.png)
 
-1. I also forgot to configure Vercel routes so deployed pages didn’t work for some time – https://github.com/Beraliv/beraliv.dev/pull/563
-1. Initially I was testing on ATP tournaments, so I needed to extract images for men tennis players. I used ATP top 1000 players, analysed the page where I could extract images. I automatically loaded them to Cloudinary CDN using this Node.JS script with `cheerio` – https://gist.github.com/Beraliv/1e4ed49302866a4c578c7ac9dc09a018. It took several minutes to have 1000 tennis player photos. Given first and last names, I’ve loaded them – https://github.com/Beraliv/beraliv.dev/pull/564
+6. I also forgot to configure Vercel routes so deployed pages didn’t work for some time – https://github.com/Beraliv/beraliv.dev/pull/563
+
+7. Initially I was testing on ATP tournaments, so I needed to extract images for men tennis players. I used ATP top 1000 players, analysed the page where I could extract images. I automatically loaded them to Cloudinary CDN using this Node.JS script with `cheerio` – https://gist.github.com/Beraliv/1e4ed49302866a4c578c7ac9dc09a018. It took several minutes to have 1000 tennis player photos. Given first and last names, I’ve loaded them – https://github.com/Beraliv/beraliv.dev/pull/564
 
 ![Draws v3, with tennis player photos](/tennis-tournaments-poc/project-draws-v3.png)
 
-1. At this point I only have URLs with tournament ID but it’s not possible to guess which URL to use to load, e.g. Wimbledon. Previously I’ve checked WTA tournaments and was impressed with how the tournament cards look
+8. At this point I only have URLs with tournament ID but it’s not possible to guess which URL to use to load, e.g. Wimbledon. Previously I’ve checked WTA tournaments and was impressed with how the tournament cards look
 
 ![WTA, tournament cards](/tennis-tournaments-poc/wta-tournaments.png)
 
@@ -124,12 +127,12 @@ I used the similar layout, found shots of the balls with the shadow on the court
 
 This also allowed to change colours depending on court types, e.g. selecting rounds or winner colour – https://github.com/Beraliv/beraliv.dev/pull/572
 
-1. When watching Wimbledon, I’ve also updated the statuses for live and finished matches so visible icons are correct – https://github.com/Beraliv/beraliv.dev/pull/568 and https://github.com/Beraliv/beraliv.dev/pull/570
+9. When watching Wimbledon, I’ve also updated the statuses for live and finished matches so visible icons are correct – https://github.com/Beraliv/beraliv.dev/pull/568 and https://github.com/Beraliv/beraliv.dev/pull/570
 
 ![Match card v2, when live](/tennis-tournaments-poc/project-match-card-live-v1.png)
 ![Match card v2, when finished](/tennis-tournaments-poc/project-match-card-finished-v1.png)
 
-1. The next challenge was the order of matches within rounds – https://github.com/Beraliv/beraliv.dev/pull/569, because the winner of previous matches should be displayed to the right in the next round. Compare 2 draws (before and after):
+10. The next challenge was the order of matches within rounds – https://github.com/Beraliv/beraliv.dev/pull/569, because the winner of previous matches should be displayed to the right in the next round. Compare 2 draws (before and after):
 
 ![Draws v3](/tennis-tournaments-poc/project-draws-before-v4.png)
 ![Draws v4](/tennis-tournaments-poc/project-draws-after-v4.png)
@@ -140,10 +143,10 @@ It also reduced the number of requests from 5 (seasons for a tournament, rounds 
 
 ![Match card v3, when clicking](/tennis-tournaments-poc/project-match-card-on-click-v1.png)
 
-1. As a user I need to switch between pages – https://github.com/Beraliv/beraliv.dev/pull/571. Now there is a button back to tournaments page
+11. As a user I need to switch between pages – https://github.com/Beraliv/beraliv.dev/pull/571. Now there is a button back to tournaments page
 
 ![Tournament page with navigation](/tennis-tournaments-poc/project-navigation-v1.png)
 
-1. The last bit was to highlight one tennis player in draws to find out the path in a tournament – https://github.com/Beraliv/beraliv.dev/pull/573. It included some colour adjustments to meet contrast checker and removed shadows of match cards. Now the style is more or less aligned.
+12. The last bit was to highlight one tennis player in draws to find out the path in a tournament – https://github.com/Beraliv/beraliv.dev/pull/573. It included some colour adjustments to meet contrast checker and removed shadows of match cards. Now the style is more or less aligned.
 
 ![Tournament page with navigation](/tennis-tournaments-poc/project-draws-player-navigation-v1.png)
