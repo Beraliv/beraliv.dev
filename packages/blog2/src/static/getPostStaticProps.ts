@@ -39,7 +39,7 @@ export const getPostStaticProps: GetStaticProps<
   });
 
   if (!(imageUrl in cache)) {
-    await extractMetadata(imageUrl);
+    await extractMetadata(imageUrl, cache);
   }
   if (!(imageUrl in cache)) {
     throw new Error(`Cannot find cache for image ${imageUrl}`);
