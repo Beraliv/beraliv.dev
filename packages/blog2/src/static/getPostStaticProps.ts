@@ -39,6 +39,9 @@ export const getPostStaticProps: GetStaticProps<
   });
 
   if (!(imageUrl in cache)) {
+    // cache is loaded once so update the reference
+    // to not fail on the next assertion `!(imageUrl in cache)`
+
     await extractMetadata(imageUrl, cache);
   }
   if (!(imageUrl in cache)) {

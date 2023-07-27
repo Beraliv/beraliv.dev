@@ -28,14 +28,17 @@ const validateSize = (
   }
 
   if (!height) {
-    throw new Error(`INvalid height in size information`);
+    throw new Error(`Invalid height in size information`);
   }
 
   return { width, height };
 };
 
 export async function extractMetadata(
-  src: string
+  src: string,
+  localCache:
+    | Record<string, { width: number; height: number }>
+    | undefined = undefined
 ): Promise<SizeInformation["output"]> {
   const cachePath = join(process.cwd(), "src", "cache", "imageMetadata.json");
   const rawCache = await readFileAsync(cachePath, "utf8");
@@ -48,13 +51,36 @@ export async function extractMetadata(
   }
 
   const imageUrl = imageLoader({ src });
-  const sizeUrl = sizeLoader({ src: imageUrl });
-  const sizeInformation: SizeInformation = await fetchJson(sizeUrl);
-  const { width, height } = validateSize(sizeInformation);
 
-  cache[src] = { width, height };
+  const sizeUrl = sizeLoader({ src: imageUrl });
+
+  let sizeInformation: SizeInformation | undefined;
+
+  try {
+    sizeInformation = await fetchJson(sizeUrl);
+  } catch (error) {
+    console.error(`Cannot download size information for ${sizeUrl}`);
+
+    throw error;
+  }
+
+  let validatedSize: SizeInformation["output"] | undefined;
+
+  try {
+    validatedSize = validateSize(sizeInformation);
+  } catch (error) {
+    console.log(`Cannot extract size for ${src} because of: `, error);
+
+    throw error;
+  }
+
+  cache[src] = validatedSize;
+  if (localCache) {
+    localCache[src] = validatedSize;
+  }
+
   const updatedCache = JSON.stringify(cache, null, 2);
   await writeFileAsync(cachePath, updatedCache);
 
-  return { width, height };
+  return validatedSize;
 }

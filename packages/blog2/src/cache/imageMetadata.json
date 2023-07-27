@@ -910,5 +910,77 @@
   "/with-or-without-enums/image.png": {
     "width": 1600,
     "height": 900
+  },
+  "/tennis-tournaments-poc/roland-garros-desktop.png": {
+    "width": 2740,
+    "height": 2098
+  },
+  "/tennis-tournaments-poc/roland-garros-tablet.png": {
+    "width": 2300,
+    "height": 1902
+  },
+  "/tennis-tournaments-poc/roland-garros-mobile.png": {
+    "width": 1902,
+    "height": 1536
+  },
+  "/tennis-tournaments-poc/roland-garros-list-of-rounds.png": {
+    "width": 2354,
+    "height": 336
+  },
+  "/tennis-tournaments-poc/roland-garros-match-card.png": {
+    "width": 752,
+    "height": 290
+  },
+  "/tennis-tournaments-poc/project-match-card-view-v1.png": {
+    "width": 1092,
+    "height": 1134
+  },
+  "/tennis-tournaments-poc/project-draws-v1.png": {
+    "width": 2440,
+    "height": 1470
+  },
+  "/tennis-tournaments-poc/project-draws-v2.png": {
+    "width": 2522,
+    "height": 1618
+  },
+  "/tennis-tournaments-poc/project-draws-v3.png": {
+    "width": 2520,
+    "height": 1606
+  },
+  "/tennis-tournaments-poc/wta-tournaments.png": {
+    "width": 2068,
+    "height": 1416
+  },
+  "/tennis-tournaments-poc/project-tournaments-v1.png": {
+    "width": 1994,
+    "height": 1054
+  },
+  "/tennis-tournaments-poc/project-match-card-live-v1.png": {
+    "width": 722,
+    "height": 296
+  },
+  "/tennis-tournaments-poc/project-match-card-finished-v1.png": {
+    "width": 744,
+    "height": 296
+  },
+  "/tennis-tournaments-poc/project-draws-before-v4.png": {
+    "width": 2202,
+    "height": 1200
+  },
+  "/tennis-tournaments-poc/project-draws-after-v4.png": {
+    "width": 2182,
+    "height": 1200
+  },
+  "/tennis-tournaments-poc/project-match-card-on-click-v1.png": {
+    "width": 722,
+    "height": 306
+  },
+  "/tennis-tournaments-poc/project-navigation-v1.png": {
+    "width": 2998,
+    "height": 1676
+  },
+  "/tennis-tournaments-poc/project-draws-player-navigation-v1.png": {
+    "width": 2484,
+    "height": 1594
   }
 }
