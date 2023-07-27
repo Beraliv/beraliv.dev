@@ -3,5 +3,5 @@ interface SizeLoaderProps {
 }
 
 export const sizeLoader = ({ src }: SizeLoaderProps) => {
-  return src.replace("v1633444777", "fl_getinfo");
+  return src.replace(/v\d+/g, "fl_getinfo");
 };
