@@ -1,3 +1,6 @@
+/**
+ * TODO: replace with Math.floor(Date.now() / 1_000)
+ */
 const TENNIS_PLAYER_HASH_MAP: Record<string, number> = {
   "added-dan": 1688505160,
   "agabigun-sarp": 1688506380,
