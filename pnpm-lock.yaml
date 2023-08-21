@@ -124,7 +124,13 @@ importers:
       solid-js:
         specifier: ^1.5.1
         version: 1.6.2
+      zod:
+        specifier: 3.19.1
+        version: 3.19.1
     devDependencies:
+      '@types/google.accounts':
+        specifier: 0.0.4
+        version: 0.0.4
       typescript:
         specifier: ^4.8.2
         version: 4.8.2
@@ -1497,6 +1503,10 @@ packages:
   /@types/estree@1.0.0:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: false
+
+  /@types/google.accounts@0.0.4:
+    resolution: {integrity: sha512-X42obEgMx+Ptt3RZShgfRNLxGfm9PTLB/zdQkVBYtjnQnbQvTdbU02kZuS6pahp7LA9a5tUxB5vGBnD81SUhjg==}
+    dev: true
 
   /@types/graceful-fs@4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
@@ -7319,6 +7329,10 @@ packages:
       nanoclone: 0.2.1
       property-expr: 2.0.5
       toposort: 2.0.2
+    dev: false
+
+  /zod@3.19.1:
+    resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
     dev: false
 
   /zwitch@2.0.2:

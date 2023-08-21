@@ -37,7 +37,7 @@ describe(cx.name, () => {
       .join(",")}]`, () => {
       const actual = cx(...testCase.input);
 
-      expect(actual, testCase.expected);
+      expect(actual).toEqual(testCase.expected);
     });
   }
 });
