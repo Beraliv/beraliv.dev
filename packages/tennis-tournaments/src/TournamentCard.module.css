@@ -47,7 +47,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
 
+.TournamentHeadTop {
+  height: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.TournamentHeadBottom {
+  height: 50%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -61,6 +71,11 @@
 
   /* date and court icons change height, so setting it to the same value */
   height: 16px;
+}
+
+.LiveTournament {
+  background: #c0392b;
+  margin-right: 0.5rem;
 }
 
 .TournamentDates {
@@ -85,6 +100,7 @@
   fill: white;
 }
 
+.LiveTournament,
 .TournamentDates,
 .CourtType {
   font-size: 0.75rem;

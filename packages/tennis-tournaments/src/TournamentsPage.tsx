@@ -58,7 +58,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 2, 19),
     },
     tournamentId: 2487,
-    tournamentName: "BNP Paribas Open",
+    tournamentName: "Indian Wells Masters",
     place: "Indian Wells, CA, USA",
   },
   {
@@ -80,7 +80,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 3, 16),
     },
     tournamentId: 2391,
-    tournamentName: "Rolex Monte-Carlo Masters",
+    tournamentName: "Monte-Carlo Masters",
     place: "Monte-Carlo, Monaco",
   },
   {
@@ -91,7 +91,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 4, 7),
     },
     tournamentId: 2374,
-    tournamentName: "Mutua Madrid Open",
+    tournamentName: "Madrid Open",
     place: "Madrid, Spain",
   },
   {
@@ -102,7 +102,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 4, 21),
     },
     tournamentId: 2488,
-    tournamentName: "Internazionali BNL d'Italia",
+    tournamentName: "Italian Open",
     place: "Rome, Italy",
   },
   {
@@ -113,7 +113,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 7, 13),
     },
     tournamentId: 2510,
-    tournamentName: "National Bank Open",
+    tournamentName: "Canada Masters",
     place: "Toronto, Canada",
   },
   {
@@ -124,7 +124,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 7, 20),
     },
     tournamentId: 2373,
-    tournamentName: "Western & Southern Open",
+    tournamentName: "Cincinnati Open",
     place: "Cincinnati, OH, USA",
   },
   {
@@ -135,7 +135,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 9, 15),
     },
     tournamentId: 2519,
-    tournamentName: "Rolex Shanghai Masters",
+    tournamentName: "Shanghai Masters",
     place: "Shanghai, China",
   },
   {
@@ -146,7 +146,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       end: new Date(2023, 10, 5),
     },
     tournamentId: 2404,
-    tournamentName: "Rolex Paris Masters",
+    tournamentName: "Paris Masters",
     place: "Paris, France",
   },
 ];
