@@ -1,3 +1,5 @@
-type TournamentType = "grand-slam" | "atp-1000";
+import { TOURNAMENT_TYPES } from "../Constants/TOURNAMENT_TYPES";
+
+type TournamentType = (typeof TOURNAMENT_TYPES)[number];
 
 export { type TournamentType };

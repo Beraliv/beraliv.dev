@@ -1,6 +1,11 @@
-import { Component, For } from "solid-js";
+import { Component, For, createEffect, createSignal } from "solid-js";
 import styles from "./TournamentsPage.module.css";
 import { TournamentCard, TournamentCardProps } from "./TournamentCard";
+import { Select } from "./Select";
+import { COURT_TYPES } from "./Constants/COURT_TYPES";
+import { CourtType } from "./Types/CourtType";
+import { TournamentType } from "./Types/TournamentType";
+import { TOURNAMENT_TYPES } from "./Constants/TOURNAMENT_TYPES";
 
 const TOURNAMENTS: TournamentCardProps[] = [
   {
@@ -14,42 +19,6 @@ const TOURNAMENTS: TournamentCardProps[] = [
     tournamentName: "Australian Open",
     tournamentType: "grand-slam",
     place: "Melbourne, Australia",
-  },
-  {
-    courtType: "clay",
-    // May 20 - June 9, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 4, 20),
-      end: new Date(2023, 5, 9),
-    },
-    tournamentId: 2480,
-    tournamentName: "Roland Garros",
-    tournamentType: "grand-slam",
-    place: "Paris, France",
-  },
-  {
-    courtType: "grass",
-    // Jul 3 - Jul 16, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 6, 3),
-      end: new Date(2023, 6, 16),
-    },
-    tournamentId: 2361,
-    tournamentName: "Wimbledon",
-    tournamentType: "grand-slam",
-    place: "London, UK",
-  },
-  {
-    courtType: "hard",
-    // Aug 28 - Sep 10, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 7, 28),
-      end: new Date(2023, 8, 10),
-    },
-    tournamentId: 2449,
-    tournamentName: "US Open",
-    place: "New York City, USA",
-    tournamentType: "grand-slam",
   },
   {
     courtType: "hard",
@@ -112,6 +81,18 @@ const TOURNAMENTS: TournamentCardProps[] = [
     place: "Rome, Italy",
   },
   {
+    courtType: "clay",
+    // May 20 - June 9, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 4, 20),
+      end: new Date(2023, 5, 9),
+    },
+    tournamentId: 2480,
+    tournamentName: "Roland Garros",
+    tournamentType: "grand-slam",
+    place: "Paris, France",
+  },
+  {
     courtType: "hard",
     // Aug 7 - Aug 13, 2023
     tournamentPeriod: {
@@ -124,6 +105,18 @@ const TOURNAMENTS: TournamentCardProps[] = [
     place: "Toronto, Canada",
   },
   {
+    courtType: "grass",
+    // Jul 3 - Jul 16, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 6, 3),
+      end: new Date(2023, 6, 16),
+    },
+    tournamentId: 2361,
+    tournamentName: "Wimbledon",
+    tournamentType: "grand-slam",
+    place: "London, UK",
+  },
+  {
     courtType: "hard",
     // Aug 13 - Aug 20, 2023
     tournamentPeriod: {
@@ -134,6 +127,18 @@ const TOURNAMENTS: TournamentCardProps[] = [
     tournamentName: "Cincinnati Open",
     tournamentType: "atp-1000",
     place: "Cincinnati, OH, USA",
+  },
+  {
+    courtType: "hard",
+    // Aug 28 - Sep 10, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 7, 28),
+      end: new Date(2023, 8, 10),
+    },
+    tournamentId: 2449,
+    tournamentName: "US Open",
+    place: "New York City, USA",
+    tournamentType: "grand-slam",
   },
   {
     courtType: "hard",
@@ -161,23 +166,95 @@ const TOURNAMENTS: TournamentCardProps[] = [
   },
 ];
 
+type FilterMap = {
+  courtType: "all" | CourtType;
+  tournamentType: "all" | TournamentType;
+};
+
+type FilterType = keyof FilterMap;
+
+const FILTERS: Record<FilterType, (tournament: TournamentCardProps) => string> =
+  {
+    courtType: (tournament) => tournament.courtType,
+    tournamentType: (tournament) => tournament.tournamentType,
+  };
+
 const TournamentsPage: Component = () => {
-  const GRAND_SLAMS_INFORMATION = TOURNAMENTS.filter(
-    ({ tournamentType }) => tournamentType === "grand-slam"
-  );
-  const ATP_1000_INFORMATION = TOURNAMENTS.filter(
-    ({ tournamentType }) => tournamentType === "atp-1000"
-  );
+  const [visibleTournaments, updateVisibleTournaments] = createSignal([
+    ...TOURNAMENTS,
+  ]);
+  const [filterMap, updateFilterMap] = createSignal<FilterMap>({
+    courtType: "all",
+    tournamentType: "all",
+  });
+
+  const handleFilterUpdate = (currentFilterMap: FilterMap) => {
+    updateVisibleTournaments(() => {
+      const filters = Object.keys(
+        currentFilterMap
+      ) as (keyof typeof currentFilterMap)[];
+
+      const isTournamentVisible = (
+        tournament: TournamentCardProps
+      ): boolean => {
+        for (const filter of filters) {
+          const expectedValue = currentFilterMap[filter];
+
+          if (expectedValue === "all") {
+            continue;
+          }
+
+          if (FILTERS[filter](tournament) === expectedValue) {
+            continue;
+          }
+
+          return false;
+        }
+
+        return true;
+      };
+
+      const tournaments = [];
+
+      for (const tournament of TOURNAMENTS) {
+        if (isTournamentVisible(tournament)) {
+          tournaments.push(tournament);
+        }
+      }
+
+      return tournaments;
+    });
+  };
+
+  createEffect(() => {
+    handleFilterUpdate(filterMap());
+  });
+
+  const applyFilters = (value: string, filterType: FilterType) => {
+    // return new object to get reactivity working (specifically createEffect)
+    updateFilterMap((previousFilterMap) => ({
+      ...previousFilterMap,
+      [filterType]: value,
+    }));
+  };
 
   return (
     <div class={styles.TournamentsPage}>
+      <Select
+        id="court type"
+        current={() => "all"}
+        values={() => ["all", ...COURT_TYPES]}
+        onChange={(value) => applyFilters(value, "courtType")}
+      />
+      <Select
+        id="tournament type"
+        current={() => "all"}
+        values={() => ["all", ...TOURNAMENT_TYPES]}
+        onChange={(value) => applyFilters(value, "tournamentType")}
+      />
       <h1>Tournaments</h1>
-      <h2>Grand Slams</h2>
-      <For each={GRAND_SLAMS_INFORMATION}>
-        {(cardProps) => <TournamentCard {...cardProps} />}
-      </For>
-      <h2>ATP 1000</h2>
-      <For each={ATP_1000_INFORMATION}>
+      {/* filters */}
+      <For each={visibleTournaments()}>
         {(cardProps) => <TournamentCard {...cardProps} />}
       </For>
     </div>
