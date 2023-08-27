@@ -2,7 +2,7 @@ import { Component, For } from "solid-js";
 import styles from "./TournamentsPage.module.css";
 import { TournamentCard, TournamentCardProps } from "./TournamentCard";
 
-const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
+const TOURNAMENTS: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Jan 16 - Jan 29, 2023
@@ -12,6 +12,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2363,
     tournamentName: "Australian Open",
+    tournamentType: "grand-slam",
     place: "Melbourne, Australia",
   },
   {
@@ -23,6 +24,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2480,
     tournamentName: "Roland Garros",
+    tournamentType: "grand-slam",
     place: "Paris, France",
   },
   {
@@ -34,6 +36,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2361,
     tournamentName: "Wimbledon",
+    tournamentType: "grand-slam",
     place: "London, UK",
   },
   {
@@ -46,10 +49,8 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     tournamentId: 2449,
     tournamentName: "US Open",
     place: "New York City, USA",
+    tournamentType: "grand-slam",
   },
-];
-
-const ATP_1000_INFORMATION: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Mar 08 - Mar 19, 2023
@@ -59,6 +60,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2487,
     tournamentName: "Indian Wells Masters",
+    tournamentType: "atp-1000",
     place: "Indian Wells, CA, USA",
   },
   {
@@ -70,6 +72,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2430,
     tournamentName: "Miami Open",
+    tournamentType: "atp-1000",
     place: "Miami, FL, USA",
   },
   {
@@ -81,6 +84,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2391,
     tournamentName: "Monte-Carlo Masters",
+    tournamentType: "atp-1000",
     place: "Monte-Carlo, Monaco",
   },
   {
@@ -92,6 +96,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2374,
     tournamentName: "Madrid Open",
+    tournamentType: "atp-1000",
     place: "Madrid, Spain",
   },
   {
@@ -103,6 +108,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2488,
     tournamentName: "Italian Open",
+    tournamentType: "atp-1000",
     place: "Rome, Italy",
   },
   {
@@ -114,6 +120,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2510,
     tournamentName: "Canada Masters",
+    tournamentType: "atp-1000",
     place: "Toronto, Canada",
   },
   {
@@ -125,6 +132,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2373,
     tournamentName: "Cincinnati Open",
+    tournamentType: "atp-1000",
     place: "Cincinnati, OH, USA",
   },
   {
@@ -136,6 +144,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2519,
     tournamentName: "Shanghai Masters",
+    tournamentType: "atp-1000",
     place: "Shanghai, China",
   },
   {
@@ -147,11 +156,19 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentId: 2404,
     tournamentName: "Paris Masters",
+    tournamentType: "atp-1000",
     place: "Paris, France",
   },
 ];
 
 const TournamentsPage: Component = () => {
+  const GRAND_SLAMS_INFORMATION = TOURNAMENTS.filter(
+    ({ tournamentType }) => tournamentType === "grand-slam"
+  );
+  const ATP_1000_INFORMATION = TOURNAMENTS.filter(
+    ({ tournamentType }) => tournamentType === "atp-1000"
+  );
+
   return (
     <div class={styles.TournamentsPage}>
       <h1>Tournaments</h1>

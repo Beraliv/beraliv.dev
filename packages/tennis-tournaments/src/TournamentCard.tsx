@@ -11,13 +11,15 @@ import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
 import { getTournamentLiveStatus } from "./Utils/getTournamentLiveStatus";
 
 import styles from "./TournamentCard.module.css";
+import { TournamentType } from "./Types/TournamentType";
 
 interface TournamentCardProps {
   courtType: CourtType;
-  tournamentPeriod: TournamentPeriod;
+  place: string;
   tournamentId: number;
   tournamentName: string;
-  place: string;
+  tournamentPeriod: TournamentPeriod;
+  tournamentType: TournamentType;
 }
 
 const TournamentCard: Component<TournamentCardProps> = ({
