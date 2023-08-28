@@ -266,10 +266,11 @@ const TournamentsPage: Component = () => {
         onChange={(value) => applyFilters(value, "tournamentStatus")}
       />
       <h1>Tournaments</h1>
-      {/* filters */}
-      <For each={visibleTournaments()}>
-        {(cardProps) => <TournamentCard {...cardProps} />}
-      </For>
+      <div class={styles.Tournaments}>
+        <For each={visibleTournaments()}>
+          {(cardProps) => <TournamentCard {...cardProps} />}
+        </For>
+      </div>
     </div>
   );
 };
