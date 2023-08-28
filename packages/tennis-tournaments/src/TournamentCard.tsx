@@ -8,7 +8,7 @@ import { TournamentPeriod } from "./Types/TournamentPeriod";
 import { classNames } from "./Utils/classNames";
 import { formatTournamentPeriod } from "./Utils/formatTournamentPeriod";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
-import { getTournamentLiveStatus } from "./Utils/getTournamentLiveStatus";
+import { getTournamentStatus } from "./Utils/getTournamentStatus";
 
 import styles from "./TournamentCard.module.css";
 import { TournamentType } from "./Types/TournamentType";
@@ -31,7 +31,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
 }) => {
   const imageUrl = getTournamentCourtImageUrl(courtType);
   const formattedPeriod = formatTournamentPeriod(tournamentPeriod);
-  const isLive = getTournamentLiveStatus(tournamentPeriod);
+  const isLive = getTournamentStatus(tournamentPeriod) === "live";
   const tournamentPath = `/tournament/${tournamentName}/${tournamentId}/${courtType}`;
 
   return (
