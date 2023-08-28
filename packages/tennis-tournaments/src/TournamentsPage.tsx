@@ -6,6 +6,9 @@ import { COURT_TYPES } from "./Constants/COURT_TYPES";
 import { CourtType } from "./Types/CourtType";
 import { TournamentType } from "./Types/TournamentType";
 import { TOURNAMENT_TYPES } from "./Constants/TOURNAMENT_TYPES";
+import { TournamentStatus } from "./Types/TournamentStatus";
+import { getTournamentStatus } from "./Utils/getTournamentStatus";
+import { TOURNAMENT_STATUSES } from "./Constants/TOURNAMENT_STATUSES";
 
 const TOURNAMENTS: TournamentCardProps[] = [
   {
@@ -168,6 +171,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
 
 type FilterMap = {
   courtType: "all" | CourtType;
+  tournamentStatus: "all" | TournamentStatus;
   tournamentType: "all" | TournamentType;
 };
 
@@ -177,6 +181,8 @@ const FILTERS: Record<FilterType, (tournament: TournamentCardProps) => string> =
   {
     courtType: (tournament) => tournament.courtType,
     tournamentType: (tournament) => tournament.tournamentType,
+    tournamentStatus: (tournament) =>
+      getTournamentStatus(tournament.tournamentPeriod),
   };
 
 const TournamentsPage: Component = () => {
@@ -186,6 +192,7 @@ const TournamentsPage: Component = () => {
   const [filterMap, updateFilterMap] = createSignal<FilterMap>({
     courtType: "all",
     tournamentType: "all",
+    tournamentStatus: "all",
   });
 
   const handleFilterUpdate = (currentFilterMap: FilterMap) => {
@@ -251,6 +258,12 @@ const TournamentsPage: Component = () => {
         current={() => "all"}
         values={() => ["all", ...TOURNAMENT_TYPES]}
         onChange={(value) => applyFilters(value, "tournamentType")}
+      />
+      <Select
+        id="tournament status"
+        current={() => "all"}
+        values={() => ["all", ...TOURNAMENT_STATUSES]}
+        onChange={(value) => applyFilters(value, "tournamentStatus")}
       />
       <h1>Tournaments</h1>
       {/* filters */}
