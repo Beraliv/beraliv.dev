@@ -32,9 +32,13 @@
 
 /*
   Avoid .Home { border-bottom: 1px solid #e8e8e8 } because exactly 1px is needed for margin calculations
-  but min-device-pixel-ratio may affect it and make it smaller than 1px
+  but min-device-pixel-ratio may affect it and make it smaller than 1px on some devices
+
+  Examples:
+  1. CSS border on Android - https://stackoverflow.com/questions/13415412/why-does-a-css-border-look-different-on-android
+  2. CSS, Retina, and Physical Pixels - https://n12v.com/css-retina-and-physical-pixels/
 */
-.Border {
+.Line {
   display: flex;
   height: 1px;
   background-color: #e8e8e8;
