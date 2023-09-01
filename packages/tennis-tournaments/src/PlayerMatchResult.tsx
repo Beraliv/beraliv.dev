@@ -98,9 +98,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
       ref={playerMatchResultRef!}
     >
       <div class={styles.Player}>
-        <div>
-          <img class={styles.AvatarImage} src={player.imageUrl} />
-        </div>
+        <img class={styles.AvatarImage} src={player.imageUrl} />
         <div
           class={classNames(styles.Name, {
             [styles.WinHighlighter]: isWinner,

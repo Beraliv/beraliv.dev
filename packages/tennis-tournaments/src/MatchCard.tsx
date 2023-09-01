@@ -120,6 +120,7 @@ const MatchCard: Component<MatchCardProps> = ({
         playerCentricSets={homeCentricSets}
         selectedPlayerId={selectedTennisPlayerId}
       />
+      <div class={styles.Border} />
       <PlayerMatchResult
         courtType={courtType}
         isWinner={isAwayWinner}
