@@ -4,52 +4,71 @@ import {
   Show,
   For,
   createSignal,
-  createEffect,
 } from "solid-js";
+import { A, useParams } from "@solidjs/router";
 
 import styles from "./TournamentPage.module.css";
-import { TournamentRound } from "./TournamentRound";
-import { fetchRounds } from "./Utils/fetchRounds";
-import { RoundsNavigation } from "./RoundsNavigation";
-import { Loading } from "./Loading";
-import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
-import { A, useParams } from "@solidjs/router";
-import { fetchSeasons } from "./Utils/fetchSeasons";
-import { Select } from "./Select";
-import { isDefined } from "./Utils/isDefined";
-import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
-import { CourtType } from "./Types/CourtType";
 
 import BackIcon from "./Icons/BackIcon.svg";
+import { CourtType } from "./Types/CourtType";
+import { EVENT_TYPES } from "./Constants/EVENT_TYPES";
+import { Loading } from "./Loading";
+import { RoundsNavigation } from "./RoundsNavigation";
+import { Select } from "./Select";
 import { TennisPlayer } from "./Types/TennisPlayer";
+import { TournamentIds } from "./Types/TournamentIds";
+import { TournamentRound } from "./TournamentRound";
+import { chooseTournamentId } from "./Utils/chooseTournamentId";
+import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
+import { fetchRounds } from "./Utils/fetchRounds";
+import { fetchSeasons } from "./Utils/fetchSeasons";
+import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
+import { isDefined } from "./Utils/isDefined";
+import { parseTournamentIds } from "./Utils/parseTournamentIds";
+
+const NO_SEASON_ID = "";
 
 const TournamentPage: Component = () => {
-  // 1. Choose tournament (no requests on this page)
-
   const routeParams = useParams<{
     courtType: CourtType;
     tournamentId: string;
     tournamentName: string;
   }>();
 
-  const { courtType, tournamentId } = routeParams;
-
+  const { courtType } = routeParams;
   const tournamentName = decodeURIComponent(routeParams.tournamentName);
+  const tournamentIds = parseTournamentIds(routeParams.tournamentId);
 
-  // 2. Given tournament ID, request seasons (1 request)
+  // 1. Choose event type (no requests on this page)
+
+  const [eventType, updateEventType] = createSignal<keyof TournamentIds>("men");
+
+  // 2. Given event type, choose tournament ID (no requests on this page)
+
+  const [tournamentId] = createResource(
+    () => ({ eventType: eventType(), tournamentIds }),
+    chooseTournamentId
+  );
+
+  // 3. Given tournament ID, request seasons (1 request)
 
   const [seasonsApiModel, { mutate: mutateSeasonsApiModel }] = createResource(
     tournamentId,
-    fetchSeasons
+    fetchSeasons,
+    {}
   );
 
   const seasonId = () => {
+    if (seasonsApiModel.loading) {
+      return NO_SEASON_ID;
+    }
+
     const seasonsData = seasonsApiModel();
 
     const id =
       isDefined(seasonsData) && isDefined(seasonsData.currentSeason)
         ? `${seasonsData.currentSeason.id}`
-        : "";
+        : NO_SEASON_ID;
 
     return id;
   };
@@ -69,10 +88,10 @@ const TournamentPage: Component = () => {
     });
   };
 
-  // 3. Given tournament ID and season ID, request tournament rounds (1 request)
+  // 4. Given tournament ID and season ID, request tournament rounds (1 request)
 
   const [roundsApiModel, { mutate: mutateRoundsApiModel }] = createResource(
-    () => ({ seasonId: seasonId(), tournamentId }),
+    () => ({ seasonId: seasonId(), tournamentId: tournamentId() }),
     fetchRounds
   );
 
@@ -91,14 +110,14 @@ const TournamentPage: Component = () => {
     });
   };
 
-  // 4. Request tournament tree (1 request for the whole tree)
+  // 5. Request tournament tree (1 request for the whole tree)
 
   const [tree] = createResource(
-    () => ({ seasonId: seasonId(), tournamentId }),
+    () => ({ seasonId: seasonId(), tournamentId: tournamentId() }),
     fetchTournamentTree
   );
 
-  // 5. Given tournament tree and rounds, return visible tree (0 requests)
+  // 6. Given tournament tree and rounds, return visible tree (0 requests)
 
   const [visibleTree] = createResource(
     () => ({ tree: tree(), rounds: roundsApiModel() }),
@@ -116,6 +135,15 @@ const TournamentPage: Component = () => {
           <BackIcon />
         </A>
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
+      </div>
+
+      <div class={styles.EventSelect}>
+        <Select
+          id="event"
+          current={eventType}
+          values={() => EVENT_TYPES}
+          onChange={updateEventType}
+        />
       </div>
 
       <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>

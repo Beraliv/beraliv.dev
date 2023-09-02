@@ -6,10 +6,11 @@ import {
   AllRounds,
   createRoundsFromCupTrees,
 } from "./createRoundsFromCupTrees";
+import { logger } from "./logger";
 
 interface FetchTournamentTreeParameters {
   seasonId: string;
-  tournamentId: string;
+  tournamentId: number | undefined;
 }
 
 interface SimpleTournamentRound {
@@ -25,6 +26,15 @@ const fetchTournamentTree = async ({
   if (!seasonId) {
     return Promise.resolve([]);
   }
+
+  if (tournamentId === undefined) {
+    return Promise.resolve([]);
+  }
+
+  logger.log("fetchTournamentTree", {
+    seasonId,
+    tournamentId,
+  });
 
   const response = await fetchTennisApi(
     `tournament/${tournamentId}/season/${seasonId}/cup-trees`

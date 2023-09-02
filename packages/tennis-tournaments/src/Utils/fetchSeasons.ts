@@ -3,13 +3,20 @@ import { SeasonsApiModel } from "../Types/SeasonsApiModel";
 import { createSeasonApiModel } from "./createSeasonApiModel";
 import { fetchTennisApi } from "./fetchTennisApi";
 import { isDefined } from "./isDefined";
+import { logger } from "./logger";
 
-const fetchSeasons = async (tournamentId: string): Promise<SeasonsApiModel> => {
-  if (tournamentId === "") {
+const fetchSeasons = async (
+  tournamentId: number | undefined
+): Promise<SeasonsApiModel> => {
+  if (tournamentId === undefined) {
     return Promise.resolve({
       seasons: [],
     });
   }
+
+  logger.log("fetchSeasons", {
+    tournamentId,
+  });
 
   const response = await fetchTennisApi(`tournament/${tournamentId}/seasons`);
 
