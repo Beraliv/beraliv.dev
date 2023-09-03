@@ -1,21 +1,21 @@
-import { EVENT_TYPES } from "../Constants/EVENT_TYPES";
+import { TennisMatchType } from "../Types/TennisMatchType";
 import { TournamentIds } from "../Types/TournamentIds";
 import { logger } from "./logger";
 
 interface ChooseTournamentIdParameters {
-  eventType: (typeof EVENT_TYPES)[number];
+  matchType: TennisMatchType;
   tournamentIds: TournamentIds;
 }
 
 const chooseTournamentId = ({
-  eventType,
+  matchType,
   tournamentIds,
-}: ChooseTournamentIdParameters): number => {
+}: ChooseTournamentIdParameters): number | undefined => {
   logger.log("chooseTournamentId", {
-    eventType,
+    matchType,
   });
 
-  return tournamentIds[eventType];
+  return tournamentIds[matchType];
 };
 
 export { chooseTournamentId };

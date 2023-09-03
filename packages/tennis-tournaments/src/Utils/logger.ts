@@ -17,13 +17,22 @@ const createLogger = ({ enabled }: LoggerOptions) => {
     console.log(message, ...args);
   };
 
+  const warn = (message: string, ...args: SerialisableArgument[]) => {
+    if (!enabled) {
+      return;
+    }
+
+    console.warn(message, ...args);
+  };
+
   return {
     log,
+    warn,
   };
 };
 
 const logger = createLogger({
-  enabled: false,
+  enabled: true,
 });
 
 export { logger };

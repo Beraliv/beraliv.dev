@@ -11,12 +11,11 @@ import styles from "./TournamentPage.module.css";
 
 import BackIcon from "./Icons/BackIcon.svg";
 import { CourtType } from "./Types/CourtType";
-import { EVENT_TYPES } from "./Constants/EVENT_TYPES";
 import { Loading } from "./Loading";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Select } from "./Select";
+import { TennisMatchType } from "./Types/TennisMatchType";
 import { TennisPlayer } from "./Types/TennisPlayer";
-import { TournamentIds } from "./Types/TournamentIds";
 import { TournamentRound } from "./TournamentRound";
 import { chooseTournamentId } from "./Utils/chooseTournamentId";
 import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
@@ -38,15 +37,18 @@ const TournamentPage: Component = () => {
   const { courtType } = routeParams;
   const tournamentName = decodeURIComponent(routeParams.tournamentName);
   const tournamentIds = parseTournamentIds(routeParams.tournamentId);
+  const matchTypes = Object.keys(tournamentIds) as TennisMatchType[];
 
-  // 1. Choose event type (no requests on this page)
+  // 1. Choose match type (no requests on this page)
 
-  const [eventType, updateEventType] = createSignal<keyof TournamentIds>("men");
+  const [matchType, updateMatchType] = createSignal<TennisMatchType>(
+    matchTypes[0]
+  );
 
-  // 2. Given event type, choose tournament ID (no requests on this page)
+  // 2. Given match type, choose tournament ID (no requests on this page)
 
   const [tournamentId] = createResource(
-    () => ({ eventType: eventType(), tournamentIds }),
+    () => ({ matchType: matchType(), tournamentIds }),
     chooseTournamentId
   );
 
@@ -137,14 +139,16 @@ const TournamentPage: Component = () => {
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
 
-      <div class={styles.EventSelect}>
-        <Select
-          id="event"
-          current={eventType}
-          values={() => EVENT_TYPES}
-          onChange={updateEventType}
-        />
-      </div>
+      <Show when={matchTypes.length > 1}>
+        <div class={styles.MatchTypeSelect}>
+          <Select
+            id="match type"
+            current={matchType}
+            values={() => matchTypes}
+            onChange={updateMatchType}
+          />
+        </div>
+      </Show>
 
       <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
         {(seasonsData) => (

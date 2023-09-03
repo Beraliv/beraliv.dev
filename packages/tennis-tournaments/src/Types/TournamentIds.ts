@@ -1,5 +1,5 @@
-import { EVENT_TYPES } from "../Constants/EVENT_TYPES";
+import { TennisMatchType } from "./TennisMatchType";
 
-type TournamentIds = Record<(typeof EVENT_TYPES)[number], number>;
+type TournamentIds = Partial<Record<TennisMatchType, number>>;
 
 export { type TournamentIds };
