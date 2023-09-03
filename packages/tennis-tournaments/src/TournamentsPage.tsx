@@ -2,7 +2,7 @@ import { Component, For } from "solid-js";
 import styles from "./TournamentsPage.module.css";
 import { TournamentCard, TournamentCardProps } from "./TournamentCard";
 
-const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
+const TOURNAMENTS: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Jan 16 - Jan 29, 2023
@@ -12,7 +12,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2363,
-      women: -1,
+      women: 2571,
     },
     tournamentName: "Australian Open",
     place: "Melbourne, Australia",
@@ -26,7 +26,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2480,
-      women: -1,
+      women: 2577,
     },
     tournamentName: "Roland Garros",
     place: "Paris, France",
@@ -40,7 +40,7 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2361,
-      women: -1,
+      women: 2600,
     },
     tournamentName: "Wimbledon",
     place: "London, UK",
@@ -59,9 +59,6 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
     tournamentName: "US Open",
     place: "New York City, USA",
   },
-];
-
-const ATP_1000_INFORMATION: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Mar 08 - Mar 19, 2023
@@ -71,7 +68,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2487,
-      women: -1,
+      women: 2619,
     },
     tournamentName: "Indian Wells Masters",
     place: "Indian Wells, CA, USA",
@@ -85,7 +82,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2430,
-      women: -1,
+      women: 2587,
     },
     tournamentName: "Miami Open",
     place: "Miami, FL, USA",
@@ -99,7 +96,6 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2391,
-      women: -1,
     },
     tournamentName: "Monte-Carlo Masters",
     place: "Monte-Carlo, Monaco",
@@ -113,7 +109,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2374,
-      women: -1,
+      women: 2607,
     },
     tournamentName: "Madrid Open",
     place: "Madrid, Spain",
@@ -127,7 +123,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2488,
-      women: -1,
+      women: 2569,
     },
     tournamentName: "Italian Open",
     place: "Rome, Italy",
@@ -141,7 +137,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2510,
-      women: -1,
+      women: 2615,
     },
     tournamentName: "Canada Masters",
     place: "Toronto, Canada",
@@ -155,7 +151,7 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2373,
-      women: -1,
+      women: 2548,
     },
     tournamentName: "Cincinnati Open",
     place: "Cincinnati, OH, USA",
@@ -169,7 +165,6 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2519,
-      women: -1,
     },
     tournamentName: "Shanghai Masters",
     place: "Shanghai, China",
@@ -183,7 +178,6 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
     },
     tournamentIds: {
       men: 2404,
-      women: -1,
     },
     tournamentName: "Paris Masters",
     place: "Paris, France",
@@ -191,15 +185,14 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
 ];
 
 const TournamentsPage: Component = () => {
+  const sortedTournaments = TOURNAMENTS.sort(
+    (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
+  );
+
   return (
     <div class={styles.TournamentsPage}>
       <h1>Tournaments</h1>
-      <h2>Grand Slams</h2>
-      <For each={GRAND_SLAMS_INFORMATION}>
-        {(cardProps) => <TournamentCard {...cardProps} />}
-      </For>
-      <h2>ATP 1000</h2>
-      <For each={ATP_1000_INFORMATION}>
+      <For each={sortedTournaments}>
         {(cardProps) => <TournamentCard {...cardProps} />}
       </For>
     </div>
