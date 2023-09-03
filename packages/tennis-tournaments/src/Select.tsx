@@ -1,8 +1,8 @@
-import { Accessor, Component, For, createSignal } from "solid-js";
+import { Accessor, Component, For } from "solid-js";
 
 interface SelectProps {
   id: string;
-  values: Accessor<string[]>;
+  values: Accessor<readonly string[]>;
   onChange: (value: string) => void;
   current: () => string | undefined;
 }

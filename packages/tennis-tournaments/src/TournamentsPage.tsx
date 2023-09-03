@@ -2,7 +2,7 @@ import { Component, For } from "solid-js";
 import styles from "./TournamentsPage.module.css";
 import { TournamentCard, TournamentCardProps } from "./TournamentCard";
 
-const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
+const TOURNAMENTS: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Jan 16 - Jan 29, 2023
@@ -10,7 +10,10 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 0, 16),
       end: new Date(2023, 0, 29),
     },
-    tournamentId: 2363,
+    tournamentIds: {
+      men: 2363,
+      women: 2571,
+    },
     tournamentName: "Australian Open",
     place: "Melbourne, Australia",
   },
@@ -21,7 +24,10 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 4, 20),
       end: new Date(2023, 5, 9),
     },
-    tournamentId: 2480,
+    tournamentIds: {
+      men: 2480,
+      women: 2577,
+    },
     tournamentName: "Roland Garros",
     place: "Paris, France",
   },
@@ -32,7 +38,10 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 6, 3),
       end: new Date(2023, 6, 16),
     },
-    tournamentId: 2361,
+    tournamentIds: {
+      men: 2361,
+      women: 2600,
+    },
     tournamentName: "Wimbledon",
     place: "London, UK",
   },
@@ -43,13 +52,13 @@ const GRAND_SLAMS_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 7, 28),
       end: new Date(2023, 8, 10),
     },
-    tournamentId: 2449,
+    tournamentIds: {
+      men: 2449,
+      women: 2601,
+    },
     tournamentName: "US Open",
     place: "New York City, USA",
   },
-];
-
-const ATP_1000_INFORMATION: TournamentCardProps[] = [
   {
     courtType: "hard",
     // Mar 08 - Mar 19, 2023
@@ -57,7 +66,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 2, 8),
       end: new Date(2023, 2, 19),
     },
-    tournamentId: 2487,
+    tournamentIds: {
+      men: 2487,
+      women: 2619,
+    },
     tournamentName: "Indian Wells Masters",
     place: "Indian Wells, CA, USA",
   },
@@ -68,7 +80,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 2, 22),
       end: new Date(2023, 3, 2),
     },
-    tournamentId: 2430,
+    tournamentIds: {
+      men: 2430,
+      women: 2587,
+    },
     tournamentName: "Miami Open",
     place: "Miami, FL, USA",
   },
@@ -79,7 +94,9 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 3, 9),
       end: new Date(2023, 3, 16),
     },
-    tournamentId: 2391,
+    tournamentIds: {
+      men: 2391,
+    },
     tournamentName: "Monte-Carlo Masters",
     place: "Monte-Carlo, Monaco",
   },
@@ -90,7 +107,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 3, 26),
       end: new Date(2023, 4, 7),
     },
-    tournamentId: 2374,
+    tournamentIds: {
+      men: 2374,
+      women: 2607,
+    },
     tournamentName: "Madrid Open",
     place: "Madrid, Spain",
   },
@@ -101,7 +121,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 4, 10),
       end: new Date(2023, 4, 21),
     },
-    tournamentId: 2488,
+    tournamentIds: {
+      men: 2488,
+      women: 2569,
+    },
     tournamentName: "Italian Open",
     place: "Rome, Italy",
   },
@@ -112,7 +135,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 7, 7),
       end: new Date(2023, 7, 13),
     },
-    tournamentId: 2510,
+    tournamentIds: {
+      men: 2510,
+      women: 2615,
+    },
     tournamentName: "Canada Masters",
     place: "Toronto, Canada",
   },
@@ -123,7 +149,10 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 7, 13),
       end: new Date(2023, 7, 20),
     },
-    tournamentId: 2373,
+    tournamentIds: {
+      men: 2373,
+      women: 2548,
+    },
     tournamentName: "Cincinnati Open",
     place: "Cincinnati, OH, USA",
   },
@@ -134,7 +163,9 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 9, 4),
       end: new Date(2023, 9, 15),
     },
-    tournamentId: 2519,
+    tournamentIds: {
+      men: 2519,
+    },
     tournamentName: "Shanghai Masters",
     place: "Shanghai, China",
   },
@@ -145,22 +176,23 @@ const ATP_1000_INFORMATION: TournamentCardProps[] = [
       start: new Date(2023, 9, 30),
       end: new Date(2023, 10, 5),
     },
-    tournamentId: 2404,
+    tournamentIds: {
+      men: 2404,
+    },
     tournamentName: "Paris Masters",
     place: "Paris, France",
   },
 ];
 
 const TournamentsPage: Component = () => {
+  const sortedTournaments = TOURNAMENTS.sort(
+    (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
+  );
+
   return (
     <div class={styles.TournamentsPage}>
       <h1>Tournaments</h1>
-      <h2>Grand Slams</h2>
-      <For each={GRAND_SLAMS_INFORMATION}>
-        {(cardProps) => <TournamentCard {...cardProps} />}
-      </For>
-      <h2>ATP 1000</h2>
-      <For each={ATP_1000_INFORMATION}>
+      <For each={sortedTournaments}>
         {(cardProps) => <TournamentCard {...cardProps} />}
       </For>
     </div>
