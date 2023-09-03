@@ -1,30 +1,32 @@
 import { Component, Show } from "solid-js";
 import { A } from "@solidjs/router";
 
+import styles from "./TournamentCard.module.css";
+
 import CalendarIcon from "./Icons/Calendar.svg";
 import CourtIcon from "./Icons/Court.svg";
 import { CourtType } from "./Types/CourtType";
+import { TournamentIds } from "./Types/TournamentIds";
 import { TournamentPeriod } from "./Types/TournamentPeriod";
+import { TournamentType } from "./Types/TournamentType";
 import { classNames } from "./Utils/classNames";
 import { formatTournamentPeriod } from "./Utils/formatTournamentPeriod";
 import { getTournamentCourtImageUrl } from "./Utils/getTournamentCourtImageUrl";
+import { getTournamentId } from "./Utils/getTournamentId";
 import { getTournamentStatus } from "./Utils/getTournamentStatus";
-
-import styles from "./TournamentCard.module.css";
-import { TournamentType } from "./Types/TournamentType";
 
 interface TournamentCardProps {
   courtType: CourtType;
   place: string;
-  tournamentId: number;
+  tournamentIds: TournamentIds;
   tournamentName: string;
   tournamentPeriod: TournamentPeriod;
-  tournamentType: TournamentType;
+  tournamentTypes: readonly TournamentType[];
 }
 
 const TournamentCard: Component<TournamentCardProps> = ({
   courtType,
-  tournamentId,
+  tournamentIds,
   tournamentPeriod,
   place,
   tournamentName,
@@ -32,6 +34,7 @@ const TournamentCard: Component<TournamentCardProps> = ({
   const imageUrl = getTournamentCourtImageUrl(courtType);
   const formattedPeriod = formatTournamentPeriod(tournamentPeriod);
   const isLive = getTournamentStatus(tournamentPeriod) === "live";
+  const tournamentId = getTournamentId(tournamentIds);
   const tournamentPath = `/tournament/${tournamentName}/${tournamentId}/${courtType}`;
 
   return (

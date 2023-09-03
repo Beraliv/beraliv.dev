@@ -4,10 +4,11 @@ import { createRoundApiModel } from "./createRoundApiModel";
 import { fetchTennisApi } from "./fetchTennisApi";
 import { isDefined } from "./isDefined";
 import { isQualification } from "./isQualification";
+import { logger } from "./logger";
 
 interface FetchRoundsParameters {
   seasonId: string;
-  tournamentId: string;
+  tournamentId: number | undefined;
 }
 
 const fetchRounds = async ({
@@ -20,11 +21,16 @@ const fetchRounds = async ({
     });
   }
 
-  if (tournamentId === "") {
+  if (tournamentId === undefined) {
     return Promise.resolve({
       rounds: [],
     });
   }
+
+  logger.log("fetchRounds", {
+    seasonId,
+    tournamentId,
+  });
 
   const response = await fetchTennisApi(
     `tournament/${tournamentId}/season/${seasonId}/rounds`

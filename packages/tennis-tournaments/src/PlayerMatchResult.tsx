@@ -6,20 +6,21 @@ import {
   Setter,
   onMount,
   onCleanup,
-  createSignal,
 } from "solid-js";
 
 import styles from "./PlayerMatchResult.module.css";
-import { TennisPlayer } from "./Types/TennisPlayer";
-import { createShortName } from "./Utils/createShortName";
-import WinnerIcon from "./Icons/Winner.svg";
+
 import TennisBall from "./Icons/TennisBall.svg";
-import { TennisSet } from "./Types/TennisSet";
-import { hasTieBreak } from "./Utils/hasTieBreak";
-import { doesWinSet } from "./Utils/doesWinSet";
-import { classNames } from "./Utils/classNames";
+import WinnerIcon from "./Icons/Winner.svg";
 import { CourtType } from "./Types/CourtType";
+import { TennisPlayer } from "./Types/TennisPlayer";
+import { TennisSet } from "./Types/TennisSet";
+import { classNames } from "./Utils/classNames";
 import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
+import { createShortName } from "./Utils/createShortName";
+import { doesWinSet } from "./Utils/doesWinSet";
+import { getImagePlaceholder } from "./Utils/getImagePlaceholder";
+import { hasTieBreak } from "./Utils/hasTieBreak";
 
 interface PlayerMatchResultProps {
   className?: string;
@@ -86,6 +87,11 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
     );
   });
 
+  const handleError = function (this: HTMLImageElement) {
+    this.onerror = null;
+    this.src = getImagePlaceholder();
+  };
+
   return (
     <div
       class={classNames(styles.PlayerMatchResult, {
@@ -98,9 +104,11 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
       ref={playerMatchResultRef!}
     >
       <div class={styles.Player}>
-        <div>
-          <img class={styles.AvatarImage} src={player.imageUrl} />
-        </div>
+        <img
+          class={styles.AvatarImage}
+          src={player.imageUrl}
+          onError={handleError}
+        />
         <div
           class={classNames(styles.Name, {
             [styles.WinHighlighter]: isWinner,

@@ -3,7 +3,6 @@
   width: 2.75rem;
 
   animation: loading-spin 500ms linear infinite;
-  fill: var(--p-color-border-info);
 }
 
 @keyframes loading-spin {

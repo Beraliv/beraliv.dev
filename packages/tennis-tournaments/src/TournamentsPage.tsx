@@ -18,10 +18,58 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 0, 16),
       end: new Date(2023, 0, 29),
     },
-    tournamentId: 2363,
+    tournamentIds: {
+      men: 2363,
+      women: 2571,
+    },
     tournamentName: "Australian Open",
-    tournamentType: "grand-slam",
+    tournamentTypes: ["grand-slam"],
     place: "Melbourne, Australia",
+  },
+  {
+    courtType: "clay",
+    // May 20 - June 9, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 4, 20),
+      end: new Date(2023, 5, 9),
+    },
+    tournamentIds: {
+      men: 2480,
+      women: 2577,
+    },
+    tournamentName: "Roland Garros",
+    tournamentTypes: ["grand-slam"],
+    place: "Paris, France",
+  },
+  {
+    courtType: "grass",
+    // Jul 3 - Jul 16, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 6, 3),
+      end: new Date(2023, 6, 16),
+    },
+    tournamentIds: {
+      men: 2361,
+      women: 2600,
+    },
+    tournamentName: "Wimbledon",
+    tournamentTypes: ["grand-slam"],
+    place: "London, UK",
+  },
+  {
+    courtType: "hard",
+    // Aug 28 - Sep 10, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 7, 28),
+      end: new Date(2023, 8, 10),
+    },
+    tournamentIds: {
+      men: 2449,
+      women: 2601,
+    },
+    tournamentName: "US Open",
+    tournamentTypes: ["grand-slam"],
+    place: "New York City, USA",
   },
   {
     courtType: "hard",
@@ -30,9 +78,12 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 2, 8),
       end: new Date(2023, 2, 19),
     },
-    tournamentId: 2487,
+    tournamentIds: {
+      men: 2487,
+      women: 2619,
+    },
     tournamentName: "Indian Wells Masters",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Indian Wells, CA, USA",
   },
   {
@@ -42,9 +93,12 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 2, 22),
       end: new Date(2023, 3, 2),
     },
-    tournamentId: 2430,
+    tournamentIds: {
+      men: 2430,
+      women: 2587,
+    },
     tournamentName: "Miami Open",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Miami, FL, USA",
   },
   {
@@ -54,9 +108,11 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 3, 9),
       end: new Date(2023, 3, 16),
     },
-    tournamentId: 2391,
+    tournamentIds: {
+      men: 2391,
+    },
     tournamentName: "Monte-Carlo Masters",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000"],
     place: "Monte-Carlo, Monaco",
   },
   {
@@ -66,9 +122,12 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 3, 26),
       end: new Date(2023, 4, 7),
     },
-    tournamentId: 2374,
+    tournamentIds: {
+      men: 2374,
+      women: 2607,
+    },
     tournamentName: "Madrid Open",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Madrid, Spain",
   },
   {
@@ -78,22 +137,13 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 4, 10),
       end: new Date(2023, 4, 21),
     },
-    tournamentId: 2488,
-    tournamentName: "Italian Open",
-    tournamentType: "atp-1000",
-    place: "Rome, Italy",
-  },
-  {
-    courtType: "clay",
-    // May 20 - June 9, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 4, 20),
-      end: new Date(2023, 5, 9),
+    tournamentIds: {
+      men: 2488,
+      women: 2569,
     },
-    tournamentId: 2480,
-    tournamentName: "Roland Garros",
-    tournamentType: "grand-slam",
-    place: "Paris, France",
+    tournamentName: "Italian Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
+    place: "Rome, Italy",
   },
   {
     courtType: "hard",
@@ -102,22 +152,13 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 7, 7),
       end: new Date(2023, 7, 13),
     },
-    tournamentId: 2510,
-    tournamentName: "Canada Masters",
-    tournamentType: "atp-1000",
-    place: "Toronto, Canada",
-  },
-  {
-    courtType: "grass",
-    // Jul 3 - Jul 16, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 6, 3),
-      end: new Date(2023, 6, 16),
+    tournamentIds: {
+      men: 2510,
+      women: 2615,
     },
-    tournamentId: 2361,
-    tournamentName: "Wimbledon",
-    tournamentType: "grand-slam",
-    place: "London, UK",
+    tournamentName: "Canada Masters",
+    tournamentTypes: ["atp-1000", "wta-1000"],
+    place: "Toronto, Canada",
   },
   {
     courtType: "hard",
@@ -126,22 +167,13 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 7, 13),
       end: new Date(2023, 7, 20),
     },
-    tournamentId: 2373,
-    tournamentName: "Cincinnati Open",
-    tournamentType: "atp-1000",
-    place: "Cincinnati, OH, USA",
-  },
-  {
-    courtType: "hard",
-    // Aug 28 - Sep 10, 2023
-    tournamentPeriod: {
-      start: new Date(2023, 7, 28),
-      end: new Date(2023, 8, 10),
+    tournamentIds: {
+      men: 2373,
+      women: 2548,
     },
-    tournamentId: 2449,
-    tournamentName: "US Open",
-    place: "New York City, USA",
-    tournamentType: "grand-slam",
+    tournamentName: "Cincinnati Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
+    place: "Cincinnati, OH, USA",
   },
   {
     courtType: "hard",
@@ -150,9 +182,11 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 9, 4),
       end: new Date(2023, 9, 15),
     },
-    tournamentId: 2519,
+    tournamentIds: {
+      men: 2519,
+    },
     tournamentName: "Shanghai Masters",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000"],
     place: "Shanghai, China",
   },
   {
@@ -162,10 +196,56 @@ const TOURNAMENTS: TournamentCardProps[] = [
       start: new Date(2023, 9, 30),
       end: new Date(2023, 10, 5),
     },
-    tournamentId: 2404,
+    tournamentIds: {
+      men: 2404,
+    },
     tournamentName: "Paris Masters",
-    tournamentType: "atp-1000",
+    tournamentTypes: ["atp-1000"],
     place: "Paris, France",
+  },
+  {
+    courtType: "hard",
+    // Feb 27 - Mar 04, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 1, 27),
+      end: new Date(2023, 2, 4),
+    },
+    tournamentIds: {
+      men: 2389,
+      women: 2612,
+    },
+    tournamentName: "Dubai Open",
+    tournamentTypes: ["atp-500", "wta-1000"],
+    place: "Dubai, UAE",
+  },
+  {
+    courtType: "hard",
+    // Sep 17 - Sep 23, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 8, 17),
+      end: new Date(2023, 8, 23),
+    },
+    tournamentIds: {
+      women: 16559,
+    },
+    tournamentName: "Guadalajara Open",
+    tournamentTypes: ["wta-1000"],
+    place: "Guadalajara, Mexico",
+  },
+  {
+    courtType: "hard",
+    // Sep 30 - Oct 8, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 9, 30),
+      end: new Date(2023, 10, 8),
+    },
+    tournamentIds: {
+      men: 2436,
+      women: 2557,
+    },
+    tournamentName: "China Open",
+    tournamentTypes: ["atp-500", "wta-1000"],
+    place: "Beijing, China",
   },
 ];
 
@@ -177,17 +257,24 @@ type FilterMap = {
 
 type FilterType = keyof FilterMap;
 
-const FILTERS: Record<FilterType, (tournament: TournamentCardProps) => string> =
-  {
-    courtType: (tournament) => tournament.courtType,
-    tournamentType: (tournament) => tournament.tournamentType,
-    tournamentStatus: (tournament) =>
-      getTournamentStatus(tournament.tournamentPeriod),
-  };
+const FILTER_COMPARATORS: Record<
+  FilterType,
+  (tournament: TournamentCardProps, expected: string) => boolean
+> = {
+  courtType: (tournament, expected) => tournament.courtType === expected,
+  tournamentType: (tournament, expected) =>
+    (tournament.tournamentTypes as string[]).includes(expected),
+  tournamentStatus: (tournament, expected) =>
+    getTournamentStatus(tournament.tournamentPeriod) === expected,
+};
 
 const TournamentsPage: Component = () => {
+  const sortedTournaments = TOURNAMENTS.sort(
+    (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
+  );
+
   const [visibleTournaments, updateVisibleTournaments] = createSignal([
-    ...TOURNAMENTS,
+    ...sortedTournaments,
   ]);
   const [filterMap, updateFilterMap] = createSignal<FilterMap>({
     courtType: "all",
@@ -211,7 +298,7 @@ const TournamentsPage: Component = () => {
             continue;
           }
 
-          if (FILTERS[filter](tournament) === expectedValue) {
+          if (FILTER_COMPARATORS[filter](tournament, expectedValue)) {
             continue;
           }
 
@@ -223,7 +310,7 @@ const TournamentsPage: Component = () => {
 
       const tournaments = [];
 
-      for (const tournament of TOURNAMENTS) {
+      for (const tournament of sortedTournaments) {
         if (isTournamentVisible(tournament)) {
           tournaments.push(tournament);
         }
