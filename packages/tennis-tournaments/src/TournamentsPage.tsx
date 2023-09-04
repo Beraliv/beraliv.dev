@@ -356,27 +356,29 @@ const TournamentsPage: Component = () => {
 
   return (
     <div class={styles.TournamentsPage}>
-      <Select
-        current={() => "all"}
-        values={() => COURT_TYPE_ENTRIES}
-        id="courtType"
-        label="Court type"
-        onChange={(value) => applyFilters(value, "courtType")}
-      />
-      <Select
-        current={() => "all"}
-        values={() => TOURNAMENT_TYPE_ENTRIES}
-        id="tournamentType"
-        label="Tournament type"
-        onChange={(value) => applyFilters(value, "tournamentType")}
-      />
-      <Select
-        current={() => "all"}
-        values={() => TOURNAMENT_STATUS_ENTRIES}
-        id="tournamentStatus"
-        label="Tournament status"
-        onChange={(value) => applyFilters(value, "tournamentStatus")}
-      />
+      <div class={styles.Filters}>
+        <Select
+          current={() => "all"}
+          values={() => COURT_TYPE_ENTRIES}
+          id="courtType"
+          label="Court type"
+          onChange={(value) => applyFilters(value, "courtType")}
+        />
+        <Select
+          current={() => "all"}
+          values={() => TOURNAMENT_TYPE_ENTRIES}
+          id="tournamentType"
+          label="Tournament type"
+          onChange={(value) => applyFilters(value, "tournamentType")}
+        />
+        <Select
+          current={() => "all"}
+          values={() => TOURNAMENT_STATUS_ENTRIES}
+          id="tournamentStatus"
+          label="Tournament status"
+          onChange={(value) => applyFilters(value, "tournamentStatus")}
+        />
+      </div>
       <h1>Tournaments</h1>
       <div class={styles.Tournaments}>
         <For each={visibleTournaments()}>

@@ -1,4 +1,7 @@
 import { Accessor, For } from "solid-js";
+
+import styles from "./Select.module.css";
+
 import { getObjectEntries } from "./Utils/getObjectEntries";
 
 type AnyEntries = Record<string, any>;
@@ -38,12 +41,12 @@ const Select = <Entries extends AnyEntries, Value extends string>({
     : getObjectEntries(data);
 
   return (
-    <div>
+    <div class={styles.Select}>
       <label for={id}>{label}</label>
 
       <select
-        name={label}
         id={id}
+        name={label}
         onChange={(event) => handleChange(event.target.value as Value)}
         value={current()}
       >

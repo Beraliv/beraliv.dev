@@ -1,0 +1,6 @@
+.Select {
+  display: flex;
+  flex-direction: column;
+
+  margin: 7px 15px;
+}

@@ -143,21 +143,21 @@ const TournamentPage: Component = () => {
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
 
-      <Show when={matchTypes.length > 1}>
-        <div class={styles.MatchTypeSelect}>
-          <Select
-            current={matchType}
-            id="matchType"
-            label="Match type"
-            onChange={updateMatchType}
-            values={() => matchTypeEntries}
-          />
-        </div>
-      </Show>
+      <div class={styles.Filters}>
+        <Show when={matchTypes.length > 1}>
+          <div class={styles.MatchTypeSelect}>
+            <Select
+              current={matchType}
+              id="matchType"
+              label="Match type"
+              onChange={updateMatchType}
+              values={() => matchTypeEntries}
+            />
+          </div>
+        </Show>
 
-      <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
-        {(seasonsData) => (
-          <div class={styles.SeasonSelect}>
+        <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
+          {(seasonsData) => (
             <Select
               current={() => seasonsData().currentSeason?.year}
               id="season"
@@ -165,9 +165,9 @@ const TournamentPage: Component = () => {
               onChange={handleSeasonChange}
               values={() => seasonsData().seasons.map((season) => season.year)}
             />
-          </div>
-        )}
-      </Show>
+          )}
+        </Show>
+      </div>
 
       <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
         {(roundsData) => (
