@@ -1,6 +1,14 @@
-import { Component, For } from "solid-js";
+import { Component, For, createEffect, createSignal } from "solid-js";
 import styles from "./TournamentsPage.module.css";
 import { TournamentCard, TournamentCardProps } from "./TournamentCard";
+import { Select } from "./Select";
+import { COURT_TYPES } from "./Constants/COURT_TYPES";
+import { CourtType } from "./Types/CourtType";
+import { TournamentType } from "./Types/TournamentType";
+import { TOURNAMENT_TYPES } from "./Constants/TOURNAMENT_TYPES";
+import { TournamentStatus } from "./Types/TournamentStatus";
+import { getTournamentStatus } from "./Utils/getTournamentStatus";
+import { TOURNAMENT_STATUSES } from "./Constants/TOURNAMENT_STATUSES";
 
 const TOURNAMENTS: TournamentCardProps[] = [
   {
@@ -15,6 +23,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2571,
     },
     tournamentName: "Australian Open",
+    tournamentTypes: ["grand-slam"],
     place: "Melbourne, Australia",
   },
   {
@@ -29,6 +38,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2577,
     },
     tournamentName: "Roland Garros",
+    tournamentTypes: ["grand-slam"],
     place: "Paris, France",
   },
   {
@@ -43,6 +53,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2600,
     },
     tournamentName: "Wimbledon",
+    tournamentTypes: ["grand-slam"],
     place: "London, UK",
   },
   {
@@ -57,6 +68,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2601,
     },
     tournamentName: "US Open",
+    tournamentTypes: ["grand-slam"],
     place: "New York City, USA",
   },
   {
@@ -71,6 +83,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2619,
     },
     tournamentName: "Indian Wells Masters",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Indian Wells, CA, USA",
   },
   {
@@ -85,6 +98,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2587,
     },
     tournamentName: "Miami Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Miami, FL, USA",
   },
   {
@@ -98,6 +112,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       men: 2391,
     },
     tournamentName: "Monte-Carlo Masters",
+    tournamentTypes: ["atp-1000"],
     place: "Monte-Carlo, Monaco",
   },
   {
@@ -112,6 +127,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2607,
     },
     tournamentName: "Madrid Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Madrid, Spain",
   },
   {
@@ -126,6 +142,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2569,
     },
     tournamentName: "Italian Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Rome, Italy",
   },
   {
@@ -140,6 +157,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2615,
     },
     tournamentName: "Canada Masters",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Toronto, Canada",
   },
   {
@@ -154,6 +172,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       women: 2548,
     },
     tournamentName: "Cincinnati Open",
+    tournamentTypes: ["atp-1000", "wta-1000"],
     place: "Cincinnati, OH, USA",
   },
   {
@@ -167,6 +186,7 @@ const TOURNAMENTS: TournamentCardProps[] = [
       men: 2519,
     },
     tournamentName: "Shanghai Masters",
+    tournamentTypes: ["atp-1000"],
     place: "Shanghai, China",
   },
   {
@@ -180,21 +200,164 @@ const TOURNAMENTS: TournamentCardProps[] = [
       men: 2404,
     },
     tournamentName: "Paris Masters",
+    tournamentTypes: ["atp-1000"],
     place: "Paris, France",
   },
+  {
+    courtType: "hard",
+    // Feb 27 - Mar 04, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 1, 27),
+      end: new Date(2023, 2, 4),
+    },
+    tournamentIds: {
+      men: 2389,
+      women: 2612,
+    },
+    tournamentName: "Dubai Open",
+    tournamentTypes: ["atp-500", "wta-1000"],
+    place: "Dubai, UAE",
+  },
+  {
+    courtType: "hard",
+    // Sep 17 - Sep 23, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 8, 17),
+      end: new Date(2023, 8, 23),
+    },
+    tournamentIds: {
+      women: 16559,
+    },
+    tournamentName: "Guadalajara Open",
+    tournamentTypes: ["wta-1000"],
+    place: "Guadalajara, Mexico",
+  },
+  {
+    courtType: "hard",
+    // Sep 30 - Oct 8, 2023
+    tournamentPeriod: {
+      start: new Date(2023, 9, 30),
+      end: new Date(2023, 10, 8),
+    },
+    tournamentIds: {
+      men: 2436,
+      women: 2557,
+    },
+    tournamentName: "China Open",
+    tournamentTypes: ["atp-500", "wta-1000"],
+    place: "Beijing, China",
+  },
 ];
+
+type FilterMap = {
+  courtType: "all" | CourtType;
+  tournamentStatus: "all" | TournamentStatus;
+  tournamentType: "all" | TournamentType;
+};
+
+type FilterType = keyof FilterMap;
+
+const FILTER_COMPARATORS: Record<
+  FilterType,
+  (tournament: TournamentCardProps, expected: string) => boolean
+> = {
+  courtType: (tournament, expected) => tournament.courtType === expected,
+  tournamentType: (tournament, expected) =>
+    (tournament.tournamentTypes as string[]).includes(expected),
+  tournamentStatus: (tournament, expected) =>
+    getTournamentStatus(tournament.tournamentPeriod) === expected,
+};
 
 const TournamentsPage: Component = () => {
   const sortedTournaments = TOURNAMENTS.sort(
     (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
   );
 
+  const [visibleTournaments, updateVisibleTournaments] = createSignal([
+    ...sortedTournaments,
+  ]);
+  const [filterMap, updateFilterMap] = createSignal<FilterMap>({
+    courtType: "all",
+    tournamentType: "all",
+    tournamentStatus: "all",
+  });
+
+  const handleFilterUpdate = (currentFilterMap: FilterMap) => {
+    updateVisibleTournaments(() => {
+      const filters = Object.keys(
+        currentFilterMap
+      ) as (keyof typeof currentFilterMap)[];
+
+      const isTournamentVisible = (
+        tournament: TournamentCardProps
+      ): boolean => {
+        for (const filter of filters) {
+          const expectedValue = currentFilterMap[filter];
+
+          if (expectedValue === "all") {
+            continue;
+          }
+
+          if (FILTER_COMPARATORS[filter](tournament, expectedValue)) {
+            continue;
+          }
+
+          return false;
+        }
+
+        return true;
+      };
+
+      const tournaments = [];
+
+      for (const tournament of sortedTournaments) {
+        if (isTournamentVisible(tournament)) {
+          tournaments.push(tournament);
+        }
+      }
+
+      return tournaments;
+    });
+  };
+
+  createEffect(() => {
+    handleFilterUpdate(filterMap());
+  });
+
+  const applyFilters = (value: string, filterType: FilterType) => {
+    // return new object to get reactivity working (specifically createEffect)
+    updateFilterMap((previousFilterMap) => ({
+      ...previousFilterMap,
+      [filterType]: value,
+    }));
+  };
+
   return (
     <div class={styles.TournamentsPage}>
+      <Select
+        id="court type"
+        current={() => "all"}
+        values={() => ["all", ...COURT_TYPES]}
+        onChange={(value) => applyFilters(value, "courtType")}
+      />
+      <Select
+        id="tournament type"
+        current={() => "all"}
+        values={() => ["all", ...TOURNAMENT_TYPES]}
+        onChange={(value) => applyFilters(value, "tournamentType")}
+      />
+      <Select
+        id="tournament status"
+        current={() => "all"}
+        values={() => ["all", ...TOURNAMENT_STATUSES]}
+        onChange={(value) => applyFilters(value, "tournamentStatus")}
+      />
       <h1>Tournaments</h1>
-      <For each={sortedTournaments}>
-        {(cardProps) => <TournamentCard {...cardProps} />}
-      </For>
+      <div class={styles.Tournaments}>
+        <For each={visibleTournaments()}>
+          {(cardProps) => <TournamentCard {...cardProps} />}
+        </For>
+      </div>
     </div>
   );
 };
