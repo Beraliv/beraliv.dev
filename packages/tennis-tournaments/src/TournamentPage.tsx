@@ -14,6 +14,7 @@ import { CourtType } from "./Types/CourtType";
 import { Loading } from "./Loading";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Select } from "./Select";
+import { SelectGroup } from "./SelectGroup";
 import { TennisMatchType } from "./Types/TennisMatchType";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { TournamentRound } from "./TournamentRound";
@@ -143,7 +144,7 @@ const TournamentPage: Component = () => {
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
 
-      <div class={styles.Filters}>
+      <SelectGroup>
         <Show when={matchTypes.length > 1}>
           <div class={styles.MatchTypeSelect}>
             <Select
@@ -167,11 +168,9 @@ const TournamentPage: Component = () => {
             />
           )}
         </Show>
-      </div>
 
-      <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
-        {(roundsData) => (
-          <>
+        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+          {(roundsData) => (
             <div class={styles.RoundsMobile}>
               <Select
                 current={() => getCurrentRound(roundsData())}
@@ -181,6 +180,13 @@ const TournamentPage: Component = () => {
                 values={() => roundsData().rounds.map((round) => round.name)}
               />
             </div>
+          )}
+        </Show>
+      </SelectGroup>
+
+      <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+        {(roundsData) => (
+          <>
             <div class={styles.RoundsDesktop}>
               <RoundsNavigation
                 roundsApiModel={roundsData}

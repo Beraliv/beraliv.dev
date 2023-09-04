@@ -15,16 +15,8 @@
   font-weight: 900;
 }
 
-.Filters {
-  display: flex;
-}
-
 .RoundsDesktop {
   /* margin: 15px is already added in RoundsNavigation so add nothing here */
-}
-
-.RoundsMobile {
-  margin: 7px 15px;
 }
 
 .Grid {

@@ -8,10 +8,6 @@
   font-weight: 900;
 }
 
-.Filters {
-  display: flex;
-}
-
 /*
   Flex + wrap mitigates alignment issues
   between tournament cards with and without "LIVE" label

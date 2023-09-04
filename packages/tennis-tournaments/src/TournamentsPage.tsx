@@ -1,14 +1,14 @@
 import { Component, For, createEffect, createSignal } from "solid-js";
+
 import styles from "./TournamentsPage.module.css";
-import { TournamentCard, TournamentCardProps } from "./TournamentCard";
-import { Select } from "./Select";
-import { COURT_TYPES } from "./Constants/COURT_TYPES";
+
 import { CourtType } from "./Types/CourtType";
-import { TournamentType } from "./Types/TournamentType";
-import { TOURNAMENT_TYPES } from "./Constants/TOURNAMENT_TYPES";
+import { Select } from "./Select";
+import { SelectGroup } from "./SelectGroup";
+import { TournamentCard, TournamentCardProps } from "./TournamentCard";
 import { TournamentStatus } from "./Types/TournamentStatus";
+import { TournamentType } from "./Types/TournamentType";
 import { getTournamentStatus } from "./Utils/getTournamentStatus";
-import { TOURNAMENT_STATUSES } from "./Constants/TOURNAMENT_STATUSES";
 
 const TOURNAMENTS: TournamentCardProps[] = [
   {
@@ -356,7 +356,7 @@ const TournamentsPage: Component = () => {
 
   return (
     <div class={styles.TournamentsPage}>
-      <div class={styles.Filters}>
+      <SelectGroup>
         <Select
           current={() => "all"}
           values={() => COURT_TYPE_ENTRIES}
@@ -378,7 +378,7 @@ const TournamentsPage: Component = () => {
           label="Tournament status"
           onChange={(value) => applyFilters(value, "tournamentStatus")}
         />
-      </div>
+      </SelectGroup>
       <h1>Tournaments</h1>
       <div class={styles.Tournaments}>
         <For each={visibleTournaments()}>
