@@ -22,6 +22,9 @@ import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
 import { fetchRounds } from "./Utils/fetchRounds";
 import { fetchSeasons } from "./Utils/fetchSeasons";
 import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
+import { getCurrentRound } from "./Utils/getCurrentRound";
+import { getMatchTypeEntries } from "./Utils/getMatchTypeEntries";
+import { getObjectKeys } from "./Utils/getObjectKeys";
 import { isDefined } from "./Utils/isDefined";
 import { parseTournamentIds } from "./Utils/parseTournamentIds";
 
@@ -37,7 +40,8 @@ const TournamentPage: Component = () => {
   const { courtType } = routeParams;
   const tournamentName = decodeURIComponent(routeParams.tournamentName);
   const tournamentIds = parseTournamentIds(routeParams.tournamentId);
-  const matchTypes = Object.keys(tournamentIds) as TennisMatchType[];
+  const matchTypes = getObjectKeys(tournamentIds);
+  const matchTypeEntries = getMatchTypeEntries(tournamentIds);
 
   // 1. Choose match type (no requests on this page)
 
@@ -142,10 +146,11 @@ const TournamentPage: Component = () => {
       <Show when={matchTypes.length > 1}>
         <div class={styles.MatchTypeSelect}>
           <Select
-            id="match type"
             current={matchType}
-            values={() => matchTypes}
+            id="matchType"
+            label="Match type"
             onChange={updateMatchType}
+            values={() => matchTypeEntries}
           />
         </div>
       </Show>
@@ -154,10 +159,11 @@ const TournamentPage: Component = () => {
         {(seasonsData) => (
           <div class={styles.SeasonSelect}>
             <Select
-              id="season"
               current={() => seasonsData().currentSeason?.year}
-              values={() => seasonsData().seasons.map((season) => season.year)}
+              id="season"
+              label="Season"
               onChange={handleSeasonChange}
+              values={() => seasonsData().seasons.map((season) => season.year)}
             />
           </div>
         )}
@@ -168,13 +174,11 @@ const TournamentPage: Component = () => {
           <>
             <div class={styles.RoundsMobile}>
               <Select
+                current={() => getCurrentRound(roundsData())}
                 id="round"
-                current={() =>
-                  roundsData().currentRound?.name ??
-                  roundsData().rounds[0]?.name
-                }
-                values={() => roundsData().rounds.map((round) => round.name)}
+                label="Round"
                 onChange={handleRoundChange}
+                values={() => roundsData().rounds.map((round) => round.name)}
               />
             </div>
             <div class={styles.RoundsDesktop}>

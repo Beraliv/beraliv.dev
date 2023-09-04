@@ -268,6 +268,28 @@ const FILTER_COMPARATORS: Record<
     getTournamentStatus(tournament.tournamentPeriod) === expected,
 };
 
+const COURT_TYPE_ENTRIES: Record<"all" | CourtType, string> = {
+  all: "All",
+  clay: "Clay",
+  grass: "Grass",
+  hard: "Hard",
+};
+
+const TOURNAMENT_TYPE_ENTRIES: Record<"all" | TournamentType, string> = {
+  all: "All",
+  "atp-1000": "ATP 1000",
+  "atp-500": "ATP 500",
+  "grand-slam": "Grand Slam",
+  "wta-1000": "WTA 1000",
+};
+
+const TOURNAMENT_STATUS_ENTRIES: Record<"all" | TournamentStatus, string> = {
+  all: "All",
+  coming: "Coming",
+  finished: "Finished",
+  live: "Live",
+};
+
 const TournamentsPage: Component = () => {
   const sortedTournaments = TOURNAMENTS.sort(
     (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
@@ -335,21 +357,24 @@ const TournamentsPage: Component = () => {
   return (
     <div class={styles.TournamentsPage}>
       <Select
-        id="court type"
         current={() => "all"}
-        values={() => ["all", ...COURT_TYPES]}
+        values={() => COURT_TYPE_ENTRIES}
+        id="courtType"
+        label="Court type"
         onChange={(value) => applyFilters(value, "courtType")}
       />
       <Select
-        id="tournament type"
         current={() => "all"}
-        values={() => ["all", ...TOURNAMENT_TYPES]}
+        values={() => TOURNAMENT_TYPE_ENTRIES}
+        id="tournamentType"
+        label="Tournament type"
         onChange={(value) => applyFilters(value, "tournamentType")}
       />
       <Select
-        id="tournament status"
         current={() => "all"}
-        values={() => ["all", ...TOURNAMENT_STATUSES]}
+        values={() => TOURNAMENT_STATUS_ENTRIES}
+        id="tournamentStatus"
+        label="Tournament status"
         onChange={(value) => applyFilters(value, "tournamentStatus")}
       />
       <h1>Tournaments</h1>
