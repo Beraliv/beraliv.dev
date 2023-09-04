@@ -1,29 +1,58 @@
-import { Accessor, Component, For } from "solid-js";
+import { Accessor, For } from "solid-js";
+import { getObjectEntries } from "./Utils/getObjectEntries";
 
-interface SelectProps {
+type AnyEntries = Record<string, any>;
+
+type ExtractValue<Entries extends AnyEntries | string[]> =
+  Entries extends readonly any[]
+    ? Entries[number]
+    : Entries extends AnyEntries
+    ? keyof Entries
+    : never;
+
+interface SelectProps<
+  Entries extends AnyEntries | string[],
+  Value extends string
+> {
   id: string;
-  values: Accessor<readonly string[]>;
-  onChange: (value: string) => void;
-  current: () => string | undefined;
+  label: string;
+  values: Accessor<Entries>;
+  onChange: (value: Value) => void;
+  current: () => ExtractValue<Entries> | undefined;
 }
 
-const Select: Component<SelectProps> = ({ id, values, onChange, current }) => {
-  const handleChange = (value: string) => {
+const Select = <Entries extends AnyEntries, Value extends string>({
+  id,
+  label,
+  values,
+  onChange,
+  current,
+}: SelectProps<Entries, Value>) => {
+  const handleChange = (value: Value) => {
     onChange(value);
   };
 
+  const data = values();
+  const options = Array.isArray(data)
+    ? data.map((value) => [value, value])
+    : getObjectEntries(data);
+
   return (
     <div>
-      <label for={id}>Choose a {id}:</label>
+      <label for={id}>{label}</label>
 
       <select
-        name={id}
+        name={label}
         id={id}
-        onChange={(event) => handleChange(event.target.value)}
+        onChange={(event) => handleChange(event.target.value as Value)}
         value={current()}
       >
-        <For each={values()}>
-          {(value) => <option value={value}>{value}</option>}
+        <For each={options}>
+          {([key, value]) => (
+            <option id={key as string} value={key as string}>
+              {value}
+            </option>
+          )}
         </For>
       </select>
     </div>
