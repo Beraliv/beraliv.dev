@@ -144,7 +144,7 @@ const TournamentPage: Component = () => {
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
 
-      <SelectGroup>
+      <SelectGroup className={styles.TournamentPageFilters}>
         <Show when={matchTypes.length > 1}>
           <div class={styles.MatchTypeSelect}>
             <Select

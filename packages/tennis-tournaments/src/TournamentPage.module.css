@@ -15,6 +15,11 @@
   font-weight: 900;
 }
 
+.TournamentPageFilters {
+  /* margin is aligned with .TournamentPageHeader margin-left */
+  margin: 15px;
+}
+
 .RoundsDesktop {
   /* margin: 15px is already added in RoundsNavigation so add nothing here */
 }
