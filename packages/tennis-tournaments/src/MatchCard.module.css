@@ -40,6 +40,6 @@
 */
 .Line {
   display: flex;
-  height: 1px;
+  height: 2px;
   background-color: #e8e8e8;
 }

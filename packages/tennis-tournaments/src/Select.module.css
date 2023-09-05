@@ -24,9 +24,22 @@
 .Select {
   width: 100%;
 
+  box-sizing: border-box;
   appearance: none;
+  outline: none;
+  cursor: pointer;
+  /* line width is aligned with MatchCard .Line height */
+  border: 2px solid #e6e6e6;
 
   padding: 9px 12px;
+}
+
+.Select:hover {
+  border-color: #999999;
+}
+
+.Select:focus {
+  border-color: #000000;
 }
 
 .Icon {
