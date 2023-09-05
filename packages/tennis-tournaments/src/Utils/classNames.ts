@@ -1,4 +1,4 @@
-type ClassName = string | Record<string, boolean> | ClassName[];
+type ClassName = string | Record<string, boolean> | ClassName[] | undefined;
 
 const classNames = (...classes: ClassName[]): string => {
   const result: string[] = [];

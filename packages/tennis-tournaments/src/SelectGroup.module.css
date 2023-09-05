@@ -1,0 +1,22 @@
+.SelectGroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1110px) {
+  .SelectGroup > * {
+    width: 33.3333333333333%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .SelectGroup > * {
+    width: 50%;
+  }
+}
+
+@media (max-width: 740px) {
+  .SelectGroup > * {
+    width: 100%;
+  }
+}

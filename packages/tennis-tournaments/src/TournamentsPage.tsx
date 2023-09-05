@@ -1,14 +1,14 @@
 import { Component, For, createEffect, createSignal } from "solid-js";
+
 import styles from "./TournamentsPage.module.css";
-import { TournamentCard, TournamentCardProps } from "./TournamentCard";
-import { Select } from "./Select";
-import { COURT_TYPES } from "./Constants/COURT_TYPES";
+
 import { CourtType } from "./Types/CourtType";
-import { TournamentType } from "./Types/TournamentType";
-import { TOURNAMENT_TYPES } from "./Constants/TOURNAMENT_TYPES";
+import { Select } from "./Select";
+import { SelectGroup } from "./SelectGroup";
+import { TournamentCard, TournamentCardProps } from "./TournamentCard";
 import { TournamentStatus } from "./Types/TournamentStatus";
+import { TournamentType } from "./Types/TournamentType";
 import { getTournamentStatus } from "./Utils/getTournamentStatus";
-import { TOURNAMENT_STATUSES } from "./Constants/TOURNAMENT_STATUSES";
 
 const TOURNAMENTS: TournamentCardProps[] = [
   {
@@ -268,6 +268,28 @@ const FILTER_COMPARATORS: Record<
     getTournamentStatus(tournament.tournamentPeriod) === expected,
 };
 
+const COURT_TYPE_ENTRIES: Record<"all" | CourtType, string> = {
+  all: "All",
+  clay: "Clay",
+  grass: "Grass",
+  hard: "Hard",
+};
+
+const TOURNAMENT_TYPE_ENTRIES: Record<"all" | TournamentType, string> = {
+  all: "All",
+  "atp-1000": "ATP 1000",
+  "atp-500": "ATP 500",
+  "grand-slam": "Grand Slam",
+  "wta-1000": "WTA 1000",
+};
+
+const TOURNAMENT_STATUS_ENTRIES: Record<"all" | TournamentStatus, string> = {
+  all: "All",
+  coming: "Coming",
+  finished: "Finished",
+  live: "Live",
+};
+
 const TournamentsPage: Component = () => {
   const sortedTournaments = TOURNAMENTS.sort(
     (a, b) => +a.tournamentPeriod.start - +b.tournamentPeriod.start
@@ -334,24 +356,29 @@ const TournamentsPage: Component = () => {
 
   return (
     <div class={styles.TournamentsPage}>
-      <Select
-        id="court type"
-        current={() => "all"}
-        values={() => ["all", ...COURT_TYPES]}
-        onChange={(value) => applyFilters(value, "courtType")}
-      />
-      <Select
-        id="tournament type"
-        current={() => "all"}
-        values={() => ["all", ...TOURNAMENT_TYPES]}
-        onChange={(value) => applyFilters(value, "tournamentType")}
-      />
-      <Select
-        id="tournament status"
-        current={() => "all"}
-        values={() => ["all", ...TOURNAMENT_STATUSES]}
-        onChange={(value) => applyFilters(value, "tournamentStatus")}
-      />
+      <SelectGroup>
+        <Select
+          current={() => "all"}
+          values={() => COURT_TYPE_ENTRIES}
+          id="courtType"
+          label="Court type"
+          onChange={(value) => applyFilters(value, "courtType")}
+        />
+        <Select
+          current={() => "all"}
+          values={() => TOURNAMENT_TYPE_ENTRIES}
+          id="tournamentType"
+          label="Tournament type"
+          onChange={(value) => applyFilters(value, "tournamentType")}
+        />
+        <Select
+          current={() => "all"}
+          values={() => TOURNAMENT_STATUS_ENTRIES}
+          id="tournamentStatus"
+          label="Tournament status"
+          onChange={(value) => applyFilters(value, "tournamentStatus")}
+        />
+      </SelectGroup>
       <h1>Tournaments</h1>
       <div class={styles.Tournaments}>
         <For each={visibleTournaments()}>

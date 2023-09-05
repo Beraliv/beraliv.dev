@@ -14,6 +14,7 @@ import { CourtType } from "./Types/CourtType";
 import { Loading } from "./Loading";
 import { RoundsNavigation } from "./RoundsNavigation";
 import { Select } from "./Select";
+import { SelectGroup } from "./SelectGroup";
 import { TennisMatchType } from "./Types/TennisMatchType";
 import { TennisPlayer } from "./Types/TennisPlayer";
 import { TournamentRound } from "./TournamentRound";
@@ -22,6 +23,9 @@ import { chooseVisibleTree } from "./Utils/chooseVisibleTree";
 import { fetchRounds } from "./Utils/fetchRounds";
 import { fetchSeasons } from "./Utils/fetchSeasons";
 import { fetchTournamentTree } from "./Utils/fetchTournamentTree";
+import { getCurrentRound } from "./Utils/getCurrentRound";
+import { getMatchTypeEntries } from "./Utils/getMatchTypeEntries";
+import { getObjectKeys } from "./Utils/getObjectKeys";
 import { isDefined } from "./Utils/isDefined";
 import { parseTournamentIds } from "./Utils/parseTournamentIds";
 
@@ -37,7 +41,8 @@ const TournamentPage: Component = () => {
   const { courtType } = routeParams;
   const tournamentName = decodeURIComponent(routeParams.tournamentName);
   const tournamentIds = parseTournamentIds(routeParams.tournamentId);
-  const matchTypes = Object.keys(tournamentIds) as TennisMatchType[];
+  const matchTypes = getObjectKeys(tournamentIds);
+  const matchTypeEntries = getMatchTypeEntries(tournamentIds);
 
   // 1. Choose match type (no requests on this page)
 
@@ -139,44 +144,49 @@ const TournamentPage: Component = () => {
         <h1 class={styles.TournamentName}>{tournamentName}</h1>
       </div>
 
-      <Show when={matchTypes.length > 1}>
-        <div class={styles.MatchTypeSelect}>
-          <Select
-            id="match type"
-            current={matchType}
-            values={() => matchTypes}
-            onChange={updateMatchType}
-          />
-        </div>
-      </Show>
-
-      <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
-        {(seasonsData) => (
-          <div class={styles.SeasonSelect}>
+      <SelectGroup className={styles.TournamentPageFilters}>
+        <Show when={matchTypes.length > 1}>
+          <div class={styles.MatchTypeSelect}>
             <Select
-              id="season"
-              current={() => seasonsData().currentSeason?.year}
-              values={() => seasonsData().seasons.map((season) => season.year)}
-              onChange={handleSeasonChange}
+              current={matchType}
+              id="matchType"
+              label="Match type"
+              onChange={updateMatchType}
+              values={() => matchTypeEntries}
             />
           </div>
-        )}
-      </Show>
+        </Show>
+
+        <Show when={seasonsApiModel.state === "ready" && seasonsApiModel()}>
+          {(seasonsData) => (
+            <Select
+              current={() => seasonsData().currentSeason?.year}
+              id="season"
+              label="Season"
+              onChange={handleSeasonChange}
+              values={() => seasonsData().seasons.map((season) => season.year)}
+            />
+          )}
+        </Show>
+
+        <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
+          {(roundsData) => (
+            <div class={styles.RoundsMobile}>
+              <Select
+                current={() => getCurrentRound(roundsData())}
+                id="round"
+                label="Round"
+                onChange={handleRoundChange}
+                values={() => roundsData().rounds.map((round) => round.name)}
+              />
+            </div>
+          )}
+        </Show>
+      </SelectGroup>
 
       <Show when={roundsApiModel.state === "ready" && roundsApiModel()}>
         {(roundsData) => (
           <>
-            <div class={styles.RoundsMobile}>
-              <Select
-                id="round"
-                current={() =>
-                  roundsData().currentRound?.name ??
-                  roundsData().rounds[0]?.name
-                }
-                values={() => roundsData().rounds.map((round) => round.name)}
-                onChange={handleRoundChange}
-              />
-            </div>
             <div class={styles.RoundsDesktop}>
               <RoundsNavigation
                 roundsApiModel={roundsData}
