@@ -27,6 +27,8 @@
   box-sizing: border-box;
   appearance: none;
   outline: none;
+  /* it sets default font color correctly on e.g. iPad */
+  color: inherit;
   cursor: pointer;
   /* line width is aligned with MatchCard .Line height */
   border: 2px solid #e6e6e6;
