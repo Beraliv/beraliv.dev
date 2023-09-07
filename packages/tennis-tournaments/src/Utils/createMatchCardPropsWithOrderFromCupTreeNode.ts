@@ -8,12 +8,11 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
   node: CupNodeApiModel
 ): MatchCardPropsWithOrder => {
   const score =
-    node.status && node.status.includes(":")
-      ? node.status.split(":").map((value) => parseInt(value, 10))
+    node.result && node.result.includes(":")
+      ? node.result.split(":").map((value) => parseInt(value, 10))
       : undefined;
 
-  const homePlayer = node.leftParticipant;
-  const awayPlayer = node.rightParticipant;
+  const [homePlayer, awayPlayer] = node.participants;
 
   return {
     awayPlayer: awayPlayer
@@ -22,8 +21,8 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
     // set-by-games score isn't available for Cup Trees Model API
     // so saving event id to request it separately using `fetchEvent`
     eventId:
-      node.eventIds.length > 0
-        ? `${node.eventIds[node.eventIds.length - 1]}`
+      node.events.length > 0
+        ? `${node.events[node.events.length - 1]}`
         : undefined,
     homePlayer: homePlayer
       ? createTennisPlayerFromTeam(homePlayer.team, homePlayer.teamSeed)
