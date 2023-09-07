@@ -28,7 +28,10 @@ const createLogger = ({ enabled }: LoggerOptions) => {
     warn: flaggedProxy<
       [message: String, ...args: readonly SerialisableArgument[]]
     >("warn"),
-    error: flaggedProxy<[error: unknown]>("error"),
+    error:
+      flaggedProxy<[error: unknown, ...args: readonly SerialisableArgument[]]>(
+        "error"
+      ),
   };
 };
 
