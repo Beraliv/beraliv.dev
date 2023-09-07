@@ -47,7 +47,9 @@ const fetchTournamentTree = async ({
 
     return roundsData;
   } catch (error) {
-    // It may happen when requesting round that wasn't played yet
+    logger.error(error, {
+      context: "Error may happen when requesting round that was NOT played yet",
+    });
 
     return [];
   }

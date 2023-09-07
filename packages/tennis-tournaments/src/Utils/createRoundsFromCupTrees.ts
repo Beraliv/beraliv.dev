@@ -1,15 +1,20 @@
 import { MatchCardProps } from "../MatchCard";
 import { CupTreesApiModel } from "../Types/CupTreesApiModel";
+import { StrictOmit } from "../Types/StrictOmit";
 import { breadthFirstTraversal } from "./breadthFirstTraversal";
 import { convertRoundInformationToAllRounds } from "./convertRoundInformationToAllRounds";
 import { createMatchCardPropsWithOrderFromCupTreeNode } from "./createMatchCardPropsWithOrderFromCupTreeNode";
 
 interface AllRounds {
-  matches: MatchCardProps[];
+  matches: MatchCardPropsWithOrder[];
   title: string;
 }
 
-interface MatchCardPropsWithOrder extends MatchCardProps {
+interface MatchCardPropsWithOrder
+  extends StrictOmit<
+    MatchCardProps,
+    "courtType" | "selectedTennisPlayerIdSignal"
+  > {
   order: number;
 }
 

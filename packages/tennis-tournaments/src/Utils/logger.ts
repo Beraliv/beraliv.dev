@@ -8,26 +8,30 @@ type SerialisableArgument =
   | SerialisablePrimitive
   | Record<string, SerialisablePrimitive>;
 
+type MethodName = "log" | "warn" | "error";
+
 const createLogger = ({ enabled }: LoggerOptions) => {
-  const log = (message: string, ...args: SerialisableArgument[]) => {
-    if (!enabled) {
-      return;
-    }
+  const flaggedProxy =
+    <Arguments extends readonly any[]>(method: MethodName) =>
+    (...args: Arguments) => {
+      if (!enabled) {
+        return;
+      }
 
-    console.log(message, ...args);
-  };
-
-  const warn = (message: string, ...args: SerialisableArgument[]) => {
-    if (!enabled) {
-      return;
-    }
-
-    console.warn(message, ...args);
-  };
+      console[method](...args);
+    };
 
   return {
-    log,
-    warn,
+    log: flaggedProxy<
+      [message: String, ...args: readonly SerialisableArgument[]]
+    >("log"),
+    warn: flaggedProxy<
+      [message: String, ...args: readonly SerialisableArgument[]]
+    >("warn"),
+    error:
+      flaggedProxy<[error: unknown, ...args: readonly SerialisableArgument[]]>(
+        "error"
+      ),
   };
 };
 
