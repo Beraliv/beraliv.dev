@@ -14,7 +14,7 @@ import TennisBall from "./Icons/TennisBall.svg";
 import WinnerIcon from "./Icons/Winner.svg";
 import { CourtType } from "./Types/CourtType";
 import { TennisPlayer } from "./Types/TennisPlayer";
-import { TennisSet } from "./Types/TennisSet";
+import { PlayerCentricScore } from "./Types/PlayerCentricScore";
 import { classNames } from "./Utils/classNames";
 import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
 import { createShortName } from "./Utils/createShortName";
@@ -29,7 +29,7 @@ interface PlayerMatchResultProps {
   isWinner: boolean;
   onSelect: Setter<TennisPlayer["id"] | undefined>;
   player: TennisPlayer;
-  playerCentricSets: Accessor<TennisSet[]>;
+  playerCentricScore: Accessor<PlayerCentricScore[]>;
   selectedPlayerId: Accessor<TennisPlayer["id"] | undefined>;
 }
 
@@ -40,7 +40,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   isWinner,
   onSelect,
   player,
-  playerCentricSets,
+  playerCentricScore,
   selectedPlayerId,
 }) => {
   const shortName = createShortName(player);
@@ -131,21 +131,21 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
             <TennisBall />
           </div>
         </Show>
-        <div class={styles.SetScores}>
-          <For each={playerCentricSets()}>
-            {([score, opponentScore]) => (
+        <div class={styles.PlayerCentricScores}>
+          <For each={playerCentricScore()}>
+            {(score) => (
               <div
-                class={classNames(styles.SetScore, {
-                  [styles.WinHighlighter]: doesWinSet([score, opponentScore]),
+                class={classNames(styles.PlayerCentricScore, {
+                  [styles.WinHighlighter]: doesWinSet(score),
                 })}
               >
-                {score.games}
-                <Show when={hasTieBreak(score)}>
-                  {
+                {score.home.points}
+                <Show when={hasTieBreak(score) && score}>
+                  {(scoreWithTieBreak) => (
                     <sup class={styles.TieBreakScore}>
-                      {hasTieBreak(score) && score.tieBreak}
+                      {scoreWithTieBreak().home.tieBreak}
                     </sup>
-                  }
+                  )}
                 </Show>
               </div>
             )}

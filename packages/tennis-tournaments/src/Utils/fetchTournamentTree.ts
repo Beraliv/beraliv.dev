@@ -1,9 +1,9 @@
-import { MatchCardProps } from "../MatchCard";
 import { VisibleRoundOrder } from "./getVisibleRoundOrders";
 import { fetchTennisApi } from "./fetchTennisApi";
 import { CupTreesApiModel } from "../Types/CupTreesApiModel";
 import {
   AllRounds,
+  MatchCardPropsWithOrder,
   createRoundsFromCupTrees,
 } from "./createRoundsFromCupTrees";
 import { logger } from "./logger";
@@ -14,7 +14,7 @@ interface FetchTournamentTreeParameters {
 }
 
 interface SimpleTournamentRound {
-  matches: MatchCardProps[];
+  matches: MatchCardPropsWithOrder[];
   order: VisibleRoundOrder;
   title: string;
 }

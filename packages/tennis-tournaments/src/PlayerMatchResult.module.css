@@ -68,13 +68,13 @@
   align-items: center;
 }
 
-.SetScores {
+.PlayerCentricScores {
   display: flex;
-  /* .SetScore margin-left (2px) + .Winner margin-left (3px) */
+  /* .PlayerCentricScore margin-left (2px) + .Winner margin-left (3px) */
   margin-left: 5px;
 }
 
-.SetScore {
+.PlayerCentricScore {
   width: 21px;
   margin: 0 2px;
   text-align: center;
