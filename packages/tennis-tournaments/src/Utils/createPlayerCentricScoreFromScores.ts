@@ -6,6 +6,7 @@ import {
   SetWithTieBreakScore,
 } from "../Types/PlayerCentricScore";
 import { MatchStatus } from "../Types/MatchStatus";
+import { isDefined } from "./isDefined";
 
 const createGameScore = (
   homeScore: ScoreApiModel,
@@ -22,7 +23,7 @@ const createGameScore = (
   const away = { points: awayScore.point } as GameScore;
 
   const hasPoints =
-    typeof home.points === "number" && typeof away.points === "number";
+    typeof home.points === "string" && typeof away.points === "string";
 
   if (hasPoints) {
     return { home, away, type: "game" };
@@ -67,17 +68,15 @@ const createPlayerCentricScoreFromScores = (
   status: MatchStatus
 ): PlayerCentricScore[] => {
   const scores: (PlayerCentricScore | undefined)[] = [
-    createGameScore(homeScore, awayScore, status),
     createSetOrSetWithTieBreakScore(homeScore, awayScore, 1),
     createSetOrSetWithTieBreakScore(homeScore, awayScore, 2),
     createSetOrSetWithTieBreakScore(homeScore, awayScore, 3),
     createSetOrSetWithTieBreakScore(homeScore, awayScore, 4),
     createSetOrSetWithTieBreakScore(homeScore, awayScore, 5),
+    createGameScore(homeScore, awayScore, status),
   ];
 
-  return scores.filter(
-    (score): score is PlayerCentricScore => typeof score !== "undefined"
-  );
+  return scores.filter(isDefined);
 };
 
 export { createPlayerCentricScoreFromScores };

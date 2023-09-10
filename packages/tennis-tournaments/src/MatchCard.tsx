@@ -117,15 +117,18 @@ const MatchCard: Component<MatchCardProps> = ({
         player={homePlayer}
         playerCentricScore={homeCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
+        serves={true}
       />
       <div class={styles.Line} />
       <PlayerMatchResult
         courtType={courtType}
+        isInProgress={isInProgress}
         isWinner={isAwayWinner}
         onSelect={selectTennisPlayerId}
         player={awayPlayer}
         playerCentricScore={awayCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
+        serves={false}
       />
     </div>
   );

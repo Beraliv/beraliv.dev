@@ -25,23 +25,25 @@ import { hasTieBreak } from "./Utils/hasTieBreak";
 interface PlayerMatchResultProps {
   className?: string;
   courtType: CourtType;
-  isInProgress?: boolean;
+  isInProgress: boolean;
   isWinner: boolean;
   onSelect: Setter<TennisPlayer["id"] | undefined>;
   player: TennisPlayer;
   playerCentricScore: Accessor<PlayerCentricScore[]>;
   selectedPlayerId: Accessor<TennisPlayer["id"] | undefined>;
+  serves: boolean;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
   className,
   courtType,
-  isInProgress = false,
+  isInProgress,
   isWinner,
   onSelect,
   player,
   playerCentricScore,
   selectedPlayerId,
+  serves,
 }) => {
   const shortName = createShortName(player);
 
@@ -126,7 +128,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
             <WinnerIcon />
           </div>
         </Show>
-        <Show when={isInProgress}>
+        <Show when={isInProgress && serves}>
           <div class={styles.TennisBall}>
             <TennisBall />
           </div>
