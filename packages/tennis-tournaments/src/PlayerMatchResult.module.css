@@ -68,21 +68,24 @@
   align-items: center;
 }
 
-.SetScores {
+.PlayerCentricScores {
   display: flex;
-  /* .SetScore margin-left (2px) + .Winner margin-left (3px) */
+  align-items: baseline;
+
+  /* .PlayerCentricScore margin-left (2px) + .Winner margin-left (3px) */
   margin-left: 5px;
 }
 
-.SetScore {
-  width: 21px;
-  margin: 0 2px;
+.PlayerCentricScore {
+  width: 22px;
+  margin: 0 1px;
+
   text-align: center;
 }
 
 .TieBreakScore {
   position: relative;
-  top: -0.9em;
+  top: -0.5em;
   vertical-align: baseline;
   font-size: 75%;
 }

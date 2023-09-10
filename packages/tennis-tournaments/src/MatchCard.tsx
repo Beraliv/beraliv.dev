@@ -10,14 +10,15 @@ import {
 
 import styles from "./MatchCard.module.css";
 import { TennisPlayer } from "./Types/TennisPlayer";
-import { TennisSet } from "./Types/TennisSet";
+import { PlayerCentricScore } from "./Types/PlayerCentricScore";
 import { PlayerMatchResult } from "./PlayerMatchResult";
 import { MatchStatus } from "./Types/MatchStatus";
 import { fetchEvent } from "./Utils/fetchEvent";
-import { createTennisSetsFromScores } from "./Utils/createTennisSetsFromScores";
+import { createPlayerCentricScoreFromScores } from "./Utils/createPlayerCentricScoreFromScores";
 import { classNames } from "./Utils/classNames";
 import { CourtType } from "./Types/CourtType";
 import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
+import { switchPlayerCentricScore } from "./Utils/switchPlayerCentricScore";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
@@ -25,7 +26,7 @@ interface MatchCardProps {
   eventId: string | undefined;
   homePlayer: TennisPlayer;
   selectedTennisPlayerIdSignal: Signal<TennisPlayer["id"] | undefined>;
-  sets: TennisSet[];
+  scores: PlayerCentricScore[];
   status: MatchStatus;
 }
 
@@ -35,7 +36,7 @@ const MatchCard: Component<MatchCardProps> = ({
   eventId,
   homePlayer,
   selectedTennisPlayerIdSignal,
-  sets,
+  scores,
   status,
 }) => {
   const [extendedEventEnabled, setExtendedEventEnabled] = createSignal(false);
@@ -69,10 +70,11 @@ const MatchCard: Component<MatchCardProps> = ({
     fetchEvent
   );
 
-  const [homeCentricSets, setHomeCentricSets] = createSignal<TennisSet[]>(sets);
-  const [awayCentricSets, setAwayCentricSets] = createSignal<TennisSet[]>(
-    sets.map(([opponentScore, score]) => [score, opponentScore])
-  );
+  const [homeCentricScore, setHomeCentricScore] =
+    createSignal<PlayerCentricScore[]>(scores);
+  const [awayCentricScore, setAwayCentricScore] = createSignal<
+    PlayerCentricScore[]
+  >(scores.map(switchPlayerCentricScore));
 
   createEffect(() => {
     const event = eventApiModel();
@@ -81,18 +83,14 @@ const MatchCard: Component<MatchCardProps> = ({
       return;
     }
 
-    const updatedSets = createTennisSetsFromScores(
+    const updatedScore = createPlayerCentricScoreFromScores(
       event.homeScore,
-      event.awayScore
+      event.awayScore,
+      status
     );
 
-    setHomeCentricSets(updatedSets);
-    setAwayCentricSets(
-      updatedSets.map(([opponentScore, score]) => [
-        score,
-        opponentScore,
-      ]) as TennisSet[]
-    );
+    setHomeCentricScore(updatedScore);
+    setAwayCentricScore(updatedScore.map(switchPlayerCentricScore));
   });
 
   const isHomeWinner = status.type === "FINISHED" && status.winner === "home";
@@ -117,17 +115,20 @@ const MatchCard: Component<MatchCardProps> = ({
         isWinner={isHomeWinner}
         onSelect={selectTennisPlayerId}
         player={homePlayer}
-        playerCentricSets={homeCentricSets}
+        playerCentricScore={homeCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
+        serves={true}
       />
       <div class={styles.Line} />
       <PlayerMatchResult
         courtType={courtType}
+        isInProgress={isInProgress}
         isWinner={isAwayWinner}
         onSelect={selectTennisPlayerId}
         player={awayPlayer}
-        playerCentricSets={awayCentricSets}
+        playerCentricScore={awayCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
+        serves={false}
       />
     </div>
   );

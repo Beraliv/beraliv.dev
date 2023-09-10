@@ -1,6 +1,5 @@
 import { TENNIS_PLAYER_PLACEHOLDER } from "../Constants/TENNIS_PLAYER_PLACEHOLDER";
 import { CupNodeApiModel } from "../Types/CupTreesApiModel";
-import { TennisSet } from "../Types/TennisSet";
 import type { MatchCardPropsWithOrder } from "./createRoundsFromCupTrees";
 import { createTennisPlayerFromTeam } from "./createTennisPlayerFromTeam";
 
@@ -9,7 +8,10 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
 ): MatchCardPropsWithOrder => {
   const score =
     node.result && node.result.includes(":")
-      ? node.result.split(":").map((value) => parseInt(value, 10))
+      ? (node.result.split(":").map((value) => parseInt(value, 10)) as [
+          number,
+          number
+        ])
       : undefined;
 
   const [homePlayer, awayPlayer] = node.participants;
@@ -28,7 +30,15 @@ const createMatchCardPropsWithOrderFromCupTreeNode = (
       ? createTennisPlayerFromTeam(homePlayer.team, homePlayer.teamSeed)
       : TENNIS_PLAYER_PLACEHOLDER,
     order: node.order,
-    sets: score ? [score.map((sets) => ({ games: sets })) as TennisSet] : [],
+    scores: score
+      ? [
+          {
+            home: { points: score[0] },
+            away: { points: score[1] },
+            type: "set",
+          },
+        ]
+      : [],
     status: node.eventInProgress
       ? { type: "IN_PROGRESS" }
       : node.finished
