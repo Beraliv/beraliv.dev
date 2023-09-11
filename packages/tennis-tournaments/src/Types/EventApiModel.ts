@@ -5,12 +5,12 @@ import { TeamApiModel } from "./TeamApiModel";
 
 interface EventApiModel {
   awayScore: ScoreApiModel;
-  awayTeamSeed: string | undefined;
   awayTeam: TeamApiModel;
-  homeScore: ScoreApiModel;
+  awayTeamSeed: string | undefined;
   firstToServe: 0 | 1 | 2;
-  homeTeamSeed: string | undefined;
+  homeScore: ScoreApiModel;
   homeTeam: TeamApiModel;
+  homeTeamSeed: string | undefined;
   roundInfo: RoundApiModel;
   status: EventStatusApiModel;
   winnerCode: 0 | 1 | 2;
