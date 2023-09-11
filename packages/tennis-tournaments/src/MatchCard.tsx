@@ -19,6 +19,8 @@ import { classNames } from "./Utils/classNames";
 import { CourtType } from "./Types/CourtType";
 import { createOneTouchTapController } from "./Utils/createOneTouchTapController";
 import { switchPlayerCentricScore } from "./Utils/switchPlayerCentricScore";
+import { TennisSide } from "./Types/TennisSide";
+import { createServeSide } from "./Utils/createServeSide";
 
 interface MatchCardProps {
   awayPlayer: TennisPlayer;
@@ -76,6 +78,10 @@ const MatchCard: Component<MatchCardProps> = ({
     PlayerCentricScore[]
   >(scores.map(switchPlayerCentricScore));
 
+  const [serveSide, setServeSide] = createSignal<TennisSide | undefined>(
+    createServeSide(scores, { firstToServe: "home" })
+  );
+
   createEffect(() => {
     const event = eventApiModel();
 
@@ -83,14 +89,26 @@ const MatchCard: Component<MatchCardProps> = ({
       return;
     }
 
-    const updatedScore = createPlayerCentricScoreFromScores(
+    const updatedScores = createPlayerCentricScoreFromScores(
       event.homeScore,
       event.awayScore,
       status
     );
 
-    setHomeCentricScore(updatedScore);
-    setAwayCentricScore(updatedScore.map(switchPlayerCentricScore));
+    const updatedServeSide = createServeSide(updatedScores, {
+      firstToServe:
+        event.firstToServe === 1
+          ? "home"
+          : event.firstToServe === 2
+          ? "away"
+          : undefined,
+    });
+
+    console.log("updatedServeSide", updatedServeSide);
+
+    setHomeCentricScore(updatedScores);
+    setAwayCentricScore(updatedScores.map(switchPlayerCentricScore));
+    setServeSide(updatedServeSide);
   });
 
   const isHomeWinner = status.type === "FINISHED" && status.winner === "home";
@@ -117,7 +135,7 @@ const MatchCard: Component<MatchCardProps> = ({
         player={homePlayer}
         playerCentricScore={homeCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
-        serves={true}
+        serves={() => serveSide() === "home"}
       />
       <div class={styles.Line} />
       <PlayerMatchResult
@@ -128,7 +146,7 @@ const MatchCard: Component<MatchCardProps> = ({
         player={awayPlayer}
         playerCentricScore={awayCentricScore}
         selectedPlayerId={selectedTennisPlayerId}
-        serves={false}
+        serves={() => serveSide() === "away"}
       />
     </div>
   );

@@ -31,7 +31,7 @@ interface PlayerMatchResultProps {
   player: TennisPlayer;
   playerCentricScore: Accessor<PlayerCentricScore[]>;
   selectedPlayerId: Accessor<TennisPlayer["id"] | undefined>;
-  serves: boolean;
+  serves: Accessor<boolean>;
 }
 
 const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
@@ -128,7 +128,7 @@ const PlayerMatchResult: Component<PlayerMatchResultProps> = ({
             <WinnerIcon />
           </div>
         </Show>
-        <Show when={isInProgress && serves}>
+        <Show when={isInProgress && serves()}>
           <div class={styles.TennisBall}>
             <TennisBall />
           </div>
