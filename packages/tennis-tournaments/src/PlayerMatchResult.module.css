@@ -1,0 +1,129 @@
+.PlayerMatchResult {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* use padding-bottom instead of margin to have indent between border and PlayerMatchResult */
+  padding: 9px 12px 11px 12px;
+
+  /* prevents unintentional player names select */
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.Selected {
+  color: white;
+}
+
+.grass.Selected {
+  background-color: #405e54;
+}
+
+.clay.Selected {
+  background-color: #993300;
+}
+
+.hard.Selected {
+  background-color: #2d5986;
+}
+
+.Player {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* When the name is too long, it's cut */
+  overflow: hidden;
+}
+
+.AvatarImage {
+  display: flex;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.WinHighlighter {
+  font-weight: 900;
+}
+
+.Name {
+  /* When the name is too long, it's cut */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Name,
+.Seed {
+  margin-left: 5px;
+}
+
+.Score {
+  display: flex;
+  align-items: center;
+}
+
+.PlayerCentricScores {
+  display: flex;
+  align-items: baseline;
+
+  /* .PlayerCentricScore margin-left (2px) + .Winner margin-left (3px) */
+  margin-left: 5px;
+}
+
+.PlayerCentricScore {
+  width: 22px;
+  margin: 0 1px;
+
+  text-align: center;
+}
+
+.TieBreakScore {
+  position: relative;
+  top: -0.5em;
+  vertical-align: baseline;
+  font-size: 75%;
+}
+
+.grass .Winner svg path {
+  fill: #405e54;
+}
+
+.clay .Winner svg path {
+  fill: #993300;
+}
+
+.hard .Winner svg path {
+  fill: #2d5986;
+}
+
+.Selected .Winner svg path {
+  fill: white;
+}
+
+.Winner,
+.TennisBall {
+  display: flex;
+  margin-left: 3px;
+}
+
+.TennisBall {
+  /* `ease-in` is used to to imitate gravity, so ball is getting to top position slower */
+  /* `alternate` is used to imitate ball jumping direction - down and up */
+  animation: ballJumping 0.75s ease-in infinite alternate;
+}
+
+@keyframes ballJumping {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(50%) rotate(180deg);
+  }
+}

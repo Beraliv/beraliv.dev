@@ -1,0 +1,133 @@
+@media (min-width: 1110px) {
+  .TournamentCard {
+    width: 33.3333333333333%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .TournamentCard {
+    width: 50%;
+  }
+}
+
+@media (max-width: 740px) {
+  .TournamentCard {
+    width: 100%;
+  }
+}
+
+.TournamentCard {
+  display: inline-flex;
+  flex-direction: column;
+
+  /* inner card width (306.5px) + 2x padding (12.8px) + 2x margin (5px) */
+  min-width: 342.1px;
+  height: 16rem;
+
+  /* <a> element underlines text by default */
+  text-decoration: none;
+  /* <a> element has different colours depending on whether it's clicked or visited by default */
+  color: black;
+}
+
+.HardCourt .CourtType {
+  background-color: #015d87;
+}
+
+.ClayCourt .CourtType {
+  background-color: #8f4121;
+}
+
+.GrassCourt .CourtType {
+  background-color: #344a17;
+}
+
+.TournamentHead {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.TournamentHeadTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.TournamentHeadBottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.TournamentDates,
+.CourtType {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  /* date and court icons change height, so setting it to the same value */
+  height: 16px;
+}
+
+.LiveTournament {
+  background: #c0392b;
+  margin-right: 0.5rem;
+}
+
+.TournamentDates {
+  background: #141414;
+  margin-right: 0.5rem;
+}
+
+.TournamentDateIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-right: 0.8rem;
+}
+
+.TournamentCourtIcon {
+  width: 2.4rem;
+  height: 0.97rem;
+  margin-right: 0.8rem;
+}
+
+.TournamentDateIcon svg,
+.TournamentCourtIcon svg {
+  fill: white;
+}
+
+.LiveTournament,
+.TournamentDates,
+.CourtType {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 700;
+
+  color: white;
+}
+
+.TournamentHead,
+.TournamentFooter {
+  padding: 0.8rem;
+  margin: 0 5px;
+  background-color: #e6e6e6;
+}
+
+.TournamentFooter {
+  margin-bottom: 10px;
+}
+
+.TournamentFooter h2 {
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: -0.015rem;
+  line-height: 1.17;
+  margin-block: 0;
+}

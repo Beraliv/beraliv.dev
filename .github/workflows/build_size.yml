@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: [blog2, habits]
+        package: [blog2, habits, tennis-tournaments]
     steps:
       - name: Checkout to current branch
         uses: actions/checkout@v3
@@ -68,6 +68,12 @@ jobs:
         with:
           name: build-habits
           path: packages/habits/dist
+
+      - name: Download tennis-tournaments build
+        uses: actions/download-artifact@v3
+        with:
+          name: build-tennis-tournaments
+          path: packages/tennis-tournaments/dist
 
       - name: Build size report
         run: pnpm run size

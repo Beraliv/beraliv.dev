@@ -1,0 +1,18 @@
+.TournamentsPage {
+  margin: 10px;
+}
+
+.TournamentsPage > h1,
+.TournamentsPage > h2 {
+  margin: 0.67em 0 0.67em 15px;
+  font-weight: 900;
+}
+
+/*
+  Flex + wrap mitigates alignment issues
+  between tournament cards with and without "LIVE" label
+*/
+.Tournaments {
+  display: flex;
+  flex-wrap: wrap;
+}
