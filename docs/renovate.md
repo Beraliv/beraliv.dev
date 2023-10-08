@@ -16,7 +16,6 @@ Requirements:
 - Create a single feature branch for all updates
 - Add a change log with listing the updates (Update packageName from version x to version y)
 - Wait until the CI checks are "green" and then automatically merge the PR
-- Update packages with beta version
 - Support of workspaces
 
 ## Summary
@@ -96,10 +95,6 @@ Requirements:
   - Renovate automerges at most one branch per run
   - Renovate will only automerge a branch when it is up-to-date with the target branch
   - Renovate may not be able to automerge as many branches as you expect, especially if your base branch is receiving regular commits at the same time
-
-✅ **Update packages with beta version**
-
-- Has `ignoreUnstable` option to do unstable updates for a package - [link 🔗](https://docs.renovatebot.com/configuration-options/#ignoreunstable)
 
 ✅ **Support of workspaces**
 
