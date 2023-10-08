@@ -12,7 +12,7 @@ jobs:
         package: [blog2, habits, tennis-tournaments]
     steps:
       - name: Checkout to current branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup node
         uses: ./.github/actions/setup-node
@@ -43,7 +43,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout to current branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup node
         uses: ./.github/actions/setup-node
