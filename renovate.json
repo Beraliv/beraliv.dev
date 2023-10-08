@@ -4,6 +4,17 @@
   "lockFileMaintenance": { "enabled": true },
   "packageRules": [
     {
+      "groupName": "vite",
+      "groupSlug": "vite-ecosystem",
+      "matchPackagePatterns": [
+        "vite",
+        "vitest",
+        "vite-plugin-solid",
+        "vite-plugin-solid-svg"
+      ],
+      "matchUpdateTypes": ["patch", "minor", "major", "lockFileMaintenance"]
+    },
+    {
       "groupName": "all patch dependencies",
       "groupSlug": "all-patch",
       "matchPackagePatterns": ["*"],
