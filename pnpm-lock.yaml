@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 patchedDependencies:
   bundlewatch@0.3.3:
     hash: uj6jncoatjcwavg7n4jojs6nni
@@ -71,8 +75,8 @@ importers:
         specifier: '*'
         version: 18.7.23
       '@types/react':
-        specifier: 18.2.25
-        version: 18.2.25
+        specifier: 18.2.27
+        version: 18.2.27
       '@types/unist':
         specifier: 2.0.8
         version: 2.0.8
@@ -109,8 +113,6 @@ importers:
       unified:
         specifier: 10.1.2
         version: 10.1.2
-
-  packages/blog2/dist: {}
 
   packages/habits:
     dependencies:
@@ -162,8 +164,8 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0(solid-js@1.7.6)(vite@4.3.9)
       vite-plugin-solid-svg:
-        specifier: 0.6.4
-        version: 0.6.4(solid-js@1.7.6)(vite@4.3.9)
+        specifier: 0.6.5
+        version: 0.6.5(solid-js@1.7.6)(vite@4.3.9)
 
 packages:
 
@@ -1082,7 +1084,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.2
-      '@types/react': 18.2.25
+      '@types/react': 18.2.27
       react: 18.2.0
     dev: false
 
@@ -1641,11 +1643,11 @@ packages:
   /@types/react-dom@18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.2.25
+      '@types/react': 18.2.27
     dev: true
 
-  /@types/react@18.2.25:
-    resolution: {integrity: sha512-24xqse6+VByVLIr+xWaQ9muX1B4bXJKXBbjszbld/UEDslGLY53+ZucF44HCmLbMPejTzGG9XgR+3m2/Wqu1kw==}
+  /@types/react@18.2.27:
+    resolution: {integrity: sha512-Wfv7B7FZiR2r3MIqbAlXoY1+tXm4bOqfz4oRr+nyXdBqapDBZ0l/IGcSlAfvxIHEEJjkPU0MYAc/BlFPOcrgLw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -6964,8 +6966,8 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-solid-svg@0.6.4(solid-js@1.7.6)(vite@4.3.9):
-    resolution: {integrity: sha512-T8uNBq8JhOvqp877v2J3Zzp575lL3NcvFXvq7VsrBGKZKyO3+jx2wKPawAxVOOKijrmDOnvu35c9eLzbU+hsHA==}
+  /vite-plugin-solid-svg@0.6.5(solid-js@1.7.6)(vite@4.3.9):
+    resolution: {integrity: sha512-a/QnrJVHDFn2SFIWY/U6hXBXl/NzxIPBpx1dwi1V3bBD2V5ET1ucryc7hFZ/Hu4YiJKIi2OAa5tNUK9npL69rA==}
     peerDependencies:
       solid-js: ^1
       vite: '>=2.4'
@@ -7351,7 +7353,3 @@ packages:
 
   /zwitch@2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
