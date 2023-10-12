@@ -39,7 +39,10 @@ export const getPostStaticProps: GetStaticProps<
   });
 
   if (!(imageUrl in cache)) {
-    await extractMetadata(imageUrl);
+    // cache is loaded once so update the reference
+    // to not fail on the next assertion `!(imageUrl in cache)`
+
+    await extractMetadata(imageUrl, cache);
   }
   if (!(imageUrl in cache)) {
     throw new Error(`Cannot find cache for image ${imageUrl}`);
