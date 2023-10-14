@@ -914,5 +914,53 @@
   "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png": {
     "width": 1600,
     "height": 1200
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/final-solution.png": {
+    "width": 1985,
+    "height": 1194
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-3_2-timeout-after-seeking-or-stalled-if-earlier.png": {
+    "width": 1907,
+    "height": 1048
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-3-no-waiting-event.png": {
+    "width": 1889,
+    "height": 1095
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-3_1-stalled-event.png": {
+    "width": 1889,
+    "height": 971
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_2-waiting-event-and-video-element-ready-state-enough-data.png": {
+    "width": 1889,
+    "height": 1095
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_2-waiting-event-and-video-element-ready-state-not-enough-data.png": {
+    "width": 2046,
+    "height": 1174
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-buffered-ranges.png": {
+    "width": 1450,
+    "height": 1088
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-timeline.png": {
+    "width": 1889,
+    "height": 1048
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-enough-data.png": {
+    "width": 1909,
+    "height": 1150
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-not-enough-data.png": {
+    "width": 1931,
+    "height": 1149
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-1-delay-appending-segments.png": {
+    "width": 1889,
+    "height": 1048
+  },
+  "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-1-previous-segments-are-automatically-removed.png": {
+    "width": 1889,
+    "height": 1048
   }
 }
