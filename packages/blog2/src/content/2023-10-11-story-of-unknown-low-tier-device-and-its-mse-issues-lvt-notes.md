@@ -16,13 +16,13 @@ keywords:
 image: /story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png
 ---
 
-![I'm talking about the approach to mitigate all MSE issues on a low-tier device](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png)
+![I'm talking about the approach to mitigate all found MSE issues on a low-tier device](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png)
 
 ## Prerequisite
 
-I've been working with one low-tier device at DAZN for some time and because I had so many helpful materials I've decided to share them with people in outer video community. It took me around 2 week to prepare, including several runs at DAZN to collect the feedback, a refinement of the structure and updating slides.
+I've been working with a low-tier device at DAZN for some time and because I had so many helpful materials I've decided to share them with people in outer video community. It took me around 2 weeks to prepare, including several runs at DAZN to collect the feedback, a refinement of the structure and updating slides.
 
-On October, 3, I went to BBC Broadcasting House where I met [Phil](https://www.linkedin.com/in/philcluff/) and [Alan](https://www.linkedin.com/in/robinsonalan/) in person. With support of my [Engineering Manager Luke](https://www.linkedin.com/in/luke-b-60674a35/), [Staff Engineer Ash](https://www.linkedin.com/in/byrom/) and Principal Engineer Ant (who contacted me with Phil), I've given the talk and I am very very happy about the way it went. Let's sum it up.
+On October, 3, I went to BBC Broadcasting House where I met [Phil](https://www.linkedin.com/in/philcluff/) and [Alan](https://www.linkedin.com/in/robinsonalan/) in person. With support of my [Engineering Manager Luke](https://www.linkedin.com/in/luke-b-60674a35/), [Staff Engineer Ash](https://www.linkedin.com/in/byrom/) and Principal Engineer Ant (he introduced me to Phil which I really appreciate 🧡), I've given the talk and I am very very happy with the way it went. Let's walk through all materials that I have so far.
 
 ## Table of contents
 
@@ -48,7 +48,7 @@ On October, 3, I went to BBC Broadcasting House where I met [Phil](https://www.l
 - [Conclusion ⭐️](#conclusion-⭐️)
 - [Links 🔗](#links-🔗)
 
-The goal of the talk is:
+The goal of the talk was:
 
 - to highlight specifics of working with low-tier devices,
 - to demonstrate its MSE issues,
@@ -56,58 +56,51 @@ The goal of the talk is:
 
 ## What a low-tier device is 📺
 
-TODO: text
+For me it's a device with limited resources, e.g. low energy consumption, low-tier hardware, etc.
 
-It’s device with limited resources, e.g. low energy consumption, low-tier hardware, etc.
-
-It includes different types of devices:
-
-- Smart TVs (e.g. Samsung, LG, Panasonic, etc)
-- Dongles
-- Set top boxes
+Low-tier devices include Smart TVs (e.g. Samsung TV with Tizen OS, LG TV with WebOS, Panasonic, etc), dongles (such as Chromecast) and different set top boxes, or STBs (there are many UK providers and almost each of them have at least one STB)
 
 ### Analysis of the common bits
 
-TODO: text
+Low-tier devices are **cheap**. The price really depends on the type of the device, e.g. Smart TVs can be more expensive than STBs. The lower prices are mainly caused by low-tier hardware, e.g. weak processor, insufficient RAM, slow hard drive or even limited CPU. This low-tier hardware brings **low performance**. On the one hand, it can be beneficial for users when we're talking about **low energy consumption** as it may help people save their bills. On the other hand, users get **low video quality** (mostly SD or/and HD).
 
-Advantages:
-
-- Cheap (but the price depends on the type of the device)
-- Low energy consumption (which can help you save bills)
-
-Disadvantages:
-
-- Low performance because of low-tier hardware
-  - Weak processor
-  - Insufficient RAM
-  - Slow hard disk drive
-  - Limited CPU
-- Low video quality (only SD and HD)
-- **Bespoke Web API on top of old Chromium engine**
-
-For developers, it means that we may face bespoke Web API, meaning that even it looks exactly the same as for, e.g. Web Browsers, it doesn't mean it works the same way which is a bit sad. So you need to bear this in mind and keep an eye on it.
+For developers, it means that we may face **bespoke Web API**, meaning that even though Web API looks exactly the same as for, e.g. Web Browsers, but it doesn't work the same way which is a bit frustrating. So you need to bear this in mind and keep an eye on it.
 
 ## What MSE issues we can face 🤒
 
 ### What is MSE
 
-TODO: text
+First of all, let's define what MSE, or Media Source Extensions, is:
 
 > Media Source Extensions, or MSE, is a set of APIs which allow player developers to playback audio and video content as well as showing text content to the viewer
 
-TODO: convert svg to png
+I've also attached the diagram from MSE specification which shows what MSE includes: it's `MediaSource` instance with 3 `SourceBuffer` instances for each type of media type (i.e. video, audio and text). Under the hood, there are video and audio decoders which are responsible for decoding audio and video information and plays the content to end user.
 
-- Text - The diagram with MSE components from MSE specification
-- Link - https://www.w3.org/TR/media-source/pipeline_model.svg
+![The diagram with MSE components from MSE specification](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/mse-components-from-spec.png)
 
 ### Examples from Samsung, Panasonic, etc
 
-TODO: text
+Here I'd like to mention 4 examples of MSE issues I've worked before.
 
-- [stalled](https://html.spec.whatwg.org/multipage/media.html#event-media-stalled) event towards the end of buffered ranges (it can be mitigated with safe gap to the end of buffered ranges)
-- small time range [remove](https://w3c.github.io/media-source/#dom-sourcebuffer-remove) throws error (it can be mitigated with threshold - [fix in shaka](https://github.com/shaka-project/shaka-player/commit/b7209f00f82eb8d533ebfc2cb41feba28bf7d2f4))
-- audio and video [appendBuffer](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) competes to each other if the order isn’t predicted (it can be mitigated with scheduler for both audio and video, e.g. [StreamingEngine in shaka](https://github.com/shaka-project/shaka-player/blob/025502a70c885216b9bbc063025ae80a72780fe6/lib/media/streaming_engine.js#L58))
-- [isTypeSupported](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) returns `true` for any given input
+#### The stalled event dispatched on HTMLVideoElement towards the end of buffered ranges
+
+Many Living Room devices, such as old Samsung TVs, have [`stalled` event](https://html.spec.whatwg.org/multipage/media.html#event-media-stalled) dispatched near the end of buffered ranges. It can be easily mitigated by introducing a safe gap to the end of buffered ranges.
+
+#### The SourceBuffer.remove call with small time range throws an error
+
+Such [`SourceBuffer['remove']`](https://w3c.github.io/media-source/#dom-sourcebuffer-remove) behaviour could be observed on [shaka-player](https://github.com/shaka-project/shaka-player) for Samsung TVs. This could be mitigated by [introducing a threshold for small time ranges](https://github.com/shaka-project/shaka-player/commit/b7209f00f82eb8d533ebfc2cb41feba28bf7d2f4).
+
+#### Simultaneous SourceBuffer.appendBuffer calls on audio and video SourceBuffer instances could complete to each other leading to unhealthy buffer
+
+This issue depends on how MSE/EME player is implemented. When `SourceBuffer` instances are handled separately, some Living Room devices cannot cope with simultaneous [`SourceBuffer['appendBuffer']`](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) calls correctly which leads to unhealthy buffer.
+
+It can be mitigated by introducing some kind of "manager" which handles `SourceBuffer['appendBuffer']` calls in one place (such as [StreamingEngine in `shaka-player`](https://github.com/shaka-project/shaka-player/blob/025502a70c885216b9bbc063025ae80a72780fe6/lib/media/streaming_engine.js#L58)).
+
+#### MediaSource.isTypeSupported calls return true for any given MIME type of the media
+
+#### **[MediaSource['isTypeSupported']](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) returns `true` for any given MIME type of the media**
+
+This particularly happens on Samsung TVs 2.3 and 2.4. Although it's not a specification-complaint approach, `` `${mimeCodec};width=${width}` `` (where `width` is a representation width) can mitigate the issue when passed to [MediaSource['isTypeSupported']](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) in place of `mimeCodec`.
 
 ## MSE issues of an unknown device 🧪
 
