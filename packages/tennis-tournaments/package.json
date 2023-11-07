@@ -17,7 +17,7 @@
     "vite-plugin-solid-svg": "0.6.5"
   },
   "dependencies": {
-    "@solidjs/router": "0.8.3",
+    "@solidjs/router": "0.8.4",
     "solid-js": "^1.7.6"
   }
 }
