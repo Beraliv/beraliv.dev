@@ -75,8 +75,8 @@ importers:
         specifier: '*'
         version: 18.7.23
       '@types/react':
-        specifier: 18.2.35
-        version: 18.2.35
+        specifier: 18.2.36
+        version: 18.2.36
       '@types/unist':
         specifier: 2.0.9
         version: 2.0.9
@@ -145,8 +145,8 @@ importers:
   packages/tennis-tournaments:
     dependencies:
       '@solidjs/router':
-        specifier: 0.8.3
-        version: 0.8.3(solid-js@1.7.6)
+        specifier: 0.8.4
+        version: 0.8.4(solid-js@1.7.6)
       solid-js:
         specifier: ^1.7.6
         version: 1.7.6
@@ -1084,7 +1084,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.2
-      '@types/react': 18.2.35
+      '@types/react': 18.2.36
       react: 18.2.0
     dev: false
 
@@ -1429,8 +1429,8 @@ packages:
       solid-js: 1.6.2
     dev: false
 
-  /@solidjs/router@0.8.3(solid-js@1.7.6):
-    resolution: {integrity: sha512-oJuqQo10rVTiQYhe1qXIG1NyZIZ2YOwHnlLc8Xx+g/iJhFCJo1saLOIrD/Dkh2fpIaIny5ZMkz1cYYqoTYGJbg==}
+  /@solidjs/router@0.8.4(solid-js@1.7.6):
+    resolution: {integrity: sha512-Gi/WVoVseGMKS1DBdT3pNAMgOzEOp6Q3dpgNd2mW9GUEnVocPmtyBjDvXwN6m7tjSGsqqfqJFXk7bm1hxabSRw==}
     peerDependencies:
       solid-js: ^1.5.3
     dependencies:
@@ -1643,11 +1643,11 @@ packages:
   /@types/react-dom@18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.2.35
+      '@types/react': 18.2.36
     dev: true
 
-  /@types/react@18.2.35:
-    resolution: {integrity: sha512-LG3xpFZ++rTndV+/XFyX5vUP7NI9yxyk+MQvBDq+CVs8I9DLSc3Ymwb1Vmw5YDoeNeHN4PDZa3HylMKJYT9PNQ==}
+  /@types/react@18.2.36:
+    resolution: {integrity: sha512-o9XFsHYLLZ4+sb9CWUYwHqFVoG61SesydF353vFMMsQziiyRu8np4n2OYMUSDZ8XuImxDr9c5tR7gidlH29Vnw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
