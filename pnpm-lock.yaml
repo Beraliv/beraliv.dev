@@ -69,8 +69,8 @@ importers:
         specifier: 20.0.1
         version: 20.0.1
       '@types/mocha':
-        specifier: 10.0.5
-        version: 10.0.5
+        specifier: 10.0.6
+        version: 10.0.6
       '@types/node':
         specifier: '*'
         version: 18.7.23
@@ -1618,8 +1618,8 @@ packages:
     resolution: {integrity: sha512-mJGfgj4aWpiKb8C0nnJJchs1sHBHn0HugkVfqqyQi7Wn6mBRksLeQsPOFvih/Pu8L1vlDzfe/LidhVHBeUk3aQ==}
     dev: false
 
-  /@types/mocha@10.0.5:
-    resolution: {integrity: sha512-JUI82qwkRhYJYesuKSeFy46fKbhLaV9RU1gAh2PHmyoEECvlTf5UYeIivYlMszp1WT2CwJ4ziC3zoxsodhsGwg==}
+  /@types/mocha@10.0.6:
+    resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
     dev: true
 
   /@types/ms@0.7.31:
