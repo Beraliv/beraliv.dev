@@ -1,7 +1,7 @@
 ---
 title: A story of an unknown low-tier device and its MSE issues / London Video Tech 2023 notes
-date: "2023-10-11"
-description: The goal of the talk is to highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.
+date: "2023-12-21"
+description: To highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.
 labels:
   - player
 keywords:
@@ -16,13 +16,27 @@ keywords:
 image: /story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png
 ---
 
-![I'm talking about the approach to mitigate all found MSE issues on a low-tier device](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png)
+![A slide about final approach to mitigate MSE issues on a low-tier device](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png)
 
 ## Prerequisite
 
-I've been working with a low-tier device at DAZN for some time and because I had so many helpful materials I've decided to share them with people in outer video community. It took me around 2 weeks to prepare, including several runs at DAZN to collect the feedback, a refinement of the structure and updating slides.
+I've been working with a low-tier device at DAZN for quite a while. Because I had so many helpful materials I've decided to share them with people in outer video community. It took me only 2 weeks to prepare, including several runs at DAZN to collect the feedback, a refinement of the structure and slides updates.
 
-On October, 3, I went to BBC Broadcasting House where I met [Phil](https://www.linkedin.com/in/philcluff/) and [Alan](https://www.linkedin.com/in/robinsonalan/) in person. With support of my [Engineering Manager Luke](https://www.linkedin.com/in/luke-b-60674a35/), [Staff Engineer Ash](https://www.linkedin.com/in/byrom/) and Principal Engineer Ant (he introduced me to Phil which I really appreciate 🧡), I've given the talk and I am very very happy with the way it went. Let's walk through all materials that I have so far.
+The goal of the talk was:
+
+- to highlight specifics of working with low-tier devices,
+- to demonstrate its MSE issues,
+- to show how to mitigate them.
+
+Because I was a part of video community for some time, I knew there is [London Video Technology](https://www.meetup.com/London-Video-Technology/). I've been on LVT, [The Summer of Streaming S06E01](https://www.meetup.com/london-video-technology/events/286402769/) on summer 2022. But I never applied myself.
+
+Luckily it's actually a small world, especially in video streaming. Nearly everyone knows everyone. With the help of [Ant Stansbridge](https://github.com/Stansbridge) who works with me at DAZN, I met [Phil Cluff](https://www.linkedin.com/in/philcluff/) and had a chance to present my talk.
+
+On October 3, I went to BBC Broadcasting House where LVT, [Upping the Auntie - S07E03](https://www.meetup.com/london-video-technology/events/296212185/) took a place. It was a pleasure to meet [Phil Cluff](https://www.linkedin.com/in/philcluff/) and [Alan Robinson](https://www.linkedin.com/in/robinsonalan/) in person. I had people from DAZN supporting me: [Luke Belfield](https://www.linkedin.com/in/luke-b-60674a35/) (Engineering Manager), [Ash Byrom](https://www.linkedin.com/in/byrom/) (Staff Engineer) and [Ant Stansbridge](https://github.com/Stansbridge) (Principal Engineer). Thank you a lot for being there for me 🧡
+
+It was my first talk in English and I am very very happy with the way it went. I can say that it went much easier than the one in Russian.
+
+Let's walk through all materials that I have so far.
 
 ## Table of contents
 
@@ -47,12 +61,6 @@ On October, 3, I went to BBC Broadcasting House where I met [Phil](https://www.l
   - [Final solution](#final-solution)
 - [Conclusion ⭐️](#conclusion-⭐️)
 - [Links 🔗](#links-🔗)
-
-The goal of the talk was:
-
-- to highlight specifics of working with low-tier devices,
-- to demonstrate its MSE issues,
-- to show how to mitigate them.
 
 ## What a low-tier device is 📺
 
@@ -106,72 +114,85 @@ This particularly happens on Samsung TVs 2.3 and 2.4. Although it's not a specif
 
 ### Introduction to the problem
 
-TODO: text
-
-I have encountered the issue where playback wouldn't start and couldn't understand why it doesn't work because playback successfully started for a couple of other devices. I will go through several problems and will show you how I worked around or resolved them.
+The issue that I've encountered was that the playback wouldn't start on this particular device and I couldn't understand why it doesn't work because playback successfully started for a couple of other devices.
 
 ### Effectiveness
 
-TODO: text
+Then I've found out different issues that were mitigated with the different solutions. But to be able to compare each of them, I needed to understand how to measure the effectiveness. I've decided to use pass rate of one functional test which was run 100 times.
 
-To measure the effectiveness of my solutions I've decided to use a functional test pass rate after 100 runs.
-
-The test has a following structure:
+The test had a particular structure:
 
 1. Create player
 1. Load content
 1. Wait for start of playback
 1. Assert that playback status is playing
 
-When it's true, it means the test passed. Otherwise, it failed.
+When playback reaches playing status, it means the test passed. Otherwise, it failed.
 
 ### Definitions to diagrams
 
-TODO: text
+During my talk a lot of diagrams were used to better picture the problems and solutions.
 
-1. Video element events
-1. Segment append process
-1. Timeline
-1. Appended first audio segment
-1. Removed first video segment
+![Definitions](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/definitions.png)
+
+1. It will include video element **events** (such as `loadedmetadata`, `seeking`, `canplay` or others) as purple lines.
+2. Blue long rectangles represent the **process of appending segments**, e.g. audio or video.
+3. **Timeline** includes both audio and video source buffers with information when segments were appending.
+
+To the bottom, you will also see **buffered ranges**, or the information of segments that are already appended to source buffers.
+
+4. When you will see a green short rectangle, there is an **added segment** in source buffer. For example, first video segment was appended here.
+5. When you will see a red short rectangle, there is a **removed segment** in source buffer. For example, first audio segment was removed here.
 
 ### Problem 1. Previous segments are automatically removed
 
-TODO: text
+Given the playback hasn’t started, I’ve decided to collect the logs and put them as a diagram. I’ve spotted that before the potential start of the playback, there were multiple audio appends (audio 1 and audio 2). And when I looked at the buffered ranges at the start and the end of append buffer process, I’ve seen the buffer of the first appended audio segment disappeared.
 
-Given the playback hasn’t started, I’ve decided to collect the logs and put it as a diagram. I’ve spotted that before the potential start of the playback, there were multiple audio appends. And when I looked at the buffered ranges at the start and the end of append buffer process, I’ve seen the buffer of the first appended segment disappeared. Because I’m somewhat familiar with shaka, I’ve compared it to the way shaka works and I’ve seen it has less frequent appends so I’ve decided to delay the second audio segment append. The main question here is for how long i want to delay appends.
+![Diagram with an automatically removed segment from source buffer](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-1-previous-segments-are-automatically-removed.png)
 
-![Diagrams with problem 1](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-1-previous-segments-are-automatically-removed.png)
+Because I’m somewhat familiar with `shaka-player`, I’ve compared it to the way shaka works and I’ve seen it has less frequent appends so I’ve decided to delay the second audio segment append. The main question here is for how long I want to delay appends.
 
 ### Solution 1. Delay appending segments
 
-TODO: text
+Given I have a functional test, I’ve run it several times and picked several events as candidates for a moment when I can continue appending segments. There were 3 of them. Effectiveness of `loadedmetadata` event has shown that it’s too early to continue appends as it would not let playback start. When we set start time, we have a `seeking` event dispatched on video element and it showed that it’s only 90% effective. `canplay` and `canplaythrough` events showed 100% effectiveness so I picked `canplay` as an earlier event.
 
-Given I have a functional test, I’ve run it several times and picked several events as candidates for a moment when I can continue appending segments. There were 3 of them. Effectiveness of _loadedmetadata_ has shown that it’s too early to continue appends as it would not let playback start. When we set start time, we have a _seeking_ event dispatched on video element and it showed that it’s only 90% effective. Canplay and canplaythrough showed 100% effectiveness so I picked **canplay** as an earlier event.
-
-![Diagrams with solution 1](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-1-delay-appending-segments.png)
+![Diagram with segment appends delayed](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-1-delay-appending-segments.png)
 
 ### Problem 2: Not enough data to start playback
 
-TODO: text
+The second issue that I’ve seen was related to start time we set. For different types of content we do it differently.
 
-The second issue that I’ve seen was related to start time we set. For different types of content we do it differently. On the left side you see the picture with buffered ranges. On the top one start time is set closer to the beginning of last appended segment so it has enough data to start the playback. So for this scenario we will start a playback with the approach described on previous slides. On the bottom one the start time is set closer to the end of last appended segment so it doesn’t have enough data to start playback. And as we’re currently delaying appending more than one segment, this blocks us from start of the playback. In this scenario you will get stalled event and will not start a playback. To mitigate this, I’ve come up with 2 solutions.
+On the picture below there are 2 scenarios.
 
-![Diagrams with problem 2, buffered ranges](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-buffered-ranges.png)
-![Diagrams with problem 2, timeline](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-timeline.png)
+For the first scenario, start time is set closer to the beginning of last appended segment so it has enough data to start the playback. In this case we will start a playback with the delaying approach and it will work consistently.
+
+For the second scenario, the start time is set closer to the end of last appended segment so it doesn't have enough data to start playback.
+
+![Diagrams with how start time is set in relation to buffered ranges](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-buffered-ranges.png)
+
+As we’re currently delaying appending more than one segment, `stalled` event will be dispatched, and playback wouldn't start.
+
+![Diagram with segment appends delayed when there is not enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-timeline.png)
 
 ### Solution 2.1: Device-specific threshold
 
-TODO: text
+One way to mitigate the issue is to introduce a device-specific threshold which defines when there is enough or not enough data. If the amount of buffer ahead is less than or equal to the threshold, it's treated as not enough data. Otherwise, there is enough data to start playback.
 
-The first one uses threshold which is device-specific. Because we measure effectiveness for 2 scenarios now, I’ve measured each of them. For enough data nothing is changed and it’s still 100% effective. For not enough data the situation is improved as it’s 92% effective. Can we make it better?
+> You can use known limitations of the device and binary search to choose the optimal value.
 
-![Diagrams with solution 2.1, case with enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-enough-data.png)
-![Diagrams with solution 2.1, case with not enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-not-enough-data.png)
+Given the threshold was chosen, it is used when `seeking` event dispatched on video element. At this point, the decision has to be made whether to continue delaying segment appends or allow to append another audio/video segment.
+
+![Diagram with device-specific threshold with not enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-not-enough-data.png)
+
+![Diagram with device-specific threshold with enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_1-device-specific-threshold-enough-data.png)
+
+It showed that this approach didn't change the effectiveness when there is enough data and the effectiveness is still 100%. When there is not enough data, it is 92% effective. Can we make it better?
 
 ### Solution 2.2: Waiting event and video element ready state
 
-TODO: text
+Another way to mitigate the issue is to use `waiting` event and video element `readyState`. The `waiting` event dispatched when playback has stopped because of a temporary when there is not enough data to continue p
+
+a device-specific threshold which defines when there is enough or not enough data. If the amount of buffer ahead is less than or equal to the threshold, it's treated as not enough data. Otherwise, there is enough data to start playback.
 
 100% (not enough data) and 100% (enough data) effective
 
