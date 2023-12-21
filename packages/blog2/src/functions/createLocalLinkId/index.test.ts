@@ -31,8 +31,10 @@ describe(createLocalLinkId.name, () => {
   });
 
   it("removes punctuation from words", () => {
-    const actual = createLocalLinkId("Hello, how are you?");
-    const expected = "hello-how-are-you";
+    const actual = createLocalLinkId(
+      "Hello, how\" are you? I'm: fine. Thanks!"
+    );
+    const expected = "hello-how-are-you-im-fine-thanks";
 
     expect(actual).toEqual(expected);
   });
