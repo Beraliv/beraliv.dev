@@ -8,7 +8,7 @@ export const MdxLink: FC<PropsWithChildren<MdxLinkPropsType>> = ({
   children,
   href,
 }) => {
-  if (href.startsWith("/")) {
+  if (href.startsWith("/") || href.startsWith("#")) {
     return <a href={href}>{children}</a>;
   }
 
