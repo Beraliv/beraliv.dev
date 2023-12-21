@@ -40,39 +40,47 @@ Let's walk through all materials that I have so far.
 
 ## Table of contents
 
-- [What a low-tier device is 📺](#what-a-low-tier-device-is-📺)
+- [What a low-tier device is 📺](#what-a-low-tier-device-is)
   - [Analysis of the common bits](#analysis-of-the-common-bits)
-- [What MSE issues we can face 🤒](#what-mse-issues-we-can-face-🤒)
+- [What MSE issues we can face 🤒](#what-mse-issues-we-can-face)
   - [What is MSE](#what-is-mse)
   - [Examples from Samsung, Panasonic, etc](#examples-from-samsung-panasonic-etc)
-- [MSE issues of an unknown device 🧪](#mse-issues-of-an-unknown-device-🧪)
+- [MSE issues of an unknown device 🧪](#mse-issues-of-an-unknown-device)
   - [Introduction to the problem](#introduction-to-the-problem)
   - [Effectiveness](#effectiveness)
   - [Definitions to diagrams](#definitions-to-diagrams)
   - [Problem 1. Previous segments are automatically removed](#problem-1-previous-segments-are-automatically-removed)
   - [Solution 1. Delay appending segments](#solution-1-delay-appending-segments)
-  - [Problem 2: Not enough data to start playback](#problem-2-not-enough-data-to-start-playback)
-  - [Solution 2.1: Device-specific threshold](#solution-21-device-specific-threshold)
-  - [Solution 2.2: Waiting event and video element ready state](#solution-22-waiting-event-and-video-element-ready-state)
-  - [Problem 3: No waiting event](#problem-3-no-waiting-event)
-  - [Solution 3.1: Stalled event](#solution-31-stalled-event)
-  - [Solution 3.2: Timeout after seeking or stalled if earlier](#solution-32-timeout-after-seeking-or-stalled-if-earlier)
+  - [Problem 2. Not enough data to start playback](#problem-2-not-enough-data-to-start-playback)
+  - [Solution 2.1. Device-specific threshold](#solution-21-device-specific-threshold)
+  - [Solution 2.2. Waiting event and video element ready state](#solution-22-waiting-event-and-video-element-ready-state)
+  - [Problem 3. No waiting event](#problem-3-no-waiting-event)
+  - [Solution 3.1. Stalled event](#solution-31-stalled-event)
+  - [Solution 3.2. Timeout after seeking or stalled if earlier](#solution-32-timeout-after-seeking-or-stalled-if-earlier)
   - [Solutions summary](#solutions-summary)
   - [Final solution](#final-solution)
-- [Conclusion ⭐️](#conclusion-⭐️)
-- [Links 🔗](#links-🔗)
+- [Conclusion ⭐️](#conclusion)
+- [Links 🔗](#links)
 
 ## What a low-tier device is 📺
 
 For me it's a device with limited resources, e.g. low energy consumption, low-tier hardware, etc.
 
-Low-tier devices include Smart TVs (e.g. Samsung TV with Tizen OS, LG TV with WebOS, Panasonic, etc), dongles (such as Chromecast) and different set top boxes, or STBs (there are many UK providers and almost each of them have at least one STB)
+Low-tier devices include Smart TVs (e.g. Samsung TV with Tizen OS, LG TV with WebOS, Panasonic, etc), dongles (such as Chromecast) and different set top boxes, or STBs (there are many UK providers and almost each of them have at least one STB).
 
 ### Analysis of the common bits
 
-Low-tier devices are **cheap**. The price really depends on the type of the device, e.g. Smart TVs can be more expensive than STBs. The lower prices are mainly caused by low-tier hardware, e.g. weak processor, insufficient RAM, slow hard drive or even limited CPU. This low-tier hardware brings **low performance**. On the one hand, it can be beneficial for users when we're talking about **low energy consumption** as it may help people save their bills. On the other hand, users get **low video quality** (mostly SD or/and HD).
+#### Price
 
-For developers, it means that we may face **bespoke Web API**, meaning that even though Web API looks exactly the same as for, e.g. Web Browsers, but it doesn't work the same way which is a bit frustrating. So you need to bear this in mind and keep an eye on it.
+Low-tier devices are **cheap**. Although the price really depends on the type of the device, e.g. Smart TVs can be more expensive than STBs. The lower prices are mainly caused by low-tier hardware, e.g. weak processor, insufficient RAM, slow hard drive or even limited CPU.
+
+#### Performance vs energy consumption
+
+This low-tier hardware brings **low performance**. On the one hand, it can be beneficial for users when we're talking about **low energy consumption** as it may help people save their bills. On the other hand, users get **low video quality** (mostly SD or/and HD).
+
+#### Maintainability
+
+Developers have to work with **bespoke Web API**, meaning that even though Web API signatures are identical to, e.g. Web Browsers, but it doesn't work the same way which is a bit frustrating. So as a developer, you have to accept it as a risk and keep an eye on it.
 
 ## What MSE issues we can face 🤒
 
@@ -80,9 +88,9 @@ For developers, it means that we may face **bespoke Web API**, meaning that even
 
 First of all, let's define what MSE, or Media Source Extensions, is:
 
-> Media Source Extensions, or MSE, is a set of APIs which allow player developers to playback audio and video content as well as showing text content to the viewer
+> Media Source Extensions, or MSE, is a set of APIs that allows player developers to playback audio and video content as well as showing text content to the viewer
 
-I've also attached the diagram from MSE specification which shows what MSE includes: it's `MediaSource` instance with 3 `SourceBuffer` instances for each type of media type (i.e. video, audio and text). Under the hood, there are video and audio decoders which are responsible for decoding audio and video information and plays the content to end user.
+I've also attached the diagram from MSE specification that shows what MSE includes: it is a `MediaSource` instance with 3 `SourceBuffer` instances for each type of media type (i.e. video, audio and text). Under the hood, there are video and audio decoders that are responsible for decoding audio and video information and play the content to end user.
 
 ![The diagram with MSE components from MSE specification](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/mse-components-from-spec.png)
 
@@ -100,7 +108,7 @@ Such [`SourceBuffer['remove']`](https://w3c.github.io/media-source/#dom-sourcebu
 
 #### Simultaneous SourceBuffer.appendBuffer calls on audio and video SourceBuffer instances could complete to each other leading to unhealthy buffer
 
-This issue depends on how MSE/EME player is implemented. When `SourceBuffer` instances are handled separately, some Living Room devices cannot cope with simultaneous [`SourceBuffer['appendBuffer']`](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) calls correctly which leads to unhealthy buffer.
+This issue depends on MSE/EME player implementation. When audio and video `SourceBuffer` instances are managed separately, some Living Room devices and STBs cannot cope with simultaneous [`SourceBuffer['appendBuffer']`](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) calls correctly which leads to unhealthy buffer.
 
 It can be mitigated by introducing some kind of "manager" which handles `SourceBuffer['appendBuffer']` calls in one place (such as [StreamingEngine in `shaka-player`](https://github.com/shaka-project/shaka-player/blob/025502a70c885216b9bbc063025ae80a72780fe6/lib/media/streaming_engine.js#L58)).
 
@@ -118,9 +126,9 @@ The issue that I've encountered was that the playback wouldn't start on this par
 
 ### Effectiveness
 
-Then I've found out different issues that were mitigated with the different solutions. But to be able to compare each of them, I needed to understand how to measure the effectiveness. I've decided to use pass rate of one functional test which was run 100 times.
+Each issue can be solved differently. While one solution can be effective and another one can be not as effective as first one, effectiveness has to be measured to understand what solution to choose. I've decided to use pass rate of one functional test which was run 100 times.
 
-The test had a particular structure:
+The functional test had a particular structure:
 
 1. Create player
 1. Load content
@@ -158,7 +166,7 @@ Given I have a functional test, I’ve run it several times and picked several e
 
 ![Diagram with segment appends delayed](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-1-delay-appending-segments.png)
 
-### Problem 2: Not enough data to start playback
+### Problem 2. Not enough data to start playback
 
 The second issue that I’ve seen was related to start time we set. For different types of content we do it differently.
 
@@ -168,15 +176,15 @@ For the first scenario, start time is set closer to the beginning of last append
 
 For the second scenario, the start time is set closer to the end of last appended segment so it doesn't have enough data to start playback.
 
-![Diagrams with how start time is set in relation to buffered ranges](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-buffered-ranges.png)
+![Diagrams showing how start of playback depends on position of start time in relation to buffered ranges](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-buffered-ranges.png)
 
 As we’re currently delaying appending more than one segment, `stalled` event will be dispatched, and playback wouldn't start.
 
 ![Diagram with segment appends delayed when there is not enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-2-not-enough-data-to-start-playback-timeline.png)
 
-### Solution 2.1: Device-specific threshold
+### Solution 2.1. Device-specific threshold
 
-One way to mitigate the issue is to introduce a device-specific threshold which defines when there is enough or not enough data. If the amount of buffer ahead is less than or equal to the threshold, it's treated as not enough data. Otherwise, there is enough data to start playback.
+One way to mitigate the issue is to introduce a device-specific threshold that defines what the enough data is. If the amount of buffer ahead is less than or equal to the threshold, it's treated as not enough data. Otherwise, there is enough data to start playback.
 
 > You can use known limitations of the device and binary search to choose the optimal value.
 
@@ -188,18 +196,20 @@ Given the threshold was chosen, it is used when `seeking` event dispatched on vi
 
 It showed that this approach didn't change the effectiveness when there is enough data and the effectiveness is still 100%. When there is not enough data, it is 92% effective. Can we make it better?
 
-### Solution 2.2: Waiting event and video element ready state
+### Solution 2.2. Waiting event and video element ready state
 
-Another way to mitigate the issue is to use `waiting` event and video element `readyState`. The `waiting` event dispatched when playback has stopped because of a temporary when there is not enough data to continue p
+Another way to mitigate the issue is to use [`waiting` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) and [video element `readyState`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState#value). The `waiting` event dispatched when playback has stopped because of a temporary lack of data. The `readyState` indicates the readiness state of video.
 
-a device-specific threshold which defines when there is enough or not enough data. If the amount of buffer ahead is less than or equal to the threshold, it's treated as not enough data. Otherwise, there is enough data to start playback.
-
-100% (not enough data) and 100% (enough data) effective
+In this solution `waiting` event would be a trigger to stop delaying segment appends in case `readyState` is less than `HAVE_FUTURE_DATA`. The `readyState` is used in an equation because some low-tier STBs may dispatch `waiting` events by accident so platform has to ignore these events.
 
 ![Diagrams with solution 2.2, case with enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_2-waiting-event-and-video-element-ready-state-enough-data.png)
 ![Diagrams with solution 2.2, case with not enough data](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-2_2-waiting-event-and-video-element-ready-state-not-enough-data.png)
 
-### Problem 3: No waiting event
+Based on test runs, this approach demonstrated 100% effectiveness for both test cases: not enough data and enough data.
+
+So that's it, that easy?
+
+### Problem 3. No waiting event
 
 TODO: text
 
@@ -207,7 +217,7 @@ What can be used instead of waiting event?
 
 ![Diagrams with problem 3](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-3-no-waiting-event.png)
 
-### Solution 3.1: Stalled event
+### Solution 3.1. Stalled event
 
 TODO: text
 
@@ -215,7 +225,7 @@ TODO: text
 
 ![Diagrams with solution 3.1](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-3_1-stalled-event.png)
 
-### Solution 3.2: Timeout after seeking or stalled if earlier
+### Solution 3.2. Timeout after seeking or stalled if earlier
 
 TODO: text
 
