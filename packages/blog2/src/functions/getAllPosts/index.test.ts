@@ -56,7 +56,7 @@ describe(getAllPosts.name, () => {
       "2021-12-10-advanced-types-holyjs-notes",
       "2022-07-14-camel-case",
       "2022-09-10-with-or-without-enums",
-      "2023-10-11-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes",
+      "2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes",
     ]);
   });
 });
