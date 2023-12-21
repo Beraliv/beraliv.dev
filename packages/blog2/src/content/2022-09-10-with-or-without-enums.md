@@ -367,7 +367,7 @@ When a meaning doesn't make much sense, you can still use union type:
 type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 ```
 
-Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-=>-object-+-as-const-+-values).
+Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-object-as-const-values).
 
 It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
