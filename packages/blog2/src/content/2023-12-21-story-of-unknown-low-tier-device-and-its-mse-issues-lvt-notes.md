@@ -118,7 +118,7 @@ It can be mitigated by introducing some kind of "manager" which handles `SourceB
 
 #### **[MediaSource['isTypeSupported']](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) returns `true` for any given MIME type of the media**
 
-This particularly happens on Samsung TVs 2.3 and 2.4. Although it's not a specification-complaint approach, `` `${mimeCodec};width=${width}` `` (where `width` is a representation width) can mitigate the issue when passed to [MediaSource['isTypeSupported']](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) in place of `mimeCodec`.
+This particularly happens on Samsung TVs 2.3 and 2.4. Although it's not a specification-compliant approach, `` `${mimeCodec};width=${width}` `` (where `width` is a representation width) can mitigate the issue when passed to [MediaSource['isTypeSupported']](https://www.w3.org/TR/media-source/#dom-mediasource-istypesupported) in place of `mimeCodec`.
 
 ## MSE issues of an unknown device 🧪
 
