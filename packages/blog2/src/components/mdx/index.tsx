@@ -6,6 +6,7 @@ import { MdxLink } from "./MdxLink";
 import { MdxPre } from "./MdxPre";
 import { MdxVideo } from "./MdxVideo";
 import { MDXRemoteProps } from "next-mdx-remote";
+import { MdxYouTube } from "./MdxYouTube";
 
 const H2: FC<PropsWithChildren<unknown>> = ({ children }) => (
   <MdxHeader type="h2">{children}</MdxHeader>
@@ -33,4 +34,5 @@ export const mdxComponents: MDXRemoteProps["components"] = {
   img: MdxImage,
   pre: MdxPre,
   video: MdxVideo,
+  YouTube: MdxYouTube,
 } as MDXRemoteProps["components"];

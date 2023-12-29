@@ -9,9 +9,17 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 14 Jul 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Sep 2022 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[With or without enums in TypeScript]]></title>
+            <description><![CDATA[Pros and cons of enums in TypeScript]]></description>
+            <link>https://blog.beraliv.dev/2022-09-10-with-or-without-enums</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2022-09-10-with-or-without-enums</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Sat, 10 Sep 2022 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[CamelCase]]></title>
             <description><![CDATA[Given a string in any case, returns a string in camel case]]></description>
@@ -205,10 +213,10 @@
             <pubDate>Thu, 29 Apr 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Mapped Types in functions]]></title>
+            <title><![CDATA[Chainable Options]]></title>
             <description><![CDATA[Given API, collect the object with keys and values after each call]]></description>
-            <link>https://blog.beraliv.dev/2021-04-28-mapped-types-in-functions</link>
-            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-28-mapped-types-in-functions</guid>
+            <link>https://blog.beraliv.dev/2021-04-28-chainable-options</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2021-04-28-chainable-options</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
             <pubDate>Wed, 28 Apr 2021 00:00:00 GMT</pubDate>
         </item>
