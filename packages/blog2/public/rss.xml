@@ -9,16 +9,16 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 11 Oct 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 21 Dec 2023 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[A story of an unknown low-tier device and its MSE issues / London Video Tech 2023 notes]]></title>
-            <description><![CDATA[The goal of the talk is to highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.]]></description>
-            <link>https://blog.beraliv.dev/2023-10-11-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes</link>
-            <guid isPermaLink="false">https://blog.beraliv.dev/2023-10-11-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes</guid>
+            <description><![CDATA[To highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.]]></description>
+            <link>https://blog.beraliv.dev/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes</guid>
             <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
-            <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
+            <pubDate>Thu, 21 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[With or without enums in TypeScript]]></title>

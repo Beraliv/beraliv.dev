@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.youtubeIframe {
+  width: 100%;
+  height: 350px;
+}
