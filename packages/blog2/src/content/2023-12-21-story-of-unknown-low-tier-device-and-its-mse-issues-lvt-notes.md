@@ -16,6 +16,8 @@ keywords:
 image: /story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png
 ---
 
+⚠️ WARNING: The existing version is in its initial phase and will undergo enhancements and improvements.
+
 ![A slide about final approach to mitigate MSE issues on a low-tier device](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png)
 
 ## Prerequisite
@@ -211,33 +213,37 @@ So that's it, that easy?
 
 ### Problem 3. No waiting event
 
-TODO: text
+All previous player changes were tested in isolation meaning that there are no UI changes, no analytics and no third-party scripts loaded that usually exist in full application. But when I started testing the changes at the environment closer to the full application, I've seen that previous solution still doesn't work.
 
-What can be used instead of waiting event?
+After pulling some logs it was clear that there is no [`waiting` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) dispatched on the video element before [`stalled` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event).
 
 ![Diagrams with problem 3](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-3-no-waiting-event.png)
 
+So I started thinking how I would mitigate this issue and what could be used instead of waiting event.
+
 ### Solution 3.1. Stalled event
 
-TODO: text
-
-0% (not enough data) and 100% (enough data) effective
+There were a couple of available solutions and `stalled` event was one of them. Eventually this event was dispatched on video element so why not use it?
 
 ![Diagrams with solution 3.1](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-3_1-stalled-event.png)
 
+Although it was a possible candidate, it was completely ineffective (0% in case of "not enough data") for our in-house video player so I decided to try another solution.
+
 ### Solution 3.2. Timeout after seeking or stalled if earlier
 
-TODO: text
+Another way to workaround this is using timeout. Isn't it always a solution to any problem? 😅
 
-90% (not enough data) and 100% (enough data) effective
+The challenge with timeout was that it has to be small enough and be effective at the same time.
+
+I've defined it as a smallest observable time after start time is set (therefore `seeking` event dispatched on video element).
 
 ![Diagrams with solution 3.2](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/solution-3_2-timeout-after-seeking-or-stalled-if-earlier.png)
 
+The best timeout candidate was 90% effective which wasn't too bad, but it wasn't the best solution so it wasn't chosen as a final solution.
+
 ### Solutions summary
 
-TODO: text
-
-Effectiveness for all solutions:
+The effectiveness for all solutions that I've mentioned in my talk is evident in this table:
 
 | Solution                                         | Enough data | Not enough data |
 | :----------------------------------------------- | :---------- | :-------------- |
@@ -247,24 +253,38 @@ Effectiveness for all solutions:
 | 3.1. Stalled event                               | 100%        | 0%              |
 | 3.2. Timeout after seeking or stalled if earlier | 100%        | 90%             |
 
+Initially, the concept of using device-specific thresholds seemed unfavorable, but it turned out to be the most effective approach compared to all other suggestions.
+
+The strategy involving the `waiting` event initially seemed highly promising but eventually posed a challenge as it became a limiting factor for the target, proving challenging to resolve.
+
 ### Final solution
 
-TODO: text
-
-TODO: theme looks good in light theme only
+So final solution looks as a following state machine:
 
 ![State machine with final solution](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/final-solution.png)
+
+1. Before start of a playback, segments for both audio and video started appending
+1. Once segment for either audio or video has appended, start delaying segment appends
+1. When start time has set on video element, event listener is added for `seeking` event dispatch
+1. When `seeking` event is dispatched, measurements of enough buffered data based on a device-specific threshold are made
+1. If there is NOT enough data on video element, stop delaying appends and start again from step 2.
+1. If there is enough data on video element, event listener is added for `canplay` event dispatch
+1. When `canplay` event is dispatched, stop delaying appends
+1. Playback has started 🟢
 
 ## Conclusion ⭐️
 
 Lesson learnt:
 
 1. Aggressive strategies (appending as many segments as possible) may not work on low-tier devices
-1. Generic approach on low-tier devices may not necessarily be effective enough
-1. End-to-end testing at early stages (full app)
+1. Generic approach on low-tier devices may not necessarily be effective
+1. End-to-end testing at early stages (full app) ⭐️
 
-TODO: text
+I'd like to stress that conducting functional testing in an environment closest to the end user is essential. It aids developers in detecting issues early on, thereby saving valuable time for the business.
 
 ## Links 🔗
 
 1. Google slides - https://docs.google.com/presentation/d/1M99IYUyWb0I3OJDng3CppqksxkXCHyIeMVkE81lSNSI/edit?usp=sharing
+1. Diagrams - https://www.tldraw.com/r/k08aBuV4b_maWj1Xv3DX7?viewport=-575%2C92%2C1513%2C910&page=page%3AA5up7ZSQODMZj5XCdf7h8
+1. Media Source Extensions Spec - https://www.w3.org/TR/media-source-2/
+1. shaka-player - MSE/EME OSS player - https://github.com/shaka-project/shaka-player
