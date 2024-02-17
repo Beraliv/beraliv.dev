@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 patchedDependencies:
   bundlewatch@0.3.3:
     hash: uj6jncoatjcwavg7n4jojs6nni
@@ -71,14 +75,14 @@ importers:
         specifier: '*'
         version: 18.7.23
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.56
+        version: 18.2.56
       '@types/unist':
         specifier: 2.0.10
         version: 2.0.10
       csstype:
-        specifier: 3.1.2
-        version: 3.1.2
+        specifier: 3.1.3
+        version: 3.1.3
       earljs:
         specifier: 0.2.3
         version: 0.2.3(typescript@4.8.2)
@@ -101,8 +105,8 @@ importers:
         specifier: 9.3.0
         version: 9.3.0(typescript@4.8.2)
       ts-node:
-        specifier: 10.9.1
-        version: 10.9.1(@types/node@18.7.23)(typescript@4.8.2)
+        specifier: 10.9.2
+        version: 10.9.2(@types/node@18.7.23)(typescript@4.8.2)
       typescript:
         specifier: 4.8.2
         version: 4.8.2
@@ -1080,7 +1084,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.2
-      '@types/react': 18.2.42
+      '@types/react': 18.2.56
       react: 18.2.0
     dev: false
 
@@ -1639,15 +1643,15 @@ packages:
   /@types/react-dom@18.0.6:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==}
     dependencies:
-      '@types/react': 18.2.42
+      '@types/react': 18.2.56
     dev: true
 
-  /@types/react@18.2.42:
-    resolution: {integrity: sha512-c1zEr96MjakLYus/wPnuWDo1/zErfdU9rNsIGmE+NV71nx88FG9Ttgo5dqorXTu/LImX2f63WBP986gJkMPNbA==}
+  /@types/react@18.2.56:
+    resolution: {integrity: sha512-NpwHDMkS/EFZF2dONFQHgkPRwhvgq/OAvIaGQzxGSBmaeR++kTg6njr15Vatz0/2VcCEwJQFi6Jf4Q0qBu0rLA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
-      csstype: 3.1.2
+      csstype: 3.1.3
 
   /@types/scheduler@0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
@@ -1811,6 +1815,7 @@ packages:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: false
 
   /acorn@8.8.2:
     resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
@@ -2461,8 +2466,8 @@ packages:
       cssom: 0.3.8
     dev: true
 
-  /csstype@3.1.2:
-    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+  /csstype@3.1.3:
+    resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
   /damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -6237,12 +6242,12 @@ packages:
   /solid-js@1.6.2:
     resolution: {integrity: sha512-AZBsj+Yn1xliniTTeuQKG9V7VQVkQ8lZmSKvBjpcVSoZeF7nvt/N5f7Kcsx6QSufioa2YgvBjkIiA0cM0qhotw==}
     dependencies:
-      csstype: 3.1.2
+      csstype: 3.1.3
 
   /solid-js@1.7.6:
     resolution: {integrity: sha512-DXVOTjUh/bIAhE0fIqu3ezGLyQaez7v8EOw3uPLIi87DmLjg+hsuCAgKyNIZ+o4jUetOk3ZORccvJmE1yZUk8g==}
     dependencies:
-      csstype: 3.1.2
+      csstype: 3.1.3
       seroval: 0.5.1
 
   /solid-refresh@0.4.1(solid-js@1.6.2):
@@ -6641,8 +6646,8 @@ packages:
       typescript: 4.8.2
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.7.23)(typescript@4.8.2):
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  /ts-node@10.9.2(@types/node@18.7.23)(typescript@4.8.2):
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
@@ -6661,7 +6666,7 @@ packages:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
       '@types/node': 18.7.23
-      acorn: 8.8.0
+      acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
@@ -7349,7 +7354,3 @@ packages:
 
   /zwitch@2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
