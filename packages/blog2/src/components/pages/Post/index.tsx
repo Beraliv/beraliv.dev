@@ -24,7 +24,13 @@ export interface PostPropsType {
     StrictOmit<
       MarkRequired<
         Partial<PostType>,
-        "date" | "description" | "keywords" | "labels" | "slug" | "title"
+        | "rawDate"
+        | "date"
+        | "description"
+        | "keywords"
+        | "labels"
+        | "slug"
+        | "title"
       >,
       "title"
     > & { title: SanitisedString },

@@ -52,6 +52,7 @@ export const validatePost = ({
   }
 
   return {
+    rawDate: date,
     date: formatDate(date, slug),
     description,
     image,

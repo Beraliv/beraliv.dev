@@ -3,6 +3,7 @@ import { UnsanitisedString } from "./UnsanitisedString";
 
 export interface PostType {
   title: UnsanitisedString;
+  rawDate: string;
   date: string;
   slug: string;
   description: string;
