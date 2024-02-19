@@ -1,4 +1,5 @@
 import { KNOWN_LABELS } from "../constants/KNOWN_LABELS";
+import { sanitiseHtml } from "../functions/sanitiseHtml";
 import { PostType } from "../types/PostType";
 import { ValidatedPostType } from "../types/ValidatedPostType";
 
@@ -56,7 +57,7 @@ export const validatePost = ({
     keywords,
     labels,
     slug,
-    title,
+    title: sanitiseHtml(title),
     ...rest,
   };
 };

@@ -10,7 +10,6 @@ import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
-import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
 
@@ -43,27 +42,15 @@ export const Home = ({
 
         <h3>Featured</h3>
         <div className={styles.grid}>
-          {featuredPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
+          {featuredPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
           ))}
         </div>
 
         <h3>Latest</h3>
         <div className={styles.grid}>
-          {latestPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
+          {latestPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
           ))}
         </div>
 
