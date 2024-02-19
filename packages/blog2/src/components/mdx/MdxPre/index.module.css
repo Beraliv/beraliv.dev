@@ -8,18 +8,15 @@
   background-color: var(--vscode-background-color);
   font-weight: 500;
 
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
-  border: 1px solid var(--pre-border-color);
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
 }
 
 .container {
   margin-bottom: 2rem;
 
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-  border: 1px solid var(--pre-border-color);
-  border-top-width: 0;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 
   background-color: var(--vscode-background-color);
 }
@@ -29,7 +26,7 @@
   font-size: 12px;
 
   margin: 0 1rem 0.5rem;
-  padding: 1rem 0 0.5rem;
+  padding: 0.5rem 0;
   overflow: scroll;
 }
 

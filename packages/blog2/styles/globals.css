@@ -23,7 +23,7 @@
   --copy-to-clipboard-color: rgba(0, 0, 0, 1);
   --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
 
-  --vscode-background-color: rgb(255, 255, 255, 1);
+  --vscode-background-color: rgb(240, 240, 240, 1);
   --code-color: rgba(133, 0, 14, 1);
   --border-color: rgba(234, 234, 234, 1);
   --focus-color: rgba(0, 112, 243, 1);
@@ -226,7 +226,7 @@ code {
   background-color: var(--vscode-background-color);
   color: var(--code-color);
   padding: 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 button,
