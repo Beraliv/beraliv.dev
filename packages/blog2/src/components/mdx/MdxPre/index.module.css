@@ -10,8 +10,6 @@
 
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  /* to remove */
-  border: 1px solid var(--pre-border-color);
 }
 
 .container {
@@ -19,10 +17,6 @@
 
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  /* to remove */
-  border: 1px solid var(--pre-border-color);
-  /* to remove */
-  border-top-width: 0;
 
   background-color: var(--vscode-background-color);
 }

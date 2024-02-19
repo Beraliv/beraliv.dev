@@ -23,8 +23,7 @@
   --copy-to-clipboard-color: rgba(0, 0, 0, 1);
   --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
 
-  /* to change to rgb(240, 240, 240) */
-  --vscode-background-color: rgb(255, 255, 255, 1);
+  --vscode-background-color: rgb(240, 240, 240, 1);
   --code-color: rgba(133, 0, 14, 1);
   --border-color: rgba(234, 234, 234, 1);
   --focus-color: rgba(0, 112, 243, 1);
