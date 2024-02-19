@@ -1,4 +1,6 @@
 .container {
+  max-width: 42rem;
+  margin: 0 auto;
   padding: 1rem 1.25rem;
 }
 
@@ -8,12 +10,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.bio,
-.aside {
-  max-width: 42rem;
-  margin: 0 auto;
 }
 
 .bio {
@@ -65,9 +61,8 @@
   }
 }
 
-.grid {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
+.table {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }

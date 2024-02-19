@@ -116,11 +116,13 @@ export const Search = ({
           <div className={styles.searchElements}>{filteredPosts.length}</div>
         </div>
 
-        <div className={styles.grid}>
-          {filteredPosts.map((post) => (
-            <PostPreview key={post.slug} {...post} />
-          ))}
-        </div>
+        <table className={styles.table}>
+          <tbody>
+            {filteredPosts.map((post) => (
+              <PostPreview key={post.slug} {...post} />
+            ))}
+          </tbody>
+        </table>
 
         <aside className={styles.aside}>
           <SubscriptionForm apiKey={apiKey} formId={formId} />

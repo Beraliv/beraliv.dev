@@ -4,13 +4,17 @@ import styles from "./index.module.css";
 import { ValidatedPostType } from "../../../types/ValidatedPostType";
 
 export const PostPreview = (post: ValidatedPostType) => (
-  <a href={post.slug} className={styles.card}>
-    <pre className={styles.labels}>
-      {post.labels.map((label) => (
+  <tr className={styles.row}>
+    <td className={styles.date}>{post.date}</td>
+    <td className={styles.labels}>
+      {[post.labels[0]].map((label) => (
         <Fragment key={label}>{labelToIconMapping[label]}</Fragment>
       ))}
-    </pre>
-    <h2>{post.title}</h2>
-    <p>{post.description}</p>
-  </a>
+    </td>
+    <td className={styles.title}>
+      <a href={post.slug}>
+        <span>{post.title}</span>
+      </a>
+    </td>
+  </tr>
 );
