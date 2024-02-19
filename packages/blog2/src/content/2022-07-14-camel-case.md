@@ -101,7 +101,7 @@ type cases = [
 
 Also last but not least, in case of `string` we should return `string` as well. Other types are not allowed:
 
-```typescript title="string and other types"
+```typescript title="Type 'string' and other types"
 type cases = [
   // string
   Expect<Equal<CamelCase<string>, string>>,
