@@ -1,5 +1,5 @@
 ---
-title: Advanced types / Holy.js notes
+title: Advanced types / Holy.js 2021 notes
 date: "2021-12-10"
 description: The power of TypeScript will be revealed by the example of several tasks from type-challenges of the hard level.
 labels:

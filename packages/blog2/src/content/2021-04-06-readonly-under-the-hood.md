@@ -1,5 +1,5 @@
 ---
-title: Readonly under the hood
+title: Readonly type under the hood in TypeScript
 date: "2021-04-06"
 description: Given the object, we need to make properties on the first level readonly
 labels:

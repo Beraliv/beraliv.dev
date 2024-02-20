@@ -1,5 +1,5 @@
 ---
-title: Scrollbar cus&shy;tomi&shy;sa&shy;tion
+title: Scrollbar cus&shy;tomi&shy;sa&shy;tion in CSS and JS
 date: "2018-10-04"
 description: CSS support in different browser engines, hacks and tricks, JS libraries
 labels:

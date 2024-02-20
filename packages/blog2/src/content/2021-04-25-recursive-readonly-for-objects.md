@@ -1,5 +1,5 @@
 ---
-title: Recursive Readonly for objects
+title: Recursive readonly object type in TypeScript
 date: "2021-04-25"
 description: Given the object, return object where all properties on all levels are readonly
 labels:

@@ -1,5 +1,5 @@
 ---
-title: Video player in BBC
+title: Geolocation identification in BBC iPlayer (2019 edition)
 date: "2019-12-22"
 description: Geolocation identification in iPlayer
 labels:

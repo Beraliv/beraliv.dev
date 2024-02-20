@@ -1,5 +1,5 @@
 ---
-title: Infer first element
+title: Infer first element of tuple type in TypeScript
 date: "2021-04-08"
 description: Given the tuple, return its first element
 labels:

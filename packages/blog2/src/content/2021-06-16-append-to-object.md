@@ -1,5 +1,5 @@
 ---
-title: Append to Object
+title: Append key-value pair to object type in TypeScript
 date: "2021-06-16"
 description: We have spread on objects in JavaScript so we can add value by the specified key, let's find out how to do that in TypeScript.
 labels:
