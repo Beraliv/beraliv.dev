@@ -4,13 +4,13 @@ import styles from "./index.module.css";
 import { classNames } from "../../../functions/classNames";
 
 export const DarkModeToggle = () => {
-  const { darkMode, toggle } = useDarkMode();
+  const { darkMode, initialising, toggle } = useDarkMode();
 
   return (
     <div
       className={classNames(styles.toggle, {
-        [styles.moon]: darkMode,
-        [styles.sun]: !darkMode,
+        [styles.moon]: darkMode && !initialising,
+        [styles.sun]: !darkMode && !initialising,
       })}
       onClick={toggle}
     ></div>

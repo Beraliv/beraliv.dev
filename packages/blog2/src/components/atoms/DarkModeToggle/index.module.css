@@ -8,15 +8,22 @@
   border-radius: 9999px;
   cursor: pointer;
   color: var(--dark-mode-toggle-color);
-  background-color: var(--dark-mode-toggle-background-color);
 
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
+  /* hide until dark mode is initialised */
+  visibility: hidden;
 }
 
 .toggle:hover {
   outline: none;
   transform: scale(1.25);
+}
+
+.sun,
+.moon {
+  visibility: visible;
+
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
 }
 
 .sun {
