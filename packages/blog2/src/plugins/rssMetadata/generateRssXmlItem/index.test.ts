@@ -1,12 +1,13 @@
 import { expect } from "earljs";
-import { UnsanitisedString } from "../../../types/UnsanitisedString";
 import { generateRssXmlItem } from "./";
+import { SanitisedString } from "../../../types/SanitisedString";
 
 describe(generateRssXmlItem.name, () => {
   it("returns xml item for validated post", () => {
     const actual = generateRssXmlItem({
-      title: "Scrollbar cus&shy;tomi&shy;sa&shy;tion" as UnsanitisedString,
-      date: "2018-10-04",
+      title: "Scrollbar customisation" as SanitisedString,
+      rawDate: "2018-10-04",
+      date: "04 Oct 2018",
       description:
         "CSS support in different browser engines, hacks and tricks, JS libraries",
       labels: ["css", "javascript"],

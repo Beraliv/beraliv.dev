@@ -1,11 +1,12 @@
 import { expect } from "earljs";
-import { UnsanitisedString } from "../../../types/UnsanitisedString";
 import { ValidatedPostType } from "../../../types/ValidatedPostType";
 import { generateRssXml } from "./";
+import { SanitisedString } from "../../../types/SanitisedString";
 
 const SCROLLBAR_CUSTOMISATION_POST: ValidatedPostType = {
-  title: "Scrollbar cus&shy;tomi&shy;sa&shy;tion" as UnsanitisedString,
-  date: "2018-10-04",
+  title: "Scrollbar customisation" as SanitisedString,
+  rawDate: "2018-10-04",
+  date: "04 Oct 2018",
   description:
     "CSS support in different browser engines, hacks and tricks, JS libraries",
   labels: ["css", "javascript"],
@@ -15,8 +16,9 @@ const SCROLLBAR_CUSTOMISATION_POST: ValidatedPostType = {
 };
 
 const AMAZON_POST: ValidatedPostType = {
-  title: "Video player in Amazon" as UnsanitisedString,
-  date: "2019-12-17",
+  title: "Video player in Amazon" as SanitisedString,
+  rawDate: "2019-12-17",
+  date: "17 Dec 2019",
   description:
     "From video tag to the implementation, state machine, the way bundle is loaded, bundle names",
   labels: ["player"],
