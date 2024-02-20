@@ -14,9 +14,20 @@
   transition: all 0.2s ease-in-out;
 }
 
-.toggle:hover,
-.toggle:active,
-.toggle:focus {
+.toggle:hover {
   outline: none;
   transform: scale(1.25);
+}
+
+.sun {
+  --dark-yellow: #f6d602;
+  --light-yellow: #f5eb71;
+
+  transform: scale(1.2);
+  background-color: var(--dark-yellow);
+  border: 5px solid var(--light-yellow);
+}
+
+.moon {
+  box-shadow: 0 0 35px 5px white, 0 0 25px 10px white inset;
 }
