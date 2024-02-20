@@ -58,7 +58,7 @@ I take the challenges from [type-challenges](https://github.com/type-challenges/
 - String to Union • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/00531-medium-string-to-union/README.md) • [Solution](/2021/06/19/making-union-out-of-string/)
 - Merge • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/00599-medium-merge/README.md) • [Solution](/2021/07/05/spread-in-typescript/)
 
-Will add more solutions at January, 2021
+To be added...
 
 ## hard
 
@@ -69,8 +69,4 @@ Will add more solutions at January, 2021
 - Split • [Challenge](https://github.com/type-challenges/type-challenges/blob/master/questions/02822-hard-split/README.md) – [Solution](/2021-11-29-split/)
 - CamelCase • [Challenge](https://github.com/type-challenges/type-challenges/blob/main/questions/00114-hard-camelcase/README.md) – [Solution](/2022-07-14-camel-case/)
 
-Will add more solutions at January, 2021
-
-## extreme
-
-Will add more solutions at January, 2021
+To be added...
