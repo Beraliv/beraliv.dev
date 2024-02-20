@@ -1,5 +1,5 @@
 ---
-title: ReturnType under the hood
+title: ReturnType under the hood in TypeScript
 date: "2021-04-19"
 description: Given the function, we need to extract what it returns
 labels:

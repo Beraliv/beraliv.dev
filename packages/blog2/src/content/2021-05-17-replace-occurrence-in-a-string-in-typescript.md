@@ -1,5 +1,5 @@
 ---
-title: Replace occurrence in a string
+title: Replace occurrence in string literal type in TypeScript
 date: "2021-05-17"
 description: Given the string, replace first string occurrence with specified string
 labels:

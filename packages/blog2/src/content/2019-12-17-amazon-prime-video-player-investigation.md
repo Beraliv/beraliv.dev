@@ -1,5 +1,5 @@
 ---
-title: Video player in Amazon
+title: State machine and bundles in Amazon video player (2019 edition)
 date: "2019-12-17"
 description: From video tag to the implementation, state machine, the way bundle is loaded, bundle names
 labels:

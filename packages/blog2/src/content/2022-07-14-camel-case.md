@@ -1,5 +1,5 @@
 ---
-title: CamelCase
+title: Transform string literal type into camelCase in TypeScript
 date: "2022-07-14"
 description: Given a string in any case, returns a string in camel case
 labels:

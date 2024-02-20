@@ -1,5 +1,5 @@
 ---
-title: Includes
+title: Includes type in TypeScript
 date: "2021-04-16"
 description: Given the tuple and the type, return true if the type is an element of the tuple. Otherwise, return false
 labels:

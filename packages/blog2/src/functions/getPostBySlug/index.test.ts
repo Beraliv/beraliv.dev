@@ -11,7 +11,7 @@ describe(getPostBySlug.name, () => {
     expect(typeof content).toEqual("string");
 
     expect(data.title).toEqual(
-      "Scrollbar cus&shy;tomi&shy;sa&shy;tion" as UnsanitisedString
+      "Scrollbar cus&shy;tomi&shy;sa&shy;tion in CSS and JS" as UnsanitisedString
     );
     expect(data.date).toEqual("2018-10-04");
     expect(data.description).toEqual(
@@ -35,7 +35,9 @@ describe(getPostBySlug.name, () => {
 
     expect(typeof content).toEqual("string");
 
-    expect(data.title).toEqual("Type Challenges" as UnsanitisedString);
+    expect(data.title).toEqual(
+      "List of Type Challenges problems and solutions" as UnsanitisedString
+    );
     expect(data.date).toEqual("2021-04-04");
     expect(data.description).toEqual(
       "Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript"

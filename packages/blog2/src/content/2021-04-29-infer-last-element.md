@@ -1,5 +1,5 @@
 ---
-title: Infer last element
+title: Infer last element of tuple type in TypeScript
 date: "2021-04-29"
 description: Given the tuple, return its last element
 labels:
