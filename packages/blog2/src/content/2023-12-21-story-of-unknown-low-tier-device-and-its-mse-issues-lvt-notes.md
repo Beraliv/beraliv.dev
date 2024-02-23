@@ -14,6 +14,7 @@ keywords:
   - Upping the Auntie
   - S07E03
 image: /story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png
+featured: true
 ---
 
 ⚠️ WARNING: The existing version is in its initial phase and will undergo enhancements and improvements.

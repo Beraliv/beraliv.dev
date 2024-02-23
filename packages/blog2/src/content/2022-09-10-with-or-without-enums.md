@@ -8,6 +8,7 @@ keywords:
   - typescript
   - enums
 image: /with-or-without-enums/image.png
+featured: true
 ---
 
 ## What
