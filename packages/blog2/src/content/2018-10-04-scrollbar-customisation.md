@@ -1,5 +1,5 @@
 ---
-title: Scrollbar cus&shy;tomi&shy;sa&shy;tion in CSS and JS
+title: Scrollbar customisation in CSS and JS
 date: "2018-10-04"
 description: CSS support in different browser engines, hacks and tricks, JS libraries
 labels:
@@ -11,6 +11,7 @@ keywords:
   - javascript
   - css
 image: /scrollbar-customisation/macos-scrollbar.png
+featured: true
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:
