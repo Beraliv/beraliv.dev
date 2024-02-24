@@ -13,9 +13,7 @@ featured: true
 
 ## What
 
-You're uncertain whether you need to use enums or not.
-
-Here are some points that make it easy to come to a conclusion.
+You're uncertain whether you need to use enums or not. Here are some points that make it easy to come to a conclusion.
 
 ## Why use enums
 

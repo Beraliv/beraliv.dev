@@ -1,24 +1,13 @@
 .header {
   position: relative;
-  /* half of the size for link icon */
-  margin-left: 10px;
   word-wrap: break-word;
 }
 
-.icon {
-  display: inline-block;
-  visibility: hidden;
-}
-
-.header:hover .icon,
-.icon:hover {
-  visibility: visible;
-}
-
 .link {
-  left: 0;
-  padding-right: 4px;
-  position: absolute;
-  top: 0;
-  transform: translateX(-100%);
+  border-bottom: 0px solid var(--title-color);
+  transition: 0.1s border-bottom linear;
+}
+
+.link:hover {
+  border-bottom: 4px solid var(--title-color);
 }
