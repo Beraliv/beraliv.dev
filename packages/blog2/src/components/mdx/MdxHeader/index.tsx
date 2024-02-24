@@ -6,7 +6,6 @@ import React, {
 } from "react";
 import { createLocalLinkId } from "../../../functions/createLocalLinkId";
 import { validateNever } from "../../../validators/validateNever";
-import { LinkIcon } from "../../atoms/LinkIcon";
 import styles from "./index.module.css";
 
 interface MdxHeaderPropsType {
@@ -57,11 +56,8 @@ export const MdxHeader: FC<PropsWithChildren<MdxHeaderPropsType>> = ({
   return (
     <HeaderComponent id={id} className={styles.header}>
       <a href={`#${id}`} aria-label={`${title} link`} className={styles.link}>
-        <div className={styles.icon}>
-          <LinkIcon />
-        </div>
+        {title}
       </a>
-      {title}
     </HeaderComponent>
   );
 };

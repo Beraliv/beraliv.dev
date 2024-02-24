@@ -229,6 +229,23 @@ p {
   padding: 0px;
 }
 
+/* any element prior to lists don't need bottom margin */
+*:has(+ ul),
+*:has(+ ol) {
+  margin-bottom: 0;
+}
+
+/* lists complete visual paragraph, therefore lists have bottom margin */
+* ~ ol,
+* ~ ul {
+  margin-bottom: 2rem;
+}
+
+/* all direct children of list items don't need bottom margin */
+li > * {
+  margin-bottom: 0;
+}
+
 figure {
   margin: 0;
 }
