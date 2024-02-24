@@ -99,6 +99,16 @@
   /* same --snowflake-color */
 }
 
+html {
+  /*
+    to prohibit font-size inflation on mobile devices
+    Link: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+  */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
 html,
 body {
   padding: 0;
