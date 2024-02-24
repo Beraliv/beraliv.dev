@@ -21,7 +21,7 @@ Let's start ⏳
 
 ## Replace all occurrences
 
-Let's check [the solution for `Replace`](/2021-05-17-replace-occurrence-in-a-string-in-typescript/) and adapt it for `ReplaceAll`:
+Let's check [the solution for Replace](/2021-05-17-replace-occurrence-in-a-string-in-typescript/) and adapt it for `ReplaceAll`:
 
 ![Replace, solution](/replace-all-occurrences-in-a-string-in-typescript/step2-replace-solution.png)
 

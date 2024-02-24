@@ -38,7 +38,7 @@ Udemy also uses WebVTT to show a popover using thumbnail sprites:
 
 ![VTT thumbnail sprites file structure](/whats-inside-udemy-player/thumbnail-sprites-vtt-file-structure.png)
 
-[VideoJS sneakpeek](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L12507) is used to parse VTT sprites. Find more at [`videojs-sneakpeek`](https://github.com/udemy/videojs-sneakpeek)
+[Video.js Sneakpeek](https://github.com/udemy/videojs-sneakpeek) is used to parse VTT sprites. If you're interested in what `videojs-sneakpeek.min.js` looked like when Udemy used it in 2020, please check [my gist](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L12507) (it has 14K lines of codes so it can take up to 10 seconds to load the gist).
 
 <video autoPlay loop muted playsInline>
   <source src="https://res.cloudinary.com/beraliv/video/upload/v1626469589/blog_beraliv_dev/whats-inside-udemy-player/udemy-thumbnail-update-based-on-vtt.webm" type="video/webm"></source>
@@ -47,9 +47,9 @@ Udemy also uses WebVTT to show a popover using thumbnail sprites:
 
 ## Statistics
 
-Video player development isn’t obvious: it includes browser-specific features (e.g. [Fullscreen API](https://caniuse.com/fullscreen), [Promise](https://caniuse.com/?search=Promise), [JavaScript modules via script tag](https://caniuse.com/?search=JavaScript%20modules%20via%20script%20tag), etc), depends on the other libraries which are used (e.g. [`hls.js`](https://github.com/video-dev/hls.js/#compatibility), [`shaka-player`](https://github.com/google/shaka-player#platform-and-browser-support-matrix), [`videojs`](https://videojs.com/html5-video-support/) and so on). This is why it’s a general approach to send player events and to analyse data later.
+Video player development isn’t obvious: it includes browser-specific features (e.g. [Fullscreen API](https://caniuse.com/fullscreen), [Promise](https://caniuse.com/?search=Promise), [JavaScript modules via script tag](https://caniuse.com/?search=JavaScript%20modules%20via%20script%20tag), etc), depends on the other libraries which are used (e.g. [hls.js](https://github.com/video-dev/hls.js/#compatibility), [shaka-player](https://github.com/google/shaka-player#platform-and-browser-support-matrix), [videojs](https://videojs.com/html5-video-support/) and so on). This is why it’s a general approach to send player events and to analyse data later.
 
-Udemy uses `XMLHttpRequest` in [`_sendBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11123) for synchronous and [`sendBeacon`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) in [`_clearBeaconQueue`](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11099) for asynchronous requests. The data is sent as a sequence of events.
+Udemy uses `XMLHttpRequest` in [\_sendBeaconQueue](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11123) for synchronous and [sendBeacon](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon) in [\_clearBeaconQueue](https://gist.github.com/Beraliv/92a80cd531cd8e0535f7fabd05fda88d#file-vendor-videojs-js-L11099) for asynchronous requests. The data is sent as a sequence of events.
 
 ```javascript title="Statistics synchronous event example"
 {

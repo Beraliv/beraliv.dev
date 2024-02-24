@@ -43,7 +43,7 @@ I mentioned 5 files separately on purpose, as the structure of the files is diff
 
 ![Joyn JS file structure after obfuscation](/research-joyn-scripts-obfuscation/js-file-structure-after-obfuscation.png)
 
-If you look for `{"name":` in `playback-source-fetcher.min.js`, [you will find the entire `package.json`](https://github.com/Beraliv/deconfusion/blob/master/examples/joyn/playback-source-fetcher/output.js#L7607-L7666) (caution: the file has almost 10K lines)
+If you look for `{"name":` in `playback-source-fetcher.min.js`, [you will find the entire package.json](https://github.com/Beraliv/deconfusion/blob/master/examples/joyn/playback-source-fetcher/output.js#L7607-L7666) (caution: the file has almost 10K lines)
 
 ![The entire package.json in playback-source-fetcher.min.js](/research-joyn-scripts-obfuscation/entire-package-json-in-playback-source-fetcher.png)
 
