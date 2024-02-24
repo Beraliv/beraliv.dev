@@ -28,6 +28,7 @@ export const Seo = ({
     <title>
       {title} | {metaTitle}
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" href="/profile.jpg" />
     <meta name="image" content={image.url} />

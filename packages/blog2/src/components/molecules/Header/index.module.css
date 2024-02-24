@@ -4,13 +4,13 @@
   height: 3rem;
   position: relative;
   margin: 0 auto 3rem;
-  padding: 2.5rem 1.25rem;
+  padding: 2.5rem 0rem;
 }
 
 .homeHeader,
 .searchHeader,
 .notFoundHeader {
-  max-width: 42rem;
+  /* empty */
 }
 
 .toHome {
