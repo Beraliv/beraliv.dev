@@ -297,7 +297,8 @@ table {
   padding-bottom: 0.5rem;
   width: 100%;
   display: inline-block;
-  overflow-x: auto;
+  /* `auto` doesn't allow mobile to scroll so explicitly setting it to `scroll` */
+  overflow-x: scroll;
 }
 
 table thead tr th {
