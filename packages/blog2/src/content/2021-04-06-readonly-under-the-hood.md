@@ -25,7 +25,7 @@ As previously for [Pick](/2021-04-05-pick-under-the-hood/#iteration-over-an-obje
 
 ## Make values readonly
 
-To make first layer of properties immutable, we use [`readonly` modifier](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly) and that's it ✅
+To make first layer of properties immutable, we use [readonly modifier](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly) and that's it ✅
 
 ![Solution](/readonly-under-the-hood/step3-solution.png)
 

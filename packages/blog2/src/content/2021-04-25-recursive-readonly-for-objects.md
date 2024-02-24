@@ -21,7 +21,7 @@ We already solved several challenges with readonly:
 
 Today we discuss [Deep Readonly](https://github.com/type-challenges/type-challenges/blob/master/questions/9-medium-deep-readonly/README.md)
 
-We apply [`readonly` modifier](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly) to all object types inside our object type recursively if we need to prohibit mutations of the whole object, but not only the first layer.
+We apply [readonly modifier](https://www.typescriptlang.org/docs/handbook/2/classes.html#readonly) to all object types inside our object type recursively if we need to prohibit mutations of the whole object, but not only the first layer.
 
 ## Recursive conditional types
 

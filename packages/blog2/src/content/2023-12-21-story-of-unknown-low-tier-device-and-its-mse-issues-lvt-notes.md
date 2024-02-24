@@ -103,17 +103,17 @@ Here I'd like to mention 4 examples of MSE issues I've worked before.
 
 #### The stalled event dispatched on HTMLVideoElement towards the end of buffered ranges
 
-Many Living Room devices, such as old Samsung TVs, have [`stalled` event](https://html.spec.whatwg.org/multipage/media.html#event-media-stalled) dispatched near the end of buffered ranges. It can be easily mitigated by introducing a safe gap to the end of buffered ranges.
+Many Living Room devices, such as old Samsung TVs, have [stalled event](https://html.spec.whatwg.org/multipage/media.html#event-media-stalled) dispatched near the end of buffered ranges. It can be easily mitigated by introducing a safe gap to the end of buffered ranges.
 
 #### The SourceBuffer.remove call with small time range throws an error
 
-Such [`SourceBuffer['remove']`](https://w3c.github.io/media-source/#dom-sourcebuffer-remove) behaviour could be observed on [shaka-player](https://github.com/shaka-project/shaka-player) for Samsung TVs. This could be mitigated by [introducing a threshold for small time ranges](https://github.com/shaka-project/shaka-player/commit/b7209f00f82eb8d533ebfc2cb41feba28bf7d2f4).
+Such [SourceBuffer's remove method](https://w3c.github.io/media-source/#dom-sourcebuffer-remove) behaviour could be observed on [shaka-player](https://github.com/shaka-project/shaka-player) for Samsung TVs. This could be mitigated by [introducing a threshold for small time ranges](https://github.com/shaka-project/shaka-player/commit/b7209f00f82eb8d533ebfc2cb41feba28bf7d2f4).
 
 #### Simultaneous SourceBuffer.appendBuffer calls on audio and video SourceBuffer instances could complete to each other leading to unhealthy buffer
 
-This issue depends on MSE/EME player implementation. When audio and video `SourceBuffer` instances are managed separately, some Living Room devices and STBs cannot cope with simultaneous [`SourceBuffer['appendBuffer']`](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) calls correctly which leads to unhealthy buffer.
+This issue depends on MSE/EME player implementation. When audio and video `SourceBuffer` instances are managed separately, some Living Room devices and STBs cannot cope with simultaneous [SourceBuffer's appendBuffer method](https://www.w3.org/TR/media-source-2/#dom-sourcebuffer-appendbuffer) calls correctly which leads to unhealthy buffer.
 
-It can be mitigated by introducing some kind of "manager" which handles `SourceBuffer['appendBuffer']` calls in one place (such as [StreamingEngine in `shaka-player`](https://github.com/shaka-project/shaka-player/blob/025502a70c885216b9bbc063025ae80a72780fe6/lib/media/streaming_engine.js#L58)).
+It can be mitigated by introducing some kind of "manager" which handles `SourceBuffer['appendBuffer']` calls in one place (such as [StreamingEngine](https://github.com/shaka-project/shaka-player/blob/025502a70c885216b9bbc063025ae80a72780fe6/lib/media/streaming_engine.js#L58) in `shaka-player`).
 
 #### MediaSource.isTypeSupported calls return true for any given MIME type of the media
 
@@ -201,7 +201,7 @@ It showed that this approach didn't change the effectiveness when there is enoug
 
 ### Solution 2.2. Waiting event and video element ready state
 
-Another way to mitigate the issue is to use [`waiting` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) and [video element `readyState`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState#value). The `waiting` event dispatched when playback has stopped because of a temporary lack of data. The `readyState` indicates the readiness state of video.
+Another way to mitigate the issue is to use [waiting event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) and [video element ready state](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState#value). The `waiting` event dispatched when playback has stopped because of a temporary lack of data. The `readyState` indicates the readiness state of video.
 
 In this solution `waiting` event would be a trigger to stop delaying segment appends in case `readyState` is less than `HAVE_FUTURE_DATA`. The `readyState` is used in an equation because some low-tier STBs may dispatch `waiting` events by accident so platform has to ignore these events.
 
@@ -216,7 +216,7 @@ So that's it, that easy?
 
 All previous player changes were tested in isolation meaning that there are no UI changes, no analytics and no third-party scripts loaded that usually exist in full application. But when I started testing the changes at the environment closer to the full application, I've seen that previous solution still doesn't work.
 
-After pulling some logs it was clear that there is no [`waiting` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) dispatched on the video element before [`stalled` event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event).
+After pulling some logs it was clear that there is no [waiting event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/waiting_event) dispatched on the video element before [stalled event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/stalled_event).
 
 ![Diagrams with problem 3](/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/problem-3-no-waiting-event.png)
 
