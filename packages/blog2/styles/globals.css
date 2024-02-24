@@ -1,6 +1,7 @@
 :root {
   --color: rgba(17, 24, 39, 1);
   --background-color: rgba(255, 255, 255, 1);
+  --heading-color: rgba(0, 0, 0, 1);
   --font-color: rgba(31, 41, 55, 1);
 
   --dark-mode-toggle-color: rgba(255, 255, 255, 1);
@@ -52,6 +53,7 @@
 .dark {
   --color: rgba(229, 231, 235, 1);
   --background-color: rgba(0, 0, 0, 1);
+  --heading-color: rgba(255, 255, 255, 1);
   --font-color: rgba(209, 213, 219, 1);
 
   --dark-mode-toggle-color: rgba(0, 0, 0, 1);
@@ -97,6 +99,17 @@
   /* same --article-main-progress-color */
 
   /* same --snowflake-color */
+  --a-color: #70b5ff;
+}
+
+html {
+  /*
+    to prohibit font-size inflation on mobile devices
+    Link: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+  */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 html,
@@ -133,24 +146,27 @@ h6 {
   word-break: break-word;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-weight: 700;
-  color: var(--font-color);
 }
 
 h1 {
   font-weight: 900;
   font-size: 3rem;
   line-height: 1;
-  color: rgba(0, 0, 0, 1);
-}
-
-.dark h1 {
-  color: rgba(255, 255, 255, 1);
 }
 
 h2 {
@@ -194,12 +210,7 @@ h3 > a,
 h4 > a,
 h5 > a,
 h6 > a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.dark a {
-  color: #70b5ff;
+  color: var(--heading-color);
 }
 
 * {

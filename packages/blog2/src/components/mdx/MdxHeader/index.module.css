@@ -4,10 +4,10 @@
 }
 
 .link {
-  border-bottom: 0px solid var(--title-color);
+  border-bottom: 0px solid var(--heading-color);
   transition: 0.1s border-bottom linear;
 }
 
 .link:hover {
-  border-bottom: 4px solid var(--title-color);
+  border-bottom: 4px solid var(--heading-color);
 }
