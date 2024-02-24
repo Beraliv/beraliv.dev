@@ -1,5 +1,5 @@
 ---
-title: Advanced types / Holy.js notes
+title: Advanced types / Holy.js 2021 notes
 date: "2021-12-10"
 description: The power of TypeScript will be revealed by the example of several tasks from type-challenges of the hard level.
 labels:
@@ -9,11 +9,18 @@ keywords:
   - challenges
   - holyjs
 image: /advanced-types-holyjs-notes/image.png
+featured: true
 ---
 
 ![Max and I discuss StringToNumber on Holy.js](/advanced-types-holyjs-notes/image.png)
 
-On November, 5, together with [Max](https://github.com/ColCh) we had a talk about [Advanced types in TypeScript on HolyJS](https://holyjs-moscow.ru/en/talks/advanced-types-in-typescript/). Let's sum it up.
+On November, 5, together with [Max](https://github.com/ColCh) we had a talk about [Advanced types in TypeScript on HolyJS](https://holyjs-moscow.ru/en/talks/advanced-types-in-typescript/).
+
+If you want to watch the talk in Russian, please follow the link:
+
+<YouTube href="https://www.youtube.com/embed/KFWJGVDYZaw" title="Алексей Березин — Advanced types в TypeScript" />
+
+Otherwise, let's sum up the talk.
 
 ## Table of contents
 

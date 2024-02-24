@@ -1,7 +1,8 @@
-import { TennisSet } from "../Types/TennisSet";
+import { PlayerCentricScore } from "../Types/PlayerCentricScore";
 
 const hasTieBreak = (
-  set: TennisSet[0]
-): set is Extract<TennisSet[0], { tieBreak: any }> => "tieBreak" in set;
+  score: PlayerCentricScore
+): score is Extract<PlayerCentricScore, { type: "setWithTieBreak" }> =>
+  score.type === "setWithTieBreak";
 
 export { hasTieBreak };

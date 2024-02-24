@@ -1,4 +1,6 @@
 import { KNOWN_LABELS } from "../constants/KNOWN_LABELS";
+import { formatDate } from "../functions/formatDate";
+import { sanitiseHtml } from "../functions/sanitiseHtml";
 import { PostType } from "../types/PostType";
 import { ValidatedPostType } from "../types/ValidatedPostType";
 
@@ -50,13 +52,14 @@ export const validatePost = ({
   }
 
   return {
-    date,
+    rawDate: date,
+    date: formatDate(date, slug),
     description,
     image,
     keywords,
     labels,
     slug,
-    title,
+    title: sanitiseHtml(title),
     ...rest,
   };
 };

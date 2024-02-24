@@ -1,5 +1,5 @@
 ---
-title: StringToNumber
+title: Convert string literal type into number literal type in TypeScript
 date: "2021-12-03"
 description: Given a number as string literal type, returns a number as number literal type
 labels:

@@ -1,5 +1,5 @@
 ---
-title: Permutations
+title: Calculate all permutations of union type in TypeScript
 date: "2021-05-30"
 description: Given a union, return a union of tuples with all possible permutations (all possible positions of elements without repetition)
 labels:

@@ -1,5 +1,5 @@
 ---
-title: Pick under the hood
+title: Pick type under the hood in TypeScript
 date: "2021-04-05"
 description: Given existing type or interface, we need to extract part of properties
 labels:

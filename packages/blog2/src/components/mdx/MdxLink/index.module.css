@@ -1,0 +1,9 @@
+.link {
+  border-bottom: 2px solid var(--a-color);
+  transition: 0.1s border-bottom linear;
+  word-wrap: break-word;
+}
+
+.link:hover {
+  border-bottom: 4px solid var(--a-color);
+}

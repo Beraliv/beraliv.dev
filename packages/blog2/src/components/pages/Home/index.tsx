@@ -10,7 +10,6 @@ import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
-import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
 
@@ -20,7 +19,7 @@ export const Home = ({
   apiKey,
   formId,
   featuredPosts,
-  latestPosts,
+  mostRecent10Posts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
   const { author, keywords, title, url } = BLOG_META_INFO;
 
@@ -36,45 +35,35 @@ export const Home = ({
 
       <Header title={title} path="home" />
 
-      <main className={styles.main}>
-        <div className={styles.bio}>
-          <Bio />
-        </div>
+      <div className={styles.bio}>
+        <Bio />
+      </div>
 
-        <h3>Featured</h3>
-        <div className={styles.grid}>
-          {featuredPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
+      <h3>⭐️ Featured</h3>
+      <table className={styles.table}>
+        <tbody>
+          {featuredPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
           ))}
-        </div>
+        </tbody>
+      </table>
 
-        <h3>Latest</h3>
-        <div className={styles.grid}>
-          {latestPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
+      <h3>🕞 Most recent 10 posts</h3>
+      <table className={styles.table}>
+        <tbody>
+          {mostRecent10Posts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
           ))}
-        </div>
+        </tbody>
+      </table>
 
-        <div className={styles.goToSearch}>
-          <NextLink href="/search">🔎 See all articles</NextLink>
-        </div>
+      <div className={styles.goToSearch}>
+        <NextLink href="/search">🔎 See all articles</NextLink>
+      </div>
 
-        <aside className={styles.aside}>
-          <SubscriptionForm apiKey={apiKey} formId={formId} />
-        </aside>
-      </main>
+      <aside className={styles.aside}>
+        <SubscriptionForm apiKey={apiKey} formId={formId} />
+      </aside>
 
       <Footer />
     </div>

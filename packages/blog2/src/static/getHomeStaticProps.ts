@@ -17,7 +17,7 @@ export const getHomeStaticProps = async () => {
 
   const featuredPosts = posts.filter((post) => post.featured);
 
-  const latestPosts = posts.filter((post) => !post.featured).slice(0, 6);
+  const mostRecent10Posts = posts.filter((post) => !post.featured).slice(0, 11);
 
   const { apiKey, formId } = validateConvertKitParameters();
 
@@ -26,7 +26,7 @@ export const getHomeStaticProps = async () => {
       apiKey,
       formId,
       featuredPosts,
-      latestPosts,
+      mostRecent10Posts,
     },
   };
 };

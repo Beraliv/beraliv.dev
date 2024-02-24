@@ -13,9 +13,11 @@
     "solid-devtools": "^0.27.3",
     "typescript": "^5.1.3",
     "vite": "^4.3.9",
-    "vite-plugin-solid": "^2.7.0"
+    "vite-plugin-solid": "^2.7.0",
+    "vite-plugin-solid-svg": "0.6.5"
   },
   "dependencies": {
+    "@solidjs/router": "0.8.4",
     "solid-js": "^1.7.6"
   }
 }

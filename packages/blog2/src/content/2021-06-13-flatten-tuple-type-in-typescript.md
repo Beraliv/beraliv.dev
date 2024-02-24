@@ -1,5 +1,5 @@
 ---
-title: Flatten Tuple Type
+title: Flatten tuple type of tuples in TypeScript
 date: "2021-06-13"
 description: Given the tuple, make it flatten as Array.prototype.flat when pass Infinity
 labels:

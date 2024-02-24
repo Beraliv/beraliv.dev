@@ -10,3 +10,7 @@
 .figcaption {
   margin-top: 0.5rem;
 }
+
+.img {
+  border-radius: 0.25rem;
+}

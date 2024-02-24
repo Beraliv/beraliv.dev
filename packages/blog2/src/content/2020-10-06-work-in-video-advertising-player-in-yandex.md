@@ -1,5 +1,5 @@
 ---
-title: Video ads player in Yandex
+title: Working in Video Advertising player at Yandex
 date: "2020-10-06"
 description: Developed features, team members and collaboration inside the team
 labels:
@@ -14,7 +14,7 @@ image: /work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png
 
 ![Yandex overlay in player](/work-in-video-advertising-player-in-yandex/yandex-overlay-in-player.png)
 
-Hey! My name is Alex, and I've spent around 2 years in Yandex, in video player and [video advertising](https://yandex.com/adv/products/video) teams for more than a year in each one.
+Hey! My name is Alexey, and I've spent around 2 years in Yandex, in video player and [video advertising](https://yandex.com/adv/products/video) teams for more than a year in each one.
 
 As the last year is fresh in my memory, I would like to share my experience in video advertising.
 

@@ -1,0 +1,56 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+/* Same margin as .TournamentHead and .TournamentFooter have */
+.Wrapper > * {
+  margin: 0 5px;
+}
+
+.Label {
+  margin-bottom: 5px;
+
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.SelectWrapper {
+  display: flex;
+  position: relative;
+}
+
+.Select {
+  width: 100%;
+
+  box-sizing: border-box;
+  appearance: none;
+  outline: none;
+  /* it sets default font color correctly on e.g. iPad */
+  color: inherit;
+  cursor: pointer;
+  /* line width is aligned with MatchCard .Line height */
+  border: 2px solid #e6e6e6;
+
+  padding: 9px 12px;
+}
+
+.Select:hover {
+  border-color: #999999;
+}
+
+.Select:focus {
+  border-color: #000000;
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  inset: 0 0 0 auto;
+
+  padding-right: 12px;
+
+  pointer-events: none;
+}

@@ -31,8 +31,34 @@ describe(createLocalLinkId.name, () => {
   });
 
   it("removes punctuation from words", () => {
-    const actual = createLocalLinkId("Hello, how are you?");
-    const expected = "hello-how-are-you";
+    const actual = createLocalLinkId(
+      "Hello, how\" are you? I'm: fine. Thanks!"
+    );
+    const expected = "hello-how-are-you-im-fine-thanks";
+
+    expect(actual).toEqual(expected);
+  });
+
+  it("leaves hyphens between words", () => {
+    const actual = createLocalLinkId("device-specific");
+
+    const expected = "device-specific";
+
+    expect(actual).toEqual(expected);
+  });
+
+  it("trims spaces at the beginning and at the end", () => {
+    const actual = createLocalLinkId(" Links 🔗");
+
+    const expected = "links";
+
+    expect(actual).toEqual(expected);
+  });
+
+  it("merges multiple spaces into one", () => {
+    const actual = createLocalLinkId("Awkward  spaces");
+
+    const expected = "awkward-spaces";
 
     expect(actual).toEqual(expected);
   });

@@ -1,5 +1,5 @@
 ---
-title: Opaque Types
+title: Opaque Types in TypeScript
 date: "2021-05-07"
 description: Structural type system, workaround in TypeScript, unique symbol and code examples
 labels:
@@ -8,6 +8,7 @@ keywords:
   - typescript
   - opaque type
 image: /opaque-type-in-typescript/step1-example-of-opaque-type.png
+featured: true
 ---
 
 ```typescript title="Example of Opaque Types"

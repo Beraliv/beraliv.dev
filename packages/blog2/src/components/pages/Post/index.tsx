@@ -11,20 +11,29 @@ import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { SubscriptionForm } from "../../molecules/SubscriptionForm";
-import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
 import { useEffect } from "react";
 import type { MarkRequired } from "ts-essentials";
+import { SanitisedString } from "../../../types/SanitisedString";
 
 export interface PostPropsType {
   apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
   formId: string;
   post: StrictOmit<
-    MarkRequired<
-      Partial<PostType>,
-      "date" | "description" | "keywords" | "labels" | "slug" | "title"
-    >,
+    StrictOmit<
+      MarkRequired<
+        Partial<PostType>,
+        | "rawDate"
+        | "date"
+        | "description"
+        | "keywords"
+        | "labels"
+        | "slug"
+        | "title"
+      >,
+      "title"
+    > & { title: SanitisedString },
     "image"
   >;
   image: ImageType;
@@ -52,7 +61,7 @@ export const Post = ({
         image={image}
         keywords={post.keywords}
         path={`${baseUrl}${post.slug}`}
-        title={sanitiseHtml(post.title)}
+        title={post.title}
       />
 
       <ArticleMainProgress />

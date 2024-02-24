@@ -45,7 +45,7 @@ export const Search = ({
 
           return true;
         })();
-        const byTitle = sanitiseHtml(post.title).toLowerCase().includes(search);
+        const byTitle = post.title.toLowerCase().includes(search);
         const byDescription = post.description.toLowerCase().includes(search);
 
         return byLabel && (byTitle || byDescription);
@@ -116,17 +116,13 @@ export const Search = ({
           <div className={styles.searchElements}>{filteredPosts.length}</div>
         </div>
 
-        <div className={styles.grid}>
-          {filteredPosts.map(({ description, labels, slug, title }) => (
-            <PostPreview
-              key={slug}
-              description={description}
-              labels={labels}
-              slug={slug}
-              title={sanitiseHtml(title)}
-            />
-          ))}
-        </div>
+        <table className={styles.table}>
+          <tbody>
+            {filteredPosts.map((post) => (
+              <PostPreview key={post.slug} {...post} />
+            ))}
+          </tbody>
+        </table>
 
         <aside className={styles.aside}>
           <SubscriptionForm apiKey={apiKey} formId={formId} />

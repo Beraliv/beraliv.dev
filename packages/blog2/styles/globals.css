@@ -23,7 +23,7 @@
   --copy-to-clipboard-color: rgba(0, 0, 0, 1);
   --copy-to-clipboard-success-color: rgba(39, 174, 96, 1);
 
-  --vscode-background-color: rgb(255, 255, 255, 1);
+  --vscode-background-color: rgb(240, 240, 240, 1);
   --code-color: rgba(133, 0, 14, 1);
   --border-color: rgba(234, 234, 234, 1);
   --focus-color: rgba(0, 112, 243, 1);
@@ -130,6 +130,7 @@ h6 {
   margin-bottom: 1.5rem;
   line-height: 1rem;
   letter-spacing: -0.025em;
+  word-break: break-word;
 }
 
 h2,
@@ -212,7 +213,7 @@ h6 > a {
 }
 
 p {
-  line-height: 1.625;
+  line-height: 1.75;
   margin: 0px;
   margin-bottom: 2rem;
   padding: 0px;
@@ -226,7 +227,7 @@ code {
   background-color: var(--vscode-background-color);
   color: var(--code-color);
   padding: 0.25rem;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 button,
@@ -288,6 +289,11 @@ table tbody tr td {
     padding-left: 1rem;
     margin-left: 0px;
   }
+}
+
+ol li,
+ul li {
+  line-height: 1.75;
 }
 
 .language-css,

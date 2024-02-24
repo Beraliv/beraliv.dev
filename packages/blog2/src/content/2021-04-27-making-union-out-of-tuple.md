@@ -1,5 +1,5 @@
 ---
-title: Making union out of tuple
+title: Transform tuple type into a union in TypeScript
 date: "2021-04-27"
 description: Given the tuple, return a union of tuple elements
 labels:

@@ -8,6 +8,7 @@ keywords:
   - typescript
   - enums
 image: /with-or-without-enums/image.png
+featured: true
 ---
 
 ## What
@@ -107,11 +108,11 @@ volume.status = "AUDIBLE";
 
 ## Why not use enums
 
-### Numeric enums are NOT type-safe
+### Numeric enums are NOT type-safe (TypeScript below 5.0)
 
-Given numeric enum and any variable of its type, TypeScript allow you to assign any number to it.
+Given numeric enum and any variable of its type, TypeScript 4.9.5 and below allowed you to assign any number to it.
 
-```typescript title="TypeScript allow to assign any number to variable of numeric enum type"
+```typescript title="TypeScript allow to assign any number to variable of numeric enum type for TypeScript 4.9.5 and below"
 enum Output {
   Error = 1,
   Warning = 2,
@@ -135,7 +136,11 @@ options.output = 4;
 options.output = 5;
 ```
 
-🏝 Playground – https://tsplay.dev/mx3rBN
+Please check the playground to test it for TypeScript 4.9.5 - https://www.typescriptlang.org/play?preserveConstEnums=true&ts=4.9.5#code/KYOwrgtgBA8mAuAHBUDeAoKWoFEBOeA9nlALxQCMANJtgOoCGeIAliAOZlQBMN2UAGUKdyAZhoBfdOjbxgeAGYMAxsFiJ4LQiADOaWlkIJk8APwAuWMYQBudFPTLtO+FEIatuyzA-OuqCTt3TWcAOiMkFHI4SPhQ-CI8IN9dcOtXaPTQxmY2dmSQ1IiTLhiTUKF86QB6ard3HSooACMUFxYAGw6oHQYFYHRgzx002K5RO3RaqABCOdgYAAUAZVn5sF0+tUBeDcBQPcGUkeKoqAAWAuHRkvIAVhsgA 🏝️
+
+Beginning with TypeScript 5.0, this issue has been resolved and addressed within the release, eliminating it as a concern going forward. For more details, please read [TypeScript 5.0 Release | Enum Overhaul](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#enum-overhaul).
+
+Playground for latest TypeScript - https://tsplay.dev/wXgg9W 🏝️
 
 ### Enum is NOT just a type feature added
 
@@ -213,18 +218,18 @@ Let's sum up what we just discussed in a table:
 
 | Approach                                               | Declaration                                     | No lookup objects<sup>1</sup> | Type-safe<sup>2</sup> | Refactoring<sup>3</sup> | Optimal<sup>4</sup> | Type-only<sup>5</sup> | Opaque-like<sup>6</sup> |
 | :----------------------------------------------------- | :---------------------------------------------- | :---------------------------: | :-------------------: | :---------------------: | :-----------------: | :-------------------: | :---------------------: |
-| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
+| [Numeric enums](https://tsplay.dev/wORypW)             | `enum Answer { No = 0, Yes = 1 }`               |              ❌               |         ✅⚠️          |           ✅            |         ❌          |          ❌           |           ❌            |
 | [String enums](https://tsplay.dev/w1peKW)              | `enum Answer { No = 'No', Yes = 'Yes' }`        |              ❌               |          ✅           |           ✅            |         ❌          |          ❌           |           ✅            |
-| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |          ❌           |           ✅            |         ❌          |          ❌           |           ❌            |
-| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |          ❌           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [Heterogeneous enums](https://tsplay.dev/WKRYzm)       | `enum Answer { No = 0, Yes = 'Yes' }`           |              ❌               |         ✅⚠️          |           ✅            |         ❌          |          ❌           |           ❌            |
+| [Numeric const enums](https://tsplay.dev/mpLrXm)       | `const enum Answer { No = 0, Yes = 1 }`         |              ✅               |         ✅⚠️          |           ✅            |         ✅          |          ❌           |           ❌            |
 | [String const enums](https://tsplay.dev/m3Xg2W)        | `const enum Answer { No = 'No', Yes = 'Yes' }`  |              ✅               |          ✅           |           ✅            |         ✅          |          ❌           |           ✅            |
-| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |          ❌           |           ✅            |         ✅          |          ❌           |           ❌            |
+| [Heterogeneous const enums](https://tsplay.dev/wXjMDm) | `const enum Answer { No = 0, Yes = 'Yes' }`     |              ✅               |         ✅⚠️          |           ✅            |         ✅          |          ❌           |           ❌            |
 | [Object + as const](https://tsplay.dev/mLyeaW)         | `const ANSWER = { No: 0, Yes: "Yes" } as const` |              ❌               |          ✅           |           ✅            |         ✅          |          ❌           |           ❌            |
 | [Union types](https://tsplay.dev/wORyEW)               | `type Answer = 0 \| 'Yes'`                      |              ✅               |          ✅           |           ❌            |         ✅          |          ✅           |           ❌            |
 
 1. Union types are type-only feature so no JS code is emitted. Const enums inline their values and don't emit lookup objects. Other solutions, i.e. object + as const and normal enums, emit lookup objects.
 
-1. All numeric enums (whether normal, heterogeneous or const) aren't type-safe as you can assign any number to the variable of its type.
+1. As mentioned [above](#numeric-enums-are-not-type-safe-typescript-below-50), all numeric enums (whether normal, heterogeneous or const) are type-safe starting with TypeScript 5.0 onwards. But if TypeScript in your project is 4.9.5 or below, any numeric enums won't be type-safe as you can assign any number to the variable of its type.
 
 1. Only union type lacks refactoring. It means that if you need to update value in a codebase, you will require to run type check over your codebase and fix all type errors. Enums and objects encapsulate it by saving lookup object.
 
@@ -246,7 +251,7 @@ It's also included in [Enums - Objects vs. Enums | TypeScript Docs](https://www.
 
 Before:
 
-```typescript title="Example with numeric enums"
+```typescript title="Example with numeric enums for TypeScript 4.9.5 or below"
 enum Output {
   Error = 1,
   Warning = 2,
@@ -265,7 +270,7 @@ options.output = Output.Log;
 // oops, but still safe
 options.output = 3;
 
-// !!! OOPS !!! unsafe 😅
+// safe starting with TypeScript 5.0 😅
 options.output = 4;
 options.output = 5;
 ```
@@ -300,7 +305,7 @@ options2.output = 4;
 options2.output = 5;
 ```
 
-🏝 Together in Playground – https://tsplay.dev/Nr4r3W
+🏝 Together in Playground – https://tsplay.dev/wOXX6N
 
 ### String const enum => union type + inlined string literals
 
@@ -367,7 +372,7 @@ When a meaning doesn't make much sense, you can still use union type:
 type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 ```
 
-Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-=>-object-+-as-const-+-values).
+Otherwise, follow the approach with [Numeric enum => object + as const + Values](#numeric-enum-object-as-const-values).
 
 It will definitely increase your bundle size. But again, it will keep you code type-safe by eliminating assignment of any number.
 
