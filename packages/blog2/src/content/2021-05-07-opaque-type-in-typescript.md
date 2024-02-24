@@ -7,11 +7,28 @@ labels:
 keywords:
   - typescript
   - opaque type
-image: /opaque-type-in-typescript/step1-example-of-opaque-type.png
+image: /opaque-type-in-typescript/image.png
 featured: true
 ---
 
-![Example of Opaque Types](/opaque-type-in-typescript/step1-example-of-opaque-type.png)
+```typescript title="Example of Opaque Types"
+declare const __opaque__type__: unique symbol;
+
+type OpaqueType<BaseType, TagName> = BaseType & {
+  readonly [__opaque__type__]: TagName;
+};
+
+type PositiveNumber = OpaqueType<number, "PositiveNumber">;
+type NegativeNumber = OpaqueType<number, "NegativeNumber">;
+
+declare let positiveNumber: PositiveNumber;
+declare let negativeNumber: NegativeNumber;
+
+// Type '"NegativeNumber"' is not assignable to type '"PositiveNumber"'
+positiveNumber = negativeNumber;
+// Type '"PositiveNumber"' is not assignable to type '"NegativeNumber"'
+negativeNumber = positiveNumber;
+```
 
 Today we discuss Opaque types:
 
@@ -24,7 +41,25 @@ Today we discuss Opaque types:
 
 TypeScript, like Elm and Haskell, has a [structural type system](https://www.typescriptlang.org/docs/handbook/type-compatibility.html). It means that 2 different types but of the same shape are compatible:
 
-![Example of structural type system](/opaque-type-in-typescript/step2-structural-type-system-example.png)
+```typescript title="Example of structural type system"
+type Animal = { animal: true };
+type Cat = { animal: true; meow: VoidFunction };
+type Dog = { animal: true; bark: VoidFunction };
+
+declare let animal: Animal;
+declare let cat: Cat;
+declare let dog: Dog;
+
+// ✅
+animal = dog;
+animal = cat;
+// ❌ Property 'bark' is missing
+dog = cat;
+dog = animal;
+// ❌ Property 'meow' is missing
+cat = dog;
+cat = animal;
+```
 
 It leads to more flexibility but at the same time leaves a room for specific bugs.
 
@@ -42,33 +77,107 @@ Let's see how we can imitate nominal type feature for TypeScript 4.2:
 
 Here we define `class` for every nominal type and add `__nominal` mark as a private property:
 
-![Example of a class with private property](/opaque-type-in-typescript/step3-class-with-private-property.png)
+```typescript title="Class with private property"
+class USD {
+  private __nominal: void;
+  constructor(public value: number) {}
+}
 
-[Code in Playground](https://www.typescriptlang.org/play?#code/MYGwhgzhAECqDKARaBvAUNaAHATgSwDcwAXAU2gH0KA7AewFs9qwQAuaA2vAEwG4NowWtQjEcAV2DFaOABRZxAIxB5gHFuNLtq4+otI4AlKgC+-E2jShIMAKKwASqgG5CJclTqNmbDlz4CQiJiktJyCsqq6iCa2rr6Rqbmltyk1jjkIKTE0OIQ3OwIiPyp6ZnZ0KTiOOz2DvxoAPSN0IAy5E0tACoAnljkAOR1-dB4MHQ5NngA5szK5NLQxL0DRf0AdB3QPX0wABZgBOQQpFhgOO7QpeDnxHjCMLQAZtBg2PhEZG+0fThL0P2eBhMFj9NB5bjQAC8lWq-CqOChuXyvCAA)
+class EUR {
+  private __nominal: void;
+  constructor(public value: number) {}
+}
+
+declare let usd: USD;
+declare let eur: EUR;
+
+// ❌
+// Type 'EUR' is not assignable to type 'USD'.
+//   Types have separate declarations of a private property '__nominal'.
+usd = eur;
+eur = usd;
+```
+
+Playground – https://tsplay.dev/we4a1W
 
 ### 2. Class + intersection types
 
 We still define `class` here, but for every nominal type we have [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html):
 
-![Example of a class with intersection types](/opaque-type-in-typescript/step3-class-with-intersection-types.png)
+```typescript title="Class with intersection types"
+class Currency<T extends string> {
+  private as: T;
+}
 
-[Example in Playground](https://www.typescriptlang.org/play?#code/MYGwhgzhAEDCCuAnRBTAdsAngHgCrRQA8AXdAExgmMQEs0BzAPmgG8AoaaAB1oDcxS0SAC5ouANxsAvmzbFMXFNACqAZQAi0ALzQ08ALYAjFImgAyOElQYcAIjXrbjOQqUBRZQCVtug8dMWCMjoWNi2Hp5OsmQooGCo0CAoxNDwEGSiDpIxcQlJKShIohGSbAD0ZdCAMuTllbiu0ADkEY3QNDBoAPYpkBA09GhghknQxJ2jDY0OjQB0tZz1ik0tbR3dQlD9g8NKYxNLjUHWofYaTrPznGKuMJ0AZtyInYqI8k2QrfFKdMCd+lwCGg7OYVK5XRZKRrhLy2VrtXTrXpbIYjPbyA6nRyNNhpMg+QqISQEny48RAA)
+type USD = number & Currency<"USD">;
+type EUR = number & Currency<"EUR">;
+
+declare let usd: USD;
+declare let eur: EUR;
+
+// ❌
+// Type 'EUR' is not assignable to type 'USD'.
+//  Type 'EUR' is not assignable to type 'Currency<"USD">'.
+//    Types of property 'as' are incompatible.
+//      Type '"EUR"' is not assignable to type '"USD"'
+usd = eur;
+eur = usd;
+```
+
+Playground – https://tsplay.dev/wgXa9N
 
 ### 3. Type + intersection types
 
 We only define `type` here and use [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html) with intersection types:
 
-![Example of a type with intersection types](/opaque-type-in-typescript/step3-type-with-intersection-types.png)
+```typescript title="Type with intersection types"
+type Brand<K, T> = K & { __brand: T };
 
-[Have a look at Playground](https://www.typescriptlang.org/play?#code/C4TwDgpgBAQgTgQwHYBMA8BpANFAKgPigF4oMoAyKAbygH1aAjRVALjygF8AoL0SKAKoBlACLFYzdEgCuAWwYQ4OAETCRy-L3DQAogIBK4+MilyFSqMr36NPFBADGAGwRxoTiMCjSAzijZqANxc9s6u7p5QENJwbNbBXAD0iVCAMuRQPgD2shCZSNAOyN4+0ACWXgzSXuVQKJkQPkgA5F4QAB6lPsBcvigAdPRMJjzJaUkpuNpQTdZNUJ1QSJleCD4+pQDmSAgMHlDAmftTTWpNfeNQeMez8z6Ly1Cr61s7ewdH-E00g5JsqqLKQKcM4XS5XSB3TIAMygYDgmUgcFA0x+Jjm4XmSAc2TACGApV2EHOozBl0mnysBmUcwWSxWa0220J+0OfGgTX+6iaPT84micGC-PEvWCQA)
+type USD = Brand<number, "USD">;
+type EUR = Brand<number, "EUR">;
+
+declare let usd: USD;
+declare let eur: EUR;
+
+// ❌ someone can use it but it doesn't exist
+usd.__brand;
+
+// ❌
+// Type 'EUR' is not assignable to type 'USD'.
+//  Type 'EUR' is not assignable to type '{ __brand: "USD"; }'.
+//    Types of property '__brand' are incompatible.
+//      Type '"EUR"' is not assignable to type '"USD"'
+usd = eur;
+eur = usd;
+```
+
+Playground – https://tsplay.dev/NnQM6w
 
 ### 4. Type + intersection types + unique symbol
 
 We still define `type`, use [Generic type](https://www.typescriptlang.org/docs/handbook/2/generics.html), use intersection types with `unique symbol`:
 
-![Example of a type with intersection types and unique symbol](/opaque-type-in-typescript/step3-intersection-types-brands-and-unique-symbol.png)
+```typescript title="Type with intersection types and unique symbol property"
+declare const brand: unique symbol;
 
-[The example in Playground](https://www.typescriptlang.org/play?#code/CYUwxgNghgTiAEYD2A7AzgF3gIxlFwAXPAK4oCWAjiQmgJ4C22SEA3AFDsZ0AOCAQngIAeANIAaeABUAfPAC88UfABk8AN7w4UYKgh14AbVz5gAXWJT4AX07c+8AKoBlACIL4g08JQkmIGEkAIhdXIJkuXgQAUUcAJQ8vEV9-QPgg2LjwzlBIWAQIECwSNCInNw5c6Dh4QqwQEhhiTI52AHo2+EAZcnbOqSj4AHJMwfhyNHgUJCwoNDRyAHMUKGxC+AwkdYHB0MGAOl74aW2RsYmpmbnF5dWEDa2HQc1tXRR9IxMCC3TQoNYbfaHI7HPgTJAAM3gPBgSD4MG4Q2MQnMo3yYxQyAYPCgGHItwOHWBwP6jwy8SCo3Gk2m8Fm8yWKzW93sCEGITcFPYJWAHgaMA4fI83I4QA)
+type Brand<K, T> = K & { readonly [brand]: T };
+
+type USD = Brand<number, "USD">;
+type EUR = Brand<number, "EUR">;
+
+declare let usd: USD;
+declare let eur: EUR;
+
+// ❌
+// Type 'EUR' is not assignable to type 'USD'.
+//  Type 'EUR' is not assignable to type '{ readonly [brand]: "USD"; }'.
+//    Types of property '[brand]' are incompatible.
+//      Type '"EUR"' is not assignable to type '"USD"'
+usd = eur;
+eur = usd;
+```
+
+Playground – https://tsplay.dev/WkMljN
 
 ## Choose the solution
 
@@ -95,11 +204,17 @@ I will stop on [Type + intersection types + unique symbol](/2021-05-07-opaque-ty
 
 It's possible to create a symbol in TypeScript without creating it in JavaScript. So it won't exist after compiling
 
-![Declare unique symbol](/opaque-type-in-typescript/step4-declare-unique-symbol.png)
+```typescript title="Declare unique symbol"
+declare const brand: unique symbol;
+```
 
 Also, if you plan to reuse `OpaqueType` and put it to the separate file:
 
-![Example of an Opaque type implementation](/opaque-type-in-typescript/step4-opaque-type.png)
+```typescript title="Opaque type implementation"
+declare const __opaque__type__: unique symbol;
+
+type OpaqueType<K, T> = K & { readonly [__opaque__type__]: T };
+```
 
 It's a good idea as in this case `symbol` won't be accessible outside of the file and therefore you cannot read the property.
 
@@ -107,11 +222,29 @@ It's a good idea as in this case `symbol` won't be accessible outside of the fil
 
 Let's have a look at [CodeSandbox](https://codesandbox.io/s/ts-opaque-units-6j3ti?file=/src/index.ts)
 
-![ts-opaque-units example](/opaque-type-in-typescript/step5-ts-opaque-units-example.png)
+```typescript title="ts-opaque-units example"
+import { convert, Days } from "ts-opaque-units";
+
+const daysSinceLast6months = () => {
+  const time = 7 as Days;
+
+  const hours = Math.floor(convert(time, "days", "hours"));
+  const minutes = Math.floor(convert(time, "days", "minutes"));
+  const seconds = Math.floor(convert(time, "days", "seconds"));
+
+  return `${hours}h or ${minutes}m or ${seconds}s`;
+};
+
+document.body.innerHTML = daysSinceLast6months();
+```
 
 It uses [ts-opaque-units](https://www.npmjs.com/package/ts-opaque-units) which implements `Opaque` function with unique symbol. For instance, `Days` is defined as:
 
-![Days example](/opaque-type-in-typescript/step6-days-example.png)
+```typescript title="Days example"
+import { Opaque } from "../../internal/types/Opaque";
+
+export type Days = Opaque<number, "days">;
+```
 
 ## Resources
 

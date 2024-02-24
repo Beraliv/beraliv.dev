@@ -803,38 +803,6 @@
     "width": 1312,
     "height": 538
   },
-  "/opaque-type-in-typescript/step3-type-with-intersection-types.png": {
-    "width": 1172,
-    "height": 888
-  },
-  "/opaque-type-in-typescript/step3-intersection-types-brands-and-unique-symbol.png": {
-    "width": 1300,
-    "height": 958
-  },
-  "/opaque-type-in-typescript/step4-declare-unique-symbol.png": {
-    "width": 772,
-    "height": 364
-  },
-  "/opaque-type-in-typescript/step4-opaque-type.png": {
-    "width": 1176,
-    "height": 434
-  },
-  "/opaque-type-in-typescript/step5-ts-opaque-units-example.png": {
-    "width": 1422,
-    "height": 958
-  },
-  "/opaque-type-in-typescript/step6-days-example.png": {
-    "width": 1036,
-    "height": 434
-  },
-  "/opaque-type-in-typescript/step1-example-of-opaque-type.png": {
-    "width": 1286,
-    "height": 888
-  },
-  "/opaque-type-in-typescript/step2-structural-type-system-example.png": {
-    "width": 966,
-    "height": 924
-  },
   "/spread-in-typescript/step1-example-of-use.png": {
     "width": 1290,
     "height": 580
@@ -854,14 +822,6 @@
   "/infer-last-element/step1-example-of-use.png": {
     "width": 1010,
     "height": 574
-  },
-  "/opaque-type-in-typescript/step3-class-with-private-property.png": {
-    "width": 1266,
-    "height": 958
-  },
-  "/opaque-type-in-typescript/step3-class-with-intersection-types.png": {
-    "width": 1126,
-    "height": 924
   },
   "/infer-last-element/step2-first-solution.png": {
     "width": 754,
@@ -970,5 +930,9 @@
   "/story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/definitions.png": {
     "width": 2078,
     "height": 1404
+  },
+  "/opaque-type-in-typescript/image.png": {
+    "width": 1600,
+    "height": 1066
   }
 }
