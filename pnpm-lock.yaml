@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 patchedDependencies:
   bundlewatch@0.3.3:
     hash: uj6jncoatjcwavg7n4jojs6nni
@@ -113,6 +109,8 @@ importers:
       unified:
         specifier: 10.1.2
         version: 10.1.2
+
+  packages/blog2/dist: {}
 
   packages/habits:
     dependencies:
@@ -7363,3 +7361,7 @@ packages:
 
   /zwitch@2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
