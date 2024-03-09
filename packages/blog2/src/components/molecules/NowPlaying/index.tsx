@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import useSwr from "swr";
 import { fetchJson } from "../../../functions/fetchJson";
 import { PlayingApi } from "../../../types/PlayingApi";

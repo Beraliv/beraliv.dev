@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
 import { BuyMeCoffeeButton } from "../BuyMeCoffeeButton";
 import styles from "./index.module.css";
