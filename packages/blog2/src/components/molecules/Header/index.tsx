@@ -1,9 +1,9 @@
 import NextLink from "next/link";
 import { classNames } from "../../../functions/classNames";
-import { isWinter } from "../../../functions/isWinter";
 import { DarkModeToggle } from "../../atoms/DarkModeToggle";
 import { Snow } from "../../atoms/Snow";
 import styles from "./index.module.css";
+import { getSeason } from "../../../functions/getSeason";
 
 interface HeaderPropsType {
   title: string;
@@ -11,6 +11,8 @@ interface HeaderPropsType {
 }
 
 export const Header = ({ title, path }: HeaderPropsType) => {
+  const season = getSeason(new Date());
+
   return (
     <header
       className={classNames(styles.header, {
@@ -23,7 +25,7 @@ export const Header = ({ title, path }: HeaderPropsType) => {
         <a className={styles.toHome}>{title}</a>
       </NextLink>
 
-      {isWinter(new Date()) && <Snow number={50} />}
+      {season === "winter" && <Snow number={50} />}
 
       <DarkModeToggle />
     </header>
