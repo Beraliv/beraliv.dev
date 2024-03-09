@@ -21,8 +21,8 @@ export const Header = ({ title, path }: HeaderPropsType) => {
         [styles.notFoundHeader]: path === "404",
       })}
     >
-      <NextLink href="/">
-        <a className={styles.toHome}>{title}</a>
+      <NextLink href="/" className={styles.toHome}>
+        {title}
       </NextLink>
 
       {season === "winter" && <Snow number={50} />}
