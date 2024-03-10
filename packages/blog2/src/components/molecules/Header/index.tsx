@@ -5,6 +5,7 @@ import { Snow } from "../../atoms/Snow";
 import styles from "./index.module.css";
 import { SeasonType, getSeason } from "../../../functions/getSeason";
 import { FractalTree, TreeConfig } from "../../atoms/FractalTree";
+import { Grass } from "../../atoms/Grass";
 
 interface HeaderPropsType {
   title: string;
@@ -33,7 +34,7 @@ const TREE_CONFIG: Record<SeasonType, TreeConfig> = {
 };
 
 export const Header = ({ title, path }: HeaderPropsType) => {
-  const season = getSeason(new Date(1994, 0));
+  const season = getSeason(new Date());
 
   return (
     <header
@@ -48,6 +49,7 @@ export const Header = ({ title, path }: HeaderPropsType) => {
       </NextLink>
 
       {season === "winter" && <Snow number={50} />}
+      {season !== "winter" && <Grass height={30} />}
       {season && (
         <FractalTree width={100} height={100} config={TREE_CONFIG[season]} />
       )}
