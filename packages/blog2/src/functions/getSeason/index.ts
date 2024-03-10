@@ -7,7 +7,7 @@ const SEASONS = {
   autumn: [8, 9, 10],
 } satisfies Record<string, number[]>;
 
-type SeasonType = keyof typeof SEASONS;
+export type SeasonType = keyof typeof SEASONS;
 
 export const getSeason = (
   date: Pick<Date, "getMonth">
