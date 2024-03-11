@@ -13,6 +13,10 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { extractMetadata } from "../functions/extractMetadata";
 import remarkMdxCodeMeta from "remark-mdx-code-meta";
 import remarkGfm from "remark-gfm";
+import rehypeShiki from "@leafac/rehype-shiki";
+import { getHighlighter } from "shiki";
+import rehypeRaw from "rehype-raw";
+import { nodeTypes } from "@mdx-js/mdx";
 
 const NORMALISED_WIDTH = 1280;
 
@@ -34,7 +38,20 @@ export const getPostStaticProps: GetStaticProps<
     mdxOptions: {
       // to handle types correctly here, you need remark
       remarkPlugins: [remarkUnwrapImages, remarkMdxCodeMeta, remarkGfm],
-      rehypePlugins: [imageMetadata],
+      rehypePlugins: [
+        imageMetadata,
+        // @ts-expect-error: type file isn't compatible
+        [rehypeRaw, { passThrough: nodeTypes }],
+        [
+          rehypeShiki,
+          {
+            highlighter: await getHighlighter({
+              langs: ["javascript", "typescript"],
+              themes: ["github-dark", "github-light"],
+            }),
+          },
+        ],
+      ],
     },
   });
 
