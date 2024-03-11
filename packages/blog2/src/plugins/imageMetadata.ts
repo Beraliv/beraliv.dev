@@ -58,7 +58,7 @@ async function addMetadata(node: ImageNode): Promise<void> {
  * Read more about Next.js image: https://nextjs.org/docs/api-reference/next/image#layout
  */
 export const imageMetadata: Pluggable = () =>
-  async function transformer(tree, file): Promise<Node> {
+  async function transformer(tree, _file): Promise<Node> {
     const imgNodes: ImageNode[] = [];
 
     visit(tree, "element", (node) => {

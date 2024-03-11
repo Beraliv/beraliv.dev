@@ -1,9 +1,10 @@
-import Highlight, { defaultProps } from "prism-react-renderer";
 import { CodeLanguageType } from "../../../types/CodeLanguageType";
 import { getCodeLanguageType } from "../../../functions/getCodeLanguageType";
 import { classNames } from "../../../functions/classNames";
 import styles from "./index.module.css";
 import { CopyToClipboardButton } from "../../molecules/CopyToClipboardButton";
+import { codeToHtml } from "shiki";
+import { useLayoutEffect, useRef } from "react";
 
 export interface MdxPrePropsType {
   children: {
@@ -17,9 +18,25 @@ export interface MdxPrePropsType {
 
 export const MdxPre = (props: MdxPrePropsType) => {
   const { children, className } = props.children.props;
+  const containerRef = useRef<HTMLDivElement>(null);
   const code = children.trim();
+  // TODO: remove
   const language = getCodeLanguageType(className);
   const title = props.title ?? "";
+
+  useLayoutEffect(() => {
+    if (!language) {
+      return;
+    }
+
+    // to refactor to avoid hydration issues
+    codeToHtml(code, {
+      lang: language,
+      theme: "github-dark",
+    }).then((compiled) => {
+      containerRef.current!.innerHTML = compiled;
+    });
+  }, []);
 
   if (!language) {
     console.warn(`Cannot find language for <pre> with props`, props);
@@ -27,49 +44,14 @@ export const MdxPre = (props: MdxPrePropsType) => {
   }
 
   return (
-    <Highlight
-      {...defaultProps}
-      code={code}
-      language={language}
-      theme={{ plain: {}, styles: [] }}
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <>
-          <div className={classNames(className, styles.title)} style={style}>
-            <span>{title}</span>
-            <div>
-              <CopyToClipboardButton whatToCopy={code} />
-            </div>
-          </div>
-          <div className={styles.container}>
-            <pre className={classNames(className, styles.pre)} style={style}>
-              {tokens.map((line, i) => {
-                const { className: lineClassName, ...lineProps } = getLineProps(
-                  {
-                    line,
-                    key: i,
-                  }
-                );
-
-                return (
-                  <div
-                    key={i}
-                    {...lineProps}
-                    className={classNames(lineClassName, styles.line)}
-                  >
-                    <span className={styles.lineNumber}>{i + 1}</span>
-                    <span className={styles.lineContent}>
-                      {line.map((token, key) => (
-                        <span key={key} {...getTokenProps({ token, key })} />
-                      ))}
-                    </span>
-                  </div>
-                );
-              })}
-            </pre>
-          </div>
-        </>
-      )}
-    </Highlight>
+    <>
+      <div className={classNames(className, styles.title)}>
+        <span>{title}</span>
+        <div>
+          <CopyToClipboardButton whatToCopy={code} />
+        </div>
+      </div>
+      <div ref={containerRef} className={styles.container} />
+    </>
   );
 };
