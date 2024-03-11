@@ -1,4 +1,4 @@
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import { imageLoader } from "../../../functions/imageLoader";
 import styles from "./index.module.css";
 

@@ -1,16 +1,40 @@
 import NextLink from "next/link";
 import { classNames } from "../../../functions/classNames";
-import { isWinter } from "../../../functions/isWinter";
 import { DarkModeToggle } from "../../atoms/DarkModeToggle";
 import { Snow } from "../../atoms/Snow";
 import styles from "./index.module.css";
+import { getSeason } from "../../../functions/getSeason";
 
 interface HeaderPropsType {
   title: string;
   path: "home" | "post" | "search" | "404";
 }
 
+// TODO: add tree config when winter snowdrift is ready
+// const TREE_CONFIG: Record<SeasonType, TreeConfig> = {
+//   winter: {
+//     type: "withoutLeaves",
+//     trunkColour: "rgb(127.89875575019342,95.94236232500401,100.38445799598361)",
+//   },
+//   spring: {
+//     type: "withoutLeaves",
+//     trunkColour: "rgb(127.89875575019342,95.94236232500401,100.38445799598361)",
+//   },
+//   summer: {
+//     type: "withLeaves",
+//     trunkColour: "rgb(202.68918181332694,125.5904954265633,114.37598394875991)",
+//     leavesColour: "rgb(145.76120054187436,224.7466619189076,37.85990186125929)",
+//   },
+//   autumn: {
+//     type: "withLeaves",
+//     trunkColour: "rgb(127.89875575019342,95.94236232500401,100.38445799598361)",
+//     leavesColour: "rgb(236.72626249459896,71.37718339320607,26.07847755475651)",
+//   },
+// };
+
 export const Header = ({ title, path }: HeaderPropsType) => {
+  const season = getSeason(new Date());
+
   return (
     <header
       className={classNames(styles.header, {
@@ -19,11 +43,17 @@ export const Header = ({ title, path }: HeaderPropsType) => {
         [styles.notFoundHeader]: path === "404",
       })}
     >
-      <NextLink href="/">
-        <a className={styles.toHome}>{title}</a>
+      <NextLink href="/" className={styles.toHome}>
+        {title}
       </NextLink>
 
-      {isWinter(new Date()) && <Snow number={50} />}
+      {season === "winter" && <Snow number={50} />}
+      {/* TODO: add grass for suitable seasons when winter snowdrift is ready */}
+      {/* {season !== "winter" && <Grass height={30} />} */}
+      {/* TODO: add tree when winter snowdrift is ready */}
+      {/* {season && (
+        <FractalTree width={100} height={100} config={TREE_CONFIG[season]} />
+      )} */}
 
       <DarkModeToggle />
     </header>

@@ -14,7 +14,7 @@
     },
     {
       "path": "packages/blog2/dist/static/chunks/main-*.js",
-      "maxSize": "35 KB"
+      "maxSize": "40 KB"
     },
     {
       "path": "packages/blog2/dist/static/chunks/pages/\\[slug\\]-*.js",
