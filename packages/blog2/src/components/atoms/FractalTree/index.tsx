@@ -139,7 +139,6 @@ export const FractalTree = ({
 
     const treeFactory = new FractalTreeFactory(canvas);
 
-    // treeFactory.drawRandomTree();
     treeFactory.drawTree(config);
   }, [config]);
 

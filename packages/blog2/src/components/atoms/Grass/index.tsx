@@ -25,6 +25,8 @@ type GrassLeaf = {
   [Type in `path${1 | 2}`]: Path2D;
 };
 
+const BILLION = 1_000_000_000;
+
 class GrassFactory {
   private grass: GrassLeaf[] = [];
   private canvas: HTMLCanvasElement;
@@ -38,7 +40,7 @@ class GrassFactory {
   public drawGrass() {
     // Populate random digits string
     for (let i = 0; i < 137; i++) {
-      this.digits += Math.floor(Math.random() * 10 ** 9);
+      this.digits += Math.floor(Math.random() * BILLION);
     }
 
     this.createLeafs();
@@ -69,6 +71,7 @@ class GrassFactory {
     for (let dist = 0; dist < this.canvas.width + 50; dist += distance) {
       let parallelAngle = ANGLE - Math.PI / 2;
 
+      // TODO: move to createLeaf
       let leaf: Partial<GrassLeaf> = {};
       leaf.rand0 = this.nextRand();
       leaf.rand1 = this.nextRand();
@@ -128,36 +131,36 @@ class GrassFactory {
     this.randCounter = 0;
     this.grass = [];
     for (let dist = -100; dist < this.canvas.width + 50; dist += distance) {
-      let time_ang =
+      // TODO: reuse createLeaf + time adjustments
+      let timeAngle =
         (Math.PI / 6) *
         Math.cos(((dist * LAMBDA + time * SPEED) * Math.PI) / 180);
-      let leaf: Partial<GrassLeaf> = {},
-        tHeight = 0,
-        tMheight = 0,
-        tWidth = 0;
-      let paralAng = ANGLE - Math.PI / 2 + time_ang;
+      let leaf: Partial<GrassLeaf> = {};
+      let parallelAngle = ANGLE - Math.PI / 2 + timeAngle;
       let aux: number;
       leaf.rand0 = this.nextRand();
       leaf.rand1 = this.nextRand();
       leaf.rand2 = this.nextRand();
       aux = ((Number(leaf.rand0) - 5) * HEIGHT * RANDOMNESS) / 500;
-      tHeight = aux + HEIGHT;
-      tMheight =
+      let tHeight = aux + HEIGHT;
+      let tMheight =
         (((Number(leaf.rand1) - 5) / 5) * MID_HEIGHT * RANDOMNESS) / 100 +
         MID_HEIGHT;
-      tWidth =
+      let tWidth =
         (((Number(leaf.rand2) - 5) / 5) * WIDTH * RANDOMNESS) / 100 + WIDTH;
 
       leaf.Y0 = this.canvas.height + 5;
       leaf.X0 = dist;
-      leaf.X1 = Math.floor(tHeight * Math.cos(ANGLE + time_ang));
-      leaf.Y1 = Math.floor(tHeight * Math.sin(ANGLE + time_ang));
-      leaf.X2 = Math.floor(tMheight * Math.cos(ANGLE + time_ang)); //0
-      leaf.Y2 = Math.floor(tMheight * Math.sin(ANGLE + time_ang)); //75
-      leaf.X3 = leaf.X2 + Math.floor(tWidth * Math.cos(paralAng));
-      leaf.Y3 = leaf.Y2 + Math.floor(tWidth * Math.sin(paralAng));
-      leaf.X4 = leaf.X2 + Math.floor(tWidth * Math.cos(paralAng + Math.PI));
-      leaf.Y4 = leaf.Y2 + Math.floor(tWidth * Math.sin(paralAng + Math.PI));
+      leaf.X1 = Math.floor(tHeight * Math.cos(ANGLE + timeAngle));
+      leaf.Y1 = Math.floor(tHeight * Math.sin(ANGLE + timeAngle));
+      leaf.X2 = Math.floor(tMheight * Math.cos(ANGLE + timeAngle));
+      leaf.Y2 = Math.floor(tMheight * Math.sin(ANGLE + timeAngle));
+      leaf.X3 = leaf.X2 + Math.floor(tWidth * Math.cos(parallelAngle));
+      leaf.Y3 = leaf.Y2 + Math.floor(tWidth * Math.sin(parallelAngle));
+      leaf.X4 =
+        leaf.X2 + Math.floor(tWidth * Math.cos(parallelAngle + Math.PI));
+      leaf.Y4 =
+        leaf.Y2 + Math.floor(tWidth * Math.sin(parallelAngle + Math.PI));
 
       leaf.path1 = new Path2D(
         "M " +
