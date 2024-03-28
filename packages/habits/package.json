@@ -12,14 +12,14 @@
   "license": "MIT",
   "devDependencies": {
     "typescript": "^4.8.2",
-    "vite": "3.2.4",
-    "vite-plugin-solid": "2.4.0",
-    "vitest": "0.29.8"
+    "vite": "3.2.10",
+    "vite-plugin-solid": "2.10.2",
+    "vitest": "0.34.6"
   },
   "dependencies": {
-    "@solidjs/router": "0.5.1",
-    "effector": "22.4.0",
-    "effector-solid": "0.22.7",
+    "@solidjs/router": "0.13.1",
+    "effector": "22.8.8",
+    "effector-solid": "0.23.0",
     "solid-js": "^1.5.1"
   }
 }
