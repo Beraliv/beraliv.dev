@@ -15,6 +15,7 @@ import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
 import { useEffect } from "react";
 import type { MarkRequired } from "ts-essentials";
 import { SanitisedString } from "../../../types/SanitisedString";
+import { Comments } from "../../atoms/Comments";
 
 export interface PostPropsType {
   apiKey: string;
@@ -85,6 +86,7 @@ export const Post = ({
             {post.labels.map(
               (label) => label && <Label key={label} title={label} />
             )}
+            <Comments />
           </main>
           <footer className={styles.articleFooter}>
             <Bio />
