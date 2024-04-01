@@ -7,7 +7,12 @@ const Comments = () => {
     addComments();
   }, []);
 
-  return <div className={COMMENTS_ID} id={COMMENTS_ID}></div>;
+  return (
+    <div>
+      <h2>Comments</h2>
+      <div className={COMMENTS_ID} id={COMMENTS_ID}></div>
+    </div>
+  );
 };
 
 export { Comments };
