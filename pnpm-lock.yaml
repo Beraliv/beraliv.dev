@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 patchedDependencies:
   bundlewatch@0.3.3:
     hash: uj6jncoatjcwavg7n4jojs6nni
@@ -99,8 +95,8 @@ importers:
         specifier: 14.0.3
         version: 14.0.3
       ts-essentials:
-        specifier: 9.4.2
-        version: 9.4.2(typescript@4.9.5)
+        specifier: 10.0.0
+        version: 10.0.0(typescript@4.9.5)
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@18.7.23)(typescript@4.9.5)
@@ -110,6 +106,8 @@ importers:
       unified:
         specifier: 10.1.2
         version: 10.1.2
+
+  packages/blog2/dist: {}
 
   packages/habits:
     dependencies:
@@ -6656,21 +6654,21 @@ packages:
   /trough@2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
 
-  /ts-essentials@6.0.7(typescript@4.9.5):
-    resolution: {integrity: sha512-2E4HIIj4tQJlIHuATRHayv0EfMGK3ris/GRk1E3CFnsZzeNV+hUmelbaTZHLtXaZppM5oLhHRtO04gINC4Jusw==}
+  /ts-essentials@10.0.0(typescript@4.9.5):
+    resolution: {integrity: sha512-77FHNJEyysF9+1s4G6eejuA1lxw7uMchT3ZPy3CIbh7GIunffpshtM8pTe5G6N5dpOzNevqRHew859ceLWVBfw==}
     peerDependencies:
-      typescript: '>=3.7.0'
+      typescript: '>=4.5.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     dependencies:
       typescript: 4.9.5
     dev: true
 
-  /ts-essentials@9.4.2(typescript@4.9.5):
-    resolution: {integrity: sha512-mB/cDhOvD7pg3YCLk2rOtejHjjdSi9in/IBYE13S+8WA5FBSraYf4V/ws55uvs0IvQ/l0wBOlXy5yBNZ9Bl8ZQ==}
+  /ts-essentials@6.0.7(typescript@4.9.5):
+    resolution: {integrity: sha512-2E4HIIj4tQJlIHuATRHayv0EfMGK3ris/GRk1E3CFnsZzeNV+hUmelbaTZHLtXaZppM5oLhHRtO04gINC4Jusw==}
     peerDependencies:
-      typescript: '>=4.1.0'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
+      typescript: '>=3.7.0'
     dependencies:
       typescript: 4.9.5
     dev: true
@@ -7392,3 +7390,7 @@ packages:
 
   /zwitch@2.0.2:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
