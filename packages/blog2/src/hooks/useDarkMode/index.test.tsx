@@ -3,7 +3,7 @@
  */
 
 import { JSDOM } from "jsdom";
-import { expect } from "earljs";
+import { expect } from "earl";
 import { act, renderHook } from "@testing-library/react";
 import { DARK_MODE_CLASSNAME, DARK_MODE_STORAGE_KEY, useDarkMode } from ".";
 

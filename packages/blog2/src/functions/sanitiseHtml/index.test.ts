@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { sanitiseHtml } from ".";
 import { SanitisedString } from "../../types/SanitisedString";
 import { UnsanitisedString } from "../../types/UnsanitisedString";

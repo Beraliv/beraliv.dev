@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { classNames } from ".";
 
 describe(classNames.name, () => {

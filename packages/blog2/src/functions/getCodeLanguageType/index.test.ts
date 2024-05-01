@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { getCodeLanguageType } from ".";
 import { CODE_LANGUAGES } from "../../constants/CODE_LANGUAGES";
 

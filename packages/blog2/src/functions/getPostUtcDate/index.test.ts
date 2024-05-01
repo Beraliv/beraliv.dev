@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { Milliseconds } from "../../types/Milliseconds";
 import { getPostUtcDate } from "./";
 
