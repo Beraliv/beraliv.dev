@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { validateLabel } from ".";
 import { KNOWN_LABELS } from "../../constants/KNOWN_LABELS";
 

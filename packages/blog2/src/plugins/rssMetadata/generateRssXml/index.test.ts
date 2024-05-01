@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { ValidatedPostType } from "../../../types/ValidatedPostType";
 import { generateRssXml } from "./";
 import { SanitisedString } from "../../../types/SanitisedString";

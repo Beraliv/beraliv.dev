@@ -1,4 +1,4 @@
-import { expect } from "earljs";
+import { expect } from "earl";
 import { formatDate } from ".";
 
 describe(formatDate.name, () => {
