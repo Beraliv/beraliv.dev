@@ -25,7 +25,7 @@
 
 .searchBar {
   width: 100%;
-  padding: 1rem 2.5rem 1rem 2rem;
+  padding: 1rem 2rem;
 
   background-color: var(--background-color);
   color: var(--color);
@@ -41,12 +41,8 @@
 }
 
 .searchElements {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.5rem;
-  text-align: center;
+  font-style: italic;
+  padding: 1rem 2rem;
 }
 
 @media (max-width: 66.5rem) {
