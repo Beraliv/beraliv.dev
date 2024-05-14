@@ -113,7 +113,10 @@ export const Search = ({
             placeholder="What article are you looking for?"
             onInput={handleInputChange}
           />
-          <div className={styles.searchElements}>{filteredPosts.length}</div>
+        </div>
+        <div className={styles.searchElements}>
+          {filteredPosts.length} article{filteredPosts.length === 1 ? "" : "s"}{" "}
+          found
         </div>
 
         <table className={styles.table}>
