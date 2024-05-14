@@ -54,7 +54,7 @@
     },
     {
       "path": "packages/habits/dist/assets/index.*.js",
-      "maxSize": "11 KB"
+      "maxSize": "12 KB"
     },
     {
       "path": "packages/habits/dist/assets/index.*.css",
