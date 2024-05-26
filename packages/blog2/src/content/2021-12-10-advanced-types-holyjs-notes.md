@@ -16,7 +16,7 @@ featured: true
 
 On November, 5, together with [Max](https://github.com/ColCh) we had a talk about [Advanced types in TypeScript on HolyJS](https://holyjs-moscow.ru/en/talks/advanced-types-in-typescript/).
 
-If you want to watch the talk in Russian, please follow the link:
+If you'd like to watch the entire talk in Russian, a recording is available on YouTube:
 
 <YouTube href="https://www.youtube.com/embed/KFWJGVDYZaw" title="Алексей Березин — Advanced types в TypeScript" />
 

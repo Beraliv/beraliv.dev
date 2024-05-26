@@ -39,6 +39,10 @@ On October 3, I went to BBC Broadcasting House where LVT, [Upping the Auntie - S
 
 It was my first talk in English and I am very very happy with the way it went. I can say that it went much easier than the one in Russian.
 
+If you'd like to watch the entire talk in English, a recording is available on YouTube:
+
+<YouTube href="https://www.youtube.com/embed/yb6cTNCEGDo" title="A story of an unknown low-tier device and its MSE issues - Alexey Berezin | October 2023" />
+
 Let's walk through all materials that I have so far.
 
 ## Table of contents
