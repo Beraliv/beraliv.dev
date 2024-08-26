@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/snippets",
-      "destination": "/"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
