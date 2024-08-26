@@ -79,7 +79,7 @@ export function PersonalCard() {
       </li>
       <li>
         <TwitterIcon />{" "}
-        <OuterLink label="beraliv" url="https://twitter.com/beraliv" />
+        <OuterLink label="@beraliv" url="https://twitter.com/beraliv" />
       </li>
       <li>
         <LinkedinIcon />{" "}
@@ -87,7 +87,7 @@ export function PersonalCard() {
       </li>
       <li>
         <GithubIcon />{" "}
-        <OuterLink label="beraliv" url="https://github.com/Beraliv" />
+        <OuterLink label="@beraliv" url="https://github.com/Beraliv" />
       </li>
       <li>
         <NpmIcon />{" "}
