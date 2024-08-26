@@ -8,7 +8,9 @@ export default function App() {
     <Router
       root={(props) => (
         <main>
-          <a href="/">Index</a>
+          <div class="home">
+            <a href="/">beraliv</a>
+          </div>
           <a href="/blog">Blog</a>
           <a href="/snippets">Snippets</a>
           <a href="/uses">Uses</a>
