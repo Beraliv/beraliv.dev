@@ -1,27 +1,20 @@
-import type { Component } from 'solid-js';
+import { Router } from "@solidjs/router";
+import { FileRoutes } from "@solidjs/start/router";
+import { Suspense } from "solid-js";
+import "./app.css";
 
-import logo from './logo.svg';
-import styles from './App.module.css';
-
-const App: Component = () => {
+export default function App() {
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <Router
+      root={(props) => (
+        <main>
+          <a href="/">Index</a>
+          <a href="/about">About</a>
+          <Suspense>{props.children}</Suspense>
+        </main>
+      )}
+    >
+      <FileRoutes />
+    </Router>
   );
-};
-
-export default App;
+}
