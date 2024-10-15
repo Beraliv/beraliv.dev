@@ -11,7 +11,7 @@ const mainContent = `
       <div class="head">
         <div class="headText">
           <h1>Hey, I'm Alexey.</h1>
-          <h3>UK-based, Video Software Engineer, Web and Connected devices</h3>
+          <h3>UK-based, Video Software Engineer</h3>
         </div>
         <div>
           <img src="${meImageSrc}" class="meImage" alt="My photo" />

@@ -78,15 +78,30 @@ figcaption {
   row-gap: 3rem;
 }
 
+/* give some space to fit in 50rem grid */
+@media screen and (min-width: 60rem) {
+  .layout {
+    grid-template-columns: 50rem;
+  }
+}
+
 .head {
   display: grid;
-  grid-template-areas: "content image";
-  grid-template-columns: 1fr auto;
+  grid-template-areas: "image" "content";
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 50rem) {
+  .head {
+    grid-template-areas: "content image";
+    grid-template-columns: 1fr auto;
+  }
 }
 
 .headText {
   display: grid;
   grid-area: content;
+  gap: 0.25rem;
 }
 
 .meImage {
@@ -98,6 +113,11 @@ figcaption {
 .main {
   display: grid;
   row-gap: 1rem;
+}
+
+main > header {
+  display: grid;
+  gap: 1rem;
 }
 
 .daznCrewImage {
