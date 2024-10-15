@@ -11,7 +11,7 @@ export const header = `
     <nav>
         <ul class="nav">
             <li>${link({
-              href: "/blog",
+              href: "https://blog.beraliv.dev/",
               text: "Blog",
             })}</li>
         </ul>
