@@ -14,6 +14,10 @@ p {
   margin: 0;
 }
 
+figure {
+  margin: 0;
+}
+
 figcaption {
   font-size: 0.9rem;
 }
@@ -123,7 +127,6 @@ main > header {
 .daznCrewImage {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px solid black;
 }
 
 /* */
