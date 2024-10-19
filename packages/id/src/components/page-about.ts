@@ -53,7 +53,7 @@ const mainContent = `
 
       <h2>Personal insights</h2>
       <p>
-        I can't picture my life without my four-legged companion, Sheldon, a miniature Schnauzer. He's a daily reminder that taking a step back from even the toughest problems can provide the clarity needed to return with a fresh perspective and find the right solution.
+        I can't picture my life without my four-legged companion, Sheldon, a miniature Schnauzer - undoubtedly my best 'pet project' yet. He's a daily reminder that taking a step back from even the toughest problems can provide the clarity needed to return with a fresh perspective and find the right solution.
       </p>
       <p>
         To stay active, I play doubles tennis weekly, learn German with my Bavarian teacher, and practice new piano pieces to entertain my wife. I also enjoy gaming, especially strategy games like StarCraft and Hearthstone, as well as online adventures like World of WarCraft, where I team up with friends for fun dungeon explorations.
