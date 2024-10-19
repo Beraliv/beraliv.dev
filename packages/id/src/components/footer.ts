@@ -10,23 +10,19 @@ export const footer = `
 		<ul class="social">
 			<li>${link({
         href: "https://www.linkedin.com/in/beraliv/",
-        text: linkedinSvg,
-        external: true,
+        logo: linkedinSvg,
       })}</li>
 			<li>${link({
         href: "https://github.com/Beraliv/",
-        text: githubSvg,
-        external: true,
+        logo: githubSvg,
       })}</li>
 			<li>${link({
         href: "https://x.com/beraliv/",
-        text: xSvg,
-        external: true,
+        logo: xSvg,
       })}</li>
 			<li>${link({
         href: "https://www.npmjs.com/~beraliv/",
-        text: npmSvg,
-        external: true,
+        logo: npmSvg,
       })}</li>
 		</ul>
 	</footer>
