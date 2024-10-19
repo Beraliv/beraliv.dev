@@ -82,8 +82,8 @@ figcaption {
   row-gap: 3rem;
 }
 
-/* give some space to fit in 50rem grid */
-@media screen and (min-width: 60rem) {
+/* 54rem is 50rem width + 2rem left padding + 2rem right padding */
+@media screen and (min-width: 54rem) {
   .layout {
     grid-template-columns: 50rem;
   }
