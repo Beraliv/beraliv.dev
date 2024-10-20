@@ -151,7 +151,7 @@ const mainContent = `
         })} as Senior Frontend Developer.
       </p>
       <p>
-        At Yandex, I discovered what it truly means to be an engineer: I took the responsibility for the entire process, from system design to deployment and monitoring, focussed on the bigger picture rather than just individual product features and prioritised long-term quality and maintainability over short-term outcomes. During this time, I also learned the fundamentals of building reliable video and advertising players on Web. I became familiar with industry libraries (such as shaka-player, hls.js and dash.js), gaining a solid understanding of video standards (like DASH and HLS) as well as advertising specifications (such as VAST and VPAID).
+        At Yandex, I discovered what it truly means to be an engineer: I took the responsibility for the entire process, from system design to deployment and monitoring, focussed on the bigger picture rather than just individual product features and prioritised long-term quality and maintainability over short-term outcomes. During this time, I also learned the fundamentals of building reliable video and advertising players on Web. I became familiar with industry libraries (such as shaka-player, hls.js and dash.js), gaining a solid understanding of video standards (like DASH and HLS) as well as advertising specifications (such as VMAP, VAST and VPAID).
       </p>
       <p>
         I was very lucky to work on multiple projects, including enhancing the video player with highlights, optimising network performance in video and advertising players, reducing ad fatigue for users and redesigning the advertising player UI. 
