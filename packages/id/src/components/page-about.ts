@@ -1,5 +1,6 @@
 import meImageSrc from "../../public/me.png";
 import daznCrewImageSrc from "../../public/dazn-crew.jpeg";
+import joynCrewImageSrc from "../../public/joyn-crew.jpg";
 import { header } from "./header";
 import { footer } from "./footer";
 import { link } from "./link";
@@ -80,7 +81,11 @@ const mainContent = `
 
       <h2>DAZN</h2>
       <p>
-        Currently, I work as a Senior Software Engineer at DAZN.
+        Currently, I work at ${link({
+          href: "https://help.dazn.com/hc/en-gb/articles/16173719210909-About-DAZN",
+          text: "DAZN",
+          external: true,
+        })} as a Senior Software Engineer.
       </p>
       <p>
         I began my journey on the Player Core team, working on an in-house functional framework, called FABRiC. This tool enables the creation of automated tests for video playback across multiple devices, whether locally or remotely. Through the experience, I deepened my understanding of building reliable cloud-based products.
@@ -95,19 +100,46 @@ const mainContent = `
         )}, held at the BBC office.
       </p>
       <figure>
-        <img src="${daznCrewImageSrc}" class="daznCrewImage" alt="My DAZN crew image" />
+        <img src="${daznCrewImageSrc}" class="image" alt="My DAZN crew image" />
         <figcaption>
           Mercury's hard work and achievements have been recognised by our CTO Sandeep Tiku with the presentation of the "Chief Technology Officer's Tech Innovation Award" to the team.
         </figcaption>
       </figure>
       <p>
-        In 2024, I led several key projects. The first was an R&D initiative focused on reducing latency in live playback, which turned out to be one of the most rewarding projects I've led. Our team faced numerous challenges, including collaborating closely with the Google Chrome Dev Team to address ${link(
+        In 2024, I led several key projects. One of the most rewarding was the R&D initiative focused on reducing latency in live playback. Our team faced numerous challenges, including close collaboration with the Google Chrome Dev Team to resolve ${link(
           {
             href: "https://issues.chromium.org/issues/40190553",
             text: "a video/audio de-sync issue",
             external: true,
           }
-        )}. For the second initiative, I took charge of designing, planning and implementing an optimised solution for closed captions. This effort significantly reduced the bundle size and enhanced the overall UX with closed captions across various devices.
+        )}. Another major effort involved optimising closed captions, where I took the lead in designing, planning and implementing a solution that significantly reduced the bundle size and improved the overall UX across various devices.
+      </p>
+
+      <h2>Joyn</h2>
+      <p>
+        Previously, I worked at ${link({
+          href: "https://www.joyn.de/ueber-joyn",
+          text: "Joyn",
+          external: true,
+        })} as Senior Software Engineer. I played a key role in bridging the gap between the Player and Connected Devices teams.
+      </p>
+      <figure>
+        <img src="${joynCrewImageSrc}" class="image" alt="My Joyn crew image" />
+        <figcaption>
+          Workshop with a hike around Eibsee with my ex-colleagues from Joyn
+        </figcaption>
+      </figure>
+      <p>
+        I worked on many exciting projects, such as enhancing UX in the player on Samsung TVs, improving the trailer player across Connected Devices and onboarding PS5. These initiatives taught me a great deal about quirks of various devices.
+      </p>
+      <p>
+        I'm proud of driving a knowledge sharing sessions both in and beyond the team. At work, I organised daily sessions that significantly improved TypeScript expertise in Connected Devices team. These sessions also led to enhancements in the codebase, making the code more stable, predictable and readable. Outside of work, I shared my TypeScript findings on my blog and gave a talk on ${link(
+          {
+            href: "https://blog.beraliv.dev/2021-12-10-advanced-types-holyjs-notes",
+            text: "Advanced types in TypeScript at HolyJS",
+            external: true,
+          }
+        )}
       </p>
     </div>
 
