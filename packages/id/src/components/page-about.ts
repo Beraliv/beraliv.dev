@@ -26,13 +26,15 @@ const mainContent = `
     <br />
     
     <div class="main">
-      <h2>History</h2>
+      <h2>My first steps into programming</h2>
       <p>
         Back in school, programming was mostly a mystery to me. Our informatics classes didn't touch on programming languages, but my two classmates, Mikhail and Vsevolod, and I decided to take matters into our own hands and learn Pascal. We started from scratch, and while I wasn't writing complex programs yet, the experience was both challenging and rewarding. This early self-driven learning laid the foundation for my journey, since I could relocate to St. Petersburg to study Computer Science.
       </p>
       <p>
         During my time in university, I worked on a wide range of impressive projects that fueled my enthusiasm for problem-solving. I developed various applications, including a tower defense game using Unity and Blender, a messenger app in C#, an optimisation system for public transport written in Java, and even designed a custom programming language with Deterministic Finite Automaton (DFA). These projects helped me discover my passion for tackling complex challenges, though I still hadn't figured it out on a specific direction.
       </p>
+
+      <h2>My career direction</h2>
       <p>
         Soon after completing my bachelor's degree, I stepped into the world of front-end development at EPAM Systems. From day one, I was impressed with JavaScript's flexibility and the nearly-instant feedback that front-end development offered. That was nothing quite like it, and I quickly grew to love the dynamic nature of building web applications.
       </p>
@@ -40,16 +42,7 @@ const mainContent = `
         After completing my master's degree, I relocated to Moscow to begin my journey at Yandex, where I was introduced to the fascinating world of video streaming and advertising. While my work with the video and advertising teams was focused solely on web browsers, which offered just a glimpse of the broader landscape, I quickly recognised the complexity, the range of challenges the industry faces, and the immense potential for growth. It was clear to me that this field had the depth and opportunity to become a long-term career path.
       </p>
       <p>
-        Around that time, TypeScript began gaining popularity as a common dependency in many web projects. Faced with various challenges in TypeScript, I eventually stumbled upon the ${link(
-          {
-            href: "https://github.com/type-challenges/type-challenges",
-            text: "type-challenges",
-            external: true,
-          }
-        )} project. I spent a considerable amount of time figuring out how these challenges worked, and after 2 years, I started sharing TypeScript insights with my colleagues. I highly recommend exploring type challenges yourself, but if you don't have as much time to dedicate as I did, you can check out my blog posts for insights and solutions.
-      </p>
-      <p>
-        After leaving Yandex, I relocated twice - first to Germany in 2020 and then to the UK in 2022. These moves exposed me to different cultures, making me adaptable and effective in global teams with diverse backgrounds. I've become comfortable working in various setups, whether remote, hybrid or in the office. The experience of remote and hybrid environments also sparked fresh ideas, leading to many innovative solutions along the way.
+        After leaving Yandex, I relocated twice - first to Germany in 2020 and then to the UK in 2022. These moves exposed me to different cultures, making me adaptable and effective in global teams with diverse backgrounds. I've become comfortable working in various setups, whether remote, hybrid or in the office. The experience of hybrid environments also sparked fresh ideas, leading to many innovative solutions along the way.
       </p>
 
       <h2>Personal insights</h2>
@@ -170,6 +163,15 @@ const mainContent = `
     external: true,
   }
 )}, organised by Yandex in 2019. This experience significantly broadened my expertise in participating in such events.
+      </p>
+      <p>
+        Around that time, TypeScript began gaining popularity as a common dependency in many web projects. Faced with various challenges in TypeScript, I eventually stumbled upon the ${link(
+          {
+            href: "https://github.com/type-challenges/type-challenges",
+            text: "type-challenges",
+            external: true,
+          }
+        )} project. I spent a considerable amount of time figuring out how these challenges worked, and after several years, I started sharing TypeScript insights with my colleagues. I highly recommend exploring type challenges yourself!
       </p>
     </div>
 
