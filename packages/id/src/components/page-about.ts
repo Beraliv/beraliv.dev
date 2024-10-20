@@ -141,6 +141,36 @@ const mainContent = `
           }
         )}
       </p>
+
+      <h2>Yandex</h2>
+      <p>
+        Between 2018 and 2020, I worked at ${link({
+          href: "https://yandex.com/dev/",
+          text: "Yandex Technologies",
+          external: true,
+        })} as Senior Frontend Developer.
+      </p>
+      <p>
+        At Yandex, I discovered what it truly means to be an engineer: I took the responsibility for the entire process, from system design to deployment and monitoring, focussed on the bigger picture rather than just individual product features and prioritised long-term quality and maintainability over short-term outcomes. During this time, I also learned the fundamentals of building reliable video and advertising players on Web. I became familiar with industry libraries (such as shaka-player, hls.js and dash.js), gaining a solid understanding of video standards (like DASH and HLS) as well as advertising specifications (such as VAST and VPAID).
+      </p>
+      <p>
+        I was very lucky to work on multiple projects, including enhancing the video player with highlights, optimising network performance in video and advertising players, reducing ad fatigue for users and redesigning the advertising player UI. 
+      </p>
+      <p>
+        As a side initiative, I volunteered as a tutor to over 110 students at ${link(
+          {
+            href: "https://yandex.ru/yaintern/schools/frontend",
+            text: "Yandex Interface Development School",
+            external: true,
+          }
+        )} from 2018 and 2020. Additionally, my colleague and I designed a problem for ${link(
+  {
+    href: "https://contest.yandex.ru/",
+    text: "Frontend Contest",
+    external: true,
+  }
+)}, organised by Yandex in 2019. This experience significantly broadened my expertise in participating in such events.
+      </p>
     </div>
 
     <br />
