@@ -1,8 +1,10 @@
 import externalSvg from "../../public/external.svg?raw";
 
-type LinkProps =
-  | { href: string; text: string; external?: boolean }
-  | { href: string; logo: string };
+export type TextLinkProps = { href: string; text: string; external?: boolean };
+
+type LogoLinkProps = { href: string; logo: string };
+
+type LinkProps = TextLinkProps | LogoLinkProps;
 
 /**
  * Link component

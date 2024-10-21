@@ -128,6 +128,26 @@ main > header {
   width: 100%;
 }
 
+/* blog */
+
+article {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+article:not(:last-child) {
+  border-bottom: 1px #2c2c2c solid;
+}
+
+article > time {
+  margin-left: auto;
+}
+
+.posts {
+  display: grid;
+}
+
 /* */
 
 :root {
