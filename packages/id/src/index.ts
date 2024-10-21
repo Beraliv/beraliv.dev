@@ -1,10 +1,12 @@
 import { aboutPage } from "./components/page-about";
+import { blogPage } from "./components/page-blog";
 import { page404 } from "./components/page-404";
 import "./style.css";
 
 const routes = {
   "/": aboutPage,
   "/404": page404,
+  "/blog": blogPage,
 };
 
 type Route = keyof typeof routes;
