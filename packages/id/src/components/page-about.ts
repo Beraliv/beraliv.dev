@@ -1,10 +1,8 @@
-import meImageSrc from "./images/me.png";
-import daznCrewImageSrc from "./images/dazn-crew.jpeg";
-import joynCrewImageSrc from "./images/joyn-crew.jpg";
 import { header } from "./header";
 import { footer } from "./footer";
 import { link } from "./link";
 import { yearsSince } from "../utils/yearsSince";
+import { image } from "./image";
 
 const mainContent = `
 	<main>
@@ -15,7 +13,7 @@ const mainContent = `
           <h3>UK-based, Video Software Engineer</h3>
         </div>
         <div>
-          <img src="${meImageSrc}" class="meImage" alt="My photo" />
+          ${image({ name: "me.png", alt: "My photo", className: "meImage" })}
         </div>
       </div>
       <p>
@@ -93,7 +91,11 @@ const mainContent = `
         )}, held at the BBC office.
       </p>
       <figure>
-        <img src="${daznCrewImageSrc}" class="image" alt="My DAZN crew image" />
+        ${image({
+          name: "dazn-crew.jpg",
+          alt: "My DAZN crew image",
+          className: "image",
+        })}
         <figcaption>
           Mercury's hard work and achievements have been recognised by our CTO Sandeep Tiku with the presentation of the "Chief Technology Officer's Tech Innovation Award" to the team.
         </figcaption>
@@ -117,7 +119,11 @@ const mainContent = `
         })} as Senior Software Engineer. I played a key role in bridging the gap between the Player and Connected Devices teams.
       </p>
       <figure>
-        <img src="${joynCrewImageSrc}" class="image" alt="My Joyn crew image" />
+        ${image({
+          name: "joyn-crew.jpg",
+          alt: "My Joyn crew image",
+          className: "image",
+        })}
         <figcaption>
           Workshop with a hike around Eibsee with my ex-colleagues from Joyn
         </figcaption>

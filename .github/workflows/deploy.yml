@@ -35,5 +35,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
-      - name: Deploy to S3
+      - name: Deploy to Cloudinary
+        run: pnpm --filter id run upload-images-to-cloudinary --key ${{ secrets.CLOUDINARY_API_KEY }} --secret ${{ secrets.CLOUDINARY_API_SECRET }}
+
+      - name: Deploy to AWS S3
         run: aws s3 sync ./packages/id/dist s3://beraliv.com --delete
