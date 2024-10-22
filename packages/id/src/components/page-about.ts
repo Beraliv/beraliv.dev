@@ -1,6 +1,6 @@
-import meImageSrc from "../../public/me.png";
-import daznCrewImageSrc from "../../public/dazn-crew.jpeg";
-import joynCrewImageSrc from "../../public/joyn-crew.jpg";
+import meImageSrc from "./images/me.png";
+import daznCrewImageSrc from "./images/dazn-crew.jpeg";
+import joynCrewImageSrc from "./images/joyn-crew.jpg";
 import { header } from "./header";
 import { footer } from "./footer";
 import { link } from "./link";
