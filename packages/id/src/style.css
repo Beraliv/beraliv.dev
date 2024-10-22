@@ -216,14 +216,21 @@ h1 {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   .linkExternal > svg > path,
   .logo > svg > path {
     fill: #111;
   }
+
   .logo:hover > svg > path {
     fill: #8a8a8a;
+  }
+
+  article:not(:last-child) {
+    border-bottom: 1px #eee solid;
   }
 }
