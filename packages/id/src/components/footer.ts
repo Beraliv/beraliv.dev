@@ -1,7 +1,7 @@
-import linkedinSvg from "../../public/linkedin.svg?raw";
-import githubSvg from "../../public/github.svg?raw";
-import xSvg from "../../public/x.svg?raw";
-import npmSvg from "../../public/npm.svg?raw";
+import linkedinSvg from "./svgs/linkedin.svg?raw";
+import githubSvg from "./svgs/github.svg?raw";
+import xSvg from "./svgs/x.svg?raw";
+import npmSvg from "./svgs/npm.svg?raw";
 import { link } from "./link";
 
 export const footer = `

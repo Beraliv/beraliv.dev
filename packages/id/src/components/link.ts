@@ -1,4 +1,4 @@
-import externalSvg from "../../public/external.svg?raw";
+import externalSvg from "./svgs/external.svg?raw";
 
 export type TextLinkProps = { href: string; text: string; external?: boolean };
 
