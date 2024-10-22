@@ -112,6 +112,7 @@ figcaption {
   height: 6rem;
   border-radius: 50%;
   border: 1px solid black;
+  aspect-ratio: 1 / 1;
 }
 
 .main {
@@ -126,6 +127,7 @@ main > header {
 
 .image {
   width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 /* blog */
