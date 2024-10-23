@@ -1,24 +1,27 @@
-import linkedinSvg from "./svgs/linkedin.svg?raw";
-import githubSvg from "./svgs/github.svg?raw";
-import xSvg from "./svgs/x.svg?raw";
-import npmSvg from "./svgs/npm.svg?raw";
 import { Link } from "./Link";
+import { GithubIcon } from "./icons/GithubIcon";
+import { LinkedInIcon } from "./icons/LinkedInIcon";
+import { XIcon } from "./icons/XIcon";
+import { NpmIcon } from "./icons/NpmIcon";
 
 export const Footer = () => (
   <footer className="footer">
     <p>© {new Date().getFullYear()} Alexey Berezin</p>
     <ul className="social">
       <li>
-        <Link href="https://www.linkedin.com/in/beraliv/" logo={linkedinSvg} />
+        <Link
+          href="https://www.linkedin.com/in/beraliv/"
+          logo={<LinkedInIcon />}
+        />
       </li>
       <li>
-        <Link href="https://github.com/Beraliv/" logo={githubSvg} />
+        <Link href="https://github.com/Beraliv/" logo={<GithubIcon />} />
       </li>
       <li>
-        <Link href="https://x.com/beraliv/" logo={xSvg} />
+        <Link href="https://x.com/beraliv/" logo={<XIcon />} />
       </li>
       <li>
-        <Link href="https://www.npmjs.com/~beraliv/" logo={npmSvg} />
+        <Link href="https://www.npmjs.com/~beraliv/" logo={<NpmIcon />} />
       </li>
     </ul>
   </footer>

@@ -1,8 +1,12 @@
-import externalSvg from "./svgs/external.svg?raw";
+import { ExternalIcon } from "./icons/ExternalIcon";
 
-export type TextLinkProps = { href: string; text: string; external?: boolean };
+export type TextLinkProps = {
+  href: string;
+  text: string;
+  external?: boolean;
+};
 
-type LogoLinkProps = { href: string; logo: string };
+type LogoLinkProps = { href: string; logo: JSX.Element };
 
 type LinkProps = TextLinkProps | LogoLinkProps;
 
@@ -24,8 +28,8 @@ export const Link = (props: LinkProps) => {
         {text}
         {external ? (
           <span className="linkExternal">
-            {"&#xFEFF;"}
-            {externalSvg}
+            &#xFEFF;
+            <ExternalIcon />
           </span>
         ) : (
           ""
