@@ -1,9 +1,7 @@
 export function h(
-  type:
-    | keyof JSX.IntrinsicElements
-    | ((props: Record<string, unknown>) => HTMLElement | DocumentFragment),
-  props: Record<string, unknown>,
-  ...children: JSX.Element[]
+  type: JSX.Element["type"],
+  props: JSX.Element["props"],
+  ...children: JSX.Element["children"]
 ): JSX.Element {
   return { type, props: props || {}, children };
 }
