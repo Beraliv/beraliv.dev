@@ -19,7 +19,7 @@ declare namespace JSX {
     type:
       | keyof IntrinsicElements
       | ((props: Record<string, unknown>) => Element);
-    props: Record<string, unknown>;
+    props: Record<string, string>;
     children: JSX.Element[];
   }
 }
