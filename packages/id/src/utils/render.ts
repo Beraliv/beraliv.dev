@@ -2,6 +2,10 @@ const renderElement = (
   node: JSX.Element,
   container: HTMLElement | DocumentFragment | SVGSVGElement | SVGPathElement
 ) => {
+  if (node === null) {
+    return;
+  }
+
   const { type, props, children } = node;
 
   if (typeof type === "function") {
