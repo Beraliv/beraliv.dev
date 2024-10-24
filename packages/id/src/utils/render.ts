@@ -6,6 +6,14 @@ const renderElement = (
     return;
   }
 
+  if (typeof node === "string" || typeof node === "number") {
+    const dom = document.createTextNode(node);
+
+    container.appendChild(dom);
+
+    return;
+  }
+
   const { type, props, children } = node;
 
   if (typeof type === "function") {
@@ -39,11 +47,14 @@ const renderElement = (
 };
 
 export const render = (
-  node: JSX.Element,
+  node: string | JSX.Element,
   container: HTMLElement | DocumentFragment | SVGSVGElement | SVGPathElement
 ) => {
   if (typeof node === "string" || typeof node === "number") {
-    container.appendChild(document.createTextNode(node));
+    const dom = document.createTextNode(node);
+
+    container.appendChild(dom);
+
     return;
   }
 

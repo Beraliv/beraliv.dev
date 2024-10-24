@@ -1,11 +1,29 @@
 import "./style.css";
 import { render } from "./utils/render";
 
+const getPostId = (): string | null => {
+  const match = location.pathname.match(/\/blog\/(.*)/);
+
+  if (match) {
+    return match[1];
+  }
+
+  return null;
+};
+
 const routes = {
   "/": async () => (await import("./components/pages/About")).About,
   "/404": async () => (await import("./components/pages/NotFound")).NotFound,
   "/blog": async () => (await import("./components/pages/Blog")).Blog,
-  "/blog/*": async () => (await import("./components/pages/Post")).Post,
+  "/blog/*": async () => {
+    const postId = getPostId();
+    const [{ Post }, { html }] = await Promise.all([
+      import("./components/pages/Post"),
+      import(`./content/${postId}.md`) as Promise<{ html: string }>,
+    ]);
+
+    return () => <Post html={html} />;
+  },
 };
 
 type Route = keyof typeof routes;
