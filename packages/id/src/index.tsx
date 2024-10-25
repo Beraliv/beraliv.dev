@@ -48,7 +48,7 @@ const router = async () => {
   const app = document.querySelector<HTMLDivElement>("#app")!;
   const pathname = window.location.pathname;
   const route = matchRoute(pathname);
-  const loadPage: () => Promise<() => JSX.Element> = routes[route];
+  const loadPage = routes[route];
   const Page = await loadPage();
   render(<Page />, app);
 };
