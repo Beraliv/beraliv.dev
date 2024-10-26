@@ -41,7 +41,7 @@ It was my first talk in English and I am very very happy with the way it went. I
 
 If you'd like to watch the entire talk in English, a recording is available on YouTube:
 
-<YouTube href="https://www.youtube.com/embed/yb6cTNCEGDo" title="A story of an unknown low-tier device and its MSE issues - Alexey Berezin | October 2023" />
+<YouTube href="https://www.youtube.com/embed/yb6cTNCEGDo" title="A story of an unknown low-tier device and its MSE issues - Alexey Berezin | October 2023"></YouTube>
 
 Let's walk through all materials that I have so far.
 
@@ -289,7 +289,7 @@ I'd like to stress that conducting functional testing in an environment closest 
 
 ## Links 🔗
 
-1. Google slides - https://docs.google.com/presentation/d/1M99IYUyWb0I3OJDng3CppqksxkXCHyIeMVkE81lSNSI/edit?usp=sharing
-1. Diagrams - https://www.tldraw.com/r/k08aBuV4b_maWj1Xv3DX7?viewport=-575%2C92%2C1513%2C910&page=page%3AA5up7ZSQODMZj5XCdf7h8
-1. Media Source Extensions Spec - https://www.w3.org/TR/media-source-2/
-1. shaka-player - MSE/EME OSS player - https://github.com/shaka-project/shaka-player
+1. Slides - [Google Docs](https://docs.google.com/presentation/d/1M99IYUyWb0I3OJDng3CppqksxkXCHyIeMVkE81lSNSI/edit?usp=sharing)
+1. Diagrams - [tldraw](https://www.tldraw.com/r/k08aBuV4b_maWj1Xv3DX7?viewport=-575%2C92%2C1513%2C910&page=page%3AA5up7ZSQODMZj5XCdf7h8)
+1. Media Source Extensions - [W3C Working Draft](https://www.w3.org/TR/media-source-2/)
+1. MSE/EME OSS player - [shaka-player](https://github.com/shaka-project/shaka-player)
