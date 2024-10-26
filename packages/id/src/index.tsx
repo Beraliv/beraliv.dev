@@ -1,4 +1,5 @@
 import "./style.css";
+import { ParsedMarkdown } from "./types/ParsedMarkdown";
 import { render } from "./utils/render";
 
 const getPostId = (): string | null => {
@@ -17,12 +18,12 @@ const routes = {
   "/blog": async () => (await import("./components/pages/Blog")).Blog,
   "/blog/*": async () => {
     const postId = getPostId();
-    const [{ Post }, { html }] = await Promise.all([
+    const [{ Post }, markdown] = await Promise.all([
       import("./components/pages/Post"),
-      import(`./content/${postId}.md`) as Promise<{ html: string }>,
+      import(`./content/${postId}.md`) as Promise<ParsedMarkdown>,
     ]);
 
-    return () => <Post html={html} />;
+    return () => <Post markdown={markdown} />;
   },
 };
 

@@ -151,6 +151,13 @@ article > time {
   display: grid;
 }
 
+/* post */
+
+.post {
+  display: grid;
+  row-gap: 1rem;
+}
+
 /* */
 
 :root {

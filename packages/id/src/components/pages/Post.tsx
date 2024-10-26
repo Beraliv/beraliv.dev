@@ -1,15 +1,21 @@
+import { ParsedMarkdown } from "../../types/ParsedMarkdown";
 import { htmlToJSX } from "../../utils/htmlToJsx";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 
 interface PostProps {
-  html: string;
+  markdown: ParsedMarkdown;
 }
 
-export const Post = ({ html }: PostProps) => (
-  <div className="layout">
-    <Header />
-    <main>{htmlToJSX(html)}</main>
-    <Footer />
-  </div>
-);
+export const Post = ({ markdown }: PostProps) => {
+  const attributes = markdown.attributes;
+
+  return (
+    <div className="layout">
+      <Header />
+      <h2>{attributes.title}</h2>
+      {htmlToJSX(markdown.html)}
+      <Footer />
+    </div>
+  );
+};

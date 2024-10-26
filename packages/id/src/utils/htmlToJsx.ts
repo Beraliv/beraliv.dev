@@ -6,7 +6,7 @@ export const htmlToJSX = (htmlString: string) => {
   const children = Array.from(doc.body.childNodes as NodeListOf<HTMLElement>)
     .map(convertNodeToJSX)
     .filter((child) => child !== null);
-  const main = h("main", {}, ...children);
+  const main = h("main", { className: "post" }, ...children);
   return main;
 };
 
