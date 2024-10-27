@@ -158,6 +158,26 @@ article > time {
   row-gap: 1rem;
 }
 
+table {
+  display: inline-block;
+  width: 100%;
+  overflow-x: scroll;
+  border-collapse: collapse;
+  border-spacing: 0.25rem;
+}
+
+table > thead > tr > th {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: #4a4d53;
+}
+
+th,
+td {
+  padding: 0.25rem;
+}
+
 /* */
 
 :root {
@@ -220,6 +240,12 @@ h1 {
   padding: 2rem;
 }
 
+@media screen and (max-width: 35rem) {
+  #app {
+    padding: 2rem 1rem;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -241,5 +267,9 @@ h1 {
 
   article:not(:last-child) {
     border-bottom: 1px #eee solid;
+  }
+
+  table > thead > tr > th {
+    border-color: #e5e7eb;
   }
 }
