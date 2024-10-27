@@ -14,7 +14,7 @@ const escapeRegex = (s: string) => s.replace(/[.*+?^${}()|[\]\\\`]/g, "\\$&");
  * Adds support to import markdown files, parse its frontmatter (attributes),
  * convert Markdown to HTML and export it as JS module
  */
-export const viteMarkdownPlugin = (): PluginOption => {
+export const markdownPlugin = (): PluginOption => {
   return {
     name: "markdown",
     transform: (code, id) => {
