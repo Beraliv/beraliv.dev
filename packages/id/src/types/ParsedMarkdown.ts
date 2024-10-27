@@ -9,5 +9,5 @@ interface MarkdownAttributes {
 
 export interface ParsedMarkdown {
   attributes: MarkdownAttributes;
-  html: string;
+  body: string;
 }

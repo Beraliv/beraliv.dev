@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import markdownPlugin, { Mode } from "vite-plugin-markdown";
+import { viteMarkdownPlugin } from "./src/utils/viteMarkdownPlugin";
 
 export default defineConfig({
   esbuild: {
@@ -12,8 +12,6 @@ export default defineConfig({
     // jsxRuntime is injected using tsconfig paths
     // to avoid relative paths
     tsconfigPaths(),
-    markdownPlugin({
-      mode: [Mode.HTML],
-    }),
+    viteMarkdownPlugin(),
   ],
 });

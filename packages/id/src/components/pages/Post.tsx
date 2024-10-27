@@ -1,5 +1,5 @@
 import { ParsedMarkdown } from "../../types/ParsedMarkdown";
-import { htmlToJSX } from "../../utils/htmlToJsx";
+import { htmlToJSX } from "../../utils/htmlToJsx.client";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 
@@ -14,7 +14,7 @@ export const Post = ({ markdown }: PostProps) => {
     <div className="layout">
       <Header />
       <h2>{attributes.title}</h2>
-      {htmlToJSX(markdown.html)}
+      {htmlToJSX(markdown.body)}
       <Footer />
     </div>
   );
