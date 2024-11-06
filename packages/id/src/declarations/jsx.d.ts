@@ -10,6 +10,7 @@ declare namespace JSX {
     }>;
     path: Partial<{
       d: string;
+      fill: string;
     }>;
   } & {
     Fragment: {};
