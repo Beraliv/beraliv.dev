@@ -9,7 +9,10 @@
     "upload-images-to-cloudinary": "node ./scripts/uploadImagesToCloudinary.js"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
     "cloudinary": "^2.5.1",
+    "front-matter": "^4.0.2",
+    "markdown-it": "^14.1.0",
     "typescript": "^5.5.3",
     "vite": "^5.4.8",
     "vite-tsconfig-paths": "^5.0.1"

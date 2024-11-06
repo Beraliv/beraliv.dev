@@ -6,6 +6,6 @@ export function h(
   return { type, props: props || {}, children };
 }
 
-export function Fragment(props: JSX.Element): JSX.Element[] {
+export function Fragment(props: JSX.Element): (JSX.Element | string)[] {
   return props.children;
 }
