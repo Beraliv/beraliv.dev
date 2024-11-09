@@ -3,11 +3,12 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "pnpm type && vite build",
     "dev": "vite --port 3000",
     "preview": "vite preview --port 3000",
     "size": "pnpm build && size-limit",
-    "test": "pnpm size",
+    "test:unit": "pnpm size",
+    "type": "tsc",
     "upload-images-to-cloudinary": "node ./scripts/uploadImagesToCloudinary.js"
   },
   "devDependencies": {
