@@ -2,12 +2,18 @@ const renderElement = (
   node: JSX.Element,
   container: HTMLElement | DocumentFragment | SVGSVGElement | SVGPathElement
 ) => {
+  if (node === null) {
+    return;
+  }
+
+  if (typeof node === "string" || typeof node === "number") {
+    return container.appendChild(document.createTextNode(node));
+  }
+
   const { type, props, children } = node;
 
   if (typeof type === "function") {
-    const customElement = type({ ...props, children });
-
-    renderElement(customElement, container);
+    renderElement(type({ ...props, children }), container);
   } else if (type === "svg" || type === "path") {
     const svgNamespace = "http://www.w3.org/2000/svg";
 
@@ -35,20 +41,17 @@ const renderElement = (
 };
 
 export const render = (
-  node: JSX.Element,
+  node: string | JSX.Element,
   container: HTMLElement | DocumentFragment | SVGSVGElement | SVGPathElement
 ) => {
   if (typeof node === "string" || typeof node === "number") {
-    container.appendChild(document.createTextNode(node));
-    return;
+    return container.appendChild(document.createTextNode(node));
   }
 
   const { type, props, children } = node;
 
   if (typeof type === "function") {
-    const customElement = type({ ...props, children });
-
-    renderElement(customElement, container);
+    renderElement(type({ ...props, children }), container);
   } else {
     if (type === "Fragment") {
       const dom = document.createDocumentFragment();

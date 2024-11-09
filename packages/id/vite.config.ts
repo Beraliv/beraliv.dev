@@ -1,5 +1,7 @@
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import markdownPlugin, { Mode } from "vite-plugin-markdown";
+
 import { msToSeconds } from "./src/utils/msToSeconds";
 
 const BUILD_TIME = msToSeconds(Date.now());
@@ -15,5 +17,12 @@ export default defineConfig({
     jsxFragment: "Fragment",
     jsxInject: `import { h, Fragment } from '@jsxRuntime'`,
   },
-  plugins: [tsconfigPaths()],
+  plugins: [
+    // jsxRuntime is injected using tsconfig paths
+    // to avoid relative paths
+    tsconfigPaths(),
+    markdownPlugin({
+      mode: [Mode.HTML],
+    }),
+  ],
 });

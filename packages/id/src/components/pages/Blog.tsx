@@ -49,9 +49,8 @@ const MainContent = () => (
       <h2>2023</h2>
       <div>
         <Article
-          href="https://blog.beraliv.dev/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes"
+          href="/blog/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes"
           text="A story of an unknown low-tier device and its MSE issues / London Video Tech 2023 notes"
-          external
           time="Dec 21"
         />
       </div>
@@ -61,15 +60,13 @@ const MainContent = () => (
       <h2>2022</h2>
       <div>
         <Article
-          href="https://blog.beraliv.dev/2022-09-10-with-or-without-enums"
+          href="/blog/2022-09-10-with-or-without-enums"
           text="With or without enums in TypeScript"
-          external
           time="Sep 10"
         />
         <Article
-          href="https://blog.beraliv.dev/2022-07-14-camel-case"
+          href="/blog/2022-07-14-camel-case"
           text="Transform string literal type into camelCase in TypeScript"
-          external
           time="Jul 14"
         />
       </div>
@@ -79,21 +76,18 @@ const MainContent = () => (
       <h2>2021</h2>
       <div>
         <Article
-          href="https://blog.beraliv.dev/2021-12-10-advanced-types-holyjs-notes"
+          href="/blog/2021-12-10-advanced-types-holyjs-notes"
           text="Advanced types / Holy.js 2021 notes"
-          external
           time="Dec 10"
         />
         <Article
-          href="https://blog.beraliv.dev/2021-05-07-opaque-type-in-typescript"
+          href="/blog/2021-05-07-opaque-type-in-typescript"
           text="Opaque Types in TypeScript"
-          external
           time="May 07"
         />
         <Article
-          href="https://blog.beraliv.dev/2021-03-26-typed-get"
+          href="/blog/2021-03-26-typed-get"
           text="Type-safe get function that extracts the value by paths in TypeScript"
-          external
           time="Mar 26"
         />
       </div>
