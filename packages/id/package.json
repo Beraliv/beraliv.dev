@@ -3,15 +3,46 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "build": "pnpm type && vite build",
     "dev": "vite --port 3000",
-    "build": "tsc && vite build",
     "preview": "vite preview --port 3000",
+    "size": "pnpm build && size-limit",
+    "test:unit": "pnpm size",
+    "type": "tsc",
     "upload-images-to-cloudinary": "node ./scripts/uploadImagesToCloudinary.js"
   },
   "devDependencies": {
+    "@size-limit/file": "^11.1.6",
     "cloudinary": "^2.5.1",
+    "size-limit": "^11.1.6",
     "typescript": "^5.5.3",
     "vite": "^5.4.8",
     "vite-tsconfig-paths": "^5.0.1"
-  }
+  },
+  "size-limit": [
+    {
+      "limit": "4 kB",
+      "path": "dist/assets/About-*.js"
+    },
+    {
+      "limit": "1 kB",
+      "path": "dist/assets/Blog-*.js"
+    },
+    {
+      "limit": "2 kB",
+      "path": "dist/assets/Header-*.js"
+    },
+    {
+      "limit": "1.5 kB",
+      "path": "dist/assets/index-*.js"
+    },
+    {
+      "limit": "1 kB",
+      "path": "dist/assets/index-*.css"
+    },
+    {
+      "limit": "1 kB",
+      "path": "dist/assets/NotFound-*.js"
+    }
+  ]
 }
