@@ -4,7 +4,7 @@ import { TsConversion } from "./TsConversion";
 function App() {
   return (
     <>
-      <div style={{ padding: "16px" }}>
+      <div style={{ maxWidth: "42rem" }}>
         <h1>TypeScript Conversion Demo</h1>
         <TsConversion />
       </div>
