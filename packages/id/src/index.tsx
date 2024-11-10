@@ -5,6 +5,8 @@ const routes = {
   "/": async () => (await import("./components/pages/About")).About,
   "/404": async () => (await import("./components/pages/NotFound")).NotFound,
   "/blog": async () => (await import("./components/pages/Blog")).Blog,
+  "/projects": async () =>
+    (await import("./components/pages/Projects")).Projects,
 };
 
 type Route = keyof typeof routes;
