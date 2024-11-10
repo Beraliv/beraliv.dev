@@ -13,17 +13,25 @@ const inputs = [
 
 type InputType = ValueOf<typeof inputs>;
 
-const map: Record<InputType, Partial<Record<InputType, string>>> = {
+type MapConfig = {
+  code: string;
+  playgroundUrl?: string;
+};
+
+const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
     array: undefined,
     tuple: undefined,
     object: undefined,
-    union: `
-        type UnionFrom<Array> = Array[number];
-        type Array = (number | string)[];
-        type Union = UnionFrom<Array>;
+    union: {
+      code: `
+        type UnionFrom<Array extends unknown[]> = Array[number];
+        type ArrayType = (number | string)[];
+        type Union = UnionFrom<ArrayType>;
         //   ^? number | string
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/mqlBrN",
+    },
     stringLiteral: undefined,
     numericLiteral: undefined,
   },
@@ -31,31 +39,40 @@ const map: Record<InputType, Partial<Record<InputType, string>>> = {
     array: undefined,
     tuple: undefined,
     object: undefined,
-    union: `
-        type UnionFrom<Tuple> = Tuple[number];
+    union: {
+      code: `
+        type UnionFrom<Tuple extends readonly number[]> = Tuple[number];
         type Tuple = [1, 2, 3];
         type Union = UnionFrom<Tuple>;
         //   ^? 1 | 2 | 3
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/WoZ9gm",
+    },
     stringLiteral: undefined,
-    numericLiteral: `
+    numericLiteral: {
+      code: `
         type LengthOf<Tuple extends {length: number}> = Tuple['length'];
         type Tuple = [1, 2, 3];
         type Length = LengthOf<Tuple>;
         //   ^? 3
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/w280rm",
+    },
   },
   object: {
     array: undefined,
     tuple: undefined,
     object: undefined,
     // TODO: add values
-    union: `
+    union: {
+      code: `
         type KeysFrom<Object> = keyof Object;
         type Person = {name: string; age: number};
-        type Characteristics = KeysFrom<Person>;
-        //   ^? 'name' | 'age'
-    `,
+        type Characteristics = KeysFrom<Person> & string;
+        //   ^? keyof Person (i.e. 'name' | 'age')
+      `,
+      playgroundUrl: "https://tsplay.dev/NBrXxN",
+    },
     stringLiteral: undefined,
     // TODO: number of keys
     numericLiteral: undefined,
@@ -73,33 +90,42 @@ const map: Record<InputType, Partial<Record<InputType, string>>> = {
     array: undefined,
     tuple: undefined,
     object: undefined,
-    union: `
-        type CharUnionFrom<StringLiteral> = StringLiteral extends \`$\{infer Char}$\{infer Tail}\`
-            ? Char | CharUnionFrom<Tail>
-            : never;
+    union: {
+      code: `
+        type CharUnionFrom<StringLiteral, Union = never> = StringLiteral extends \`$\{infer Char}$\{infer Tail}\`
+            ? CharUnionFrom<Tail, Union | Char>
+            : Union;
         type StringLiteral = 'world';
         type CharUnion = CharUnionFrom<StringLiteral>;
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/mA63ZW",
+    },
     stringLiteral: undefined,
-    numericLiteral: `
-        type LengthFrom<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`$\{infer Char}$\{infer Tail}\`
+    numericLiteral: {
+      code: `
+        type LengthFrom<StringLiteral, Tuple extends any[] = []> = StringLiteral extends \`$\{infer _}$\{infer Tail}\`
             ? LengthFrom<Tail, [...Tuple, any]>
             : Tuple['length'];
         type StringLiteral = 'world';
         type Length = LengthFrom<StringLiteral>;
         //   ^? 5
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/mpM27W",
+    },
   },
   numericLiteral: {
     array: undefined,
-    tuple: `
+    tuple: {
+      code: `
         type Repeat<Value, NumericLiteral, Tuple extends Value[] = []> = Tuple['length'] extends NumericLiteral
             ? Tuple
             : Repeat<Value, NumericLiteral, [...Tuple, Value]>;
         type NumericPair = Repeat<number, 2>;
         //   ^? [number, number]
-    `,
+      `,
+      playgroundUrl: "https://tsplay.dev/m3D8kW",
+    },
     object: undefined,
     union: undefined,
     stringLiteral: undefined,
@@ -157,9 +183,14 @@ export const TsConversion = () => {
         </select>
       </div>
       {source && target && map[source][target] && (
-        <pre>
-          <code>{clampLines(map[source][target])}</code>
-        </pre>
+        <>
+          <pre>
+            <code>{clampLines(map[source][target].code)}</code>
+          </pre>
+          {map[source][target].playgroundUrl && (
+            <a href={map[source][target].playgroundUrl}>Playground</a>
+          )}
+        </>
       )}
     </div>
   );
