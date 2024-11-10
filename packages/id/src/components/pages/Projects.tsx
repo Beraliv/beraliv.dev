@@ -34,6 +34,12 @@ const MainContent = () => (
     <section className="projects">
       <div>
         <Project
+          href="/projects/ts-conversion"
+          text="ts-conversion"
+          description="Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and a link to TypeScript playground."
+          time="2024"
+        />
+        <Project
           href="https://github.com/ts-essentials/ts-essentials"
           text="ts-essentials"
           description="TypeScript utility library that offers advanced types, enabling developers to build more reliable, maintainable codebase."
