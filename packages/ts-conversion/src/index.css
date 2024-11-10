@@ -71,3 +71,10 @@ pre,
 pre > code {
   text-align: left;
 }
+
+pre {
+  margin: 0 1rem 0.5rem;
+  padding: 1rem 1.5rem;
+  overflow: scroll;
+  background-color: #575757;
+}

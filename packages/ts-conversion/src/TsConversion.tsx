@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { ValueOf } from "./ValueOf";
+import { clampLines } from "./clampLines";
 
 const inputs = [
   "array",
@@ -157,7 +158,7 @@ export const TsConversion = () => {
       </div>
       {source && target && map[source][target] && (
         <pre>
-          <code>{map[source][target]}</code>
+          <code>{clampLines(map[source][target])}</code>
         </pre>
       )}
     </div>
