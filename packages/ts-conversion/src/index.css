@@ -75,6 +75,7 @@ pre {
   padding: 1rem 1.5rem;
   overflow: scroll;
   background-color: #575757;
+  border-radius: 3px;
 }
 
 .Conversion {
