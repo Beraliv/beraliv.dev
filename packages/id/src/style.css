@@ -151,6 +151,26 @@ article > time {
   display: grid;
 }
 
+/* projects */
+
+article.project {
+  display: grid;
+  padding: 0.5rem 0;
+  grid-template-rows: 1fr 1fr;
+}
+
+article.project > .row {
+  display: grid;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  grid-template-columns: 1fr 1fr;
+}
+
+article.project > .row > time {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
 /* */
 
 :root {
