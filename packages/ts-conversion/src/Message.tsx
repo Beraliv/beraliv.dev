@@ -1,4 +1,5 @@
 import { classNames } from "./classNames";
+import { NoteIcon } from "./NoteIcon";
 import { WarningIcon } from "./WarningIcon";
 
 interface MessageProps {
@@ -16,7 +17,11 @@ export const Message = ({ text, type }: MessageProps) => {
     >
       <div className="MessageHeader">
         {type === "warning" && <WarningIcon />}
-        <span>Warning</span>
+        {type === "note" && <NoteIcon />}
+        <span>
+          {type === "warning" && "Warning"}
+          {type === "note" && "Note"}
+        </span>
       </div>
       <p className="MessageBody">{text}</p>
     </div>

@@ -19,8 +19,24 @@ type InputType = ValueOf<typeof inputs>;
 type MapConfig = {
   code: string;
   warning?: string;
+  notes?: string[];
   playgroundUrl?: string;
 };
+
+interface TailRecursionEliminationNoteProps {
+  parameterType: string;
+  utilityType: string;
+}
+
+const createTailRecursionEliminationNote = ({
+  parameterType,
+  utilityType,
+}: TailRecursionEliminationNoteProps) => `
+  TypeScript 4.5 introduced a tail-recursion elimination to optimise
+  conditional types, which avoid intermediate instantiations. Therefore,
+  it's recommended to use accumulator parameter types, such as \`${parameterType}\`
+  in \`${utilityType}\`.
+`;
 
 const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
   array: {
@@ -60,6 +76,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Length = LengthOf<Tuple>;
         //   ^? 3
       `,
+      notes: [
+        `
+        One of differences between Arrays and Tuples is \`length\` property:
+        it's numeric literal for Tuples (e.g. 3), but \`number\` for Arrays.
+      `,
+      ],
       playgroundUrl: "https://tsplay.dev/w280rm",
     },
   },
@@ -136,6 +158,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type CharUnion = CharUnionFrom<StringLiteral>;
         //   ^? 'w' | 'o' | 'r' | 'l' | 'd'
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Union",
+          utilityType: "CharUnionFrom",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/mA63ZW",
     },
     stringLiteral: undefined,
@@ -148,6 +176,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Length = LengthFrom<StringLiteral>;
         //   ^? 5
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Tuple",
+          utilityType: "LengthFrom",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/mpM27W",
     },
   },
@@ -161,6 +195,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type NumericPair = Repeat<number, 2>;
         //   ^? [number, number]
       `,
+      notes: [
+        createTailRecursionEliminationNote({
+          parameterType: "Tuple",
+          utilityType: "Repeat",
+        }),
+      ],
       playgroundUrl: "https://tsplay.dev/m3D8kW",
     },
     object: undefined,
@@ -210,7 +250,10 @@ export const TsConversion = () => {
       {source && target && map[source][target] && (
         <>
           {map[source][target].warning && (
-            <Message text={map[source][target].warning} type="warning" />
+            <Message
+              text={clampLines(map[source][target].warning)}
+              type="warning"
+            />
           )}
           <pre>
             <code>{clampLines(map[source][target].code)}</code>
@@ -227,6 +270,15 @@ export const TsConversion = () => {
                   <ExternalIcon />
                 </span>
               </a>
+            </div>
+          )}
+          {map[source][target].notes && (
+            <div>
+              <h3>Insights</h3>
+
+              {map[source][target].notes.map((note, index) => (
+                <Message key={index} text={clampLines(note)} type="note" />
+              ))}
             </div>
           )}
         </>
