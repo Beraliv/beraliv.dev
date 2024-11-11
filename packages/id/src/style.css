@@ -156,7 +156,6 @@ article > time {
 article.project {
   display: grid;
   padding: 0.5rem 0;
-  grid-template-rows: 1fr 1fr;
 }
 
 article.project > .row {
