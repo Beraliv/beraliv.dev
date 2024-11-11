@@ -3,7 +3,7 @@ import { ValueOf } from "./ValueOf";
 import { clampLines } from "./clampLines";
 import { ExternalIcon } from "./ExternalIcon";
 import { Select } from "./Select";
-import { Warning } from "./Warning";
+import { Message } from "./Message";
 
 const inputs = [
   "array",
@@ -210,7 +210,7 @@ export const TsConversion = () => {
       {source && target && map[source][target] && (
         <>
           {map[source][target].warning && (
-            <Warning text={map[source][target].warning} />
+            <Message text={map[source][target].warning} type="warning" />
           )}
           <pre>
             <code>{clampLines(map[source][target].code)}</code>

@@ -100,27 +100,32 @@ pre {
   margin-right: 0.5rem;
 }
 
-.WarningContainer {
+.MessageContainer {
   display: grid;
-
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  background-color: #fff7d6;
   color: rgb(23, 43, 77);
-
   border-radius: 3px;
 }
 
-.WarningHeader {
+.MessageContainer.warning {
+  background-color: #fff7d6;
+}
+
+.MessageContainer.note {
+  background-color: rgb(243, 240, 255);
+}
+
+.MessageHeader {
   display: grid;
   grid-template-columns: 24px 1fr;
   gap: 0.5rem;
 }
 
-.WarningHeader > span {
+.MessageHeader > span {
   font-weight: 700;
 }
 
-.WarningBody {
+.MessageBody {
   margin: 0.5rem 0;
   padding-left: 1rem;
 }
