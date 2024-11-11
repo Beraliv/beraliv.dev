@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { ValueOf } from "./ValueOf";
 import { clampLines } from "./clampLines";
+import { ExternalIcon } from "./ExternalIcon";
 
 const inputs = [
   "array",
@@ -188,7 +189,16 @@ export const TsConversion = () => {
             <code>{clampLines(map[source][target].code)}</code>
           </pre>
           {map[source][target].playgroundUrl && (
-            <a href={map[source][target].playgroundUrl}>Playground</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={map[source][target].playgroundUrl}
+            >
+              <span>
+                Playground &#xFEFF;
+                <ExternalIcon />
+              </span>
+            </a>
           )}
         </>
       )}
