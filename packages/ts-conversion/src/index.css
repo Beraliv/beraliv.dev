@@ -98,3 +98,28 @@ pre {
 .SelectLabel {
   margin-right: 0.5rem;
 }
+
+.WarningContainer {
+  display: grid;
+
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  background-color: #fff7d6;
+  color: rgb(23, 43, 77);
+
+  border-radius: 3px;
+}
+
+.WarningHeader {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0.5rem;
+}
+
+.WarningHeader > span {
+  font-weight: 700;
+}
+
+.WarningBody {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+}
