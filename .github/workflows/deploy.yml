@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm --filter id run build
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -35,8 +32,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
 
+      - name: Build ID
+        run: pnpm --filter id run build
+
       - name: Deploy to Cloudinary
         run: pnpm --filter id run upload-images-to-cloudinary --key ${{ secrets.CLOUDINARY_API_KEY }} --secret ${{ secrets.CLOUDINARY_API_SECRET }}
 
-      - name: Deploy to AWS S3
+      - name: Deploy ID to AWS S3
         run: aws s3 sync ./packages/id/dist s3://beraliv.com --delete
+
+      - name: Build TS-Conversion
+        run: pnpm --filter ts-conversion run build
+
+      - name: Deploy TS-Conversion to AWS S3
+        run: aws s3 sync ./packages/ts-conversion/dist s3://beraliv.com/projects/ts-conversion
