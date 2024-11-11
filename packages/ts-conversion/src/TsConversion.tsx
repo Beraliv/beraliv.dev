@@ -107,7 +107,7 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         type Tuple = UnionToTuple<Union>;
         //   ^? [1, 2, 3]
       `,
-      playgroundUrl: "https://tsplay.dev/w1D0KW",
+      playgroundUrl: "https://tsplay.dev/wOQvEm",
       warning: `
         In 99% of cases, it's recommended to keep a source of truth in a Tuple,
         rather than a Union (see Tuple to Union). The reason to avoid it is,
