@@ -36,7 +36,7 @@ const MainContent = () => (
         <Project
           href="/projects/ts-conversion"
           text="ts-conversion"
-          description="Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and a link to TypeScript playground."
+          description="Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and links to TypeScript playground."
           time="2024"
         />
         <Project
