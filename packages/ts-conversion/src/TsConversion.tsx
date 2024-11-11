@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import { ValueOf } from "./ValueOf";
 import { clampLines } from "./clampLines";
 import { ExternalIcon } from "./ExternalIcon";
+import { Select } from "./Select";
+import { Warning } from "./Warning";
 
 const inputs = [
   "array",
@@ -16,6 +18,7 @@ type InputType = ValueOf<typeof inputs>;
 
 type MapConfig = {
   code: string;
+  warning?: string;
   playgroundUrl?: string;
 };
 
@@ -42,12 +45,12 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     object: undefined,
     union: {
       code: `
-        type UnionFrom<Tuple extends readonly number[]> = Tuple[number];
+        type UnionFrom<Tuple extends readonly unknown[]> = Tuple[number];
         type Tuple = [1, 2, 3];
         type Union = UnionFrom<Tuple>;
-        //   ^? 1 | 2 | 3
+        //   ^? 3 | 1 | 2
       `,
-      playgroundUrl: "https://tsplay.dev/WoZ9gm",
+      playgroundUrl: "https://tsplay.dev/mpM2XW",
     },
     stringLiteral: undefined,
     numericLiteral: {
@@ -82,10 +85,6 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
     array: undefined,
     tuple: {
       code: `
-        // Please avoid when possible, the \`LastOfUnion\` logic may break at any TS
-        // version. However, it's acceptable to use \`UnionToTuple\`, when the logic
-        // doesn't rely on the tuple order.
-
         type UnionToIntersection<Union> = (Union extends any ? (arg: Union) => void : never) extends (
             arg: infer Intersection,
         ) => void
@@ -109,6 +108,14 @@ const map: Record<InputType, Partial<Record<InputType, MapConfig>>> = {
         //   ^? [1, 2, 3]
       `,
       playgroundUrl: "https://tsplay.dev/w1D0KW",
+      warning: `
+        In 99% of cases, it's recommended to keep a source of truth in a Tuple,
+        rather than a Union (see Tuple to Union). The reason to avoid it is,
+        because it's an expensive conversion, and it relies on a very fragile
+        logic that may break at any TypeScript version. However, in 1% of cases,
+        it's acceptable to use the utility type \`UnionToTuple\`, specifically
+        when logic doesn't rely on the tuple order.
+      `,
     },
     object: undefined,
     union: undefined,
@@ -182,52 +189,45 @@ export const TsConversion = () => {
   );
 
   return (
-    <div>
-      <div className="row">
-        <label>Source</label>
-        <select onChange={handleSourceChange}>
-          <option disabled hidden selected>
-            Choose option:
-          </option>
-          {inputs.map((input) => (
-            <option key={input} value={input}>
-              {input}
-            </option>
-          ))}
-        </select>
+    <div className="Conversion">
+      <div className="UserInput">
+        <Select
+          label="Source"
+          handleChange={handleSourceChange}
+          options={inputs}
+        />
+
+        <Select
+          label="Target"
+          handleChange={handleTargetChange}
+          options={inputs}
+          isOptionDisabled={(input) =>
+            !source || (source && map[source][input] === undefined)
+          }
+        />
       </div>
-      <div className="row">
-        <label>Target</label>
-        <select onChange={handleTargetChange}>
-          <option disabled hidden selected>
-            Choose option:
-          </option>
-          {inputs.map((input) => (
-            <option
-              key={input}
-              disabled={!source || (source && map[source][input] === undefined)}
-            >
-              {input}
-            </option>
-          ))}
-        </select>
-      </div>
+
       {source && target && map[source][target] && (
         <>
+          {map[source][target].warning && (
+            <Warning text={map[source][target].warning} />
+          )}
           <pre>
             <code>{clampLines(map[source][target].code)}</code>
           </pre>
           {map[source][target].playgroundUrl && (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={map[source][target].playgroundUrl}
-            >
-              <span>
-                Playground &#xFEFF;
-                <ExternalIcon />
-              </span>
-            </a>
+            <div>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={map[source][target].playgroundUrl}
+              >
+                <span>
+                  Playground &#xFEFF;
+                  <ExternalIcon />
+                </span>
+              </a>
+            </div>
           )}
         </>
       )}
