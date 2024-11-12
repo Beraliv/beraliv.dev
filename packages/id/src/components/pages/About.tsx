@@ -110,7 +110,7 @@ const MainContent = () => (
           year: 2018,
           month: 7,
           day: 28,
-        })}
+        })}{" "}
         years in the video streaming industry across 3 countries, building
         cloud-based products and designing reliable HTML5 video players for both
         Web and Connected devices.
@@ -123,13 +123,13 @@ const MainContent = () => (
 
       <h2>DAZN</h2>
       <p>
-        {"Currently, I work at "}
+        Currently, I work at{" "}
         <Link
           href="https://help.dazn.com/hc/en-gb/articles/16173719210909-About-DAZN"
           text="DAZN"
           external
-        />
-        {" as a Senior Software Engineer."}
+        />{" "}
+        as a Senior Software Engineer.
       </p>
       <p>
         I began my journey on the Player Core team, working on an in-house
@@ -139,9 +139,10 @@ const MainContent = () => (
         of building reliable cloud-based products.
       </p>
       <p>
-        {
-          "After my first year at DAZN, I transitioned to focusing on Mercury, the in-house HTML5 player. I delved deeply into MSE while onboarding various platforms. One of R&D projects I worked on had valuable, which I later shared with my team and the broader industry during "
-        }
+        After my first year at DAZN, I transitioned to focusing on Mercury, the
+        in-house HTML5 player. I delved deeply into MSE while onboarding various
+        platforms. One of R&D projects I worked on had valuable, which I later
+        shared with my team and the broader industry during{" "}
         <Link
           href="https://blog.beraliv.dev/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes"
           text="a presentation at London Video Tech"
@@ -162,9 +163,10 @@ const MainContent = () => (
         </figcaption>
       </figure>
       <p>
-        {
-          "In 2024, I led several key projects. One of the most rewarding was the R&D initiative focused on reducing latency in live playback. Our team faced numerous challenges, including close collaboration with the Google Chrome Dev Team to resolve "
-        }
+        In 2024, I led several key projects. One of the most rewarding was the
+        R&D initiative focused on reducing latency in live playback. Our team
+        faced numerous challenges, including close collaboration with the Google
+        Chrome Dev Team to resolve{" "}
         <Link
           href="https://issues.chromium.org/issues/40190553"
           text="a video/audio de-sync issue"
@@ -178,11 +180,10 @@ const MainContent = () => (
 
       <h2>Joyn</h2>
       <p>
-        {"Previously, I worked at "}
-        <Link href="https://www.joyn.de/ueber-joyn" text="Joyn" external />
-        {
-          " as Senior Software Engineer. I played a key role in bridging the gap between the Player and Connected Devices teams."
-        }
+        Previously, I worked at{" "}
+        <Link href="https://www.joyn.de/ueber-joyn" text="Joyn" external /> as
+        Senior Software Engineer. I played a key role in bridging the gap
+        between the Player and Connected Devices teams.
       </p>
       <figure>
         <Image
@@ -201,9 +202,12 @@ const MainContent = () => (
         quirks of various devices.
       </p>
       <p>
-        {
-          "I'm proud of driving a knowledge sharing sessions both in and beyond the team. At work, I organised daily sessions that significantly improved TypeScript expertise in Connected Devices team. These sessions also led to enhancements in the codebase, making the code more stable, predictable and readable. Outside of work, I shared my TypeScript findings on my blog and gave a talk on "
-        }
+        I'm proud of driving a knowledge sharing sessions both in and beyond the
+        team. At work, I organised daily sessions that significantly improved
+        TypeScript expertise in Connected Devices team. These sessions also led
+        to enhancements in the codebase, making the code more stable,
+        predictable and readable. Outside of work, I shared my TypeScript
+        findings on my blog and gave a talk on{" "}
         <Link
           href="https://blog.beraliv.dev/2021-12-10-advanced-types-holyjs-notes"
           text="Advanced types in TypeScript at HolyJS"
@@ -213,13 +217,13 @@ const MainContent = () => (
 
       <h2>Yandex</h2>
       <p>
-        {"Between 2018 and 2020, I worked at "}
+        Between 2018 and 2020, I worked at{" "}
         <Link
           href="https://yandex.com/dev/"
           text="Yandex Technologies"
           external
-        />
-        {" as Senior Frontend Developer."}
+        />{" "}
+        as Senior Frontend Developer.
       </p>
       <p>
         At Yandex, I discovered what it truly means to be an engineer: I took
@@ -240,17 +244,14 @@ const MainContent = () => (
         the advertising player UI.
       </p>
       <p>
-        {
-          "As a side initiative, I volunteered as a tutor to over 110 students at "
-        }
+        As a side initiative, I volunteered as a tutor to over 110 students at{" "}
         <Link
           href="https://yandex.ru/yaintern/schools/frontend"
           text="Yandex Interface Development School"
           external
-        />
-        {
-          " from 2018 and 2020. Additionally, my colleague and I designed a problem for "
-        }
+        />{" "}
+        from 2018 and 2020. Additionally, my colleague and I designed a problem
+        for{" "}
         <Link
           href="https://contest.yandex.ru/"
           text="Frontend Contest"
@@ -260,32 +261,33 @@ const MainContent = () => (
         my expertise in participating in such events.
       </p>
       <p>
-        {
-          "Around that time, TypeScript began gaining popularity as a common dependency in many web projects. Faced with various challenges in TypeScript, I eventually stumbled upon the "
-        }
+        Around that time, TypeScript began gaining popularity as a common
+        dependency in many web projects. Faced with various challenges in
+        TypeScript, I eventually stumbled upon the{" "}
         <Link
           href="https://github.com/type-challenges/type-challenges"
           text="type-challenges"
           external
-        />
-        {
-          " project. I spent a considerable amount of time figuring out how these challenges worked, and after several years, I started sharing TypeScript insights with my colleagues. I highly recommend exploring type challenges yourself!"
-        }
+        />{" "}
+        project. I spent a considerable amount of time figuring out how these
+        challenges worked, and after several years, I started sharing TypeScript
+        insights with my colleagues. I highly recommend exploring type
+        challenges yourself!
       </p>
     </div>
 
     <br />
 
     <p>
-      {"Feel free to connect with me on "}
+      Feel free to connect with me on{" "}
       <Link
         href="https://www.linkedin.com/in/beraliv/"
         text="LinkedIn"
         external
-      />
-      {" to explore my work experience further, or check out "}
-      <Link href="https://blog.beraliv.dev/" text="my blog" external />
-      {" to see what I've been working on."}
+      />{" "}
+      to explore my work experience further, or check out{" "}
+      <Link href="https://blog.beraliv.dev/" text="my blog" external /> to see
+      what I've been working on.
     </p>
   </main>
 );
