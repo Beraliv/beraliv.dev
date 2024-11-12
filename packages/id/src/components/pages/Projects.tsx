@@ -34,23 +34,24 @@ const MainContent = () => (
     <section className="projects">
       <div>
         <Project
-          href="/projects/ts-conversion"
-          text="ts-conversion"
           description="Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and links to TypeScript playground."
+          external
+          href="http://ts-conversion.beraliv.com"
+          text="ts-conversion"
           time="2024"
         />
         <Project
-          href="https://github.com/ts-essentials/ts-essentials"
-          text="ts-essentials"
           description="TypeScript utility library that offers advanced types, enabling developers to build more reliable, maintainable codebase."
           external
+          href="https://github.com/ts-essentials/ts-essentials"
+          text="ts-essentials"
           time="2021 - now"
         />
         <Project
-          href="https://github.com/nanoutils/nanoutils"
-          text="nanoutils [archived]"
           description="JavaScript utility library for functional programming, with the focus on the bundle size"
           external
+          href="https://github.com/nanoutils/nanoutils"
+          text="nanoutils [archived]"
           time="2018 - 2021"
         />
       </div>
