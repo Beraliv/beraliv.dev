@@ -225,6 +225,9 @@ importers:
       vite:
         specifier: ^5.4.10
         version: 5.4.10
+      vitest:
+        specifier: 0.29.8
+        version: 0.29.8
 
 packages:
 
@@ -2245,7 +2248,7 @@ packages:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
     dependencies:
-      acorn: 8.13.0
+      acorn: 8.14.0
     dev: true
 
   /acorn@8.13.0:
@@ -7463,7 +7466,7 @@ packages:
       '@vitest/runner': 0.29.8
       '@vitest/spy': 0.29.8
       '@vitest/utils': 0.29.8
-      acorn: 8.13.0
+      acorn: 8.14.0
       acorn-walk: 8.3.4
       cac: 6.7.14
       chai: 4.5.0
