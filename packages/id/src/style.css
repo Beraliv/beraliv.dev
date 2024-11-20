@@ -80,6 +80,7 @@ figcaption {
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 3rem;
+  min-height: 92vh;
 }
 
 /* 54rem is 50rem width + 2rem left padding + 2rem right padding */
@@ -218,7 +219,6 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -229,7 +229,7 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4vh;
 }
 
 @media (prefers-color-scheme: light) {
