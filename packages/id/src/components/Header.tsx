@@ -15,7 +15,7 @@ export const Header = () => (
         </li>
         <li>
           <Link
-            href="https://drive.google.com/file/d/1IhM7brsm04_mQx_DrIIa3Tj9w-6Rd3l4/view"
+            href="https://drive.google.com/file/d/1pUmwQFVBVxTsA3g1WTDnA1jwL4M-3XL2/view?usp=sharing"
             text="CV"
             external
           />
