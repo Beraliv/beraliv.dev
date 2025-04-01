@@ -148,6 +148,12 @@ article > time {
   white-space: nowrap;
 }
 
+article .publisher {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .posts {
   display: grid;
 }
