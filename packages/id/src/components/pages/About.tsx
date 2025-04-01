@@ -10,7 +10,7 @@ const MainContent = () => (
       <div className="head">
         <div className="headText">
           <h1>Hey, I'm Alexey.</h1>
-          <h3>UK-based, Video Software Engineer</h3>
+          <h3>Senior Software Engineer, UK Global Talent 🇬🇧</h3>
         </div>
         <div>
           <Image name="me.jpg" alt="My photo" className="meImage" width={125} />
@@ -18,8 +18,8 @@ const MainContent = () => (
       </div>
       <p>
         Join me on a quick story about my software engineer path, from learning
-        Pascal at school to enhancing the user experience in video streaming
-        companies.
+        Pascal at school to upscaling four businesses in video streaming
+        industry in three countries.
       </p>
     </header>
 
@@ -286,8 +286,7 @@ const MainContent = () => (
         external
       />{" "}
       to explore my work experience further, or check out{" "}
-      <Link href="https://blog.beraliv.dev/" text="my blog" external /> to see
-      what I've been working on.
+      <Link href="/blog" text="my blog" /> to see what I've been working on.
     </p>
   </main>
 );
