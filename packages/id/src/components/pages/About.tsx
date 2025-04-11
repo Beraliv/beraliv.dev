@@ -13,7 +13,13 @@ const MainContent = () => (
           <h3>Senior Software Engineer, UK Global Talent 🇬🇧</h3>
         </div>
         <div>
-          <Image name="me.jpg" alt="My photo" className="meImage" width={200} />
+          <Image
+            name="me.jpg"
+            alt="The photo where I stand in front of the camera with Sheldon, my dog, on my hands"
+            className="meImage"
+            width={200}
+            mediaQueries={false}
+          />
         </div>
       </div>
       <p>
@@ -153,7 +159,7 @@ const MainContent = () => (
       <figure>
         <Image
           name="dazn-crew.jpg"
-          alt="My DAZN crew image"
+          alt="The photo of my DAZN crew. From left to right: George, Rich, Patrick, Mike and I"
           className="image"
         />
         <figcaption>
@@ -188,7 +194,7 @@ const MainContent = () => (
       <figure>
         <Image
           name="joyn-crew.jpg"
-          alt="My Joyn crew image"
+          alt="The photo of my Joyn crew. From left to right: Jait, Mikhail, Oleks, Alex, I, Fabio, Dimi, Moti and Gabriel"
           className="image"
         />
         <figcaption>

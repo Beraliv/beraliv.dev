@@ -13,7 +13,7 @@ declare namespace JSX {
       fill: string;
     }>;
   } & {
-    Fragment: {};
+    fragment: {};
   };
 
   interface Element {

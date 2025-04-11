@@ -20,6 +20,17 @@ const renderElement = (
     children.forEach((child) => child && render(child, dom));
 
     container.appendChild(dom);
+  } else if (type === "fragment") {
+    const dom = document.createDocumentFragment();
+
+    // fragment doesn't have props
+
+    // All elements are resolved in the first element
+    (children[0] as unknown as JSX.Element[]).forEach(
+      (child) => child && render(child, dom)
+    );
+
+    container.appendChild(dom);
   } else {
     const dom = document.createElement(type);
 
@@ -49,20 +60,9 @@ export const render = (
     const customElement = type({ ...props, children });
 
     renderElement(customElement, container);
+  } else if (typeof type === "string") {
+    renderElement(node, container);
   } else {
-    if (type === "Fragment") {
-      const dom = document.createDocumentFragment();
-
-      Object.keys(props).forEach((key) => {
-        // @ts-expect-error: some properties are readonly
-        dom[key] = props[key];
-      });
-
-      children.forEach((child) => child && render(child, dom));
-
-      container.appendChild(dom);
-    } else {
-      renderElement(node, container);
-    }
+    throw new Error(`Unknown node type: ${type}`);
   }
 };
