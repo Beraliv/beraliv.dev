@@ -13,7 +13,7 @@ const MainContent = () => (
           <h3>Senior Software Engineer, UK Global Talent 🇬🇧</h3>
         </div>
         <div>
-          <Image name="me.jpg" alt="My photo" className="meImage" width={125} />
+          <Image name="me.jpg" alt="My photo" className="meImage" width={200} />
         </div>
       </div>
       <p>

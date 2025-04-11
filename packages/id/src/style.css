@@ -111,8 +111,7 @@ figcaption {
 
 .meImage {
   height: 6rem;
-  border-radius: 50%;
-  border: 1px solid black;
+  border-radius: 0.5rem;
   aspect-ratio: 1 / 1;
 }
 
@@ -128,6 +127,7 @@ main > header {
 
 .image {
   width: 100%;
+  border-radius: 0.5rem;
   aspect-ratio: 16 / 9;
 }
 
