@@ -14,7 +14,7 @@ const MainContent = () => (
         </div>
         <div>
           <Image
-            name="me.jpg"
+            name="profile.png"
             alt="The photo where I stand in front of the camera with Sheldon, my dog, on my hands"
             className="meImage"
             width={200}
