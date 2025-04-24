@@ -104,7 +104,7 @@ Letter from a Principal Engineer (who works in Netflix now) confirming my contri
 ## 📄 Supporting Evidence
 
 1. CV: [Short version here](https://drive.google.com/file/d/1pUmwQFVBVxTsA3g1WTDnA1jwL4M-3XL2/view?usp=sharing)
-2. Three additional letters of reference from directors at Yandex, Joyn, and DAZN
+2. Three additional letters of reference from directors at my previous and current workplaces
 
 ## ✨ Final thoughts
 
