@@ -106,11 +106,11 @@ Letter from a Principal Engineer (who works in Netflix now) confirming my contri
 1. CV: [Short version here](https://drive.google.com/file/d/1pUmwQFVBVxTsA3g1WTDnA1jwL4M-3XL2/view?usp=sharing)
 2. Three additional letters of reference from directors at Yandex, Joyn, and DAZN
 
-## ✨ Final thought
+## ✨ Final thoughts
 
 This achievement wasn't only about recognition - it was about reflecting on the impact I've made, the challenges I've overcome, and the communities I've helped grow.
 
-If you're just started your career, you have ambitions and you want to build the strong engineering career, I encourage you to:
+If you're just starting your career, you have ambitions and you want to build a strong engineering career, I encourage you to:
 
 1. Contribute to Open Source
 2. Write and speak about your work
@@ -125,7 +125,7 @@ A huge thanks to:
 
 1. [Elizaveta Morjan](https://www.linkedin.com/in/elizavetaproselkova/) - Founder & Creative Director, EP Advisory
 2. [Lamiia Israilova](https://www.linkedin.com/in/lamiia-israilova/) - Paralegal, Sterling Law
-3. [Elena Kunakova](https://www.linkedin.com/in/elena-kunakova-3a33638b/) - Product Director, Ads, Microsoft AI
+3. [Elena Kunakova](https://www.linkedin.com/in/elena-kunakova-3a33638b/) - Product Director, Ads, Microsoft
 4. [Dom Busser](https://www.linkedin.com/in/doque/) - Director of Engineering, Vercel
 5. [Patrick Kunka](https://www.linkedin.com/in/patrickkunka/) - Senior Software Engineer, Streaming Algorithms, Netflix
 
