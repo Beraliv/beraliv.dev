@@ -57,6 +57,7 @@ describe(getAllPosts.name, () => {
       "2022-07-14-camel-case",
       "2022-09-10-with-or-without-enums",
       "2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes",
+      "2025-04-23-how-i-earned-uk-global-talent-visa",
     ]);
   });
 });
