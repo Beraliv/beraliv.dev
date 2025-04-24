@@ -9,9 +9,17 @@
             <link>https://blog.beraliv.dev/</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 21 Dec 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 23 Apr 2025 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://blog.beraliv.dev/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[How I Earned the UK Global Talent Visa (Exceptional Talent)]]></title>
+            <description><![CDATA[A breakdown of the key projects, open-source work, and professional achievements that helped me secure the UK Global Talent visa in tech. This post highlights the impact and leadership demonstrated through real-world engineering initiatives.]]></description>
+            <link>https://blog.beraliv.dev/2025-04-23-how-i-earned-uk-global-talent-visa</link>
+            <guid isPermaLink="false">https://blog.beraliv.dev/2025-04-23-how-i-earned-uk-global-talent-visa</guid>
+            <dc:creator><![CDATA[Alexey Berezin]]></dc:creator>
+            <pubDate>Wed, 23 Apr 2025 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[A story of an unknown low-tier device and its MSE issues / London Video Tech 2023 notes]]></title>
             <description><![CDATA[To highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.]]></description>
