@@ -35,6 +35,7 @@ export const getPostStaticProps: GetStaticProps<
       // to handle types correctly here, you need remark
       remarkPlugins: [remarkUnwrapImages, remarkMdxCodeMeta, remarkGfm],
       rehypePlugins: [imageMetadata],
+      development: false,
     },
   });
 

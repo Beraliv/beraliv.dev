@@ -80,6 +80,16 @@ const MainContent = () => (
         also sparked fresh ideas, leading to many innovative solutions along the
         way.
       </p>
+      <p>
+        In 2025, I was awarded the UK Global Talent visa for the Exceptional
+        Talent route, reflecting my long-term commitment to contributing to the
+        UK's tech industry.{" "}
+        <Link
+          href="https://blog.beraliv.dev/2025-04-23-how-i-earned-uk-global-talent-visa"
+          text="How I earned the UK Global Talent visa"
+          external
+        />
+      </p>
 
       <h2>Personal insights</h2>
       <p>
