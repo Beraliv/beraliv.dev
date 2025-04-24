@@ -32,6 +32,19 @@ const MainContent = () => (
     <br />
 
     <section className="posts">
+      <h2>2025</h2>
+      <div>
+        <Article
+          href="https://blog.beraliv.dev/2025-04-23-how-i-earned-uk-global-talent-visa"
+          text="How I Earned the UK Global Talent Visa (Exceptional Talent)"
+          publisher="blog.beraliv.dev"
+          external
+          time="Apr 23"
+        />
+      </div>
+
+      <br />
+
       <h2>2024</h2>
       <div>
         <Article
