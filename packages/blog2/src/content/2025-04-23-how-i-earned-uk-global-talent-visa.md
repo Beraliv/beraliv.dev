@@ -128,5 +128,6 @@ A huge thanks to:
 3. [Elena Kunakova](https://www.linkedin.com/in/elena-kunakova-3a33638b/) - Product Director, Ads, Microsoft
 4. [Dom Busser](https://www.linkedin.com/in/doque/) - Director of Engineering, Vercel
 5. [Patrick Kunka](https://www.linkedin.com/in/patrickkunka/) - Senior Software Engineer, Streaming Algorithms, Netflix
+6. [Dave Warren](https://www.linkedin.com/in/davemarkwarren/) - Director of Engineering, Flo Health
 
 ... my colleagues, and many others who made the whole process smoother and worked tirelessly to make it all happen!
