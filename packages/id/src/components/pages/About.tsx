@@ -2,8 +2,11 @@ import { yearsSince } from "../../utils/yearsSince";
 import { DropCap } from "../DropCap";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
+import { DaznIcon } from "../icons/DaznIcon";
+import { JoynIcon } from "../icons/JoynIcon";
 import { Image } from "../Image";
 import { Link } from "../Link";
+import { RedText } from "../RedText";
 
 const MainContent = () => (
   <main>
@@ -140,7 +143,9 @@ const MainContent = () => (
         Occasionally, I also dive into HTML and CSS.
       </p>
 
-      <h2>DAZN</h2>
+      <h2 className="dazn">
+        <DaznIcon /> DAZN
+      </h2>
       <p>
         <DropCap>C</DropCap>urrently, I work at{" "}
         <Link
@@ -198,7 +203,9 @@ const MainContent = () => (
         various devices.
       </p>
 
-      <h2>Joyn</h2>
+      <h2 className="joyn">
+        <JoynIcon />
+      </h2>
       <p>
         <DropCap>P</DropCap>reviously, I worked at{" "}
         <Link href="https://www.joyn.de/ueber-joyn" text="Joyn" external /> as
@@ -235,29 +242,35 @@ const MainContent = () => (
         />
       </p>
 
-      <h2>Yandex</h2>
+      <h2>
+        <RedText>Y</RedText>andex
+      </h2>
       <p>
-        <DropCap> B</DropCap>etween 2018 and 2020, I worked at{" "}
+        <DropCap>B</DropCap>etween 2018 and 2020, I worked at{" "}
         <Link
           href="https://yandex.com/dev/"
-          text="Yandex Technologies"
+          text={
+            <span>
+              <RedText>Y</RedText>andex Technologies
+            </span>
+          }
           external
         />{" "}
         as Senior Frontend Developer on the Video and Advertising teams,
-        improving video and advertising players used across Yandex services and
-        partner platforms.
+        improving video and advertising players used across <RedText>Y</RedText>
+        andex services and partner platforms.
       </p>
       <p>
-        At Yandex, I discovered what it truly means to be an engineer: I took
-        the responsibility for the entire process, from system design to
-        deployment and monitoring, focussed on the bigger picture rather than
-        just individual product features and prioritised long-term quality and
-        maintainability over short-term outcomes. During this time, I also
-        learned the fundamentals of building reliable video and advertising
-        players on Web. I became familiar with industry libraries (such as
-        shaka-player, hls.js and dash.js), gaining a solid understanding of
-        video standards (like DASH and HLS) as well as advertising
-        specifications (such as VMAP, VAST and VPAID).
+        At <RedText>Y</RedText>andex, I discovered what it truly means to be an
+        engineer: I took the responsibility for the entire process, from system
+        design to deployment and monitoring, focussed on the bigger picture
+        rather than just individual product features and prioritised long-term
+        quality and maintainability over short-term outcomes. During this time,
+        I also learned the fundamentals of building reliable video and
+        advertising players on Web. I became familiar with industry libraries
+        (such as shaka-player, hls.js and dash.js), gaining a solid
+        understanding of video standards (like DASH and HLS) as well as
+        advertising specifications (such as VMAP, VAST and VPAID).
       </p>
       <p>
         I was very lucky to work on multiple projects, including enhancing the
@@ -269,7 +282,11 @@ const MainContent = () => (
         As a side initiative, I volunteered as a tutor to over 110 students at{" "}
         <Link
           href="https://yandex.ru/yaintern/schools/frontend"
-          text="Yandex Interface Development School"
+          text={
+            <span>
+              <RedText>Y</RedText>andex Interface Development School
+            </span>
+          }
           external
         />{" "}
         from 2018 and 2020. Additionally, my colleague and I designed a problem
@@ -279,8 +296,8 @@ const MainContent = () => (
           text="Frontend Contest"
           external
         />
-        , organised by Yandex in 2019. This experience significantly broadened
-        my expertise in participating in such events.
+        , organised by <RedText>Y</RedText>andex in 2019. This experience
+        significantly broadened my expertise in participating in such events.
       </p>
       <p>
         Around that time, TypeScript began gaining popularity as a common

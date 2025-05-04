@@ -2,7 +2,7 @@ import { ExternalIcon } from "./icons/ExternalIcon";
 
 export type TextLinkProps = {
   href: string;
-  text: string;
+  text: JSX.Element | string;
   external?: boolean;
 };
 
