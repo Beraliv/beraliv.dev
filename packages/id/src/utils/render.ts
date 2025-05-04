@@ -46,11 +46,16 @@ const renderElement = (
 };
 
 export const render = (
-  node: JSX.Element,
+  node: JSX.Element | JSX.Element[],
   container: HTMLElement | DocumentFragment | SVGSVGElement | SVGPathElement
 ) => {
   if (typeof node === "string" || typeof node === "number") {
     container.appendChild(document.createTextNode(node));
+    return;
+  }
+
+  if (Array.isArray(node)) {
+    node.forEach((child) => child && render(child, container));
     return;
   }
 

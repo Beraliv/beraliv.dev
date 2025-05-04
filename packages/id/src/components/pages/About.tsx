@@ -1,4 +1,5 @@
 import { yearsSince } from "../../utils/yearsSince";
+import { DropCap } from "../DropCap";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { Image } from "../Image";
@@ -34,13 +35,14 @@ const MainContent = () => (
     <div className="main">
       <h2>My first steps into programming</h2>
       <p>
-        Back in school, programming was mostly a mystery to me. Our informatics
-        classes didn't touch on programming languages, but my two classmates,
-        Mikhail and Vsevolod, and I decided to take matters into our own hands
-        and learn Pascal. We started from scratch, and while I wasn't writing
-        complex programs yet, the experience was both challenging and rewarding.
-        This early self-driven learning laid the foundation for my journey,
-        since I could relocate to St. Petersburg to study Computer Science.
+        <DropCap>B</DropCap>ack in school, programming was mostly a mystery to
+        me. Our informatics classes didn't touch on programming languages, but
+        my two classmates, Mikhail and Vsevolod, and I decided to take matters
+        into our own hands and learn Pascal. We started from scratch, and while
+        I wasn't writing complex programs yet, the experience was both
+        challenging and rewarding. This early self-driven learning laid the
+        foundation for my journey, since I could relocate to St. Petersburg to
+        study Computer Science.
       </p>
       <p>
         During my time in university, I worked on a wide range of impressive
@@ -55,11 +57,12 @@ const MainContent = () => (
 
       <h2>My career direction</h2>
       <p>
-        Soon after completing my bachelor's degree, I stepped into the world of
-        front-end development at EPAM Systems. From day one, I was impressed
-        with JavaScript's flexibility and the nearly-instant feedback that
-        front-end development offered. That was nothing quite like it, and I
-        quickly grew to love the dynamic nature of building web applications.
+        <DropCap>S</DropCap>oon after completing my bachelor's degree, I stepped
+        into the world of front-end development at EPAM Systems. From day one, I
+        was impressed with JavaScript's flexibility and the nearly-instant
+        feedback that front-end development offered. That was nothing quite like
+        it, and I quickly grew to love the dynamic nature of building web
+        applications.
       </p>
       <p>
         After completing my master's degree, I relocated to Moscow to begin my
@@ -93,11 +96,11 @@ const MainContent = () => (
 
       <h2>Personal insights</h2>
       <p>
-        I can't picture my life without my four-legged companion, Sheldon, a
-        miniature Schnauzer - undoubtedly my best 'pet project' yet. He's a
-        daily reminder that taking a step back from even the toughest problems
-        can provide the clarity needed to return with a fresh perspective and
-        find the right solution.
+        <DropCap>I</DropCap> can't picture my life without my four-legged
+        companion, Sheldon, a miniature Schnauzer - undoubtedly my best 'pet
+        project' yet. He's a daily reminder that taking a step back from even
+        the toughest problems can provide the clarity needed to return with a
+        fresh perspective and find the right solution.
       </p>
       <p>
         To stay active, I play doubles tennis weekly, learn German with my
@@ -121,7 +124,7 @@ const MainContent = () => (
 
       <h2>Professional work and experience</h2>
       <p>
-        I've spent over{" "}
+        <DropCap>I</DropCap>'ve spent over{" "}
         {yearsSince({
           year: 2018,
           month: 7,
@@ -139,13 +142,14 @@ const MainContent = () => (
 
       <h2>DAZN</h2>
       <p>
-        Currently, I work at{" "}
+        <DropCap>C</DropCap>urrently, I work at{" "}
         <Link
           href="https://help.dazn.com/hc/en-gb/articles/16173719210909-About-DAZN"
           text="DAZN"
           external
         />{" "}
-        as a Senior Software Engineer.
+        as a Senior Software Engineer. I am a part of Player Core team and work
+        on improving user experience of the video players across HTML5 devices.
       </p>
       <p>
         I began my journey on the Player Core team, working on an in-house
@@ -196,7 +200,7 @@ const MainContent = () => (
 
       <h2>Joyn</h2>
       <p>
-        Previously, I worked at{" "}
+        <DropCap>P</DropCap>reviously, I worked at{" "}
         <Link href="https://www.joyn.de/ueber-joyn" text="Joyn" external /> as
         Senior Software Engineer. I played a key role in bridging the gap
         between the Player and Connected Devices teams.
@@ -233,13 +237,15 @@ const MainContent = () => (
 
       <h2>Yandex</h2>
       <p>
-        Between 2018 and 2020, I worked at{" "}
+        <DropCap> B</DropCap>etween 2018 and 2020, I worked at{" "}
         <Link
           href="https://yandex.com/dev/"
           text="Yandex Technologies"
           external
         />{" "}
-        as Senior Frontend Developer.
+        as Senior Frontend Developer on the Video and Advertising teams,
+        improving video and advertising players used across Yandex services and
+        partner platforms.
       </p>
       <p>
         At Yandex, I discovered what it truly means to be an engineer: I took

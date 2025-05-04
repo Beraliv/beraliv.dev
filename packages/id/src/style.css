@@ -74,6 +74,15 @@ figcaption {
   height: 1rem;
 }
 
+/* drop cap */
+
+.dropCap {
+  float: left;
+  font-size: 300%;
+  color: #646cff;
+  margin: -13px 7px -13px 0;
+}
+
 /* about */
 
 .layout {
