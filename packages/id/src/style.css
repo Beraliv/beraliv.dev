@@ -293,4 +293,8 @@ h1 {
   article:not(:last-child) {
     border-bottom: 1px #eee solid;
   }
+
+  .dazn svg {
+    fill: #000;
+  }
 }
