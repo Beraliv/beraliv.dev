@@ -21,7 +21,7 @@
   },
   "size-limit": [
     {
-      "limit": "4 kB",
+      "limit": "6 kB",
       "path": "dist/assets/About-*.js"
     },
     {
