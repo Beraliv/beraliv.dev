@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -52,6 +56,29 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.definition {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.definition h3 {
+  margin-bottom: 1.5rem;
+}
+
+.definition .description {
+  text-align: left;
+}
+
+.definition .summary,
+.definition .description {
+  margin-bottom: 1rem;
 }
 
 @media (prefers-color-scheme: light) {
