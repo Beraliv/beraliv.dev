@@ -5,7 +5,7 @@ import { definitions } from "./definitions";
 function App() {
   return (
     <>
-      <h1>Definitions</h1>
+      <h1>Video Glossary</h1>
       <Search definitions={definitions} />
     </>
   );
