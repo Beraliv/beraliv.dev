@@ -5,6 +5,19 @@ import "./App.css";
 import { Search } from "./Search";
 import data from "./data.json";
 
+const sortedDefinitions = data.sort((a, b) => {
+  const aName = a.title.toLowerCase();
+  const bName = b.title.toLowerCase();
+
+  if (aName < bName) {
+    return -1;
+  }
+  if (aName > bName) {
+    return 1;
+  }
+  return 0;
+});
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -27,7 +40,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <Search definitions={data} />
+      <Search definitions={sortedDefinitions} />
     </>
   );
 }
