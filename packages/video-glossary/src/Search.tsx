@@ -34,7 +34,7 @@ export const Search = ({ definitions }: ISearchProps) => {
         type="search"
         value={query}
         onChange={handleSearchChange}
-        placeholder=""
+        placeholder="Search..."
         className="search-input"
       />
       <div className="search-results">

@@ -81,6 +81,13 @@ button:focus-visible {
   margin-bottom: 1rem;
 }
 
+.search-input {
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem 0.5rem;
+  margin-bottom: 20px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
