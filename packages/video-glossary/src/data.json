@@ -1,0 +1,8 @@
+[
+  {
+    "title": "ABR",
+    "summary": "Adaptive Bitrate",
+    "description": "Dynamically adjusting the quality of video stream based on network conditions",
+    "link": "https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming"
+  }
+]
