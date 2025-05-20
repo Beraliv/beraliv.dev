@@ -34,11 +34,18 @@ const MainContent = () => (
     <section className="projects">
       <div>
         <Project
+          description="A glossary of video-related terms, concepts, and technologies."
+          external
+          href="http://video-glossary.beraliv.com"
+          text="video glossary"
+          time="2025 - now"
+        />
+        <Project
           description="Interactive website, helping engineers understand, how they can convert one type to another in TypeScript, with examples and links to TypeScript playground."
           external
           href="http://ts-conversion.beraliv.com"
           text="ts-conversion"
-          time="2024"
+          time="2024 - now"
         />
         <Project
           description="TypeScript utility library that offers advanced types, enabling developers to build more reliable, maintainable codebase."
