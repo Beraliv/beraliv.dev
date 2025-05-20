@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package: [blog2, habits, id, tennis-tournaments]
+        package: [blog2, habits, id, tennis-tournaments, video-glossary]
     steps:
       - name: Checkout to current branch
         uses: actions/checkout@v4
