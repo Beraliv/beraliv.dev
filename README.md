@@ -3,8 +3,9 @@
 The digital garden 🌳🌲 with my projects:
 
 - [blog workspace](https://github.com/Beraliv/beraliv.dev/tree/main/packages/blog2)
-  - [ts-conversion](http://ts-conversion.beraliv.com)
-  - [id](https://beraliv.com) (_in progress_)
+  - [video-glossary](http://video-glossary.beraliv.com)
+  - [ts-conversion](http://ts-conversion.beraliv.com) - moved to https://github.com/Beraliv/ts-conversion
+  - [id](https://beraliv.com)
   - [blog2](https://blog.beraliv.dev/)
-  - [habits](https://habits.beraliv.dev/) (archived)
-  - [tennis-tournaments](https://tennis-tournaments.vercel.app/) (archived)
+  - habits (archived)
+  - tennis-tournaments (archived)

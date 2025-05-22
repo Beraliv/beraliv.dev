@@ -37,7 +37,7 @@ const MainContent = () => (
           description="A glossary of video-related terms, concepts, and technologies."
           external
           href="http://video-glossary.beraliv.com"
-          text="video glossary"
+          text="video-glossary"
           time="2025 - now"
         />
         <Project

@@ -1,4 +1,4 @@
-name: Deploy id to S3
+name: Deploy Video Glossary to S3
 
 on:
   push:
