@@ -3,7 +3,7 @@ import type { IDefinition } from "./Definition";
 const unsortedDefinitions = [
   {
     title: "ABR",
-    summary: "Adaptive Bitrate",
+    summary: "Adaptive BitRate",
     description:
       "Dynamically adjusting the quality of video stream based on network conditions",
     link: {
@@ -71,10 +71,10 @@ const unsortedDefinitions = [
     },
   },
   {
-    title: "MPEG-DASH",
+    title: "DASH",
     summary: "Dynamic Adaptive Streaming over HTTP",
     description:
-      "An adaptive bitrate streaming technique that enables high-quality streaming of media content over the internet",
+      "Standardised adaptive bitrate streaming protocol, developed by MPEG",
     link: {
       text: "Wikipedia",
       url: "https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP",
@@ -120,26 +120,6 @@ const unsortedDefinitions = [
     },
   },
   {
-    title: "X264",
-    summary: "",
-    description:
-      "A free software library and application for encoding video streams into the H.264/MPEG-4 AVC format",
-    link: {
-      text: "VideoLAN",
-      url: "https://www.videolan.org/developers/x264.html",
-    },
-  },
-  {
-    title: "X265",
-    summary: "",
-    description:
-      "A free software library and application for encoding video streams into the H.265/HEVC format",
-    link: {
-      text: "VideoLAN",
-      url: "https://www.videolan.org/developers/x265.html",
-    },
-  },
-  {
     title: "AV1",
     summary: "AOMedia Video 1",
     description:
@@ -149,24 +129,161 @@ const unsortedDefinitions = [
       url: "https://aomedia.org/av1/",
     },
   },
-  // {
-  //   title: "VP8",
-  //   summary: "",
-  //   description: "",
-  //   link: {
-  //     text: "Google",
-  //     url: "https://www.webmproject.org/vp8/",
-  //   },
-  // },
-  // {
-  //   title: "VP9",
-  //   summary: "",
-  //   description: "",
-  //   link: {
-  //     text: "Google",
-  //     url: "https://www.webmproject.org/vp9/",
-  //   },
-  // },
+  {
+    title: "MSE",
+    summary: "Media Source Extensions",
+    description:
+      "A W3C specification that extends HTML5 video and audio elements to allow JavaScript to generate media streams for playback",
+    link: {
+      text: "W3C",
+      url: "https://www.w3.org/TR/media-source/",
+    },
+  },
+  {
+    title: "EME",
+    summary: "Encrypted Media Extensions",
+    description:
+      "A W3C specification that provides APIs to control playback of encrypted content",
+    link: {
+      text: "W3C",
+      url: "https://www.w3.org/TR/encrypted-media/",
+    },
+  },
+  {
+    title: "CENC",
+    summary: "Common ENCryption",
+    description:
+      "A Common Encryption protection scheme for encrypting media content, allowing it to be played back on different devices using EME",
+    link: {
+      text: "W3C",
+      url: "https://www.w3.org/TR/encrypted-media/#cenc",
+    },
+  },
+  {
+    title: "Codec",
+    summary: "enCOder & DECoder",
+    description:
+      "Hardware or software component that encodes (to reduce size) and decodes audio or/and video data stream.",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Codec",
+    },
+  },
+  {
+    title: "Ghosting",
+    summary: "",
+    description:
+      "A visual artifact that occurs when a moving object leaves a trail or shadow behind it, often due to the video processing",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Ghosting_(television)",
+    },
+  },
+  {
+    title: "Glass-to-Glass Latency",
+    summary: "",
+    description:
+      "The time it takes for a video signal to travel from the source (camera) to the display (TV or monitor), including all processing and transmission delays",
+    link: {
+      text: "Amazon",
+      url: "https://aws.amazon.com/media/tech/video-latency-in-live-streaming/",
+    },
+  },
+  {
+    title: "WGT",
+    summary: "",
+    description:
+      "A package format for web applications that can be installed and run on Samsung TVs",
+    link: {
+      text: "Samsung",
+      url: "https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-simulator.html",
+    },
+  },
+  {
+    title: "IPK",
+    summary: "",
+    description:
+      "A package format for web applications that can be installed and run on LG TVs",
+    link: {
+      text: "LG",
+      url: "https://webostv.developer.lge.com/develop/tools/ide-useful-tips#exporting-ipk",
+    },
+  },
+  {
+    title: "Linear channel",
+    summary: "",
+    description:
+      "A traditional TV channel that broadcasts content in a scheduled manner, similar to how cable or satellite TV works",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Broadcast_programming",
+    },
+  },
+  {
+    title: "LRD",
+    summary: "Living Room Device",
+    description:
+      "A device that is typically used in a living room setting, such as a Smart TV, set-top box, game consoles, etc.",
+    link: {
+      text: "YouTube",
+      url: "https://developers.google.com/youtube/devices/living-room#:~:text=in%20this%20document.-,Living%20Room%20Devices,and%20Set%2DTop%2DBoxes.",
+    },
+  },
+  {
+    title: "OTT",
+    summary: "Over-The-Top",
+    description:
+      "Streaming services that deliver content directly to viewers over the internet, bypassing traditional cable or satellite TV",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Over-the-top_media_service",
+    },
+  },
+  {
+    title: "MSS",
+    summary: "Microsoft Smooth Streaming",
+    description: "Microsoft proprietary adaptive streaming protocol",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming_(MSS)",
+    },
+  },
+  {
+    title: "VoD",
+    summary: "Video on Demand",
+    description:
+      "Usually referred to a type of content, with defined start and end, that can be watched by a user whenever they choose, rather than at a scheduled broadcast time",
+    link: {
+      text: "Wikipedia",
+      url: "https://en.wikipedia.org/wiki/Video_on_demand",
+    },
+  },
+  // TODO: catch-up content
+  // TODO: CDM, as Content Decryption Module
+  // TODO: Rebuffering - https://www.mux.com/blog/the-four-elements-of-video-performance
+  // TODO: Fidelity
+  // TODO: QoE, as Quality of Experience
+  // TODO: shaka-player
+  // TODO: hls.js
+  // TODO: EWMA
+  // TODO: PSSH
+  // TODO: DVR Window
+  // TODO: Key Session
+  // TODO: CMAF
+  // TODO: NTSC
+  // TODO: GOP
+  // TODO: SCTE Markers
+  // TODO: WebKit
+  // TODO: Chromium
+  // TODO: Persistent License
+  // TODO: AVPlay
+  // TODO: Luna
+  // TODO: WebMAF
+  // TODO: Live Edge
+  // TODO: Closed Captions
+  // TODO: CIRR
+  // TODO: HasPlayer - https://github.com/Orange-OpenSource/hasplayer.js/
+  // TODO: ExoPlayer - https://github.com/google/ExoPlayer
 ] satisfies IDefinition[];
 
 export const definitions = unsortedDefinitions.sort((a, b) => {
