@@ -6,9 +6,7 @@ import { PostPreview } from "../../molecules/PostPreview";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
-import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
-import { sanitiseHtml } from "../../../functions/sanitiseHtml";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { getSearchStaticProps } from "../../../static/getSearchStaticProps";
 import { useState } from "react";
@@ -126,10 +124,6 @@ export const Search = ({
             ))}
           </tbody>
         </table>
-
-        <aside className={styles.aside}>
-          <SubscriptionForm apiKey={apiKey} formId={formId} />
-        </aside>
       </main>
 
       <Footer />

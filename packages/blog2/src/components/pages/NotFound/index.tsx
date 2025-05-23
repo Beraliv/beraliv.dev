@@ -9,7 +9,6 @@ import { Bio } from "../../molecules/Bio";
 import { Footer } from "../../molecules/Footer";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
-import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 
 const NOT_FOUND_TITLE = "Not Found" as SanitisedString;
@@ -46,10 +45,6 @@ export const NotFound = ({
             <NextLink href="/">Return Home</NextLink>
           </div>
         </div>
-
-        <aside className={styles.aside}>
-          <SubscriptionForm apiKey={apiKey} formId={formId} />
-        </aside>
       </main>
 
       <Footer />

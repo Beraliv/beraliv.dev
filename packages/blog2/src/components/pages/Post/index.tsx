@@ -10,7 +10,6 @@ import styles from "./index.module.css";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import { BLOG_META_INFO } from "../../../constants/BLOG_META_INFO";
-import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import { ArticleMainProgress } from "../../atoms/ArticleMainProgress";
 import { useEffect } from "react";
 import type { MarkRequired } from "ts-essentials";
@@ -92,9 +91,6 @@ export const Post = ({
             <Bio />
           </footer>
         </article>
-        <aside>
-          <SubscriptionForm apiKey={apiKey} formId={formId} />
-        </aside>
       </main>
 
       <Footer />

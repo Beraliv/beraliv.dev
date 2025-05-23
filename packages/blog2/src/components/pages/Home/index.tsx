@@ -8,7 +8,6 @@ import { PostPreview } from "../../molecules/PostPreview";
 import { Bio } from "../../molecules/Bio";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
-import { SubscriptionForm } from "../../molecules/SubscriptionForm";
 import styles from "./index.module.css";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
@@ -60,10 +59,6 @@ export const Home = ({
       <div className={styles.goToSearch}>
         <NextLink href="/search">🔎 See all articles</NextLink>
       </div>
-
-      <aside className={styles.aside}>
-        <SubscriptionForm apiKey={apiKey} formId={formId} />
-      </aside>
 
       <Footer />
     </div>

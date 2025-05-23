@@ -20,8 +20,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Technologies
 
-- [Firebase](https://firebase.google.com/?gclsrc=aw.ds&gclid=Cj0KCQiA_JWOBhDRARIsANymNOZHP8ZGgGZaai_oWZ_L9ajH6IqX4FcM4Hfbi7094cCGAY2M057LbWAaAkO8EALw_wcB) - storing data
-- [Formik](https://formik.org/) - building forms
 - [MDX](https://mdxjs.com/) - write articles
   - [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) - transform MDX to HTML
   - [gray-matter](https://github.com/jonschlinkert/gray-matter) - extract metadata from MDX
