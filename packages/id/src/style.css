@@ -191,26 +191,46 @@ article .publisher {
   display: grid;
 }
 
-/* projects */
+/* projects & snippets */
 
-article.project {
+article.project,
+article.snippet {
   display: grid;
   padding: 0.5rem 0;
 }
 
-article.project > .row {
+article.project > .row,
+article.snippet > .row {
   display: grid;
   gap: 1rem;
   padding: 0.5rem 0;
   grid-template-columns: 1fr 1fr;
 }
 
-article.project > .row > time {
+article.project > .row > time,
+article.snippet > .row > time {
   margin-left: auto;
   white-space: nowrap;
 }
 
-/* */
+/* enum converter */
+
+.enum-input,
+.enum-output {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-family: monospace;
+  background-color: #1a1a1a;
+  resize: vertical;
+  border-width: 0;
+}
+
+.convert-enum-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -296,5 +316,10 @@ h1 {
 
   .dazn svg {
     fill: #000;
+  }
+
+  .enum-input,
+  .enum-output {
+    background-color: #f2f2f2;
   }
 }

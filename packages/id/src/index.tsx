@@ -7,6 +7,11 @@ const routes = {
   "/blog": async () => (await import("./components/pages/Blog")).Blog,
   "/projects": async () =>
     (await import("./components/pages/Projects")).Projects,
+  "/snippets": async () =>
+    (await import("./components/pages/Snippets")).Snippets,
+  "/snippets/enum-converter": async () =>
+    (await import("./components/pages/EnumConverterSnippet"))
+      .EnumConverterSnippet,
 };
 
 type Route = keyof typeof routes;

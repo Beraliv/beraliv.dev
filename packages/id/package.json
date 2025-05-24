@@ -11,21 +11,23 @@
     "type": "tsc",
     "upload-images-to-cloudinary": "node ./scripts/uploadImagesToCloudinary.js"
   },
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
   "devDependencies": {
     "@size-limit/file": "^11.1.6",
     "cloudinary": "^2.5.1",
     "size-limit": "^11.1.6",
-    "typescript": "^5.5.3",
     "vite": "^5.4.8",
     "vite-tsconfig-paths": "^5.0.1"
   },
   "size-limit": [
     {
-      "limit": "6 kB",
+      "limit": "5.8 kB",
       "path": "dist/assets/About-*.js"
     },
     {
-      "limit": "1 kB",
+      "limit": "1.1 kB",
       "path": "dist/assets/Blog-*.js"
     },
     {
@@ -33,15 +35,27 @@
       "path": "dist/assets/Header-*.js"
     },
     {
-      "limit": "1.5 kB",
+      "limit": "1 kB",
+      "path": "dist/assets/Projects-*.js"
+    },
+    {
+      "limit": "1 kB",
+      "path": "dist/assets/Snippets-*.js"
+    },
+    {
+      "limit": "900 kB",
+      "path": "dist/assets/EnumConverterSnippet-*.js"
+    },
+    {
+      "limit": "1.7 kB",
       "path": "dist/assets/index-*.js"
     },
     {
-      "limit": "1 kB",
+      "limit": "1.1 kB",
       "path": "dist/assets/index-*.css"
     },
     {
-      "limit": "1 kB",
+      "limit": "400 B",
       "path": "dist/assets/NotFound-*.js"
     }
   ]
