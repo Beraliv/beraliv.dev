@@ -48,12 +48,6 @@ export const Header = ({ title, path }: HeaderPropsType) => {
       </NextLink>
 
       {season === "winter" && <Snow number={50} />}
-      {/* TODO: add grass for suitable seasons when winter snowdrift is ready */}
-      {/* {season !== "winter" && <Grass height={30} />} */}
-      {/* TODO: add tree when winter snowdrift is ready */}
-      {/* {season && (
-        <FractalTree width={100} height={100} config={TREE_CONFIG[season]} />
-      )} */}
 
       <DarkModeToggle />
     </header>
