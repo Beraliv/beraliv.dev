@@ -36,7 +36,9 @@ const MainContent = () => (
     <br />
 
     <div className="main">
-      <h2>My first steps into programming</h2>
+      <h2 id="my-first-steps-into-programming">
+        My first steps into programming
+      </h2>
       <p>
         <DropCap>B</DropCap>ack in school, programming was mostly a mystery to
         me. Our informatics classes didn't touch on programming languages, but
@@ -58,7 +60,7 @@ const MainContent = () => (
         still hadn't figured it out on a specific direction.
       </p>
 
-      <h2>My career direction</h2>
+      <h2 id="my-career-direction">My career direction</h2>
       <p>
         <DropCap>S</DropCap>oon after completing my bachelor's degree, I stepped
         into the world of front-end development at EPAM Systems. From day one, I
@@ -97,7 +99,7 @@ const MainContent = () => (
         />
       </p>
 
-      <h2>Personal insights</h2>
+      <h2 id="personal-insights">Personal insights</h2>
       <p>
         <DropCap>I</DropCap> can't picture my life without my four-legged
         companion, Sheldon, a miniature Schnauzer - undoubtedly my best 'pet
@@ -125,7 +127,9 @@ const MainContent = () => (
         pressure.
       </p>
 
-      <h2>Professional work and experience</h2>
+      <h2 id="professional-work-and-experience">
+        Professional work and experience
+      </h2>
       <p>
         <DropCap>I</DropCap>'ve spent over{" "}
         {yearsSince({
@@ -143,7 +147,7 @@ const MainContent = () => (
         Occasionally, I also dive into HTML and CSS.
       </p>
 
-      <h2 className="dazn">
+      <h2 className="dazn" id="dazn">
         <DaznIcon /> DAZN
       </h2>
       <p>
@@ -203,7 +207,7 @@ const MainContent = () => (
         various devices.
       </p>
 
-      <h2 className="joyn">
+      <h2 className="joyn" id="joyn">
         <JoynIcon />
       </h2>
       <p>
@@ -242,7 +246,7 @@ const MainContent = () => (
         />
       </p>
 
-      <h2>
+      <h2 id="yandex">
         <RedText>Y</RedText>andex
       </h2>
       <p>
