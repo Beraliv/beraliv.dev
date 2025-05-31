@@ -12,7 +12,7 @@ export const Bio = () => {
       <div className={styles.avatar}>
         <NextImage
           className={styles.avatar}
-          src="/profile.jpg"
+          src="/profile_v2.png"
           width={50}
           height={50}
           alt={`${author} profile image`}

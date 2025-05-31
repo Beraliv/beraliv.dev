@@ -17,10 +17,10 @@ const MainContent = () => (
         </div>
         <div>
           <Image
-            name="profile.png"
-            alt="The photo where I stand in front of the camera with Sheldon, my dog, on my hands"
+            name="profile_v2.png"
+            alt="The portrait photo of me"
             className="meImage"
-            width={200}
+            width={250}
             mediaQueries={false}
           />
         </div>

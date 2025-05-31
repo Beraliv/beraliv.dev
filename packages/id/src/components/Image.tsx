@@ -24,7 +24,7 @@ export const Image = ({
   mediaQueries = true,
 }: ImageProps) => {
   return (
-    <picture>
+    <picture className="meImageContainer">
       {mediaQueries && (
         <fragment>
           {MEDIA_QUERIES.map(({ minWidth, width }) => (
