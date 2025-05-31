@@ -1,4 +1,3 @@
-import { yearsSince } from "../../utils/yearsSince";
 import { DropCap } from "../DropCap";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
@@ -28,8 +27,8 @@ const MainContent = () => (
       </div>
       <p>
         Join me on a quick story about my software engineer path, from learning
-        Pascal at school to upscaling four businesses in video streaming
-        industry in three countries.
+        Pascal at school to upscaling four businesses in video streaming and
+        finance industries in three countries.
       </p>
     </header>
 
@@ -41,10 +40,10 @@ const MainContent = () => (
       </h2>
       <p>
         <DropCap>B</DropCap>ack in school, programming was mostly a mystery to
-        me. Our informatics classes didn't touch on programming languages, but
-        my two classmates, Mikhail and Vsevolod, and I decided to take matters
-        into our own hands and learn Pascal. We started from scratch, and while
-        I wasn't writing complex programs yet, the experience was both
+        me. Our informatics classes didn't touch on programming languages. In
+        2011, my two classmates, Mikhail and Vsevolod, and I decided to take
+        matters into our own hands and learn Pascal. We started from scratch,
+        and while I wasn't writing complex programs yet, the experience was both
         challenging and rewarding. This early self-driven learning laid the
         foundation for my journey, since I could relocate to St. Petersburg to
         study Computer Science.
@@ -70,17 +69,20 @@ const MainContent = () => (
         applications.
       </p>
       <p>
-        After completing my master's degree, I relocated to Moscow to begin my
-        journey at Yandex, where I was introduced to the fascinating world of
-        video streaming and advertising. While my work with the video and
-        advertising teams was focused solely on web browsers, which offered just
-        a glimpse of the broader landscape, I quickly recognised the complexity,
-        the range of challenges the industry faces, and the immense potential
-        for growth. It was clear to me that this field had the depth and
-        opportunity to become a long-term career path.
+        After completing my master's degree, I moved to Moscow to join Yandex,
+        where I was introduced to the fascinating world of video streaming and
+        advertising. My work was focused primarily on web browsers, offering
+        just a glimpse into the broader streaming ecosystem. Still, I quickly
+        recognised the complexity of the domain, the unique technical challenges
+        it presented, and its potential as a long-term career path.
       </p>
       <p>
-        After leaving Yandex, I relocated twice - first to Germany in 2020 and
+        Although I shifted my focus to the finance industry in 2025, I continue
+        contributing to Open Source in the video streaming space, and sharing
+        knowledge I hope will remain valuable to others.
+      </p>
+      <p>
+        Since leaving Yandex, I relocated twice – first to Germany in 2020, and
         then to the UK in 2022. These moves exposed me to different cultures,
         making me adaptable and effective in global teams with diverse
         backgrounds. I've become comfortable working in various setups, whether
@@ -89,9 +91,9 @@ const MainContent = () => (
         way.
       </p>
       <p>
-        In 2025, I was awarded the UK Global Talent visa for the Exceptional
-        Talent route, reflecting my long-term commitment to contributing to the
-        UK's tech industry.{" "}
+        In 2025, I was awarded the UK Global Talent visa under the Exceptional
+        Talent route, a recognition of my contributions and a reflection of my
+        long-term commitment to the UK's tech industry.{" "}
         <Link
           href="https://blog.beraliv.dev/2025-04-23-how-i-earned-uk-global-talent-visa"
           text="How I earned the UK Global Talent visa"
@@ -131,34 +133,52 @@ const MainContent = () => (
         Professional work and experience
       </h2>
       <p>
-        <DropCap>I</DropCap>'ve spent over{" "}
-        {yearsSince({
-          year: 2018,
-          month: 7,
-          day: 28,
-        })}{" "}
-        years in the video streaming industry across 3 countries, building
-        cloud-based products and designing reliable HTML5 video players for both
-        Web and Connected devices.
+        <DropCap>B</DropCap>etween 2018 and 2025, I've worked in the video
+        streaming industry across 3 countries, building cloud-based products and
+        designing reliable HTML5 video players for both Web and Connected
+        devices. In 2025, I transitioned to the finance industry, where I
+        continue to apply my expertise in building robust and scalable web
+        applications.
       </p>
       <p>
-        I primarily work with TypeScript, JavaScript, Web APIs (such as Media
-        Source Extensions, or MSE, and Encrypted Media Extensions, or EME).
-        Occasionally, I also dive into HTML and CSS.
+        I primarily work with TypeScript, JavaScript, Web APIs. Occasionally, I
+        also dive into HTML and CSS.
+      </p>
+
+      <h2 className="bloomberg" id="bloomberg">
+        Bloomberg
+      </h2>
+      <p>
+        <DropCap>C</DropCap>urrently, I work at{" "}
+        <Link
+          href="https://www.bloomberg.com/company/"
+          text="Bloomberg"
+          external
+        />{" "}
+        as a Senior Fullstack Engineer, where I focus on building{" "}
+        <Link
+          href="https://www.bloomberg.com/professional/products/bloomberg-terminal/collaboration-tools/instant-bloomberg"
+          text="Instant
+        Bloomberg"
+          external
+        />
+        , a real-time messaging platform that connects professionals in the
+        financial industry.
       </p>
 
       <h2 className="dazn" id="dazn">
         <DaznIcon /> DAZN
       </h2>
       <p>
-        <DropCap>C</DropCap>urrently, I work at{" "}
+        <DropCap>B</DropCap>etween 2022 and 2025, I worked at{" "}
         <Link
           href="https://help.dazn.com/hc/en-gb/articles/16173719210909-About-DAZN"
           text="DAZN"
           external
         />{" "}
-        as a Senior Software Engineer. I am a part of Player Core team and work
-        on improving user experience of the video players across HTML5 devices.
+        as a Senior Software Engineer. I was a part of Player Core team and
+        worked on improving user experience of the video players across HTML5
+        devices.
       </p>
       <p>
         I began my journey on the Player Core team, working on an in-house
@@ -169,9 +189,10 @@ const MainContent = () => (
       </p>
       <p>
         After my first year at DAZN, I transitioned to focusing on Mercury, the
-        in-house HTML5 player. I delved deeply into MSE while onboarding various
-        platforms. One of R&D projects I worked on had valuable, which I later
-        shared with my team and the broader industry during{" "}
+        in-house HTML5 player. I delved deeply into Media Source Extensions
+        while onboarding various platforms. One of R&D projects I worked on had
+        valuable, which I later shared with my team and the broader industry
+        during{" "}
         <Link
           href="https://blog.beraliv.dev/2023-12-21-story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes"
           text="a presentation at London Video Tech"
@@ -211,7 +232,7 @@ const MainContent = () => (
         <JoynIcon />
       </h2>
       <p>
-        <DropCap>P</DropCap>reviously, I worked at{" "}
+        <DropCap>B</DropCap>etween 2020 and 2022, I worked at{" "}
         <Link href="https://www.joyn.de/ueber-joyn" text="Joyn" external /> as
         Senior Software Engineer. I played a key role in bridging the gap
         between the Player and Connected Devices teams.
@@ -267,14 +288,25 @@ const MainContent = () => (
       <p>
         At <RedText>Y</RedText>andex, I discovered what it truly means to be an
         engineer: I took the responsibility for the entire process, from system
-        design to deployment and monitoring, focussed on the bigger picture
+        design to deployment and monitoring, focused on the bigger picture
         rather than just individual product features and prioritised long-term
         quality and maintainability over short-term outcomes. During this time,
         I also learned the fundamentals of building reliable video and
         advertising players on Web. I became familiar with industry libraries
         (such as shaka-player, hls.js and dash.js), gaining a solid
-        understanding of video standards (like DASH and HLS) as well as
-        advertising specifications (such as VMAP, VAST and VPAID).
+        understanding of video standards (like{" "}
+        <Link
+          href="https://video-glossary.beraliv.com/?query=DASH"
+          text="DASH"
+          external
+        />{" "}
+        and{" "}
+        <Link
+          href="https://video-glossary.beraliv.com/?query=HLS"
+          text="HLS"
+          external
+        />
+        ) as well as advertising specifications (such as VMAP, VAST and VPAID).
       </p>
       <p>
         I was very lucky to work on multiple projects, including enhancing the
@@ -317,20 +349,20 @@ const MainContent = () => (
         insights with my colleagues. I highly recommend exploring type
         challenges yourself!
       </p>
+
+      <br />
+
+      <p>
+        Feel free to connect with me on{" "}
+        <Link
+          href="https://www.linkedin.com/in/beraliv/"
+          text="LinkedIn"
+          external
+        />{" "}
+        to explore my work experience further, or check out{" "}
+        <Link href="/blog" text="my blog" /> to see what I've been working on.
+      </p>
     </div>
-
-    <br />
-
-    <p>
-      Feel free to connect with me on{" "}
-      <Link
-        href="https://www.linkedin.com/in/beraliv/"
-        text="LinkedIn"
-        external
-      />{" "}
-      to explore my work experience further, or check out{" "}
-      <Link href="/blog" text="my blog" /> to see what I've been working on.
-    </p>
   </main>
 );
 
