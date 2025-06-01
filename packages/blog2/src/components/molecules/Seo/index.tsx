@@ -30,7 +30,7 @@ export const Seo = ({
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" href="/profile.jpg" />
+    <link rel="icon" href="/profile_v2.png" />
     <meta name="image" content={image.url} />
     <meta name="keywords" content={classNames(...keywords)} />
     <link rel="canonical" href={path} />

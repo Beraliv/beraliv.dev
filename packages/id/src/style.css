@@ -142,6 +142,10 @@ figcaption {
   gap: 0.25rem;
 }
 
+.meImageContainer {
+  display: grid;
+}
+
 .meImage {
   height: 6rem;
   border-radius: 0.5rem;

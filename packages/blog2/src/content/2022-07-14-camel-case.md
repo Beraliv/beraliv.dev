@@ -8,7 +8,7 @@ keywords:
   - typescript
   - challenges
   - camelcase
-image: /camel-case/image2.png
+image: /camel-case/image_v2.png
 ---
 
 ```typescript title="Example of CamelCase use"

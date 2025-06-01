@@ -715,15 +715,7 @@
     "width": 2880,
     "height": 1800
   },
-  "/camel-case/image2.png": {
-    "width": 1600,
-    "height": 900
-  },
   "/chainable-options/image.png": {
-    "width": 1600,
-    "height": 900
-  },
-  "/with-or-without-enums/image.png": {
     "width": 1600,
     "height": 900
   },
@@ -792,6 +784,18 @@
     "height": 1066
   },
   "/how-i-earned-uk-global-talent-visa/image.png": {
+    "width": 1600,
+    "height": 900
+  },
+  "/with-or-without-enums/image_v2.png": {
+    "width": 1600,
+    "height": 900
+  },
+  "/how-i-earned-uk-global-talent-visa/image_v2.png": {
+    "width": 1600,
+    "height": 900
+  },
+  "/camel-case/image_v2.png": {
     "width": 1600,
     "height": 900
   }

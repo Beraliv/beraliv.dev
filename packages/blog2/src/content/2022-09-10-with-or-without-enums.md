@@ -7,7 +7,7 @@ labels:
 keywords:
   - typescript
   - enums
-image: /with-or-without-enums/image.png
+image: /with-or-without-enums/image_v2.png
 featured: true
 ---
 

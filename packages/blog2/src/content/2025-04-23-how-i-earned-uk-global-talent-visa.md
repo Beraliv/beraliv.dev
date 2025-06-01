@@ -8,7 +8,7 @@ keywords:
   - personal achievements
   - global talent visa
   - exceptional talent
-image: /how-i-earned-uk-global-talent-visa/image.png
+image: /how-i-earned-uk-global-talent-visa/image_v2.png
 featured: true
 ---
 

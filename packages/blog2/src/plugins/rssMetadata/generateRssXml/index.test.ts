@@ -36,7 +36,7 @@ describe(generateRssXml.name, () => {
         <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript 🦺.]]></description>
         <link>https://blog.beraliv.dev/</link>
         <image>
-            <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner.png</url>
+            <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner_v2.png</url>
             <title>Alexey Berezin blog</title>
             <link>https://blog.beraliv.dev/</link>
         </image>
@@ -66,7 +66,7 @@ describe(generateRssXml.name, () => {
         <description><![CDATA[Hi I'm Alexey Berezin, who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript 🦺.]]></description>
         <link>https://blog.beraliv.dev/</link>
         <image>
-            <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner.png</url>
+            <url>https://res.cloudinary.com/beraliv/image/upload/v1633444777/blog_beraliv_dev/banner_v2.png</url>
             <title>Alexey Berezin blog</title>
             <link>https://blog.beraliv.dev/</link>
         </image>
