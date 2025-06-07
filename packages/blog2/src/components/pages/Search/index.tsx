@@ -25,7 +25,8 @@ export const Search = ({
   formId,
   posts,
 }: InferGetStaticPropsType<typeof getSearchStaticProps>) => {
-  const { author, keywords, title, url } = BLOG_META_INFO;
+  const { author, bio, keywords, title, url } = BLOG_META_INFO;
+  const { topTitle, position, text: bioText } = bio;
   const searchLabel = useLabel();
 
   const [filteredPosts, setFilteredPosts] = useState<typeof posts>([]);
@@ -88,32 +89,40 @@ export const Search = ({
       <Header title={title} />
 
       <main className={styles.main}>
-        <Bio />
+        <Bio
+          isTitleBig
+          title={topTitle}
+          subtitle={`${title}, ${position}`}
+          text={bioText}
+        />
 
-        <div className={styles.grid}>
-          {KNOWN_LABELS.map((label) => (
-            <Label
-              key={label}
-              selected={
-                searchLabel.state === "loaded" && searchLabel.value === label
-              }
-              title={label}
+        <div className={styles.searchContainer}>
+          <div>
+            {KNOWN_LABELS.map((label) => (
+              <Label
+                key={label}
+                selected={
+                  searchLabel.state === "loaded" && searchLabel.value === label
+                }
+                title={label}
+              />
+            ))}
+          </div>
+
+          <div className={styles.search}>
+            <input
+              aria-label="search"
+              className={styles.searchBar}
+              type="text"
+              placeholder="What article are you looking for?"
+              onInput={handleInputChange}
             />
-          ))}
-        </div>
+          </div>
 
-        <div className={styles.search}>
-          <input
-            aria-label="search"
-            className={styles.searchBar}
-            type="text"
-            placeholder="What article are you looking for?"
-            onInput={handleInputChange}
-          />
-        </div>
-        <div className={styles.searchElements}>
-          {filteredPosts.length} article{filteredPosts.length === 1 ? "" : "s"}{" "}
-          found
+          <div className={styles.searchElements}>
+            {filteredPosts.length} article
+            {filteredPosts.length === 1 ? "" : "s"} found
+          </div>
         </div>
 
         <table className={styles.table}>

@@ -3,6 +3,9 @@
   grid-template-rows: auto 1fr auto;
   row-gap: 3rem;
   min-height: 92vh;
+
+  /* If the content cannot fill the whole page, keep it aligned to start to avoid stretching */
+  align-items: start;
 }
 
 /* 54rem is 50rem width + 2rem left padding + 2rem right padding */

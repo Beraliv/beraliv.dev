@@ -18,7 +18,8 @@ export const NotFound = ({
   apiKey,
   formId,
 }: InferGetStaticPropsType<typeof getNotFoundStaticProps>) => {
-  const { author, keywords, title, url } = BLOG_META_INFO;
+  const { author, bio, keywords, title, url } = BLOG_META_INFO;
+  const { topTitle, position, text: bioText } = bio;
 
   useEffect(() => {
     plausible("404", { props: { path: document.location.pathname } });
@@ -37,10 +38,21 @@ export const NotFound = ({
       <Header title={title} />
 
       <main className={styles.main}>
-        <Bio />
+        <Bio
+          isTitleBig
+          title={topTitle}
+          subtitle={`${title}, ${position}`}
+          text={bioText}
+        />
 
-        <div className={styles.notFound}>
-          <h1>404: Cannot find what you look for 😢</h1>
+        <div>
+          <h2>404: The content cannot be found</h2>
+          <p>
+            The page, that you are looking for, did not exist, or the content
+            has been removed. I suggest you to visit{" "}
+            <NextLink href="/search">Search</NextLink> in case the content has
+            been moved or renamed.
+          </p>
         </div>
       </main>
 

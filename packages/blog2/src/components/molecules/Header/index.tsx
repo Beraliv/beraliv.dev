@@ -22,7 +22,9 @@ export const Header = ({ title }: HeaderPropsType) => {
       <nav>
         <ul className={styles.nav}>
           <li>
-            <Link href="https://beraliv.com/" text="Learn more about me" />
+            {/* For testing purposes only */}
+            {/* <Link href="http://localhost:3001/" text="Portfolio" /> */}
+            <Link href="https://beraliv.com/" text="Portfolio" />
           </li>
         </ul>
       </nav>

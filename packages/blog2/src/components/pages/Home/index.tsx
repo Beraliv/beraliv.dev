@@ -21,7 +21,8 @@ export const Home = ({
   featuredPosts,
   mostRecent10Posts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {
-  const { author, keywords, title, url } = BLOG_META_INFO;
+  const { author, bio, keywords, title, url } = BLOG_META_INFO;
+  const { topTitle, position, text: bioText } = bio;
 
   return (
     <Layout>
@@ -36,9 +37,14 @@ export const Home = ({
       <Header title={title} />
 
       <main>
-        <Bio />
+        <Bio
+          isTitleBig
+          title={topTitle}
+          subtitle={`${title}, ${position}`}
+          text={bioText}
+        />
 
-        <h3>⭐️ Featured</h3>
+        <h2>⭐️ Featured</h2>
         <table className={styles.table}>
           <tbody>
             {featuredPosts.map((post) => (
@@ -47,7 +53,7 @@ export const Home = ({
           </tbody>
         </table>
 
-        <h3>🕞 Most recent 10 posts</h3>
+        <h2>🕞 Most recent 10 posts</h2>
         <table className={styles.table}>
           <tbody>
             {mostRecent10Posts.map((post) => (

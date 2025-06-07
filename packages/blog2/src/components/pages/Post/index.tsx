@@ -47,7 +47,8 @@ export const Post = ({
   image,
   post,
 }: PostPropsType) => {
-  const { title, url: baseUrl } = BLOG_META_INFO;
+  const { title, bio, url: baseUrl } = BLOG_META_INFO;
+  const { position, thankyou } = bio;
 
   useEffect(() => {
     post.labels.forEach((label) => {
@@ -88,7 +89,12 @@ export const Post = ({
             )}
           </main>
           <footer className={styles.articleFooter}>
-            <Bio />
+            <Bio
+              isTitleBig={false}
+              title={title}
+              subtitle={position}
+              text={thankyou}
+            />
             <Comments />
           </footer>
         </article>

@@ -8,7 +8,9 @@ export const Header = () => (
     <nav>
       <ul className="nav">
         <li>
-          <Link href="/blog" text="Blog" />
+          {/* For testing purposes only */}
+          {/* <Link href="http://localhost:3000/" text="Blog" external /> */}
+          <Link href="http://blog.beraliv.dev/" text="Blog" external />
         </li>
         <li>
           <Link href="/projects" text="Projects" />

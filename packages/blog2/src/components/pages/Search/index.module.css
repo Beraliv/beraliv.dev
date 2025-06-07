@@ -1,9 +1,13 @@
 .main {
-  flex: 1;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.searchContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .search {
@@ -32,7 +36,6 @@
 
 .searchElements {
   font-style: italic;
-  padding: 1rem 2rem;
 }
 
 @media (max-width: 66.5rem) {
