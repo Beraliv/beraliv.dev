@@ -10,7 +10,8 @@ export const Header = () => (
         <li>
           {/* For testing purposes only */}
           {/* <Link href="http://localhost:3000/" text="Blog" external /> */}
-          <Link href="http://blog.beraliv.dev/" text="Blog" external />
+          {/* <Link href="http://blog.beraliv.dev/" text="Blog" external /> */}
+          <Link href="/blog" text="Blog" />
         </li>
         <li>
           <Link href="/projects" text="Projects" />
