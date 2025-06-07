@@ -25,4 +25,21 @@ const router = async () => {
   render(<Page />, app);
 };
 
+const handleShortcuts = (event: KeyboardEvent) => {
+  const isControlAndShiftKeyPressed =
+    (event.metaKey || event.ctrlKey) && event.shiftKey;
+
+  if (event.key === "s" && isControlAndShiftKeyPressed) {
+    event.preventDefault();
+    window.location.href = "/snippets";
+  } else if (event.key === "b" && isControlAndShiftKeyPressed) {
+    event.preventDefault();
+    window.location.href = "/blog";
+  } else if (event.key === "p" && isControlAndShiftKeyPressed) {
+    event.preventDefault();
+    window.location.href = "/projects";
+  }
+};
+
 window.addEventListener("load", router);
+window.addEventListener("keydown", handleShortcuts);
