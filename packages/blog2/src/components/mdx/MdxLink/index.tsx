@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./index.module.css";
+import { Link } from "../../atoms/Link";
 
 interface MdxLinkPropsType {
   href: string;
@@ -12,19 +13,10 @@ export const MdxLink: FC<PropsWithChildren<MdxLinkPropsType>> = ({
   if (href.startsWith("/") || href.startsWith("#")) {
     return (
       <a className={styles.link} href={href}>
-        {children}
+        <span className={styles.underscore}>{children}</span>
       </a>
     );
   }
 
-  return (
-    <a
-      className={styles.link}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-    </a>
-  );
+  return <Link href={href} text={children} underscore />;
 };

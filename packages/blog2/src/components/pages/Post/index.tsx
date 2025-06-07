@@ -15,11 +15,10 @@ import { useEffect } from "react";
 import type { MarkRequired } from "ts-essentials";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { Comments } from "../../atoms/Comments";
+import { Layout } from "../../molecules/Layout";
 
 export interface PostPropsType {
-  apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
-  formId: string;
   post: StrictOmit<
     StrictOmit<
       MarkRequired<
@@ -39,14 +38,9 @@ export interface PostPropsType {
   image: ImageType;
 }
 
-export const Post = ({
-  apiKey,
-  content,
-  formId,
-  image,
-  post,
-}: PostPropsType) => {
-  const { title, url: baseUrl } = BLOG_META_INFO;
+export const Post = ({ content, image, post }: PostPropsType) => {
+  const { title, bio, url: baseUrl } = BLOG_META_INFO;
+  const { position, thankyou } = bio;
 
   useEffect(() => {
     post.labels.forEach((label) => {
@@ -55,7 +49,7 @@ export const Post = ({
   }, [post.labels]);
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={post.description}
         image={image}
@@ -66,7 +60,7 @@ export const Post = ({
 
       <ArticleMainProgress />
 
-      <Header title={title} path="post" />
+      <Header title={title} />
 
       <main className={styles.main}>
         <article>
@@ -85,15 +79,20 @@ export const Post = ({
             {post.labels.map(
               (label) => label && <Label key={label} title={label} />
             )}
-            <Comments />
           </main>
           <footer className={styles.articleFooter}>
-            <Bio />
+            <Bio
+              isTitleBig={false}
+              title={title}
+              subtitle={position}
+              text={thankyou}
+            />
+            <Comments />
           </footer>
         </article>
       </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

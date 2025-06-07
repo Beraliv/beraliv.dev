@@ -1,35 +1,4 @@
-.container {
-  padding: 1rem 1.25rem;
-}
-
 .main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  max-width: 42rem;
-  margin: 0 auto;
-}
-
-.notFound {
-  margin: 3rem 0;
-}
-
-.toHome {
-  display: inline-block;
-
-  flex-grow: 1;
-
-  padding: 0.75rem 1rem;
-
-  height: 3rem;
-  background-color: var(--subscription-form-submit-button-background-color);
-  cursor: pointer;
-  border-radius: 0.5rem;
-}
-
-.toHome a {
-  color: var(--subscription-form-submit-button-color);
+  display: grid;
+  row-gap: 1rem;
 }

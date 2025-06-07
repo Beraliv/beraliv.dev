@@ -1,5 +1,4 @@
 import { getAllPosts } from "../functions/getAllPosts";
-import { validateConvertKitParameters } from "../validators/validateConvertKitParameters";
 import { validatePost } from "../validators/validatePost";
 
 export const getHomeStaticProps = async () => {
@@ -19,12 +18,8 @@ export const getHomeStaticProps = async () => {
 
   const mostRecent10Posts = posts.filter((post) => !post.featured).slice(0, 11);
 
-  const { apiKey, formId } = validateConvertKitParameters();
-
   return {
     props: {
-      apiKey,
-      formId,
       featuredPosts,
       mostRecent10Posts,
     },

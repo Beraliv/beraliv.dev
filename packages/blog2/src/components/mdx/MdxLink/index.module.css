@@ -1,9 +1,13 @@
+/* This file duplicates `packages/blog2/src/components/atoms/Link/index.module.css` */
 .link {
-  border-bottom: 2px solid var(--a-color);
-  transition: 0.1s border-bottom linear;
   word-wrap: break-word;
 }
 
-.link:hover {
+.underscore {
+  border-bottom: 2px solid var(--a-color);
+  transition: 0.1s border-bottom linear;
+}
+
+.link:hover .underscore {
   border-bottom: 4px solid var(--a-color);
 }

@@ -1,9 +1,3 @@
-.container {
-  margin: 0px auto;
-  max-width: 42rem;
-  padding: 1rem 1.25rem;
-}
-
 .headerMetadata {
   display: flex;
   justify-content: space-between;

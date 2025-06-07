@@ -16,15 +16,15 @@ import { useEffect } from "react";
 import { KNOWN_LABELS } from "../../../constants/KNOWN_LABELS";
 import { Label } from "../../atoms/Label";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
+import { Layout } from "../../molecules/Layout";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
 export const Search = ({
-  apiKey,
-  formId,
   posts,
 }: InferGetStaticPropsType<typeof getSearchStaticProps>) => {
-  const { author, keywords, title, url } = BLOG_META_INFO;
+  const { author, bio, keywords, title, url } = BLOG_META_INFO;
+  const { topTitle, position, text: bioText } = bio;
   const searchLabel = useLabel();
 
   const [filteredPosts, setFilteredPosts] = useState<typeof posts>([]);
@@ -75,7 +75,7 @@ export const Search = ({
   );
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={`${author} blog`}
         image={PROMO_IMAGE}
@@ -84,37 +84,43 @@ export const Search = ({
         title={SEARCH_TITLE}
       />
 
-      <Header title={title} path="search" />
+      <Header title={title} />
 
       <main className={styles.main}>
-        <div className={styles.bio}>
-          <Bio />
-        </div>
+        <Bio
+          isTitleBig
+          title={topTitle}
+          subtitle={`${title}, ${position}`}
+          text={bioText}
+        />
 
-        <div className={styles.grid}>
-          {KNOWN_LABELS.map((label) => (
-            <Label
-              key={label}
-              selected={
-                searchLabel.state === "loaded" && searchLabel.value === label
-              }
-              title={label}
+        <div className={styles.searchContainer}>
+          <div>
+            {KNOWN_LABELS.map((label) => (
+              <Label
+                key={label}
+                selected={
+                  searchLabel.state === "loaded" && searchLabel.value === label
+                }
+                title={label}
+              />
+            ))}
+          </div>
+
+          <div className={styles.search}>
+            <input
+              aria-label="search"
+              className={styles.searchBar}
+              type="text"
+              placeholder="What article are you looking for?"
+              onInput={handleInputChange}
             />
-          ))}
-        </div>
+          </div>
 
-        <div className={styles.search}>
-          <input
-            aria-label="search"
-            className={styles.searchBar}
-            type="text"
-            placeholder="What article are you looking for?"
-            onInput={handleInputChange}
-          />
-        </div>
-        <div className={styles.searchElements}>
-          {filteredPosts.length} article{filteredPosts.length === 1 ? "" : "s"}{" "}
-          found
+          <div className={styles.searchElements}>
+            {filteredPosts.length} article
+            {filteredPosts.length === 1 ? "" : "s"} found
+          </div>
         </div>
 
         <table className={styles.table}>
@@ -127,6 +133,6 @@ export const Search = ({
       </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

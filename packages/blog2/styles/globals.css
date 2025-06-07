@@ -9,7 +9,7 @@
 
   --label-color: rgba(75, 85, 99, 1);
   --label-background-color: rgba(229, 231, 235, 1);
-  --label-selected-color: rgba(118, 133, 155, 1);
+  --label-selected-color: rgba(184, 194, 209, 1);
   --label-selected-background-color: rgba(6, 8, 14, 1);
 
   --subscription-form-error-message-color: rgba(153, 27, 27, 1);
@@ -47,12 +47,13 @@
 
   /* colours */
 
-  --a-color: rgba(0, 91, 153, 1);
+  --a-color: #646cff;
+  --external-link-color: #111;
 }
 
 .dark {
   --color: rgba(229, 231, 235, 1);
-  --background-color: rgba(0, 0, 0, 1);
+  --background-color: #242424;
   --heading-color: rgba(255, 255, 255, 1);
   --font-color: rgba(209, 213, 219, 1);
 
@@ -61,7 +62,7 @@
 
   --label-color: rgba(107, 114, 128, 1);
   --label-background-color: rgba(17, 24, 39, 1);
-  --label-selected-color: rgba(160, 170, 190, 1);
+  --label-selected-color: rgba(20, 21, 24, 1);
   --label-selected-background-color: rgba(67, 95, 146, 1);
 
   --subscription-form-error-message-color: rgba(255, 112, 79, 1);
@@ -83,7 +84,7 @@
 
   --vscode-background-color: rgba(30, 30, 30, 1);
   --code-color: rgba(199, 118, 93, 1);
-  /* same --border-color */
+  --border-color: rgba(16, 16, 16, 1);
   /* same --focus-color */
 
   /* same --buy-me-coffee-background-color */
@@ -99,7 +100,9 @@
   /* same --article-main-progress-color */
 
   /* same --snowflake-color */
-  --a-color: #70b5ff;
+
+  --a-color: #646cff;
+  --external-link-color: #eee;
 }
 
 html {
@@ -121,10 +124,13 @@ body {
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Montserrat, ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: var(--color);
   background-color: var(--background-color);
 }
@@ -135,10 +141,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Montserrat, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   line-height: 1rem;
@@ -164,7 +166,7 @@ h6 {
 }
 
 h1 {
-  font-weight: 900;
+  margin: 0;
   font-size: 3rem;
   line-height: 1;
 }
