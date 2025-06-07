@@ -292,7 +292,7 @@ h1 {
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4vh;
+  padding: 1rem 1.5rem;
 }
 
 @media (prefers-color-scheme: light) {
