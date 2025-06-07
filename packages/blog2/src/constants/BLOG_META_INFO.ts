@@ -1,5 +1,5 @@
 export const BLOG_META_INFO = {
-  title: "beraliv",
+  title: "Alexey Berezin's blog",
   author: "Alexey Berezin",
   summary: "who loves London 🏴󠁧󠁢󠁥󠁮󠁧󠁿, players ⏯ and TypeScript 🦺",
   keywords: ["video players", "typescript"],

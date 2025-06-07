@@ -67,7 +67,7 @@ export const Post = ({
 
       <ArticleMainProgress />
 
-      <Header title={title} path="post" />
+      <Header title={title} />
 
       <main className={styles.main}>
         <article>

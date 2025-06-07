@@ -34,7 +34,7 @@ export const NotFound = ({
         title={NOT_FOUND_TITLE}
       />
 
-      <Header title={title} path="404" />
+      <Header title={title} />
 
       <main className={styles.main}>
         <Bio />

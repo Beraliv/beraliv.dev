@@ -85,12 +85,10 @@ export const Search = ({
         title={SEARCH_TITLE}
       />
 
-      <Header title={title} path="search" />
+      <Header title={title} />
 
       <main className={styles.main}>
-        <div className={styles.bio}>
-          <Bio />
-        </div>
+        <Bio />
 
         <div className={styles.grid}>
           {KNOWN_LABELS.map((label) => (

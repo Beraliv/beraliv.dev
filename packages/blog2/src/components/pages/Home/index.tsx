@@ -33,7 +33,7 @@ export const Home = ({
         title={HOME_TITLE}
       />
 
-      <Header title={title} path="home" />
+      <Header title={title} />
 
       <main>
         <Bio />

@@ -1,3 +1,4 @@
+/* This file duplicates `packages/blog2/src/components/atoms/Link/index.module.css` */
 .link {
   word-wrap: break-word;
 }
@@ -9,13 +10,4 @@
 
 .link:hover .underscore {
   border-bottom: 4px solid var(--a-color);
-}
-
-.linkExternal {
-  white-space: nowrap;
-  margin-left: 2px;
-}
-
-.linkExternal > svg > path {
-  fill: var(--external-link-color);
 }
