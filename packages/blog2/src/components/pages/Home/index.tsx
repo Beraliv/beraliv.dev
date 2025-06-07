@@ -16,8 +16,6 @@ import { Layout } from "../../molecules/Layout";
 const HOME_TITLE = "All posts" as SanitisedString;
 
 export const Home = ({
-  apiKey,
-  formId,
   featuredPosts,
   mostRecent10Posts,
 }: InferGetStaticPropsType<typeof getHomeStaticProps>) => {

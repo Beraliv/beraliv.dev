@@ -18,9 +18,7 @@ import { Comments } from "../../atoms/Comments";
 import { Layout } from "../../molecules/Layout";
 
 export interface PostPropsType {
-  apiKey: string;
   content: Awaited<ReturnType<typeof serialize>>;
-  formId: string;
   post: StrictOmit<
     StrictOmit<
       MarkRequired<
@@ -40,13 +38,7 @@ export interface PostPropsType {
   image: ImageType;
 }
 
-export const Post = ({
-  apiKey,
-  content,
-  formId,
-  image,
-  post,
-}: PostPropsType) => {
+export const Post = ({ content, image, post }: PostPropsType) => {
   const { title, bio, url: baseUrl } = BLOG_META_INFO;
   const { position, thankyou } = bio;
 

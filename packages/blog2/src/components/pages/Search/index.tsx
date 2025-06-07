@@ -21,8 +21,6 @@ import { Layout } from "../../molecules/Layout";
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
 export const Search = ({
-  apiKey,
-  formId,
   posts,
 }: InferGetStaticPropsType<typeof getSearchStaticProps>) => {
   const { author, bio, keywords, title, url } = BLOG_META_INFO;

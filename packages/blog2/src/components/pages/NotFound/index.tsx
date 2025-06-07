@@ -14,10 +14,9 @@ import { Layout } from "../../molecules/Layout";
 
 const NOT_FOUND_TITLE = "Not Found" as SanitisedString;
 
-export const NotFound = ({
-  apiKey,
-  formId,
-}: InferGetStaticPropsType<typeof getNotFoundStaticProps>) => {
+export const NotFound = ({}: InferGetStaticPropsType<
+  typeof getNotFoundStaticProps
+>) => {
   const { author, bio, keywords, title, url } = BLOG_META_INFO;
   const { topTitle, position, text: bioText } = bio;
 
