@@ -48,6 +48,7 @@
   /* colours */
 
   --a-color: #646cff;
+  --external-link-color: #111;
 }
 
 .dark {
@@ -101,6 +102,7 @@
   /* same --snowflake-color */
 
   --a-color: #646cff;
+  --external-link-color: #eee;
 }
 
 html {
