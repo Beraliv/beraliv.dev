@@ -47,7 +47,7 @@
 
   /* colours */
 
-  --a-color: rgba(0, 91, 153, 1);
+  --a-color: #646cff;
 }
 
 .dark {
@@ -99,7 +99,8 @@
   /* same --article-main-progress-color */
 
   /* same --snowflake-color */
-  --a-color: #70b5ff;
+
+  --a-color: #646cff;
 }
 
 html {
