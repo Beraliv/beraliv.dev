@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import type { MarkRequired } from "ts-essentials";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { Comments } from "../../atoms/Comments";
+import { Layout } from "../../molecules/Layout";
 
 export interface PostPropsType {
   apiKey: string;
@@ -55,7 +56,7 @@ export const Post = ({
   }, [post.labels]);
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={post.description}
         image={image}
@@ -85,15 +86,15 @@ export const Post = ({
             {post.labels.map(
               (label) => label && <Label key={label} title={label} />
             )}
-            <Comments />
           </main>
           <footer className={styles.articleFooter}>
             <Bio />
+            <Comments />
           </footer>
         </article>
       </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

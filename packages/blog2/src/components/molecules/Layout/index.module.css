@@ -1,0 +1,13 @@
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 3rem;
+  min-height: 92vh;
+}
+
+/* 54rem is 50rem width + 2rem left padding + 2rem right padding */
+@media screen and (min-width: 54rem) {
+  .layout {
+    grid-template-columns: 50rem;
+  }
+}

@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { KNOWN_LABELS } from "../../../constants/KNOWN_LABELS";
 import { Label } from "../../atoms/Label";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
+import { Layout } from "../../molecules/Layout";
 
 const SEARCH_TITLE = "Search for posts" as SanitisedString;
 
@@ -75,7 +76,7 @@ export const Search = ({
   );
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={`${author} blog`}
         image={PROMO_IMAGE}
@@ -127,6 +128,6 @@ export const Search = ({
       </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

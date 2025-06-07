@@ -10,6 +10,7 @@ import { Footer } from "../../molecules/Footer";
 import { Header } from "../../molecules/Header";
 import { Seo } from "../../molecules/Seo";
 import styles from "./index.module.css";
+import { Layout } from "../../molecules/Layout";
 
 const NOT_FOUND_TITLE = "Not Found" as SanitisedString;
 
@@ -24,7 +25,7 @@ export const NotFound = ({
   }, []);
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={`${author} blog`}
         image={PROMO_IMAGE}
@@ -40,14 +41,10 @@ export const NotFound = ({
 
         <div className={styles.notFound}>
           <h1>404: Cannot find what you look for 😢</h1>
-
-          <div className={styles.toHome}>
-            <NextLink href="/">Return Home</NextLink>
-          </div>
         </div>
       </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

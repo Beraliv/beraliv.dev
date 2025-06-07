@@ -11,6 +11,7 @@ import { Seo } from "../../molecules/Seo";
 import styles from "./index.module.css";
 import { SanitisedString } from "../../../types/SanitisedString";
 import { PROMO_IMAGE } from "../../../constants/PROMO_IMAGE";
+import { Layout } from "../../molecules/Layout";
 
 const HOME_TITLE = "All posts" as SanitisedString;
 
@@ -23,7 +24,7 @@ export const Home = ({
   const { author, keywords, title, url } = BLOG_META_INFO;
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Seo
         description={`${author} blog`}
         image={PROMO_IMAGE}
@@ -34,33 +35,33 @@ export const Home = ({
 
       <Header title={title} path="home" />
 
-      <div className={styles.bio}>
+      <main>
         <Bio />
-      </div>
 
-      <h3>⭐️ Featured</h3>
-      <table className={styles.table}>
-        <tbody>
-          {featuredPosts.map((post) => (
-            <PostPreview key={post.slug} {...post} />
-          ))}
-        </tbody>
-      </table>
+        <h3>⭐️ Featured</h3>
+        <table className={styles.table}>
+          <tbody>
+            {featuredPosts.map((post) => (
+              <PostPreview key={post.slug} {...post} />
+            ))}
+          </tbody>
+        </table>
 
-      <h3>🕞 Most recent 10 posts</h3>
-      <table className={styles.table}>
-        <tbody>
-          {mostRecent10Posts.map((post) => (
-            <PostPreview key={post.slug} {...post} />
-          ))}
-        </tbody>
-      </table>
+        <h3>🕞 Most recent 10 posts</h3>
+        <table className={styles.table}>
+          <tbody>
+            {mostRecent10Posts.map((post) => (
+              <PostPreview key={post.slug} {...post} />
+            ))}
+          </tbody>
+        </table>
 
-      <div className={styles.goToSearch}>
-        <NextLink href="/search">🔎 See all articles</NextLink>
-      </div>
+        <div className={styles.goToSearch}>
+          <NextLink href="/search">🔎 See all articles</NextLink>
+        </div>
+      </main>
 
       <Footer />
-    </div>
+    </Layout>
   );
 };

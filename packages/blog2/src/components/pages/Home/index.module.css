@@ -1,15 +1,6 @@
 .container {
   margin: 0 auto;
-  max-width: 42rem;
   padding: 1rem 1.25rem;
-}
-
-.bio {
-  margin: 0 auto;
-}
-
-.bio {
-  padding: 2.5rem 1.25rem;
 }
 
 .table {
