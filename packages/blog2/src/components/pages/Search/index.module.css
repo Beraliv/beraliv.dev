@@ -38,12 +38,14 @@
   font-style: italic;
 }
 
+/* tablet */
 @media (max-width: 66.5rem) {
   .search {
     width: 30rem;
   }
 }
 
+/* mobile */
 @media (max-width: 42rem) {
   .search {
     width: calc(100% - 2rem);

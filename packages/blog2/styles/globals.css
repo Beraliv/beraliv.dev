@@ -314,6 +314,7 @@ table tbody tr td {
   padding: 0.25rem;
 }
 
+/* mobile */
 @media (max-width: 42rem) {
   blockquote {
     padding: 0px;
