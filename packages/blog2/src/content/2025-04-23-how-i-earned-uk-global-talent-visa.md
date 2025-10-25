@@ -10,6 +10,7 @@ keywords:
   - exceptional talent
 image: /how-i-earned-uk-global-talent-visa/image_v2.png
 featured: true
+fixed: true
 ---
 
 ## Intro
