@@ -9,6 +9,7 @@ keywords:
   - opaque type
 image: /opaque-type-in-typescript/image.png
 featured: true
+fixed: false
 ---
 
 ```typescript title="Example of Opaque Types"
@@ -76,6 +77,8 @@ Let's see how we can imitate nominal type feature for TypeScript 4.2:
 ### 1. Class + a private property
 
 Here we define `class` for every nominal type and add `__nominal` mark as a private property:
+
+<Comment text="`Types have separate declarations of a private property '__nominal'.` is too long, overflow: scroll should fix it, but it doesn't" />
 
 ```typescript title="Class with private property"
 class USD {

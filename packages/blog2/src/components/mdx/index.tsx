@@ -35,4 +35,5 @@ export const mdxComponents: MDXRemoteProps["components"] = {
   pre: MdxPre,
   video: MdxVideo,
   YouTube: MdxYouTube,
+  Comment: () => null,
 } as MDXRemoteProps["components"];

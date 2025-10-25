@@ -10,6 +10,7 @@ keywords:
   - holyjs
 image: /advanced-types-holyjs-notes/image.png
 featured: true
+fixed: false
 ---
 
 ![Max and I discuss StringToNumber on Holy.js](/advanced-types-holyjs-notes/image.png)
@@ -246,6 +247,8 @@ type Test2 = CharacterIteration<"">; // []
 Also here we can see the iteration over string literal type using `` T extends `${infer Ch}${infer Rest}`  ``
 
 6. Using `[T] extends [U]` we can check that one type can equal to another one. But we also have an exception in `any` here.
+
+<Comment text="`type Equals<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;` is too long, overflow: scroll should fix it but it doesn't" />
 
 ```typescript title="Check if types are equal"
 type Equals<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
