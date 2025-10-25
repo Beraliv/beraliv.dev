@@ -316,6 +316,10 @@ table tbody tr td {
 
 /* mobile */
 @media (max-width: 42rem) {
+  body {
+    justify-content: start;
+  }
+
   blockquote {
     padding: 0px;
     padding-left: 1rem;
