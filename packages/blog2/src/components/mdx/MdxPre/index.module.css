@@ -13,6 +13,9 @@
 }
 
 .container {
+  display: grid;
+  overflow: scroll;
+
   margin-bottom: 2rem;
 
   border-bottom-left-radius: 0.25rem;
