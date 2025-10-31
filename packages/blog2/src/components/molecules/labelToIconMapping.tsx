@@ -6,6 +6,9 @@ import { TypeScriptIcon } from "../atoms/TypeScriptIcon";
 import { VideoPlayerIcon } from "../atoms/VideoPlayerIcon";
 import { PersonalIcon } from "../atoms/PersonalIcon";
 
+/**
+ * @deprecated not used anymore
+ */
 export const labelToIconMapping: Record<LabelType, JSX.Element | null> = {
   css: <CSSIcon />,
   javascript: <JavaScriptIcon />,

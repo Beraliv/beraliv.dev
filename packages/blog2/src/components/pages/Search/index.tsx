@@ -123,13 +123,11 @@ export const Search = ({
           </div>
         </div>
 
-        <table className={styles.table}>
-          <tbody>
-            {filteredPosts.map((post) => (
-              <PostPreview key={post.slug} {...post} />
-            ))}
-          </tbody>
-        </table>
+        <div>
+          {filteredPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
+          ))}
+        </div>
       </main>
 
       <Footer />

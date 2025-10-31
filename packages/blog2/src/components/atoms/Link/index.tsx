@@ -3,18 +3,19 @@ import { classNames } from "../../../functions/classNames";
 import { ExternalIcon } from "../ExternalIcon";
 import styles from "./index.module.css";
 
-interface LinkPropsType {
+export interface LinkPropsType {
   href: string;
   text: ReactNode;
   underscore?: boolean;
+  external?: boolean;
 }
 
-export const Link = ({ href, text, underscore }: LinkPropsType) => (
+export const Link = ({ href, text, underscore, external }: LinkPropsType) => (
   <a
     className={styles.link}
     href={href}
-    target="_blank"
-    rel="noopener noreferrer"
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener noreferrer" : undefined}
   >
     <span
       className={classNames({
@@ -23,9 +24,11 @@ export const Link = ({ href, text, underscore }: LinkPropsType) => (
     >
       {text}
     </span>
-    <span className={styles.linkExternal}>
-      &#xFEFF;
-      <ExternalIcon />
-    </span>
+    {external && (
+      <span className={styles.linkExternal}>
+        &#xFEFF;
+        <ExternalIcon />
+      </span>
+    )}
   </a>
 );

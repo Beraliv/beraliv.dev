@@ -1,5 +1,8 @@
 import { memo } from "react";
 
+/**
+ * @deprecated not used anymore
+ */
 // eslint-disable-next-line react/display-name
 export const JavaScriptIcon = memo(() => (
   <svg

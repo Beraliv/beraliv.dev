@@ -1,6 +1,9 @@
 import { memo } from "react";
 import styles from "./index.module.css";
 
+/**
+ * @deprecated not used anymore
+ */
 // eslint-disable-next-line react/display-name
 export const VideoPlayerIcon = memo(() => (
   <svg
