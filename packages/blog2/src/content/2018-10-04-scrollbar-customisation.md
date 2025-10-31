@@ -137,6 +137,8 @@ Unfortunately some of libraries are plugins for jQuery: [jScrollPane](https://ww
 
 A size of scrollbar JS bundle should be worth it. However it’s not what it’s expected.
 
+<Comment text="The table is too wide, overflow: scroll should fix it, but it doesn't" />
+
 | lib                                                                                  | minified (KB) | minified + gzipped (KB) |
 | :----------------------------------------------------------------------------------- | ------------: | ----------------------: |
 | 🕳️ size of black hole                                                                |             ∞ |                       ∞ |

@@ -6,6 +6,7 @@
   margin-bottom: 1rem;
 }
 
+/* mobile */
 @media (max-width: 42rem) {
   .headerMetadata {
     flex-direction: column;

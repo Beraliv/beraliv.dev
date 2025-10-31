@@ -250,6 +250,8 @@ The best timeout candidate was 90% effective which wasn't too bad, but it wasn't
 
 The effectiveness for all solutions that I've mentioned in my talk is evident in this table:
 
+<Comment text="The table is too wide, overflow: scroll should fix it, but it doesn't" />
+
 | Solution                                         | Enough data | Not enough data |
 | :----------------------------------------------- | :---------- | :-------------- |
 | 1. Delay appending segments                      | 100%        | 0%              |
@@ -289,7 +291,7 @@ I'd like to stress that conducting functional testing in an environment closest 
 
 ## Links 🔗
 
-1. Google slides - https://docs.google.com/presentation/d/1M99IYUyWb0I3OJDng3CppqksxkXCHyIeMVkE81lSNSI/edit?usp=sharing
-1. Diagrams - https://www.tldraw.com/r/k08aBuV4b_maWj1Xv3DX7?viewport=-575%2C92%2C1513%2C910&page=page%3AA5up7ZSQODMZj5XCdf7h8
-1. Media Source Extensions Spec - https://www.w3.org/TR/media-source-2/
-1. shaka-player - MSE/EME OSS player - https://github.com/shaka-project/shaka-player
+1. Presentation in [Google slides](https://docs.google.com/presentation/d/1M99IYUyWb0I3OJDng3CppqksxkXCHyIeMVkE81lSNSI/edit?usp=sharing)
+1. Diagrams in [tldraw](https://www.tldraw.com/r/k08aBuV4b_maWj1Xv3DX7?viewport=-575%2C92%2C1513%2C910&page=page%3AA5up7ZSQODMZj5XCdf7h8)
+1. Media Source Extensions Spec in [W3C](https://www.w3.org/TR/media-source-2/)
+1. [shaka-player](https://github.com/shaka-project/shaka-player) - MSE/EME OSS player

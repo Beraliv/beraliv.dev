@@ -134,7 +134,7 @@ options.output = 4;
 options.output = 5;
 ```
 
-Please check the playground to test it for TypeScript 4.9.5 - https://www.typescriptlang.org/play?preserveConstEnums=true&ts=4.9.5#code/KYOwrgtgBA8mAuAHBUDeAoKWoFEBOeA9nlALxQCMANJtgOoCGeIAliAOZlQBMN2UAGUKdyAZhoBfdOjbxgeAGYMAxsFiJ4LQiADOaWlkIJk8APwAuWMYQBudFPTLtO+FEIatuyzA-OuqCTt3TWcAOiMkFHI4SPhQ-CI8IN9dcOtXaPTQxmY2dmSQ1IiTLhiTUKF86QB6ard3HSooACMUFxYAGw6oHQYFYHRgzx002K5RO3RaqABCOdgYAAUAZVn5sF0+tUBeDcBQPcGUkeKoqAAWAuHRkvIAVhsgA 🏝️
+Please check TS playground to test it for TypeScript 4.9.5 - [Link 🔗](https://www.typescriptlang.org/play?preserveConstEnums=true&ts=4.9.5#code/KYOwrgtgBA8mAuAHBUDeAoKWoFEBOeA9nlALxQCMANJtgOoCGeIAliAOZlQBMN2UAGUKdyAZhoBfdOjbxgeAGYMAxsFiJ4LQiADOaWlkIJk8APwAuWMYQBudFPTLtO+FEIatuyzA-OuqCTt3TWcAOiMkFHI4SPhQ-CI8IN9dcOtXaPTQxmY2dmSQ1IiTLhiTUKF86QB6ard3HSooACMUFxYAGw6oHQYFYHRgzx002K5RO3RaqABCOdgYAAUAZVn5sF0+tUBeDcBQPcGUkeKoqAAWAuHRkvIAVhsgA) 🏝️
 
 Beginning with TypeScript 5.0, this issue has been resolved and addressed within the release, eliminating it as a concern going forward. For more details, please read [TypeScript 5.0 Release | Enum Overhaul](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#enum-overhaul).
 
@@ -211,6 +211,8 @@ const no = 0; /* Answer.No */
 In addition, when you publish const enums or consume them from declaration files, you may face [ambient const enums pitfalls](#ambient-const-enum-pitfalls).
 
 ## Choose your solution
+
+<Comment text="Table is too wide, overflow: scroll should fix it but it doesn't" />
 
 Let's sum up what we just discussed in a table:
 

@@ -23,7 +23,7 @@
 
   background-color: var(--background-color);
   color: var(--color);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--search-border-color);
   border-radius: 0.5rem;
 }
 
@@ -38,12 +38,14 @@
   font-style: italic;
 }
 
+/* tablet */
 @media (max-width: 66.5rem) {
   .search {
     width: 30rem;
   }
 }
 
+/* mobile */
 @media (max-width: 42rem) {
   .search {
     width: calc(100% - 2rem);

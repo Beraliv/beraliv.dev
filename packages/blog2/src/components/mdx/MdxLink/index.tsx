@@ -18,5 +18,5 @@ export const MdxLink: FC<PropsWithChildren<MdxLinkPropsType>> = ({
     );
   }
 
-  return <Link href={href} text={children} underscore />;
+  return <Link href={href} text={children} underscore external={true} />;
 };

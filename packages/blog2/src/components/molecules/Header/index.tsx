@@ -24,7 +24,11 @@ export const Header = ({ title }: HeaderPropsType) => {
           <li>
             {/* For testing purposes only */}
             {/* <Link href="http://localhost:3001/" text="Portfolio" /> */}
-            <Link href="https://beraliv.com/" text="Portfolio" />
+            <Link
+              href="https://beraliv.com/"
+              text="Portfolio"
+              external={true}
+            />
           </li>
         </ul>
       </nav>

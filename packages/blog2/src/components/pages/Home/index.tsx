@@ -43,22 +43,18 @@ export const Home = ({
         />
 
         <h2>⭐️ Featured</h2>
-        <table className={styles.table}>
-          <tbody>
-            {featuredPosts.map((post) => (
-              <PostPreview key={post.slug} {...post} />
-            ))}
-          </tbody>
-        </table>
+        <div>
+          {featuredPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
+          ))}
+        </div>
 
         <h2>🕞 Most recent 10 posts</h2>
-        <table className={styles.table}>
-          <tbody>
-            {mostRecent10Posts.map((post) => (
-              <PostPreview key={post.slug} {...post} />
-            ))}
-          </tbody>
-        </table>
+        <div>
+          {mostRecent10Posts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
+          ))}
+        </div>
 
         <div className={styles.goToSearch}>
           <NextLink href="/search">🔎 See all articles</NextLink>

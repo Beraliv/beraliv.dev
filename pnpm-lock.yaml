@@ -101,6 +101,8 @@ importers:
         specifier: 10.1.2
         version: 10.1.2
 
+  packages/blog2/dist: {}
+
   packages/habits:
     dependencies:
       '@solidjs/router':
