@@ -12,7 +12,6 @@ keywords:
   - css
 image: /scrollbar-customisation/macos-scrollbar.png
 featured: true
-fixed: false
 ---
 
 One day some designers provide you with beautiful mock-ups 🌠 and … custom macOS-like scrollbars which look like:

@@ -9,7 +9,6 @@ keywords:
   - enums
 image: /with-or-without-enums/image_v2.png
 featured: true
-fixed: false
 ---
 
 ## What

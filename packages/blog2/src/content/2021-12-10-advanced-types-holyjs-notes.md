@@ -10,7 +10,6 @@ keywords:
   - holyjs
 image: /advanced-types-holyjs-notes/image.png
 featured: true
-fixed: false
 ---
 
 ![Max and I discuss StringToNumber on Holy.js](/advanced-types-holyjs-notes/image.png)

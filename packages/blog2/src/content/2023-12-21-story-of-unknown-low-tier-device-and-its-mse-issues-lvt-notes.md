@@ -15,7 +15,6 @@ keywords:
   - S07E03
 image: /story-of-unknown-low-tier-device-and-its-mse-issues-lvt-notes/image.png
 featured: true
-fixed: false
 ---
 
 ⚠️ WARNING: The existing version is in its initial phase and will undergo enhancements and improvements.

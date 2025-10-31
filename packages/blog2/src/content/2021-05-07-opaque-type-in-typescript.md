@@ -9,7 +9,6 @@ keywords:
   - opaque type
 image: /opaque-type-in-typescript/image.png
 featured: true
-fixed: false
 ---
 
 ```typescript title="Example of Opaque Types"
