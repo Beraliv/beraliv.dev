@@ -293,14 +293,15 @@ blockquote > ol {
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0.25rem;
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  width: 100%;
-  display: inline-block;
+  display: block;
+  white-space: nowrap;
   /* `auto` doesn't allow mobile to scroll so explicitly setting it to `scroll` */
   overflow-x: scroll;
+  /* padding for scrolling and symmetrical */
+  padding: 0.5rem 0;
+
+  border-collapse: collapse;
+  border-spacing: 0.25rem;
 }
 
 table thead tr th {
