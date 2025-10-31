@@ -43,14 +43,18 @@ export const Home = ({
         />
 
         <h2>⭐️ Featured</h2>
-        {featuredPosts.map((post) => (
-          <PostPreview key={post.slug} {...post} />
-        ))}
+        <div>
+          {featuredPosts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
+          ))}
+        </div>
 
         <h2>🕞 Most recent 10 posts</h2>
-        {mostRecent10Posts.map((post) => (
-          <PostPreview key={post.slug} {...post} />
-        ))}
+        <div>
+          {mostRecent10Posts.map((post) => (
+            <PostPreview key={post.slug} {...post} />
+          ))}
+        </div>
 
         <div className={styles.goToSearch}>
           <NextLink href="/search">🔎 See all articles</NextLink>
