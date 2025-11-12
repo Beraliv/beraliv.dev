@@ -2,12 +2,12 @@ import { Milliseconds } from "../../types/Milliseconds";
 import { PostType } from "../../types/PostType";
 
 export const getPostUtcDate = ({
-  rawDate,
-}: Pick<PostType, "rawDate">): Milliseconds => {
-  const milliseconds = Date.parse(rawDate) as Milliseconds;
+  rawCreated,
+}: Pick<PostType, "rawCreated">): Milliseconds => {
+  const milliseconds = Date.parse(rawCreated) as Milliseconds;
 
   if (isNaN(milliseconds)) {
-    throw new Error(`Post date format is incorrect: ${rawDate}`);
+    throw new Error(`Post created date format is incorrect: ${rawCreated}`);
   }
 
   return milliseconds;

@@ -5,8 +5,10 @@ import { SanitisedString } from "../../../types/SanitisedString";
 
 const SCROLLBAR_CUSTOMISATION_POST: ValidatedPostType = {
   title: "Scrollbar customisation" as SanitisedString,
-  rawDate: "2018-10-04",
-  date: "04 Oct 2018",
+  rawCreated: "2018-10-04",
+  created: "04 Oct 2018",
+  rawUpdated: "2018-10-04",
+  updated: "04 Oct 2018",
   description:
     "CSS support in different browser engines, hacks and tricks, JS libraries",
   labels: ["css", "javascript"],
@@ -17,8 +19,10 @@ const SCROLLBAR_CUSTOMISATION_POST: ValidatedPostType = {
 
 const AMAZON_POST: ValidatedPostType = {
   title: "Video player in Amazon" as SanitisedString,
-  rawDate: "2019-12-17",
-  date: "17 Dec 2019",
+  rawCreated: "2019-12-17",
+  created: "17 Dec 2019",
+  rawUpdated: "2019-12-17",
+  updated: "17 Dec 2019",
   description:
     "From video tag to the implementation, state machine, the way bundle is loaded, bundle names",
   labels: ["player"],

@@ -23,13 +23,15 @@ export interface PostPropsType {
     StrictOmit<
       MarkRequired<
         Partial<PostType>,
-        | "rawDate"
-        | "date"
+        | "created"
         | "description"
         | "keywords"
         | "labels"
+        | "rawCreated"
+        | "rawUpdated"
         | "slug"
         | "title"
+        | "updated"
       >,
       "title"
     > & { title: SanitisedString },
@@ -71,7 +73,7 @@ export const Post = ({ content, image, post }: PostPropsType) => {
               }}
             />
             <div className={styles.headerMetadata}>
-              <small>{post.date}</small>
+              <small>{post.created}</small>
             </div>
           </header>
           <main>

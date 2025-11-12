@@ -13,7 +13,8 @@ describe(getPostBySlug.name, () => {
     expect(data.title).toEqual(
       "State machine and bundles in Amazon video player (2019 edition)" as UnsanitisedString
     );
-    expect(data.date).toEqual("2019-12-17");
+    expect(data.created).toEqual("2019-12-17");
+    expect(data.updated).toEqual("2019-12-17");
     expect(data.description).toEqual(
       "From video tag to the implementation, state machine, the way bundle is loaded, bundle names"
     );
@@ -37,7 +38,8 @@ describe(getPostBySlug.name, () => {
     expect(data.title).toEqual(
       "Scrollbar customisation in CSS and JS" as UnsanitisedString
     );
-    expect(data.date).toEqual("2018-10-04");
+    expect(data.created).toEqual("2018-10-04");
+    expect(data.updated).toEqual("2018-10-04");
     expect(data.description).toEqual(
       "CSS support in different browser engines, hacks and tricks, JS libraries"
     );

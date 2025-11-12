@@ -3,13 +3,15 @@ import { UnsanitisedString } from "./UnsanitisedString";
 
 export interface PostType {
   content: string;
-  date?: string;
+  created: string;
   description: string;
   featured?: boolean;
   image: string;
   keywords: string[];
   labels: LabelType[];
-  rawDate: string;
+  rawCreated: string;
+  rawUpdated: string;
   slug: string;
   title: UnsanitisedString;
+  updated: string;
 }
