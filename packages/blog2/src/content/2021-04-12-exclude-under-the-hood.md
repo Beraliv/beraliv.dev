@@ -1,6 +1,7 @@
 ---
 title: Exclude type under the hood in TypeScript
-date: "2021-04-12"
+created: "2021-04-12"
+updated: "2021-04-12"
 description: Given two unions, remove all the elements of the second one from the first union
 labels:
   - typescript

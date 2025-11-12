@@ -1,6 +1,7 @@
 ---
 title: Transform string literal type into union of characters in TypeScript
-date: "2021-06-19"
+created: "2021-06-19"
+updated: "2021-06-19"
 description: Given a string, return a union of all characters from the string
 labels:
   - typescript

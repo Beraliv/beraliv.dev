@@ -1,6 +1,7 @@
 ---
 title: Geolocation identification in BBC iPlayer (2019 edition)
-date: "2019-12-22"
+created: "2019-12-22"
+updated: "2019-12-22"
 description: Geolocation identification in iPlayer
 labels:
   - player

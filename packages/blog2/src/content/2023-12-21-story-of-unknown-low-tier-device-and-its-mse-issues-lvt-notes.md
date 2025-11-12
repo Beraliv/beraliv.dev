@@ -1,6 +1,7 @@
 ---
 title: A story of an unknown low-tier device and its MSE issues / London Video Tech 2023 notes
-date: "2023-12-21"
+created: "2023-12-21"
+updated: "2024-03-26"
 description: To highlight specifics of working with low-tier devices, to demonstrate its MSE issues and to show how to mitigate them.
 labels:
   - player

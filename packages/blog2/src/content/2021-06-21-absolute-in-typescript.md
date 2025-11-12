@@ -1,6 +1,7 @@
 ---
 title: Math.abs for string literal type in TypeScript
-date: "2021-06-21"
+created: "2021-06-21"
+updated: "2021-06-21"
 description: Given a number as a string, return its absolute value as a string too
 labels:
   - typescript

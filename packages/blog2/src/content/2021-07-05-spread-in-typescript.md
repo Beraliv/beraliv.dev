@@ -1,6 +1,7 @@
 ---
 title: TypeScript spread operator for 2 object types
-date: "2021-07-05"
+created: "2021-07-05"
+updated: "2021-10-19"
 description: Given two objects, returns the object which is formed as a spread of two objects in TypeScript
 labels:
   - typescript

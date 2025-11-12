@@ -1,6 +1,7 @@
 ---
 title: Code obfuscation in Joyn video player (2020 edition)
-date: "2020-05-04"
+created: "2020-05-04"
+updated: "2020-05-04"
 description: Code obfuscation using confusion and the way how to make it readable again
 labels:
   - player

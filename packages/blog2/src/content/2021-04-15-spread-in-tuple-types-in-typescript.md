@@ -1,6 +1,7 @@
 ---
 title: TypeScript spread operator for 2 tuple types
-date: "2021-04-15"
+created: "2021-04-15"
+updated: "2021-04-15"
 description: Given two tuples, put the elements of both of them into the resulting tuple
 labels:
   - typescript

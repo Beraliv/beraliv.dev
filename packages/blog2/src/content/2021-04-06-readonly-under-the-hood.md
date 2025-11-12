@@ -1,6 +1,7 @@
 ---
 title: Readonly type under the hood in TypeScript
-date: "2021-04-06"
+created: "2021-04-06"
+updated: "2021-04-06"
 description: Given the object, we need to make properties on the first level readonly
 labels:
   - typescript

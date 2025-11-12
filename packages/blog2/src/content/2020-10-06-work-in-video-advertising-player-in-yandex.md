@@ -1,6 +1,7 @@
 ---
 title: Working in Video Advertising player at Yandex
-date: "2020-10-06"
+created: "2020-10-06"
+updated: "2020-10-06"
 description: Developed features, team members and collaboration inside the team
 labels:
   - player

@@ -1,6 +1,7 @@
 ---
 title: Chainable options type in TypeScript
-date: "2021-04-28"
+created: "2021-04-28"
+updated: "2021-04-28"
 description: Given API, collect the object with keys and values after each call
 labels:
   - typescript
