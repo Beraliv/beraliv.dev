@@ -2,14 +2,14 @@ import { LabelType } from "./LabelType";
 import { UnsanitisedString } from "./UnsanitisedString";
 
 export interface PostType {
-  title: UnsanitisedString;
-  rawDate: string;
-  date?: string;
-  slug: string;
-  description: string;
   content: string;
-  labels: LabelType[];
-  keywords: string[];
-  image: string;
+  date?: string;
+  description: string;
   featured?: boolean;
+  image: string;
+  keywords: string[];
+  labels: LabelType[];
+  rawDate: string;
+  slug: string;
+  title: UnsanitisedString;
 }
