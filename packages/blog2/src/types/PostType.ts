@@ -4,7 +4,7 @@ import { UnsanitisedString } from "./UnsanitisedString";
 export interface PostType {
   title: UnsanitisedString;
   rawDate: string;
-  date: string;
+  date?: string;
   slug: string;
   description: string;
   content: string;
