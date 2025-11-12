@@ -1,6 +1,7 @@
 ---
 title: Infer tuple length in TypeScript
-date: "2021-04-09"
+created: "2021-04-09"
+updated: "2021-04-09"
 description: Given the tuple, return its length
 labels:
   - typescript

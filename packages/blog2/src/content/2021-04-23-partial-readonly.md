@@ -1,6 +1,7 @@
 ---
 title: Conditionally readonly object type in TypeScript
-date: "2021-04-23"
+created: "2021-04-23"
+updated: "2021-04-23"
 description: Given the object and a union of properties, return object where those properties are readonly
 labels:
   - typescript

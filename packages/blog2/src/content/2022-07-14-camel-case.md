@@ -1,6 +1,7 @@
 ---
 title: Transform string literal type into camelCase in TypeScript
-date: "2022-07-14"
+created: "2022-07-14"
+updated: "2022-07-14"
 description: Given a string in any case, returns a string in camel case
 labels:
   - typescript

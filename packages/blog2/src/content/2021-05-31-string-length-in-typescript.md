@@ -1,6 +1,7 @@
 ---
 title: Infer string length in TypeScript
-date: "2021-05-31"
+created: "2021-05-31"
+updated: "2021-05-31"
 description: Given the string, calculate its length. Also try to find the maximum computable string length having a limit of recursive calls
 labels:
   - typescript

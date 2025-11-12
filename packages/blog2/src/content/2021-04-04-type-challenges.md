@@ -1,6 +1,7 @@
 ---
 title: List of Type Challenges problems and solutions
-date: "2021-04-04"
+created: "2021-04-04"
+updated: "2021-04-04"
 description: Easy, medium, hard and extreme step by step solutions to type challenges in TypeScript
 labels:
   - typescript

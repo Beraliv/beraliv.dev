@@ -1,6 +1,7 @@
 ---
 title: Filter tuple type in TypeScript
-date: "2021-11-27"
+created: "2021-11-27"
+updated: "2021-11-27"
 description: Given a tuple and a filter, returns the tuple without elements that are part of the filter
 labels:
   - typescript

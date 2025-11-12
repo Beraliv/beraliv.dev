@@ -1,6 +1,7 @@
 ---
 title: Trim string literal type in TypeScript
-date: "2021-05-11"
+created: "2021-05-11"
+updated: "2021-05-11"
 description: Given the string, remove whitespaces from the beginning and the end
 labels:
   - typescript

@@ -1,6 +1,7 @@
 ---
 title: Append argument type into function type in TypeScript
-date: "2021-05-23"
+created: "2021-05-23"
+updated: "2021-05-23"
 description: Given the function and the type, include the type as the following argument in the list of function arguments
 labels:
   - typescript

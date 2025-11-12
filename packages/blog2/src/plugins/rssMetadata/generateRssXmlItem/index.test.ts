@@ -6,8 +6,10 @@ describe(generateRssXmlItem.name, () => {
   it("returns xml item for validated post", () => {
     const actual = generateRssXmlItem({
       title: "Scrollbar customisation" as SanitisedString,
-      rawDate: "2018-10-04",
-      date: "04 Oct 2018",
+      rawCreated: "2018-10-04",
+      created: "04 Oct 2018",
+      rawUpdated: "2018-10-04",
+      updated: "04 Oct 2018",
       description:
         "CSS support in different browser engines, hacks and tricks, JS libraries",
       labels: ["css", "javascript"],

@@ -1,6 +1,7 @@
 ---
 title: With or without enums in TypeScript
-date: "2022-09-10"
+created: "2022-09-10"
+updated: "2022-09-10"
 description: Pros and cons of enums in TypeScript
 labels:
   - typescript

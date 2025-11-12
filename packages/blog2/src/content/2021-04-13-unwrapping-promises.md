@@ -1,6 +1,7 @@
 ---
 title: Awaited type under the hood in TypeScript
-date: "2021-04-13"
+created: "2021-04-13"
+updated: "2021-11-26"
 description: Given the promise, return the value after applying await recursively
 labels:
   - typescript

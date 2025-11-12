@@ -6,13 +6,14 @@ import { PostType } from "../types/PostType";
 import { ValidatedPostType } from "../types/ValidatedPostType";
 
 export const validatePost = ({
-  date,
+  created,
   description,
   image,
   keywords,
   labels,
   slug,
   title,
+  updated,
   ...rest
 }: Partial<PostType> & Pick<PostType, "slug">): ValidatedPostType => {
   if (!title) {
@@ -33,8 +34,12 @@ export const validatePost = ({
     );
   }
 
-  if (!date) {
-    throw new Error(`Cannot find date for post ${slug}`);
+  if (!created) {
+    throw new Error(`Cannot find created date for post ${slug}`);
+  }
+
+  if (!updated) {
+    throw new Error(`Cannot find updated date for post ${slug}`);
   }
 
   if (!labels) {
@@ -53,14 +58,16 @@ export const validatePost = ({
   }
 
   return {
-    rawDate: date,
-    date: formatDate(parseDate(date, slug)),
+    created: formatDate(parseDate(created, slug)),
     description,
     image,
     keywords,
     labels,
+    rawCreated: created,
+    rawUpdated: updated,
     slug,
     title: sanitiseHtml(title),
+    updated: formatDate(parseDate(updated, slug)),
     ...rest,
   };
 };

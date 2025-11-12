@@ -1,6 +1,7 @@
 ---
 title: Extract under the hood in TypeScript
-date: "2021-05-06"
+created: "2021-05-06"
+updated: "2021-05-06"
 description: Given a union of several types, remove those types which doesn't extend the specified structure
 labels:
   - typescript

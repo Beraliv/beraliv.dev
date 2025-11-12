@@ -1,6 +1,7 @@
 ---
 title: Omit type under the hood in TypeScript
-date: "2021-04-21"
+created: "2021-04-21"
+updated: "2021-04-21"
 description: Given the object and a union of properties, return the object but without those properties
 labels:
   - typescript

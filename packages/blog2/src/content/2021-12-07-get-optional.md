@@ -1,6 +1,7 @@
 ---
 title: Extract object type with optional fields in TypeScript
-date: "2021-12-07"
+created: "2021-12-07"
+updated: "2021-12-07"
 description: Given an object, returns object with all optional fields
 labels:
   - typescript

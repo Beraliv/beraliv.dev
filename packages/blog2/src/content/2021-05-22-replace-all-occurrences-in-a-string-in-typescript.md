@@ -1,6 +1,7 @@
 ---
 title: Replace all occurrences in string literal type in TypeScript
-date: "2021-05-22"
+created: "2021-05-22"
+updated: "2021-05-22"
 description: Given the string, replace all string occurrences with specified string
 labels:
   - typescript

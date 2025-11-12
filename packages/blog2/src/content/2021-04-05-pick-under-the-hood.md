@@ -1,6 +1,7 @@
 ---
 title: Pick type under the hood in TypeScript
-date: "2021-04-05"
+created: "2021-04-05"
+updated: "2022-06-14"
 description: Given existing type or interface, we need to extract part of properties
 labels:
   - typescript

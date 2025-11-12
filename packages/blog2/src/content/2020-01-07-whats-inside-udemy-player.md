@@ -1,6 +1,7 @@
 ---
 title: Subtitles, statistics and DRM in Udemy video player (2020 edition)
-date: "2020-01-07"
+created: "2020-01-07"
+updated: "2021-10-06"
 description: Subtitles with WebVTT, statistics and DRM
 labels:
   - player

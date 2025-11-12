@@ -1,6 +1,7 @@
 ---
 title: Transform tuple type into object type with same key and value in TypeScript
-date: "2021-04-07"
+created: "2021-04-07"
+updated: "2021-04-07"
 description: Given the tuple, we need to get object where key and value equals to the elements of the tuple
 labels:
   - typescript

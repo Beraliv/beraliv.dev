@@ -1,6 +1,7 @@
 ---
 title: How I Earned the UK Global Talent Visa (Exceptional Talent)
-date: "2025-04-23"
+created: "2025-04-23"
+updated: "2025-04-23"
 description: A breakdown of the key projects, open-source work, and professional achievements that helped me secure the UK Global Talent visa in tech. This post highlights the impact and leadership demonstrated through real-world engineering initiatives.
 labels:
   - personal

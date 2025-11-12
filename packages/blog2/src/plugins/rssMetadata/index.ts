@@ -1,21 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { getAllPosts } from "../../functions/getAllPosts";
-import { validatePost } from "../../validators/validatePost";
 import { generateRssXml } from "./generateRssXml";
+import { getAllValidatedPostsByCreatedDesc } from "../../functions/getAllValidatedPostsByCreatedDesc";
 
 export const rssMetadata = (): string => {
-  const posts = getAllPosts()
-    .map(({ data, name }) => ({
-      ...data,
-      slug: name,
-    }))
-    .sort((a, b) => {
-      if (!a.date) return -1;
-      if (!b.date) return 1;
-      return -a.date.localeCompare(b.date);
-    })
-    .map(validatePost);
+  const posts = getAllValidatedPostsByCreatedDesc();
   const rssXml = generateRssXml(posts);
   return rssXml;
 };

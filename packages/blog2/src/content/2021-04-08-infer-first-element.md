@@ -1,6 +1,7 @@
 ---
 title: Infer first element of tuple type in TypeScript
-date: "2021-04-08"
+created: "2021-04-08"
+updated: "2021-04-08"
 description: Given the tuple, return its first element
 labels:
   - typescript
