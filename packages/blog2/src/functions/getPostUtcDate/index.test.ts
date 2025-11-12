@@ -10,9 +10,9 @@ describe(getPostUtcDate.name, () => {
     expect(actual).toEqual(expected);
   });
 
-  it("throws error if raw date cannot be parsed", () => {
+  it("throws error if raw created date cannot be parsed", () => {
     expect(() => getPostUtcDate({ rawCreated: "" })).toThrow(
-      "Post date format is incorrect: "
+      "Post created date format is incorrect: "
     );
   });
 });
