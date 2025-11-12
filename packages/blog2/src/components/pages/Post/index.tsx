@@ -73,7 +73,12 @@ export const Post = ({ content, image, post }: PostPropsType) => {
               }}
             />
             <div className={styles.headerMetadata}>
-              <small>{post.created}</small>
+              <small>
+                <strong>Created:</strong> {post.created}
+              </small>
+              <small>
+                <strong>Updated:</strong> {post.updated}
+              </small>
             </div>
           </header>
           <main>
