@@ -3,6 +3,5 @@ export const KNOWN_LABELS = [
   "javascript",
   "personal",
   "player",
-  "testing",
   "typescript",
 ] as const;
