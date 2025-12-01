@@ -1,4 +1,6 @@
 .tsEssentialsWidget {
+  width: calc(200px + 2rem);
+  height: calc(90px + 2rem);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.1);
