@@ -1,5 +1,5 @@
 .snow {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -23,7 +23,7 @@
     transform: translate3d(var(--left-ini), 0, 0);
   }
   100% {
-    transform: translate3d(var(--left-end), 90px, 0);
+    transform: translate3d(var(--left-end), 100vh, 0);
   }
 }
 .snowflake:nth-child(1) {
