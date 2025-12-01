@@ -1,0 +1,87 @@
+.tsEssentialsWidget {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.githubLink {
+  display: grid;
+  padding: 1rem;
+  grid-template-rows: auto 1fr;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+}
+
+.githubIcon {
+  display: inline-block;
+  height: 16px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contributions {
+  margin: 0.5rem 0;
+  font-family: Arial, sans-serif;
+}
+
+.contributionsKey {
+  color: #2a2a2a;
+}
+
+.contributionsValue {
+  color: #111;
+  font-weight: 500;
+}
+
+.stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stars,
+.downloads {
+  display: inline-grid;
+  gap: 0.125rem;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+.starsKey,
+.starsValue,
+.downloadsKey,
+.downloadsValue {
+  font-size: 12px;
+}
+
+.starsKey {
+  color: rgb(207, 149, 5);
+}
+
+.starsValue {
+  color: rgb(0, 0, 0);
+}
+
+.downloadsKey {
+  color: rgb(8, 142, 75);
+}
+
+.downloadsValue {
+  color: rgb(0, 0, 0);
+}
