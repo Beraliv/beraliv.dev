@@ -1,6 +1,5 @@
 .achievements {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 0.5rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
