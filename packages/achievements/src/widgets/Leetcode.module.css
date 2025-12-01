@@ -1,0 +1,90 @@
+.leetcodeWidget {
+  width: calc(200px + 2rem);
+  height: calc(90px + 2rem);
+  display: inline-grid;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: rgb(40, 40, 40);
+}
+
+.leetcodeLink {
+  display: grid;
+  padding: 1rem;
+  grid-template-rows: auto 1fr;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.leetcodeLink:hover {
+  color: #005f99;
+}
+
+.leetcodeIcon {
+  height: 16px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.rankKey {
+  color: #eff1f6bf;
+}
+
+.rankValue {
+  color: #fff;
+  font-weight: 500;
+}
+
+.rank {
+  margin: 0.5rem 0;
+}
+
+.solved {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.easy,
+.medium,
+.hard {
+  display: inline-grid;
+  gap: 0.125rem;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+}
+
+.easyKey,
+.easyValue,
+.mediumKey,
+.mediumValue,
+.hardKey,
+.hardValue {
+  font-size: 12px;
+}
+
+.easyKey {
+  color: rgb(28, 186, 186);
+}
+
+.mediumKey {
+  color: rgb(255, 183, 0);
+}
+
+.hardKey {
+  color: rgb(246, 55, 55);
+}
+
+.easyValue,
+.mediumValue,
+.hardValue {
+  color: rgb(255, 255, 255);
+}
