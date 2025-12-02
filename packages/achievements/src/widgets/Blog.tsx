@@ -2,7 +2,7 @@ import { createEffect, createSignal } from "solid-js";
 import { fetchBlogStats, BlogStats } from "../utils/fetchBlogStats";
 import styles from "./Blog.module.css";
 import { Spinner } from "../components/Spinner";
-import { PlausibleIcon } from "../components/PlausibleIcon";
+import plausibleIconUrl from '../components/plausibleIcon.svg'
 
 const PLAUSIBLE_API_KEY = import.meta.env.VITE_PLAUSIBLE_API_KEY || "";
 
@@ -44,9 +44,7 @@ export const Blog = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div class={styles.plausibleIcon}>
-          <PlausibleIcon />
-        </div>
+        <div class={styles.plausibleIcon} style={{background: `url(${plausibleIconUrl}) no-repeat`}}/>
         {loading() && (
           <div class={styles.spinner}>
             <Spinner />
