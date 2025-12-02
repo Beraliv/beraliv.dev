@@ -64,10 +64,10 @@ export const fetchLeetCodeStats = async (
       }
     `;
 
-    // Use proxy in development, direct URL in production
+    // Use local proxy in development, Vercel API route in production
     const apiUrl = import.meta.env.DEV
       ? "/api/leetcode/graphql"
-      : "https://leetcode.com/graphql";
+      : "/api/leetcode";
 
     const response = await fetch(apiUrl, {
       method: "POST",
