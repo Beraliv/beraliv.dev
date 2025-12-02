@@ -7,6 +7,6 @@ The digital garden 🌳🌲 with my projects:
   - [ts-conversion](http://ts-conversion.beraliv.com) - moved to https://github.com/Beraliv/ts-conversion
   - [id](https://beraliv.com)
   - [blog2](https://blog.beraliv.dev/)
-  - achievements
+  - [achievements](https://achievements-eight.vercel.app/)
   - habits (archived)
   - tennis-tournaments (archived)
