@@ -6,7 +6,6 @@ import {
 import styles from "./TsEssentials.module.css";
 import { Spinner } from "../components/Spinner";
 import { GitHubIcon } from "../components/GitHubIcon";
-import { GitHubStar } from "../components/GitHubStar";
 
 export const TsEssentials = () => {
   const [stats, setStats] = createSignal<TsEssentialsStats | null>(null);
