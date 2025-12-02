@@ -16,6 +16,10 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api\/leetcode/, ''),
         secure: false,
       },
+      '/api/spotify': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
     },
   },
   test: {

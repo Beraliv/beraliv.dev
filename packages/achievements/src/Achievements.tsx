@@ -1,6 +1,7 @@
 import { Leetcode } from "./widgets/Leetcode"
 import { TsEssentials } from "./widgets/TsEssentials"
 import { Blog } from "./widgets/Blog"
+import { Spotify } from "./widgets/Spotify"
 import styles from './Achievements.module.css'
 
 export const Achievements = () => {
@@ -11,6 +12,7 @@ export const Achievements = () => {
                 <Leetcode />
                 <TsEssentials />
                 <Blog />
+                <Spotify />
             </div>
         </>
     )
