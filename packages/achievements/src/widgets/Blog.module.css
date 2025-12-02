@@ -1,0 +1,40 @@
+.blogWidget {
+  width: calc(200px + 2rem);
+  height: calc(90px + 2rem);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: oklch(0.141 0.005 285.823);
+  font-family: Arial, sans-serif;
+}
+
+.blogLink {
+  display: grid;
+  padding: 1rem;
+  grid-template-rows: auto 1fr;
+  color: #007acc;
+  text-decoration: none;
+}
+
+.plausibleIcon svg {
+  height: 16px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pageviews, .website {
+  margin: 0.5rem 0;
+}
+
+.pageviewsKey {
+  color: oklch(0.705 0.015 286.067);
+  font-weight: 700;
+}
+
+.websiteKey, .pageviewsValue {
+  color: oklch(0.967 0.001 286.375);
+  font-weight: 700;
+}
