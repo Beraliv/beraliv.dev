@@ -65,14 +65,13 @@ export const fetchLeetCodeStats = async (
     `;
 
     // Use proxy in development, direct URL in production
-    const apiUrl = import.meta.env.DEV
-      ? "/api/leetcode/graphql"
-      : "https://leetcode.com/graphql";
+    const apiUrl = "https://leetcode.com/graphql";
 
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Referer: "https://achievements-eight.vercel.app/",
       },
       body: JSON.stringify({
         query,
