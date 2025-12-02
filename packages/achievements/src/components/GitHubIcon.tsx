@@ -5,7 +5,6 @@ export const GitHubIcon = () => (
     height="32"
     aria-hidden="true"
     viewBox="0 0 24 24"
-    version="1.1"
     width="32"
     data-view-component="true"
     class={styles.githubIcon}
