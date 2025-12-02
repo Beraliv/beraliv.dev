@@ -71,7 +71,7 @@ export const fetchLeetCodeStats = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Referer: "https://achievements-eight.vercel.app/",
+        Referer: "https://achievements-git-test-achieveme-24ac58-alexey-berezins-projects.vercel.app/"
       },
       body: JSON.stringify({
         query,
