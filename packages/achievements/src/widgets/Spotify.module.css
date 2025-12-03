@@ -11,10 +11,10 @@
 }
 
 .spotifyLink {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
-  grid-template-rows: auto 1fr;
   text-decoration: none;
 }
 
