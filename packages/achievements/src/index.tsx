@@ -2,6 +2,7 @@ import { render } from 'solid-js/web';
 import 'solid-devtools';
 
 import { Achievements } from './Achievements';
+import { Random } from './Random';
 
 const root = document.getElementById('root');
 
@@ -11,4 +12,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <Achievements />, root!);
+render(() => <>
+  <Achievements />
+  <Random />
+</>, root!);
