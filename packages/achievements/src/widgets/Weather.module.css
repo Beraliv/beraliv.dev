@@ -1,0 +1,118 @@
+.weatherWidget {
+  width: calc(200px + 2rem);
+  height: calc(90px + 2rem);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.weatherLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem 1rem 1rem;
+  text-decoration: none;
+  color: rgb(85, 26, 139);
+}
+
+.header {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.location {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: auto;
+}
+
+
+.weatherIcon {
+  height: 22px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error {
+  color: #ffcccc;
+  font-size: 12px;
+  display: flex;
+}
+
+.error p {
+  margin: 0;
+}
+
+.weatherContent {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mainInfo, .detailItem {
+  display: flex;
+  gap: 0.125rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0 0.5rem;
+}
+
+.mainInfo {
+  align-items: center;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+}
+
+.mainInfoIcon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.temperature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.temp {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.condition {
+  font-size: 12px;
+  opacity: 0.9;
+  text-transform: capitalize;
+}
+
+.details {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.detailItem {
+  flex-direction: column;
+  gap: 0 0.125rem;
+}
+
+.detailLabel {
+  opacity: 0.8;
+}
+
+.detailValue {
+  font-weight: 600;
+}
