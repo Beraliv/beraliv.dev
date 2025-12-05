@@ -95,8 +95,7 @@
   grid-template-columns: repeat(9, 1fr);
   gap: 0;
   background-color: #333;
-  border: 3px solid #333;
-  border-radius: 8px;
+  border: 2px solid #333;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -106,14 +105,23 @@
   border: 1px solid #555;
   background-color: #fff;
   color: #333;
-  font-size: 30px;
-  font-weight: 400;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s;
   outline: none;
+}
+
+.cell, .numberButton {
+  font-size: 50px;
+  font-weight: 400;
+}
+
+@media (max-width: 690px) {
+  .cell, .numberButton {
+    font-size: 6vw;
+  }
 }
 
 .cell:nth-child(3n) {
@@ -156,33 +164,25 @@
 .numberPad {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 0.5rem;
+  border: 1px solid #555;
 }
 
 .numberButton {
   aspect-ratio: 1;
-  border: none;
+  border: 1px solid #555;
   background-color: rgba(255, 255, 255, 0.9);
   color: #333;
-  font-size: 30px;
-  font-weight: 400;
-  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .numberButton:hover {
   background-color: #fff;
-  transform: translateY(-2px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .numberButton:active {
   transform: scale(0.95);
-}
-
-.hideUsedNumber {
-  visibility: hidden;
 }
 
 .clearButton {

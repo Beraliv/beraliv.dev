@@ -314,17 +314,14 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
             <For each={[1, 2, 3, 4, 5, 6, 7, 8, 9]}>
               {(num) => (
                 <button
-                  classList={{
-                    [styles.numberButton]: true,
-                    [styles.hideUsedNumber]: isNumberUsed(num) && hideUsedNumbers(),
-                  }}
+                  class={styles.numberButton}
                   onClick={() => handleNumberInput(num)}
                   onTouchEnd={(e) => {
                     e.preventDefault();
                     handleNumberInput(num);
                   }}
                 >
-                  {num}
+                  {isNumberUsed(num) && hideUsedNumbers() ? '' : num}
                 </button>
               )}
             </For>
