@@ -1,5 +1,6 @@
 import { Spotify } from "./widgets/Spotify"
 import { Weather } from "./widgets/Weather"
+import { Sudoku } from "./widgets/Sudoku"
 import styles from './Random.module.css'
 
 export const Random = () => {
@@ -9,6 +10,7 @@ export const Random = () => {
             <div class={styles.random}>
                 <Weather />
                 <Spotify />
+                <Sudoku />
             </div>
         </>
     )
