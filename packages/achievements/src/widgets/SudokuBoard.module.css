@@ -213,7 +213,14 @@
   transform: scale(0.95);
 }
 
-.clearButton {
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.clearButton,
+.newGameButton {
+  flex: 1;
   padding: 1rem;
   border: none;
   background-color: rgba(255, 255, 255, 0.2);
@@ -225,12 +232,30 @@
   transition: background-color 0.2s;
 }
 
-.clearButton:hover {
+.clearButton:hover,
+.newGameButton:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.clearButton:active {
+.clearButton:active,
+.newGameButton:active {
   transform: scale(0.98);
+}
+
+.difficultySelect {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.difficultySelect option {
+  background-color: #764ba2;
+  color: #fff;
 }
 
 @media (max-width: 600px) {

@@ -2,20 +2,105 @@ import { createSignal, For, Index, onMount, onCleanup } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 
-// Simple Sudoku puzzle (0 represents empty cells)
-const createInitialPuzzle = () => [
-  [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 9, 5, 0, 0, 0],
-  [0, 9, 8, 0, 0, 0, 0, 6, 0],
-  [8, 0, 0, 0, 6, 0, 0, 0, 3],
-  [4, 0, 0, 8, 0, 3, 0, 0, 1],
-  [7, 0, 0, 0, 2, 0, 0, 0, 6],
-  [0, 6, 0, 0, 0, 0, 2, 8, 0],
-  [0, 0, 0, 4, 1, 9, 0, 0, 5],
-  [0, 0, 0, 0, 8, 0, 0, 7, 9],
-];
+type Difficulty = 'easy' | 'medium' | 'hard' | 'expert' | 'master' | 'extreme';
+
+const DIFFICULTY_CLUES: Record<Difficulty, number> = {
+  easy: 45,      // 45 clues (36 empty)
+  medium: 35,    // 35 clues (46 empty)
+  hard: 30,      // 30 clues (51 empty)
+  expert: 25,    // 25 clues (56 empty)
+  master: 22,    // 22 clues (59 empty)
+  extreme: 20,   // 20 clues (61 empty)
+};
 
 const getPositionIndex = (n: number) => Math.floor(n / 3);
+
+// Check if a number is valid in a given position
+const isValid = (board: number[][], row: number, col: number, num: number): boolean => {
+  // Check row
+  for (let c = 0; c < 9; c++) {
+    if (board[row][c] === num) return false;
+  }
+
+  // Check column
+  for (let r = 0; r < 9; r++) {
+    if (board[r][col] === num) return false;
+  }
+
+  // Check 3x3 block
+  const blockRow = getPositionIndex(row) * 3;
+  const blockCol = getPositionIndex(col) * 3;
+  for (let r = blockRow; r < blockRow + 3; r++) {
+    for (let c = blockCol; c < blockCol + 3; c++) {
+      if (board[r][c] === num) return false;
+    }
+  }
+
+  return true;
+};
+
+// Solve Sudoku using backtracking
+const solveSudoku = (board: number[][]): boolean => {
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (board[row][col] === 0) {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // Shuffle for randomness
+        for (let i = numbers.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+        }
+
+        for (const num of numbers) {
+          if (isValid(board, row, col, num)) {
+            board[row][col] = num;
+            if (solveSudoku(board)) return true;
+            board[row][col] = 0;
+          }
+        }
+        return false;
+      }
+    }
+  }
+  return true;
+};
+
+// Generate a complete solved Sudoku board
+const generateSolvedBoard = (): number[][] => {
+  const board = Array(9).fill(0).map(() => Array(9).fill(0));
+  solveSudoku(board);
+  return board;
+};
+
+// Remove numbers to create puzzle with unique solution
+const createPuzzle = (difficulty: Difficulty): number[][] => {
+  const solution = generateSolvedBoard();
+  const puzzle = solution.map(row => [...row]);
+
+  const targetClues = DIFFICULTY_CLUES[difficulty];
+  const cellsToRemove = 81 - targetClues;
+
+  let removed = 0;
+  const attempts = new Set<string>();
+
+  while (removed < cellsToRemove && attempts.size < 81) {
+    const row = Math.floor(Math.random() * 9);
+    const col = Math.floor(Math.random() * 9);
+    const key = `${row},${col}`;
+
+    if (attempts.has(key)) continue;
+    attempts.add(key);
+
+    if (puzzle[row][col] !== 0) {
+      puzzle[row][col] = 0;
+      removed++;
+    }
+  }
+
+  return puzzle;
+};
+
+const createInitialPuzzle = () => createPuzzle('medium');
 
 const STORAGE_KEYS = {
   HIGHLIGHT_AREAS: 'sudoku_highlight_areas',
@@ -53,10 +138,11 @@ const formatTime = (seconds: number): string => {
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 };
 
-export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
-  const initialPuzzle = createPuzzle();
+export const SudokuBoard = ({createPuzzle: _createPuzzle = createInitialPuzzle}) => {
   const navigate = useNavigate();
-  const [board, setBoard] = createSignal(initialPuzzle.map(row => [...row]));
+  const [difficulty, setDifficulty] = createSignal<Difficulty>('medium');
+  const [initialPuzzle, setInitialPuzzle] = createSignal(_createPuzzle());
+  const [board, setBoard] = createSignal(initialPuzzle().map(row => [...row]));
   const [selectedCell, setSelectedCell] = createSignal<{ row: number; col: number } | null>(null);
 
   // Settings
@@ -98,7 +184,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
   };
 
   const isCellMutable = (rowIndex: number, colIndex: number) => {
-    return initialPuzzle[rowIndex][colIndex] === 0;
+    return initialPuzzle()[rowIndex][colIndex] === 0;
   }
 
   const isSameBlock = (rowIndex: number, colIndex: number) => {
@@ -211,6 +297,16 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
     }
   };
 
+  const handleNewGame = () => {
+    const newPuzzle = createPuzzle(difficulty());
+    setInitialPuzzle(newPuzzle);
+    setBoard(newPuzzle.map(row => [...row]));
+    setSelectedCell(null);
+    setElapsedSeconds(0);
+    setIsPaused(false);
+    setDuplicateCells(new Set<string>());
+  };
+
   return (
     <div class={styles.sudokuContainer}>
       <div class={styles.header}>
@@ -266,6 +362,21 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
       {settingsVisibility() && (
         <div class={styles.settingsPanel}>
           <div class={styles.settingItem}>
+            <label class={styles.settingLabel}>
+              <span>Difficulty:</span>
+              <select
+                class={styles.difficultySelect}
+                value={difficulty()}
+                onChange={(e) => setDifficulty(e.currentTarget.value as Difficulty)}
+              >
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+                <option value="master">Master</option>
+                <option value="extreme">Extreme</option>
+              </select>
+            </label>
             <label class={styles.settingLabel}>
               <input
                 type="checkbox"
@@ -387,17 +498,29 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
               )}
             </For>
           </div>
-          <button
-            class={styles.clearButton}
-            onClick={handleClear}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleClear();
-            }}
-            disabled={isPaused()}
-          >
-            Clear
-          </button>
+          <div class={styles.actionButtons}>
+            <button
+              class={styles.clearButton}
+              onClick={handleClear}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                handleClear();
+              }}
+              disabled={isPaused()}
+            >
+              Clear
+            </button>
+            <button
+              class={styles.newGameButton}
+              onClick={handleNewGame}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                handleNewGame();
+              }}
+            >
+              New Game
+            </button>
+          </div>
         </div>
       </div>
     </div>
