@@ -1,4 +1,4 @@
-import { createSignal, For, Index, onMount } from "solid-js";
+import { createSignal, For, Index } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 
@@ -314,7 +314,10 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
             <For each={[1, 2, 3, 4, 5, 6, 7, 8, 9]}>
               {(num) => (
                 <button
-                  class={styles.numberButton}
+                  classList={{
+                    [styles.numberButton]: true,
+                    [styles.numberButtonDisabled]: isNumberUsed(num) && hideUsedNumbers(),
+                  }}
                   onClick={() => handleNumberInput(num)}
                   onTouchEnd={(e) => {
                     e.preventDefault();
