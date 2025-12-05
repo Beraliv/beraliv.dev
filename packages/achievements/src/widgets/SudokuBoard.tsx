@@ -1,4 +1,4 @@
-import { createSignal, For, Index } from "solid-js";
+import { createSignal, For, Index, onMount, onCleanup } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 
@@ -42,6 +42,17 @@ const saveBooleanSetting = (key: string, value: boolean): void => {
   }
 };
 
+const formatTime = (seconds: number): string => {
+  const hrs = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+
+  if (hrs > 0) {
+    return `${hrs}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+};
+
 export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
   const initialPuzzle = createPuzzle();
   const navigate = useNavigate();
@@ -62,6 +73,29 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
 
   // Track duplicate cells
   const [duplicateCells, setDuplicateCells] = createSignal<Set<string>>(new Set());
+
+  // Timer
+  const [elapsedSeconds, setElapsedSeconds] = createSignal(0);
+  const [isPaused, setIsPaused] = createSignal(false);
+  let intervalId: number | undefined;
+
+  onMount(() => {
+    intervalId = window.setInterval(() => {
+      if (!isPaused()) {
+        setElapsedSeconds(prev => prev + 1);
+      }
+    }, 1000);
+  });
+
+  onCleanup(() => {
+    if (intervalId !== undefined) {
+      clearInterval(intervalId);
+    }
+  });
+
+  const togglePause = () => {
+    setIsPaused(!isPaused());
+  };
 
   const isCellMutable = (rowIndex: number, colIndex: number) => {
     return initialPuzzle[rowIndex][colIndex] === 0;
@@ -145,6 +179,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
   };
 
   const handleCellClick = (row: number, col: number) => {
+    if (isPaused()) return;
     setSelectedCell({ row, col });
   };
 
@@ -155,6 +190,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
   };
 
   const handleNumberInput = (num: number) => {
+    if (isPaused()) return;
     const selected = selectedCell();
     if (selected) {
       const newBoard = board().map(row => [...row]);
@@ -165,6 +201,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
   };
 
   const handleClear = () => {
+    if (isPaused()) return;
     const selected = selectedCell();
     if (selected) {
       const newBoard = board().map(row => [...row]);
@@ -179,6 +216,26 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
       <div class={styles.header}>
         <h2>Sudoku</h2>
         <div class={styles.headerButtons}>
+          <span class={styles.timer}>{formatTime(elapsedSeconds())}</span>
+          <button
+            class={styles.playPauseButton}
+            onClick={togglePause}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              togglePause();
+            }}
+            aria-label={isPaused() ? "Play" : "Pause"}
+          >
+            {isPaused() ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+              </svg>
+            )}
+          </button>
           <button
             class={styles.settingsButton}
             onClick={toggleSettingsVisibility}
@@ -266,7 +323,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
       )}
 
       <div class={styles.boardContainer}>
-        <div class={styles.board}>
+        <div class={styles.board} classList={{ [styles.boardPaused]: isPaused() }}>
           <Index each={board()}>
             {(row, rowIndex) => (
               <Index each={row()}>
@@ -276,10 +333,10 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
                       class={styles.cell}
                       classList={{
                         [styles.cellMutable]: isCellMutable(rowIndex, colIndex),
-                        [styles.cellSelected]: isCellSelected(rowIndex, colIndex),
-                        [styles.cellHighlightedByArea]: isCellHighlightedByArea(rowIndex, colIndex) && highlightAreas(),
-                        [styles.cellHighlightedByIdenticalSelectedNumber]: isSameNumberSelected(rowIndex, colIndex) && highlightIdenticalNumbers(),
-                        [styles.cellDuplicate]: isCellDuplicate(rowIndex, colIndex) && highlightDuplicates(),
+                        [styles.cellSelected]: !isPaused() && isCellSelected(rowIndex, colIndex),
+                        [styles.cellHighlightedByArea]: !isPaused() && isCellHighlightedByArea(rowIndex, colIndex) && highlightAreas(),
+                        [styles.cellHighlightedByIdenticalSelectedNumber]: !isPaused() && isSameNumberSelected(rowIndex, colIndex) && highlightIdenticalNumbers(),
+                        [styles.cellDuplicate]: !isPaused() && isCellDuplicate(rowIndex, colIndex) && highlightDuplicates(),
                       }}
                       onClick={() => handleCellClick(rowIndex, colIndex)}
                       onTouchEnd={(e) => {
@@ -300,7 +357,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
                         }
                       }}
                     >
-                      {cell() !== 0 ? cell() : ""}
+                      {isPaused() ? "" : (cell() !== 0 ? cell() : "")}
                     </button>
                   );
                 }}
@@ -309,7 +366,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
           </Index>
         </div>
 
-        <div class={styles.controls}>
+        <div class={styles.controls} classList={{ [styles.controlsDisabled]: isPaused() }}>
           <div class={styles.numberPad}>
             <For each={[1, 2, 3, 4, 5, 6, 7, 8, 9]}>
               {(num) => (
@@ -323,6 +380,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
                     e.preventDefault();
                     handleNumberInput(num);
                   }}
+                  disabled={isPaused()}
                 >
                   {isNumberUsed(num) && hideUsedNumbers() ? '' : num}
                 </button>
@@ -336,6 +394,7 @@ export const SudokuBoard = ({createPuzzle = createInitialPuzzle}) => {
               e.preventDefault();
               handleClear();
             }}
+            disabled={isPaused()}
           >
             Clear
           </button>
