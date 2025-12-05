@@ -201,6 +201,7 @@
 
 .numberButtonDisabled {
   background-image: url("../components/tick.svg");
+  background-size: 75%;
   cursor: default;
 }
 
