@@ -1,6 +1,6 @@
 .sudokuContainer {
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
   background: linear-gradient(135deg, #ff9a56 0%, #ff6a00 100%);
   color: #fff;
   font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
 }
 
 .header h2 {
@@ -35,8 +35,8 @@
 .playPauseButton,
 .settingsButton,
 .closeButton {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border: none;
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
@@ -49,7 +49,7 @@
   transition: background-color 0.2s;
 }
 
-.settingsButton {
+.closeButton {
   font-size: 20px;
 }
 
@@ -98,7 +98,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .board {
@@ -260,10 +260,34 @@
 
 @media (max-width: 600px) {
   .sudokuContainer {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .header h2 {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .headerButtons {
+    gap: 0.25rem;
+  }
+
+  .playPauseButton,
+  .settingsButton,
+  .closeButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .closeButton {
+    font-size: 18px;
+  }
+
+  .timer {
+    font-size: 14px;
+  }
+
+  .clearButton,
+  .newGameButton {
+    padding: 0.5rem;
   }
 }
