@@ -1,4 +1,4 @@
-import { createSignal, For, Index, onMount, onCleanup } from "solid-js";
+import { createSignal, For, Index, onMount, onCleanup, Show } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 
@@ -84,7 +84,7 @@ const createPuzzle = (difficulty: Difficulty): number[][] => {
   const solution = generateSolvedBoard();
   const puzzle = solution.map((row) => [...row]);
 
-  const targetClues = DIFFICULTY_CLUES[difficulty];
+  const targetClues = Math.random() > 0 ? 80 : DIFFICULTY_CLUES[difficulty];
   const cellsToRemove = 81 - targetClues;
 
   let removed = 0;
@@ -106,8 +106,6 @@ const createPuzzle = (difficulty: Difficulty): number[][] => {
 
   return puzzle;
 };
-
-const createInitialPuzzle = () => createPuzzle("medium");
 
 const STORAGE_KEYS = {
   HIGHLIGHT_AREAS: "sudoku_highlight_areas",
@@ -141,13 +139,16 @@ const saveBooleanSetting = (key: string, value: boolean): void => {
 const loadDifficulty = (): Difficulty => {
   try {
     const stored = localStorage.getItem(STORAGE_KEYS.DIFFICULTY);
-    if (stored && ['easy', 'medium', 'hard', 'expert', 'master', 'extreme'].includes(stored)) {
+    if (
+      stored &&
+      ["easy", "medium", "hard", "expert", "master", "extreme"].includes(stored)
+    ) {
       return stored as Difficulty;
     }
   } catch {
     // Fall through to default
   }
-  return 'medium';
+  return "medium";
 };
 
 const saveDifficulty = (difficulty: Difficulty): void => {
@@ -171,12 +172,14 @@ const formatTime = (seconds: number): string => {
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
 
-export const SudokuBoard = ({
-  createPuzzle: _createPuzzle = createInitialPuzzle,
-}) => {
+export const SudokuBoard = ({}) => {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = createSignal<Difficulty>(loadDifficulty());
-  const [initialPuzzle, setInitialPuzzle] = createSignal(_createPuzzle());
+  const [difficulty, setDifficulty] = createSignal<Difficulty>(
+    loadDifficulty()
+  );
+  const [initialPuzzle, setInitialPuzzle] = createSignal(
+    createPuzzle(difficulty())
+  );
   const [board, setBoard] = createSignal(
     initialPuzzle().map((row) => [...row])
   );
@@ -214,8 +217,9 @@ export const SudokuBoard = ({
   // Timer
   const [elapsedSeconds, setElapsedSeconds] = createSignal(0);
   const [isPaused, setIsPaused] = createSignal(false);
+  const [isCompleted, setIsCompleted] = createSignal(false);
+  const [completionTime, setCompletionTime] = createSignal(0);
   let intervalId: number | undefined;
-
 
   const handleKeydown = (e: KeyboardEvent) => {
     if (e.key === "Backspace" || e.key === "Delete" || e.key === "0") {
@@ -230,7 +234,7 @@ export const SudokuBoard = ({
 
   onMount(() => {
     intervalId = window.setInterval(() => {
-      if (!isPaused()) {
+      if (!isPaused() && !isCompleted()) {
         setElapsedSeconds((prev) => prev + 1);
       }
     }, 1000);
@@ -340,6 +344,22 @@ export const SudokuBoard = ({
     setDuplicateCells(duplicates);
   };
 
+  const checkVictory = () => {
+    const currentBoard = board();
+
+    // Check if all cells are filled
+    for (let row = 0; row < 9; row++) {
+      for (let col = 0; col < 9; col++) {
+        if (currentBoard[row][col] === 0) return false;
+      }
+    }
+
+    // Check if there are no duplicates
+    if (duplicateCells().size > 0) return false;
+
+    return true;
+  };
+
   const handleClose = () => {
     navigate("/");
   };
@@ -356,13 +376,18 @@ export const SudokuBoard = ({
   };
 
   const handleNumberInput = (num: number) => {
-    if (isPaused()) return;
+    if (isPaused() || isCompleted()) return;
     const selected = selectedCell();
     if (selected) {
       const newBoard = board().map((row) => [...row]);
       newBoard[selected.row][selected.col] = num;
       setBoard(newBoard);
       checkForDuplicates();
+
+      if (checkVictory()) {
+        setIsCompleted(true);
+        setCompletionTime(elapsedSeconds());
+      }
     }
   };
 
@@ -384,6 +409,8 @@ export const SudokuBoard = ({
     setSelectedCell(null);
     setElapsedSeconds(0);
     setIsPaused(false);
+    setIsCompleted(false);
+    setCompletionTime(0);
     setDuplicateCells(new Set<string>());
   };
 
@@ -551,47 +578,70 @@ export const SudokuBoard = ({
       )}
 
       <div class={styles.boardContainer}>
-        <div
-          class={styles.board}
-          classList={{ [styles.boardPaused]: isPaused() }}
-        >
-          <Index each={board()}>
-            {(row, rowIndex) => (
-              <Index each={row()}>
-                {(cell, colIndex) => {
-                  return (
-                    <button
-                      class={styles.cell}
-                      classList={{
-                        [styles.cellMutable]: isCellMutable(rowIndex, colIndex),
-                        [styles.cellSelected]:
-                          !isPaused() && isCellSelected(rowIndex, colIndex),
-                        [styles.cellHighlightedByArea]:
-                          !isPaused() &&
-                          isCellHighlightedByArea(rowIndex, colIndex) &&
-                          highlightAreas(),
-                        [styles.cellHighlightedByIdenticalSelectedNumber]:
-                          !isPaused() &&
-                          isSameNumberSelected(rowIndex, colIndex) &&
-                          highlightIdenticalNumbers(),
-                        [styles.cellDuplicate]:
-                          !isPaused() &&
-                          isCellDuplicate(rowIndex, colIndex) &&
-                          highlightDuplicates(),
-                      }}
-                      onClick={() => handleCellClick(rowIndex, colIndex)}
-                      onTouchEnd={(e) => {
-                        e.preventDefault();
-                        handleCellClick(rowIndex, colIndex);
-                      }}
-                    >
-                      {isPaused() ? "" : cell() !== 0 ? cell() : ""}
-                    </button>
-                  );
-                }}
-              </Index>
-            )}
-          </Index>
+        <div class={styles.boardWrapper}>
+          <div
+            class={styles.board}
+            classList={{ [styles.boardPaused]: isPaused() || isCompleted() }}
+          >
+            <Index each={board()}>
+              {(row, rowIndex) => (
+                <Index each={row()}>
+                  {(cell, colIndex) => {
+                    return (
+                      <button
+                        class={styles.cell}
+                        classList={{
+                          [styles.cellMutable]: isCellMutable(
+                            rowIndex,
+                            colIndex
+                          ),
+                          [styles.cellSelected]:
+                            !isPaused() &&
+                            !isCompleted() &&
+                            isCellSelected(rowIndex, colIndex),
+                          [styles.cellHighlightedByArea]:
+                            !isPaused() &&
+                            !isCompleted() &&
+                            isCellHighlightedByArea(rowIndex, colIndex) &&
+                            highlightAreas(),
+                          [styles.cellHighlightedByIdenticalSelectedNumber]:
+                            !isPaused() &&
+                            !isCompleted() &&
+                            isSameNumberSelected(rowIndex, colIndex) &&
+                            highlightIdenticalNumbers(),
+                          [styles.cellDuplicate]:
+                            !isPaused() &&
+                            !isCompleted() &&
+                            isCellDuplicate(rowIndex, colIndex) &&
+                            highlightDuplicates(),
+                        }}
+                        onClick={() => handleCellClick(rowIndex, colIndex)}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          handleCellClick(rowIndex, colIndex);
+                        }}
+                      >
+                        {isPaused() || isCompleted()
+                          ? ""
+                          : cell() !== 0
+                          ? cell()
+                          : ""}
+                      </button>
+                    );
+                  }}
+                </Index>
+              )}
+            </Index>
+          </div>
+
+          <Show when={isCompleted()}>
+            <div class={styles.victoryMessage}>
+              <h2>Congrats!</h2>
+              <p class={styles.completionTime}>
+                Completed in {formatTime(completionTime())}
+              </p>
+            </div>
+          </Show>
         </div>
 
         <div
@@ -612,7 +662,7 @@ export const SudokuBoard = ({
                     e.preventDefault();
                     handleNumberInput(num);
                   }}
-                  disabled={isPaused()}
+                  disabled={isPaused() || isCompleted()}
                 >
                   {isNumberUsed(num) && hideUsedNumbers() ? "" : num}
                 </button>
@@ -627,7 +677,7 @@ export const SudokuBoard = ({
                 e.preventDefault();
                 handleClear();
               }}
-              disabled={isPaused()}
+              disabled={isPaused() || isCompleted()}
             >
               Clear
             </button>
