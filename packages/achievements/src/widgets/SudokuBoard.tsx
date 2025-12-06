@@ -2,42 +2,27 @@ import { createSignal, For, Index, onMount, onCleanup, Show } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 import { createPuzzle, type Difficulty } from "../utils/sudokuGenerator";
-import {
-  loadBooleanSetting,
-  saveBooleanSetting,
-  loadStringSetting,
-  saveStringSetting,
-} from "../utils/localStorage";
 import { formatTime } from "../utils/timeFormatter";
+import { createSudokuSettings } from "../state/createSudokuSettings";
 
 const getPositionIndex = (n: number) => Math.floor(n / 3);
 
-const STORAGE_KEYS = {
-  HIGHLIGHT_AREAS: "sudoku_highlight_areas",
-  HIGHLIGHT_IDENTICAL_NUMBERS: "sudoku_highlight_identical_numbers",
-  HIDE_USED_NUMBERS: "sudoku_hide_used_numbers",
-  HIGHLIGHT_DUPLICATES: "sudoku_highlight_duplicates",
-  SETTINGS_VISIBILITY: "sudoku_settings_visibility",
-  DIFFICULTY: "sudoku_difficulty",
-} as const;
-
-const loadDifficulty = (): Difficulty => {
-  const stored = loadStringSetting(STORAGE_KEYS.DIFFICULTY, "easy");
-  if (["easy", "medium", "hard", "expert", "master", "extreme"].includes(stored)) {
-    return stored as Difficulty;
-  }
-  return "medium";
-};
-
-const saveDifficulty = (difficulty: Difficulty): void => {
-  saveStringSetting(STORAGE_KEYS.DIFFICULTY, difficulty);
-};
-
 export const SudokuBoard = ({}) => {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = createSignal<Difficulty>(
-    loadDifficulty()
-  );
+  const {
+    difficulty,
+    saveDifficulty,
+    settingsVisibility,
+    saveSettingsVisibility,
+    highlightAreas,
+    saveHighlightAreas,
+    highlightIdenticalNumbers,
+    saveHighlightIdenticalNumbers,
+    hideUsedNumbers,
+    saveHideUsedNumbers,
+    highlightDuplicates,
+    saveHighlightDuplicates,
+  } = createSudokuSettings();
   const [initialPuzzle, setInitialPuzzle] = createSignal(
     createPuzzle(difficulty())
   );
@@ -48,27 +33,6 @@ export const SudokuBoard = ({}) => {
     row: number;
     col: number;
   } | null>(null);
-
-  // Settings
-  // 1. Settings visibility to the user
-  const [settingsVisibility, setSettingsVisibility] = createSignal(
-    loadBooleanSetting(STORAGE_KEYS.SETTINGS_VISIBILITY)
-  );
-  // 2. Highlight the block, column and row for a selected cell
-  const [highlightAreas, setHighlightAreas] = createSignal(
-    loadBooleanSetting(STORAGE_KEYS.HIGHLIGHT_AREAS)
-  );
-  // 3. Highlight identical numbers
-  const [highlightIdenticalNumbers, setHighlightIdenticalNumbers] =
-    createSignal(loadBooleanSetting(STORAGE_KEYS.HIGHLIGHT_IDENTICAL_NUMBERS));
-  // 4. Hide used numbers on number pad
-  const [hideUsedNumbers, setHideUsedNumbers] = createSignal(
-    loadBooleanSetting(STORAGE_KEYS.HIDE_USED_NUMBERS)
-  );
-  // 5. Highlight duplicates
-  const [highlightDuplicates, setHighlightDuplicates] = createSignal(
-    loadBooleanSetting(STORAGE_KEYS.HIGHLIGHT_DUPLICATES)
-  );
 
   // Track duplicate cells
   const [duplicateCells, setDuplicateCells] = createSignal<Set<string>>(
@@ -231,9 +195,8 @@ export const SudokuBoard = ({}) => {
   };
 
   const toggleSettingsVisibility = () => {
-    const newValue = !settingsVisibility();
-    setSettingsVisibility(newValue);
-    saveBooleanSetting(STORAGE_KEYS.SETTINGS_VISIBILITY, newValue);
+    const newVisibility = !settingsVisibility();
+    saveSettingsVisibility(newVisibility);
   };
 
   const handleNumberInput = (num: number) => {
@@ -367,7 +330,6 @@ export const SudokuBoard = ({}) => {
                 value={difficulty()}
                 onChange={(e) => {
                   const newDifficulty = e.currentTarget.value as Difficulty;
-                  setDifficulty(newDifficulty);
                   saveDifficulty(newDifficulty);
                 }}
               >
@@ -385,8 +347,7 @@ export const SudokuBoard = ({}) => {
                 checked={highlightAreas()}
                 onChange={(e) => {
                   const value = e.currentTarget.checked;
-                  setHighlightAreas(value);
-                  saveBooleanSetting(STORAGE_KEYS.HIGHLIGHT_AREAS, value);
+                  saveHighlightAreas(value);
                 }}
                 class={styles.checkbox}
               />
@@ -398,11 +359,7 @@ export const SudokuBoard = ({}) => {
                 checked={highlightIdenticalNumbers()}
                 onChange={(e) => {
                   const value = e.currentTarget.checked;
-                  setHighlightIdenticalNumbers(value);
-                  saveBooleanSetting(
-                    STORAGE_KEYS.HIGHLIGHT_IDENTICAL_NUMBERS,
-                    value
-                  );
+                  saveHighlightIdenticalNumbers(value);
                 }}
                 class={styles.checkbox}
               />
@@ -414,8 +371,7 @@ export const SudokuBoard = ({}) => {
                 checked={hideUsedNumbers()}
                 onChange={(e) => {
                   const value = e.currentTarget.checked;
-                  setHideUsedNumbers(value);
-                  saveBooleanSetting(STORAGE_KEYS.HIDE_USED_NUMBERS, value);
+                  saveHideUsedNumbers(value);
                 }}
                 class={styles.checkbox}
               />
@@ -427,8 +383,7 @@ export const SudokuBoard = ({}) => {
                 checked={highlightDuplicates()}
                 onChange={(e) => {
                   const value = e.currentTarget.checked;
-                  setHighlightDuplicates(value);
-                  saveBooleanSetting(STORAGE_KEYS.HIGHLIGHT_DUPLICATES, value);
+                  saveHighlightDuplicates(value);
                 }}
                 class={styles.checkbox}
               />
