@@ -2,6 +2,12 @@ import { createSignal, For, Index, onMount, onCleanup, Show } from "solid-js";
 import { useNavigate } from "@solidjs/router";
 import styles from "./SudokuBoard.module.css";
 import { createPuzzle, type Difficulty } from "../utils/sudokuGenerator";
+import {
+  loadBooleanSetting,
+  saveBooleanSetting,
+  loadStringSetting,
+  saveStringSetting,
+} from "../utils/localStorage";
 
 const getPositionIndex = (n: number) => Math.floor(n / 3);
 
@@ -14,47 +20,16 @@ const STORAGE_KEYS = {
   DIFFICULTY: "sudoku_difficulty",
 } as const;
 
-const loadBooleanSetting = (
-  key: string,
-  defaultValue: boolean = false
-): boolean => {
-  try {
-    const stored = localStorage.getItem(key);
-    return stored !== null ? stored === "true" : defaultValue;
-  } catch {
-    return defaultValue;
-  }
-};
-
-const saveBooleanSetting = (key: string, value: boolean): void => {
-  try {
-    localStorage.setItem(key, String(value));
-  } catch {
-    // Silently fail if localStorage is unavailable
-  }
-};
-
 const loadDifficulty = (): Difficulty => {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEYS.DIFFICULTY);
-    if (
-      stored &&
-      ["easy", "medium", "hard", "expert", "master", "extreme"].includes(stored)
-    ) {
-      return stored as Difficulty;
-    }
-  } catch {
-    // Fall through to default
+  const stored = loadStringSetting(STORAGE_KEYS.DIFFICULTY, "easy");
+  if (["easy", "medium", "hard", "expert", "master", "extreme"].includes(stored)) {
+    return stored as Difficulty;
   }
   return "medium";
 };
 
 const saveDifficulty = (difficulty: Difficulty): void => {
-  try {
-    localStorage.setItem(STORAGE_KEYS.DIFFICULTY, difficulty);
-  } catch {
-    // Silently fail if localStorage is unavailable
-  }
+  saveStringSetting(STORAGE_KEYS.DIFFICULTY, difficulty);
 };
 
 const formatTime = (seconds: number): string => {
