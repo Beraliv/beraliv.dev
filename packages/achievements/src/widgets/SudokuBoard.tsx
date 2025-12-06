@@ -115,6 +115,7 @@ const STORAGE_KEYS = {
   HIDE_USED_NUMBERS: "sudoku_hide_used_numbers",
   HIGHLIGHT_DUPLICATES: "sudoku_highlight_duplicates",
   SETTINGS_VISIBILITY: "sudoku_settings_visibility",
+  DIFFICULTY: "sudoku_difficulty",
 } as const;
 
 const loadBooleanSetting = (
@@ -137,6 +138,26 @@ const saveBooleanSetting = (key: string, value: boolean): void => {
   }
 };
 
+const loadDifficulty = (): Difficulty => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEYS.DIFFICULTY);
+    if (stored && ['easy', 'medium', 'hard', 'expert', 'master', 'extreme'].includes(stored)) {
+      return stored as Difficulty;
+    }
+  } catch {
+    // Fall through to default
+  }
+  return 'medium';
+};
+
+const saveDifficulty = (difficulty: Difficulty): void => {
+  try {
+    localStorage.setItem(STORAGE_KEYS.DIFFICULTY, difficulty);
+  } catch {
+    // Silently fail if localStorage is unavailable
+  }
+};
+
 const formatTime = (seconds: number): string => {
   const hrs = Math.floor(seconds / 3600);
   const mins = Math.floor((seconds % 3600) / 60);
@@ -154,7 +175,7 @@ export const SudokuBoard = ({
   createPuzzle: _createPuzzle = createInitialPuzzle,
 }) => {
   const navigate = useNavigate();
-  const [difficulty, setDifficulty] = createSignal<Difficulty>("medium");
+  const [difficulty, setDifficulty] = createSignal<Difficulty>(loadDifficulty());
   const [initialPuzzle, setInitialPuzzle] = createSignal(_createPuzzle());
   const [board, setBoard] = createSignal(
     initialPuzzle().map((row) => [...row])
@@ -456,9 +477,11 @@ export const SudokuBoard = ({
               <select
                 class={styles.difficultySelect}
                 value={difficulty()}
-                onChange={(e) =>
-                  setDifficulty(e.currentTarget.value as Difficulty)
-                }
+                onChange={(e) => {
+                  const newDifficulty = e.currentTarget.value as Difficulty;
+                  setDifficulty(newDifficulty);
+                  saveDifficulty(newDifficulty);
+                }}
               >
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
