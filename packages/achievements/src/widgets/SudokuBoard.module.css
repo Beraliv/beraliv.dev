@@ -50,7 +50,9 @@
 }
 
 .closeButton {
+  font-family: Arial;
   font-size: 20px;
+  padding: 0;
 }
 
 .playPauseButton:hover,
@@ -129,13 +131,15 @@
   outline: none;
 }
 
-.cell, .numberButton {
+.cell,
+.numberButton {
   font-size: 50px;
   font-weight: 400;
 }
 
 @media (max-width: 690px) {
-  .cell, .numberButton {
+  .cell,
+  .numberButton {
     font-size: 6vw;
   }
 }
