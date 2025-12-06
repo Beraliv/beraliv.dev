@@ -195,18 +195,33 @@ export const SudokuBoard = ({
   const [isPaused, setIsPaused] = createSignal(false);
   let intervalId: number | undefined;
 
+
+  const handleKeydown = (e: KeyboardEvent) => {
+    if (e.key === "Backspace" || e.key === "Delete" || e.key === "0") {
+      e.preventDefault();
+      handleNumberInput(0);
+    } else if (e.key >= "1" && e.key <= "9") {
+      e.preventDefault();
+      const num = Number(e.key);
+      handleNumberInput(num);
+    }
+  };
+
   onMount(() => {
     intervalId = window.setInterval(() => {
       if (!isPaused()) {
         setElapsedSeconds((prev) => prev + 1);
       }
     }, 1000);
+
+    window.addEventListener("keydown", handleKeydown);
   });
 
   onCleanup(() => {
     if (intervalId !== undefined) {
       clearInterval(intervalId);
     }
+    window.removeEventListener("keydown", handleKeydown);
   });
 
   const togglePause = () => {
