@@ -1,8 +1,10 @@
 import { render } from 'solid-js/web';
+import { Router, Route } from '@solidjs/router';
 import 'solid-devtools';
 
 import { Achievements } from './Achievements';
 import { Random } from './Random';
+import { SudokuBoard } from './widgets/SudokuBoard';
 
 const root = document.getElementById('root');
 
@@ -12,7 +14,16 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-render(() => <>
-  <Achievements />
-  <Random />
-</>, root!);
+const App = () => (
+  <Router>
+    <Route path="/" component={() => (
+      <>
+        <Achievements />
+        <Random />
+      </>
+    )} />
+    <Route path="/sudoku" component={() => <SudokuBoard />} />
+  </Router>
+);
+
+render(() => <App />, root!);

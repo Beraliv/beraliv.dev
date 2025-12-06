@@ -23,6 +23,7 @@
     "vitest": "^4.0.0"
   },
   "dependencies": {
+    "@solidjs/router": "^0.15.2",
     "solid-js": "^1.9.5"
   }
 }

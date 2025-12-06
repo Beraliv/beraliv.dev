@@ -1,0 +1,57 @@
+.sudokuWidget {
+  width: calc(200px + 2rem);
+  height: calc(90px + 2rem);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff9a56 0%, #ff6a00 100%);
+  font-family: Arial, sans-serif;
+}
+
+.sudokuButton {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.sudokuButton:hover {
+  transform: scale(1.02);
+}
+
+.sudokuButton:active {
+  transform: scale(0.98);
+}
+
+.header {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.playButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.sudokuButton:hover .playButton {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.playIcon {
+  width: 24px;
+  height: 24px;
+  margin-left: 2px;
+}

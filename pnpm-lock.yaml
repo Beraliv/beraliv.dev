@@ -19,13 +19,16 @@ importers:
 
   packages/achievements:
     dependencies:
+      '@solidjs/router':
+        specifier: ^0.15.2
+        version: 0.15.4(solid-js@1.9.10)
       solid-js:
         specifier: ^1.9.5
         version: 1.9.10
     devDependencies:
       '@solidjs/testing-library':
         specifier: ^0.8.10
-        version: 0.8.10(solid-js@1.9.10)
+        version: 0.8.10(@solidjs/router@0.15.4(solid-js@1.9.10))(solid-js@1.9.10)
       '@testing-library/jest-dom':
         specifier: ^6.6.3
         version: 6.9.1
@@ -1322,6 +1325,11 @@ packages:
     resolution: {integrity: sha512-hZ/M/qr25QOCcwDPOHtGjxTD8w2mNyVAYvcfgwzBHq2RwNqHNdDNsMZYap20+ruRwW4A3Cdkczyoz0TSxLCAPQ==}
     peerDependencies:
       solid-js: ^1.6.12
+
+  '@solidjs/router@0.15.4':
+    resolution: {integrity: sha512-WOpgg9a9T638cR+5FGbFi/IV4l2FpmBs1GpIMSPa0Ce9vyJN7Wts+X2PqMf9IYn0zUj2MlSJtm1gp7/HI/n5TQ==}
+    peerDependencies:
+      solid-js: ^1.8.6
 
   '@solidjs/router@0.5.1':
     resolution: {integrity: sha512-igyrwUqm/9T26Lb6l7oXwpc4lLUVqbhbN92wOL3NgLoLVmkQlUNTZciuAe+Su8XeJXlrWjl6oxDJDLt+6pws/g==}
@@ -6033,6 +6041,10 @@ snapshots:
     dependencies:
       solid-js: 1.9.10
 
+  '@solidjs/router@0.15.4(solid-js@1.9.10)':
+    dependencies:
+      solid-js: 1.9.10
+
   '@solidjs/router@0.5.1(solid-js@1.9.10)':
     dependencies:
       solid-js: 1.9.10
@@ -6041,10 +6053,12 @@ snapshots:
     dependencies:
       solid-js: 1.9.10
 
-  '@solidjs/testing-library@0.8.10(solid-js@1.9.10)':
+  '@solidjs/testing-library@0.8.10(@solidjs/router@0.15.4(solid-js@1.9.10))(solid-js@1.9.10)':
     dependencies:
       '@testing-library/dom': 10.4.1
       solid-js: 1.9.10
+    optionalDependencies:
+      '@solidjs/router': 0.15.4(solid-js@1.9.10)
 
   '@standard-schema/spec@1.0.0': {}
 

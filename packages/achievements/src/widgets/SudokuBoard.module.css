@@ -1,0 +1,349 @@
+.sudokuContainer {
+  min-height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(135deg, #ff9a56 0%, #ff6a00 100%);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.victoryMessage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #ff6a00;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 1001;
+  animation: victorySlideDown 0.5s ease-out;
+}
+
+@keyframes victorySlideDown {
+  0% {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.victoryMessage h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.completionTime {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.headerButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.timer {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.playPauseButton,
+.settingsButton,
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.closeButton {
+  font-family: Arial;
+  font-size: 20px;
+  padding: 0;
+}
+
+.playPauseButton:hover,
+.settingsButton:hover,
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.playPauseButton:active,
+.settingsButton:active,
+.closeButton:active {
+  transform: scale(0.95);
+}
+
+.settingsPanel {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.settingItem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.settingLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.boardContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.boardWrapper {
+  position: relative;
+  display: grid;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0;
+  background-color: #333;
+  border: 2px solid #333;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.boardPaused {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.cell {
+  aspect-ratio: 1;
+  border: 1px solid #555;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  outline: none;
+}
+
+.cell,
+.numberButton {
+  font-size: 50px;
+  font-weight: 400;
+}
+
+@media (max-width: 690px) {
+  .cell,
+  .numberButton {
+    font-size: 6vw;
+  }
+}
+
+.cell:nth-child(3n) {
+  border-right: 2px solid #333;
+}
+
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: 2px solid #333;
+}
+
+.cellHighlightedByIdenticalSelectedNumber {
+  background-color: rgb(195, 215, 234);
+}
+
+.cellHighlightedByArea {
+  background-color: rgb(226, 235, 243);
+}
+
+.cellSelected {
+  background-color: rgb(187, 222, 251);
+}
+
+.cellMutable {
+  color: rgb(50, 90, 175);
+}
+
+.cellDuplicate {
+  background-color: rgb(255, 200, 200);
+  color: rgb(200, 50, 50);
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.controlsDisabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.numberPad {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  border: 1px solid #555;
+}
+
+.numberButton {
+  aspect-ratio: 1;
+  border: 1px solid #555;
+  background-color: rgba(255, 255, 255, 0.9);
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.numberButtonDisabled {
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("../components/tick.svg");
+  background-size: 75%;
+  cursor: not-allowed;
+}
+
+.numberButton:not(.numberButtonDisabled):hover {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.numberButton:not(.numberButtonDisabled):active {
+  transform: scale(0.95);
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.clearButton,
+.newGameButton {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clearButton:disabled {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clearButton:not(:disabled):hover,
+.newGameButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.clearButton:active,
+.newGameButton:active {
+  transform: scale(0.98);
+}
+
+.difficultySelect {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.difficultySelect option {
+  background-color: #764ba2;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .sudokuContainer {
+    padding: 0.5rem;
+  }
+
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .headerButtons {
+    gap: 0.25rem;
+  }
+
+  .playPauseButton,
+  .settingsButton,
+  .closeButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .closeButton {
+    font-size: 18px;
+  }
+
+  .timer {
+    font-size: 14px;
+  }
+
+  .clearButton,
+  .newGameButton {
+    padding: 0.5rem;
+  }
+}
