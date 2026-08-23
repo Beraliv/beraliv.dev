@@ -7,6 +7,7 @@
   "engines": {
     "node": ">= 24.0.0"
   },
+  "packageManager": "pnpm@12.0.0-rc.8",
   "scripts": {
     "size": "bundlewatch --config bundlewatch.config.json"
   },
