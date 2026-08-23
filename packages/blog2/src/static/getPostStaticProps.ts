@@ -12,6 +12,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { extractMetadata } from "../functions/extractMetadata";
 import remarkMdxCodeMeta from "remark-mdx-code-meta";
 import remarkGfm from "remark-gfm";
+import type { Pluggable } from "unified";
 
 const NORMALISED_WIDTH = 1280;
 
@@ -30,8 +31,13 @@ export const getPostStaticProps: GetStaticProps<
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
     mdxOptions: {
-      // to handle types correctly here, you need remark
-      remarkPlugins: [remarkUnwrapImages, remarkMdxCodeMeta, remarkGfm],
+      // remark-mdx-code-meta still ships types for unified@^10, so it needs
+      // an explicit cast against our unified@^11 Pluggable type
+      remarkPlugins: [
+        remarkUnwrapImages,
+        remarkMdxCodeMeta as unknown as Pluggable,
+        remarkGfm,
+      ],
       rehypePlugins: [imageMetadata],
       development: false,
     },
