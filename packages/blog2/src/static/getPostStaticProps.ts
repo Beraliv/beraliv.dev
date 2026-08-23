@@ -30,6 +30,11 @@ export const getPostStaticProps: GetStaticProps<
 
   const mdxContent = await serialize(content, {
     scope: data as Record<string, unknown>,
+    // remark-mdx-code-meta (see remarkPlugins below) renders each fenced
+    // code block as an injected JS/JSX expression, so JS expressions can't
+    // be blocked. Content is first-party (all posts live in this repo), so
+    // this is safe; blockDangerousJS stays on its default (true).
+    blockJS: false,
     mdxOptions: {
       // remark-mdx-code-meta still ships types for unified@^10, so it needs
       // an explicit cast against our unified@^11 Pluggable type
