@@ -10,11 +10,6 @@
   "scripts": {
     "size": "bundlewatch --config bundlewatch.config.json"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "bundlewatch@0.3.3": "patches/bundlewatch@0.3.3.patch"
-    }
-  },
   "devDependencies": {
     "bundlewatch": "0.3.3"
   }
