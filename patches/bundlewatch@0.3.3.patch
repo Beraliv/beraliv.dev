@@ -1,5 +1,5 @@
 diff --git a/lib/app/getLocalFileDetails/index.js b/lib/app/getLocalFileDetails/index.js
-index b4080743aa640fd21238616c539085ff1b28a038..6508a5ec0f8112033fa6248e062b442896d2047a 100644
+index b4080743aa640fd21238616c539085ff1b28a038..d25e21303e7f8f855573532c0a4f40daeb6f0979 100644
 --- a/lib/app/getLocalFileDetails/index.js
 +++ b/lib/app/getLocalFileDetails/index.js
 @@ -40,7 +40,7 @@ const getLocalFileDetails = ({
