@@ -5,15 +5,11 @@
   "author": "beraliv",
   "private": true,
   "engines": {
-    "node": ">= 14.17.0"
+    "node": ">= 24.0.0"
   },
+  "packageManager": "pnpm@11.23.0",
   "scripts": {
     "size": "bundlewatch --config bundlewatch.config.json"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "bundlewatch@0.3.3": "patches/bundlewatch@0.3.3.patch"
-    }
   },
   "devDependencies": {
     "bundlewatch": "0.3.3"
