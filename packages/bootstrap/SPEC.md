@@ -175,12 +175,14 @@ packages/bootstrap/
 
 ## 11. Release
 
-- The version lives in one place at release time: the tag. `bootstrap-v<version>` triggers `.github/workflows/release-bootstrap.yml` on a macOS arm64 runner.
-- The workflow runs `npm version <version>` in `packages/bootstrap`, then `scripts/build.ts` copies that version to the two npm packages and the launcher's `optionalDependencies` pin. The CLI reads its version from `package.json`. The committed version is not used for releases.
-- Steps: upgrade npm to 11.x, install bun, set the version from the tag, build the binary, ad-hoc `codesign`, smoke test (`--version` must equal the tag version, then `--help`), publish `@beraliv/bootstrap-darwin-arm64` then `@beraliv/bootstrap` with `--provenance --access public`, and create a GitHub Release marked `--latest` with the binary and `install.sh`.
+- The version is set in `packages/bootstrap/package.json`. The root, `npm/darwin-arm64` and `npm/bootstrap` package versions, and the launcher's `optionalDependencies` pin, must all match it.
+- A merge to `main` that changes `packages/bootstrap/package.json` (or the workflow) runs `.github/workflows/release-bootstrap.yml`. Its `tag` job creates `bootstrap-v<version>` unless that tag already exists. The `release` job then runs in the same workflow, because a tag pushed with `GITHUB_TOKEN` does not start other workflows.
+- Pushing a `bootstrap-v*` tag by hand also runs the `release` job for that version.
+- The `release` job runs on a macOS arm64 runner. It sets the package versions from the tag with `npm version`, and `scripts/build.ts` copies that version to the npm packages. The CLI reads its version from `package.json`.
+- Steps: upgrade npm to 11.x, install bun, set the version from the tag, run type check and unit tests, build the binary, ad-hoc `codesign`, smoke test (`--version` must equal the tag version, then `--help`), publish `@beraliv/bootstrap-darwin-arm64` then `@beraliv/bootstrap` with `--provenance --access public`, and create a GitHub Release marked `--latest` with the binary and `install.sh`.
 - Publishing uses npm trusted publishing (OIDC, `id-token: write`), so there is no npm token. Each package must have this repo and workflow configured as a trusted publisher on npmjs.com. A package whose version is already on npm is skipped, so re-running a tag is safe.
 - `install.sh` fetches from `releases/latest/download/`, so it never needs a version bump. `BOOTSTRAP_VERSION=<version>` pins a specific release.
-- Release: `git tag bootstrap-v<version> && git push origin bootstrap-v<version>`.
+- Release: bump the version in `packages/bootstrap/package.json` and merge to `main`. To release a tag by hand, push `bootstrap-v<version>`.
 
 ## 12. Open questions
 
