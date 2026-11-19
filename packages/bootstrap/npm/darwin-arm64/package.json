@@ -1,0 +1,19 @@
+{
+  "name": "@beraliv/bootstrap-darwin-arm64",
+  "version": "0.1.0",
+  "description": "Standalone bootstrap binary for macOS (arm64)",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "files": [
+    "bin"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

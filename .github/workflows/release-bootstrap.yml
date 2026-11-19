@@ -1,0 +1,67 @@
+name: Release bootstrap
+
+on:
+  push:
+    tags:
+      - 'bootstrap-v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    name: Build and publish
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+
+      - name: Setup pnpm
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup bun (build only)
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: pnpm install --filter bootstrap...
+
+      - name: Type check and unit tests
+        run: |
+          pnpm --filter bootstrap run type
+          pnpm --filter bootstrap run test:unit
+
+      - name: Build binary
+        working-directory: packages/bootstrap
+        run: pnpm run build
+
+      - name: Smoke test
+        working-directory: packages/bootstrap
+        run: |
+          ./dist/bootstrap-darwin-arm64 --version
+          ./dist/bootstrap-darwin-arm64 --help
+
+      - name: Publish binary package
+        working-directory: packages/bootstrap/npm/darwin-arm64
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish launcher package
+        working-directory: packages/bootstrap/npm/bootstrap
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            packages/bootstrap/dist/bootstrap-darwin-arm64 \
+            packages/bootstrap/dist/install.sh \
+            --title "$GITHUB_REF_NAME" --generate-notes

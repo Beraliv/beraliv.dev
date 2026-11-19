@@ -1,0 +1,19 @@
+{
+  "name": "@beraliv/bootstrap",
+  "version": "0.1.0",
+  "description": "Checks and installs the dependencies of my personal Mac (arm64)",
+  "bin": {
+    "bootstrap": "bin/bootstrap.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "optionalDependencies": {
+    "@beraliv/bootstrap-darwin-arm64": "0.1.0"
+  }
+}
