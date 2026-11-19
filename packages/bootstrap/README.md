@@ -9,7 +9,7 @@ The full specification is in [SPEC.md](./SPEC.md).
 First run on a fresh Mac (no Node or Homebrew needed):
 
 ```sh
-curl -fsSL https://github.com/beraliv/beraliv.dev/releases/download/bootstrap-v0.1.0/install.sh | sh
+curl -fsSL https://github.com/beraliv/beraliv.dev/releases/latest/download/install.sh | sh
 ```
 
 Later runs:

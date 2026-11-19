@@ -6,8 +6,9 @@ import { checkAll, actionFor, applyFixes, print, rowsFor } from './engine.ts';
 import { registry } from './deps/index.ts';
 import type { AnyDependency } from './dependency.ts';
 import { GRAPH, type DepId } from './graph.ts';
+import pkg from '../package.json' with { type: 'json' };
 
-const VERSION = '0.1.0';
+const VERSION = pkg.version;
 const HELP = `bootstrap ${VERSION}
 
 Usage: bootstrap [options]
