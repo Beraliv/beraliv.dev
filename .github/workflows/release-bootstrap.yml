@@ -1,7 +1,14 @@
 name: Release bootstrap
 
+# A merge to main that changes the bootstrap version creates the bootstrap-v<version> tag and releases it.
+# Pushing a bootstrap-v* tag by hand also releases that version.
 on:
   push:
+    branches:
+      - main
+    paths:
+      - 'packages/bootstrap/package.json'
+      - '.github/workflows/release-bootstrap.yml'
     tags:
       - 'bootstrap-v*'
 
@@ -10,10 +17,39 @@ permissions:
   id-token: write
 
 jobs:
+  # Tags pushed with GITHUB_TOKEN do not start other workflows, so the release runs in this workflow.
+  tag:
+    name: Create tag from version
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create tag if this version is not tagged yet
+        id: tag
+        run: |
+          version=$(node -p "require('./packages/bootstrap/package.json').version")
+          tag="bootstrap-v$version"
+          if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
+            echo "$tag already exists, nothing to release"
+          else
+            git tag "$tag"
+            git push origin "$tag"
+            echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          fi
+
   release:
     name: Build and publish
+    needs: tag
+    if: ${{ !cancelled() && needs.tag.result != 'failure' && (startsWith(github.ref, 'refs/tags/') || needs.tag.outputs.tag != '') }}
     runs-on: macos-15
     timeout-minutes: 20
+    env:
+      TAG: ${{ needs.tag.outputs.tag || github.ref_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,7 +69,7 @@ jobs:
       - name: Set version from tag
         working-directory: packages/bootstrap
         # build.ts copies this version to the npm packages; the CLI reads it at compile time.
-        run: npm version "${GITHUB_REF_NAME#bootstrap-v}" --no-git-tag-version --allow-same-version
+        run: npm version "${TAG#bootstrap-v}" --no-git-tag-version --allow-same-version
 
       - name: Install dependencies
         run: pnpm install --filter bootstrap...
@@ -50,7 +86,7 @@ jobs:
       - name: Smoke test
         working-directory: packages/bootstrap
         run: |
-          test "$(./dist/bootstrap-darwin-arm64 --version)" = "${GITHUB_REF_NAME#bootstrap-v}"
+          test "$(./dist/bootstrap-darwin-arm64 --version)" = "${TAG#bootstrap-v}"
           ./dist/bootstrap-darwin-arm64 --help
 
       # Publishes with OIDC trusted publishing (id-token: write), so no npm token is needed.
@@ -81,7 +117,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
+          gh release create "$TAG" \
             packages/bootstrap/dist/bootstrap-darwin-arm64 \
             packages/bootstrap/dist/install.sh \
-            --title "$GITHUB_REF_NAME" --generate-notes --latest
+            --title "$TAG" --generate-notes --latest
