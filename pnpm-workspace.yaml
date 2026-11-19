@@ -1,5 +1,7 @@
 packages:
   - 'packages/**'
+  # npm publish folders of bootstrap are not workspace projects
+  - '!packages/bootstrap/npm/**'
 allowBuilds:
   esbuild: true
 patchedDependencies:
