@@ -1,6 +1,6 @@
 {
   "name": "@beraliv/bootstrap-darwin-arm64",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Standalone bootstrap binary for macOS (arm64)",
   "os": [
     "darwin"
@@ -15,5 +15,10 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beraliv/beraliv.dev.git",
+    "directory": "packages/bootstrap/npm/darwin-arm64"
   }
 }
