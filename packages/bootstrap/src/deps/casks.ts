@@ -39,5 +39,6 @@ export const docker = brewPackage({
   kind: 'cask',
   token: 'docker',
   app: '/Applications/Docker.app',
+  checkOutdated: false,
 });
 export const ffmpeg = brewPackage({ id: 'ffmpeg', name: 'ffmpeg', dependsOn: ['homebrew'], kind: 'formula', token: 'ffmpeg' });

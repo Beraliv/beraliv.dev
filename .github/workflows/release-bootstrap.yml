@@ -27,6 +27,14 @@ jobs:
       - name: Setup bun (build only)
         uses: oven-sh/setup-bun@v2
 
+      - name: Upgrade npm (trusted publishing needs npm 11.5.1+)
+        run: npm install -g npm@11 && npm -v
+
+      - name: Set version from tag
+        working-directory: packages/bootstrap
+        # build.ts copies this version to the npm packages; the CLI reads it at compile time.
+        run: npm version "${GITHUB_REF_NAME#bootstrap-v}" --no-git-tag-version --allow-same-version
+
       - name: Install dependencies
         run: pnpm install --filter bootstrap...
 
@@ -42,20 +50,32 @@ jobs:
       - name: Smoke test
         working-directory: packages/bootstrap
         run: |
-          ./dist/bootstrap-darwin-arm64 --version
+          test "$(./dist/bootstrap-darwin-arm64 --version)" = "${GITHUB_REF_NAME#bootstrap-v}"
           ./dist/bootstrap-darwin-arm64 --help
 
+      # Publishes with OIDC trusted publishing (id-token: write), so no npm token is needed.
+      # Skips a package whose version is already on npm, so re-running a tag does not fail.
       - name: Publish binary package
         working-directory: packages/bootstrap/npm/darwin-arm64
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "$name@$version is already published, skipping"
+          else
+            npm publish --provenance --access public
+          fi
 
       - name: Publish launcher package
         working-directory: packages/bootstrap/npm/bootstrap
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "$name@$version" version >/dev/null 2>&1; then
+            echo "$name@$version is already published, skipping"
+          else
+            npm publish --provenance --access public
+          fi
 
       - name: Create GitHub release
         env:
@@ -64,4 +84,4 @@ jobs:
           gh release create "$GITHUB_REF_NAME" \
             packages/bootstrap/dist/bootstrap-darwin-arm64 \
             packages/bootstrap/dist/install.sh \
-            --title "$GITHUB_REF_NAME" --generate-notes
+            --title "$GITHUB_REF_NAME" --generate-notes --latest

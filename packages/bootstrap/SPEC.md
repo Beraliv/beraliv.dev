@@ -51,7 +51,9 @@ Warp and VS Code list `zshrc` as a dependency for ordering only. They add no sni
 
 ### 4.1a Casks installed outside Homebrew
 
-Some casks (Chrome, VS Code, Docker, Warp) may already be installed as apps by hand. The check reports them as `missing` with the detail "is not managed by Homebrew" when the app bundle exists. The install step then runs `brew install --cask --adopt`, which hands the existing app to Homebrew without reinstalling it.
+Some casks (Chrome, VS Code, Warp) may already be installed as apps by hand. The check reports them as `missing` with the detail "is not managed by Homebrew" when the app bundle exists. The install step then removes the app bundle from `/Applications`, runs `brew uninstall --cask` (failure ignored, since Homebrew may not know the cask), and then runs `brew install --cask`.
+
+Docker is the exception: it is only checked for presence, with no version comparison (`checkOutdated: false`). An app bundle installed by hand counts as `ok`, and Docker is never removed or reinstalled because of it.
 
 ### 4.1b Shell environment
 
@@ -117,7 +119,7 @@ type CheckResult = {
 
 ### 6.1 Update scope
 
-Outdated packages are upgraded only if they are Homebrew formulae or casks declared in the registry: `brew upgrade <names>`. `brew upgrade` with no arguments is never run. `--greedy` is used so auto-updating casks (Chrome, VS Code, Docker) are reported and upgraded. Node is upgraded through nvm, as described in §4.
+Outdated packages are upgraded only if they are Homebrew formulae or casks declared in the registry: `brew upgrade <names>`. `brew upgrade` with no arguments is never run. `--greedy` is used so auto-updating casks (Chrome, VS Code) are reported and upgraded. Docker is not version-checked (§4.1a). Node is upgraded through nvm, as described in §4.
 
 ## 7. CLI
 
@@ -173,10 +175,12 @@ packages/bootstrap/
 
 ## 11. Release
 
-- Tag `bootstrap-v<version>` triggers `.github/workflows/release-bootstrap.yml` on a macOS arm64 runner.
-- Steps: install bun, build the binary, ad-hoc `codesign`, smoke test (`--version`, `--check --only zshrc`), publish `@beraliv/bootstrap-darwin-arm64` then `@beraliv/bootstrap` with `--provenance --access public`, and attach the binary and `install.sh` to a GitHub Release.
-- The first-run installer (`install.sh`) fetches `bootstrap-v<VERSION>` from GitHub Releases. Its `VERSION` must be bumped with the package version.
-- Prerequisites on the owner's side: the `@beraliv` npm scope, and a trusted publisher or `NPM_TOKEN` secret for the repo.
+- The version lives in one place at release time: the tag. `bootstrap-v<version>` triggers `.github/workflows/release-bootstrap.yml` on a macOS arm64 runner.
+- The workflow runs `npm version <version>` in `packages/bootstrap`, then `scripts/build.ts` copies that version to the two npm packages and the launcher's `optionalDependencies` pin. The CLI reads its version from `package.json`. The committed version is not used for releases.
+- Steps: upgrade npm to 11.x, install bun, set the version from the tag, build the binary, ad-hoc `codesign`, smoke test (`--version` must equal the tag version, then `--help`), publish `@beraliv/bootstrap-darwin-arm64` then `@beraliv/bootstrap` with `--provenance --access public`, and create a GitHub Release marked `--latest` with the binary and `install.sh`.
+- Publishing uses npm trusted publishing (OIDC, `id-token: write`), so there is no npm token. Each package must have this repo and workflow configured as a trusted publisher on npmjs.com. A package whose version is already on npm is skipped, so re-running a tag is safe.
+- `install.sh` fetches from `releases/latest/download/`, so it never needs a version bump. `BOOTSTRAP_VERSION=<version>` pins a specific release.
+- Release: `git tag bootstrap-v<version> && git push origin bootstrap-v<version>`.
 
 ## 12. Open questions
 
