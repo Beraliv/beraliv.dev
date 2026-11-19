@@ -151,10 +151,6 @@ importers:
         specifier: ^5.9.0
         version: 5.9.3
 
-  packages/bootstrap/npm/bootstrap: {}
-
-  packages/bootstrap/npm/darwin-arm64: {}
-
   packages/habits:
     dependencies:
       '@solidjs/router':
