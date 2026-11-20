@@ -13,8 +13,6 @@ on:
       - '.github/workflows/release-bootstrap.yml'
     tags:
       - 'bootstrap-v*'
-    tags:
-      - 'bootstrap-v*'
 
 permissions:
   contents: write
