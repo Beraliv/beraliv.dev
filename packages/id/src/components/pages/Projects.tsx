@@ -34,6 +34,13 @@ const MainContent = () => (
     <section className="projects">
       <div>
         <Project
+          description="CLI that checks and installs the dependencies of my personal Mac, and upgrades outdated ones."
+          external
+          href="https://www.npmjs.com/package/@beraliv/bootstrap"
+          text="@beraliv/bootstrap"
+          time="2026 - now"
+        />
+        <Project
           description="A glossary of video-related terms, concepts, and technologies."
           external
           href="http://video-glossary.beraliv.com"
