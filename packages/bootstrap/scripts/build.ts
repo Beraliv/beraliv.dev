@@ -1,4 +1,4 @@
-// Builds the standalone arm64 binary and syncs the version across the npm packages.
+// Builds the standalone arm64 binary and syncs its version into the binary npm package.
 // Requires Bun at build time only (the published binary needs no runtime).
 import { execFileSync } from 'node:child_process';
 import { chmodSync, copyFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -26,12 +26,7 @@ mkdirSync(join(root, 'npm/darwin-arm64/bin'), { recursive: true });
 copyFileSync(out, join(root, 'npm/darwin-arm64/bin/bootstrap'));
 chmodSync(join(root, 'npm/darwin-arm64/bin/bootstrap'), 0o755);
 
-const launcher = read('npm/bootstrap/package.json');
-write('npm/bootstrap/package.json', {
-  ...launcher,
-  version,
-  optionalDependencies: { [platformPkg]: version },
-});
+// The launcher has its own version and its pin to the binary is set by hand, so nothing is written here.
 
 copyFileSync(join(root, 'scripts/install.sh'), join(root, 'dist/install.sh'));
 console.log(`built ${out} (version ${version})`);

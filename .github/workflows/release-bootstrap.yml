@@ -1,14 +1,18 @@
 name: Release bootstrap
 
-# A merge to main that changes the bootstrap version creates the bootstrap-v<version> tag and releases it.
-# Pushing a bootstrap-v* tag by hand also releases that version.
+# The binary (@beraliv/bootstrap-darwin-arm64) is versioned by packages/bootstrap/package.json and tagged bootstrap-v<version>.
+# The launcher (@beraliv/bootstrap) has its own version in npm/bootstrap/package.json and is published when that version is new.
+# A merge to main publishes whichever version is new; pushing a bootstrap-v* tag by hand also releases that version.
 on:
   push:
     branches:
       - main
     paths:
       - 'packages/bootstrap/package.json'
+      - 'packages/bootstrap/npm/**'
       - '.github/workflows/release-bootstrap.yml'
+    tags:
+      - 'bootstrap-v*'
     tags:
       - 'bootstrap-v*'
 
@@ -25,21 +29,24 @@ jobs:
     timeout-minutes: 5
     outputs:
       tag: ${{ steps.tag.outputs.tag }}
+      created: ${{ steps.tag.outputs.created }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create tag if this version is not tagged yet
+      - name: Create tag if this binary version is not tagged yet
         id: tag
         run: |
           version=$(node -p "require('./packages/bootstrap/package.json').version")
           tag="bootstrap-v$version"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
           if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
-            echo "$tag already exists, nothing to release"
+            echo "$tag already exists, nothing new to tag"
+            echo "created=false" >> "$GITHUB_OUTPUT"
           else
             git tag "$tag"
             git push origin "$tag"
-            echo "tag=$tag" >> "$GITHUB_OUTPUT"
+            echo "created=true" >> "$GITHUB_OUTPUT"
           fi
 
   release:
@@ -114,6 +121,7 @@ jobs:
           fi
 
       - name: Create GitHub release
+        if: ${{ startsWith(github.ref, 'refs/tags/') || needs.tag.outputs.created == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

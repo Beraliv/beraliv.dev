@@ -175,14 +175,21 @@ packages/bootstrap/
 
 ## 11. Release
 
-- The version is set in `packages/bootstrap/package.json`. The root, `npm/darwin-arm64` and `npm/bootstrap` package versions, and the launcher's `optionalDependencies` pin, must all match it.
-- A merge to `main` that changes `packages/bootstrap/package.json` (or the workflow) runs `.github/workflows/release-bootstrap.yml`. Its `tag` job creates `bootstrap-v<version>` unless that tag already exists. The `release` job then runs in the same workflow, because a tag pushed with `GITHUB_TOKEN` does not start other workflows.
+Two npm packages with independent versions:
+
+- **Binary** `@beraliv/bootstrap-darwin-arm64`: version from `packages/bootstrap/package.json`. Its tag is `bootstrap-v<version>`. `scripts/build.ts` copies that version into `npm/darwin-arm64/package.json`.
+- **Launcher** `@beraliv/bootstrap`: version from `npm/bootstrap/package.json`, bumped by hand. Its `optionalDependencies` pin to the binary is also set by hand, to a binary version that is already published. The build does not touch it.
+
+Workflow `.github/workflows/release-bootstrap.yml` runs on a macOS arm64 runner:
+
+- A merge to `main` that changes `packages/bootstrap/package.json` or `packages/bootstrap/npm/**` runs the workflow. The `tag` job creates `bootstrap-v<version>` if it does not exist yet. The `release` job then runs in the same workflow, because a tag pushed with `GITHUB_TOKEN` does not start other workflows.
+- A launcher-only change publishes the launcher without a new binary tag, and no GitHub release is created for it.
 - Pushing a `bootstrap-v*` tag by hand also runs the `release` job for that version.
-- The `release` job runs on a macOS arm64 runner. It sets the package versions from the tag with `npm version`, and `scripts/build.ts` copies that version to the npm packages. The CLI reads its version from `package.json`.
-- Steps: upgrade npm to 11.x, install bun, set the version from the tag, run type check and unit tests, build the binary, ad-hoc `codesign`, smoke test (`--version` must equal the tag version, then `--help`), publish `@beraliv/bootstrap-darwin-arm64` then `@beraliv/bootstrap` with `--provenance --access public`, and create a GitHub Release marked `--latest` with the binary and `install.sh`.
-- Publishing uses npm trusted publishing (OIDC, `id-token: write`), so there is no npm token. Each package must have this repo and workflow configured as a trusted publisher on npmjs.com. A package whose version is already on npm is skipped, so re-running a tag is safe.
+- Steps: upgrade npm to 11.x, install bun, set the binary version from the tag, run type check and unit tests, build the binary, ad-hoc `codesign`, smoke test (`--version` must equal the tag version, then `--help`), publish the binary package then the launcher with `--provenance --access public`, and create a GitHub Release marked `--latest` with the binary and `install.sh` (only when a new tag was created or a tag was pushed).
+- Each publish skips a package whose version is already on npm, so re-running is safe.
+- Publishing uses npm trusted publishing (OIDC, `id-token: write`), so there is no npm token. Each package must have this repo and workflow configured as a trusted publisher on npmjs.com.
 - `install.sh` fetches from `releases/latest/download/`, so it never needs a version bump. `BOOTSTRAP_VERSION=<version>` pins a specific release.
-- Release: bump the version in `packages/bootstrap/package.json` and merge to `main`. To release a tag by hand, push `bootstrap-v<version>`.
+- Binary release: bump `packages/bootstrap/package.json` and merge to `main`. Launcher release: bump `npm/bootstrap/package.json` (and its pin, if the binary changed) and merge to `main`.
 
 ## 12. Open questions
 
